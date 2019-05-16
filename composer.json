@@ -1,0 +1,17 @@
+{
+    "name": "guanguans\/music-php",
+    "description": "全网音乐搜索和下载",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "琯琯",
+            "email": "yzmguanguan@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Guanguans\\MusicPhp\\": "src"
+        }
+    }
+}
