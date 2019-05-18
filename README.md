@@ -14,7 +14,7 @@ $ composer global require guanguans/music-php -vvv
 
 * [https://github.com/0xHJK/music-dl](https://github.com/0xHJK/music-dl)
 * [https://github.com/maicong/music](https://github.com/maicong/music)
-* [https://github.com/metowolf/Meting/blob/master/src/Meting.php](https://github.com/metowolf/Meting/blob/master/src/Meting.php)
+* [https://github.com/metowolf/Meting](https://github.com/metowolf/Meting)
 
 ## License
 
