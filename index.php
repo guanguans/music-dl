@@ -1,0 +1,40 @@
+#!/usr/bin/env php
+<?php
+
+/*
+ * This file is part of the guanguans/music-php.
+ *
+ * (c) 琯琯 <yzmguanguan@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled.
+ */
+
+if (PHP_SAPI !== 'cli' && PHP_MINOR_VERSION < 5) {
+    echo 'Warning: phplint should be invoked via the CLI minimum version of PHP 5.5.9, not the ' . PHP_SAPI . ' SAPI' . PHP_EOL;
+}
+
+$loaded = false;
+
+foreach ([__DIR__ . '/../../../autoload.php', __DIR__ . '/../vendor/autoload.php'] as $file) {
+    if (file_exists($file)) {
+        require $file;
+        $loaded = true;
+        break;
+    }
+}
+
+if (!$loaded) {
+    die(
+        'You need to set up the project dependencies using the following commands:' . PHP_EOL .
+        'wget http://getcomposer.org/composer.phar' . PHP_EOL .
+        'php composer.phar install' . PHP_EOL
+    );
+}
+
+use Guanguans\MusicPhp\Console\Application;
+use Guanguans\MusicPhp\Command\SearchCommand;
+
+$application = new Application();
+$application->add(new SearchCommand());
+$status = $application->run();
+exit($status);
