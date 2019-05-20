@@ -18,32 +18,23 @@
 
 namespace Guanguans\MusicPhp;
 
-use GuzzleHttp\Client;
 use Metowolf\Meting;
+use GuzzleHttp\Client;
+use Guanguans\MusicPhp\Exception\Exception;
+use Guanguans\MusicPhp\Exception\HttpException;
+use Guanguans\MusicPhp\Contract\MusicPhpInterface;
 
-class MusicPhp
+/**
+ * Class MusicPhp
+ * @package Guanguans\MusicPhp
+ */
+class MusicPhp implements MusicPhpInterface
 {
-    protected $meting;
+    protected $platforms = ['tencent', 'netease', 'kugou', 'baidu'];
 
-    protected $platforms = ['tencent', 'netease', 'kugou', 'baidu', 'xiami'];
+    protected $hideFields = ['id', 'pic_id', 'url_id', 'lyric_id', 'url'];
 
-    protected $formatConfig = ['name', 'artist', 'album', 'source', 'size', 'br'];
-
-    protected $httpClient;
-
-    protected $keyword;
-
-    //[id] => 001NMq6p3ZQ2GN
-    //[name] => 一个短篇
-    //[artist] => 腰乐队
-    //[album] => 相见恨晚
-    //[pic_id] => 000PkFBb3MAmiB
-    //[url_id] => 001NMq6p3ZQ2GN
-    //[lyric_id] => 001NMq6p3ZQ2GN
-    //[source] => tencent
-    //[url] => http://dl.stream.qqmusic.qq.com/M800001NMq6p3ZQ2GN.mp3?guid=288162861&vkey=DE6747747BA1CCF35DA0D57072D425D0F96F51BB754A1C5C37DDA842DF78EAE6C6652FA2C580F5DD98DD522482E0E43046E61729E0BA80CA&uin=0&fromtag=66
-    //[size] => 17.2M
-    //[br] => 320
+    protected $guzzleOptions = [];
 
     /**
      * MusicPhp constructor.
@@ -54,121 +45,123 @@ class MusicPhp
 
     /**
      * @param $keyword
-     *
      * @return array
      */
-    public function searchAll()
+    public function searchAll($keyword)
     {
-        $songsAll = [];
+        $songAll = [];
+
         foreach ($this->platforms as $platform) {
-            $meting = (new Meting($platform));
-            $songs = $this->search($meting, $this->keyword);
-            foreach ($songs as $key => &$song) {
-                $detail = \json_decode($meting->format()->url($song['url_id']), true);
-                if (!empty($detail['url'])) {
-                    $song = \array_merge($song, $detail);
-                    $song['artist'] = \implode(', ', $song['artist']);
-                    $song['size'] = isset($song['size']) ? \sprintf('%.1f', $song['size'] / 1048576).'M' : '';
-                } else {
-                    unset($songs[$key]);
-                }
-            }
-            unset($song);
-            $songsAll = \array_merge($songsAll, $songs);
+            $songAll = array_merge($songAll, $this->search($platform, $keyword));
         }
 
-        return $songsAll;
-    }
-
-    public function search(Meting $meting)
-    {
-        $this->setMeting($meting);
-
-        return \json_decode($this->getMeting()->format()->search($this->keyword), true);
+        return $songAll;
     }
 
     /**
+     * @param $platform
+     * @param $keyword
      * @return mixed
      */
-    public function getMeting()
+    public function search($platform, $keyword)
     {
-        return $this->meting;
-    }
+        $meting = $this->getMeting($platform);
+        $songs  = json_decode($meting->format()->search($keyword), true);
 
-    /**
-     * @param mixed $meting
-     */
-    public function setMeting(Meting $meting)
-    {
-        $this->meting = $meting;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getKeyword()
-    {
-        return $this->keyword;
-    }
-
-    /**
-     * @param mixed $keyword
-     */
-    public function setKeyword($keyword)
-    {
-        $this->keyword = $keyword;
-    }
-
-    public function format(array $songs)
-    {
         foreach ($songs as $key => &$song) {
-            $song['name'] = str_replace($this->keyword, "<info>$this->keyword</info>", $song['name']);
-            $song['artist'] = str_replace($this->keyword, "<info>$this->keyword</info>", $song['artist']);
-            $song['album'] = str_replace($this->keyword, "<info>$this->keyword</info>", $song['album']);
-            unset($song['id']);
-            unset($song['pic_id']);
-            unset($song['url_id']);
-            unset($song['lyric_id']);
-            unset($song['url']);
-            array_unshift($song, "<info>$key</info>");
+            $detail = json_decode($meting->format()->url($song['url_id']), true);
+            if ($detail['url']) {
+                $song = array_merge($song, $detail);
+            } else {
+                unset($songs[$key]);
+            }
         }
-        unset($song);
-        // var_export($songs);die;
+
         return $songs;
     }
 
-    public function formatDan(array $song)
+    /**
+     * @param $platform
+     * @return \Metowolf\Meting
+     */
+    public function getMeting($platform)
     {
-        unset($song['id']);
-        unset($song['pic_id']);
-        unset($song['url_id']);
-        unset($song['lyric_id']);
-        unset($song['url']);
+        return new Meting($platform);
+    }
 
-        return $song;
+    /**
+     * @param array $songs
+     * @param       $keyword
+     * @return array
+     */
+    public function formatAll(array $songs, $keyword)
+    {
+        foreach ($songs as $key => &$song) {
+            $song = $this->format($song, $keyword);
+            array_unshift($song, "<info>$key</info>");
+        }
+
+        unset($song);
+
+        return $songs;
     }
 
     /**
      * @param array $song
+     * @param       $keyword
+     * @return array
+     */
+    public function format(array $song, $keyword)
+    {
+        foreach ($this->hideFields as $hideField) {
+            unset($song[$hideField]);
+        }
+
+        $song['name']   = str_replace($keyword, "<info>$keyword</info>", $song['name']);
+        $song['album']  = str_replace($keyword, "<info>$keyword</info>", $song['album']);
+        $song['artist'] = implode(', ', $song['artist']);
+        $song['artist'] = str_replace($keyword, "<info>$keyword</info>", $song['artist']);
+
+        if ('baidu' === $song['source']) {
+            $song['size'] = '';
+            $br           = $song['br'];
+            unset($song['br']);
+            $song['br'] = $br;
+        }
+
+        if (!empty($song['size'])) {
+            $song['size'] = sprintf('%.1f', $song['size'] / 1048576) . 'M';
+        }
+
+        return array_values($song);
+    }
+
+    /**
+     * @param array $song
+     * @throws \Guanguans\MusicPhp\Exception\HttpException
      */
     public function download(array $song)
     {
-        $this->httpClient->get($song['url'], ['save_to' => $song['name'].'.mp3']);
+        try {
+            $this->getHttpClient()->get($song['url'], ['save_to' => './' . $song['name'] . '.mp3']);
+        } catch (Exception $e) {
+            throw new HttpException($e->getMessage(), $e->getCode(), $e);
+        }
     }
 
     /**
-     * @return mixed
+     * @return \GuzzleHttp\Client
      */
     public function getHttpClient()
     {
-        return $this->httpClient;
+        return new Client($this->guzzleOptions);
     }
 
     /**
-     * @param mixed $httpClient
+     * @param array $options
      */
-    public function setHttpClient(Client $httpClient)
+    public function setGuzzleOptions(array $options)
     {
-        $this->httpClient = $httpClient;
+        $this->guzzleOptions = $options;
     }
 }
