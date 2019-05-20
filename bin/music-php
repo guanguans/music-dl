@@ -34,6 +34,8 @@ if (!$loaded) {
 use Guanguans\MusicPhp\Console\Application;
 use Guanguans\MusicPhp\Command\SearchCommand;
 
+error_reporting(0);
+
 $application = new Application();
 $application->add(new SearchCommand());
 $status = $application->run();
