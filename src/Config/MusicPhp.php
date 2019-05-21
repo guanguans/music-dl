@@ -4,7 +4,7 @@
  * |   Date: 2019-05-20 16:52
  * '---------------------------------------------*/
 
-namespace Guanguans\MusicPhp\I18n;
+namespace Guanguans\MusicPhp\Config;
 
 
 class MusicPhpZhCN
