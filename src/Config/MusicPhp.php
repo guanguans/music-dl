@@ -7,9 +7,9 @@
 namespace Guanguans\MusicPhp\Config;
 
 
-class MusicPhpZhCN
+class MusicPhp
 {
-    public static $headers = [
+    public static $table_headers = [
         'serial_number' => '序号',
         'name'          => '歌名',
         'artist'        => '歌手',
@@ -19,21 +19,21 @@ class MusicPhpZhCN
         'br'            => '比特率',
     ];
 
-    public static $search_tips = '请输入要关键字如: <info>一个短篇 腰乐队 相见恨晚</info>，或 <info>Ctrl+C</info> 退出';
+    public static $search_tips = '请输入要关键字如：<info>一个短篇 腰乐队 相见恨晚</info>，或<info>Ctrl+C</info>退出';
 
-    public static $splitter = '--------------------------------------------';
+    public static $splitter = '------------------------------';
 
     public static $input = '>>: ';
 
-    public static $searching = '正在搜索 <info>{$keyword}</info> ，请耐心等待...';
+    public static $searching = '正在搜索：<info>{$keyword}</info>，请耐心等待...';
 
-    public static $downloading = '正在下载... [####################################]  50%';
+    public static $downloading = '正在下载中...';
 
-    public static $empty_result = '无结果';
+    public static $empty_result = 'o(╥﹏╥)o 没有搜索到相关歌曲';
 
-    public static $download_tips = '请输入下载序号，支持形如 0 3-5 8 的格式，输入 N 跳过下载';
+    public static $download_tips = '请输入下载序号如：<info>0</info>，输入<info>N</info>跳过下载';
 
-    public static $input_error = '输入错误，请重新输入';
+    public static $input_error = '<error>o(╥﹏╥)o 输入错误</error>';
 
-    public static $save_path = '已保存到: ./{$name}.{$extension}，请前往查看';
+    public static $save_path = '已保存到：<info>{$dir}/{$artist} - {$name}.mp3</info>，请前往查看';
 }

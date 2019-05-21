@@ -119,7 +119,7 @@ class MusicPhp implements MusicPhpInterface
 
         $song['name']   = str_replace($keyword, "<info>$keyword</info>", $song['name']);
         $song['album']  = str_replace($keyword, "<info>$keyword</info>", $song['album']);
-        $song['artist'] = implode(', ', $song['artist']);
+        $song['artist'] = implode(',', $song['artist']);
         $song['artist'] = str_replace($keyword, "<info>$keyword</info>", $song['artist']);
 
         if ('baidu' === $song['source']) {
@@ -133,7 +133,7 @@ class MusicPhp implements MusicPhpInterface
             $song['size'] = sprintf('%.1f', $song['size'] / 1048576) . 'M';
         }
 
-        return array_values($song);
+        return $song;
     }
 
     /**
