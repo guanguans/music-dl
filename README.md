@@ -1,6 +1,8 @@
 <h1 align="center"> music-php </h1>
 
-<p align="center"> 全网音乐搜索和下载.</p>
+<p align="center"> 全网音乐搜索和下载</p>
+
+[![Build Status](https://travis-ci.org/guanguans/music-php.svg?branch=master)](https://travis-ci.org/guanguans/music-php)
 
 ## 安装
 
