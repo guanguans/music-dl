@@ -16,8 +16,8 @@
     "require": {
         "guzzlehttp/guzzle": "^6.3",
         "metowolf/meting": "^1.5",
-        "symfony/console": "^4.2",
-        "ext-json": "*"
+        "ext-json": "*",
+        "symfony/console": "^3.2|^4.0"
     },
     "require-dev": {
         "phpunit/phpunit": "~5"
