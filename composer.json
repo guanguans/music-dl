@@ -1,7 +1,12 @@
 {
     "name": "guanguans/music-php",
     "description": "全网音乐搜索和下载",
-    "license": "MIT",
+    "keywords": ["music", "download-songs", "dl", "seach"],
+    "support": {
+        "issues": "https://github.com/guanguans/music-php/issues",
+        "source": "https://github.com/guanguans/music-php"
+    },
+    "type": "library",
     "authors": [
         {
             "name": "琯琯",
@@ -14,6 +19,11 @@
         "symfony/console": "^4.2",
         "ext-json": "*"
     },
+    "require-dev": {
+        "phpunit/phpunit": "^8.2@dev"
+    },
+    "license": "MIT",
+    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "Guanguans\\MusicPhp\\": "src"
