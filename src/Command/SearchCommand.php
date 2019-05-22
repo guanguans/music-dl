@@ -10,14 +10,14 @@
 
 namespace Guanguans\MusicPhp\Command;
 
-use Guanguans\MusicPhp\MusicPhp;
 use Guanguans\MusicPhp\Config\MusicPhp as MusicPhpConfig;
-use Symfony\Component\Console\Helper\Table;
+use Guanguans\MusicPhp\MusicPhp;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Question\Question;
+use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Question\Question;
 
 class SearchCommand extends Command
 {
@@ -27,7 +27,7 @@ class SearchCommand extends Command
      */
     public function initialize(InputInterface $input, OutputInterface $output)
     {
-        $this->input  = $input;
+        $this->input = $input;
         $this->output = $output;
     }
 
@@ -46,6 +46,7 @@ class SearchCommand extends Command
     /**
      * @param \Symfony\Component\Console\Input\InputInterface   $input
      * @param \Symfony\Component\Console\Output\OutputInterface $output
+     *
      * @return int|void|null
      */
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -54,9 +55,9 @@ class SearchCommand extends Command
 
         $output->writeln(MusicPhpConfig::$search_tips);
 
-        $helper   = $this->getHelper('question');
+        $helper = $this->getHelper('question');
         $question = new Question(MusicPhpConfig::$input);
-        $keyword  = trim($helper->ask($input, $output, $question));
+        $keyword = trim($helper->ask($input, $output, $question));
 
         if (empty($keyword)) {
             $output->writeln(MusicPhpConfig::$input_error);
@@ -67,14 +68,15 @@ class SearchCommand extends Command
         $output->writeln(str_replace('{$keyword}', $keyword, MusicPhpConfig::$searching));
 
         $musicPhp = $this->getMusicPhp();
-        $songs    = $musicPhp->searchAll($keyword);
+        $songs = $musicPhp->searchAll($keyword);
 
         if (empty($songs)) {
             $output->writeln(MusicPhpConfig::$empty_result);
             goto start;
         }
 
-        $this->getTable($output)
+        $table = $this->getTable($output);
+        $table
             ->setHeaders(MusicPhpConfig::$table_headers)
             ->setRows($musicPhp->formatAll($songs, $keyword));
         $table->render();
@@ -83,29 +85,30 @@ class SearchCommand extends Command
 
         $output->writeln(MusicPhpConfig::$download_tips);
         $question = new Question('>>: ');
-        $serialNumber    = trim($helper->ask($input, $output, $question));
+        $serialNumber = trim($helper->ask($input, $output, $question));
 
         if ('n' === $serialNumber || 'N' === $serialNumber) {
             goto start;
-        } else if ($serialNumber < 0 || $serialNumber >= count($songs)) {
+        } elseif ($serialNumber < 0 || $serialNumber >= count($songs)) {
             $output->writeln(MusicPhpConfig::$input_error);
             goto serialNumber;
         }
 
         $song = ($songs)[$serialNumber];
-        $this->getTable($output)->setHeaders($musicPhp->format($song, $keyword));
+        $table = $this->getTable($output);
+        $table->setHeaders($musicPhp->format($song, $keyword));
         $table->render();
 
         $output->writeln(MusicPhpConfig::$downloading);
         $musicPhp->download($song);
-        $output->writeln(str_replace(['{$dir}', '{$artist}', '{$name}'], [MUSIC_PHP_PATH, implode(',', $song['artist']), $song['name']], MusicPhpConfig::$save_path));
+        $output->writeln(str_replace(['{$artist}', '{$name}'], [implode(',', $song['artist']), $song['name']], MusicPhpConfig::$save_path));
         $output->writeln(MusicPhpConfig::$splitter);
 
         goto start;
     }
 
     /**
-     * @return mixed
+     * @return \Guanguans\MusicPhp\MusicPhp
      */
     public function getMusicPhp()
     {
@@ -114,6 +117,7 @@ class SearchCommand extends Command
 
     /**
      * @param \Symfony\Component\Console\Output\OutputInterface $output
+     *
      * @return \Symfony\Component\Console\Helper\Table
      */
     public function getTable(OutputInterface $output)
