@@ -18,12 +18,13 @@ function config($key = '')
     foreach ([MUSIC_PHP_PATH.'/../../../guanguans/music-php/src/Config.php', MUSIC_PHP_PATH.'/../src/Config.php'] as $file) {
         if (file_exists($file)) {
             $config = require $file;
+
             break;
         }
     }
 
     if (!is_string($key)) {
-        return null;
+        return;
     }
 
     if (empty($key)) {
