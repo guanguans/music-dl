@@ -10,7 +10,6 @@
 
 namespace Guanguans\MusicPhp\Command;
 
-use Guanguans\MusicPhp\Config\MusicPhp as MusicPhpConfig;
 use Guanguans\MusicPhp\MusicPhp;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
@@ -53,44 +52,45 @@ class SearchCommand extends Command
     {
         start:
 
-        $output->writeln(MusicPhpConfig::$search_tips);
+        $config = config();
+        $output->writeln($config['search_tips']);
 
         $helper = $this->getHelper('question');
-        $question = new Question(MusicPhpConfig::$input);
+        $question = new Question($config['input']);
         $keyword = trim($helper->ask($input, $output, $question));
 
         if (empty($keyword)) {
-            $output->writeln(MusicPhpConfig::$input_error);
+            $output->writeln($config['input_error']);
             goto start;
         }
 
-        $output->writeln(MusicPhpConfig::$splitter);
-        $output->writeln(str_replace('{$keyword}', $keyword, MusicPhpConfig::$searching));
+        $output->writeln($config['splitter']);
+        $output->writeln(str_replace('{$keyword}', $keyword, $config['searching']));
 
         $musicPhp = $this->getMusicPhp();
         $songs = $musicPhp->searchAll($keyword);
 
         if (empty($songs)) {
-            $output->writeln(MusicPhpConfig::$empty_result);
+            $output->writeln($config['empty_result']);
             goto start;
         }
 
         $table = $this->getTable($output);
         $table
-            ->setHeaders(MusicPhpConfig::$table_headers)
+            ->setHeaders($config['table_headers'])
             ->setRows($musicPhp->formatAll($songs, $keyword));
         $table->render();
 
         serialNumber:
 
-        $output->writeln(MusicPhpConfig::$download_tips);
+        $output->writeln($config['download_tips']);
         $question = new Question('>>: ');
         $serialNumber = trim($helper->ask($input, $output, $question));
 
         if ('n' === $serialNumber || 'N' === $serialNumber) {
             goto start;
         } elseif ($serialNumber < 0 || $serialNumber >= count($songs)) {
-            $output->writeln(MusicPhpConfig::$input_error);
+            $output->writeln($config['input_error']);
             goto serialNumber;
         }
 
@@ -99,10 +99,10 @@ class SearchCommand extends Command
         $table->setHeaders($musicPhp->format($song, $keyword));
         $table->render();
 
-        $output->writeln(MusicPhpConfig::$downloading);
+        $output->writeln($config['downloading']);
         $musicPhp->download($song);
-        $output->writeln(str_replace(['{$artist}', '{$name}'], [implode(',', $song['artist']), $song['name']], MusicPhpConfig::$save_path));
-        $output->writeln(MusicPhpConfig::$splitter);
+        $output->writeln(str_replace(['{$artist}', '{$name}'], [implode(',', $song['artist']), $song['name']], $config['save_path']));
+        $output->writeln($config['splitter']);
 
         goto start;
     }
