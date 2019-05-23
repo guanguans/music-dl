@@ -23,7 +23,7 @@ function config($key = '')
     }
 
     if (!is_string($key)) {
-        return null;
+        return;
     }
 
     if (empty($key)) {
