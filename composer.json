@@ -1,7 +1,12 @@
 {
     "name": "guanguans/music-php",
     "description": "全网音乐搜索和下载",
-    "keywords": ["music", "download-songs", "dl", "seach"],
+    "keywords": [
+        "music",
+        "download-songs",
+        "dl",
+        "search"
+    ],
     "support": {
         "issues": "https://github.com/guanguans/music-php/issues",
         "source": "https://github.com/guanguans/music-php"
@@ -28,6 +33,20 @@
     "autoload": {
         "psr-4": {
             "Guanguans\\MusicPhp\\": "src"
+        },
+        "files": [
+            "src/Helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Guanguans\\Tests\\": "tests/"
         }
+    },
+    "bin": [
+        "bin/music-php"
+    ],
+    "scripts": {
+        "test": "vendor/bin/phpunit"
     }
 }
