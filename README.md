@@ -3,11 +3,12 @@
 <p align="center"> 全网音乐搜索和下载</p>
 
 [![Build Status](https://travis-ci.org/guanguans/music-php.svg?branch=master)](https://travis-ci.org/guanguans/music-php)
+[![StyleCI](https://github.styleci.io/repos/174921589/shield?branch=master)](https://github.styleci.io/repos/174921589)
 
 ## 安装
 
 ``` shell
-$ composer global require guanguans/music-php -vvv
+$ composer global require guanguans/music-php
 ```
 
 ## 使用
