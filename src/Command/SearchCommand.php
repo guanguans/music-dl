@@ -104,7 +104,7 @@ class SearchCommand extends Command
             goto serialNumber;
         }
 
-        $song = ($songs)[$serialNumber];
+        $song = $songs[$serialNumber];
         $table = $this->getTable($output);
         $table->setHeaders($musicPhp->format($song, $keyword));
         $table->render();
