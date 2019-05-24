@@ -4,6 +4,7 @@
 
 [![Build Status](https://travis-ci.org/guanguans/music-php.svg?branch=master)](https://travis-ci.org/guanguans/music-php)
 [![StyleCI](https://github.styleci.io/repos/174921589/shield?branch=master)](https://github.styleci.io/repos/174921589)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fguanguans%2Fmusic-php.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fguanguans%2Fmusic-php?ref=badge_shield)
 
 ## 安装
 
@@ -22,3 +23,6 @@ $ composer global require guanguans/music-php
 ## License
 
 MIT
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fguanguans%2Fmusic-php.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fguanguans%2Fmusic-php?ref=badge_large)
