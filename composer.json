@@ -1,6 +1,6 @@
 {
     "name": "guanguans/music-php",
-    "description": "全网音乐搜索和下载",
+    "description": "music search and download",
     "keywords": [
         "music",
         "download-songs",
@@ -26,7 +26,8 @@
         "symfony/console": "^3.2|^4.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "~5"
+        "phpunit/phpunit": "~5",
+        "overtrue/phplint": "^1.1"
     },
     "license": "MIT",
     "minimum-stability": "dev",
