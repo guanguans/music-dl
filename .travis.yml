@@ -15,7 +15,8 @@ before_script:
     - composer install --no-interaction --dev
 
 script:
-    - ./vendor/bin/phpunit --coverage-clover=coverage.xml
+    - ./vendor/bin/phpunit --coverage-text
+    - ./vendor/bin/phplint
 
 after_script:
     - bash <(curl -s https://codecov.io/bash)
