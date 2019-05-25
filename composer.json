@@ -30,7 +30,7 @@
         "overtrue/phplint": "~1.1",
         "mockery/mockery": "~1.1",
         "friendsofphp/php-cs-fixer": "~2.1",
-        "phpstan/phpstan": "～0.9"
+        "phpstan/phpstan": "~0.9"
     },
     "license": "MIT",
     "minimum-stability": "dev",
