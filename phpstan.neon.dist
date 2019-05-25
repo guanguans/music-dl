@@ -1,8 +1,3 @@
-includes:
-    - vendor/phpstan/phpstan-strict-rules/rules.neon
-    - vendor/localheinz/phpstan-rules/rules.neon
-    - vendor/thecodingmachine/phpstan-strict-rules/phpstan-strict-rules.neon
-
 parameters:
     level: max
     paths:
@@ -17,6 +12,5 @@ parameters:
         - '#NunoMaduro\\PhpInsights\\Domain\\File::__construct\(\) does not call parent constructor from PHP_CodeSniffer\\Files\\File#'
         - '#Method NunoMaduro\\PhpInsights\\Domain\\File::addMessage\(\) has parameter#'
         - '#Variable property access on PHP_CodeSniffer\\Sniffs\\Sniff#'
-    autoload_files:
-        - %rootDir%/../../squizlabs/php_codesniffer/autoload.php
+
     reportUnmatchedIgnoredErrors: false
