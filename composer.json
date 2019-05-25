@@ -19,7 +19,7 @@
         }
     ],
     "require": {
-        "php": ">=7.0",
+        "php": ">=7.1",
         "guzzlehttp/guzzle": "^6.3",
         "metowolf/meting": "^1.5",
         "ext-json": "*",
