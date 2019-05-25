@@ -8,7 +8,7 @@
 [![StyleCI](https://github.styleci.io/repos/174921589/shield?branch=master)](https://github.styleci.io/repos/174921589)
 [![Latest Stable Version](https://poser.pugx.org/guanguans/music-php/v/stable)](https://packagist.org/packages/guanguans/music-php)
 [![License](https://poser.pugx.org/guanguans/music-php/license)](https://packagist.org/packages/guanguans/music-php)
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fguanguans%2Fmusic-php.svg?type=small)](https://app.fossa.com/projects/git%2Bgithub.com%2Fguanguans%2Fmusic-php?ref=badge_small)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fguanguans%2Fmusic-php.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fguanguans%2Fmusic-php?ref=badge_shield)
 
 ## 安装
 
