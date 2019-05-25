@@ -52,6 +52,10 @@
             "Guanguans\\Tests\\": "tests/"
         }
     },
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist"
+    },
     "bin": [
         "bin/music-php"
     ],
