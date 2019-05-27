@@ -5,6 +5,7 @@
 [![Build Status](https://travis-ci.org/guanguans/music-php.svg?branch=master)](https://travis-ci.org/guanguans/music-php)
 [![Build Status](https://scrutinizer-ci.com/g/guanguans/music-php/badges/build.png?b=master)](https://scrutinizer-ci.com/g/guanguans/music-php/build-status/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/guanguans/music-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/guanguans/music-php/?branch=master)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=guanguans_music-php&metric=alert_status)](https://sonarcloud.io/dashboard?id=guanguans_music-php)
 [![StyleCI](https://github.styleci.io/repos/174921589/shield?branch=master)](https://github.styleci.io/repos/174921589)
 [![Latest Stable Version](https://poser.pugx.org/guanguans/music-php/v/stable)](https://packagist.org/packages/guanguans/music-php)
 [![License](https://poser.pugx.org/guanguans/music-php/license)](https://packagist.org/packages/guanguans/music-php)
