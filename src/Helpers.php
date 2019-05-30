@@ -9,7 +9,7 @@
  */
 
 /**
- * @param  string  $key
+ * @param string $key
  *
  * @return null|mixed|void
  */
