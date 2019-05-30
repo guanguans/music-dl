@@ -111,7 +111,7 @@ class SearchCommand extends Command
 
         $output->writeln($config['downloading']);
         $musicPhp->download($song);
-        $output->writeln(str_replace(['{$artist}', '{$name}'], [implode(',', $song['artist']), $song['name']], $config['save_path']));
+        $output->writeln(str_replace(['{$downloadsDir}', '{$artist}', '{$name}'], [$musicPhp->getDownloadsDir(), implode(',', $song['artist']), $song['name']], $config['save_path']));
         $output->writeln($config['splitter']);
 
         goto start;

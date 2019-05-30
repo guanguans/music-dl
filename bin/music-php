@@ -35,7 +35,6 @@ use Guanguans\MusicPhp\Console\Application;
 use Guanguans\MusicPhp\Command\SearchCommand;
 
 error_reporting(0);
-define('MUSIC_PHP_PATH', __DIR__);
 
 $application = new Application();
 $application->add(new SearchCommand());

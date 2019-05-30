@@ -140,7 +140,7 @@ class MusicPhp implements MusicPhpInterface
     public function download(array $song)
     {
         try {
-            $this->getHttpClient()->get($song['url'], ['save_to' => MUSIC_PHP_PATH.'/'.implode(',', $song['artist']).' - '.$song['name'].'.mp3']);
+            $this->getHttpClient()->get($song['url'], ['save_to' => $this->getDownloadsDir().implode(',', $song['artist']).' - '.$song['name'].'.mp3']);
         } catch (Exception $e) {
             throw new HttpException($e->getMessage(), $e->getCode(), $e);
         }
@@ -160,5 +160,13 @@ class MusicPhp implements MusicPhpInterface
     public function setGuzzleOptions(array $options)
     {
         $this->guzzleOptions = $options;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDownloadsDir()
+    {
+        return trim(shell_exec('cd ~; pwd')).'/Downloads/';
     }
 }
