@@ -1,10 +1,10 @@
 <h1 align="center">music-php</h1>
 
-<p align="center">Music search and download.</p>
+<p align="center">全网音乐搜索和下载</p>
 
 <p align="center">
-    <a>English</a> |
-    <a href="README_ZH.md">中文</a>
+    <a href="README.md">English</a> |
+    <a>中文</a>
 </p>
 
 <p align="center"><img src="http://prfay5752.bkt.clouddn.com/pic_images/usage.gif"></p>
@@ -18,32 +18,32 @@
 [![License](https://poser.pugx.org/guanguans/music-php/license)](https://packagist.org/packages/guanguans/music-php)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fguanguans%2Fmusic-php.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fguanguans%2Fmusic-php?ref=badge_shield)
 
-##  Requirement
+## 环境要求
 
 * PHP >= 7.1
 * Composer
 
-## Installation
+## 安装
 
-### Global installation
+### 全局安装
 
 ``` shell
 $ composer global require guanguans/music-php
 ```
 
-### Current directory installation
+### 当前目录安装
 
 ``` shell
 $ composer create-project guanguans/music-php
 ```
 
-## Usage
+## 使用
 
 ``` shell
 $ ./path/music-php
 ```
 
-## Related Links
+## 参考链接
 
 * [https://github.com/0xHJK/music-dl](https://github.com/0xHJK/music-dl)
 * [https://github.com/maicong/music](https://github.com/maicong/music)
