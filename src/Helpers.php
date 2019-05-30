@@ -9,9 +9,9 @@
  */
 
 /**
- * @param null $key
+ * @param  string  $key
  *
- * @return mixed|null
+ * @return null|mixed|void
  */
 function config($key = '')
 {
