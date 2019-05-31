@@ -28,7 +28,7 @@ return [
     'input_error' => '<error>o(╥﹏╥)o 输入错误</error>',
     'save_path' => '已保存到：<info>{$downloadsDir}{$artist} - {$name}.mp3</info>，请前往查看',
 
-    'logo'=>'<info>
+    'logo' => '<info>
      __  __              _        _____   _    _  _____  
     |  \/  |            (_)      |  __ \ | |  | ||  __ \ 
     | \  / | _   _  ___  _   ___ | |__) || |__| || |__) |
