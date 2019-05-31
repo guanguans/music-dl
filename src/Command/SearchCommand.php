@@ -60,10 +60,11 @@ class SearchCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        start:
-
         $config = config();
         $output->writeln($config['logo']);
+
+        start:
+
         $output->writeln($config['search_tips']);
 
         $helper = $this->getHelper('question');
