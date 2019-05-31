@@ -59,10 +59,20 @@ class MusicPhp implements MusicPhpInterface
     public function search($platform, $keyword)
     {
         $meting = $this->getMeting($platform);
-        $songs = json_decode($meting->format()->search($keyword), true);
+
+        try {
+            $songs = json_decode($meting->format()->search($keyword), true);
+        } catch (HttpException $e) {
+            throw new HttpException($e->getMessage(), $e->getCode(), $e);
+        }
 
         foreach ($songs as $key => &$song) {
-            $detail = json_decode($meting->format()->url($song['url_id']), true);
+            try {
+                $detail = json_decode($meting->format()->url($song['url_id']), true);
+            } catch (HttpException $e) {
+                throw new HttpException($e->getMessage(), $e->getCode(), $e);
+            }
+
             if ($detail['url']) {
                 $song = array_merge($song, $detail);
             } else {

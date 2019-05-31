@@ -11,7 +11,7 @@
 /**
  * @param string $key
  *
- * @return null|mixed|void
+ * @return mixed|void|null
  */
 function config($key = '')
 {

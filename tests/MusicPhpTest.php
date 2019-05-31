@@ -10,108 +10,153 @@
 
 namespace Guanguans\Tests;
 
+use Guanguans\MusicPhp\Exception\HttpException;
 use Guanguans\MusicPhp\MusicPhp;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use Metowolf\Meting;
+use Mockery;
 use Mockery\Matcher\AnyArgs;
 
 class MusicPhpTest extends TestCase
 {
-    public function testSearchAll()
+    public function formatProvider()
     {
-        $m = new MusicPhp();
-        $songAll = [];
-        $songAll = array_merge($songAll, $m->search('mock-string', '周杰伦'));
-        $this->assertIsArray($songAll);
+        return [
+            'baidu' => [
+                [
+                    'id' => '7334109',
+                    'name' => '世纪终曲',
+                    'artist' => [
+                            0 => '黄凯芹',
+                        ],
+                    'album' => '短篇小说',
+                    'pic_id' => '7334109',
+                    'url_id' => '7334109',
+                    'lyric_id' => '7334109',
+                    'source' => 'baidu',
+                    'url' => 'http://zhangmenshiting.qianqian.com/data2/music/137038188/137038188.mp3?xcode=74f83870e51112ce180b9e6dd2675aac',
+                    'br' => 320,
+                ],
+            ],
+            'kugou' => [
+                [
+                    'id' => 'ac3e22b81efed59167f18ab3bd59214f',
+                    'name' => '一个短篇',
+                    'artist' => [
+                            0 => '腰乐队',
+                        ],
+                    'album' => '相见恨晚',
+                    'url_id' => 'ac3e22b81efed59167f18ab3bd59214f',
+                    'pic_id' => 'ac3e22b81efed59167f18ab3bd59214f',
+                    'lyric_id' => 'ac3e22b81efed59167f18ab3bd59214f',
+                    'source' => 'kugou',
+                    'url' => 'http://fs.ios.kugou.com/201905311132/875e8801000c64567e6034cb7bf2b4b8/G050/M00/16/1F/EpQEAFZe4WSAGVgZARKqSRChciY965.mp3',
+                    'size' => 18000457,
+                    'br' => 320,
+                ],
+            ],
+        ];
     }
 
-    public function testSearch()
+    public function formatAllProvider()
     {
-        $m = new MusicPhp();
-        $meting = $m->getMeting('mock-key');
-        $songs = json_decode($meting->format()->search('周杰伦'), true);
-        $this->assertIsArray($songs);
+        return [
+            [
+                [
+                    [
+                        'id' => '7334109',
+                        'name' => '世纪终曲',
+                        'artist' => [
+                                0 => '黄凯芹',
+                            ],
+                        'album' => '短篇小说',
+                        'pic_id' => '7334109',
+                        'url_id' => '7334109',
+                        'lyric_id' => '7334109',
+                        'source' => 'baidu',
+                        'url' => 'http://zhangmenshiting.qianqian.com/data2/music/137038188/137038188.mp3?xcode=74f83870e51112ce180b9e6dd2675aac',
+                        'br' => 320,
+                    ],
+                    [
+                        'id' => 'ac3e22b81efed59167f18ab3bd59214f',
+                        'name' => '一个短篇',
+                        'artist' => [
+                                0 => '腰乐队',
+                            ],
+                        'album' => '相见恨晚',
+                        'url_id' => 'ac3e22b81efed59167f18ab3bd59214f',
+                        'pic_id' => 'ac3e22b81efed59167f18ab3bd59214f',
+                        'lyric_id' => 'ac3e22b81efed59167f18ab3bd59214f',
+                        'source' => 'kugou',
+                        'url' => 'http://fs.ios.kugou.com/201905311132/875e8801000c64567e6034cb7bf2b4b8/G050/M00/16/1F/EpQEAFZe4WSAGVgZARKqSRChciY965.mp3',
+                        'size' => 18000457,
+                        'br' => 320,
+                    ],
+                ],
+            ],
+        ];
     }
 
     public function testGetMeting()
     {
         $m = new MusicPhp();
-        $this->assertInstanceOf(Meting::class, $m->getMeting('mock-key'));
+        $this->assertInstanceOf(Meting::class, $m->getMeting('mock-str'));
     }
 
-    public function testFormat()
-    {
-        $song = [
-            'id' => 123,
-            'url' => 'abc',
-            'name' => 'abc',
-            'album' => 'abc',
-            'artist' => ['abc', 'edf'],
-            'source' => 'baidu',
-        ];
-
-        unset($song['id']);
-        $this->assertArrayNotHasKey('id', $song);
-
-        $song['name'] = str_replace('abc', '<info>abc</info>', $song['name']);
-        $this->assertSame('<info>abc</info>', $song['name']);
-
-        $song['artist'] = implode(',', $song['artist']);
-        $this->assertIsString($song['artist']);
-    }
-
-    public function testFormatAll()
+    /**
+     * @dataProvider formatProvider
+     */
+    public function testFormat($song)
     {
         $m = new MusicPhp();
-        $songs = [
-            [
-                'id' => 123,
-                'url' => 'abc',
-                'name' => '晴天',
-                'album' => 'abc',
-                'artist' => ['abc', 'edf'],
-                'source' => 'baidu',
-                'br' => '128',
-            ],
-            [
-                'id' => 123,
-                'url' => 'abc',
-                'name' => '晴天2',
-                'album' => 'abc',
-                'artist' => ['abc', 'edf'],
-                'source' => 'baidu',
-                'br' => '128',
-            ],
-        ];
-        $formatSongs = $m->formatAll($songs, '晴天');
-        foreach ($formatSongs as $k => $item) {
-            $this->assertArrayHasKey(0, $item);
-            $this->assertSame($item[0], "<info>$k</info>");
+        $songFormat = $m->format($song, '一个短篇');
+
+        $this->assertArrayHasKey('name', $songFormat);
+        $this->assertArrayHasKey('artist', $songFormat);
+        $this->assertArrayHasKey('album', $songFormat);
+        $this->assertArrayHasKey('source', $songFormat);
+        $this->assertArrayHasKey('size', $songFormat);
+        $this->assertArrayHasKey('br', $songFormat);
+
+        $this->assertArrayNotHasKey('id', $songFormat);
+        $this->assertArrayNotHasKey('pic_id', $songFormat);
+        $this->assertArrayNotHasKey('url_id', $songFormat);
+        $this->assertArrayNotHasKey('lyric_id', $songFormat);
+        $this->assertArrayNotHasKey('url', $songFormat);
+
+        if ('baidu' === $songFormat['source']) {
+            $this->assertEmpty($songFormat['size']);
         }
     }
 
-    public function testDownloadWithGuzzleRuntimeException()
+    /**
+     * @dataProvider formatAllProvider
+     */
+    public function testFormatAll($songs)
     {
-        $client = \Mockery::mock(Client::class);
-        $client->allows()
-               ->get(new AnyArgs())
-               ->andThrow(new \Exception('request timeout'));
+        $m = new MusicPhp();
 
-        $w = \Mockery::mock(MusicPhp::class)->makePartial();
+        $formatSongs = $m->formatAll($songs, '一个短篇');
+        foreach ($formatSongs as $k => $item) {
+            $this->assertSame("<info>$k</info>", $item[0]);
+        }
+    }
+
+    /**
+     * @dataProvider formatProvider
+     */
+    public function testDownloadWithGuzzleRuntimeException($song)
+    {
+        $client = Mockery::mock(Client::class);
+        $client->allows()->get(new AnyArgs())->andThrow(new HttpException('request timeout'));
+
+        $w = Mockery::mock(MusicPhp::class)->makePartial();
         $w->allows()->getHttpClient()->andReturn($client);
 
         $this->expectExceptionMessage('request timeout');
 
-        $w->download([
-            'id' => 123,
-            'url' => 'abc',
-            'name' => '晴天',
-            'album' => 'abc',
-            'artist' => ['abc', 'edf'],
-            'source' => 'baidu',
-            'br' => '128',
-        ]);
+        $w->download($song);
     }
 
     public function testGetHttpClient()
