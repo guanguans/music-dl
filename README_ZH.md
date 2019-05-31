@@ -7,7 +7,7 @@
     <a>中文</a>
 </p>
 
-<p align="center"><img src="http://prfay5752.bkt.clouddn.com/pic_images/usage.gif"></p>
+<p align="center"><img src="http://prfay5752.bkt.clouddn.com/pic_images/MusicPHP.gif"></p>
 
 [![Build Status](https://travis-ci.org/guanguans/music-php.svg?branch=master)](https://travis-ci.org/guanguans/music-php)
 [![Build Status](https://scrutinizer-ci.com/g/guanguans/music-php/badges/build.png?b=master)](https://scrutinizer-ci.com/g/guanguans/music-php/build-status/master)
@@ -20,7 +20,7 @@
 
 ## 环境要求
 
-* PHP >= 7.1
+* PHP >= 5.6
 * Composer
 
 ## 安装
