@@ -17,10 +17,6 @@ function config($key = '')
 {
     $config = require 'Config.php';
 
-    if (!is_string($key)) {
-        return;
-    }
-
     if (empty($key)) {
         return $config;
     }

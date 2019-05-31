@@ -8,3 +8,5 @@ composer.lock
 .php_cs.cache
 .phplint.cache
 .scannerwork
+coverage.text
+coverage.xml

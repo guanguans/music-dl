@@ -17,12 +17,12 @@ parameters:
         failed: grumphp-grumpy.txt
         succeeded: grumphp-happy.txt
     tasks:
-        ant: ~
-        atoum: ~
-        behat: ~
+        # ant: ~
+        # atoum: ~
+        # behat: ~
         brunch: ~
         # clover_coverage: ~
-        codeception: ~
+        # codeception: ~
         composer: ~
         # composer_normalize: ~
         # composer_require_checker: ~
@@ -30,7 +30,7 @@ parameters:
             script: unit
             triggered_by: [php, phtml]
             working_directory: ~
-        deptrac: ~
+        # deptrac: ~
         # doctrine_orm: ~
         file_size: ~
         gherkin: ~
@@ -39,35 +39,35 @@ parameters:
         git_commit_message: ~
         grunt: ~
         gulp: ~
-        infection: ~
+        # infection: ~
         jsonlint: ~
-        kahlan: ~
-        make: ~
+        # kahlan: ~
+        # make: ~
         npm_script:
             script: eslint --fix
             triggered_by: [js, jsx, coffee, ts, less, sass, scss]
             working_directory: "./"
             is_run_task: false
-        paratest: ~
-        phan: ~
-        phing: ~
-        php7cc: ~
-        phpcpd: ~
-        phpcs: ~
-        phpcsfixer: ~
-        phpcsfixer2: ~
+        # paratest: ~
+        # phan: ~
+        # phing: ~
+        # php7cc: ~
+        # phpcpd: ~
+        # phpcs: ~
+        # phpcsfixer: ~
+        # phpcsfixer2: ~
         # phplint: ~
-        phpmd: ~
-        phpmnd: ~
-        phpparser: ~
-        phpspec: ~
-        phpstan: ~
+        # phpmd: ~
+        # phpmnd: ~
+        # phpparser: ~
+        # phpspec: ~
+        # phpstan: ~
         phpunit: ~
-        phpunitbridge: ~
+        # phpunitbridge: ~
         phpversion: ~
-        progpilot: ~
-        psalm: ~
-        robo: ~
+        # progpilot: ~
+        # psalm: ~
+        # robo: ~
         securitychecker: ~
         shell: ~
         twigcs: ~

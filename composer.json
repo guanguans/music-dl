@@ -19,19 +19,16 @@
         }
     ],
     "require": {
-        "php": ">=7.1",
+        "php": ">=5.6",
         "guzzlehttp/guzzle": "^6.3",
         "metowolf/meting": "^1.5",
         "ext-json": "*",
         "symfony/console": "^3.2|^4.0"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "~2.1",
-        "mockery/mockery": "~1.1",
-        "overtrue/phplint": "~1.1",
-        "phpro/grumphp": "dev-master",
-        "phpstan/phpstan": "~0.9",
-        "phpunit/phpunit": "~5 | ~7"
+        "phpunit/phpunit": "~5 || ~7",
+        "mockery/mockery": "^1.1",
+        "phpro/grumphp": "~0.14"
     },
     "license": "MIT",
     "minimum-stability": "dev",
@@ -57,24 +54,15 @@
     ],
     "scripts": {
         "unit": "./vendor/bin/phpunit --coverage-text --color=always",
-        "lint": "./vendor/bin/phplint --ansi",
-        "fix": "./vendor/bin/php-cs-fixer fix --ansi",
-        "stan": "./vendor/bin/phpstan analyse --ansi",
         "commit": "./vendor/bin/grumphp git:pre-commit",
         "grumphp": "./vendor/bin/grumphp run",
         "test": [
             "@unit",
-            "@lint",
-            "@fix",
-            "@stan",
             "@grumphp"
         ]
     },
     "scripts-descriptions": {
         "unit": "Run the phpunit tests.",
-        "lint": "Run the phplint tests.",
-        "fix": "Run the php-cs-fixer tests.",
-        "stan": "Run the phpstan tests.",
         "commit": "Run the grumphp git:pre-commit tests.",
         "grumphp": "Run the grumphp run tests.",
         "test": "Run all tests."
