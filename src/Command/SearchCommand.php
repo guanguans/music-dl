@@ -63,6 +63,7 @@ class SearchCommand extends Command
         start:
 
         $config = config();
+        $output->writeln($config['logo']);
         $output->writeln($config['search_tips']);
 
         $helper = $this->getHelper('question');
