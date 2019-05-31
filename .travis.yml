@@ -16,7 +16,6 @@ before_script:
 
 script:
     - ./vendor/bin/phpunit --verbose --coverage-clover=coverage.xml
-    - ./vendor/bin/phplint
 
 after_script:
     - bash <(curl -s https://codecov.io/bash)
