@@ -60,18 +60,23 @@
         "lint": "./vendor/bin/phplint --ansi",
         "fix": "./vendor/bin/php-cs-fixer fix --ansi",
         "stan": "./vendor/bin/phpstan analyse --ansi",
+        "commit": "./vendor/bin/grumphp git:pre-commit",
+        "grumphp": "./vendor/bin/grumphp run",
         "test": [
             "@unit",
             "@lint",
             "@fix",
-            "@stan"
+            "@stan",
+            "@grumphp"
         ]
     },
     "scripts-descriptions": {
         "unit": "Run the phpunit tests.",
         "lint": "Run the phplint tests.",
         "fix": "Run the php-cs-fixer tests.",
-        "stan": "Run the phpstan tests",
+        "stan": "Run the phpstan tests.",
+        "commit": "Run the grumphp git:pre-commit tests.",
+        "grumphp": "Run the grumphp run tests.",
         "test": "Run all tests."
     }
 }
