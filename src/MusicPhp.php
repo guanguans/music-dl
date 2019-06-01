@@ -21,7 +21,7 @@ use Metowolf\Meting;
  */
 class MusicPhp implements MusicPhpInterface
 {
-    protected $platforms = ['tencent', 'netease', 'kugou', 'baidu'];
+    protected $platforms = ['tencent', 'netease', 'kugou'];
 
     protected $hideFields = ['id', 'pic_id', 'url_id', 'lyric_id', 'url'];
 
