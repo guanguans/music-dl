@@ -18,6 +18,7 @@ return [
         'size' => '大小',
         'br' => '比特率',
     ],
+
     'search_tips' => '请输入要关键字如：<info>一个短篇 腰乐队 相见恨晚</info>，或<info>Ctrl+C</info>退出',
     'splitter' => '------------------------------',
     'input' => '>>: ',

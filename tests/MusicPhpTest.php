@@ -20,6 +20,15 @@ use Mockery\Matcher\AnyArgs;
 
 class MusicPhpTest extends TestCase
 {
+    protected $musicPhp;
+
+    protected function setUp()
+    {
+        parent::setUp();
+
+        $this->musicPhp = new MusicPhp();
+    }
+
     public function formatProvider()
     {
         return [
@@ -100,8 +109,8 @@ class MusicPhpTest extends TestCase
 
     public function testGetMeting()
     {
-        $m = new MusicPhp();
-        $this->assertInstanceOf(Meting::class, $m->getMeting('mock-str'));
+        $this->musicPhp = new MusicPhp();
+        $this->assertInstanceOf(Meting::class, $this->musicPhp->getMeting('mock-str'));
     }
 
     /**
@@ -109,8 +118,8 @@ class MusicPhpTest extends TestCase
      */
     public function testFormat($song)
     {
-        $m = new MusicPhp();
-        $songFormat = $m->format($song, '一个短篇');
+        $this->musicPhp = new MusicPhp();
+        $songFormat = $this->musicPhp->format($song, '一个短篇');
 
         $this->assertArrayHasKey('name', $songFormat);
         $this->assertArrayHasKey('artist', $songFormat);
@@ -135,9 +144,9 @@ class MusicPhpTest extends TestCase
      */
     public function testFormatAll($songs)
     {
-        $m = new MusicPhp();
+        $this->musicPhp = new MusicPhp();
 
-        $formatSongs = $m->formatAll($songs, '一个短篇');
+        $formatSongs = $this->musicPhp->formatAll($songs, '一个短篇');
         foreach ($formatSongs as $k => $item) {
             $this->assertSame("<info>$k</info>", $item[0]);
         }
@@ -161,19 +170,25 @@ class MusicPhpTest extends TestCase
 
     public function testGetHttpClient()
     {
-        $m = new MusicPhp();
+        $this->musicPhp = new MusicPhp();
         // 断言返回结果为 GuzzleHttp\ClientInterface 实例
-        $this->assertInstanceOf(ClientInterface::class, $m->getHttpClient());
+        $this->assertInstanceOf(ClientInterface::class, $this->musicPhp->getHttpClient());
     }
 
     public function testSetGuzzleOptions()
     {
-        $m = new MusicPhp();
+        $this->musicPhp = new MusicPhp();
         // 设置参数前，timeout 为 null
-        $this->assertNull($m->getHttpClient()->getConfig('timeout'));
+        $this->assertNull($this->musicPhp->getHttpClient()->getConfig('timeout'));
         // 设置参数
-        $m->setGuzzleOptions(['timeout' => 3000]);
+        $this->musicPhp->setGuzzleOptions(['timeout' => 3000]);
         // 设置参数后，timeout 为 3000
-        $this->assertSame(3000, $m->getHttpClient()->getConfig('timeout'));
+        $this->assertSame(3000, $this->musicPhp->getHttpClient()->getConfig('timeout'));
+    }
+
+    public function testGetDownloadsDir()
+    {
+        $this->assertStringStartsWith('/', $this->musicPhp->getDownloadsDir());
+        $this->assertStringEndsWith('/Downloads/', $this->musicPhp->getDownloadsDir());
     }
 }
