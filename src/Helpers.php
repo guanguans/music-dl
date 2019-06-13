@@ -15,7 +15,7 @@
  */
 function config($key = '')
 {
-    $config = require 'Config.php';
+    $config = require __DIR__.'/../config/Config.php';
 
     if (empty($key)) {
         return $config;

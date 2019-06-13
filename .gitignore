@@ -10,3 +10,6 @@ composer.lock
 .scannerwork
 coverage.text
 coverage.xml
+clover.text
+clover.xml
+testdox.html

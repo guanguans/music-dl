@@ -77,7 +77,7 @@ class SearchCommand extends Command
         }
 
         $output->writeln($config['splitter']);
-        $output->writeln(str_replace('{$keyword}', $keyword, $config['searching']));
+        $output->writeln(sprintf($config['searching'], $keyword));
 
         $musicPhp = $this->getMusicPhp();
         $songs = $musicPhp->searchAll($keyword);
@@ -113,7 +113,7 @@ class SearchCommand extends Command
 
         $output->writeln($config['downloading']);
         $musicPhp->download($song);
-        $output->writeln(str_replace(['{$downloadsDir}', '{$artist}', '{$name}'], [$musicPhp->getDownloadsDir(), implode(',', $song['artist']), $song['name']], $config['save_path']));
+        $output->writeln(sprintf($config['save_path'], $musicPhp->getDownloadsDir(), implode(',', $song['artist']), $song['name']));
         $output->writeln($config['splitter']);
 
         goto start;
