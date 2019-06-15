@@ -125,7 +125,6 @@ class MusicPhpTest extends TestCase
         $this->assertArrayHasKey('artist', $songFormat);
         $this->assertArrayHasKey('album', $songFormat);
         $this->assertArrayHasKey('source', $songFormat);
-        $this->assertArrayHasKey('size', $songFormat);
         $this->assertArrayHasKey('br', $songFormat);
 
         $this->assertArrayNotHasKey('id', $songFormat);
@@ -133,10 +132,6 @@ class MusicPhpTest extends TestCase
         $this->assertArrayNotHasKey('url_id', $songFormat);
         $this->assertArrayNotHasKey('lyric_id', $songFormat);
         $this->assertArrayNotHasKey('url', $songFormat);
-
-        if ('baidu' === $songFormat['source']) {
-            $this->assertEmpty($songFormat['size']);
-        }
     }
 
     /**
@@ -148,7 +143,7 @@ class MusicPhpTest extends TestCase
 
         $formatSongs = $this->musicPhp->formatAll($songs, '一个短篇');
         foreach ($formatSongs as $k => $item) {
-            $this->assertSame("<info>$k</info>", $item[0]);
+            $this->assertSame("<fg=cyan>$k</>", $item[0]);
         }
     }
 

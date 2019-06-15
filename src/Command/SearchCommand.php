@@ -60,6 +60,7 @@ class SearchCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+
         $config = config();
         $output->writeln($config['logo']);
 

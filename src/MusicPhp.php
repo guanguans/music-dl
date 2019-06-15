@@ -103,7 +103,7 @@ class MusicPhp implements MusicPhpInterface
     {
         foreach ($songs as $key => &$song) {
             $song = $this->format($song, $keyword);
-            array_unshift($song, "<info>$key</info>");
+            array_unshift($song, "<fg=cyan>$key</>");
         }
 
         unset($song);
@@ -123,20 +123,13 @@ class MusicPhp implements MusicPhpInterface
             unset($song[$hideField]);
         }
 
-        $song['name'] = str_replace($keyword, "<info>$keyword</info>", $song['name']);
-        $song['album'] = str_replace($keyword, "<info>$keyword</info>", $song['album']);
+        $song['name'] = str_replace($keyword, "<fg=red;options=bold>$keyword</>", $song['name']);
+        $song['album'] = str_replace($keyword, "<fg=red;options=bold>$keyword</>", $song['album']);
         $song['artist'] = implode(',', $song['artist']);
-        $song['artist'] = str_replace($keyword, "<info>$keyword</info>", $song['artist']);
-
-        if ('baidu' === $song['source']) {
-            $song['size'] = '';
-            $br = $song['br'];
-            unset($song['br']);
-            $song['br'] = $br;
-        }
+        $song['artist'] = str_replace($keyword, "<fg=red;options=bold>$keyword</>", $song['artist']);
 
         if (!empty($song['size'])) {
-            $song['size'] = sprintf('%.1f', $song['size'] / 1048576).'M';
+            $song['size'] = '<fg=yellow>'.sprintf('%.1f', $song['size'] / 1048576).'M</>';
         }
 
         return $song;
