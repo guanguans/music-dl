@@ -170,6 +170,6 @@ class MusicPhp implements MusicPhpInterface
      */
     public function getDownloadsDir()
     {
-        return trim(shell_exec('cd ~; pwd')).'/Downloads/';
+        return PATH_SEPARATOR === ':' ? trim(exec('cd ~; pwd')).'/Downloads/' : 'C:\\Users\\'.get_current_user().'\\Downloads\\';
     }
 }

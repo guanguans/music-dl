@@ -66,6 +66,9 @@ class SearchCommand extends Command
         start:
 
         $output->writeln($config['search_tips']);
+        if (PATH_SEPARATOR === ';') {
+            $output->writeln($config['win_tips']);
+        }
 
         $helper = $this->getHelper('question');
         $question = new Question($config['input']);
@@ -101,7 +104,7 @@ class SearchCommand extends Command
 
         if ('n' === $serialNumber || 'N' === $serialNumber) {
             goto start;
-        } elseif ($serialNumber < 0 || $serialNumber >= count($songs)) {
+        } elseif ($serialNumber < 0 || $serialNumber >= count($songs) || !preg_match('/^[0-9]*$/', $serialNumber)) {
             $output->writeln($config['input_error']);
             goto serialNumber;
         }
