@@ -20,7 +20,7 @@ class Application extends BaseApplication
 {
     const NAME = 'MusicPHP';
 
-    const VERSION = '1.1.5';
+    const VERSION = '1.1.6';
 
     /**
      * Application constructor.
