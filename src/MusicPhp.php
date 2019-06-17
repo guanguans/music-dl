@@ -13,6 +13,7 @@ namespace Guanguans\MusicPhp;
 use Guanguans\MusicPhp\Contract\MusicPhpInterface;
 use Guanguans\MusicPhp\Exception\Exception;
 use Guanguans\MusicPhp\Exception\HttpException;
+use Guanguans\MusicPhp\Exception\RuntimeException;
 use GuzzleHttp\Client;
 use Metowolf\Meting;
 
@@ -170,6 +171,12 @@ class MusicPhp implements MusicPhpInterface
      */
     public function getDownloadsDir()
     {
-        return PATH_SEPARATOR === ':' ? trim(exec('cd ~; pwd')).'/Downloads/' : 'C:\\Users\\'.get_current_user().'\\Downloads\\';
+        $downloadsDir = PATH_SEPARATOR === ':' ? trim(exec('cd ~; pwd')).'/Downloads/' : 'C:\\Users\\'.get_current_user().'\\Downloads\\';
+
+        if (!is_dir($downloadsDir) && !mkdir($downloadsDir, 0777, true) && !is_dir($downloadsDir)) {
+            throw new RuntimeException(sprintf('Directory "%s" was not created', $downloadsDir));
+        }
+
+        return $downloadsDir;
     }
 }
