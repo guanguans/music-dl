@@ -25,6 +25,10 @@
 
 ## 安装
 
+### phar 文件下载安装
+
+在 [releases](https://github.com/guanguans/music-php/releases) 页面中下载 [music-php](https://github.com/guanguans/music-php/releases/download/v1.1.6/music-php) 或者 [music-php.phar](https://github.com/guanguans/music-php/releases/download/v1.1.6/music-php.phar) 文件。
+
 ### 全局安装
 
 ``` shell
@@ -54,5 +58,3 @@ $ ./path/music-php
 [MIT](LICENSE)
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fguanguans%2Fmusic-php.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fguanguans%2Fmusic-php?ref=badge_large)
-
-
