@@ -16,14 +16,16 @@
     <filter>
         <whitelist>
             <directory suffix=".php">src/</directory>
+            <exclude>
+                <directory>src/Command</directory>
+                <directory>src/Console</directory>
+                <directory>src/Contract</directory>
+                <directory>src/Exception</directory>
+                <directory>src/Support</directory>
+                <file>src/Config.php</file>
+                <file>src/Helpers.php</file>
+            </exclude>
         </whitelist>
-        <exclude>
-            <directory suffix="Helpers.php">src</directory>
-            <directory suffix="Config.php">src</directory>
-            <directory>src/Exception</directory>
-            <directory>src/Support</directory>
-            <directory>src/Contract</directory>
-        </exclude>
     </filter>
     <logging>
         <log type="coverage-text" target="coverage.text"/>
