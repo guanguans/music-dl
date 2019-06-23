@@ -5,6 +5,13 @@ checks:
 filter:
     excluded_paths:
         - tests/*
+        - 'bin/*'
+        - 'config/*'
+        - 'src/Helpers.php'
+        - 'src/Config.php'
+        - 'src/Exception/'
+        - 'src/Support/'
+        - 'src/Contract/'
 build:
     tests:
         override:
