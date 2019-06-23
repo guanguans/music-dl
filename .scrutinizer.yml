@@ -10,6 +10,7 @@ build:
         override:
             - command: ./vendor/bin/phpunit --verbose --coverage-clover=coverage.xml
               coverage:
+                  file: coverage.xml
                   format: php-clover
     nodes:
         analysis:
