@@ -18,6 +18,13 @@
         <whitelist>
             <directory suffix=".php">src/</directory>
         </whitelist>
+        <exclude>
+            <directory suffix="Helpers.php">src</directory>
+            <directory suffix="Config.php">src</directory>
+            <directory>src/Exception</directory>
+            <directory>src/Support</directory>
+            <directory>src/Contract</directory>
+        </exclude>
     </filter>
     <logging>
         <log type="coverage-text" target="coverage.text"/>
