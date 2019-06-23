@@ -25,7 +25,7 @@
 
 ## Installation
 
-### Phar file download and install
+### Phar file download and installation
 
 Download the [music-php](https://github.com/guanguans/music-php/releases/download/v1.1.6/music-php) or [music-php.phar](https://github.com/guanguans/music-php/releases/download/v1.1.6/music-php.phar) file on the pages [releases](https://github.com/guanguans/music-php/releases).
 
