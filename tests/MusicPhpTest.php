@@ -45,6 +45,7 @@ class MusicPhpTest extends TestCase
                     'lyric_id' => '7334109',
                     'source' => 'baidu',
                     'url' => 'http://zhangmenshiting.qianqian.com/data2/music/137038188/137038188.mp3?xcode=74f83870e51112ce180b9e6dd2675aac',
+                    'size' => 18000457,
                     'br' => 320,
                 ],
             ],
@@ -85,6 +86,7 @@ class MusicPhpTest extends TestCase
                         'lyric_id' => '7334109',
                         'source' => 'baidu',
                         'url' => 'http://zhangmenshiting.qianqian.com/data2/music/137038188/137038188.mp3?xcode=74f83870e51112ce180b9e6dd2675aac',
+                        'size' => 18000457,
                         'br' => 320,
                     ],
                     [
