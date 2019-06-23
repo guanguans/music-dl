@@ -99,7 +99,7 @@ class SearchCommand extends Command
         serialNumber:
 
         $output->writeln($config['download_tips']);
-        $question = new Question('>>: ');
+        $question = new Question($config['input']);
         $serialNumber = trim($helper->ask($input, $output, $question));
 
         if ('n' === $serialNumber || 'N' === $serialNumber) {

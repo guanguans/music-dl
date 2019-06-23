@@ -8,24 +8,21 @@
  * This source file is subject to the MIT license that is bundled.
  */
 
-/**
- * @param string $key
- *
- * @return mixed|void|null
- */
-function config($key = '')
-{
-    $config = require __DIR__.'/../config/Config.php';
+use Guanguans\MusicPhp\Config;
 
-    if (empty($key)) {
-        return $config;
+if (!function_exists('config')) {
+    /**
+     * @param null $key
+     *
+     * @return \Guanguans\MusicPhp\Config|mixed
+     */
+    function config($key = null)
+    {
+        $config = new Config(require __DIR__.'/../config/config.php');
+        if (null === $key) {
+            return $config;
+        }
+
+        return $config->get($key);
     }
-
-    if (!strpos($key, '.')) {
-        return isset($config[$key]) ? $config[$key] : null;
-    }
-
-    $key = explode('.', $key);
-
-    return isset($config[$key[0]][$key[1]]) ? $config[$key[0]][$key[1]] : null;
 }

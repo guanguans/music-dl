@@ -22,7 +22,7 @@ use Metowolf\Meting;
  */
 class MusicPhp implements MusicPhpInterface
 {
-    protected $platforms = ['tencent', 'netease', 'kugou'];
+    protected $platforms = ['tencent', 'netease', 'xiami', 'kugou'];
 
     protected $hideFields = ['id', 'pic_id', 'url_id', 'lyric_id', 'url'];
 
@@ -128,10 +128,7 @@ class MusicPhp implements MusicPhpInterface
         $song['album'] = str_replace($keyword, "<fg=red;options=bold>$keyword</>", $song['album']);
         $song['artist'] = implode(',', $song['artist']);
         $song['artist'] = str_replace($keyword, "<fg=red;options=bold>$keyword</>", $song['artist']);
-
-        if (!empty($song['size'])) {
-            $song['size'] = '<fg=yellow>'.sprintf('%.1f', $song['size'] / 1048576).'M</>';
-        }
+        $song['size'] = '<fg=yellow>'.sprintf('%.1f', $song['size'] / 1048576).'M</>';
 
         return $song;
     }
