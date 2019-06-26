@@ -108,8 +108,7 @@ class SearchCommand extends Command
             $output->writeln($config['input_error']);
             goto serialNumber;
         }
-        $serialNumbers = explode(',', $serialNumber);
-        $serialNumbers = array_filter($serialNumbers);
+        $serialNumbers = explode(',', trim($serialNumber, ','));
 
         foreach ($serialNumbers as $serialNumber) {
             $song = $songs[$serialNumber];
