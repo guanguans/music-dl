@@ -104,20 +104,24 @@ class SearchCommand extends Command
 
         if ('n' === $serialNumber || 'N' === $serialNumber) {
             goto start;
-        } elseif ($serialNumber < 0 || $serialNumber >= count($songs) || !preg_match('/^[0-9]*$/', $serialNumber)) {
+        } elseif ($serialNumber < 0 || $serialNumber >= count($songs) || !preg_match('/^[0-9,]*$/', $serialNumber)) {
             $output->writeln($config['input_error']);
             goto serialNumber;
         }
+        $serialNumbers = explode(',', $serialNumber);
+        $serialNumbers = array_filter($serialNumbers);
 
-        $song = $songs[$serialNumber];
-        $table = $this->getTable($output);
-        $table->setHeaders($musicPhp->format($song, $keyword));
-        $table->render();
+        foreach ($serialNumbers as $serialNumber) {
+            $song = $songs[$serialNumber];
+            $table = $this->getTable($output);
+            $table->setHeaders($musicPhp->format($song, $keyword));
+            $table->render();
 
-        $output->writeln($config['downloading']);
-        $musicPhp->download($song);
-        $output->writeln(sprintf($config['save_path'], $musicPhp->getDownloadsDir(), implode(',', $song['artist']), $song['name']));
-        $output->writeln($config['splitter']);
+            $output->writeln($config['downloading']);
+            $musicPhp->download($song);
+            $output->writeln(sprintf($config['save_path'], $musicPhp->getDownloadsDir(), implode(',', $song['artist']), $song['name']));
+            $output->writeln($config['splitter']);
+        }
 
         goto start;
     }
