@@ -38,7 +38,7 @@ $ composer global require guanguans/music-php
 ### 当前目录安装
 
 ``` shell
-$ composer create-project guanguans/music-php
+$ composer create-project guanguans/music-php --no-dev
 ```
 
 ## 使用

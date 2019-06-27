@@ -38,7 +38,7 @@ $ composer global require guanguans/music-php
 ### Current directory installation
 
 ``` shell
-$ composer create-project guanguans/music-php
+$ composer create-project guanguans/music-php --no-dev
 ```
 
 ## Usage
