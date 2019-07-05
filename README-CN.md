@@ -32,7 +32,7 @@
 ### 全局安装
 
 ``` shell
-$ composer global require guanguans/music-php
+$ composer global require guanguans/music-php --dev
 ```
 
 ### 当前目录安装

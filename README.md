@@ -32,7 +32,7 @@ Download the [music-php](https://github.com/guanguans/music-php/releases/downloa
 ### Global installation
 
 ``` shell
-$ composer global require guanguans/music-php
+$ composer global require guanguans/music-php --dev
 ```
 
 ### Current directory installation
