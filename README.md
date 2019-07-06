@@ -1,5 +1,4 @@
 <h1 align="center">music-php</h1>
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
 <p align="center">Music search and download.</p>
 
@@ -48,18 +47,6 @@ $ composer create-project guanguans/music-php --no-dev
 $ ./path/music-php
 ```
 
-## Related Links
-
-* [https://github.com/0xHJK/music-dl](https://github.com/0xHJK/music-dl)
-* [https://github.com/maicong/music](https://github.com/maicong/music)
-* [https://github.com/metowolf/Meting](https://github.com/metowolf/Meting)
-
-## License
-
-[MIT](LICENSE)
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fguanguans%2Fmusic-php.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fguanguans%2Fmusic-php?ref=badge_large)
-
 ## Contributors
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -71,3 +58,15 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+## Related Links
+
+* [https://github.com/0xHJK/music-dl](https://github.com/0xHJK/music-dl)
+* [https://github.com/maicong/music](https://github.com/maicong/music)
+* [https://github.com/metowolf/Meting](https://github.com/metowolf/Meting)
+
+## License
+
+[MIT](LICENSE)
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fguanguans%2Fmusic-php.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fguanguans%2Fmusic-php?ref=badge_large)
