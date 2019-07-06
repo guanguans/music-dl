@@ -1,0 +1,23 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "luokuncool",
+      "name": "luokuncool",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/6022635?v=4",
+      "profile": "https://github.com/luokuncool",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "music-php",
+  "projectOwner": "guanguans",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}
