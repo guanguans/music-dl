@@ -26,7 +26,7 @@ return [
     'searching'     => '正在搜索：<info>%s</info>，请耐心等待...',
     'downloading'   => '正在下载中...',
     'empty_result'  => '<fg=yellow>o(╥﹏╥)o 没有搜索到相关歌曲</>',
-    'download_tips' => '请输入下载序号如：<info>0</info>，输入<info>N</info>跳过下载',
+    'download_tips' => '请输入下载序号，多个用英文逗号隔开如：<info>0,6</info>，输入<info>N</info>跳过下载',
     'input_error'   => '<fg=red>o(╥﹏╥)o 输入错误</>',
     'save_path'     => '已保存到：<info>%s%s - %s.mp3</info>，请前往查看',
 
