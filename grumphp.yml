@@ -55,13 +55,13 @@ parameters:
         # phpcpd: ~
         # phpcs: ~
         # phpcsfixer: ~
-        # phpcsfixer2: ~
+        phpcsfixer2: ~
         # phplint: ~
         # phpmd: ~
         # phpmnd: ~
         # phpparser: ~
         # phpspec: ~
-        # phpstan: ~
+        phpstan: ~
         phpunit: ~
         # phpunitbridge: ~
         phpversion: ~
