@@ -18,6 +18,11 @@ return PhpCsFixer\Config::create()
         'no_useless_return' => true,
         'php_unit_construct' => true,
         'php_unit_strict' => true,
+        'single_quote' => true,
+        'class_attributes_separation' => true,
+        'no_unused_imports' => true,
+        'standardize_not_equals' => true,
+        'declare_strict_types' => true
     ))
     ->setFinder(
         PhpCsFixer\Finder::create()
