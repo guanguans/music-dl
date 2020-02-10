@@ -31,8 +31,8 @@ if (!$loaded) {
     );
 }
 
-use Guanguans\MusicPhp\Console\Application;
-use Guanguans\MusicPhp\Command\SearchCommand;
+use Guanguans\MusicPHP\Console\Application;
+use Guanguans\MusicPHP\Command\SearchCommand;
 
 error_reporting(0);
 

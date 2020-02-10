@@ -10,23 +10,23 @@
 
 namespace Guanguans\Tests;
 
-use Guanguans\MusicPhp\Exception\HttpException;
-use Guanguans\MusicPhp\MusicPhp;
+use Guanguans\MusicPHP\Exception\HttpException;
+use Guanguans\MusicPHP\Music;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use Metowolf\Meting;
 use Mockery;
 use Mockery\Matcher\AnyArgs;
 
-class MusicPhpTest extends TestCase
+class MusicTest extends TestCase
 {
-    protected $musicPhp;
+    protected $music;
 
     protected function setUp()
     {
         parent::setUp();
 
-        $this->musicPhp = new MusicPhp();
+        $this->music = new Music();
     }
 
     public function formatProvider()
@@ -111,8 +111,8 @@ class MusicPhpTest extends TestCase
 
     public function testGetMeting()
     {
-        $this->musicPhp = new MusicPhp();
-        $this->assertInstanceOf(Meting::class, $this->musicPhp->getMeting('mock-str'));
+        $this->music = new Music();
+        $this->assertInstanceOf(Meting::class, $this->music->getMeting('mock-str'));
     }
 
     /**
@@ -120,8 +120,8 @@ class MusicPhpTest extends TestCase
      */
     public function testFormat($song)
     {
-        $this->musicPhp = new MusicPhp();
-        $songFormat = $this->musicPhp->format($song, '一个短篇');
+        $this->music = new Music();
+        $songFormat = $this->music->format($song, '一个短篇');
 
         $this->assertArrayHasKey('name', $songFormat);
         $this->assertArrayHasKey('artist', $songFormat);
@@ -141,9 +141,9 @@ class MusicPhpTest extends TestCase
      */
     public function testFormatAll($songs)
     {
-        $this->musicPhp = new MusicPhp();
+        $this->music = new Music();
 
-        $formatSongs = $this->musicPhp->formatAll($songs, '一个短篇');
+        $formatSongs = $this->music->formatAll($songs, '一个短篇');
         foreach ($formatSongs as $k => $item) {
             $this->assertSame("<fg=cyan>$k</>", $item[0]);
         }
@@ -157,7 +157,7 @@ class MusicPhpTest extends TestCase
         $client = Mockery::mock(Client::class);
         $client->allows()->get(new AnyArgs())->andThrow(new HttpException('request timeout'));
 
-        $w = Mockery::mock(MusicPhp::class)->makePartial();
+        $w = Mockery::mock(Music::class)->makePartial();
         $w->allows()->getHttpClient()->andReturn($client);
 
         $this->expectExceptionMessage('request timeout');
@@ -167,25 +167,25 @@ class MusicPhpTest extends TestCase
 
     public function testGetHttpClient()
     {
-        $this->musicPhp = new MusicPhp();
+        $this->music = new Music();
         // 断言返回结果为 GuzzleHttp\ClientInterface 实例
-        $this->assertInstanceOf(ClientInterface::class, $this->musicPhp->getHttpClient());
+        $this->assertInstanceOf(ClientInterface::class, $this->music->getHttpClient());
     }
 
     public function testSetGuzzleOptions()
     {
-        $this->musicPhp = new MusicPhp();
+        $this->music = new Music();
         // 设置参数前，timeout 为 null
-        $this->assertNull($this->musicPhp->getHttpClient()->getConfig('timeout'));
+        $this->assertNull($this->music->getHttpClient()->getConfig('timeout'));
         // 设置参数
-        $this->musicPhp->setGuzzleOptions(['timeout' => 3000]);
+        $this->music->setGuzzleOptions(['timeout' => 3000]);
         // 设置参数后，timeout 为 3000
-        $this->assertSame(3000, $this->musicPhp->getHttpClient()->getConfig('timeout'));
+        $this->assertSame(3000, $this->music->getHttpClient()->getConfig('timeout'));
     }
 
     public function testGetDownloadsDir()
     {
-        $this->assertStringStartsWith('/', $this->musicPhp->getDownloadsDir());
-        $this->assertStringEndsWith('/Downloads/', $this->musicPhp->getDownloadsDir());
+        $this->assertStringStartsWith('/', $this->music->getDownloadsDir());
+        $this->assertStringEndsWith('/Downloads/', $this->music->getDownloadsDir());
     }
 }

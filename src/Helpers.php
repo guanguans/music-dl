@@ -8,13 +8,13 @@
  * This source file is subject to the MIT license that is bundled.
  */
 
-use Guanguans\MusicPhp\Config;
+use Guanguans\MusicPHP\Config;
 
 if (!function_exists('config')) {
     /**
      * @param null $key
      *
-     * @return \Guanguans\MusicPhp\Config|mixed
+     * @return \Guanguans\MusicPHP\Config|mixed
      */
     function config($key = null)
     {

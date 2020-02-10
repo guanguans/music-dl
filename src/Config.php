@@ -8,9 +8,9 @@
  * This source file is subject to the MIT license that is bundled.
  */
 
-namespace Guanguans\MusicPhp;
+namespace Guanguans\MusicPHP;
 
-use Guanguans\MusicPhp\Support\Collection;
+use Guanguans\MusicPHP\Support\Collection;
 
 class Config extends Collection
 {

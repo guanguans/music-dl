@@ -8,19 +8,19 @@
  * This source file is subject to the MIT license that is bundled.
  */
 
-namespace Guanguans\MusicPhp;
+namespace Guanguans\MusicPHP;
 
-use Guanguans\MusicPhp\Contract\MusicPhpInterface;
-use Guanguans\MusicPhp\Exception\Exception;
-use Guanguans\MusicPhp\Exception\HttpException;
-use Guanguans\MusicPhp\Exception\RuntimeException;
+use Guanguans\MusicPHP\Contract\MusicInterface;
+use Guanguans\MusicPHP\Exception\Exception;
+use Guanguans\MusicPHP\Exception\HttpException;
+use Guanguans\MusicPHP\Exception\RuntimeException;
 use GuzzleHttp\Client;
 use Metowolf\Meting;
 
 /**
- * Class MusicPhp.
+ * Class Music.
  */
-class MusicPhp implements MusicPhpInterface
+class Music implements MusicInterface
 {
     protected $platforms = ['tencent', 'netease', 'xiami', 'kugou'];
 
@@ -29,7 +29,7 @@ class MusicPhp implements MusicPhpInterface
     protected $guzzleOptions = [];
 
     /**
-     * MusicPhp constructor.
+     * Music constructor.
      */
     public function __construct()
     {
@@ -136,7 +136,7 @@ class MusicPhp implements MusicPhpInterface
     /**
      * @param array $song
      *
-     * @throws \Guanguans\MusicPhp\Exception\HttpException
+     * @throws \Guanguans\MusicPHP\Exception\HttpException
      */
     public function download(array $song)
     {

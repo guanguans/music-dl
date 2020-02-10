@@ -8,9 +8,9 @@
  * This source file is subject to the MIT license that is bundled.
  */
 
-namespace Guanguans\MusicPhp\Contract;
+namespace Guanguans\MusicPHP\Contract;
 
-interface MusicPhpInterface
+interface MusicInterface
 {
     /**
      * @param $platform

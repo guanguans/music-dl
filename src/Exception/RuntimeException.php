@@ -8,7 +8,7 @@
  * This source file is subject to the MIT license that is bundled.
  */
 
-namespace Guanguans\MusicPhp\Exception;
+namespace Guanguans\MusicPHP\Exception;
 
 class RuntimeException extends Exception
 {

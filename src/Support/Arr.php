@@ -8,7 +8,7 @@
  * This source file is subject to the MIT license that is bundled.
  */
 
-namespace Guanguans\MusicPhp\Support;
+namespace Guanguans\MusicPHP\Support;
 
 /**
  * Array helper from Illuminate\Support\Arr.

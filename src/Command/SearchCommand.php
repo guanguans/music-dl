@@ -8,9 +8,9 @@
  * This source file is subject to the MIT license that is bundled.
  */
 
-namespace Guanguans\MusicPhp\Command;
+namespace Guanguans\MusicPHP\Command;
 
-use Guanguans\MusicPhp\MusicPhp;
+use Guanguans\MusicPHP\Music;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputArgument;
@@ -82,8 +82,8 @@ class SearchCommand extends Command
         $output->writeln($config['splitter']);
         $output->writeln(sprintf($config['searching'], $keyword));
 
-        $musicPhp = $this->getMusicPhp();
-        $songs = $musicPhp->searchAll($keyword);
+        $MusicPHP = $this->getMusicPHP();
+        $songs = $MusicPHP->searchAll($keyword);
 
         if (empty($songs)) {
             $output->writeln($config['empty_result']);
@@ -93,7 +93,7 @@ class SearchCommand extends Command
         $table = $this->getTable($output);
         $table
             ->setHeaders($config['table_headers'])
-            ->setRows($musicPhp->formatAll($songs, $keyword));
+            ->setRows($MusicPHP->formatAll($songs, $keyword));
         $table->render();
 
         serialNumber:
@@ -113,12 +113,12 @@ class SearchCommand extends Command
         foreach ($serialNumbers as $serialNumber) {
             $song = $songs[$serialNumber];
             $table = $this->getTable($output);
-            $table->setHeaders($musicPhp->format($song, $keyword));
+            $table->setHeaders($MusicPHP->format($song, $keyword));
             $table->render();
 
             $output->writeln($config['downloading']);
-            $musicPhp->download($song);
-            $output->writeln(sprintf($config['save_path'], $musicPhp->getDownloadsDir(), implode(',', $song['artist']), $song['name']));
+            $MusicPHP->download($song);
+            $output->writeln(sprintf($config['save_path'], $MusicPHP->getDownloadsDir(), implode(',', $song['artist']), $song['name']));
             $output->writeln($config['splitter']);
         }
 
@@ -126,11 +126,11 @@ class SearchCommand extends Command
     }
 
     /**
-     * @return \Guanguans\MusicPhp\MusicPhp
+     * @return \Guanguans\MusicPHP\Music
      */
-    public function getMusicPhp()
+    public function getMusicPHP()
     {
-        return new MusicPhp();
+        return new Music();
     }
 
     /**
