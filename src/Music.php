@@ -17,6 +17,7 @@ use Guanguans\MusicPHP\Exceptions\Exception;
 use Guanguans\MusicPHP\Exceptions\HttpException;
 use Guanguans\MusicPHP\Exceptions\RuntimeException;
 use GuzzleHttp\Client;
+use Joli\JoliNotif\Util\OsHelper;
 use Metowolf\Meting;
 
 /**
@@ -165,7 +166,7 @@ class Music implements MusicInterface
      */
     public function getDownloadsDir()
     {
-        $downloadsDir = PATH_SEPARATOR === ':' ? trim(exec('cd ~; pwd')).'/Downloads/' : 'C:\\Users\\'.get_current_user().'\\Downloads\\';
+        $downloadsDir = OsHelper::isWindows() ? 'C:\\Users\\'.get_current_user().'\\Downloads\\' : trim(exec('cd ~; pwd')).'/Downloads/';
 
         if (!is_dir($downloadsDir) && !mkdir($downloadsDir, 0777, true) && !is_dir($downloadsDir)) {
             throw new RuntimeException(sprintf('Directory "%s" was not created', $downloadsDir));

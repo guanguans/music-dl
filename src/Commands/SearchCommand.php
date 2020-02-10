@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Guanguans\MusicPHP\Commands;
 
 use Guanguans\MusicPHP\Music;
+use Joli\JoliNotif\Util\OsHelper;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputArgument;
@@ -68,7 +69,7 @@ class SearchCommand extends Command
         start:
 
         $output->writeln($config['search_tips']);
-        if (PATH_SEPARATOR === ';') {
+        if (OsHelper::isWindows()) {
             $output->writeln($config['win_tips']);
         }
 
