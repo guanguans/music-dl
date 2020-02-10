@@ -68,12 +68,12 @@ class Music implements MusicInterface
 
         foreach ($songs as $key => &$song) {
             $detail = json_decode($meting->format()->url($song['url_id']), true);
-            if ($detail['url']) {
-                $song = array_merge($song, $detail);
-            } else {
+            if (empty($detail['url'])) {
                 unset($songs[$key]);
             }
+            $song = array_merge($song, $detail);
         }
+        unset($song);
 
         return $songs;
     }

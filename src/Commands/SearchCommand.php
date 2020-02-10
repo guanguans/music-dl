@@ -85,8 +85,8 @@ class SearchCommand extends Command
         $output->writeln($config['splitter']);
         $output->writeln(sprintf($config['searching'], $keyword));
 
-        $MusicPHP = $this->getMusicPHP();
-        $songs = $MusicPHP->searchAll($keyword);
+        $music = $this->getMusic();
+        $songs = $music->searchAll($keyword);
 
         if (empty($songs)) {
             $output->writeln($config['empty_result']);
@@ -96,7 +96,7 @@ class SearchCommand extends Command
         $table = $this->getTable($output);
         $table
             ->setHeaders($config['table_headers'])
-            ->setRows($MusicPHP->formatAll($songs, $keyword));
+            ->setRows($music->formatAll($songs, $keyword));
         $table->render();
 
         serialNumber:
@@ -116,12 +116,12 @@ class SearchCommand extends Command
         foreach ($serialNumbers as $serialNumber) {
             $song = $songs[$serialNumber];
             $table = $this->getTable($output);
-            $table->setHeaders($MusicPHP->format($song, $keyword));
+            $table->setHeaders($music->format($song, $keyword));
             $table->render();
 
             $output->writeln($config['downloading']);
-            $MusicPHP->download($song);
-            $output->writeln(sprintf($config['save_path'], $MusicPHP->getDownloadsDir(), implode(',', $song['artist']), $song['name']));
+            $music->download($song);
+            $output->writeln(sprintf($config['save_path'], $music->getDownloadsDir(), implode(',', $song['artist']), $song['name']));
             $output->writeln($config['splitter']);
         }
 
@@ -131,7 +131,7 @@ class SearchCommand extends Command
     /**
      * @return \Guanguans\MusicPHP\Music
      */
-    public function getMusicPHP(): Music
+    public function getMusic(): Music
     {
         return new Music();
     }
