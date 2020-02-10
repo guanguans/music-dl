@@ -1,9 +1,0 @@
-parameters:
-    level: 3
-    paths:
-        - src
-    reportUnmatchedIgnoredErrors: true
-    ignoreErrors:
-        - '#PHPDoc tag @param has invalid value#'
-        - '#PHPDoc tag @param for parameter $array with type#'
-        - '#PHPDoc tag @param for parameter $items with type#'
