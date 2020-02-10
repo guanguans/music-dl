@@ -9,10 +9,6 @@
  * This source file is subject to the MIT license that is bundled.
  */
 
-if (PHP_SAPI !== 'cli' && PHP_MINOR_VERSION < 5) {
-    echo 'Warning: phplint should be invoked via the CLI minimum version of PHP 5.5.9, not the ' . PHP_SAPI . ' SAPI' . PHP_EOL;
-}
-
 $loaded = false;
 
 foreach ([__DIR__ . '/../../../autoload.php', __DIR__ . '/../vendor/autoload.php'] as $file) {
@@ -31,8 +27,8 @@ if (!$loaded) {
     );
 }
 
-use Guanguans\MusicPHP\Console\Application;
-use Guanguans\MusicPHP\Command\SearchCommand;
+use Guanguans\MusicPHP\Consoles\Application;
+use Guanguans\MusicPHP\Commands\SearchCommand;
 
 error_reporting(0);
 

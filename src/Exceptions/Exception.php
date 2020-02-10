@@ -10,7 +10,7 @@ declare(strict_types=1);
  * This source file is subject to the MIT license that is bundled.
  */
 
-namespace Guanguans\MusicPHP\Exception;
+namespace Guanguans\MusicPHP\Exceptions;
 
 class Exception extends \Exception
 {

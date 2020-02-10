@@ -10,7 +10,7 @@ declare(strict_types=1);
  * This source file is subject to the MIT license that is bundled.
  */
 
-namespace Guanguans\MusicPHP\Command;
+namespace Guanguans\MusicPHP\Commands;
 
 use Guanguans\MusicPHP\Music;
 use Symfony\Component\Console\Command\Command;
@@ -58,7 +58,7 @@ class SearchCommand extends Command
      * @param \Symfony\Component\Console\Input\InputInterface   $input
      * @param \Symfony\Component\Console\Output\OutputInterface $output
      *
-     * @return int|void|null
+     * @return int|void
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
@@ -130,7 +130,7 @@ class SearchCommand extends Command
     /**
      * @return \Guanguans\MusicPHP\Music
      */
-    public function getMusicPHP()
+    public function getMusicPHP(): Music
     {
         return new Music();
     }
@@ -140,7 +140,7 @@ class SearchCommand extends Command
      *
      * @return \Symfony\Component\Console\Helper\Table
      */
-    public function getTable(OutputInterface $output)
+    public function getTable(OutputInterface $output): Table
     {
         return new Table($output);
     }

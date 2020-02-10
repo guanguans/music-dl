@@ -12,10 +12,10 @@ declare(strict_types=1);
 
 namespace Guanguans\MusicPHP;
 
-use Guanguans\MusicPHP\Contract\MusicInterface;
-use Guanguans\MusicPHP\Exception\Exception;
-use Guanguans\MusicPHP\Exception\HttpException;
-use Guanguans\MusicPHP\Exception\RuntimeException;
+use Guanguans\MusicPHP\Contracts\MusicInterface;
+use Guanguans\MusicPHP\Exceptions\Exception;
+use Guanguans\MusicPHP\Exceptions\HttpException;
+use Guanguans\MusicPHP\Exceptions\RuntimeException;
 use GuzzleHttp\Client;
 use Metowolf\Meting;
 
@@ -38,11 +38,11 @@ class Music implements MusicInterface
     }
 
     /**
-     * @param $keyword
+     * @param string $keyword
      *
      * @return array
      */
-    public function searchAll($keyword)
+    public function searchAll(string $keyword): array
     {
         $songAll = [];
 
@@ -54,28 +54,19 @@ class Music implements MusicInterface
     }
 
     /**
-     * @param $platform
-     * @param $keyword
+     * @param string $platform
+     * @param string $keyword
      *
      * @return mixed
      */
-    public function search($platform, $keyword)
+    public function search(string $platform, string $keyword)
     {
         $meting = $this->getMeting($platform);
 
-        try {
-            $songs = json_decode($meting->format()->search($keyword), true);
-        } catch (HttpException $e) {
-            throw new HttpException($e->getMessage(), $e->getCode(), $e);
-        }
+        $songs = json_decode($meting->format()->search($keyword), true);
 
         foreach ($songs as $key => &$song) {
-            try {
-                $detail = json_decode($meting->format()->url($song['url_id']), true);
-            } catch (HttpException $e) {
-                throw new HttpException($e->getMessage(), $e->getCode(), $e);
-            }
-
+            $detail = json_decode($meting->format()->url($song['url_id']), true);
             if ($detail['url']) {
                 $song = array_merge($song, $detail);
             } else {
@@ -87,22 +78,22 @@ class Music implements MusicInterface
     }
 
     /**
-     * @param $platform
+     * @param string $platform
      *
      * @return \Metowolf\Meting
      */
-    public function getMeting($platform)
+    public function getMeting(string $platform): Meting
     {
         return new Meting($platform);
     }
 
     /**
-     * @param array $songs
-     * @param       $keyword
+     * @param array  $songs
+     * @param string $keyword
      *
      * @return array
      */
-    public function formatAll(array $songs, $keyword)
+    public function formatAll(array $songs, string $keyword): array
     {
         foreach ($songs as $key => &$song) {
             $song = $this->format($song, $keyword);
@@ -115,12 +106,12 @@ class Music implements MusicInterface
     }
 
     /**
-     * @param array $song
-     * @param       $keyword
+     * @param array  $song
+     * @param string $keyword
      *
      * @return array
      */
-    public function format(array $song, $keyword)
+    public function format(array $song, string $keyword): array
     {
         foreach ($this->hideFields as $hideField) {
             unset($song[$hideField]);
@@ -138,7 +129,9 @@ class Music implements MusicInterface
     /**
      * @param array $song
      *
-     * @throws \Guanguans\MusicPHP\Exception\HttpException
+     * @return mixed|void
+     *
+     * @throws \Guanguans\MusicPHP\Exceptions\HttpException
      */
     public function download(array $song)
     {
@@ -152,7 +145,7 @@ class Music implements MusicInterface
     /**
      * @return \GuzzleHttp\Client
      */
-    public function getHttpClient()
+    public function getHttpClient(): Client
     {
         return new Client($this->guzzleOptions);
     }
@@ -167,6 +160,8 @@ class Music implements MusicInterface
 
     /**
      * @return string
+     *
+     * @throws \Guanguans\MusicPHP\Exceptions\RuntimeException
      */
     public function getDownloadsDir()
     {

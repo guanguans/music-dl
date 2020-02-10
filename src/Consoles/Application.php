@@ -10,9 +10,10 @@ declare(strict_types=1);
  * This source file is subject to the MIT license that is bundled.
  */
 
-namespace Guanguans\MusicPHP\Console;
+namespace Guanguans\MusicPHP\Consoles;
 
 use Symfony\Component\Console\Application as BaseApplication;
+use Symfony\Component\Console\Input\InputDefinition;
 use Symfony\Component\Console\Input\InputInterface;
 
 /**
@@ -22,7 +23,7 @@ class Application extends BaseApplication
 {
     const NAME = 'MusicPHP';
 
-    const VERSION = '1.1.7';
+    const VERSION = '2.0.0';
 
     /**
      * Application constructor.
@@ -35,7 +36,7 @@ class Application extends BaseApplication
     /**
      * @return \Symfony\Component\Console\Input\InputDefinition
      */
-    public function getDefinition()
+    public function getDefinition(): InputDefinition
     {
         $inputDefinition = parent::getDefinition();
         // clear out the normal first argument, which is the command name
@@ -49,7 +50,7 @@ class Application extends BaseApplication
      *
      * @return string
      */
-    protected function getCommandName(InputInterface $input)
+    protected function getCommandName(InputInterface $input): string
     {
         return 'search';
     }

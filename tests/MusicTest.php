@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Guanguans\Tests;
 
-use Guanguans\MusicPHP\Exception\HttpException;
+use Guanguans\MusicPHP\Exceptions\HttpException;
 use Guanguans\MusicPHP\Music;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
