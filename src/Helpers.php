@@ -11,6 +11,8 @@ declare(strict_types=1);
  */
 
 use Guanguans\MusicPHP\Config;
+use Guanguans\MusicPHP\Exceptions\RuntimeException;
+use Joli\JoliNotif\Util\OsHelper;
 
 if (!function_exists('config')) {
     /**
@@ -26,5 +28,23 @@ if (!function_exists('config')) {
         }
 
         return $config->get($key);
+    }
+}
+
+if (!function_exists('get_downloads_dir')) {
+    /**
+     * @return string
+     *
+     * @throws \Guanguans\MusicPHP\Exceptions\RuntimeException
+     */
+    function get_downloads_dir()
+    {
+        $downloadsDir = OsHelper::isWindows() ? 'C:\\Users\\'.get_current_user().'\\Downloads\\' : trim(exec('cd ~; pwd')).'/Downloads/';
+
+        if (!is_dir($downloadsDir) && !mkdir($downloadsDir, 0777, true) && !is_dir($downloadsDir)) {
+            throw new RuntimeException(sprintf('Directory "%s" was not created', $downloadsDir));
+        }
+
+        return $downloadsDir;
     }
 }
