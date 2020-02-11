@@ -48,3 +48,17 @@ if (!function_exists('get_downloads_dir')) {
         return $downloadsDir;
     }
 }
+
+if (!function_exists('get_save_path')) {
+    /**
+     * @param array $song
+     *
+     * @return string
+     *
+     * @throws \Guanguans\MusicPHP\Exceptions\RuntimeException
+     */
+    function get_save_path(array $song)
+    {
+        return get_downloads_dir().implode(',', $song['artist']).' - '.$song['name'].'.mp3';
+    }
+}

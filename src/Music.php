@@ -135,7 +135,7 @@ class Music implements MusicInterface
     public function download(array $song)
     {
         try {
-            $this->getHttpClient()->get($song['url'], ['save_to' => get_downloads_dir().implode(',', $song['artist']).' - '.$song['name'].'.mp3']);
+            $this->getHttpClient()->get($song['url'], ['save_to' => get_save_path($song)]);
         } catch (Exception $e) {
             throw new HttpException($e->getMessage(), $e->getCode(), $e);
         }
