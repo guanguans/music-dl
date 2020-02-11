@@ -13,6 +13,9 @@ declare(strict_types=1);
 namespace Guanguans\MusicPHP\Commands;
 
 use Guanguans\MusicPHP\Music;
+use Joli\JoliNotif\Notification;
+use Joli\JoliNotif\Notifier;
+use Joli\JoliNotif\NotifierFactory;
 use Joli\JoliNotif\Util\OsHelper;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
@@ -124,6 +127,7 @@ class SearchCommand extends Command
             $output->writeln($this->config['downloading']);
             $music->download($song);
             $output->writeln(sprintf($this->config['save_path'], get_downloads_dir(), implode(',', $song['artist']), $song['name']));
+            $this->getNotifier()->send($this->getNotification(get_save_path($song)));
             $output->writeln($this->config['splitter']);
         }
 
@@ -146,5 +150,26 @@ class SearchCommand extends Command
     public function getTable(OutputInterface $output): Table
     {
         return new Table($output);
+    }
+
+    /**
+     * @return \Joli\JoliNotif\Notifier
+     */
+    public function getNotifier(): Notifier
+    {
+        return NotifierFactory::create();
+    }
+
+    /**
+     * @param string $body
+     *
+     * @return \Joli\JoliNotif\Notification
+     */
+    public function getNotification(string $body): Notification
+    {
+        return (new Notification())
+            ->setTitle('Music PHP')
+            ->setBody($body)
+            ->addOption('sound', 'Frog'); // Only works on macOS (AppleScriptNotifier)
     }
 }
