@@ -9,19 +9,18 @@
 
 <p align="center"><img src="./docs/Usage.gif" width="100%"></p>
 
-[![Github Actions](http://aliyunfc.tarocch1.com/github-actions-badge/guanguans/music-php)](https://github.com/guanguans/music-php/actions)
 [![Build Status](https://travis-ci.org/guanguans/music-php.svg?branch=master)](https://travis-ci.org/guanguans/music-php)
 [![Build Status](https://scrutinizer-ci.com/g/guanguans/music-php/badges/build.png?b=master)](https://scrutinizer-ci.com/g/guanguans/music-php/build-status/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/guanguans/music-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/guanguans/music-php/?branch=master)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=guanguans_music-php&metric=alert_status)](https://sonarcloud.io/dashboard?id=guanguans_music-php)
+[![codecov](https://codecov.io/gh/guanguans/music-php/branch/master/graph/badge.svg)](https://codecov.io/gh/guanguans/music-php)
 [![StyleCI](https://github.styleci.io/repos/174921589/shield?branch=master)](https://github.styleci.io/repos/174921589)
 [![Latest Stable Version](https://poser.pugx.org/guanguans/music-php/v/stable)](https://packagist.org/packages/guanguans/music-php)
+[![Total Downloads](https://poser.pugx.org/guanguans/music-php/downloads)](https://packagist.org/packages/guanguans/music-php)
 [![License](https://poser.pugx.org/guanguans/music-php/license)](https://packagist.org/packages/guanguans/music-php)
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fguanguans%2Fmusic-php.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fguanguans%2Fmusic-php?ref=badge_shield)
 
 ##  Requirement
 
-* PHP >= 5.6
+* PHP >= 7.1
 * Composer
 
 ## Installation
@@ -46,6 +45,12 @@ $ composer create-project guanguans/music-php --no-dev
 
 ``` shell
 $ ./path/music-php
+```
+
+## Tests
+
+``` shell
+$ composer tests
 ```
 
 ## Contributors
