@@ -27,7 +27,6 @@ class MusicTest extends TestCase
     protected function setUp()
     {
         parent::setUp();
-
         $this->music = new Music();
     }
 
@@ -111,9 +110,18 @@ class MusicTest extends TestCase
         ];
     }
 
+    public function testSearchAll()
+    {
+        $this->assertIsArray($this->music->search('mock-str', 'mock-str'));
+    }
+
+    public function testSearch()
+    {
+        $this->assertIsArray($this->music->search('mock-str', 'mock-str'));
+    }
+
     public function testGetMeting()
     {
-        $this->music = new Music();
         $this->assertInstanceOf(Meting::class, $this->music->getMeting('mock-str'));
     }
 
@@ -122,7 +130,6 @@ class MusicTest extends TestCase
      */
     public function testFormat($song)
     {
-        $this->music = new Music();
         $songFormat = $this->music->format($song, '一个短篇');
 
         $this->assertArrayHasKey('name', $songFormat);
@@ -143,8 +150,6 @@ class MusicTest extends TestCase
      */
     public function testFormatAll($songs)
     {
-        $this->music = new Music();
-
         $formatSongs = $this->music->formatAll($songs, '一个短篇');
         foreach ($formatSongs as $k => $item) {
             $this->assertSame("<fg=cyan>$k</>", $item[0]);
@@ -169,14 +174,12 @@ class MusicTest extends TestCase
 
     public function testGetHttpClient()
     {
-        $this->music = new Music();
         // 断言返回结果为 GuzzleHttp\ClientInterface 实例
         $this->assertInstanceOf(ClientInterface::class, $this->music->getHttpClient());
     }
 
     public function testSetGuzzleOptions()
     {
-        $this->music = new Music();
         // 设置参数前，timeout 为 null
         $this->assertNull($this->music->getHttpClient()->getConfig('timeout'));
         // 设置参数
