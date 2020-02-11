@@ -33,6 +33,8 @@ class SearchCommand extends Command
      */
     protected $output;
 
+    protected $config;
+
     /**
      * @param \Symfony\Component\Console\Input\InputInterface   $input
      * @param \Symfony\Component\Console\Output\OutputInterface $output
@@ -41,6 +43,7 @@ class SearchCommand extends Command
     {
         $this->input = $input;
         $this->output = $output;
+        $this->config = config();
     }
 
     protected function configure()
@@ -63,52 +66,51 @@ class SearchCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $config = config();
-        $output->writeln($config['logo']);
+        $output->writeln($this->config['logo']);
 
         start:
 
-        $output->writeln($config['search_tips']);
+        $output->writeln($this->config['search_tips']);
         if (OsHelper::isWindows()) {
-            $output->writeln($config['win_tips']);
+            $output->writeln($this->config['win_tips']);
         }
 
         $helper = $this->getHelper('question');
-        $question = new Question($config['input']);
+        $question = new Question($this->config['input']);
         $keyword = trim($helper->ask($input, $output, $question));
 
         if (empty($keyword)) {
-            $output->writeln($config['input_error']);
+            $output->writeln($this->config['input_error']);
             goto start;
         }
 
-        $output->writeln($config['splitter']);
-        $output->writeln(sprintf($config['searching'], $keyword));
+        $output->writeln($this->config['splitter']);
+        $output->writeln(sprintf($this->config['searching'], $keyword));
 
         $music = $this->getMusic();
         $songs = $music->searchAll($keyword);
 
         if (empty($songs)) {
-            $output->writeln($config['empty_result']);
+            $output->writeln($this->config['empty_result']);
             goto start;
         }
 
         $table = $this->getTable($output);
         $table
-            ->setHeaders($config['table_headers'])
+            ->setHeaders($this->config['table_headers'])
             ->setRows($music->formatAll($songs, $keyword));
         $table->render();
 
         serialNumber:
 
-        $output->writeln($config['download_tips']);
-        $question = new Question($config['input']);
+        $output->writeln($this->config['download_tips']);
+        $question = new Question($this->config['input']);
         $serialNumber = trim($helper->ask($input, $output, $question));
 
         if ('n' === $serialNumber || 'N' === $serialNumber) {
             goto start;
         } elseif ($serialNumber < 0 || $serialNumber >= count($songs) || !preg_match('/^[0-9,]*$/', $serialNumber)) {
-            $output->writeln($config['input_error']);
+            $output->writeln($this->config['input_error']);
             goto serialNumber;
         }
         $serialNumbers = explode(',', trim($serialNumber, ','));
@@ -119,10 +121,10 @@ class SearchCommand extends Command
             $table->setHeaders($music->format($song, $keyword));
             $table->render();
 
-            $output->writeln($config['downloading']);
+            $output->writeln($this->config['downloading']);
             $music->download($song);
-            $output->writeln(sprintf($config['save_path'], get_downloads_dir(), implode(',', $song['artist']), $song['name']));
-            $output->writeln($config['splitter']);
+            $output->writeln(sprintf($this->config['save_path'], get_downloads_dir(), implode(',', $song['artist']), $song['name']));
+            $output->writeln($this->config['splitter']);
         }
 
         goto start;
