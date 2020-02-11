@@ -187,10 +187,4 @@ class MusicTest extends TestCase
         // 设置参数后，timeout 为 3000
         $this->assertSame(3000, $this->music->getHttpClient()->getConfig('timeout'));
     }
-
-    public function testGetDownloadsDir()
-    {
-        $this->assertStringStartsWith('/', $this->music->getDownloadsDir());
-        $this->assertStringEndsWith('/Downloads/', $this->music->getDownloadsDir());
-    }
 }
