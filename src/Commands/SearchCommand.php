@@ -126,8 +126,9 @@ class SearchCommand extends Command
 
             $output->writeln($this->config['downloading']);
             $music->download($song);
-            $output->writeln(sprintf($this->config['save_path'], get_downloads_dir(), implode(',', $song['artist']), $song['name']));
-            $this->getNotifier()->send($this->getNotification(get_save_path($song)));
+            $savePath = sprintf($this->config['save_path'], get_downloads_dir(), implode(',', $song['artist']), $song['name']);
+            $output->writeln($savePath);
+            $this->getNotifier()->send($this->getNotification(str_replace(['<info>', '</info>'], '', $savePath)));
             $output->writeln($this->config['splitter']);
         }
 
