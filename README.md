@@ -9,6 +9,7 @@
 
 <p align="center"><img src="./docs/Usage.gif" width="100%"></p>
 
+[![Test](https://github.com/guanguans/music-php/workflows/Test/badge.svg)](https://github.com/guanguans/music-php/actions?query=workflow%3ATest)
 [![Build Status](https://travis-ci.org/guanguans/music-php.svg?branch=master)](https://travis-ci.org/guanguans/music-php)
 [![Build Status](https://scrutinizer-ci.com/g/guanguans/music-php/badges/build.png?b=master)](https://scrutinizer-ci.com/g/guanguans/music-php/build-status/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/guanguans/music-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/guanguans/music-php/?branch=master)
