@@ -18,16 +18,11 @@ namespace Guanguans\MusicPHP\Contracts;
 interface MusicInterface
 {
     /**
-     * @param string $platform
-     * @param string $keyword
-     *
      * @return mixed
      */
     public function search(string $platform, string $keyword);
 
     /**
-     * @param array $song
-     *
      * @return mixed
      */
     public function download(array $song);

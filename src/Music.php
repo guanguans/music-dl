@@ -36,11 +36,6 @@ class Music implements MusicInterface
     {
     }
 
-    /**
-     * @param string $keyword
-     *
-     * @return array
-     */
     public function searchAll(string $keyword): array
     {
         $songAll = [];
@@ -53,9 +48,6 @@ class Music implements MusicInterface
     }
 
     /**
-     * @param string $platform
-     * @param string $keyword
-     *
      * @return mixed
      */
     public function search(string $platform, string $keyword)
@@ -76,22 +68,11 @@ class Music implements MusicInterface
         return $songs;
     }
 
-    /**
-     * @param string $platform
-     *
-     * @return \Metowolf\Meting
-     */
     public function getMeting(string $platform): Meting
     {
         return new Meting($platform);
     }
 
-    /**
-     * @param array  $songs
-     * @param string $keyword
-     *
-     * @return array
-     */
     public function formatAll(array $songs, string $keyword): array
     {
         foreach ($songs as $key => &$song) {
@@ -104,12 +85,6 @@ class Music implements MusicInterface
         return $songs;
     }
 
-    /**
-     * @param array  $song
-     * @param string $keyword
-     *
-     * @return array
-     */
     public function format(array $song, string $keyword): array
     {
         foreach ($this->hideFields as $hideField) {
@@ -126,8 +101,6 @@ class Music implements MusicInterface
     }
 
     /**
-     * @param array $song
-     *
      * @return mixed|void
      *
      * @throws \Guanguans\MusicPHP\Exceptions\HttpException
@@ -141,17 +114,11 @@ class Music implements MusicInterface
         }
     }
 
-    /**
-     * @return \GuzzleHttp\Client
-     */
     public function getHttpClient(): Client
     {
         return new Client($this->guzzleOptions);
     }
 
-    /**
-     * @param array $options
-     */
     public function setGuzzleOptions(array $options)
     {
         $this->guzzleOptions = $options;
