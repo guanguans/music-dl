@@ -27,6 +27,8 @@ if (!$loaded) {
     );
 }
 
+define('APP_PATH', dirname(__DIR__));
+
 use Guanguans\MusicPHP\Consoles\Application;
 use Guanguans\MusicPHP\Commands\SearchCommand;
 

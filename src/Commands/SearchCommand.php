@@ -171,7 +171,7 @@ class SearchCommand extends Command
         return (new Notification())
             ->setTitle('Music PHP')
             ->setBody($body)
-            ->setIcon(__DIR__.'/../../resources/icon-success.png')
+            ->setIcon($this->config['icon_success'])
             ->addOption('sound', 'Frog'); // Only works on macOS (AppleScriptNotifier)
     }
 }
