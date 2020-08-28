@@ -22,7 +22,7 @@ if (!function_exists('config')) {
      */
     function config($key = null)
     {
-        $config = new Config(require __DIR__.'/../config/config.php');
+        $config = new Config(require APP_PATH.'/config/config.php');
         if (null === $key) {
             return $config;
         }

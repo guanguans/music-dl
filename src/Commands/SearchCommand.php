@@ -110,13 +110,17 @@ class SearchCommand extends Command
         $question = new Question($this->config['input']);
         $serialNumber = trim($helper->ask($input, $output, $question));
 
-        if ('n' === $serialNumber || 'N' === $serialNumber) {
+        if ('N' === $serialNumber) {
             goto start;
-        } elseif ($serialNumber < 0 || $serialNumber >= count($songs) || !preg_match('/^[0-9,]*$/', $serialNumber)) {
+        }
+        if ($serialNumber !== 'ALL' && ($serialNumber < 0 || $serialNumber >= count($songs) || !preg_match('/^[0-9,]*$/', $serialNumber))) {
             $output->writeln($this->config['input_error']);
             goto serialNumber;
         }
         $serialNumbers = explode(',', trim($serialNumber, ','));
+        if ($serialNumber === 'ALL') {
+            $serialNumbers = array_keys($songs);
+        }
 
         foreach ($serialNumbers as $serialNumber) {
             $song = $songs[$serialNumber];
