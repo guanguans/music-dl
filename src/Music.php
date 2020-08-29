@@ -17,6 +17,8 @@ use Guanguans\MusicPHP\Exceptions\Exception;
 use Guanguans\MusicPHP\Exceptions\HttpException;
 use GuzzleHttp\Client;
 use Metowolf\Meting;
+use Symfony\Component\Console\Helper\ProgressBar;
+use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Class Music.
@@ -126,16 +128,39 @@ class Music implements MusicInterface
     }
 
     /**
-     * @param array $song
+     * @param  array  $song
+     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
      *
-     * @return mixed|void
+     * @return mixed|\Psr\Http\Message\ResponseInterface
      *
      * @throws \Guanguans\MusicPHP\Exceptions\HttpException
      */
-    public function download(array $song)
+    public function download(array $song, OutputInterface $output)
     {
         try {
-            $this->getHttpClient()->get($song['url'], ['save_to' => get_save_path($song)]);
+            $progressBar  = null;
+            $isDownloaded = false;
+            $this->setGuzzleOptions([
+                'sink'     => get_save_path($song),
+                'progress' => function ($totalDownload, $downloaded) use ($output, &$progressBar, &$isDownloaded){
+                    if ($totalDownload > 0 && $downloaded > 0 && $progressBar === null) {
+                        $progressBar = new ProgressBar($output, $totalDownload);
+                        $progressBar->setFormat('very_verbose');
+                        $progressBar->start();
+                    }
+                    if (!$isDownloaded && $progressBar && $totalDownload === $downloaded) {
+                        $progressBar->finish();
+                        $output->writeln(PHP_EOL);
+
+                        return $isDownloaded = true;
+                    }
+                    if ($progressBar) {
+                        $progressBar->setProgress($downloaded);
+                    }
+                },
+            ]);
+
+            return $this->getHttpClient()->get($song['url']);
         } catch (Exception $e) {
             throw new HttpException($e->getMessage(), $e->getCode(), $e);
         }

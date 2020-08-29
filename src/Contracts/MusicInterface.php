@@ -12,6 +12,8 @@ declare(strict_types=1);
 
 namespace Guanguans\MusicPHP\Contracts;
 
+use Symfony\Component\Console\Output\OutputInterface;
+
 /**
  * Interface MusicInterface.
  */
@@ -26,9 +28,10 @@ interface MusicInterface
     public function search(string $platform, string $keyword);
 
     /**
-     * @param array $song
+     * @param  array  $song
+     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
      *
      * @return mixed
      */
-    public function download(array $song);
+    public function download(array $song, OutputInterface $output);
 }
