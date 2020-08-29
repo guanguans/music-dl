@@ -156,22 +156,6 @@ class MusicTest extends TestCase
         }
     }
 
-    /**
-     * @dataProvider formatProvider
-     */
-    public function testDownloadWithGuzzleRuntimeException($song)
-    {
-        $client = Mockery::mock(Client::class);
-        $client->allows()->get(new AnyArgs())->andThrow(new HttpException('request timeout'));
-
-        $w = Mockery::mock(Music::class)->makePartial();
-        $w->allows()->getHttpClient()->andReturn($client);
-
-        $this->expectExceptionMessage('request timeout');
-
-        $w->download($song);
-    }
-
     public function testGetHttpClient()
     {
         // 断言返回结果为 GuzzleHttp\ClientInterface 实例
