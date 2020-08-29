@@ -63,15 +63,20 @@ class Music implements MusicInterface
     public function search(string $platform, string $keyword)
     {
         $meting = $this->getMeting($platform);
-
-        $songs = json_decode($meting->format()->search($keyword), true);
-
+        $songs  = json_decode($meting->format()->search($keyword), true);
         foreach ($songs as $key => &$song) {
-            $detail = json_decode($meting->format()->url($song['url_id']), true);
-            if (empty($detail['url'])) {
-                unset($songs[$key]);
+            $pid = pcntl_fork();
+            if (!$pid) {
+                $detail = json_decode($meting->format()->url($song['url_id']), true);
+                if (empty($detail['url'])) {
+                    unset($songs[$key]);
+                }
+                $song = array_merge($song, $detail);
+                exit($key);
             }
-            $song = array_merge($song, $detail);
+        }
+        while (pcntl_waitpid(0, $status) != -1) {
+            $status = pcntl_wexitstatus($status);
         }
         unset($song);
 
