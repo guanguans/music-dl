@@ -33,9 +33,6 @@ class Application extends BaseApplication
         parent::__construct(self::NAME, self::VERSION);
     }
 
-    /**
-     * @return \Symfony\Component\Console\Input\InputDefinition
-     */
     public function getDefinition(): InputDefinition
     {
         $inputDefinition = parent::getDefinition();
@@ -45,11 +42,6 @@ class Application extends BaseApplication
         return $inputDefinition;
     }
 
-    /**
-     * @param \Symfony\Component\Console\Input\InputInterface $input
-     *
-     * @return string
-     */
     protected function getCommandName(InputInterface $input): string
     {
         return 'search';
