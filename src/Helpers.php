@@ -51,8 +51,6 @@ if (!function_exists('get_downloads_dir')) {
 
 if (!function_exists('get_save_path')) {
     /**
-     * @param array $song
-     *
      * @return string
      *
      * @throws \Guanguans\MusicPHP\Exceptions\RuntimeException
