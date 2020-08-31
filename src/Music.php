@@ -41,21 +41,16 @@ class Music implements MusicInterface
     {
     }
 
-    /**
-     * @param string $keyword
-     *
-     * @return array
-     */
     public function searchAll(string $keyword): array
     {
         $songAll = [];
-        $pool    = Pool::create();
+        $pool = Pool::create();
         foreach ($this->platforms as $platform) {
-            $pool->add(function () use ($platform, $keyword){
+            $pool->add(function () use ($platform, $keyword) {
                 return $this->search($platform, $keyword);
-            }, $this->getSerializedOutput())->then(function ($output) use (&$songAll){
+            }, $this->getSerializedOutput())->then(function ($output) use (&$songAll) {
                 $songAll = array_merge($songAll, $output);
-            })->catch(function (\Throwable $exception){
+            })->catch(function (\Throwable $exception) {
                 exit($exception->getMessage());
             });
         }
@@ -65,26 +60,23 @@ class Music implements MusicInterface
     }
 
     /**
-     * @param string $platform
-     * @param string $keyword
-     *
      * @return mixed
      */
     public function search(string $platform, string $keyword)
     {
         $meting = $this->getMeting($platform);
-        $songs  = json_decode($meting->format()->search($keyword), true);
+        $songs = json_decode($meting->format()->search($keyword), true);
 
         $pool = Pool::create();
         foreach ($songs as $key => &$song) {
-            $pool->add(function () use ($meting, $song){
+            $pool->add(function () use ($meting, $song) {
                 return json_decode($meting->format()->url($song['url_id']), true);
-            })->then(function ($output) use (&$songs, &$song, $key){
+            })->then(function ($output) use (&$songs, &$song, $key) {
                 $song = array_merge($song, $output);
                 if (empty($song['url'])) {
                     unset($songs[$key]);
                 }
-            })->catch(function (\Throwable $exception){
+            })->catch(function (\Throwable $exception) {
                 exit($exception->getMessage());
             });
         }
@@ -94,22 +86,11 @@ class Music implements MusicInterface
         return $songs;
     }
 
-    /**
-     * @param string $platform
-     *
-     * @return \Metowolf\Meting
-     */
     public function getMeting(string $platform): Meting
     {
         return new Meting($platform);
     }
 
-    /**
-     * @param array  $songs
-     * @param string $keyword
-     *
-     * @return array
-     */
     public function formatAll(array $songs, string $keyword): array
     {
         foreach ($songs as $key => &$song) {
@@ -122,12 +103,6 @@ class Music implements MusicInterface
         return $songs;
     }
 
-    /**
-     * @param array  $song
-     * @param string $keyword
-     *
-     * @return array
-     */
     public function format(array $song, string $keyword): array
     {
         foreach ($this->hideFields as $hideField) {
@@ -144,9 +119,6 @@ class Music implements MusicInterface
     }
 
     /**
-     * @param  array  $song
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
-     *
      * @return mixed|\Psr\Http\Message\ResponseInterface
      *
      * @throws \Guanguans\MusicPHP\Exceptions\HttpException
@@ -154,12 +126,12 @@ class Music implements MusicInterface
     public function download(array $song, OutputInterface $output)
     {
         try {
-            $progressBar  = null;
+            $progressBar = null;
             $isDownloaded = false;
             $this->setGuzzleOptions([
-                'sink'     => get_save_path($song),
-                'progress' => function ($totalDownload, $downloaded) use ($output, &$progressBar, &$isDownloaded){
-                    if ($totalDownload > 0 && $downloaded > 0 && $progressBar === null) {
+                'sink' => get_save_path($song),
+                'progress' => function ($totalDownload, $downloaded) use ($output, &$progressBar, &$isDownloaded) {
+                    if ($totalDownload > 0 && $downloaded > 0 && null === $progressBar) {
                         $progressBar = new ProgressBar($output, $totalDownload);
                         $progressBar->setFormat('very_verbose');
                         $progressBar->start();
@@ -182,17 +154,11 @@ class Music implements MusicInterface
         }
     }
 
-    /**
-     * @return \GuzzleHttp\Client
-     */
     public function getHttpClient(): Client
     {
         return new Client($this->guzzleOptions);
     }
 
-    /**
-     * @param array $options
-     */
     public function setGuzzleOptions(array $options)
     {
         $this->guzzleOptions = $options;
@@ -207,7 +173,7 @@ class Music implements MusicInterface
     }
 
     /**
-     * @param  float|int  $serializedOutput
+     * @param float|int $serializedOutput
      */
     public function setSerializedOutput($serializedOutput): void
     {
