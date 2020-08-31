@@ -91,7 +91,10 @@ class SearchCommand extends Command
         $output->writeln(sprintf($this->config['searching'], $keyword));
 
         $music = $this->getMusic();
-        $songs = $music->searchAll($keyword);
+
+        $startTime = microtime(true);
+        $songs     = $music->searchAll($keyword);
+        $endTime   = microtime(true);
 
         if (empty($songs)) {
             $output->writeln($this->config['empty_result']);
@@ -103,6 +106,7 @@ class SearchCommand extends Command
             ->setHeaders($this->config['table_headers'])
             ->setRows($music->formatAll($songs, $keyword));
         $table->render();
+        $output->writeln(sprintf('搜索耗时 %s 秒', round($endTime - $startTime, 1)));
 
         serialNumber:
 

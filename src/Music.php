@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Guanguans\MusicPHP;
 
+use Spatie\Async\Pool;
 use Guanguans\MusicPHP\Contracts\MusicInterface;
 use Guanguans\MusicPHP\Exceptions\Exception;
 use Guanguans\MusicPHP\Exceptions\HttpException;
@@ -31,6 +32,8 @@ class Music implements MusicInterface
 
     protected $guzzleOptions = [];
 
+    protected $serializedOutput = 1024 * 100;
+
     /**
      * Music constructor.
      */
@@ -46,10 +49,17 @@ class Music implements MusicInterface
     public function searchAll(string $keyword): array
     {
         $songAll = [];
-
+        $pool    = Pool::create();
         foreach ($this->platforms as $platform) {
-            $songAll = array_merge($songAll, $this->search($platform, $keyword));
+            $pool->add(function () use ($platform, $keyword){
+                return $this->search($platform, $keyword);
+            }, $this->getSerializedOutput())->then(function ($output) use (&$songAll){
+                $songAll = array_merge($songAll, $output);
+            })->catch(function (\Throwable $exception){
+                exit($exception->getMessage());
+            });
         }
+        $pool->wait();
 
         return $songAll;
     }
@@ -63,17 +73,23 @@ class Music implements MusicInterface
     public function search(string $platform, string $keyword)
     {
         $meting = $this->getMeting($platform);
+        $songs  = json_decode($meting->format()->search($keyword), true);
 
-        $songs = json_decode($meting->format()->search($keyword), true);
-
+        $pool = Pool::create();
         foreach ($songs as $key => &$song) {
-            $detail = json_decode($meting->format()->url($song['url_id']), true);
-            if (empty($detail['url'])) {
-                unset($songs[$key]);
-            }
-            $song = array_merge($song, $detail);
+            $pool->add(function () use ($meting, $song){
+                return json_decode($meting->format()->url($song['url_id']), true);
+            })->then(function ($output) use (&$songs, &$song, $key){
+                $song = array_merge($song, $output);
+                if (empty($song['url'])) {
+                    unset($songs[$key]);
+                }
+            })->catch(function (\Throwable $exception){
+                exit($exception->getMessage());
+            });
         }
         unset($song);
+        $pool->wait();
 
         return $songs;
     }
@@ -180,5 +196,21 @@ class Music implements MusicInterface
     public function setGuzzleOptions(array $options)
     {
         $this->guzzleOptions = $options;
+    }
+
+    /**
+     * @return float|int
+     */
+    public function getSerializedOutput()
+    {
+        return $this->serializedOutput;
+    }
+
+    /**
+     * @param  float|int  $serializedOutput
+     */
+    public function setSerializedOutput($serializedOutput): void
+    {
+        $this->serializedOutput = $serializedOutput;
     }
 }
