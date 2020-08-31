@@ -55,8 +55,6 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
 
     /**
      * Return specific items.
-     *
-     * @param array $keys
      */
     public function only(array $keys)
     {

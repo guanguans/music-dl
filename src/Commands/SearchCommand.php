@@ -38,10 +38,6 @@ class SearchCommand extends Command
 
     protected $config;
 
-    /**
-     * @param \Symfony\Component\Console\Input\InputInterface   $input
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     */
     public function initialize(InputInterface $input, OutputInterface $output)
     {
         $this->input = $input;
@@ -62,9 +58,6 @@ class SearchCommand extends Command
     }
 
     /**
-     * @param \Symfony\Component\Console\Input\InputInterface   $input
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     *
      * @return int|void
      */
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -93,8 +86,8 @@ class SearchCommand extends Command
         $music = $this->getMusic();
 
         $startTime = microtime(true);
-        $songs     = $music->searchAll($keyword);
-        $endTime   = microtime(true);
+        $songs = $music->searchAll($keyword);
+        $endTime = microtime(true);
 
         if (empty($songs)) {
             $output->writeln($this->config['empty_result']);
@@ -117,12 +110,12 @@ class SearchCommand extends Command
         if ('N' === $serialNumber) {
             goto start;
         }
-        if ($serialNumber !== 'ALL' && ($serialNumber < 0 || $serialNumber >= count($songs) || !preg_match('/^[0-9,]*$/', $serialNumber))) {
+        if ('ALL' !== $serialNumber && ($serialNumber < 0 || $serialNumber >= count($songs) || !preg_match('/^[0-9,]*$/', $serialNumber))) {
             $output->writeln($this->config['input_error']);
             goto serialNumber;
         }
         $serialNumbers = explode(',', trim($serialNumber, ','));
-        if ($serialNumber === 'ALL') {
+        if ('ALL' === $serialNumber) {
             $serialNumbers = array_keys($songs);
         }
 
@@ -143,37 +136,21 @@ class SearchCommand extends Command
         goto start;
     }
 
-    /**
-     * @return \Guanguans\MusicPHP\Music
-     */
     public function getMusic(): Music
     {
         return new Music();
     }
 
-    /**
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     *
-     * @return \Symfony\Component\Console\Helper\Table
-     */
     public function getTable(OutputInterface $output): Table
     {
         return new Table($output);
     }
 
-    /**
-     * @return \Joli\JoliNotif\Notifier
-     */
     public function getNotifier(): Notifier
     {
         return NotifierFactory::create();
     }
 
-    /**
-     * @param string $body
-     *
-     * @return \Joli\JoliNotif\Notification
-     */
     public function getNotification(string $body): Notification
     {
         return (new Notification())

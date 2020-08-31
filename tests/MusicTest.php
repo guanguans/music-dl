@@ -12,13 +12,9 @@ declare(strict_types=1);
 
 namespace Guanguans\Tests;
 
-use Guanguans\MusicPHP\Exceptions\HttpException;
 use Guanguans\MusicPHP\Music;
-use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use Metowolf\Meting;
-use Mockery;
-use Mockery\Matcher\AnyArgs;
 
 class MusicTest extends TestCase
 {
