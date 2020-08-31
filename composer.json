@@ -22,9 +22,10 @@
         "php": ">=7.1",
         "ext-json": "*",
         "guzzlehttp/guzzle": "^6.3",
+        "jolicode/jolinotif": "^2.1",
         "metowolf/meting": "^1.5",
-        "symfony/console": "^4.0",
-        "jolicode/jolinotif": "^2.1"
+        "spatie/async": "dev-master",
+        "symfony/console": "^4.0"
     },
     "require-dev": {
         "phpunit/phpunit": "~7",
