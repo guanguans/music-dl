@@ -20,17 +20,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 interface MusicInterface
 {
     /**
-     * @param string $platform
-     * @param string $keyword
-     *
      * @return mixed
      */
     public function search(string $platform, string $keyword);
 
     /**
-     * @param  array  $song
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
-     *
      * @return mixed
      */
     public function download(array $song, OutputInterface $output);
