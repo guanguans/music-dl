@@ -12,9 +12,12 @@ declare(strict_types=1);
 
 namespace Guanguans\Tests;
 
+use Exception;
 use Guanguans\MusicPHP\Music;
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ClientException;
 use Metowolf\Meting;
+use Psr\Http\Message\ResponseInterface;
 
 class MusicTest extends TestCase
 {
@@ -116,6 +119,58 @@ class MusicTest extends TestCase
         $this->assertIsArray($this->music->search('mock-str', 'mock-str'));
     }
 
+    /**
+     * @dataProvider formatProvider
+     */
+    public function testDownloadClientException($song)
+    {
+        $this->expectException(ClientException::class);
+        $this->music->download($song);
+    }
+
+    public function testDownloadException()
+    {
+        $song = [
+            'id' => '7334109',
+            'name' => '世纪终曲',
+            'artist' => [
+                0 => '黄凯芹',
+            ],
+            'album' => '短篇小说',
+            'pic_id' => '7334109',
+            'url_id' => '7334109',
+            'lyric_id' => '7334109',
+            'source' => 'baidu',
+            'url' => 'http://zhangmenshiting.qianqian.com/data2/music/137038188/137038188.mp3?xcode=74f83870e51112ce180b9e6dd2675aac',
+            'size' => 18000457,
+            'br' => 320,
+        ];
+
+        $this->expectException(Exception::class);
+        $this->music->download($song);
+    }
+
+    public function testDownload()
+    {
+        $song = [
+            'id' => '00049d7I3bRRRB',
+            'name' => '公路之光',
+            'artist' => [
+                    0 => '小丑乐队',
+                ],
+            'album' => '行星的烦恼',
+            'pic_id' => '004TcBme1EEGIq',
+            'url_id' => '00049d7I3bRRRB',
+            'lyric_id' => '00049d7I3bRRRB',
+            'source' => 'tencent',
+            'url' => 'http://ws.stream.qqmusic.qq.com/M80000049d7I3bRRRB.mp3?guid=1163102676&vkey=9DA7CD54A5529627D1700D4AA60F8EBA7E31E42623E1E60E4061E7AD79136B55B4774B53CD03350A0973136CCC9874AFAB64B780730AA847&uin=0&fromtag=66',
+            'size' => 8872452,
+            'br' => 320,
+        ];
+
+        $this->assertInstanceOf(ResponseInterface::class, $this->music->download($song));
+    }
+
     public function testGetMeting()
     {
         $this->assertInstanceOf(Meting::class, $this->music->getMeting('mock-str'));
@@ -166,5 +221,12 @@ class MusicTest extends TestCase
         $this->music->setGuzzleOptions(['timeout' => 3000]);
         // 设置参数后，timeout 为 3000
         $this->assertSame(3000, $this->music->getHttpClient()->getConfig('timeout'));
+    }
+
+    public function testGetSerializedOutput()
+    {
+        $mock_number = 1000;
+        $this->music->setSerializedOutput($mock_number);
+        $this->assertSame($mock_number, $this->music->getSerializedOutput());
     }
 }
