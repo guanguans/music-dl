@@ -12,8 +12,6 @@ declare(strict_types=1);
 
 namespace Guanguans\MusicPHP\Contracts;
 
-use Symfony\Component\Console\Output\OutputInterface;
-
 /**
  * Interface MusicInterface.
  */
@@ -27,5 +25,5 @@ interface MusicInterface
     /**
      * @return mixed
      */
-    public function download(array $song, OutputInterface $output);
+    public function download(array $song);
 }

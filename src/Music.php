@@ -12,14 +12,13 @@ declare(strict_types=1);
 
 namespace Guanguans\MusicPHP;
 
-use Spatie\Async\Pool;
 use Guanguans\MusicPHP\Contracts\MusicInterface;
 use Guanguans\MusicPHP\Exceptions\Exception;
-use Guanguans\MusicPHP\Exceptions\HttpException;
 use GuzzleHttp\Client;
 use Metowolf\Meting;
+use Spatie\Async\Pool;
 use Symfony\Component\Console\Helper\ProgressBar;
-use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Output\ConsoleOutput;
 
 /**
  * Class Music.
@@ -121,16 +120,17 @@ class Music implements MusicInterface
     /**
      * @return mixed|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \Guanguans\MusicPHP\Exceptions\HttpException
+     * @throws \Guanguans\MusicPHP\Exceptions\Exception
      */
-    public function download(array $song, OutputInterface $output)
+    public function download(array $song)
     {
         try {
             $progressBar = null;
             $isDownloaded = false;
             $this->setGuzzleOptions([
                 'sink' => get_save_path($song),
-                'progress' => function ($totalDownload, $downloaded) use ($output, &$progressBar, &$isDownloaded) {
+                'progress' => function ($totalDownload, $downloaded) use (&$progressBar, &$isDownloaded) {
+                    $output = new ConsoleOutput();
                     if ($totalDownload > 0 && $downloaded > 0 && null === $progressBar) {
                         $progressBar = new ProgressBar($output, $totalDownload);
                         $progressBar->setFormat('very_verbose');
@@ -150,7 +150,7 @@ class Music implements MusicInterface
 
             return $this->getHttpClient()->get($song['url']);
         } catch (Exception $e) {
-            throw new HttpException($e->getMessage(), $e->getCode(), $e);
+            throw new Exception($e->getMessage(), $e->getCode(), $e);
         }
     }
 
