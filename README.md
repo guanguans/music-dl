@@ -45,7 +45,7 @@ $ composer create-project guanguans/music-php --no-dev
 ## Usage
 
 ``` shell
-$ ./path/music-php
+$ ./path/bin/music-php
 ```
 
 ## Tests
