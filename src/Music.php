@@ -75,11 +75,12 @@ class Music implements MusicInterface
                 if (empty($song['url'])) {
                     unset($songs[$key]);
                 }
-            })->catch(function (\Throwable $exception) {
-                exit($exception->getMessage());
-            })->timeout(function () use (&$songs, $key) {
+            })->catch(function (\Throwable $exception) use (&$songs, $key) {
+                // do somethiing: Exception log $exception->getMessage()
                 unset($songs[$key]);
-                // todo log A process took too long to finish.
+            })->timeout(function () use (&$songs, $key) {
+                // do somethiing: Timeout log
+                unset($songs[$key]);
             });
         }
         unset($song);
