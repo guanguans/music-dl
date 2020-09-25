@@ -76,10 +76,10 @@ class Music implements MusicInterface
                     unset($songs[$key]);
                 }
             })->catch(function (\Throwable $exception) use (&$songs, $key) {
-                // do somethiing: Exception log $exception->getMessage()
+                // do something: Exception log $exception->getMessage()
                 unset($songs[$key]);
             })->timeout(function () use (&$songs, $key) {
-                // do somethiing: Timeout log
+                // do something: Timeout log
                 unset($songs[$key]);
             });
         }
