@@ -111,12 +111,26 @@ class MusicTest extends TestCase
 
     public function testSearchAll()
     {
-        $this->assertIsArray($this->music->search('mock-str', 'mock-str'));
+        $songAll = $this->music->searchAll('mock-str');
+
+        $this->assertIsArray($songAll);
+        foreach ($songAll as $song) {
+            $this->assertIsArray($song);
+        }
+        // $platforms = array_unique(array_column($songAll, 'source'));
+        // $this->assertGreaterThanOrEqual(1, count($platforms));
     }
 
     public function testSearch()
     {
-        $this->assertIsArray($this->music->search('mock-str', 'mock-str'));
+        $platform = 'netease';
+        $songs = $this->music->search($platform, 'mock-str');
+        $this->assertIsArray($songs);
+        foreach ($songs as $song) {
+            $this->assertIsArray($song);
+            $this->assertSame($platform, $song['source']);
+            $this->assertArrayHasKey('url', $song);
+        }
     }
 
     /**
@@ -168,7 +182,10 @@ class MusicTest extends TestCase
             'br' => 320,
         ];
 
-        $this->assertInstanceOf(ResponseInterface::class, $this->music->download($song));
+        $response = $this->music->download($song);
+        $this->assertInstanceOf(ResponseInterface::class, $response);
+        $this->assertStringContainsString($song['name'], $response->getBody()->getMetadata()['uri']);
+        $this->assertFileExists($response->getBody()->getMetadata()['uri']);
     }
 
     public function testGetMeting()

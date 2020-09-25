@@ -66,7 +66,7 @@ class Music implements MusicInterface
         $meting = $this->getMeting($platform);
         $songs = json_decode($meting->format()->search($keyword), true);
 
-        $pool = Pool::create();
+        $pool = Pool::create()->concurrency(128)->timeout(5);
         foreach ($songs as $key => &$song) {
             $pool->add(function () use ($meting, $song) {
                 return json_decode($meting->format()->url($song['url_id']), true);
@@ -77,6 +77,9 @@ class Music implements MusicInterface
                 }
             })->catch(function (\Throwable $exception) {
                 exit($exception->getMessage());
+            })->timeout(function () use (&$songs, $key) {
+                unset($songs[$key]);
+                // todo log A process took too long to finish.
             });
         }
         unset($song);
