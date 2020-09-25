@@ -66,7 +66,7 @@ class Music implements MusicInterface
         $meting = $this->getMeting($platform);
         $songs = json_decode($meting->format()->search($keyword), true);
 
-        $pool = Pool::create()->concurrency(128)->timeout(5);
+        $pool = Pool::create()->concurrency(128)->timeout(3);
         foreach ($songs as $key => &$song) {
             $pool->add(function () use ($meting, $song) {
                 return json_decode($meting->format()->url($song['url_id']), true);
