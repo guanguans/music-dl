@@ -166,22 +166,8 @@ class MusicTest extends TestCase
 
     public function testDownload()
     {
-        $song = [
-            'id' => '00049d7I3bRRRB',
-            'name' => '公路之光',
-            'artist' => [
-                    0 => '小丑乐队',
-                ],
-            'album' => '行星的烦恼',
-            'pic_id' => '004TcBme1EEGIq',
-            'url_id' => '00049d7I3bRRRB',
-            'lyric_id' => '00049d7I3bRRRB',
-            'source' => 'tencent',
-            'url' => 'http://ws.stream.qqmusic.qq.com/M80000049d7I3bRRRB.mp3?guid=1163102676&vkey=9DA7CD54A5529627D1700D4AA60F8EBA7E31E42623E1E60E4061E7AD79136B55B4774B53CD03350A0973136CCC9874AFAB64B780730AA847&uin=0&fromtag=66',
-            'size' => 8872452,
-            'br' => 320,
-        ];
-
+        $songs = $this->music->search('tencent', '公路之光');
+        $song = reset($songs);
         $response = $this->music->download($song);
         $this->assertInstanceOf(ResponseInterface::class, $response);
         $this->assertStringContainsString($song['name'], $response->getBody()->getMetadata()['uri']);

@@ -20,7 +20,9 @@
                 <directory>src/Commands</directory>
                 <directory>src/Consoles</directory>
                 <directory>src/Contracts</directory>
+                <directory>src/Events</directory>
                 <directory>src/Exceptions</directory>
+                <directory>src/Listeners</directory>
                 <directory>src/Support</directory>
                 <file>src/Config.php</file>
                 <file>src/Helpers.php</file>
