@@ -12,6 +12,8 @@ declare(strict_types=1);
 
 namespace Guanguans\MusicPHP\Commands;
 
+use Guanguans\MusicPHP\Events\SongDownloadedEvent;
+use Guanguans\MusicPHP\Listeners\SongDownloadedListener;
 use Guanguans\MusicPHP\Music;
 use Joli\JoliNotif\Notification;
 use Joli\JoliNotif\Notifier;
@@ -130,7 +132,7 @@ class SearchCommand extends Command
             $savePath = sprintf($this->config['save_path'], get_downloads_dir(), implode(',', $song['artist']), $song['name']);
             $output->writeln($savePath);
             $this->getNotifier()->send($this->getNotification(str_replace(['<info>', '</info>'], '', $savePath)));
-            $output->writeln($this->config['splitter']);
+            event(new SongDownloadedEvent($song), [SongDownloadedListener::class]);
         }
 
         goto start;

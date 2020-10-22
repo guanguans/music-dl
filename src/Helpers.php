@@ -11,8 +11,10 @@ declare(strict_types=1);
  */
 
 use Guanguans\MusicPHP\Config;
+use Guanguans\MusicPHP\Contracts\EventContract;
 use Guanguans\MusicPHP\Exceptions\RuntimeException;
 use Joli\JoliNotif\Util\OsHelper;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 
 if (!function_exists('config')) {
     /**
@@ -58,5 +60,16 @@ if (!function_exists('get_save_path')) {
     function get_save_path(array $song)
     {
         return get_downloads_dir().implode(',', $song['artist']).' - '.$song['name'].'.mp3';
+    }
+}
+
+if (!function_exists('event')) {
+    function event(EventContract $event, array $listeners)
+    {
+        $dispatcher = new EventDispatcher();
+        foreach ($listeners as $listener) {
+            $dispatcher->addListener($event->getEventName(), [new $listener(), 'handle']);
+            $dispatcher->dispatch($event, $event->getEventName());
+        }
     }
 }
