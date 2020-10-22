@@ -64,9 +64,19 @@ if (!function_exists('get_save_path')) {
 }
 
 if (!function_exists('event')) {
-    function event(EventContract $event, array $listeners)
+    function event(EventContract $event, $listeners)
     {
         $dispatcher = new EventDispatcher();
+
+        if ($listeners instanceof Closure) {
+            $dispatcher->addListener($event->getEventName(), $listeners);
+            $dispatcher->dispatch($event, $event->getEventName());
+        }
+
+        if (is_string($listeners)) {
+            $listeners = [$listeners];
+        }
+
         foreach ($listeners as $listener) {
             $dispatcher->addListener($event->getEventName(), [new $listener(), 'handle']);
             $dispatcher->dispatch($event, $event->getEventName());
