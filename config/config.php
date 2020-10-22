@@ -30,6 +30,7 @@ return [
     'input_error'   => '<fg=red>o(╥﹏╥)o 输入错误</>',
     'save_path'     => '已保存到：<info>%s%s - %s.mp3</info>，请前往查看',
     'icon_success'  => APP_PATH.'/resources/icon-success.png',
+    'debug'         => false,
 
     'logo' => '<fg=green;options=bold>
      __  __              _        _____   _    _  _____  

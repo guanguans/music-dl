@@ -32,7 +32,9 @@ define('APP_PATH', dirname(__DIR__));
 use Guanguans\MusicPHP\Consoles\Application;
 use Guanguans\MusicPHP\Commands\SearchCommand;
 
-error_reporting(0);
+if (!config('debug')) {
+    error_reporting(0);
+}
 
 $application = new Application();
 $application->add(new SearchCommand());

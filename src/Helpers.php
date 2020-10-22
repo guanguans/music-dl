@@ -15,6 +15,7 @@ use Guanguans\MusicPHP\Contracts\EventContract;
 use Guanguans\MusicPHP\Exceptions\RuntimeException;
 use Joli\JoliNotif\Util\OsHelper;
 use Symfony\Component\EventDispatcher\EventDispatcher;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 if (!function_exists('config')) {
     /**
@@ -71,6 +72,11 @@ if (!function_exists('event')) {
         if ($listeners instanceof Closure) {
             $dispatcher->addListener($event->getEventName(), $listeners);
             $dispatcher->dispatch($event, $event->getEventName());
+        }
+
+        if ($listeners instanceof EventSubscriberInterface) {
+            $dispatcher->addSubscriber($listeners);
+            $dispatcher->dispatch($event);
         }
 
         if (is_string($listeners)) {

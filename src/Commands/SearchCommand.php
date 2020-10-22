@@ -12,7 +12,9 @@ declare(strict_types=1);
 
 namespace Guanguans\MusicPHP\Commands;
 
+use Guanguans\MusicPHP\Events\SongDownloadBeforeEvent;
 use Guanguans\MusicPHP\Events\SongDownloadedEvent;
+use Guanguans\MusicPHP\Listeners\LogSubscriber;
 use Guanguans\MusicPHP\Listeners\SongDownloadedListener;
 use Guanguans\MusicPHP\Music;
 use Joli\JoliNotif\Notification;
@@ -127,6 +129,9 @@ class SearchCommand extends Command
             $table->setHeaders($music->format($song, $keyword));
             $table->render();
 
+            if ($this->config['debug']) {
+                event(new SongDownloadBeforeEvent($song), new LogSubscriber());
+            }
             $output->writeln($this->config['downloading']);
             $music->download($song);
             $savePath = sprintf(
