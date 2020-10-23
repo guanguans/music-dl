@@ -27,6 +27,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
+use Symfony\Component\Stopwatch\Stopwatch;
 
 class SearchCommand extends Command
 {
@@ -88,10 +89,10 @@ class SearchCommand extends Command
         $output->writeln(sprintf($this->config['searching'], $keyword));
 
         $music = $this->getMusic();
-
-        $startTime = microtime(true);
+        $stopwatch = new Stopwatch();
+        $stopwatch->start('search');
         $songs = $music->searchAll($keyword);
-        $endTime = microtime(true);
+        $event = $stopwatch->stop('search');
 
         if (empty($songs)) {
             $output->writeln($this->config['empty_result']);
@@ -103,7 +104,11 @@ class SearchCommand extends Command
             ->setHeaders($this->config['table_headers'])
             ->setRows($music->formatAll($songs, $keyword));
         $table->render();
-        $output->writeln(sprintf('搜索耗时 %s 秒', round($endTime - $startTime, 1)));
+        $output->writeln(sprintf(
+            '搜索耗时 %s 秒，最大内存占用 %s',
+            round($event->getEndTime() / 1000, 1),
+            $event->getMemory()
+        ));
 
         serialNumber:
 
