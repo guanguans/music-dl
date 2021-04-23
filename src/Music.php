@@ -25,7 +25,12 @@ use Symfony\Component\Console\Output\ConsoleOutput;
  */
 class Music implements MusicInterface
 {
-    protected $platforms = ['tencent', 'netease', 'xiami', 'kugou'];
+    protected $platforms = [
+        'tencent',
+        'netease',
+        'kugou',
+        // 'xiami'
+    ];
 
     protected $hideFields = ['id', 'pic_id', 'url_id', 'lyric_id', 'url'];
 
