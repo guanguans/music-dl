@@ -334,10 +334,10 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
      *
      * @return array
      */
-    public function __set_state()
-    {
-        return $this->all();
-    }
+    // public function __set_state()
+    // {
+    //     return $this->all();
+    // }
 
     /**
      * (PHP 5 &gt;= 5.0.0)<br/>
