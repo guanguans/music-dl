@@ -29,6 +29,7 @@ class Music implements MusicInterface
         'tencent',
         'netease',
         'kugou',
+        // 'baidu'
         // 'xiami'
     ];
 

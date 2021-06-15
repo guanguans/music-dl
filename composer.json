@@ -41,7 +41,7 @@
             "Guanguans\\MusicPHP\\": "src"
         },
         "files": [
-            "src/Helpers.php"
+            "src/helpers.php"
         ]
     },
     "autoload-dev": {

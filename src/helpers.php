@@ -71,21 +71,21 @@ if (!function_exists('event')) {
 
         if ($listeners instanceof Closure) {
             $dispatcher->addListener($event->getEventName(), $listeners);
-            $dispatcher->dispatch($event, $event->getEventName());
         }
 
         if ($listeners instanceof EventSubscriberInterface) {
             $dispatcher->addSubscriber($listeners);
-            $dispatcher->dispatch($event);
         }
 
-        if (is_string($listeners)) {
+        if (is_string($listeners) || is_object($listeners)) {
             $listeners = [$listeners];
         }
 
         foreach ($listeners as $listener) {
-            $dispatcher->addListener($event->getEventName(), [new $listener(), 'handle']);
-            $dispatcher->dispatch($event, $event->getEventName());
+            is_string($listener) && $listener = new $listener();
+            $dispatcher->addListener($event->getEventName(), [$listener, 'handle']);
         }
+
+        $dispatcher->dispatch($event, $event->getEventName());
     }
 }
