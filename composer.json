@@ -21,10 +21,11 @@
     "require": {
         "php": ">=7.1",
         "ext-json": "*",
+        "friendsofphp/php-cs-fixer": "^2.1",
         "guzzlehttp/guzzle": "^6.3",
         "jolicode/jolinotif": "^2.1",
         "metowolf/meting": "^1.5.8",
-        "spatie/async": "^1.5",
+        "spatie/async": "dev-master",
         "symfony/console": "^4.0||^5.0",
         "symfony/event-dispatcher": "^5.0",
         "symfony/stopwatch": "~5"
@@ -56,9 +57,13 @@
         "bin/music-php"
     ],
     "scripts": {
+        "style-lint": "./vendor/bin/php-cs-fixer fix --using-cache=no --diff --config=.php_cs.dist --dry-run --ansi",
+        "style-fix": "./vendor/bin/php-cs-fixer fix --using-cache=no --config=.php_cs.dist --ansi",
         "tests": "./vendor/bin/phpunit --coverage-text --color=always"
     },
     "scripts-descriptions": {
+        "style-lint": "Run style checks (only dry run - no fixing!).",
+        "style-fix": "Run style checks and fix violations.",
         "tests": "Run the phpunit tests."
     }
 }
