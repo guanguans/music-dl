@@ -27,8 +27,8 @@
         "metowolf/meting": "^1.5.8",
         "spatie/async": "dev-master",
         "symfony/console": "^4.0||^5.0",
-        "symfony/event-dispatcher": "^5.0",
-        "symfony/stopwatch": "~5"
+        "symfony/event-dispatcher": "^4.0||^5.0",
+        "symfony/stopwatch": "^4.0||^5.0"
     },
     "require-dev": {
         "phpunit/phpunit": "~7||~8",
