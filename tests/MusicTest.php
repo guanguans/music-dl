@@ -23,7 +23,7 @@ class MusicTest extends TestCase
 {
     protected $music;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->music = new Music();

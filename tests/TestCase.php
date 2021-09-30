@@ -19,7 +19,7 @@ class TestCase extends BaseTestCase
     /**
      * Set up the test case.
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
     }
@@ -27,7 +27,7 @@ class TestCase extends BaseTestCase
     /**
      * Tear down the test case.
      */
-    public function tearDown()
+    public function tearDown(): void
     {
         $this->finish();
         parent::tearDown();
