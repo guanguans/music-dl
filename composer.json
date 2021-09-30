@@ -22,7 +22,7 @@
         "php": ">=7.1",
         "ext-json": "*",
         "friendsofphp/php-cs-fixer": "^2.1",
-        "guzzlehttp/guzzle": "^6.3",
+        "guzzlehttp/guzzle": "^6.3 || ^7.0",
         "jolicode/jolinotif": "^2.1",
         "metowolf/meting": "^1.5.8",
         "spatie/async": "dev-master",
