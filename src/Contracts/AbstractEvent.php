@@ -14,7 +14,7 @@ namespace Guanguans\MusicPHP\Contracts;
 
 use Symfony\Contracts\EventDispatcher\Event;
 
-abstract class EventContract extends Event
+abstract class AbstractEvent extends Event
 {
     /**
      * @return string

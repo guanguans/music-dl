@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Guanguans\MusicPHP\Events;
 
-use Guanguans\MusicPHP\Contracts\EventContract;
+use Guanguans\MusicPHP\Contracts\AbstractEvent;
 
-class SongDownloadedEvent extends EventContract
+class SongDownloadedEvent extends AbstractEvent
 {
     const NAME = 'song.downloaded';
 

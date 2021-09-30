@@ -17,9 +17,9 @@ interface ListenerInterface
     public function __construct();
 
     /**
-     * @param \Guanguans\MusicPHP\Contracts\EventContract $event
+     * @param \Guanguans\MusicPHP\Contracts\AbstractEvent $event
      *
      * @return mixed
      */
-    public function handle(EventContract $event);
+    public function handle(AbstractEvent $event);
 }

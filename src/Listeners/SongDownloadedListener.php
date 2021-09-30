@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Guanguans\MusicPHP\Listeners;
 
-use Guanguans\MusicPHP\Contracts\EventContract;
+use Guanguans\MusicPHP\Contracts\AbstractEvent;
 use Guanguans\MusicPHP\Contracts\ListenerInterface;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
@@ -28,7 +28,7 @@ class SongDownloadedListener implements ListenerInterface
     /**
      * @return mixed|void
      */
-    public function handle(EventContract $event)
+    public function handle(AbstractEvent $event)
     {
         $output = new ConsoleOutput();
         $output->writeln(config('splitter'));

@@ -11,7 +11,7 @@ declare(strict_types=1);
  */
 
 use Guanguans\MusicPHP\Config;
-use Guanguans\MusicPHP\Contracts\EventContract;
+use Guanguans\MusicPHP\Contracts\AbstractEvent;
 use Guanguans\MusicPHP\Exceptions\RuntimeException;
 use Joli\JoliNotif\Util\OsHelper;
 use Symfony\Component\EventDispatcher\EventDispatcher;
@@ -65,25 +65,32 @@ if (!function_exists('get_save_path')) {
 }
 
 if (!function_exists('event')) {
-    function event(EventContract $event, $listeners)
+    function event(AbstractEvent $event, $listeners)
     {
         $dispatcher = new EventDispatcher();
 
-        if ($listeners instanceof Closure) {
-            $dispatcher->addListener($event->getEventName(), $listeners);
-        }
+        is_object($listeners) and $listeners = [$listeners];
 
-        if ($listeners instanceof EventSubscriberInterface) {
-            $dispatcher->addSubscriber($listeners);
-        }
-
-        if (is_string($listeners) || is_object($listeners)) {
-            $listeners = [$listeners];
-        }
+        $listeners = (array) $listeners;
 
         foreach ($listeners as $listener) {
             is_string($listener) && $listener = new $listener();
-            $dispatcher->addListener($event->getEventName(), [$listener, 'handle']);
+
+            if ($listener instanceof Closure) {
+                $dispatcher->addListener($event->getEventName(), $listener);
+            }
+
+            if ($listener instanceof EventSubscriberInterface) {
+                $dispatcher->addSubscriber($listener);
+
+                $dispatcher->dispatch($event);
+
+                continue;
+            }
+
+            if (method_exists($listener, 'handle')) {
+                $dispatcher->addListener($event->getEventName(), [$listener, 'handle']);
+            }
         }
 
         $dispatcher->dispatch($event, $event->getEventName());

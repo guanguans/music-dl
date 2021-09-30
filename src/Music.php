@@ -49,16 +49,20 @@ class Music implements MusicInterface
     public function searchAll(string $keyword): array
     {
         $songAll = [];
+
         $pool = Pool::create();
+
         foreach ($this->platforms as $platform) {
             $pool->add(function () use ($platform, $keyword) {
                 return $this->search($platform, $keyword);
-            }, $this->getSerializedOutput())->then(function ($output) use (&$songAll) {
+            }, $this->getSerializedOutput())
+            ->then(function ($output) use (&$songAll) {
                 $songAll = array_merge($songAll, $output);
             })->catch(function (\Throwable $exception) {
                 exit($exception->getMessage());
             });
         }
+
         $pool->wait();
 
         return $songAll;
@@ -70,9 +74,11 @@ class Music implements MusicInterface
     public function search(string $platform, string $keyword)
     {
         $meting = $this->getMeting($platform);
+
         $songs = json_decode($meting->format()->search($keyword), true);
 
         $pool = Pool::create()->concurrency(128)->timeout(5);
+
         foreach ($songs as $key => &$song) {
             $pool->add(function () use ($meting, $song) {
                 return json_decode($meting->format()->url($song['url_id']), true);
@@ -89,6 +95,7 @@ class Music implements MusicInterface
                 unset($songs[$key]);
             });
         }
+
         unset($song);
         $pool->wait();
 
@@ -136,25 +143,28 @@ class Music implements MusicInterface
     {
         try {
             $progressBar = null;
+
             $isDownloaded = false;
+
             $this->setGuzzleOptions([
                 'sink' => get_save_path($song),
                 'progress' => function ($totalDownload, $downloaded) use (&$progressBar, &$isDownloaded) {
                     $output = new ConsoleOutput();
+
                     if ($totalDownload > 0 && $downloaded > 0 && null === $progressBar) {
                         $progressBar = new ProgressBar($output, $totalDownload);
                         $progressBar->setFormat('very_verbose');
                         $progressBar->start();
                     }
+
                     if (!$isDownloaded && $progressBar && $totalDownload === $downloaded) {
                         $progressBar->finish();
                         $output->writeln(PHP_EOL);
 
                         return $isDownloaded = true;
                     }
-                    if ($progressBar) {
-                        $progressBar->setProgress($downloaded);
-                    }
+
+                    $progressBar and $progressBar->setProgress($downloaded);
                 },
             ]);
 
