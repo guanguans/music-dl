@@ -9,6 +9,7 @@
 
 <p align="center"><img src="./docs/Usage.gif" width="100%"></p>
 
+[![Test](https://github.com/guanguans/music-php/actions/workflows/test.yml/badge.svg)](https://github.com/guanguans/music-php/actions/workflows/test.yml)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/guanguans/music-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/guanguans/music-php/?branch=master)
 [![codecov](https://codecov.io/gh/guanguans/music-php/branch/master/graph/badge.svg)](https://codecov.io/gh/guanguans/music-php)
 [![StyleCI](https://github.styleci.io/repos/174921589/shield?branch=master)](https://github.styleci.io/repos/174921589)
