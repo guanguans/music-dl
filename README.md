@@ -1,77 +1,87 @@
-<h1 align="center">music-php</h1>
+# package-skeleton
 
-<p align="center">Music search and download.</p>
+[简体中文](README-zh_CN.md) | [ENGLISH](README.md)
 
-<p align="center">
-    <a>English</a> |
-    <a href="README-CN.md">简体中文</a>
-</p>
+> A PHP package template repository. - 一个 PHP 软件包模板存储库。
 
-<p align="center"><img src="./docs/Usage.gif" width="100%"></p>
+[![tests](https://github.com/guanguans/music-dl/workflows/tests/badge.svg)](https://github.com/guanguans/music-dl/actions)
+[![check & fix styling](https://github.com/guanguans/music-dl/actions/workflows/php-cs-fixer.yml/badge.svg)](https://github.com/guanguans/music-dl/actions)
+[![codecov](https://codecov.io/gh/guanguans/music-dl/branch/main/graph/badge.svg?token=URGFAWS6S4)](https://codecov.io/gh/guanguans/music-dl)
+[![Latest Stable Version](https://poser.pugx.org/guanguans/music-dl/v)](//packagist.org/packages/guanguans/music-dl)
+[![Total Downloads](https://poser.pugx.org/guanguans/music-dl/downloads)](//packagist.org/packages/guanguans/music-dl)
+[![License](https://poser.pugx.org/guanguans/music-dl/license)](//packagist.org/packages/guanguans/music-dl)
+[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/guanguans/music-dl)
+![GitHub repo size](https://img.shields.io/github/repo-size/guanguans/music-dl)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/guanguans/music-dl)
 
-[![Test](https://github.com/guanguans/music-php/actions/workflows/test.yml/badge.svg)](https://github.com/guanguans/music-php/actions/workflows/test.yml)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/guanguans/music-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/guanguans/music-php/?branch=master)
-[![codecov](https://codecov.io/gh/guanguans/music-php/branch/master/graph/badge.svg)](https://codecov.io/gh/guanguans/music-php)
-[![StyleCI](https://github.styleci.io/repos/174921589/shield?branch=master)](https://github.styleci.io/repos/174921589)
-[![Latest Stable Version](https://poser.pugx.org/guanguans/music-php/v/stable)](https://packagist.org/packages/guanguans/music-php)
-[![Total Downloads](https://poser.pugx.org/guanguans/music-php/downloads)](https://packagist.org/packages/guanguans/music-php)
-[![License](https://poser.pugx.org/guanguans/music-php/license)](https://packagist.org/packages/guanguans/music-php)
+## Features
 
-##  Requirement
+* Integrated [brainmaestro/composer-git-hooks](https://github.com/BrainMaestro/composer-git-hooks) - Git hooks
+* Integrated [brianium/paratest](https://github.com/paratestphp/paratest) - Parallel testing for PHPUnit
+* Integrated [codedungeon/phpunit-result-printer](https://github.com/mikeerickson/phpunit-pretty-result-printer) - PHPUnit Pretty Result Printer
+* Integrated [dg/bypass-finals](https://github.com/rdohms/dg/bypass-finals) - Unit test assistant package
+* Integrated [dms/phpunit-arraysubset-asserts](https://github.com/rdohms/phpunit-arraysubset-asserts) - Unit test assistant package
+* Integrated [sebastianbergmann/phpunit](https://github.com/sebastianbergmann/phpunit) - Unit test
+* Integrated [bovigo/vfsStream](https://github.com/bovigo/vfsStream) - Unit test assistant package
+* Integrated [mockery/mockery](https://github.com/mockery/mockery) - Mock
+* Integrated [Nyholm/NSA](https://github.com/Nyholm/NSA) - Unit test assistant package
+* Integrated [phpbench/phpbench](https://github.com/phpbench/phpbench) - Benchmarks  
+* Integrated [FriendsOfPHP/PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) - Coding standard check
+* Integrated [johnkary/phpunit-speedtrap](https://github.com/johnkary/phpunit-speedtrap) - Reports on slow-running tests in your PHPUnit test suite
+* Integrated [overtrue/phplint](https://github.com/overtrue/phplint) - Grammar check
+* Integrated [symplify/monorepo-builder](https://github.com/symplify/monorepo-builder) - Monorepo
+* Integrated [vimeo/psalm](https://github.com/vimeo/psalm) - Static check
+* Integrated [lint-md/lint-md](https://github.com/lint-md/lint-md) - Markdown grammar check
+* Integrated [povils/phpmnd](https://github.com/povils/phpmnd) - PHP Magic Number Detector
+* With IDE helper file
+* With `github/pages` docsify [documentation site](https://guanguans.github.io/package-skeleton/)
+* With common badge icons
+* With Chinese and English `README.md` file
 
-* PHP >= 7.1
-* Composer
+## Requirement
+
+* PHP >= 7.2
 
 ## Installation
 
-### Phar file download and installation
-
-Download the [music-php](https://github.com/guanguans/music-php/releases/download/v1.1.7/music-php) or [music-php.phar](https://github.com/guanguans/music-php/releases/download/v1.1.7/music-php.phar) file on the pages [releases](https://github.com/guanguans/music-php/releases).
-
-### Global installation
-
-``` shell
-$ composer global require guanguans/music-php --dev
-```
-
-### Current directory installation
-
-``` shell
-$ composer create-project guanguans/music-php --no-dev
+```bash
+$ composer require guanguans/music-dl --prefer-dist -vvv
 ```
 
 ## Usage
 
-``` shell
-$ ./path/bin/music-php
+1. execute `$ git clone https://github.com/guanguans/music-dl.git`
+2. replace `guanguans/music-dl` -> `vendorName/package-name`
+3. replace `Guanguans\\PackageSkeleton` -> `VendorName\\PackageName`
+4. replace `Guanguans\PackageSkeleton` -> `VendorName\PackageName`
+5. replace `ityaozm@gmail.com` -> `your email`
+6. execute `$ composer install && composer dumpautoload`  
+7. execute `$ rm .git/`
+8. execute `$ git init && git add . && git commit -m 'Build the basic skeleton'`
+
+## Testing
+
+```bash
+$ composer test
 ```
 
-## Tests
+## Changelog
 
-``` shell
-$ composer tests
-```
+Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
-## Contributors
+## Contributing
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore -->
-<table><tr><td align="center"><a href="https://github.com/luokuncool"><img src="https://avatars3.githubusercontent.com/u/6022635?v=4" width="100px;" alt="luokuncool"/><br /><sub><b>luokuncool</b></sub></a><br /><a href="https://github.com/guanguans/music-php/commits?author=luokuncool" title="Code">💻</a></td></tr></table>
+## Security Vulnerabilities
 
-<!-- ALL-CONTRIBUTORS-LIST:END -->
+Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+## Credits
 
-## Related Links
-
-* [https://github.com/0xHJK/music-dl](https://github.com/0xHJK/music-dl)
-* [https://github.com/maicong/music](https://github.com/maicong/music)
-* [https://github.com/metowolf/Meting](https://github.com/metowolf/Meting)
+* [guanguans](https://github.com/guanguans)
+* [All Contributors](../../contributors)
 
 ## License
 
-[MIT](LICENSE)
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fguanguans%2Fmusic-php.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fguanguans%2Fmusic-php?ref=badge_large)
+The MIT License (MIT). Please see [License File](LICENSE) for more information.

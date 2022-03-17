@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * This file is part of the guanguans/music-dl.
  *
@@ -8,11 +10,8 @@
  * This source file is subject to the MIT license that is bundled.
  */
 
-namespace Tests;
+namespace App\Exceptions;
 
-use LaravelZero\Framework\Testing\TestCase as BaseTestCase;
-
-abstract class TestCase extends BaseTestCase
+class RuntimeException extends Exception
 {
-    use CreatesApplication;
 }

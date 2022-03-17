@@ -8,11 +8,6 @@
  * This source file is subject to the MIT license that is bundled.
  */
 
-namespace Tests;
-
-use LaravelZero\Framework\Testing\TestCase as BaseTestCase;
-
-abstract class TestCase extends BaseTestCase
-{
-    use CreatesApplication;
-}
+test('example', function () {
+    expect(true)->toBeTrue();
+});

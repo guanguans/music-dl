@@ -8,11 +8,6 @@
  * This source file is subject to the MIT license that is bundled.
  */
 
-namespace Tests;
-
-use LaravelZero\Framework\Testing\TestCase as BaseTestCase;
-
-abstract class TestCase extends BaseTestCase
-{
-    use CreatesApplication;
-}
+it('inspire artisans', function () {
+    $this->artisan('inspire')->assertExitCode(0);
+});
