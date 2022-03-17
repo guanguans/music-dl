@@ -1,9 +1,9 @@
 <?php
 
-/*
- * This file is part of the guanguans/music-php.
+/**
+ * This file is part of the guanguans/music-dl.
  *
- * (c) 琯琯 <yzmguanguan@gmail.com>
+ * (c) guanguans <ityaozm@gmail.com>
  *
  * This source file is subject to the MIT license that is bundled.
  */
@@ -73,7 +73,7 @@ class Music implements MusicClientInterface, HttpClientFactoryInterface
                         $progressBar->start();
                     }
 
-                    if (!$isDownloaded && $progressBar && $totalDownload === $downloaded) {
+                    if (! $isDownloaded && $progressBar && $totalDownload === $downloaded) {
                         $progressBar->finish();
                         $output->writeln(PHP_EOL);
                         $isDownloaded = true;
