@@ -28,7 +28,6 @@ interface MusicPhpInterface
     public function searchAll($keyword);
 
     /**
-     * @param array $song
      * @param $keyword
      *
      * @return mixed
@@ -36,7 +35,6 @@ interface MusicPhpInterface
     public function format(array $song, $keyword);
 
     /**
-     * @param array $songs
      * @param $keyword
      *
      * @return mixed
@@ -44,8 +42,6 @@ interface MusicPhpInterface
     public function formatAll(array $songs, $keyword);
 
     /**
-     * @param array $song
-     *
      * @return mixed
      */
     public function download(array $song);

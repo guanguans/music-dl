@@ -30,10 +30,6 @@ class SearchCommand extends Command
      */
     protected $output;
 
-    /**
-     * @param \Symfony\Component\Console\Input\InputInterface   $input
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     */
     public function initialize(InputInterface $input, OutputInterface $output)
     {
         $this->input = $input;
@@ -53,9 +49,6 @@ class SearchCommand extends Command
     }
 
     /**
-     * @param \Symfony\Component\Console\Input\InputInterface   $input
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     *
      * @return int|void|null
      */
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -131,8 +124,6 @@ class SearchCommand extends Command
     }
 
     /**
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     *
      * @return \Symfony\Component\Console\Helper\Table
      */
     public function getTable(OutputInterface $output)

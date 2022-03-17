@@ -95,8 +95,7 @@ class MusicPhp implements MusicPhpInterface
     }
 
     /**
-     * @param array $songs
-     * @param       $keyword
+     * @param $keyword
      *
      * @return array
      */
@@ -113,8 +112,7 @@ class MusicPhp implements MusicPhpInterface
     }
 
     /**
-     * @param array $song
-     * @param       $keyword
+     * @param $keyword
      *
      * @return array
      */
@@ -134,8 +132,6 @@ class MusicPhp implements MusicPhpInterface
     }
 
     /**
-     * @param array $song
-     *
      * @throws \Guanguans\MusicPhp\Exception\HttpException
      */
     public function download(array $song)
@@ -155,9 +151,6 @@ class MusicPhp implements MusicPhpInterface
         return new Client($this->guzzleOptions);
     }
 
-    /**
-     * @param array $options
-     */
     public function setGuzzleOptions(array $options)
     {
         $this->guzzleOptions = $options;

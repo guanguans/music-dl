@@ -43,8 +43,6 @@ class Application extends BaseApplication
     }
 
     /**
-     * @param \Symfony\Component\Console\Input\InputInterface $input
-     *
      * @return string
      */
     protected function getCommandName(InputInterface $input)
