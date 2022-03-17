@@ -19,7 +19,7 @@ if (! function_exists('get_downloads_dir')) {
      */
     function get_downloads_dir(): string
     {
-        $downloadsDir = OsHelper::isWindows() ? 'C:\\Users\\'.get_current_user().'\\Downloads\\MusicPHP\\' : trim(exec('cd ~; pwd')).'/Downloads/MusicPHP/';
+        $downloadsDir = OsHelper::isWindows() ? 'C:\\Users\\'.get_current_user().'\\Downloads\\MusicDL\\' : trim(exec('cd ~; pwd')).'/Downloads/MusicDL/';
         if (! is_dir($downloadsDir) && ! mkdir($downloadsDir, 0777, true) && ! is_dir($downloadsDir)) {
             throw new RuntimeException(sprintf('Directory "%s" was not created', $downloadsDir));
         }
