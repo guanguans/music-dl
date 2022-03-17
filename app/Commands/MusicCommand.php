@@ -1,9 +1,9 @@
 <?php
 
-/**
- * This file is part of the guanguans/music-dl.
+/*
+ * This file is part of the guanguans/music-php.
  *
- * (c) guanguans <ityaozm@gmail.com>
+ * (c) 琯琯 <yzmguanguan@gmail.com>
  *
  * This source file is subject to the MIT license that is bundled.
  */
@@ -95,7 +95,7 @@ class MusicCommand extends Command
         }
         if (
             'all' !== (string) $serialNumber &&
-            ((string) $serialNumber < 0 || (string) $serialNumber >= count($songs) || ! preg_match('/^[0-9,]*$/', $serialNumber))) {
+            ((string) $serialNumber < 0 || (string) $serialNumber >= count($songs) || !preg_match('/^[0-9,]*$/', $serialNumber))) {
             $this->output->writeln($this->config['input_error']);
             goto serialNumber;
         }
@@ -105,7 +105,7 @@ class MusicCommand extends Command
         }
 
         $serialNumbers->each(function ($serialNumber) use ($musicClient, $keyword, $songFormatter, $songs) {
-            if (! isset($songs[$serialNumber])) {
+            if (!isset($songs[$serialNumber])) {
                 return;
             }
             $song = $songs[$serialNumber];
