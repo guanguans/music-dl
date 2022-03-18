@@ -20,25 +20,21 @@
 
 ## Installation
 
-Download the [music-dl](https://github.com/guanguans/music-dl/blob/master/builds/music-dl) phar file.
+Download the [music-dl](https://github.com/guanguans/music-dl/blob/master/builds/music-dl) file.
 
 ## Usage
 
-You can just execute the tool on your cli.
-
-```bash
-$ music-dl
-```
+Execute the music-dl file on your cli.
 
 ```text
-╰─ ./music-dl                                                                       ─╯
+╰─ ./builds/music-dl                                                              ─╯
 
      __  __           _        _____  _      
     |  \/  |         (_)      |  __ \| |     
     | \  / |_   _ ___ _  ___  | |  | | |     
     | |\/| | | | / __| |/ __| | |  | | |     
     | |  | | |_| \__ \ | (__  | |__| | |____ 
-    |_|  |_|\__,_|___/_|\___| |_____/|______|                                       
+    |_|  |_|\__,_|___/_|\___| |_____/|______| v3.0.1
 
  请输入要关键字如：一个短篇  腰乐队  Yesterday once more，或 Ctrl+C 退出 [腰乐队]:
  > |

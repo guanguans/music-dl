@@ -20,25 +20,21 @@
 
 ## 安装
 
-下载 [music-dl](https://github.com/guanguans/music-dl/blob/master/builds/music-dl) phar 文件.
+下载 [music-dl](https://github.com/guanguans/music-dl/blob/master/builds/music-dl) 文件.
 
 ## 使用
 
-命令行上执行该工具。
-
-```bash
-$ music-dl
-```
+命令行上执行该文件。
 
 ```text
-╰─ ./music-dl                                                                       ─╯
+╰─ ./builds/music-dl                                                              ─╯
 
      __  __           _        _____  _      
     |  \/  |         (_)      |  __ \| |     
     | \  / |_   _ ___ _  ___  | |  | | |     
     | |\/| | | | / __| |/ __| | |  | | |     
     | |  | | |_| \__ \ | (__  | |__| | |____ 
-    |_|  |_|\__,_|___/_|\___| |_____/|______|                                       
+    |_|  |_|\__,_|___/_|\___| |_____/|______| v3.0.1
 
  请输入要关键字如：一个短篇  腰乐队  Yesterday once more，或 Ctrl+C 退出 [腰乐队]:
  > |
