@@ -1,17 +1,17 @@
 <?php
 
-/*
- * This file is part of the guanguans/music-php.
+/**
+ * This file is part of the guanguans/music-dl.
  *
- * (c) 琯琯 <yzmguanguan@gmail.com>
+ * (c) guanguans <ityaozm@gmail.com>
  *
  * This source file is subject to the MIT license that is bundled.
  */
 
 namespace App\Commands;
 
-use App\MusicInterface;
 use App\Formatter;
+use App\MusicInterface;
 use Illuminate\Console\Scheduling\Schedule;
 use Joli\JoliNotif\Util\OsHelper;
 use LaravelZero\Framework\Commands\Command;
@@ -75,7 +75,7 @@ class MusicCommand extends Command
             goto START;
         } elseif ('all' === (string) $index) {
             $indexes = collect($songs)->keys();
-        } elseif ((string) $index < 0 || (string) $index >= count($songs) || !preg_match('/^[0-9,]*$/', $index)) {
+        } elseif ((string) $index < 0 || (string) $index >= count($songs) || ! preg_match('/^[0-9,]*$/', $index)) {
             $this->line($this->config['input_error']);
             goto SELECT_INDEX;
         }
