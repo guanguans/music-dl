@@ -13,27 +13,29 @@ declare(strict_types=1);
 use App\Exceptions\RuntimeException;
 use Joli\JoliNotif\Util\OsHelper;
 
-if (! function_exists('get_downloads_dir')) {
+if (! function_exists('get_song_download_dir')) {
     /**
      * @throws \App\Exceptions\RuntimeException
      */
-    function get_downloads_dir(): string
+    function get_song_download_dir(string $dir = 'MusicDL'): string
     {
-        $downloadsDir = OsHelper::isWindows() ? 'C:\\Users\\'.get_current_user().'\\Downloads\\MusicDL\\' : trim(exec('cd ~; pwd')).'/Downloads/MusicDL/';
-        if (! is_dir($downloadsDir) && ! mkdir($downloadsDir, 0777, true) && ! is_dir($downloadsDir)) {
-            throw new RuntimeException(sprintf('Directory "%s" was not created', $downloadsDir));
+        $downloadDir = OsHelper::isWindows()
+            ? sprintf('C:\\Users\\%s\\Downloads\\%s\\', get_current_user(), $dir)
+            : sprintf('%s/Downloads/%s/', exec('cd ~; pwd'), $dir);
+        if (! is_dir($downloadDir) && ! mkdir($downloadDir, 0777, true) && ! is_dir($downloadDir)) {
+            throw new RuntimeException(sprintf('The directory "%s" was not created', $downloadDir));
         }
 
-        return $downloadsDir;
+        return $downloadDir;
     }
 }
 
-if (! function_exists('get_save_path')) {
+if (! function_exists('get_song_save_path')) {
     /**
      * @throws \App\Exceptions\RuntimeException
      */
-    function get_save_path(array $song): string
+    function get_song_save_path(array $song): string
     {
-        return get_downloads_dir().implode(',', $song['artist']).' - '.$song['name'].'.mp3';
+        return get_song_download_dir().implode(',', $song['artist']).' - '.$song['name'].'.mp3';
     }
 }

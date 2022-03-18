@@ -32,7 +32,7 @@ class MusicCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Search and download songs';
+    protected $description = 'Search and download songs.';
 
     private array $config;
 
@@ -92,9 +92,10 @@ class MusicCommand extends Command
             ->each(function ($song) use ($music, $keyword) {
                 $this->table($music->format($song, $keyword), []);
                 try {
-                    $music->download($song['url'], $savePath = get_save_path($song));
+                    $music->download($song['url'], $savePath = get_song_save_path($song));
                 } catch (Throwable $e) {
                     $this->line(sprintf('下载失败：%s', $e->getMessage()));
+                    $this->newLine();
 
                     return;
                 }
