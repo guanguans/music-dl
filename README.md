@@ -20,7 +20,7 @@
 
 ## Installation
 
-Download the [music-dl](https://github.com/guanguans/music-dl/raw/master/builds/music-dl) phar file.
+Download the [music-dl](https://github.com/guanguans/music-dl/blob/master/builds/music-dl) phar file.
 
 ## Usage
 
