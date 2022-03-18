@@ -1,9 +1,9 @@
 <?php
 
-/**
- * This file is part of the guanguans/music-dl.
+/*
+ * This file is part of the guanguans/music-php.
  *
- * (c) guanguans <ityaozm@gmail.com>
+ * (c) 琯琯 <yzmguanguan@gmail.com>
  *
  * This source file is subject to the MIT license that is bundled.
  */
@@ -19,7 +19,7 @@ trait WithHttpClient
 
     public static function createHttpClient(array $config = []): ClientInterface
     {
-        if (! self::$httpClient instanceof ClientInterface || $config) {
+        if (!self::$httpClient instanceof ClientInterface || $config) {
             return self::$httpClient = new Client($config);
         }
 
