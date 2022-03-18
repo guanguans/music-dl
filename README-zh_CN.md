@@ -20,25 +20,11 @@
 
 ## 安装
 
-### 文件下载安装
-
-在 [releases](https://github.com/guanguans/music-dl/releases) 页面， 下载对应版本 `music-dl` 文件。
-
-### 全局安装
-
-```shell
-$ composer global require guanguans/music-dl --dev
-```
-
-### 当前目录安装
-
-```shell
-$ composer create-project guanguans/music-dl --no-dev
-```
+下载 [music-dl](raw/master/builds/music-dl) phar 文件.
 
 ## 使用
 
-您可以在命令行上执行该工具。
+命令行上执行该工具。
 
 ```bash
 $ music-dl
