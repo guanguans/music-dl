@@ -11,7 +11,7 @@
 namespace App\Providers;
 
 use App\Music;
-use App\MusicClientInterface;
+use App\MusicInterface;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\ServiceProvider;
 use Metowolf\Meting;
@@ -25,7 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // dd($this->app);
     }
 
     /**
@@ -35,7 +34,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(MusicClientInterface::class, function (Container $app) {
+        $this->app->bind(MusicInterface::class, function (Container $app) {
             return new Music(new Meting());
         });
     }

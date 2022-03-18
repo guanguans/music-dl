@@ -10,7 +10,7 @@
 
 namespace App\Commands;
 
-use App\MusicClientInterface;
+use App\MusicInterface;
 use App\SongFormatter;
 use Illuminate\Console\Scheduling\Schedule;
 use Joli\JoliNotif\Util\OsHelper;
@@ -43,87 +43,55 @@ class MusicCommand extends Command
      *
      * @return mixed
      */
-    public function handle(MusicClientInterface $musicClient, SongFormatter $songFormatter)
+    public function handle(MusicInterface $musicClient, SongFormatter $songFormatter)
     {
-        $this->output->writeln($this->config['logo']);
+        $this->line($this->config['logo']);
 
-        start:
+        START:
 
-        $this->output->writeln($this->config['search_tip']);
         if (OsHelper::isWindows()) {
-            $this->output->writeln($this->config['win_tip']);
+            $this->line($this->config['win_tips']);
         }
-
-        $keyword = str($this->ask($this->config['input'], '周杰伦'))->trim();
-        if ($keyword->isEmpty()) {
-            $this->output->writeln($this->config['input_error']);
-            goto start;
-        }
-
-        $this->output->writeln($this->config['splitter']);
-        $this->output->writeln(sprintf($this->config['searching'], $keyword));
+        $keyword = str($this->ask($this->config['search_tips'], '腰乐队'))->trim();
+        $this->line(sprintf($this->config['searching'], $keyword));
 
         $startTime = microtime(true);
-        $songs = $musicClient->searchWithUrl($keyword, [
-            // 'netease',
-            'tencent',
-            // 'xiami',
-            // 'kugou',
-            // 'baidu',
-            // 'kuwo'
-        ]);
+        $songs = $musicClient->searchWithUrl($keyword, $this->config['channels']);
+        $endTime = microtime(true);
         if (empty($songs)) {
-            $this->output->writeln($this->config['empty_result']);
-            goto start;
+            $this->line($this->config['empty_result']);
+            goto START;
         }
 
         $this->table($this->config['table_header'], $songFormatter->formatAll($songs, $keyword));
-        $this->output->writeln(
-            sprintf(
-                '搜索耗时 %s 秒，最大内存占用 %s',
-                round((microtime(true) - $startTime) / 1000, 1),
-                memory_get_peak_usage()
-            )
-        );
+        $this->line(sprintf($this->config['search_statistics'], $endTime - $startTime, memory_get_peak_usage() / 1024 / 1024));
 
-        serialNumber:
+        SELECT_INDEX:
 
-        $this->output->writeln($this->config['download_tip']);
-        $serialNumber = str($this->ask($this->config['input'], 'all'))->trim()->lower();
-        if ('n' === (string) $serialNumber) {
-            goto start;
-        }
-        if (
-            'all' !== (string) $serialNumber &&
-            ((string) $serialNumber < 0 || (string) $serialNumber >= count($songs) || ! preg_match('/^[0-9,]*$/', $serialNumber))) {
-            $this->output->writeln($this->config['input_error']);
-            goto serialNumber;
-        }
-        $serialNumbers = $serialNumber->explode(',');
-        if ('all' === (string) $serialNumber) {
-            $serialNumbers = collect($songs)->keys();
+        $index = str($this->ask($this->config['download_tips'], 'all'))->trim()->lower();
+        $indexes = $index->explode(',');
+        if ('n' === (string) $index) {
+            goto START;
+        } elseif ('all' === (string) $index) {
+            $indexes = collect($songs)->keys();
+        } elseif ((string) $index < 0 || (string) $index >= count($songs) || ! preg_match('/^[0-9,]*$/', $index)) {
+            $this->line($this->config['input_error']);
+            goto SELECT_INDEX;
         }
 
-        $serialNumbers->each(function ($serialNumber) use ($musicClient, $keyword, $songFormatter, $songs) {
-            if (! isset($songs[$serialNumber])) {
-                return;
-            }
-            $song = $songs[$serialNumber];
-            $this->table($songFormatter->format($song, $keyword), []);
-            $this->output->writeln($this->config['downloading']);
+        collect($songs)
+            ->filter(function ($song, $index) use ($indexes) {
+                return in_array($index, $indexes->all());
+            })
+            ->each(function ($song) use ($musicClient, $keyword, $songFormatter) {
+                $this->table($songFormatter->format($song, $keyword), []);
+                $musicClient->download($song['url'], $savePath = get_save_path($song));
+                $this->line(sprintf($this->config['save_path_tips'], $savePath));
+                $this->newLine();
+                $this->notify(config('app.name'), $savePath, $this->config['success_icon']);
+            });
 
-            $savePath = sprintf(
-                $this->config['save_path'],
-                get_downloads_dir(),
-                implode(',', $song['artist']),
-                $song['name']
-            );
-            $musicClient->download($song['url'], $savePath);
-            $this->output->writeln($savePath);
-            $this->notify('Music DL', $savePath, $this->config['icon_success']);
-        });
-
-        goto start;
+        goto START;
     }
 
     /**

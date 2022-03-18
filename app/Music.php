@@ -10,7 +10,6 @@
 
 namespace App;
 
-use App\Exceptions\RuntimeException;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use Metowolf\Meting;
@@ -18,13 +17,13 @@ use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Throwable;
 
-class Music implements MusicClientInterface, HttpClientFactoryInterface
+class Music implements MusicInterface, HttpClientFactoryInterface
 {
     protected Meting $meting;
 
     public function __construct(Meting $meting)
     {
-        $this->meting = $meting;
+        $this->meting = $meting->format();
     }
 
     public function createHttpClient(array $config = []): ClientInterface
@@ -37,7 +36,7 @@ class Music implements MusicClientInterface, HttpClientFactoryInterface
         $songs = $this->search($keyword, $channels);
 
         return array_reduce($songs, function ($songs, $song) {
-            $detail = json_decode($this->meting->format()->url($song['url_id']), true);
+            $detail = json_decode($this->meting->url($song['url_id']), true);
             if (empty($detail['url'])) {
                 return $songs;
             }
@@ -50,11 +49,11 @@ class Music implements MusicClientInterface, HttpClientFactoryInterface
     public function search(string $keyword, ?array $channels = null)
     {
         if (is_null($channels)) {
-            return json_decode($this->meting->format()->search($keyword), true);
+            return json_decode($this->meting->search($keyword), true);
         }
 
         return array_reduce($channels, function ($songs, $channel) use ($keyword) {
-            $response = $this->meting->site($channel)->format()->search($keyword);
+            $response = $this->meting->site($channel)->search($keyword);
 
             return array_merge($songs, json_decode($response, true));
         }, []);
@@ -75,7 +74,6 @@ class Music implements MusicClientInterface, HttpClientFactoryInterface
 
                     if (! $isDownloaded && $progressBar && $totalDownload === $downloaded) {
                         $progressBar->finish();
-                        $output->writeln(PHP_EOL);
                         $isDownloaded = true;
                     }
 
@@ -85,7 +83,7 @@ class Music implements MusicClientInterface, HttpClientFactoryInterface
 
             return $this->createHttpClient($options)->get($downloadUrl);
         } catch (Throwable $e) {
-            // throw new RuntimeException($e->getMessage(), $e->getCode(), $e);
+            // noop
         }
     }
 

@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace App;
 
-interface MusicClientInterface
+interface MusicInterface
 {
     /**
      * @return mixed
