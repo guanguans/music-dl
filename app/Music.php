@@ -10,25 +10,19 @@
 
 namespace App;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\ClientInterface;
 use Metowolf\Meting;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\ConsoleOutput;
-use Throwable;
 
 class Music implements MusicInterface, HttpClientFactoryInterface
 {
+    use WithHttpClient;
+
     protected Meting $meting;
 
     public function __construct(Meting $meting)
     {
         $this->meting = $meting->format();
-    }
-
-    public function createHttpClient(array $config = []): ClientInterface
-    {
-        return new Client($config);
     }
 
     public function searchWithUrl(string $keyword, ?array $channels = null)
@@ -61,9 +55,8 @@ class Music implements MusicInterface, HttpClientFactoryInterface
 
     public function download(string $downloadUrl, string $savePath)
     {
-        try {
-            $output = new ConsoleOutput();
-            $options = [
+        $output = new ConsoleOutput();
+        $options = [
                 'sink' => $savePath,
                 'progress' => function ($totalDownload, $downloaded) use ($output, &$progressBar, &$isDownloaded) {
                     if ($totalDownload > 0 && $downloaded > 0 && empty($progressBar)) {
@@ -81,10 +74,7 @@ class Music implements MusicInterface, HttpClientFactoryInterface
                 },
             ];
 
-            return $this->createHttpClient($options)->get($downloadUrl);
-        } catch (Throwable $e) {
-            // noop
-        }
+        return self::createHttpClient()->get($downloadUrl, $options);
     }
 
     public function getMeting(): Meting

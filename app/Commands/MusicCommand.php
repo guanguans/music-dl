@@ -11,10 +11,11 @@
 namespace App\Commands;
 
 use App\MusicInterface;
-use App\SongFormatter;
+use App\Formatter;
 use Illuminate\Console\Scheduling\Schedule;
 use Joli\JoliNotif\Util\OsHelper;
 use LaravelZero\Framework\Commands\Command;
+use Throwable;
 
 class MusicCommand extends Command
 {
@@ -43,7 +44,7 @@ class MusicCommand extends Command
      *
      * @return mixed
      */
-    public function handle(MusicInterface $musicClient, SongFormatter $songFormatter)
+    public function handle(MusicInterface $musicClient, Formatter $songFormatter)
     {
         $this->line($this->config['logo']);
 
@@ -85,7 +86,13 @@ class MusicCommand extends Command
             })
             ->each(function ($song) use ($musicClient, $keyword, $songFormatter) {
                 $this->table($songFormatter->format($song, $keyword), []);
-                $musicClient->download($song['url'], $savePath = get_save_path($song));
+                try {
+                    $musicClient->download($song['url'], $savePath = get_save_path($song));
+                } catch (Throwable $e) {
+                    $this->line(sprintf('下载失败：%s', $e->getMessage()));
+
+                    return;
+                }
                 $this->line(sprintf($this->config['save_path_tips'], $savePath));
                 $this->newLine();
                 $this->notify(config('app.name'), $savePath, $this->config['success_icon']);

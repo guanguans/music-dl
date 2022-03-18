@@ -10,7 +10,7 @@
 
 namespace App;
 
-class SongFormatter
+class Formatter
 {
     public function formatAll(array $songs, string $keyword): array
     {
