@@ -10,11 +10,12 @@
 
 namespace App\Commands;
 
-use App\Formatter;
 use App\MusicInterface;
 use Illuminate\Console\Scheduling\Schedule;
 use Joli\JoliNotif\Util\OsHelper;
 use LaravelZero\Framework\Commands\Command;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 use Throwable;
 
 class MusicCommand extends Command
@@ -33,9 +34,13 @@ class MusicCommand extends Command
      */
     protected $description = 'Search and download songs';
 
-    public function __construct()
+    private array $config;
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function initialize(InputInterface $input, OutputInterface $output)
     {
-        parent::__construct();
         $this->config = config('music-dl');
     }
 
@@ -44,7 +49,7 @@ class MusicCommand extends Command
      *
      * @return mixed
      */
-    public function handle(MusicInterface $musicClient, Formatter $songFormatter)
+    public function handle(MusicInterface $music)
     {
         $this->line($this->config['logo']);
 
@@ -57,14 +62,14 @@ class MusicCommand extends Command
         $this->line(sprintf($this->config['searching'], $keyword));
 
         $startTime = microtime(true);
-        $songs = $musicClient->searchWithUrl($keyword, $this->config['channels']);
+        $songs = $music->searchWithUrl($keyword, $this->config['channels']);
         $endTime = microtime(true);
         if (empty($songs)) {
             $this->line($this->config['empty_result']);
             goto START;
         }
 
-        $this->table($this->config['table_header'], $songFormatter->formatAll($songs, $keyword));
+        $this->table($this->config['table_header'], $music->batchFormat($songs, $keyword));
         $this->line(sprintf($this->config['search_statistics'], $endTime - $startTime, memory_get_peak_usage() / 1024 / 1024));
 
         SELECT_INDEX:
@@ -84,10 +89,10 @@ class MusicCommand extends Command
             ->filter(function ($song, $index) use ($indexes) {
                 return in_array($index, $indexes->all());
             })
-            ->each(function ($song) use ($musicClient, $keyword, $songFormatter) {
-                $this->table($songFormatter->format($song, $keyword), []);
+            ->each(function ($song) use ($music, $keyword) {
+                $this->table($music->format($song, $keyword), []);
                 try {
-                    $musicClient->download($song['url'], $savePath = get_save_path($song));
+                    $music->download($song['url'], $savePath = get_save_path($song));
                 } catch (Throwable $e) {
                     $this->line(sprintf('下载失败：%s', $e->getMessage()));
 
