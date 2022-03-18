@@ -44,4 +44,4 @@ jobs:
         with:
           branch: master
           commit_message: Bump to ${{ github.event.release.name }}
-          file_pattern: [ builds/music-dl, CHANGELOG.md ]
+          file_pattern: builds/music-dl CHANGELOG.md
