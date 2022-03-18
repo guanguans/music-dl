@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-/*
- * This file is part of the guanguans/music-php.
+/**
+ * This file is part of the guanguans/music-dl.
  *
- * (c) 琯琯 <yzmguanguan@gmail.com>
+ * (c) guanguans <ityaozm@gmail.com>
  *
  * This source file is subject to the MIT license that is bundled.
  */
 
 use App\Exceptions\RuntimeException;
 
-if (!function_exists('get_song_download_dir')) {
+if (! function_exists('get_song_download_dir')) {
     /**
      * @throws \App\Exceptions\RuntimeException
      */
@@ -21,7 +21,7 @@ if (!function_exists('get_song_download_dir')) {
         $downloadDir = windows_os()
             ? sprintf('C:\\Users\\%s\\Downloads\\%s\\', get_current_user(), $dir)
             : sprintf('%s/Downloads/%s/', exec('cd ~; pwd'), $dir);
-        if (!is_dir($downloadDir) && !mkdir($downloadDir, 0755, true) && !is_dir($downloadDir)) {
+        if (! is_dir($downloadDir) && ! mkdir($downloadDir, 0755, true) && ! is_dir($downloadDir)) {
             throw new RuntimeException(sprintf('The directory "%s" was not created', $downloadDir));
         }
 
@@ -29,7 +29,7 @@ if (!function_exists('get_song_download_dir')) {
     }
 }
 
-if (!function_exists('get_song_save_path')) {
+if (! function_exists('get_song_save_path')) {
     /**
      * @throws \App\Exceptions\RuntimeException
      */
