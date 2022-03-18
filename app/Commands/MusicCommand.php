@@ -12,7 +12,6 @@ namespace App\Commands;
 
 use App\MusicInterface;
 use Illuminate\Console\Scheduling\Schedule;
-use Joli\JoliNotif\Util\OsHelper;
 use LaravelZero\Framework\Commands\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -55,7 +54,7 @@ class MusicCommand extends Command
 
         START:
 
-        OsHelper::isWindows() and $this->line($this->config['win_tips']);
+        windows_os() and $this->line($this->config['win_tips']);
         $keyword = str($this->ask($this->config['search_tips'], '腰乐队'))->trim();
         $this->line(sprintf($this->config['searching'], $keyword));
 

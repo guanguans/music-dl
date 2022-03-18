@@ -11,7 +11,6 @@ declare(strict_types=1);
  */
 
 use App\Exceptions\RuntimeException;
-use Joli\JoliNotif\Util\OsHelper;
 
 if (! function_exists('get_song_download_dir')) {
     /**
@@ -19,10 +18,10 @@ if (! function_exists('get_song_download_dir')) {
      */
     function get_song_download_dir(string $dir = 'MusicDL'): string
     {
-        $downloadDir = OsHelper::isWindows()
+        $downloadDir = windows_os()
             ? sprintf('C:\\Users\\%s\\Downloads\\%s\\', get_current_user(), $dir)
             : sprintf('%s/Downloads/%s/', exec('cd ~; pwd'), $dir);
-        if (! is_dir($downloadDir) && ! mkdir($downloadDir, 0777, true) && ! is_dir($downloadDir)) {
+        if (! is_dir($downloadDir) && ! mkdir($downloadDir, 0755, true) && ! is_dir($downloadDir)) {
             throw new RuntimeException(sprintf('The directory "%s" was not created', $downloadDir));
         }
 
