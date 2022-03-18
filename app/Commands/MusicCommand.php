@@ -10,8 +10,8 @@
 
 namespace App\Commands;
 
-use App\MusicInterface;
 use App\Formatter;
+use App\MusicInterface;
 use Illuminate\Console\Scheduling\Schedule;
 use Joli\JoliNotif\Util\OsHelper;
 use LaravelZero\Framework\Commands\Command;
