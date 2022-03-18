@@ -1,0 +1,25 @@
+name: "update phar"
+
+on:
+  release:
+    types: [released]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: master
+
+      - name: Build PHAR
+        run: ./music-dl app:build --build-version=$(git describe --abbrev=0 --tags)
+
+      - name: Commit updated phar
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          branch: master
+          commit_message: Update phar
+          file_pattern: builds/music-dl
