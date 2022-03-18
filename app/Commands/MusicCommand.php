@@ -59,7 +59,7 @@ class MusicCommand extends Command
         $this->line(sprintf($this->config['searching'], $keyword));
 
         $startTime = microtime(true);
-        $songs = $music->searchWithUrl($keyword, $this->config['channels']);
+        $songs = $music->searchCarryDownloadUrl($keyword, $this->config['channels']);
         $endTime = microtime(true);
         if (empty($songs)) {
             $this->line($this->config['empty_result']);

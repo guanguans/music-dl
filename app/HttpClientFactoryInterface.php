@@ -16,5 +16,5 @@ use GuzzleHttp\ClientInterface;
 
 interface HttpClientFactoryInterface
 {
-    public static function createHttpClient(array $config = []): ClientInterface;
+    public function createHttpClient(array $config = []): ClientInterface;
 }

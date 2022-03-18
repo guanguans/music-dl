@@ -26,7 +26,7 @@ class Music implements MusicInterface, HttpClientFactoryInterface
         $this->meting = $meting->format();
     }
 
-    public function searchWithUrl(string $keyword, ?array $channels = null)
+    public function searchCarryDownloadUrl(string $keyword, ?array $channels = null)
     {
         return array_reduce($this->search($keyword, $channels), function ($songs, $song) {
             try {
@@ -76,7 +76,7 @@ class Music implements MusicInterface, HttpClientFactoryInterface
             },
         ];
 
-        return self::createHttpClient()->get($downloadUrl, $options);
+        return $this->createHttpClient()->get($downloadUrl, $options);
     }
 
     public function batchFormat(array $songs, string $keyword): array

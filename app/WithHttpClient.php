@@ -17,7 +17,7 @@ trait WithHttpClient
 {
     protected static ?ClientInterface $httpClient = null;
 
-    public static function createHttpClient(array $config = []): ClientInterface
+    public function createHttpClient(array $config = []): ClientInterface
     {
         if (! self::$httpClient instanceof ClientInterface || $config) {
             return self::$httpClient = new Client($config);
