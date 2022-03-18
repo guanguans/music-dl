@@ -37,7 +37,7 @@ jobs:
           release-notes: ${{ github.event.release.body }}
 
       - name: Build PHAR
-        run: ./music-dl app:build --build-version=$(git describe --abbrev=0 --tags)
+        run: ./music-dl app:build --build-version=${{ github.event.release.name }}
 
       - name: Commit bump
         uses: stefanzweifel/git-auto-commit-action@v4
