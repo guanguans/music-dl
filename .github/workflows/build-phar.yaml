@@ -42,9 +42,6 @@ jobs:
             -   name: Ensure the PHAR works
                 run: builds/music-dl --version
 
-            -   name: Ensure the PHAR is scoped
-                run: builds/music-dl namespace | php -r 'if (!str_starts_with(stream_get_contents(STDIN), "_HumbugBox")) exit (1);'
-
             -   uses: actions/upload-artifact@v3
                 name: Upload the PHAR artifact
                 with:
