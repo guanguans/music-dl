@@ -34,8 +34,16 @@ if (! function_exists('get_song_save_path')) {
     /**
      * @throws \App\Exceptions\RuntimeException
      */
-    function get_song_save_path(array $song): string
+    function get_song_save_path(array $song, string $defaultExt = 'mp3'): string
     {
-        return get_song_download_dir().implode(',', $song['artist']).' - '.$song['name'].'.mp3';
+        $ext = pathinfo(parse_url($song['url'], PHP_URL_PATH), PATHINFO_EXTENSION);
+
+        return sprintf(
+            '%s%s - %s.%s',
+            get_song_download_dir(),
+            implode(',', $song['artist']),
+            $song['name'],
+            $ext ?: $defaultExt
+        );
     }
 }
