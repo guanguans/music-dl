@@ -55,9 +55,7 @@ class MusicCommand extends Command
 
         START:
 
-        if (OsHelper::isWindows()) {
-            $this->line($this->config['win_tips']);
-        }
+        OsHelper::isWindows() and $this->line($this->config['win_tips']);
         $keyword = str($this->ask($this->config['search_tips'], '腰乐队'))->trim();
         $this->line(sprintf($this->config['searching'], $keyword));
 

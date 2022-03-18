@@ -24,6 +24,7 @@
     "require": {
         "php": "^8.0",
         "guzzlehttp/guzzle": "^7.0",
+        "jolicode/jolinotif": "^2.4",
         "laravel-zero/framework": "^9.0",
         "metowolf/meting": "^1.5",
         "nunomaduro/termwind": "^1.3"
