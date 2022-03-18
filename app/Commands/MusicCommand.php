@@ -17,7 +17,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Throwable;
 
-class MusicCommand extends Command
+final class MusicCommand extends Command
 {
     /**
      * The signature of the command.
