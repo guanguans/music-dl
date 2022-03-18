@@ -1,68 +1,62 @@
-# package-skeleton
+# music-dl
 
 [简体中文](README-zh_CN.md) | [ENGLISH](README.md)
 
-> 一个 PHP 软件包模板存储库。- A PHP package template repository.
+> Command Line Music Search and Downloader. - 命令行音乐搜索和下载器。
 
 [![tests](https://github.com/guanguans/music-dl/workflows/tests/badge.svg)](https://github.com/guanguans/music-dl/actions)
 [![check & fix styling](https://github.com/guanguans/music-dl/actions/workflows/php-cs-fixer.yml/badge.svg)](https://github.com/guanguans/music-dl/actions)
-[![codecov](https://codecov.io/gh/guanguans/music-dl/branch/main/graph/badge.svg?token=URGFAWS6S4)](https://codecov.io/gh/guanguans/music-dl)
 [![Latest Stable Version](https://poser.pugx.org/guanguans/music-dl/v)](//packagist.org/packages/guanguans/music-dl)
 [![Total Downloads](https://poser.pugx.org/guanguans/music-dl/downloads)](//packagist.org/packages/guanguans/music-dl)
 [![License](https://poser.pugx.org/guanguans/music-dl/license)](//packagist.org/packages/guanguans/music-dl)
-[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/guanguans/music-dl)
 ![GitHub repo size](https://img.shields.io/github/repo-size/guanguans/music-dl)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/guanguans/music-dl)
 
-## 功能
-
-* 集成了 [brainmaestro/composer-git-hooks](https://github.com/BrainMaestro/composer-git-hooks) - git 钩子
-* 集成了 [brianium/paratest](https://github.com/paratestphp/paratest) - PHPUnit 的并行测试
-* 集成了 [codedungeon/phpunit-result-printer](https://github.com/mikeerickson/phpunit-pretty-result-printer) - PHPUnit 漂亮的打印结果
-* 集成了 [dg/bypass-finals](https://github.com/rdohms/dg/bypass-finals) - 单元测试辅助包
-* 集成了 [dms/phpunit-arraysubset-asserts](https://github.com/rdohms/phpunit-arraysubset-asserts) - 单元测试辅助包
-* 集成了 [sebastianbergmann/phpunit](https://github.com/sebastianbergmann/phpunit) - 单元测试
-* 集成了 [bovigo/vfsStream](https://github.com/bovigo/vfsStream) - 单元测试辅助包
-* 集成了 [mockery/mockery](https://github.com/mockery/mockery) - mock
-* 集成了 [Nyholm/NSA](https://github.com/Nyholm/NSA) - 单元测试辅助包
-* 集成了 [phpbench/phpbench](https://github.com/phpbench/phpbench) - 基准测试
-* 集成了 [FriendsOfPHP/PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) - 编码规范检查
-* 集成了 [johnkary/phpunit-speedtrap](https://github.com/johnkary/phpunit-speedtrap) - 报告 PHPUnit 测试中运行缓慢的测试
-* 集成了 [overtrue/phplint](https://github.com/overtrue/phplint) - 语法检查
-* 集成了 [symplify/monorepo-builder](https://github.com/symplify/monorepo-builder) - Monorepo
-* 集成了 [vimeo/psalm](https://github.com/vimeo/psalm) - 静态检查
-* 集成了 [lint-md/lint-md](https://github.com/lint-md/lint-md) - markdown 语法检查
-* 集成了 [povils/phpmnd](https://github.com/povils/phpmnd) - PHP 幻数检测器
-* 自带 IDE 帮助文件
-* 自带 `github/pages` docsify [文档网站](https://guanguans.github.io/package-skeleton/)
-* 自带常用徽章图标
-* 自带中英文 `README.md` 文件
+![usage](resources/usage.gif)
 
 ## 环境要求
 
-* PHP >= 7.2
+* PHP >= 8.0
 
 ## 安装
 
-```bash
-$ composer require guanguans/music-dl --prefer-dist -vvv
+### 文件下载安装
+
+在 [releases](https://github.com/guanguans/music-dl/releases) 页面， 下载对应版本 `music-dl` 文件。
+
+### 全局安装
+
+```shell
+$ composer global require guanguans/music-dl --dev
+```
+
+### 当前目录安装
+
+```shell
+$ composer create-project guanguans/music-dl --no-dev
 ```
 
 ## 使用
 
-1. 执行 `$ git clone https://github.com/guanguans/music-dl.git`
-2. 替换 `guanguans/music-dl` -> `vendorName/package-name`
-3. 替换 `Guanguans\\PackageSkeleton` -> `VendorName\\PackageName`
-4. 替换 `Guanguans\PackageSkeleton` -> `VendorName\PackageName`
-5. 替换 `ityaozm@gmail.com` -> `your email`
-6. 执行 `$ composer install && composer dumpautoload`
-7. 执行 `$ rm .git/`
-8. 执行 `$ git init && git add . && git commit -m 'Build the basic skeleton'`
-
-## 测试
+您可以在命令行上执行该工具。
 
 ```bash
-$ composer test
+$ music-dl
+```
+
+```text
+╰─ ./music-dl                                                                       ─╯
+
+     __  __           _        _____  _      
+    |  \/  |         (_)      |  __ \| |     
+    | \  / |_   _ ___ _  ___  | |  | | |     
+    | |\/| | | | / __| |/ __| | |  | | |     
+    | |  | | |_| \__ \ | (__  | |__| | |____ 
+    |_|  |_|\__,_|___/_|\___| |_____/|______|                                       
+
+ 请输入要关键字如：一个短篇  腰乐队  Yesterday once more，或 Ctrl+C 退出 [腰乐队]:
+ > |
+
 ```
 
 ## 变更日志
