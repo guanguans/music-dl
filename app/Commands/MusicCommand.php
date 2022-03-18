@@ -92,7 +92,7 @@ class MusicCommand extends Command
                 try {
                     $music->download($song['url'], $savePath = get_song_save_path($song));
                 } catch (Throwable $e) {
-                    $this->line(sprintf('下载失败：%s', $e->getMessage()));
+                    $this->line(sprintf($this->config['download_failed_tips'], $e->getMessage()));
                     $this->newLine();
 
                     return;

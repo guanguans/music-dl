@@ -42,18 +42,12 @@ logo,
     'splitter' => '-------------------------------',
     'search_tips' => '请输入要关键字如：<fg=yellow>一个短篇  腰乐队  Yesterday once more</>，或 <fg=yellow>Ctrl+C</> 退出',
     'win_tips' => '<fg=yellow>CMD、PowerShell 仅支持英文搜索，Git Bash 支持中英文搜索</>',
-    'searching' => <<<'searching'
----------------------------------------
-正在搜索：<fg=yellow>%s</>，请耐心等待...
----------------------------------------
-searching,
+    'searching' => '正在搜索：<fg=yellow>%s</>，请耐心等待...',
     'search_statistics' => '搜索耗时 <fg=yellow>%.2f 秒</>，最大内存占用 <fg=yellow>%.2f</> M',
     'empty_result' => '<fg=yellow>o(╥﹏╥)o 没有搜索到相关歌曲</>',
     'download_tips' => '请输入下载序号，多个用英文逗号隔开如：<fg=yellow>0,6</>，输入 <fg=yellow>all</> 下载全部，输入 <fg=yellow>n</> 跳过下载',
+    'download_failed_tips' => PHP_EOL.'下载失败：<fg=red>%s</>',
     'input_error' => '<fg=red>o(╥﹏╥)o 输入错误</>',
-    'save_path_tips' => <<<'save_path_tips'
-
-已保存到：<fg=yellow>%s</>，请前往查看
-save_path_tips,
+    'save_path_tips' => PHP_EOL.'已保存到：<fg=yellow>%s</>，请前往查看',
     'success_icon' => resource_path('icon-success.png'),
 ];
