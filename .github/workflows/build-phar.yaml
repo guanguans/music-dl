@@ -34,8 +34,6 @@ jobs:
 
             -   name: Install RequirementChecker Composer dependencies
                 uses: ramsey/composer-install@v2
-                with:
-                    working-directory: 'requirement-checker'
 
             -   name: Build PHAR
                 run: ./music-dl app:build --build-version=$(git describe --abbrev=0 --tags)
