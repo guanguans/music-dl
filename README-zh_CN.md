@@ -20,7 +20,7 @@
 
 ## 安装
 
-下载 [music-dl](raw/master/builds/music-dl) phar 文件.
+下载 [music-dl](https://github.com/guanguans/music-dl/raw/master/builds/music-dl) phar 文件.
 
 ## 使用
 
