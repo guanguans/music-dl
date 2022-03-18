@@ -1,9 +1,9 @@
 <?php
 
-/**
- * This file is part of the guanguans/music-dl.
+/*
+ * This file is part of the guanguans/music-php.
  *
- * (c) guanguans <ityaozm@gmail.com>
+ * (c) 琯琯 <yzmguanguan@gmail.com>
  *
  * This source file is subject to the MIT license that is bundled.
  */
@@ -75,7 +75,7 @@ class MusicCommand extends Command
             goto START;
         } elseif ('all' === (string) $index) {
             $indexes = collect($songs)->keys();
-        } elseif ((string) $index < 0 || (string) $index >= count($songs) || ! preg_match('/^[0-9,]*$/', $index)) {
+        } elseif ((string) $index < 0 || (string) $index >= count($songs) || !preg_match('/^[0-9,]*$/', $index)) {
             $this->line($this->config['input_error']);
             goto SELECT_INDEX;
         }
