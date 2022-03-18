@@ -57,22 +57,21 @@ class Music implements MusicInterface, HttpClientFactoryInterface
     {
         $output = new ConsoleOutput();
         $options = [
-                'sink' => $savePath,
-                'progress' => function ($totalDownload, $downloaded) use ($output, &$progressBar, &$isDownloaded) {
-                    if ($totalDownload > 0 && $downloaded > 0 && empty($progressBar)) {
-                        $progressBar = new ProgressBar($output, $totalDownload);
-                        $progressBar->setFormat('very_verbose');
-                        $progressBar->start();
-                    }
+            'sink' => $savePath,
+            'progress' => function ($totalDownload, $downloaded) use ($output, &$progressBar, &$isDownloaded) {
+                if ($totalDownload > 0 && $downloaded > 0 && empty($progressBar)) {
+                    $progressBar = new ProgressBar($output, $totalDownload);
+                    $progressBar->start();
+                }
 
-                    if (! $isDownloaded && $progressBar && $totalDownload === $downloaded) {
-                        $progressBar->finish();
-                        $isDownloaded = true;
-                    }
+                if (! $isDownloaded && $progressBar && $totalDownload === $downloaded) {
+                    $progressBar->finish();
+                    $isDownloaded = true;
+                }
 
-                    $progressBar and $progressBar->setProgress($downloaded);
-                },
-            ];
+                $progressBar and $progressBar->setProgress($downloaded);
+            },
+        ];
 
         return self::createHttpClient()->get($downloadUrl, $options);
     }
