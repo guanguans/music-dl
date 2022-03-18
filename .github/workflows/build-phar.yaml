@@ -53,7 +53,6 @@ jobs:
         name: Publish the PHAR
         needs:
             - 'build-phar'
-        if: github.event_name == 'release'
         steps:
             -   uses: actions/download-artifact@v3
                 with:
@@ -62,6 +61,7 @@ jobs:
 
             -   name: Upload music-dl
                 uses: softprops/action-gh-release@v1
+                if: startsWith(github.ref, 'refs/tags/')
                 with:
                     token: ${{ secrets.GITHUB_TOKEN }}
                     files: builds/music-dl
