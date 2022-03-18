@@ -13,6 +13,7 @@ namespace App;
 use Metowolf\Meting;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\ConsoleOutput;
+use Throwable;
 
 class Music implements MusicInterface, HttpClientFactoryInterface
 {
@@ -27,13 +28,16 @@ class Music implements MusicInterface, HttpClientFactoryInterface
 
     public function searchWithUrl(string $keyword, ?array $channels = null)
     {
-        $songs = $this->search($keyword, $channels);
-
-        return array_reduce($songs, function ($songs, $song) {
-            $detail = json_decode($this->meting->url($song['url_id']), true);
-            if (empty($detail['url'])) {
+        return array_reduce($this->search($keyword, $channels), function ($songs, $song) {
+            try {
+                $detail = json_decode($this->meting->site($song['source'])->url($song['url_id']), true);
+                if (empty($detail['url'])) {
+                    return $songs;
+                }
+            } catch (Throwable $e) {
                 return $songs;
             }
+
             $songs[] = array_merge($song, $detail);
 
             return $songs;
@@ -55,12 +59,11 @@ class Music implements MusicInterface, HttpClientFactoryInterface
 
     public function download(string $downloadUrl, string $savePath)
     {
-        $output = new ConsoleOutput();
         $options = [
             'sink' => $savePath,
-            'progress' => function ($totalDownload, $downloaded) use ($output, &$progressBar, &$isDownloaded) {
+            'progress' => function ($totalDownload, $downloaded) use (&$progressBar, &$isDownloaded) {
                 if ($totalDownload > 0 && $downloaded > 0 && empty($progressBar)) {
-                    $progressBar = new ProgressBar($output, $totalDownload);
+                    $progressBar = new ProgressBar(new ConsoleOutput(), $totalDownload);
                     $progressBar->start();
                 }
 

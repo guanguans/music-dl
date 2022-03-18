@@ -22,10 +22,10 @@ logo,
 
     'channels' => [
         'tencent',
-        // 'netease',
-        // 'kugou',
-        // 'kuwo',
+        'netease',
+        'kugou',
         // 'baidu',
+        // 'kuwo',
         // 'xiami',
     ],
 
