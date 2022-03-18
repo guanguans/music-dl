@@ -14,7 +14,7 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                php: [ '8.1' ]
+                php: [ '8.0', '8.1' ]
         steps:
             -   name: Checkout
                 uses: actions/checkout@v3
@@ -38,20 +38,20 @@ jobs:
                     working-directory: 'requirement-checker'
 
             -   name: Build PHAR
-                run: make compile
+                run: ./music-dl app:build --build-version=$(git describe --abbrev=0 --tags)
 
             # Smoke test
             -   name: Ensure the PHAR works
-                run: bin/box.phar --version
+                run: builds/music-dl --version
 
             -   name: Ensure the PHAR is scoped
-                run: bin/box.phar namespace | php -r 'if (!str_starts_with(stream_get_contents(STDIN), "_HumbugBox")) exit (1);'
+                run: builds/music-dl namespace | php -r 'if (!str_starts_with(stream_get_contents(STDIN), "_HumbugBox")) exit (1);'
 
             -   uses: actions/upload-artifact@v3
                 name: Upload the PHAR artifact
                 with:
-                    name: box-phar
-                    path: bin/box.phar
+                    name: music-dl
+                    path: builds/music-dl
 
     publish-phar:
         runs-on: ubuntu-latest
@@ -62,11 +62,11 @@ jobs:
         steps:
             -   uses: actions/download-artifact@v3
                 with:
-                    name: box-phar
+                    name: music-dl
                     path: .
 
-            -   name: Upload box.phar
+            -   name: Upload music-dl
                 uses: softprops/action-gh-release@v1
                 with:
                     token: ${{ secrets.GITHUB_TOKEN }}
-                    files: box.phar
+                    files: builds/music-dl
