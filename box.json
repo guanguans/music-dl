@@ -4,11 +4,11 @@
         "app",
         "bootstrap",
         "config",
-        "resources",
         "vendor"
     ],
     "files": [
-        "composer.json"
+        "composer.json",
+        "resources/success-icon.png"
     ],
     "exclude-composer-files": false,
     "compression": "GZ",
