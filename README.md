@@ -1,5 +1,7 @@
 # music-dl
 
+<p align="center"><img src="resources/usage.gif" alt="usage" title="usage"></p>
+
 [简体中文](README-zh_CN.md) | [ENGLISH](README.md)
 
 > Music Searcher and Downloader. - 音乐搜索下载器。
@@ -10,8 +12,6 @@
 [![License](https://poser.pugx.org/guanguans/music-dl/license)](//packagist.org/packages/guanguans/music-dl)
 ![GitHub repo size](https://img.shields.io/github/repo-size/guanguans/music-dl)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/guanguans/music-dl)
-
-![usage](resources/usage.gif)
 
 ## Requirement
 
