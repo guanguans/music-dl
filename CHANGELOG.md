@@ -2,6 +2,14 @@
 
 All notable changes to `guanguans/music-dl` will be documented in this file.
 
+## v3.0.4 - 2022-03-19
+
+## What's Changed
+
+- [ImgBot] Optimize images by @imgbot in https://github.com/guanguans/music-dl/pull/323
+
+**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.0.3...v3.0.4
+
 ## v3.0.3 - 2022-03-19
 
 **Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.0.2...v3.0.3
