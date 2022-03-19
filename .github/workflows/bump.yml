@@ -4,6 +4,9 @@ on:
   release:
     types: [ released ]
 
+env:
+  COMPOSER_FLAGS: "--ansi --no-interaction --no-progress --no-suggest --prefer-dist"
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -27,8 +30,8 @@ jobs:
           tools: composer
           coverage: none
 
-      - name: Install Composer dependencies
-        uses: ramsey/composer-install@v2
+      - name: Install dependencies
+        run: "composer install ${{ env.COMPOSER_FLAGS }}"
 
       - name: Update Changelog
         uses: stefanzweifel/changelog-updater-action@v1
@@ -45,3 +48,13 @@ jobs:
           branch: master
           commit_message: Bump to ${{ github.event.release.name }}
           file_pattern: builds/music-dl CHANGELOG.md
+
+      - name: Upload phar
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./builds/music-dl
+          asset_name: music-dl
+          asset_content_type: application/octet-stream
