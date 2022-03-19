@@ -26,7 +26,8 @@
         "guzzlehttp/guzzle": "^7.0",
         "laravel-zero/framework": "^9.0",
         "metowolf/meting": "^1.5",
-        "nunomaduro/termwind": "^1.3"
+        "nunomaduro/termwind": "^1.3",
+        "spatie/async": "^1.5"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.7",
