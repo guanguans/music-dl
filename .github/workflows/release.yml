@@ -27,12 +27,6 @@ jobs:
       - name: "Install dependencies from composer.lock using composer binary provided by system"
         run: "composer install ${{ env.COMPOSER_FLAGS }}"
 
-      - name: "Run install again using composer binary from source"
-        run: "bin/composer install ${{ env.COMPOSER_FLAGS }}"
-
-      - name: "Validate composer.json"
-        run: "bin/composer validate"
-
       - name: Build phar file
         run: ./music-dl app:build --build-version=${{ github.event.release.name }}
 
