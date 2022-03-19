@@ -24,7 +24,7 @@ final class MusicCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'music';
+    protected $signature = 'music {--c|concurrent : Search for songs concurrently}';
 
     /**
      * The description of the command.
@@ -59,7 +59,9 @@ final class MusicCommand extends Command
         $this->line(sprintf($this->config['searching'], $keyword));
 
         $startTime = microtime(true);
-        $songs = $music->searchCarryDownloadUrlConcurrent($keyword, $this->config['channels']);
+        $songs = $this->option('concurrent')
+            ? $music->searchCarryDownloadUrlConcurrent($keyword, $this->config['channels'])
+            : $music->searchCarryDownloadUrl($keyword, $this->config['channels']);
         $endTime = microtime(true);
         if (empty($songs)) {
             $this->line($this->config['empty_result']);
