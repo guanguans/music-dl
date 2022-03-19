@@ -12,6 +12,7 @@ namespace App\Commands;
 
 use App\MusicInterface;
 use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Support\Collection;
 use LaravelZero\Framework\Commands\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -68,25 +69,35 @@ final class MusicCommand extends Command
             goto START;
         }
 
-        $this->table($this->config['table_header'], $music->batchFormat($songs, $keyword));
+        $this->table($this->config['table_header'], $formatSongs = $music->batchFormat($songs, $keyword));
         $this->line(sprintf($this->config['search_statistics'], $endTime - $startTime, memory_get_peak_usage() / 1024 / 1024));
-
-        SELECT_INDEX:
-
-        $index = str($this->ask($this->config['download_tips'], 'all'))->trim()->lower();
-        $indexes = $index->explode(',');
-        if ('n' === (string) $index) {
+        if (! $this->confirm($this->config['confirm_download'])) {
             goto START;
-        } elseif ('all' === (string) $index) {
-            $indexes = collect($songs)->keys();
-        } elseif ((string) $index < 0 || (string) $index >= count($songs) || ! preg_match('/^[0-9,]*$/', $index)) {
-            $this->line($this->config['input_error']);
-            goto SELECT_INDEX;
         }
 
-        collect($songs)
-            ->filter(function ($song, $index) use ($indexes) {
-                return in_array($index, $indexes->all());
+        $choices = collect($formatSongs)
+            ->transform(function ($song) {
+                unset($song[0]);
+
+                return implode('  ', $song);
+            })
+            ->push($this->config['download_all_songs']);
+        $selectedValues = $this->choice($this->config['download_choice_tips'], $choices->all(), $lastKey = ($choices->count() - 1), null, true);
+        collect($selectedValues)
+            ->transform(function ($select) use ($choices) {
+                return $choices->search($select);
+            })
+            ->pipe(function (Collection $selectedKeys) use ($lastKey, $songs) {
+                if (in_array($lastKey, $selectedKeys->all())) {
+                    return collect($songs)->keys();
+                }
+
+                return $selectedKeys;
+            })
+            ->pipe(function (Collection $selectedKeys) use ($songs) {
+                return collect($songs)->filter(function ($song, $key) use ($selectedKeys) {
+                    return in_array($key, $selectedKeys->all());
+                });
             })
             ->each(function ($song) use ($music, $keyword) {
                 $this->table($music->format($song, $keyword), []);
