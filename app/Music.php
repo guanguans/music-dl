@@ -20,10 +20,10 @@ class Music implements MusicInterface, HttpClientFactoryInterface
 {
     use WithHttpClient;
 
-    protected Meting $meting;
-
-    public function __construct(Meting $meting)
-    {
+    public function __construct(
+        protected Meting $meting,
+        protected ConsoleOutput $output
+    ) {
         $this->meting = $meting->format();
     }
 
@@ -45,11 +45,10 @@ class Music implements MusicInterface, HttpClientFactoryInterface
         }, []);
     }
 
-    public function searchCarryDownloadUrlAsync(string $keyword, ?array $channels = null)
+    public function searchCarryDownloadUrlConcurrent(string $keyword, ?array $channels = null)
     {
-        $songs = $this->searchAsync($keyword, $channels);
-
-        tap(Pool::create()->concurrency(256)->timeout(5), function (Pool $pool) use (&$songs) {
+        $songs = transform($this->searchConcurrent($keyword, $channels), function ($songs) {
+            $pool = Pool::create()->concurrency(256)->timeout(5);
             foreach ($songs as &$song) {
                 $pool->add(function () use ($song) {
                     try {
@@ -64,16 +63,17 @@ class Music implements MusicInterface, HttpClientFactoryInterface
                         $song = $output;
                     })
                     ->catch(function (Throwable $e) {
-                        dump($e->getMessage());
+                        $this->output->writeln($e->getMessage());
                     })
                     ->timeout(function () {
                         // noop
                     });
             }
-            unset($song);
-        })->wait();
 
-        return array_values(array_filter($songs, function (array $song) {
+            return $songs;
+        });
+
+        return array_values(array_filter((array) $songs, function (array $song) {
             return ! empty($song['url']);
         }));
     }
@@ -91,13 +91,16 @@ class Music implements MusicInterface, HttpClientFactoryInterface
         }, []);
     }
 
-    public function searchAsync(string $keyword, ?array $channels = null)
+    public function searchConcurrent(string $keyword, ?array $channels = null)
     {
         if (is_null($channels)) {
             return json_decode($this->meting->search($keyword), true);
         }
 
-        tap(Pool::create()->concurrency(8)->timeout(3), function (Pool $pool) use (&$songs, $keyword, $channels) {
+        return value(function () use ($keyword, $channels) {
+            $songs = [];
+
+            $pool = Pool::create()->concurrency(8)->timeout(3);
             foreach ($channels as $channel) {
                 $pool->add(function () use ($keyword, $channel) {
                     $response = $this->meting->site($channel)->search($keyword);
@@ -105,18 +108,19 @@ class Music implements MusicInterface, HttpClientFactoryInterface
                     return json_decode($response, true);
                 }, 102400)
                     ->then(function ($output) use (&$songs) {
-                        $songs = array_merge((array) $songs, $output);
+                        $songs = array_merge($songs, $output);
                     })
                     ->catch(function (Throwable $e) {
-                        dump($e->getMessage());
+                        $this->output->writeln($e->getMessage());
                     })
                     ->timeout(function () {
                         // noop
                     });
             }
-        })->wait();
+            $pool->wait();
 
-        return $songs;
+            return $songs;
+        });
     }
 
     public function download(string $downloadUrl, string $savePath)
@@ -125,7 +129,7 @@ class Music implements MusicInterface, HttpClientFactoryInterface
             'sink' => $savePath,
             'progress' => function ($totalDownload, $downloaded) use (&$progressBar, &$isDownloaded) {
                 if ($totalDownload > 0 && $downloaded > 0 && empty($progressBar)) {
-                    $progressBar = new ProgressBar(new ConsoleOutput(), $totalDownload);
+                    $progressBar = new ProgressBar($this->output, $totalDownload);
                     $progressBar->start();
                 }
 

@@ -14,7 +14,6 @@ use App\Music;
 use App\MusicInterface;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\ServiceProvider;
-use Metowolf\Meting;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -35,7 +34,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(MusicInterface::class, function (Container $app) {
-            return new Music(new Meting());
+            return $app->make(Music::class);
         });
     }
 }
