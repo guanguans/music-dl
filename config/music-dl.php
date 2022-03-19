@@ -49,5 +49,6 @@ logo, config('app.version')),
     'download_failed_tips' => PHP_EOL.'下载失败：<fg=red>%s</>',
     'input_error' => '<fg=red>o(╥﹏╥)o 输入错误</>',
     'save_path_tips' => PHP_EOL.'已保存到：<fg=yellow>%s</>，请前往查看',
+    'exception_tips' => '<fg=red>o(╥﹏╥)o 发生了什么：</><fg=yellow>%s</>',
     'success_icon' => resource_path('success-icon.png'),
 ];
