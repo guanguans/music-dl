@@ -12,6 +12,37 @@ declare(strict_types=1);
 
 use App\Exceptions\RuntimeException;
 
+if (! function_exists('array_reduces')) {
+    /**
+     * @param $carry
+     *
+     * @return mixed|null
+     */
+    function array_reduces(array $array, callable $callback, $carry = null)
+    {
+        foreach ($array as $key => $value) {
+            $carry = call_user_func($callback, $carry, $value, $key);
+        }
+
+        return $carry;
+    }
+}
+
+if (! function_exists('array_maps')) {
+    /**
+     * @return array
+     */
+    function array_maps(callable $callback, array $array)
+    {
+        $arr = [];
+        foreach ($array as $key => $value) {
+            $arr[$key] = call_user_func($callback, $value, $key);
+        }
+
+        return $arr;
+    }
+}
+
 if (! function_exists('get_song_download_dir')) {
     /**
      * @throws \App\Exceptions\RuntimeException
