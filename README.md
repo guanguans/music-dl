@@ -2,7 +2,7 @@
 
 [简体中文](README-zh_CN.md) | [ENGLISH](README.md)
 
-> Command Line Music Search and Downloader. - 命令行音乐搜索和下载器。
+> Music Searcher and Downloader. - 音乐搜索下载器。
 
 [![tests](https://github.com/guanguans/music-dl/workflows/tests/badge.svg)](https://github.com/guanguans/music-dl/actions)
 [![check & fix styling](https://github.com/guanguans/music-dl/actions/workflows/php-cs-fixer.yml/badge.svg)](https://github.com/guanguans/music-dl/actions)

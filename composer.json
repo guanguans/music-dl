@@ -1,6 +1,6 @@
 {
     "name": "guanguans/music-dl",
-    "description": "Command Line Music Search and Downloader. - 命令行音乐搜索和下载器。",
+    "description": "Music Searcher and Downloader. - 音乐搜索下载器。",
     "keywords": [
         "song",
         "music",
@@ -8,7 +8,7 @@
         "dl",
         "search"
     ],
-    "homepage": "https://github.com/guanguans/music-dl",
+    "homepage": "https://guanguans.github.io/music-dl",
     "type": "project",
     "license": "MIT",
     "support": {
