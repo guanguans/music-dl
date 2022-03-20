@@ -69,6 +69,7 @@ class Music implements MusicInterface, HttpClientFactoryInterface
                         // noop
                     });
             }
+            $pool->wait();
 
             return $songs;
         });
