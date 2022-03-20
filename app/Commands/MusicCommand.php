@@ -61,7 +61,7 @@ final class MusicCommand extends Command
         $keyword = str($this->ask($this->config['search_tips'], '腰乐队'))->trim();
         $this->line(sprintf($this->config['searching'], $keyword));
 
-        $channels = ($sources = (array)$this->argument('source')) ? $sources : $this->config['channels'];
+        $channels = ($sources = (array) $this->argument('source')) ? $sources : $this->config['channels'];
         $startTime = microtime(true);
         $songs = $this->option('concurrent')
             ? $music->searchCarryDownloadUrlConcurrent($keyword, $channels)
