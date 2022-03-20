@@ -61,7 +61,7 @@ final class MusicCommand extends Command
         $keyword = str($this->ask($this->config['search_tips'], '腰乐队'))->trim();
         $this->line(sprintf($this->config['searching'], $keyword));
 
-        $channels = ($sources = (array)$this->argument('source')) ? $sources : $this->config['channels'];
+        $channels = ($sources = (array) $this->argument('source')) ? $sources : $this->config['channels'];
         $startTime = microtime(true);
         $songs = $this->option('concurrent')
             ? $music->searchCarryDownloadUrlConcurrent($keyword, $channels)
@@ -102,9 +102,9 @@ final class MusicCommand extends Command
                     return in_array($key, $selectedKeys->all());
                 });
             })
-            ->each(function ($song) use ($music, $keyword) {
-                $this->table($music->format($song, $keyword), []);
+            ->each(function ($song, $index) use ($formatSongs, $music) {
                 try {
+                    $this->table($formatSongs[$index], []);
                     $music->download($song['url'], $savePath = get_song_save_path($song));
                 } catch (Throwable $e) {
                     $this->line(sprintf($this->config['download_failed_tips'], $e->getMessage()));
