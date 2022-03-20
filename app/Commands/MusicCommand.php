@@ -25,7 +25,9 @@ final class MusicCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'music {--c|concurrent : Search for songs concurrently}';
+    protected $signature = 'music
+                            {source?* : Specify the source(tencent、netease、kugou) of the song} 
+                            {--c|concurrent : Search for songs concurrently}';
 
     /**
      * The description of the command.
@@ -59,10 +61,11 @@ final class MusicCommand extends Command
         $keyword = str($this->ask($this->config['search_tips'], '腰乐队'))->trim();
         $this->line(sprintf($this->config['searching'], $keyword));
 
+        $channels = ($sources = (array)$this->argument('source')) ? $sources : $this->config['channels'];
         $startTime = microtime(true);
         $songs = $this->option('concurrent')
-            ? $music->searchCarryDownloadUrlConcurrent($keyword, $this->config['channels'])
-            : $music->searchCarryDownloadUrl($keyword, $this->config['channels']);
+            ? $music->searchCarryDownloadUrlConcurrent($keyword, $channels)
+            : $music->searchCarryDownloadUrl($keyword, $channels);
         $endTime = microtime(true);
         if (empty($songs)) {
             $this->line($this->config['empty_result']);
