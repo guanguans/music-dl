@@ -8,7 +8,6 @@
 .php_cs.cache
 .php-cs-fixer.cache
 build/
-composer.lock
 coverage/
 clover.xml
 phpunit.xml
