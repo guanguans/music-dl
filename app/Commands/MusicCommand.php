@@ -106,14 +106,14 @@ final class MusicCommand extends Command
                 try {
                     $this->table($formatSongs[$index], []);
                     $music->download($song['url'], $savePath = get_song_save_path($song));
+                    $this->line(sprintf($this->config['save_path_tips'], $savePath));
+                    $this->newLine();
                 } catch (Throwable $e) {
                     $this->line(sprintf($this->config['download_failed_tips'], $e->getMessage()));
                     $this->newLine();
 
                     return;
                 }
-                $this->line(sprintf($this->config['save_path_tips'], $savePath));
-                $this->newLine();
             })
             ->when(! windows_os(), function () {
                 $this->notify(config('app.name'), get_song_download_dir(), $this->config['success_icon']);
