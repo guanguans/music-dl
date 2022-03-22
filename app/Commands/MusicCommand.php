@@ -115,7 +115,7 @@ final class MusicCommand extends Command
                 $this->line(sprintf($this->config['save_path_tips'], $savePath));
                 $this->newLine();
             })
-            ->tap(function ($songs) {
+            ->when(! windows_os(), function () {
                 $this->notify(config('app.name'), get_song_download_dir(), $this->config['success_icon']);
             });
 
