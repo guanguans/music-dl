@@ -2519,16 +2519,16 @@
         },
         {
             "name": "nunomaduro/termwind",
-            "version": "v1.6.2",
+            "version": "v1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/termwind.git",
-                "reference": "ef6a5a86c5fad3c7c9bffdc012dc006a0e042548"
+                "reference": "f962321d81169f0cd9832aa10d083f022f1ada3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/termwind/zipball/ef6a5a86c5fad3c7c9bffdc012dc006a0e042548",
-                "reference": "ef6a5a86c5fad3c7c9bffdc012dc006a0e042548",
+                "url": "https://api.github.com/repos/nunomaduro/termwind/zipball/f962321d81169f0cd9832aa10d083f022f1ada3e",
+                "reference": "f962321d81169f0cd9832aa10d083f022f1ada3e",
                 "shasum": ""
             },
             "require": {
@@ -2585,7 +2585,7 @@
             ],
             "support": {
                 "issues": "https://github.com/nunomaduro/termwind/issues",
-                "source": "https://github.com/nunomaduro/termwind/tree/v1.6.2"
+                "source": "https://github.com/nunomaduro/termwind/tree/v1.7.0"
             },
             "funding": [
                 {
@@ -2601,7 +2601,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-03-18T13:07:34+00:00"
+            "time": "2022-03-30T11:19:29+00:00"
         },
         {
             "name": "phpoption/phpoption",
