@@ -10,11 +10,11 @@ declare(strict_types=1);
  * This source file is subject to the MIT license that is bundled.
  */
 
-namespace App;
+namespace App\Contracts;
 
 use GuzzleHttp\ClientInterface;
 
-interface HttpClientFactoryInterface
+interface HttpClientFactory
 {
     public function createHttpClient(array $config = []): ClientInterface;
 }

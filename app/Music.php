@@ -10,13 +10,15 @@
 
 namespace App;
 
+use App\Concerns\WithHttpClient;
+use App\Contracts\HttpClientFactory;
 use Metowolf\Meting;
 use Spatie\Async\Pool;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Throwable;
 
-class Music implements MusicInterface, HttpClientFactoryInterface
+class Music implements \App\Contracts\Music, HttpClientFactory
 {
     use WithHttpClient;
 

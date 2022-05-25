@@ -8,7 +8,7 @@
  * This source file is subject to the MIT license that is bundled.
  */
 
-namespace App;
+namespace App\Concerns;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;

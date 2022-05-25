@@ -10,7 +10,7 @@
 
 namespace App\Commands;
 
-use App\MusicInterface;
+use App\Contracts\Music;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\Collection;
 use LaravelZero\Framework\Commands\Command;
@@ -51,7 +51,7 @@ final class MusicCommand extends Command
      *
      * @return mixed
      */
-    public function handle(MusicInterface $music)
+    public function handle(Music $music)
     {
         $this->line($this->config['logo']);
 
