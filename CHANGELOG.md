@@ -2,6 +2,25 @@
 
 All notable changes to `guanguans/music-dl` will be documented in this file.
 
+## v3.1.0 - 2022-05-25
+
+## What's Changed
+
+- Bump actions/cache from 2 to 3 by @dependabot in https://github.com/guanguans/music-dl/pull/325
+- Bump nunomaduro/termwind from 1.6.0 to 1.6.2 by @dependabot in https://github.com/guanguans/music-dl/pull/326
+- Bump guzzlehttp/guzzle from 7.4.1 to 7.4.2 by @dependabot in https://github.com/guanguans/music-dl/pull/327
+- Bump friendsofphp/php-cs-fixer from 3.7.0 to 3.8.0 by @dependabot in https://github.com/guanguans/music-dl/pull/328
+- Bump nunomaduro/termwind from 1.6.2 to 1.7.0 by @dependabot in https://github.com/guanguans/music-dl/pull/329
+- Bump codecov/codecov-action from 2.1.0 to 3.0.0 by @dependabot in https://github.com/guanguans/music-dl/pull/331
+- Bump dependabot/fetch-metadata from 1.3.0 to 1.3.1 by @dependabot in https://github.com/guanguans/music-dl/pull/332
+- Bump codecov/codecov-action from 3.0.0 to 3.1.0 by @dependabot in https://github.com/guanguans/music-dl/pull/333
+- Bump nunomaduro/termwind from 1.7.0 to 1.8.0 by @dependabot in https://github.com/guanguans/music-dl/pull/334
+- Bump vimeo/psalm from 4.22.0 to 4.23.0 by @dependabot in https://github.com/guanguans/music-dl/pull/335
+- Bump nunomaduro/termwind from 1.8.0 to 1.10.1 by @dependabot in https://github.com/guanguans/music-dl/pull/337
+- Bump pestphp/pest from 1.21.2 to 1.21.3 by @dependabot in https://github.com/guanguans/music-dl/pull/338
+
+**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.0.10...v3.1.0
+
 ## v3.0.10 - 2022-03-22
 
 **Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.0.9...v3.0.10
