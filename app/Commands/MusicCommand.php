@@ -10,8 +10,11 @@
 
 namespace App\Commands;
 
-use App\Contracts\Music;
+use App\ConcurrencyMusic;
+use App\Contracts\Music as MusicContract;
+use App\Music;
 use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\Collection;
 use LaravelZero\Framework\Commands\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -44,6 +47,11 @@ final class MusicCommand extends Command
     protected function initialize(InputInterface $input, OutputInterface $output)
     {
         $this->config = config('music-dl');
+
+        $isConcurrent = $this->option('concurrent');
+        $this->app->bind(MusicContract::class, function (Container $app) use ($isConcurrent) {
+            return $isConcurrent ? $app->make(ConcurrencyMusic::class) : $app->make(Music::class);
+        });
     }
 
     /**
@@ -51,7 +59,7 @@ final class MusicCommand extends Command
      *
      * @return mixed
      */
-    public function handle(Music $music)
+    public function handle(MusicContract $music)
     {
         $this->line($this->config['logo']);
 
@@ -63,9 +71,7 @@ final class MusicCommand extends Command
 
         $channels = ($sources = (array) $this->argument('source')) ? $sources : $this->config['channels'];
         $startTime = microtime(true);
-        $songs = $this->option('concurrent')
-            ? $music->searchCarryDownloadUrlConcurrent($keyword, $channels)
-            : $music->searchCarryDownloadUrl($keyword, $channels);
+        $songs = $music->search($keyword, $channels);
         $endTime = microtime(true);
         if (empty($songs)) {
             $this->line($this->config['empty_result']);

@@ -13,7 +13,6 @@ namespace App;
 use App\Concerns\WithHttpClient;
 use App\Contracts\HttpClientFactory;
 use Metowolf\Meting;
-use Spatie\Async\Pool;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Throwable;
@@ -29,9 +28,9 @@ class Music implements \App\Contracts\Music, HttpClientFactory
         $this->meting = $meting->format();
     }
 
-    public function searchCarryDownloadUrl(string $keyword, ?array $channels = null)
+    protected function batchCarryDownloadUrl(array $withoutUrlSongs)
     {
-        return array_reduce($this->search($keyword, $channels), function ($songs, $song) {
+        return array_reduce($withoutUrlSongs, function ($songs, $song) {
             try {
                 $response = json_decode($this->meting->site($song['source'])->url($song['url_id']), true);
                 if (empty($response['url'])) {
@@ -47,83 +46,21 @@ class Music implements \App\Contracts\Music, HttpClientFactory
         }, []);
     }
 
-    public function searchCarryDownloadUrlConcurrent(string $keyword, ?array $channels = null)
-    {
-        $songs = transform($this->searchConcurrent($keyword, $channels), function ($songs) {
-            $pool = Pool::create()->concurrency(256)->timeout(5);
-            foreach ($songs as &$song) {
-                $pool->add(function () use ($song) {
-                    try {
-                        $response = json_decode($this->meting->site($song['source'])->url($song['url_id']), true);
-
-                        return array_merge($song, $response);
-                    } catch (Throwable $e) {
-                        return $song;
-                    }
-                })
-                    ->then(function ($output) use (&$song) {
-                        $song = $output;
-                    })
-                    ->catch(function (Throwable $e) {
-                        $this->output->writeln($e->getMessage());
-                    })
-                    ->timeout(function () {
-                        // noop
-                    });
-            }
-            $pool->wait();
-
-            return $songs;
-        });
-
-        return array_values(array_filter((array) $songs, function (array $song) {
-            return ! empty($song['url']);
-        }));
-    }
-
     public function search(string $keyword, ?array $channels = null)
     {
         if (is_null($channels)) {
-            return json_decode($this->meting->search($keyword), true);
+            $songs = json_decode($this->meting->search($keyword), true);
+
+            return $this->batchCarryDownloadUrl($songs);
         }
 
-        return array_reduce($channels, function ($songs, $channel) use ($keyword) {
+        $songs = array_reduce($channels, function ($songs, $channel) use ($keyword) {
             $response = $this->meting->site($channel)->search($keyword);
 
             return array_merge($songs, json_decode($response, true));
         }, []);
-    }
 
-    public function searchConcurrent(string $keyword, ?array $channels = null)
-    {
-        if (is_null($channels)) {
-            return json_decode($this->meting->search($keyword), true);
-        }
-
-        return value(function () use ($keyword, $channels) {
-            $songs = [];
-
-            $pool = Pool::create()->concurrency(8)->timeout(3);
-            foreach ($channels as $channel) {
-                $pool->add(function () use ($keyword, $channel) {
-                    $response = $this->meting->site($channel)->search($keyword);
-
-                    return json_decode($response, true);
-                }, 102400)
-                    ->then(function ($output) use (&$songs) {
-                        $songs = array_merge($songs, $output);
-                    })
-                    ->catch(function (Throwable $e) {
-                        $this->output->writeln($e->getMessage());
-                    })
-                    ->timeout(function () {
-                        // noop
-                    });
-            }
-            $pool->wait();
-
-            return $songs;
-        });
+        return $this->batchCarryDownloadUrl($songs);
     }
 
     public function download(string $downloadUrl, string $savePath)
