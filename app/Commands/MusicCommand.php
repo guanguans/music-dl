@@ -10,6 +10,7 @@
 
 namespace App\Commands;
 
+use App\Concerns\FormatSong;
 use App\ConcurrencyMusic;
 use App\Contracts\Music as MusicContract;
 use App\Music;
@@ -23,6 +24,8 @@ use Throwable;
 
 final class MusicCommand extends Command
 {
+    use FormatSong;
+
     /**
      * The signature of the command.
      *
@@ -78,7 +81,7 @@ final class MusicCommand extends Command
             goto START;
         }
 
-        $this->table($this->config['table_header'], $formatSongs = $music->batchFormat($songs, $keyword));
+        $this->table($this->config['table_header'], $formatSongs = $this->batchFormat($songs, $keyword));
         $this->line(sprintf($this->config['search_statistics'], $endTime - $startTime, memory_get_peak_usage() / 1024 / 1024));
         if (! $this->confirm($this->config['confirm_download'])) {
             goto START;
