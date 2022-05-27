@@ -2,6 +2,14 @@
 
 All notable changes to `guanguans/music-dl` will be documented in this file.
 
+## v3.1.1 - 2022-05-27
+
+## What's Changed
+
+- Bump guzzlehttp/guzzle from 7.4.2 to 7.4.3 by @dependabot in https://github.com/guanguans/music-dl/pull/340
+
+**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.1.0...v3.1.1
+
 ## v3.1.0 - 2022-05-25
 
 ## What's Changed
