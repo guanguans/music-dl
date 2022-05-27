@@ -51,9 +51,8 @@ final class MusicCommand extends Command
     {
         $this->config = config('music-dl');
 
-        $isConcurrent = $this->option('concurrent');
-        $this->app->bind(MusicContract::class, function (Container $app) use ($isConcurrent) {
-            return $isConcurrent ? $app->make(ConcurrencyMusic::class) : $app->make(Music::class);
+        $this->app->bind(MusicContract::class, function (Container $app) {
+            return $this->option('concurrent') ? $app->make(ConcurrencyMusic::class) : $app->make(Music::class);
         });
     }
 
