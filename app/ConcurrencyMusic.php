@@ -15,7 +15,7 @@ use Throwable;
 
 class ConcurrencyMusic extends Music
 {
-    protected function batchCarryDownloadUrl(array $withoutUrlSongs)
+    protected function batchCarryDownloadUrl(array $withoutUrlSongs): array
     {
         $songs = transform($withoutUrlSongs, function ($songs) {
             $pool = Pool::create()->concurrency(256)->timeout(5);

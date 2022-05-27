@@ -28,7 +28,7 @@ class Music implements \App\Contracts\Music, HttpClientFactory
         $this->meting = $meting->format();
     }
 
-    protected function batchCarryDownloadUrl(array $withoutUrlSongs)
+    protected function batchCarryDownloadUrl(array $withoutUrlSongs): array
     {
         return array_reduce($withoutUrlSongs, function ($songs, $song) {
             try {
