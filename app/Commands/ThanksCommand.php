@@ -47,9 +47,9 @@ final class ThanksCommand extends Command
      */
     public function handle()
     {
-        $wantsToSupport = $this->ask('Can you quickly <options=bold>star our GitHub repository</>? 🙏🏻', true);
+        $wantsToSupport = $this->ask('Can you quickly <options=bold>star our GitHub repository</>? 🙏🏻', 'yes');
 
-        if (true === $wantsToSupport) {
+        if ('yes' === $wantsToSupport) {
             PHP_OS_FAMILY === 'Darwin' and exec('open https://github.com/guanguans/music-dl');
             PHP_OS_FAMILY === 'Windows' and exec('start https://github.com/guanguans/music-dl');
             PHP_OS_FAMILY === 'Linux' and exec('xdg-open https://github.com/guanguans/music-dl');
