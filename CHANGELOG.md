@@ -2,6 +2,23 @@
 
 All notable changes to `guanguans/music-dl` will be documented in this file.
 
+## v3.1.5 - 2022-07-14
+
+### What's Changed
+
+- Bump nunomaduro/termwind from 1.10.1 to 1.11.1 by @dependabot in https://github.com/guanguans/music-dl/pull/342
+- Bump guzzlehttp/guzzle from 7.4.4 to 7.4.5 by @dependabot in https://github.com/guanguans/music-dl/pull/343
+- Bump spatie/async from 1.5.4 to 1.5.5 by @dependabot in https://github.com/guanguans/music-dl/pull/344
+- Bump vimeo/psalm from 4.23.0 to 4.24.0 by @dependabot in https://github.com/guanguans/music-dl/pull/345
+- Bump nunomaduro/termwind from 1.11.1 to 1.12.0 by @dependabot in https://github.com/guanguans/music-dl/pull/346
+- Bump dependabot/fetch-metadata from 1.3.1 to 1.3.2 by @dependabot in https://github.com/guanguans/music-dl/pull/347
+- Bump nunomaduro/termwind from 1.12.0 to 1.13.0 by @dependabot in https://github.com/guanguans/music-dl/pull/349
+- Bump dependabot/fetch-metadata from 1.3.2 to 1.3.3 by @dependabot in https://github.com/guanguans/music-dl/pull/348
+- Bump friendsofphp/php-cs-fixer from 3.8.0 to 3.9.2 by @dependabot in https://github.com/guanguans/music-dl/pull/350
+- Bump friendsofphp/php-cs-fixer from 3.9.2 to 3.9.3 by @dependabot in https://github.com/guanguans/music-dl/pull/351
+
+**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.1.4...v3.1.5
+
 ## v3.1.4 - 2022-06-14
 
 ### What's Changed
