@@ -25,7 +25,7 @@
 
 命令行上执行该文件。
 
-```text
+```shell
 ╰─ ./builds/music-dl                                                              ─╯
 
      __  __           _        _____  _      
@@ -33,11 +33,24 @@
     | \  / |_   _ ___ _  ___  | |  | | |     
     | |\/| | | | / __| |/ __| | |  | | |     
     | |  | | |_| \__ \ | (__  | |__| | |____ 
-    |_|  |_|\__,_|___/_|\___| |_____/|______| v3.0.1
+    |_|  |_|\__,_|___/_|\___| |_____/|______| v3.1.5
 
  请输入要关键字如：一个短篇  腰乐队  Yesterday once more，或 Ctrl+C 退出 [腰乐队]:
  > |
+```
 
+```shell
+╰─ ./builds/music-dl list                                                         ─╯
+
+  Music DL  v3.1.5
+
+  USAGE: music-dl <command> [options] [arguments]
+
+  inspire      Display an inspiring quote
+  music        Search and download songs.
+  thanks       Thanks for using this tool.
+
+  schedule:run Run the scheduled commands
 ```
 
 ## 变更日志
