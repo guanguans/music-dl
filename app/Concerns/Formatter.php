@@ -10,7 +10,7 @@
 
 namespace App\Concerns;
 
-trait FormatSong
+trait Formatter
 {
     public function batchFormat(array $songs, string $keyword): array
     {

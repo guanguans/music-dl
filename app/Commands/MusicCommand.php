@@ -10,7 +10,7 @@
 
 namespace App\Commands;
 
-use App\Concerns\FormatSong;
+use App\Concerns\Formatter;
 use App\ConcurrencyMusic;
 use App\Contracts\Music as MusicContract;
 use App\Music;
@@ -24,7 +24,7 @@ use Throwable;
 
 final class MusicCommand extends Command
 {
-    use FormatSong;
+    use Formatter;
 
     /**
      * The signature of the command.
