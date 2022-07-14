@@ -37,7 +37,7 @@ class Music implements \App\Contracts\Music, HttpClientFactory
                     return $songs;
                 }
 
-                $songs[] = array_merge($song, $response);
+                $songs[] = $song + $response;
 
                 return $songs;
             } catch (Throwable $e) {
@@ -57,10 +57,12 @@ class Music implements \App\Contracts\Music, HttpClientFactory
         $songs = array_reduce($channels, function ($songs, $channel) use ($keyword) {
             $response = $this->meting->site($channel)->search($keyword);
 
-            return array_merge($songs, json_decode($response, true));
+            $songs[] = json_decode($response, true);
+
+            return $songs;
         }, []);
 
-        return $this->batchCarryDownloadUrl($songs);
+        return $this->batchCarryDownloadUrl(array_merge(...$songs));
     }
 
     public function download(string $downloadUrl, string $savePath)

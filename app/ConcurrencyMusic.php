@@ -20,15 +20,16 @@ class ConcurrencyMusic extends Music
         $songs = transform($withoutUrlSongs, function ($songs) {
             $pool = Pool::create()->concurrency(256)->timeout(5);
             foreach ($songs as &$song) {
-                $pool->add(function () use ($song) {
-                    try {
-                        $response = json_decode($this->meting->site($song['source'])->url($song['url_id']), true);
+                $pool
+                    ->add(function () use ($song) {
+                        try {
+                            $response = json_decode($this->meting->site($song['source'])->url($song['url_id']), true);
 
-                        return array_merge($song, $response);
-                    } catch (Throwable $e) {
-                        return $song;
-                    }
-                })
+                            return array_merge($song, $response);
+                        } catch (Throwable $e) {
+                            return $song;
+                        }
+                    })
                     ->then(function ($output) use (&$song) {
                         $song = $output;
                     })
@@ -62,11 +63,12 @@ class ConcurrencyMusic extends Music
 
             $pool = Pool::create()->concurrency(8)->timeout(3);
             foreach ($channels as $channel) {
-                $pool->add(function () use ($keyword, $channel) {
-                    $response = $this->meting->site($channel)->search($keyword);
+                $pool
+                    ->add(function () use ($keyword, $channel) {
+                        $response = $this->meting->site($channel)->search($keyword);
 
-                    return json_decode($response, true);
-                }, 102400)
+                        return json_decode($response, true);
+                    }, 102400)
                     ->then(function ($output) use (&$songs) {
                         $songs = array_merge($songs, $output);
                     })
