@@ -23,15 +23,13 @@ class ConcurrencyMusic extends Music
                 $pool
                     ->add(function () use ($song) {
                         try {
-                            $response = json_decode($this->meting->site($song['source'])->url($song['url_id']), true);
-
-                            return array_merge($song, $response);
+                            return json_decode($this->meting->site($song['source'])->url($song['url_id']), true);
                         } catch (Throwable $e) {
-                            return $song;
+                            return [];
                         }
                     })
                     ->then(function ($output) use (&$song) {
-                        $song = $output;
+                        $song = $song + $output;
                     })
                     ->catch(function (Throwable $e) {
                         $this->output->writeln($e->getMessage());
@@ -65,12 +63,10 @@ class ConcurrencyMusic extends Music
             foreach ($channels as $channel) {
                 $pool
                     ->add(function () use ($keyword, $channel) {
-                        $response = $this->meting->site($channel)->search($keyword);
-
-                        return json_decode($response, true);
+                        return json_decode($this->meting->site($channel)->search($keyword), true);
                     }, 102400)
                     ->then(function ($output) use (&$songs) {
-                        $songs = array_merge($songs, $output);
+                        $songs[] = $output;
                     })
                     ->catch(function (Throwable $e) {
                         $this->output->writeln($e->getMessage());
@@ -81,7 +77,7 @@ class ConcurrencyMusic extends Music
             }
             $pool->wait();
 
-            return $songs;
+            return array_merge(...$songs);
         });
 
         return $this->batchCarryDownloadUrl($songs);

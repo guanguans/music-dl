@@ -55,9 +55,7 @@ class Music implements \App\Contracts\Music, HttpClientFactory
         }
 
         $songs = array_reduce($channels, function ($songs, $channel) use ($keyword) {
-            $response = $this->meting->site($channel)->search($keyword);
-
-            $songs[] = json_decode($response, true);
+            $songs[] = json_decode($this->meting->site($channel)->search($keyword), true);
 
             return $songs;
         }, []);
