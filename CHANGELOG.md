@@ -2,6 +2,32 @@
 
 All notable changes to `guanguans/music-dl` will be documented in this file.
 
+## v3.2.0 - 2022-10-09
+
+### What's Changed
+
+- Bump friendsofphp/php-cs-fixer from 3.9.3 to 3.9.4 by @dependabot in https://github.com/guanguans/music-dl/pull/352
+- Bump laravel-zero/framework from 9.1.1 to 9.1.2 by @dependabot in https://github.com/guanguans/music-dl/pull/353
+- Bump friendsofphp/php-cs-fixer from 3.9.4 to 3.9.5 by @dependabot in https://github.com/guanguans/music-dl/pull/354
+- Bump vimeo/psalm from 4.24.0 to 4.25.0 by @dependabot in https://github.com/guanguans/music-dl/pull/355
+- Bump nunomaduro/termwind from 1.13.0 to 1.14.0 by @dependabot in https://github.com/guanguans/music-dl/pull/356
+- Bump vimeo/psalm from 4.25.0 to 4.26.0 by @dependabot in https://github.com/guanguans/music-dl/pull/357
+- Bump friendsofphp/php-cs-fixer from 3.9.5 to 3.10.0 by @dependabot in https://github.com/guanguans/music-dl/pull/358
+- Bump laravel-zero/framework from 9.1.2 to 9.1.3 by @dependabot in https://github.com/guanguans/music-dl/pull/359
+- Bump pestphp/pest from 1.21.3 to 1.22.1 by @dependabot in https://github.com/guanguans/music-dl/pull/360
+- Bump guzzlehttp/guzzle from 7.4.5 to 7.5.0 by @dependabot in https://github.com/guanguans/music-dl/pull/361
+- Bump friendsofphp/php-cs-fixer from 3.10.0 to 3.11.0 by @dependabot in https://github.com/guanguans/music-dl/pull/362
+- Bump vimeo/psalm from 4.26.0 to 4.27.0 by @dependabot in https://github.com/guanguans/music-dl/pull/363
+- Bump mockery/mockery from 1.5.0 to 1.5.1 by @dependabot in https://github.com/guanguans/music-dl/pull/364
+- Bump codecov/codecov-action from 3.1.0 to 3.1.1 by @dependabot in https://github.com/guanguans/music-dl/pull/365
+- Bump laravel-zero/framework from 9.1.3 to 9.2.0 by @dependabot in https://github.com/guanguans/music-dl/pull/367
+- Bump dependabot/fetch-metadata from 1.3.3 to 1.3.4 by @dependabot in https://github.com/guanguans/music-dl/pull/368
+- Bump actions/stale from 5 to 6 by @dependabot in https://github.com/guanguans/music-dl/pull/366
+- Bump actions/checkout from 2 to 3.1.0 by @dependabot in https://github.com/guanguans/music-dl/pull/370
+- Bump vimeo/psalm from 4.27.0 to 4.28.0 by @dependabot in https://github.com/guanguans/music-dl/pull/371
+
+**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.1.6...v3.2.0
+
 ## v3.1.6 - 2022-07-14
 
 **Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.1.5...v3.1.6
