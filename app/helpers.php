@@ -11,6 +11,7 @@ declare(strict_types=1);
  */
 
 use App\Exceptions\RuntimeException;
+use Illuminate\Support\Str;
 
 if (! function_exists('array_reduces')) {
     /**
@@ -43,34 +44,39 @@ if (! function_exists('array_maps')) {
     }
 }
 
-if (! function_exists('get_song_download_dir')) {
+if (! function_exists('get_default_save_dir')) {
     /**
      * @throws \App\Exceptions\RuntimeException
      */
-    function get_song_download_dir(string $dir = 'MusicDL'): string
+    function get_default_save_dir(): string
     {
-        $downloadDir = windows_os()
-            ? sprintf('C:\\Users\\%s\\Downloads\\%s\\', get_current_user(), $dir)
-            : sprintf('%s/Downloads/%s/', exec('cd ~; pwd'), $dir);
-        if (! is_dir($downloadDir) && ! mkdir($downloadDir, 0755, true) && ! is_dir($downloadDir)) {
-            throw new RuntimeException(sprintf('The directory "%s" was not created', $downloadDir));
+        $saveDir = windows_os()
+            ? sprintf('C:\\Users\\%s\\Downloads\\MusicDL\\', get_current_user())
+            : sprintf('%s/Downloads/MusicDL/', exec('cd ~; pwd'));
+        if (! is_dir($saveDir) && ! mkdir($saveDir, 0755, true) && ! is_dir($saveDir)) {
+            throw new RuntimeException(sprintf('The directory "%s" was not created', $saveDir));
         }
 
-        return $downloadDir;
+        return $saveDir;
     }
 }
 
-if (! function_exists('get_song_save_path')) {
+if (! function_exists('get_save_path')) {
     /**
      * @throws \App\Exceptions\RuntimeException
      */
-    function get_song_save_path(array $song, string $defaultExt = 'mp3'): string
+    function get_save_path(array $song, ?string $saveDir = null, string $defaultExt = 'mp3'): string
     {
+        $saveDir = Str::finish($saveDir ?: get_default_save_dir(), DIRECTORY_SEPARATOR);
+        if (! is_dir($saveDir) && ! mkdir($saveDir, 0755, true) && ! is_dir($saveDir)) {
+            throw new RuntimeException(sprintf('The directory "%s" was not created', $saveDir));
+        }
+
         $ext = pathinfo(parse_url($song['url'], PHP_URL_PATH), PATHINFO_EXTENSION);
 
         return sprintf(
             '%s%s - %s.%s',
-            get_song_download_dir(),
+            $saveDir,
             implode(',', $song['artist']),
             $song['name'],
             $ext ?: $defaultExt

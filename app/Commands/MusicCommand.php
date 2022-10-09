@@ -18,6 +18,7 @@ use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\Collection;
 use LaravelZero\Framework\Commands\Command;
+use RuntimeException;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Throwable;
@@ -33,7 +34,8 @@ final class MusicCommand extends Command
      */
     protected $signature = 'music
                             {source?* : Specify the source(tencent、netease、kugou) of the song} 
-                            {--c|concurrent : Search for songs concurrently}';
+                            {--D|dir= : The directory where the songs are saved}
+                            {--C|concurrent : Search for songs concurrently}';
 
     /**
      * The description of the command.
@@ -49,6 +51,15 @@ final class MusicCommand extends Command
      */
     protected function initialize(InputInterface $input, OutputInterface $output)
     {
+        if (
+            $this->option('dir')
+            && ! is_dir($this->option('dir'))
+            && ! mkdir($this->option('dir'), 0755, true)
+            && ! is_dir($this->option('dir'))
+        ) {
+            throw new RuntimeException(sprintf('The directory "%s" was not created', $this->option('dir')));
+        }
+
         $this->config = config('music-dl');
 
         $this->app->bind(MusicContract::class, function (Container $app) {
@@ -113,7 +124,7 @@ final class MusicCommand extends Command
             ->each(function ($song, $index) use ($formatSongs, $music) {
                 try {
                     $this->table($formatSongs[$index], []);
-                    $music->download($song['url'], $savePath = get_song_save_path($song));
+                    $music->download($song['url'], $savePath = get_save_path($song, $this->option('dir')));
                     $this->line(sprintf($this->config['save_path_tips'], $savePath));
                     $this->newLine();
                 } catch (Throwable $e) {
@@ -124,7 +135,11 @@ final class MusicCommand extends Command
                 }
             })
             ->when(! windows_os(), function () {
-                $this->notify(config('app.name'), get_song_download_dir(), $this->config['success_icon']);
+                $this->notify(
+                    config('app.name'),
+                    $this->option('dir') ?: get_default_save_dir(),
+                    $this->config['success_icon']
+                );
             });
 
         goto START;
