@@ -23,10 +23,12 @@
     },
     "require": {
         "php": "^8.0",
+        "alecrabbit/php-cli-snake": "^0.6.0",
         "guzzlehttp/guzzle": "^7.0",
         "laravel-zero/framework": "^9.0",
         "metowolf/meting": "^1.5",
         "nunomaduro/termwind": "^1.3",
+        "react/event-loop": "^1.3",
         "spatie/async": "^1.5"
     },
     "require-dev": {
