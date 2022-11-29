@@ -15,7 +15,6 @@ use App\Contracts\HttpClientFactory;
 use Metowolf\Meting;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\ConsoleOutput;
-use Throwable;
 
 class Music implements \App\Contracts\Music, HttpClientFactory
 {
@@ -40,7 +39,7 @@ class Music implements \App\Contracts\Music, HttpClientFactory
                 $songs[] = $song + $response;
 
                 return $songs;
-            } catch (Throwable $e) {
+            } catch (\Throwable $e) {
                 return $songs;
             }
         }, []);

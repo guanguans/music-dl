@@ -11,7 +11,6 @@
 namespace App;
 
 use Spatie\Async\Pool;
-use Throwable;
 
 class ConcurrencyMusic extends Music
 {
@@ -24,14 +23,14 @@ class ConcurrencyMusic extends Music
                     ->add(function () use ($song) {
                         try {
                             return json_decode($this->meting->site($song['source'])->url($song['url_id']), true);
-                        } catch (Throwable $e) {
+                        } catch (\Throwable $e) {
                             return [];
                         }
                     })
                     ->then(function ($output) use (&$song) {
                         $song = $song + $output;
                     })
-                    ->catch(function (Throwable $e) {
+                    ->catch(function (\Throwable $e) {
                         $this->output->writeln($e->getMessage());
                     })
                     ->timeout(function () {
@@ -68,7 +67,7 @@ class ConcurrencyMusic extends Music
                     ->then(function ($output) use (&$songs) {
                         $songs[] = $output;
                     })
-                    ->catch(function (Throwable $e) {
+                    ->catch(function (\Throwable $e) {
                         $this->output->writeln($e->getMessage());
                     })
                     ->timeout(function () {

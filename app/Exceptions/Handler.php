@@ -13,14 +13,13 @@ namespace App\Exceptions;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Phar;
 use Symfony\Component\Console\Output\ConsoleOutput;
-use Throwable;
 
 class Handler extends ExceptionHandler
 {
     /**
      * A list of the exception types that are not reported.
      *
-     * @var array<int, class-string<Throwable>>
+     * @var array<int, class-string<\Throwable>>
      */
     protected $dontReport = [
     ];
@@ -43,7 +42,7 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
-        $this->reportable(function (Throwable $e) {
+        $this->reportable(function (\Throwable $e) {
             // Phar::running() and $this->container
             //     ->make(ConsoleOutput::class)
             //     ->writeln(sprintf(config('music-dl.exception_tips'), $e->getMessage()));

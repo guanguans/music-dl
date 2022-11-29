@@ -18,10 +18,8 @@ use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\Collection;
 use LaravelZero\Framework\Commands\Command;
-use RuntimeException;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Throwable;
 
 final class MusicCommand extends Command
 {
@@ -57,7 +55,7 @@ final class MusicCommand extends Command
             && ! mkdir($this->option('dir'), 0755, true)
             && ! is_dir($this->option('dir'))
         ) {
-            throw new RuntimeException(sprintf('The directory "%s" was not created', $this->option('dir')));
+            throw new \RuntimeException(sprintf('The directory "%s" was not created', $this->option('dir')));
         }
 
         $this->config = config('music-dl');
@@ -127,7 +125,7 @@ final class MusicCommand extends Command
                     $music->download($song['url'], $savePath = get_save_path($song, $this->option('dir')));
                     $this->line(sprintf($this->config['save_path_tips'], $savePath));
                     $this->newLine();
-                } catch (Throwable $e) {
+                } catch (\Throwable $e) {
                     $this->line(sprintf($this->config['download_failed_tips'], $e->getMessage()));
                     $this->newLine();
 
