@@ -35,7 +35,7 @@
         "friendsofphp/php-cs-fixer": "^3.7",
         "mockery/mockery": "^1.4.4",
         "pestphp/pest": "^1.21.1",
-        "vimeo/psalm": "^4.22"
+        "vimeo/psalm": "^5.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
