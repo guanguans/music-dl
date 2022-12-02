@@ -33,10 +33,10 @@ jobs:
       - name: Run composer install
         run: composer install -n --prefer-dist
 
-      - uses: charmbracelet/vhs-action@main
+      - name: VHS Action
+        uses: charmbracelet/vhs-action@v1.2.0
         with:
           path: 'music-dl.tape'
-          token: ${{ secrets.PAT }}
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         env:
