@@ -48,11 +48,12 @@ Output ./resources/music-dl.gif
 
 Require php
 
-Set FontSize 32
-Set Width 1200
-Set Height 600
+Set FontSize 24
+Set Width 1600
+Set Height 988
 Set LoopOffset 50%
 
-Type "php music-dl" Sleep 500ms  Enter
-
+Type "php music-dl"
+Sleep 1s
+Enter
 Sleep 5s
