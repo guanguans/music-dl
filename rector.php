@@ -24,13 +24,17 @@ use Rector\CodingStyle\Rector\Encapsed\EncapsedStringsToSprintfRector;
 use Rector\CodingStyle\Rector\Encapsed\WrapEncapsedVariableInCurlyBracesRector;
 use Rector\CodingStyle\Rector\FuncCall\ConsistentPregDelimiterRector;
 use Rector\CodingStyle\Rector\MethodCall\PreferThisOrSelfMethodCallRector;
+use Rector\CodingStyle\Rector\Stmt\NewlineAfterStatementRector;
 use Rector\Config\RectorConfig;
 use Rector\Core\Configuration\Option;
 use Rector\Core\ValueObject\PhpVersion;
 use Rector\DeadCode\Rector\Assign\RemoveUnusedVariableAssignRector;
 use Rector\DeadCode\Rector\MethodCall\RemoveEmptyMethodCallRector;
 use Rector\EarlyReturn\Rector\If_\ChangeAndIfToEarlyReturnRector;
+use Rector\EarlyReturn\Rector\If_\ChangeOrIfReturnToEarlyReturnRector;
 use Rector\EarlyReturn\Rector\Return_\ReturnBinaryOrToEarlyReturnRector;
+use Rector\Laravel\Set\LaravelLevelSetList;
+use Rector\Laravel\Set\LaravelSetList;
 use Rector\Php56\Rector\FunctionLike\AddDefaultValueForUndefinedVariableRector;
 use Rector\PHPUnit\Rector\Class_\AddSeeTestAnnotationRector;
 use Rector\PHPUnit\Set\PHPUnitLevelSetList;
@@ -49,43 +53,49 @@ return static function (RectorConfig $rectorConfig): void {
     ]);
 
     $rectorConfig->paths([
-        __DIR__.'/src',
+        __DIR__.'/app',
         __DIR__.'/tests',
+        __DIR__.'/.php-cs-fixer.php',
+        __DIR__.'/rector.php',
     ]);
 
     $rectorConfig->skip([
         // rules
-        CallableThisArrayToAnonymousFunctionRector::class,
+        // CallableThisArrayToAnonymousFunctionRector::class,
         InlineIfToExplicitIfRector::class,
         LogicalToBooleanRector::class,
-        SimplifyBoolIdenticalTrueRector::class,
-        RemoveEmptyMethodCallRector::class,
-        AddSeeTestAnnotationRector::class,
-        NormalizeNamespaceByPSR4ComposerAutoloadRector::class,
-        ChangeAndIfToEarlyReturnRector::class,
-        ReturnBinaryOrToEarlyReturnRector::class,
+        // SimplifyBoolIdenticalTrueRector::class,
+        // RemoveEmptyMethodCallRector::class,
+        // AddSeeTestAnnotationRector::class,
+        // NormalizeNamespaceByPSR4ComposerAutoloadRector::class,
+        // ChangeAndIfToEarlyReturnRector::class,
+        // ReturnBinaryOrToEarlyReturnRector::class,
         EncapsedStringsToSprintfRector::class,
-        WrapEncapsedVariableInCurlyBracesRector::class,
+        // WrapEncapsedVariableInCurlyBracesRector::class,
 
         // optional rules
         // AddDefaultValueForUndefinedVariableRector::class,
         // RemoveUnusedVariableAssignRector::class,
-        // UnSpreadOperatorRector::class,
         // ConsistentPregDelimiterRector::class,
-        // StaticClosureRector::class,
+        UnSpreadOperatorRector::class,
+        StaticClosureRector::class,
+        NewlineAfterStatementRector::class,
+        ChangeOrIfReturnToEarlyReturnRector::class,
+        WrapEncapsedVariableInCurlyBracesRector::class,
 
         // paths
+        '**/fixtures*',
+        '**/fixtures/*',
         '**/Fixture*',
         '**/Fixture/*',
         '**/Source*',
         '**/Source/*',
         '**/Expected/*',
         '**/Expected*',
-        __DIR__.'/src/foundation/tests/AppTest.php',
     ]);
 
     $rectorConfig->sets([
-        LevelSetList::UP_TO_PHP_72,
+        LevelSetList::UP_TO_PHP_80,
         SetList::ACTION_INJECTION_TO_CONSTRUCTOR_INJECTION,
         SetList::CODE_QUALITY,
         SetList::CODING_STYLE,
@@ -100,7 +110,14 @@ return static function (RectorConfig $rectorConfig): void {
         SetList::TYPE_DECLARATION_STRICT,
         SetList::EARLY_RETURN,
 
-        PHPUnitLevelSetList::UP_TO_PHPUNIT_70,
+        // LaravelLevelSetList::UP_TO_LARAVEL_70,
+        // LaravelSetList::ARRAY_STR_FUNCTIONS_TO_STATIC_CALL,
+        // // LaravelSetList::LARAVEL_STATIC_TO_INJECTION,
+        // LaravelSetList::LARAVEL_CODE_QUALITY,
+        // LaravelSetList::LARAVEL_ARRAY_STR_FUNCTION_TO_STATIC_CALL,
+        // LaravelSetList::LARAVEL_LEGACY_FACTORIES_TO_CLASSES,
+
+        PHPUnitLevelSetList::UP_TO_PHPUNIT_90,
         // PHPUnitSetList::PHPUNIT80_DMS,
         PHPUnitSetList::PHPUNIT_CODE_QUALITY,
         PHPUnitSetList::PHPUNIT_EXCEPTION,
@@ -109,7 +126,7 @@ return static function (RectorConfig $rectorConfig): void {
         PHPUnitSetList::PHPUNIT_YIELD_DATA_PROVIDER,
     ]);
 
-    $rectorConfig->disableParallel();
+    // $rectorConfig->disableParallel();
     $rectorConfig->importNames(true, false);
     $rectorConfig->nestedChainMethodCallLimit(3);
     $rectorConfig->phpstanConfig(__DIR__.'/phpstan.neon');

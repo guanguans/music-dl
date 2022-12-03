@@ -17,23 +17,29 @@ use App\Contracts\HttpClientFactory;
 use Metowolf\Meting;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\ConsoleOutput;
+use Throwable;
 
-class Music implements \App\Contracts\Music, HttpClientFactory
+class Music implements Contracts\Music, HttpClientFactory
 {
     use WithHttpClient;
 
     public function __construct(
         protected Meting $meting,
-        protected ConsoleOutput $output
+        protected ConsoleOutput $consoleOutput
     ) {
         $this->meting = $meting->format();
     }
 
     protected function batchCarryDownloadUrl(array $withoutUrlSongs): array
     {
-        return array_reduce($withoutUrlSongs, function ($songs, $song) {
+        return array_reduce($withoutUrlSongs, function (array $songs, array $song) {
             try {
-                $response = json_decode($this->meting->site($song['source'])->url($song['url_id']), true);
+                $response = json_decode(
+                    $this->meting->site($song['source'])->url($song['url_id']),
+                    true,
+                    512,
+                    JSON_THROW_ON_ERROR
+                );
                 if (empty($response['url'])) {
                     return $songs;
                 }
@@ -41,7 +47,7 @@ class Music implements \App\Contracts\Music, HttpClientFactory
                 $songs[] = $song + $response;
 
                 return $songs;
-            } catch (\Throwable $e) {
+            } catch (Throwable) {
                 return $songs;
             }
         }, []);
@@ -50,13 +56,13 @@ class Music implements \App\Contracts\Music, HttpClientFactory
     public function search(string $keyword, ?array $channels = null)
     {
         if (null === $channels) {
-            $songs = json_decode($this->meting->search($keyword), true);
+            $songs = json_decode($this->meting->search($keyword), true, 512, JSON_THROW_ON_ERROR);
 
             return $this->batchCarryDownloadUrl($songs);
         }
 
-        $songs = array_reduce($channels, function ($songs, $channel) use ($keyword) {
-            $songs[] = json_decode($this->meting->site($channel)->search($keyword), true);
+        $songs = array_reduce($channels, function (array $songs, string $channel) use ($keyword) {
+            $songs[] = json_decode($this->meting->site($channel)->search($keyword), true, 512, JSON_THROW_ON_ERROR);
 
             return $songs;
         }, []);
@@ -71,9 +77,9 @@ class Music implements \App\Contracts\Music, HttpClientFactory
     {
         $options = [
             'sink' => $savePath,
-            'progress' => function ($totalDownload, $downloaded) use (&$progressBar, &$isDownloaded): void {
+            'progress' => function (int $totalDownload, int $downloaded) use (&$progressBar, &$isDownloaded): void {
                 if ($totalDownload > 0 && $downloaded > 0 && empty($progressBar)) {
-                    $progressBar = new ProgressBar($this->output, $totalDownload);
+                    $progressBar = new ProgressBar($this->consoleOutput, $totalDownload);
                     $progressBar->start();
                 }
 

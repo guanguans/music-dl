@@ -33,10 +33,8 @@ final class InspireCommand extends Command
 
     /**
      * Execute the console command.
-     *
-     * @return int
      */
-    public function handle()
+    public function handle(): int
     {
         $this->info(config('music-dl.logo'));
 

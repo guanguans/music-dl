@@ -44,7 +44,7 @@ class Handler extends ExceptionHandler
      */
     public function register(): void
     {
-        $this->reportable(function (\Throwable $e): void {
+        $this->reportable(function (\Throwable $throwable): void {
             // Phar::running() and $this->container
             //     ->make(ConsoleOutput::class)
             //     ->writeln(sprintf(config('music-dl.exception_tips'), $e->getMessage()));

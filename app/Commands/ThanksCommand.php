@@ -34,7 +34,7 @@ final class ThanksCommand extends Command
     /**
      * The Command messages.
      *
-     * @var array<int, string>
+     * @var string[]
      */
     protected const FUNDING_MESSAGES = [
         '',
@@ -44,10 +44,8 @@ final class ThanksCommand extends Command
 
     /**
      * Execute the console command.
-     *
-     * @return int
      */
-    public function handle()
+    public function handle(): int
     {
         $wantsToSupport = $this->ask('Can you quickly <options=bold>star our GitHub repository</>? 🙏🏻', 'yes');
 

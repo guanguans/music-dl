@@ -62,17 +62,20 @@ final class MusicCommand extends Command
 
         $this->config = config('music-dl');
 
-        $this->app->bind(MusicContract::class, fn (Container $app) => $this->option('concurrent') ? $app->make(ConcurrencyMusic::class) : $app->make(Music::class));
+        $this->app->bind(
+            MusicContract::class,
+            fn (Container $container) => $this->option('concurrent')
+                ? $container->make(ConcurrencyMusic::class)
+                : $container->make(Music::class)
+        );
     }
 
     /**
      * Execute the console command.
      *
-     * @return int
-     *
      * @psalm-suppress InvalidReturnType
      */
-    public function handle(MusicContract $music)
+    public function handle(MusicContract $musicContract): void
     {
         $this->line($this->config['logo']);
 
@@ -84,7 +87,7 @@ final class MusicCommand extends Command
 
         $channels = ($sources = (array) $this->argument('source')) ? $sources : $this->config['channels'];
         $startTime = microtime(true);
-        $songs = $music->search($keyword, $channels);
+        $songs = $musicContract->search($keyword, $channels);
         $endTime = microtime(true);
         if (empty($songs)) {
             $this->line($this->config['empty_result']);
@@ -98,16 +101,23 @@ final class MusicCommand extends Command
         }
 
         $choices = collect($formatSongs)
-            ->transform(function ($song) {
+            ->transform(function (array $song): string {
                 unset($song[0]);
 
                 return implode('  ', $song);
             })
             ->push($this->config['download_all_songs']);
 
-        $selectedValues = $this->choice($this->config['download_choice_tips'], $choices->all(), $lastKey = ($choices->count() - 1), null, true);
+        $selectedValues = $this->choice(
+            $this->config['download_choice_tips'],
+            $choices->all(),
+            $lastKey = ($choices->count() - 1),
+            null,
+            true
+        );
+
         collect($selectedValues)
-            ->transform(fn ($select) => $choices->search($select))
+            ->transform(fn (string $select) => $choices->search($select))
             ->pipe(function (Collection $selectedKeys) use ($lastKey, $songs) {
                 if (in_array($lastKey, $selectedKeys->all())) {
                     return collect($songs)->keys();
@@ -115,11 +125,13 @@ final class MusicCommand extends Command
 
                 return $selectedKeys;
             })
-            ->pipe(fn (Collection $selectedKeys) => collect($songs)->filter(fn ($song, $key) => in_array($key, $selectedKeys->all())))
-            ->each(function ($song, $index) use ($formatSongs, $music): void {
+            ->pipe(fn (Collection $selectedKeys) => collect($songs)->filter(
+                fn (array $song, int $key) => in_array($key, $selectedKeys->all())
+            ))
+            ->each(function (array $song, int $index) use ($formatSongs, $musicContract): void {
                 try {
                     $this->table($formatSongs[$index], []);
-                    $music->download($song['url'], $savePath = get_save_path($song, $this->option('dir')));
+                    $musicContract->download($song['url'], $savePath = get_save_path($song, $this->option('dir')));
                     $this->line(sprintf($this->config['save_path_tips'], $savePath));
                     $this->newLine();
                 } catch (\Throwable $e) {

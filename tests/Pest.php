@@ -10,7 +10,9 @@ declare(strict_types=1);
  * This source file is subject to the MIT license that is bundled.
  */
 
-uses(Tests\TestCase::class)->in('Feature');
+namespace Tests;
+
+uses(TestCase::class)->in('Feature');
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +24,6 @@ uses(Tests\TestCase::class)->in('Feature');
 | to assert different things. Of course, you may extend the Expectation API at any time.
 |
 */
-
 expect()->extend('toBeOne', fn () => $this->toBe(1));
 
 /*
@@ -35,7 +36,6 @@ expect()->extend('toBeOne', fn () => $this->toBe(1));
 | global functions to help you to reduce the number of lines of code in your test files.
 |
 */
-
 function something(): void
 {
     // ..

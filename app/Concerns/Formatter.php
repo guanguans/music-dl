@@ -14,10 +14,13 @@ namespace App\Concerns;
 
 trait Formatter
 {
+    /**
+     * @return mixed[]
+     */
     public function batchFormat(array $songs, string $keyword): array
     {
         return collect($songs)
-            ->mapWithKeys(function ($song, $index) use ($keyword) {
+            ->mapWithKeys(function (array $song, int $index) use ($keyword): array {
                 $song = $this->format($song, $keyword);
                 array_unshift($song, "<fg=cyan>$index</>");
 
@@ -26,6 +29,9 @@ trait Formatter
             ->all();
     }
 
+    /**
+     * @return array<array-key, string>
+     */
     public function format(array $song, string $keyword, ?array $hideFields = null): array
     {
         null === $hideFields and $hideFields = ['id', 'pic_id', 'url_id', 'lyric_id', 'url'];

@@ -13,11 +13,8 @@ declare(strict_types=1);
 use App\Exceptions\RuntimeException;
 use Illuminate\Support\Str;
 
-if (! function_exists('array_reduces')) {
-    /**
-     * @return mixed|null
-     */
-    function array_reduces(array $array, callable $callback, $carry = null)
+if (! function_exists('array_reduce_with_keys')) {
+    function array_reduce_with_keys(array $array, callable $callback, $carry = null): mixed
     {
         foreach ($array as $key => $value) {
             $carry = call_user_func($callback, $carry, $value, $key);
@@ -27,11 +24,8 @@ if (! function_exists('array_reduces')) {
     }
 }
 
-if (! function_exists('array_maps')) {
-    /**
-     * @return array
-     */
-    function array_maps(callable $callback, array $array)
+if (! function_exists('array_map_with_keys')) {
+    function array_map_with_keys(callable $callback, array $array): array
     {
         $arr = [];
         foreach ($array as $key => $value) {
