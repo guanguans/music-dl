@@ -32,11 +32,13 @@ final class InspireCommand extends Command
     /**
      * Execute the console command.
      *
-     * @return mixed
+     * @return int
      */
     public function handle()
     {
         $this->info(config('music-dl.logo'));
+
+        return self::SUCCESS;
     }
 
     /**

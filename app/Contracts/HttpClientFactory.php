@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace App\Contracts;
 
-use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Client;
 
 interface HttpClientFactory
 {
-    public function createHttpClient(array $config = []): ClientInterface;
+    public function createHttpClient(array $config = []): Client;
 }

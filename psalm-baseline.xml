@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="5.1.0@4defa177c89397c5e14737a80fe4896584130674">
+  <file src="app/Commands/MusicCommand.php">
+    <UnusedClosureParam occurrences="1">
+      <code>$song</code>
+    </UnusedClosureParam>
+  </file>
+</files>

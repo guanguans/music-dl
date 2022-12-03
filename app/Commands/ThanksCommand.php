@@ -43,7 +43,7 @@ final class ThanksCommand extends Command
     /**
      * Execute the console command.
      *
-     * @return mixed
+     * @return int
      */
     public function handle()
     {
@@ -58,6 +58,8 @@ final class ThanksCommand extends Command
         foreach (self::FUNDING_MESSAGES as $message) {
             $this->output->writeln($message);
         }
+
+        return self::SUCCESS;
     }
 
     /**

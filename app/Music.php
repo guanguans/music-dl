@@ -62,6 +62,9 @@ class Music implements \App\Contracts\Music, HttpClientFactory
         return $this->batchCarryDownloadUrl(array_merge(...$songs));
     }
 
+    /**
+     * @psalm-suppress UnusedVariable
+     */
     public function download(string $downloadUrl, string $savePath)
     {
         $options = [

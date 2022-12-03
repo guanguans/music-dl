@@ -68,7 +68,9 @@ final class MusicCommand extends Command
     /**
      * Execute the console command.
      *
-     * @return mixed
+     * @return int
+     *
+     * @psalm-suppress InvalidReturnType
      */
     public function handle(MusicContract $music)
     {

@@ -32,9 +32,23 @@
         "spatie/async": "^1.5"
     },
     "require-dev": {
+        "brainmaestro/composer-git-hooks": "^3.0",
         "friendsofphp/php-cs-fixer": "^3.7",
+        "infection/infection": "^0.26.16",
+        "johnkary/phpunit-speedtrap": "^4.0",
         "mockery/mockery": "^1.4.4",
-        "pestphp/pest": "^1.21.1",
+        "nunomaduro/collision": "^6.3",
+        "nunomaduro/larastan": "^2.2",
+        "pestphp/pest": "^1.22",
+        "pestphp/pest-plugin-faker": "^1.0",
+        "pestphp/pest-plugin-laravel": "^1.3",
+        "pestphp/pest-plugin-mock": "^1.0",
+        "phpstan/extension-installer": "^1.2",
+        "phpstan/phpstan": "^1.9",
+        "rector/rector": "^0.14.8",
+        "spatie/invade": "^1.1",
+        "spatie/pest-plugin-snapshots": "^1.1",
+        "spatie/phpunit-snapshot-assertions": "^4.2",
         "vimeo/psalm": "^5.0"
     },
     "minimum-stability": "dev",
@@ -59,21 +73,76 @@
     ],
     "config": {
         "allow-plugins": {
-            "pestphp/pest-plugin": true
+            "pestphp/pest-plugin": true,
+            "infection/extension-installer": true,
+            "phpstan/extension-installer": true
         },
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true
     },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "3.x-dev"
+        },
+        "hooks": {
+            "post-merge": [
+                "composer checks"
+            ],
+            "pre-commit": [
+                "composer checks"
+            ]
+        },
+        "phpstan": {
+            "includes": [
+                "extension.neon"
+            ]
+        }
+    },
     "scripts": {
+        "post-install-cmd": [
+            "@cghooks add --ignore-lock",
+            "@cghooks update"
+        ],
+        "post-update-cmd": [
+            "@cghooks update"
+        ],
+        "post-autoload-dump": [],
         "cghooks": "./vendor/bin/cghooks",
+        "checks": [
+            "@mark-start",
+            "@md-lint",
+            "@mark-separate",
+            "@style-lint",
+            "@mark-separate",
+            "@lint",
+            "@mark-separate",
+            "@test",
+            "@mark-separate",
+            "@psalm",
+            "@mark-finish"
+        ],
+        "infection": "./vendor/bin/infection --test-framework=pest --show-mutations --threads=4 --ansi",
+        "lint": "for P in app bootstrap config tests; do find $P -type f -name '*.php' -exec php -l {} \\;; done",
+        "mark-finish": "printf '\\n!\\n!\\t\\033[0;32m%s\\033[0m\\n!\\n\\n' \"Finished\"",
+        "mark-separate": "printf '\\n!\\n!\\t\\033[0;33m%s\\033[0m\\n!\\n\\n' \"----------------\"",
+        "mark-start": "printf '\\n!\\n!\\t\\033[0;36m%s\\033[0m\\n!\\n\\n' \"Started\"",
         "md-fix": "@md-lint --fix",
         "md-lint": "lint-md --config .lintmdrc ./*.md ./.github/ ./docs/",
-        "pest": "./vendor/bin/pest",
+        "pest": "./vendor/bin/pest --cache-result-file=./build//phpunit/.phpunit.result.cache",
+        "pest-coverage": "@pest --coverage-html=./build/phpunit/ --coverage-clover=clover.xml --coverage",
+        "phpstan": "./vendor/bin/phpstan analyse -vv",
+        "phpstan-baseline": "@phpstan --generate-baseline",
+        "post-merge": [
+            "composer install"
+        ],
         "psalm": "./vendor/bin/psalm",
+        "psalm-baseline": "@psalm --update-baseline",
+        "rector": "./vendor/bin/rector --clear-cache --ansi -v",
+        "rector-dry-run": "@rector --dry-run",
         "style-fix": "./vendor/bin/php-cs-fixer fix --using-cache=no --config=.php-cs-fixer.php --ansi",
         "style-lint": "./vendor/bin/php-cs-fixer fix --using-cache=no --config=.php-cs-fixer.php --diff --dry-run --ansi",
-        "test": "./vendor/bin/phpunit --coverage-text --colors=always --cache-result-file=./build/.phpunit.result.cache --verbose",
-        "test-c": "./vendor/bin/phpunit --coverage-html=./build/coverage/ --coverage-clover=./build/clover.xml --color=always --cache-result-file=./build/.phpunit.result.cache --verbose"
+        "test": "@pest",
+        "test-coverage": "@pest-coverage"
     }
 }

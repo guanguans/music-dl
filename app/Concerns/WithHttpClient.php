@@ -11,15 +11,14 @@
 namespace App\Concerns;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\ClientInterface;
 
 trait WithHttpClient
 {
-    protected static ?ClientInterface $httpClient = null;
+    protected static ?Client $httpClient = null;
 
-    public function createHttpClient(array $config = []): ClientInterface
+    public function createHttpClient(array $config = []): Client
     {
-        if (! self::$httpClient instanceof ClientInterface || $config) {
+        if (! self::$httpClient instanceof Client || $config) {
             return self::$httpClient = new Client($config);
         }
 
