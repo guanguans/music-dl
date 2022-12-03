@@ -51,8 +51,8 @@ Arguments:
   source                Specify the source(tencent、netease、kugou) of the song
 
 Options:
-  -D, --dir[=DIR]       The directory where the songs are saved
-  -C, --concurrent      Search for songs concurrently
+  -d, --dir[=DIR]       The directory where the songs are saved
+  -c, --concurrent      Search for songs concurrently
   -h, --help            Display help for the given command. When no command is given display help for the music command
   -q, --quiet           Do not output any message
   -V, --version         Display this application version

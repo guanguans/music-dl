@@ -34,8 +34,8 @@ final class MusicCommand extends Command
      */
     protected $signature = 'music
                             {source?* : Specify the source(tencent、netease、kugou) of the song}
-                            {--D|dir= : The directory where the songs are saved}
-                            {--C|concurrent : Search for songs concurrently}';
+                            {--d|dir= : The directory where the songs are saved}
+                            {--c|concurrent : Search for songs concurrently}';
 
     /**
      * The description of the command.
@@ -104,6 +104,7 @@ final class MusicCommand extends Command
                 return implode('  ', $song);
             })
             ->push($this->config['download_all_songs']);
+
         $selectedValues = $this->choice($this->config['download_choice_tips'], $choices->all(), $lastKey = ($choices->count() - 1), null, true);
         collect($selectedValues)
             ->transform(fn ($select) => $choices->search($select))
