@@ -113,8 +113,6 @@
         "cghooks": "./vendor/bin/cghooks",
         "checks": [
             "@mark-start",
-            "@md-lint",
-            "@mark-separate",
             "@style-lint",
             "@mark-separate",
             "@lint",
