@@ -76,6 +76,8 @@ Options:
   schedule:run Run the scheduled commands
 ```
 
+![vhs](resources/music-dl.gif)
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.

@@ -76,6 +76,8 @@ Options:
   schedule:run Run the scheduled commands
 ```
 
+![vhs](resources/music-dl.gif)
+
 ## 变更日志
 
 请参阅 [CHANGELOG](CHANGELOG.md) 获取最近有关更改的更多信息。

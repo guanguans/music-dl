@@ -3,13 +3,7 @@ name: vhs
 on:
   push:
     paths:
-      - '**.php'
-      - .github/workflows/vhs.yml
-      - builds/music-dl
-      - builds/music-bat
-      - composer.json
-      - composer.lock
-      - music-dl.tape
+      - 'xxx'
 
 jobs:
   vhs:
