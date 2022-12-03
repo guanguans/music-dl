@@ -5,7 +5,7 @@ on:
     types: [ released ]
 
 env:
-  COMPOSER_FLAGS: "--ansi --no-interaction --no-progress --no-suggest --prefer-dist --no-dev"
+  COMPOSER_FLAGS: "--ansi --no-interaction --no-progress --no-suggest --prefer-dist"
 
 jobs:
   update:

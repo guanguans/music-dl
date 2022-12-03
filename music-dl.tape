@@ -51,7 +51,8 @@ Require php
 Set FontSize 20
 Set Width 1250
 Set Height 773
-Set TypingSpeed 500ms
+Set TypingSpeed 200ms
+Set FontFamily "UbuntuMono"
 
 Type "./builds/music-dl netease" Sleep 1s
 Enter 1 Sleep 1s
@@ -59,7 +60,7 @@ Type "不只是南方" Sleep 1s
 Enter 1 Sleep 5s
 Type "yes" Sleep 1s
 Enter 1 Sleep 1s
-Down@2s 3 Sleep 1s
-# Up@2s 2 Sleep 1s
-Enter 1 Sleep 10s
+Down@300ms 3 Sleep 1s
+# Up@300ms 2 Sleep 1s
+Enter 1 Sleep 20s
 Ctrl+C Sleep 3s
