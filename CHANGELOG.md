@@ -2,6 +2,24 @@
 
 All notable changes to `guanguans/music-dl` will be documented in this file.
 
+## v3.2.1 - 2022-12-03
+
+### What's Changed
+
+- Bump vimeo/psalm from 4.28.0 to 4.29.0 by @dependabot in https://github.com/guanguans/music-dl/pull/372
+- Bump friendsofphp/php-cs-fixer from 3.11.0 to 3.12.0 by @dependabot in https://github.com/guanguans/music-dl/pull/373
+- Bump nunomaduro/termwind from 1.14.0 to 1.14.1 by @dependabot in https://github.com/guanguans/music-dl/pull/374
+- Bump friendsofphp/php-cs-fixer from 3.12.0 to 3.13.0 by @dependabot in https://github.com/guanguans/music-dl/pull/375
+- Bump nunomaduro/termwind from 1.14.1 to 1.14.2 by @dependabot in https://github.com/guanguans/music-dl/pull/376
+- Bump dependabot/fetch-metadata from 1.3.4 to 1.3.5 by @dependabot in https://github.com/guanguans/music-dl/pull/377
+- Bump vimeo/psalm from 4.29.0 to 4.30.0 by @dependabot in https://github.com/guanguans/music-dl/pull/378
+- Bump pestphp/pest from 1.22.1 to 1.22.2 by @dependabot in https://github.com/guanguans/music-dl/pull/379
+- Bump vimeo/psalm from 4.29.0 to 4.30.0 by @dependabot in https://github.com/guanguans/music-dl/pull/380
+- Bump friendsofphp/php-cs-fixer from 3.12.0 to 3.13.0 by @dependabot in https://github.com/guanguans/music-dl/pull/381
+- Bump vimeo/psalm from 4.30.0 to 5.0.0 by @dependabot in https://github.com/guanguans/music-dl/pull/382
+
+**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.2.0...v3.2.1
+
 ## v3.2.0 - 2022-10-09
 
 ### What's Changed
