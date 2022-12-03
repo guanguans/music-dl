@@ -20,6 +20,8 @@ use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\Collection;
 use LaravelZero\Framework\Commands\Command;
+use SebastianBergmann\Timer\ResourceUsageFormatter;
+use SebastianBergmann\Timer\Timer;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -75,7 +77,7 @@ final class MusicCommand extends Command
      *
      * @psalm-suppress InvalidReturnType
      */
-    public function handle(MusicContract $musicContract): void
+    public function handle(MusicContract $musicContract, Timer $timer, ResourceUsageFormatter $resourceUsageFormatter): void
     {
         $this->line($this->config['logo']);
 
@@ -86,16 +88,16 @@ final class MusicCommand extends Command
         $this->line(sprintf($this->config['searching'], $keyword));
 
         $channels = ($sources = (array) $this->argument('source')) ? $sources : $this->config['channels'];
-        $startTime = microtime(true);
+        $timer->start();
         $songs = $musicContract->search($keyword, $channels);
-        $endTime = microtime(true);
+        $duration = $timer->stop();
         if (empty($songs)) {
             $this->line($this->config['empty_result']);
             goto START;
         }
 
         $this->table($this->config['table_header'], $formatSongs = $this->batchFormat($songs, $keyword));
-        $this->line(sprintf($this->config['search_statistics'], $endTime - $startTime, memory_get_peak_usage() / 1024 / 1024));
+        $this->info($resourceUsageFormatter->resourceUsage($duration));
         if (! $this->confirm($this->config['confirm_download'])) {
             goto START;
         }
