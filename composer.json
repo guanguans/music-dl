@@ -143,6 +143,7 @@
         "style-fix": "./vendor/bin/php-cs-fixer fix --using-cache=no --config=.php-cs-fixer.php --ansi",
         "style-lint": "./vendor/bin/php-cs-fixer fix --using-cache=no --config=.php-cs-fixer.php --diff --dry-run --ansi",
         "test": "@pest",
-        "test-coverage": "@pest-coverage"
+        "test-coverage": "@pest-coverage",
+        "vhs": "vhs < music-dl.tape"
     }
 }

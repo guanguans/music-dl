@@ -59,6 +59,6 @@ Type "不只是南方" Sleep 1s
 Enter 1 Sleep 5s
 Type "yes" Sleep 1s
 Enter 1 Sleep 1s
-Down@3s 3 Sleep 1s
+Down@1s 3 Sleep 1s
 Enter 1 Sleep 10s
-Ctrl+C Sleep 3s
+Ctrl+C Sleep 5s

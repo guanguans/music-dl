@@ -3,7 +3,7 @@ name: vhs
 on:
   push:
     paths:
-      - 'xxx'
+      - '不存在.file'
 
 jobs:
   vhs:
