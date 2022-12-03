@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * This file is part of the guanguans/music-dl.
  *
@@ -38,13 +40,11 @@ class Handler extends ExceptionHandler
     /**
      * Register the exception handling callbacks for the application.
      *
-     * @return void
-     *
      * @psalm-suppress UnusedClosureParam
      */
-    public function register()
+    public function register(): void
     {
-        $this->reportable(function (\Throwable $e) {
+        $this->reportable(function (\Throwable $e): void {
             // Phar::running() and $this->container
             //     ->make(ConsoleOutput::class)
             //     ->writeln(sprintf(config('music-dl.exception_tips'), $e->getMessage()));

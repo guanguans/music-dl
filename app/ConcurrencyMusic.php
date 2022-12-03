@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * This file is part of the guanguans/music-dl.
  *
@@ -27,13 +29,13 @@ class ConcurrencyMusic extends Music
                             return [];
                         }
                     })
-                    ->then(function ($output) use (&$song) {
+                    ->then(function ($output) use (&$song): void {
                         $song = $song + $output;
                     })
-                    ->catch(function (\Throwable $e) {
+                    ->catch(function (\Throwable $e): void {
                         $this->output->writeln($e->getMessage());
                     })
-                    ->timeout(function () {
+                    ->timeout(function (): void {
                         // noop
                     });
             }
@@ -42,14 +44,12 @@ class ConcurrencyMusic extends Music
             return $songs;
         });
 
-        return array_values(array_filter((array) $songs, function (array $song) {
-            return ! empty($song['url']);
-        }));
+        return array_values(array_filter((array) $songs, fn (array $song) => ! empty($song['url'])));
     }
 
     public function search(string $keyword, ?array $channels = null)
     {
-        if (is_null($channels)) {
+        if (null === $channels) {
             $songs = json_decode($this->meting->search($keyword), true);
 
             return $this->batchCarryDownloadUrl($songs);
@@ -61,16 +61,14 @@ class ConcurrencyMusic extends Music
             $pool = Pool::create()->concurrency(8)->timeout(3);
             foreach ($channels as $channel) {
                 $pool
-                    ->add(function () use ($keyword, $channel) {
-                        return json_decode($this->meting->site($channel)->search($keyword), true);
-                    }, 102400)
-                    ->then(function ($output) use (&$songs) {
+                    ->add(fn () => json_decode($this->meting->site($channel)->search($keyword), true), 102400)
+                    ->then(function ($output) use (&$songs): void {
                         $songs[] = $output;
                     })
-                    ->catch(function (\Throwable $e) {
+                    ->catch(function (\Throwable $e): void {
                         $this->output->writeln($e->getMessage());
                     })
-                    ->timeout(function () {
+                    ->timeout(function (): void {
                         // noop
                     });
             }

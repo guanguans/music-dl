@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * This file is part of the guanguans/music-dl.
  *
@@ -31,7 +33,7 @@ final class MusicCommand extends Command
      * @var string
      */
     protected $signature = 'music
-                            {source?* : Specify the source(tencent、netease、kugou) of the song} 
+                            {source?* : Specify the source(tencent、netease、kugou) of the song}
                             {--D|dir= : The directory where the songs are saved}
                             {--C|concurrent : Search for songs concurrently}';
 
@@ -47,7 +49,7 @@ final class MusicCommand extends Command
     /**
      * {@inheritdoc}
      */
-    protected function initialize(InputInterface $input, OutputInterface $output)
+    protected function initialize(InputInterface $input, OutputInterface $output): void
     {
         if (
             $this->option('dir')
@@ -60,9 +62,7 @@ final class MusicCommand extends Command
 
         $this->config = config('music-dl');
 
-        $this->app->bind(MusicContract::class, function (Container $app) {
-            return $this->option('concurrent') ? $app->make(ConcurrencyMusic::class) : $app->make(Music::class);
-        });
+        $this->app->bind(MusicContract::class, fn (Container $app) => $this->option('concurrent') ? $app->make(ConcurrencyMusic::class) : $app->make(Music::class));
     }
 
     /**
@@ -79,7 +79,7 @@ final class MusicCommand extends Command
         START:
 
         windows_os() and $this->line($this->config['win_tips']);
-        $keyword = str($this->ask($this->config['search_tips'], '腰乐队'))->trim();
+        $keyword = (string) str($this->ask($this->config['search_tips'], '腰乐队'))->trim();
         $this->line(sprintf($this->config['searching'], $keyword));
 
         $channels = ($sources = (array) $this->argument('source')) ? $sources : $this->config['channels'];
@@ -106,9 +106,7 @@ final class MusicCommand extends Command
             ->push($this->config['download_all_songs']);
         $selectedValues = $this->choice($this->config['download_choice_tips'], $choices->all(), $lastKey = ($choices->count() - 1), null, true);
         collect($selectedValues)
-            ->transform(function ($select) use ($choices) {
-                return $choices->search($select);
-            })
+            ->transform(fn ($select) => $choices->search($select))
             ->pipe(function (Collection $selectedKeys) use ($lastKey, $songs) {
                 if (in_array($lastKey, $selectedKeys->all())) {
                     return collect($songs)->keys();
@@ -116,12 +114,8 @@ final class MusicCommand extends Command
 
                 return $selectedKeys;
             })
-            ->pipe(function (Collection $selectedKeys) use ($songs) {
-                return collect($songs)->filter(function ($song, $key) use ($selectedKeys) {
-                    return in_array($key, $selectedKeys->all());
-                });
-            })
-            ->each(function ($song, $index) use ($formatSongs, $music) {
+            ->pipe(fn (Collection $selectedKeys) => collect($songs)->filter(fn ($song, $key) => in_array($key, $selectedKeys->all())))
+            ->each(function ($song, $index) use ($formatSongs, $music): void {
                 try {
                     $this->table($formatSongs[$index], []);
                     $music->download($song['url'], $savePath = get_save_path($song, $this->option('dir')));
@@ -134,7 +128,7 @@ final class MusicCommand extends Command
                     return;
                 }
             })
-            ->when(! windows_os(), function () {
+            ->when(! windows_os(), function (): void {
                 $this->notify(
                     config('app.name'),
                     $this->option('dir') ?: get_default_save_dir(),

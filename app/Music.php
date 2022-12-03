@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * This file is part of the guanguans/music-dl.
  *
@@ -47,7 +49,7 @@ class Music implements \App\Contracts\Music, HttpClientFactory
 
     public function search(string $keyword, ?array $channels = null)
     {
-        if (is_null($channels)) {
+        if (null === $channels) {
             $songs = json_decode($this->meting->search($keyword), true);
 
             return $this->batchCarryDownloadUrl($songs);
@@ -69,7 +71,7 @@ class Music implements \App\Contracts\Music, HttpClientFactory
     {
         $options = [
             'sink' => $savePath,
-            'progress' => function ($totalDownload, $downloaded) use (&$progressBar, &$isDownloaded) {
+            'progress' => function ($totalDownload, $downloaded) use (&$progressBar, &$isDownloaded): void {
                 if ($totalDownload > 0 && $downloaded > 0 && empty($progressBar)) {
                     $progressBar = new ProgressBar($this->output, $totalDownload);
                     $progressBar->start();
