@@ -48,12 +48,18 @@ Output ./resources/music-dl.gif
 
 Require php
 
-Set FontSize 24
-Set Width 1600
-Set Height 988
-Set LoopOffset 50%
+Set FontSize 20
+Set Width 1250
+Set Height 773
+Set TypingSpeed 500ms
 
-Type "php music-dl"
-Sleep 1s
-Enter
-Sleep 5s
+Type "./builds/music-dl netease" Sleep 1s
+Enter 1 Sleep 1s
+Type "不只是南方" Sleep 1s
+Enter 1 Sleep 5s
+Type "yes" Sleep 1s
+Enter 1 Sleep 1s
+Down@2s 3 Sleep 1s
+# Up@2s 2 Sleep 1s
+Enter 1 Sleep 10s
+Ctrl+C Sleep 3s
