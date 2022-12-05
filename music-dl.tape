@@ -61,4 +61,4 @@ Type "yes" Sleep 1s
 Enter 1 Sleep 1s
 Down@1s 3 Sleep 1s
 Enter 1 Sleep 10s
-Ctrl+C Sleep 5s
+Ctrl+C Sleep 3s
