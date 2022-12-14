@@ -9281,21 +9281,21 @@
         },
         {
             "name": "rector/rector",
-            "version": "0.15.0",
+            "version": "0.15.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "fbfbe499d0fedfac7fe2fed1a55a00bd08f19c91"
+                "reference": "bf5297204f7d46b8a74c1cc01b54341cbf00b74c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/fbfbe499d0fedfac7fe2fed1a55a00bd08f19c91",
-                "reference": "fbfbe499d0fedfac7fe2fed1a55a00bd08f19c91",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/bf5297204f7d46b8a74c1cc01b54341cbf00b74c",
+                "reference": "bf5297204f7d46b8a74c1cc01b54341cbf00b74c",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.2|^8.0",
-                "phpstan/phpstan": "^1.9.2"
+                "phpstan/phpstan": "^1.9.3"
             },
             "conflict": {
                 "rector/rector-doctrine": "*",
@@ -9325,7 +9325,7 @@
             "description": "Instant Upgrade and Automated Refactoring of any PHP code",
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/0.15.0"
+                "source": "https://github.com/rectorphp/rector/tree/0.15.1"
             },
             "funding": [
                 {
@@ -9333,7 +9333,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-12-04T22:40:18+00:00"
+            "time": "2022-12-14T15:53:50+00:00"
         },
         {
             "name": "sanmai/later",
