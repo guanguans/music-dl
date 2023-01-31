@@ -11,6 +11,7 @@
         "resources/success-icon.png"
     ],
     "exclude-composer-files": false,
+    "exclude-dev-files": true,
     "compression": "GZ",
     "compactors": [
         "KevinGH\\Box\\Compactor\\Php",
