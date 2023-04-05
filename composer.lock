@@ -9332,16 +9332,16 @@
         },
         {
             "name": "rector/rector",
-            "version": "0.15.23",
+            "version": "0.15.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "f4984ebd62b3613002869b0ddd6868261d62819e"
+                "reference": "716473919bcfdc27bdd2a32afb72adbf4c224e59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/f4984ebd62b3613002869b0ddd6868261d62819e",
-                "reference": "f4984ebd62b3613002869b0ddd6868261d62819e",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/716473919bcfdc27bdd2a32afb72adbf4c224e59",
+                "reference": "716473919bcfdc27bdd2a32afb72adbf4c224e59",
                 "shasum": ""
             },
             "require": {
@@ -9381,7 +9381,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/0.15.23"
+                "source": "https://github.com/rectorphp/rector/tree/0.15.24"
             },
             "funding": [
                 {
@@ -9389,7 +9389,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-03-22T15:22:45+00:00"
+            "time": "2023-04-05T08:49:11+00:00"
         },
         {
             "name": "sanmai/later",
