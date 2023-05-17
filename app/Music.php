@@ -53,6 +53,9 @@ class Music implements Contracts\Music, HttpClientFactory
         }, []);
     }
 
+    /**
+     * @psalm-suppress NamedArgumentNotAllowed
+     */
     public function search(string $keyword, ?array $channels = null)
     {
         if (null === $channels) {
