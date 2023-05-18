@@ -2,6 +2,129 @@
 
 All notable changes to `guanguans/music-dl` will be documented in this file.
 
+## v3.3.0 - 2023-05-18
+
+### What's Changed
+
+- Bump rector/rector from 0.14.8 to 0.15.0 by @dependabot in https://github.com/guanguans/music-dl/pull/385
+- Bump pestphp/pest from 1.22.2 to 1.22.3 by @dependabot in https://github.com/guanguans/music-dl/pull/386
+- Bump phpunit/phpunit from 9.5.26 to 9.5.27 by @dependabot in https://github.com/guanguans/music-dl/pull/387
+- Bump actions/checkout from 3.1.0 to 3.2.0 by @dependabot in https://github.com/guanguans/music-dl/pull/388
+- Bump vimeo/psalm from 5.1.0 to 5.2.0 by @dependabot in https://github.com/guanguans/music-dl/pull/389
+- Bump phpstan/phpstan from 1.9.2 to 1.9.3 by @dependabot in https://github.com/guanguans/music-dl/pull/390
+- Bump rector/rector from 0.15.0 to 0.15.1 by @dependabot in https://github.com/guanguans/music-dl/pull/391
+- Bump phpstan/phpstan from 1.9.3 to 1.9.4 by @dependabot in https://github.com/guanguans/music-dl/pull/392
+- Bump vimeo/psalm from 5.2.0 to 5.3.0 by @dependabot in https://github.com/guanguans/music-dl/pull/393
+- Bump friendsofphp/php-cs-fixer from 3.13.0 to 3.13.1 by @dependabot in https://github.com/guanguans/music-dl/pull/394
+- Bump vimeo/psalm from 5.3.0 to 5.4.0 by @dependabot in https://github.com/guanguans/music-dl/pull/395
+- Bump nunomaduro/larastan from 2.2.9 to 2.3.1 by @dependabot in https://github.com/guanguans/music-dl/pull/398
+- Bump rector/rector from 0.15.1 to 0.15.2 by @dependabot in https://github.com/guanguans/music-dl/pull/399
+- Bump nunomaduro/larastan from 2.3.1 to 2.3.2 by @dependabot in https://github.com/guanguans/music-dl/pull/400
+- Bump nunomaduro/larastan from 2.3.2 to 2.3.3 by @dependabot in https://github.com/guanguans/music-dl/pull/401
+- Bump nunomaduro/larastan from 2.3.3 to 2.3.4 by @dependabot in https://github.com/guanguans/music-dl/pull/402
+- Bump friendsofphp/php-cs-fixer from 3.13.1 to 3.13.2 by @dependabot in https://github.com/guanguans/music-dl/pull/403
+- Bump phpstan/phpstan from 1.9.4 to 1.9.6 by @dependabot in https://github.com/guanguans/music-dl/pull/404
+- Bump phpstan/phpstan from 1.9.6 to 1.9.7 by @dependabot in https://github.com/guanguans/music-dl/pull/405
+- Bump actions/checkout from 3.2.0 to 3.3.0 by @dependabot in https://github.com/guanguans/music-dl/pull/406
+- Bump actions/stale from 6 to 7 by @dependabot in https://github.com/guanguans/music-dl/pull/396
+- Bump rector/rector from 0.15.2 to 0.15.3 by @dependabot in https://github.com/guanguans/music-dl/pull/407
+- Bump phpstan/phpstan from 1.9.7 to 1.9.8 by @dependabot in https://github.com/guanguans/music-dl/pull/408
+- Bump rector/rector from 0.15.3 to 0.15.4 by @dependabot in https://github.com/guanguans/music-dl/pull/409
+- Bump nunomaduro/larastan from 2.3.4 to 2.3.5 by @dependabot in https://github.com/guanguans/music-dl/pull/410
+- Bump phpstan/phpstan from 1.9.8 to 1.9.9 by @dependabot in https://github.com/guanguans/music-dl/pull/411
+- Bump phpstan/phpstan from 1.9.9 to 1.9.11 by @dependabot in https://github.com/guanguans/music-dl/pull/412
+- Bump nunomaduro/larastan from 2.3.5 to 2.4.0 by @dependabot in https://github.com/guanguans/music-dl/pull/413
+- Bump pestphp/pest-plugin-laravel from 1.3.0 to 1.4.0 by @dependabot in https://github.com/guanguans/music-dl/pull/414
+- Bump rector/rector from 0.15.4 to 0.15.6 by @dependabot in https://github.com/guanguans/music-dl/pull/415
+- Bump rector/rector from 0.15.6 to 0.15.7 by @dependabot in https://github.com/guanguans/music-dl/pull/416
+- Bump phpunit/phpunit from 9.5.27 to 9.5.28 by @dependabot in https://github.com/guanguans/music-dl/pull/417
+- Bump phpstan/phpstan from 1.9.11 to 1.9.12 by @dependabot in https://github.com/guanguans/music-dl/pull/418
+- Bump phpstan/phpstan from 1.9.12 to 1.9.13 by @dependabot in https://github.com/guanguans/music-dl/pull/419
+- Bump infection/infection from 0.26.16 to 0.26.17 by @dependabot in https://github.com/guanguans/music-dl/pull/420
+- Bump phpstan/phpstan from 1.9.13 to 1.9.14 by @dependabot in https://github.com/guanguans/music-dl/pull/421
+- Bump rector/rector from 0.15.7 to 0.15.8 by @dependabot in https://github.com/guanguans/music-dl/pull/422
+- Bump vimeo/psalm from 5.4.0 to 5.6.0 by @dependabot in https://github.com/guanguans/music-dl/pull/423
+- Bump infection/infection from 0.26.17 to 0.26.18 by @dependabot in https://github.com/guanguans/music-dl/pull/424
+- Bump rector/rector from 0.15.8 to 0.15.10 by @dependabot in https://github.com/guanguans/music-dl/pull/425
+- Bump dependabot/fetch-metadata from 1.3.5 to 1.3.6 by @dependabot in https://github.com/guanguans/music-dl/pull/426
+- Bump friendsofphp/php-cs-fixer from 3.13.2 to 3.14.3 by @dependabot in https://github.com/guanguans/music-dl/pull/427
+- Bump symfony/http-kernel from 6.0.18 to 6.0.20 by @dependabot in https://github.com/guanguans/music-dl/pull/428
+- Bump rector/rector from 0.15.10 to 0.15.11 by @dependabot in https://github.com/guanguans/music-dl/pull/429
+- Bump pestphp/pest from 1.22.3 to 1.22.4 by @dependabot in https://github.com/guanguans/music-dl/pull/430
+- Bump phpunit/phpunit from 9.5.28 to 9.6.1 by @dependabot in https://github.com/guanguans/music-dl/pull/431
+- Bump rector/rector from 0.15.11 to 0.15.12 by @dependabot in https://github.com/guanguans/music-dl/pull/432
+- Bump infection/infection from 0.26.18 to 0.26.19 by @dependabot in https://github.com/guanguans/music-dl/pull/433
+- Bump phpunit/phpunit from 9.6.1 to 9.6.3 by @dependabot in https://github.com/guanguans/music-dl/pull/434
+- Bump phpstan/phpstan from 1.9.14 to 1.9.16 by @dependabot in https://github.com/guanguans/music-dl/pull/435
+- Bump rector/rector from 0.15.12 to 0.15.13 by @dependabot in https://github.com/guanguans/music-dl/pull/436
+- Bump phpstan/phpstan from 1.9.16 to 1.9.17 by @dependabot in https://github.com/guanguans/music-dl/pull/437
+- Bump friendsofphp/php-cs-fixer from 3.14.3 to 3.14.4 by @dependabot in https://github.com/guanguans/music-dl/pull/438
+- Bump rector/rector from 0.15.13 to 0.15.15 by @dependabot in https://github.com/guanguans/music-dl/pull/439
+- Bump rector/rector from 0.15.15 to 0.15.16 by @dependabot in https://github.com/guanguans/music-dl/pull/440
+- Bump nunomaduro/larastan from 2.4.0 to 2.4.1 by @dependabot in https://github.com/guanguans/music-dl/pull/441
+- Bump phpstan/phpstan from 1.9.17 to 1.9.18 by @dependabot in https://github.com/guanguans/music-dl/pull/442
+- Bump rector/rector from 0.15.16 to 0.15.17 by @dependabot in https://github.com/guanguans/music-dl/pull/443
+- Bump vimeo/psalm from 5.6.0 to 5.7.1 by @dependabot in https://github.com/guanguans/music-dl/pull/444
+- Bump phpstan/phpstan from 1.9.18 to 1.10.1 by @dependabot in https://github.com/guanguans/music-dl/pull/445
+- Bump vimeo/psalm from 5.7.1 to 5.7.5 by @dependabot in https://github.com/guanguans/music-dl/pull/446
+- Bump rector/rector from 0.15.17 to 0.15.18 by @dependabot in https://github.com/guanguans/music-dl/pull/447
+- Bump phpstan/phpstan from 1.10.1 to 1.10.2 by @dependabot in https://github.com/guanguans/music-dl/pull/448
+- Bump vimeo/psalm from 5.7.5 to 5.7.6 by @dependabot in https://github.com/guanguans/music-dl/pull/449
+- Bump vimeo/psalm from 5.7.6 to 5.7.7 by @dependabot in https://github.com/guanguans/music-dl/pull/450
+- Bump phpstan/phpstan from 1.10.2 to 1.10.3 by @dependabot in https://github.com/guanguans/music-dl/pull/451
+- Bump phpunit/phpunit from 9.6.3 to 9.6.4 by @dependabot in https://github.com/guanguans/music-dl/pull/452
+- Bump rector/rector from 0.15.18 to 0.15.19 by @dependabot in https://github.com/guanguans/music-dl/pull/453
+- Bump pestphp/pest from 1.22.4 to 1.22.5 by @dependabot in https://github.com/guanguans/music-dl/pull/454
+- Bump rector/rector from 0.15.19 to 0.15.21 by @dependabot in https://github.com/guanguans/music-dl/pull/455
+- Bump nunomaduro/larastan from 2.4.1 to 2.5.1 by @dependabot in https://github.com/guanguans/music-dl/pull/456
+- Bump phpstan/phpstan from 1.10.3 to 1.10.4 by @dependabot in https://github.com/guanguans/music-dl/pull/457
+- Bump phpstan/phpstan from 1.10.4 to 1.10.5 by @dependabot in https://github.com/guanguans/music-dl/pull/458
+- Bump phpunit/phpunit from 9.6.4 to 9.6.5 by @dependabot in https://github.com/guanguans/music-dl/pull/459
+- Bump phpstan/phpstan from 1.10.5 to 1.10.6 by @dependabot in https://github.com/guanguans/music-dl/pull/460
+- Bump vimeo/psalm from 5.7.7 to 5.8.0 by @dependabot in https://github.com/guanguans/music-dl/pull/461
+- Bump friendsofphp/php-cs-fixer from 3.14.4 to 3.15.0 by @dependabot in https://github.com/guanguans/music-dl/pull/462
+- Bump friendsofphp/php-cs-fixer from 3.15.0 to 3.15.1 by @dependabot in https://github.com/guanguans/music-dl/pull/463
+- Bump actions/checkout from 3.3.0 to 3.4.0 by @dependabot in https://github.com/guanguans/music-dl/pull/464
+- Bump phpstan/phpstan from 1.10.6 to 1.10.7 by @dependabot in https://github.com/guanguans/music-dl/pull/465
+- Bump pestphp/pest from 1.22.5 to 1.22.6 by @dependabot in https://github.com/guanguans/music-dl/pull/466
+- Bump rector/rector from 0.15.21 to 0.15.23 by @dependabot in https://github.com/guanguans/music-dl/pull/468
+- Bump actions/checkout from 3.4.0 to 3.5.0 by @dependabot in https://github.com/guanguans/music-dl/pull/469
+- Bump phpstan/phpstan from 1.10.7 to 1.10.8 by @dependabot in https://github.com/guanguans/music-dl/pull/470
+- Bump phpunit/phpunit from 9.6.5 to 9.6.6 by @dependabot in https://github.com/guanguans/music-dl/pull/471
+- Bump vimeo/psalm from 5.8.0 to 5.9.0 by @dependabot in https://github.com/guanguans/music-dl/pull/472
+- Bump phpstan/phpstan from 1.10.8 to 1.10.9 by @dependabot in https://github.com/guanguans/music-dl/pull/473
+- Bump phpstan/phpstan from 1.10.9 to 1.10.10 by @dependabot in https://github.com/guanguans/music-dl/pull/474
+- Bump friendsofphp/php-cs-fixer from 3.15.1 to 3.16.0 by @dependabot in https://github.com/guanguans/music-dl/pull/475
+- Bump phpstan/phpstan from 1.10.10 to 1.10.11 by @dependabot in https://github.com/guanguans/music-dl/pull/476
+- Bump rector/rector from 0.15.23 to 0.15.24 by @dependabot in https://github.com/guanguans/music-dl/pull/477
+- Bump codecov/codecov-action from 3.1.1 to 3.1.2 by @dependabot in https://github.com/guanguans/music-dl/pull/478
+- Bump actions/checkout from 3.5.0 to 3.5.1 by @dependabot in https://github.com/guanguans/music-dl/pull/479
+- Bump phpstan/phpstan from 1.10.11 to 1.10.13 by @dependabot in https://github.com/guanguans/music-dl/pull/480
+- Bump actions/checkout from 3.5.1 to 3.5.2 by @dependabot in https://github.com/guanguans/music-dl/pull/481
+- Bump charmbracelet/vhs-action from 1.2.0 to 1.2.1 by @dependabot in https://github.com/guanguans/music-dl/pull/482
+- Bump phpunit/phpunit from 9.6.6 to 9.6.7 by @dependabot in https://github.com/guanguans/music-dl/pull/483
+- Bump dependabot/fetch-metadata from 1.3.6 to 1.4.0 by @dependabot in https://github.com/guanguans/music-dl/pull/484
+- Bump phpstan/extension-installer from 1.2.0 to 1.3.0 by @dependabot in https://github.com/guanguans/music-dl/pull/486
+- Bump guzzlehttp/psr7 from 2.4.3 to 2.5.0 by @dependabot in https://github.com/guanguans/music-dl/pull/487
+- Bump guzzlehttp/guzzle from 7.5.0 to 7.5.1 by @dependabot in https://github.com/guanguans/music-dl/pull/485
+- Bump phpstan/phpstan from 1.10.13 to 1.10.14 by @dependabot in https://github.com/guanguans/music-dl/pull/488
+- Bump pestphp/pest from 1.22.6 to 1.23.0 by @dependabot in https://github.com/guanguans/music-dl/pull/489
+- Bump codecov/codecov-action from 3.1.2 to 3.1.3 by @dependabot in https://github.com/guanguans/music-dl/pull/490
+- Bump rector/rector from 0.15.24 to 0.15.25 by @dependabot in https://github.com/guanguans/music-dl/pull/492
+- Bump charmbracelet/vhs-action from 1.2.1 to 1.2.2 by @dependabot in https://github.com/guanguans/music-dl/pull/493
+- Bump vimeo/psalm from 5.9.0 to 5.10.0 by @dependabot in https://github.com/guanguans/music-dl/pull/494
+- Bump vimeo/psalm from 5.10.0 to 5.11.0 by @dependabot in https://github.com/guanguans/music-dl/pull/495
+- Bump rector/rector from 0.15.25 to 0.16.0 by @dependabot in https://github.com/guanguans/music-dl/pull/496
+- Bump react/event-loop from 1.3.0 to 1.4.0 by @dependabot in https://github.com/guanguans/music-dl/pull/497
+- Bump phpstan/phpstan from 1.10.14 to 1.10.15 by @dependabot in https://github.com/guanguans/music-dl/pull/498
+- Bump phpunit/phpunit from 9.6.7 to 9.6.8 by @dependabot in https://github.com/guanguans/music-dl/pull/499
+- Bump codecov/codecov-action from 3.1.3 to 3.1.4 by @dependabot in https://github.com/guanguans/music-dl/pull/500
+- Bump guzzlehttp/guzzle from 7.5.1 to 7.6.1 by @dependabot in https://github.com/guanguans/music-dl/pull/501
+- Bump actions/stale from 7 to 8 by @dependabot in https://github.com/guanguans/music-dl/pull/467
+- Bump nunomaduro/larastan from 2.5.1 to 2.6.0 by @dependabot in https://github.com/guanguans/music-dl/pull/491
+
+**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.2.3...v3.3.0
+
 ## v3.2.3 - 2022-12-05
 
 **Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.2.2...v3.2.3
