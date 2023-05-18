@@ -16,3 +16,4 @@ tests.php
 .DS_Store
 .history/
 music-dl.phar
+/.env
