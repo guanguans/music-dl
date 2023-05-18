@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace App\Commands;
 
 use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Foundation\Inspiring;
 use LaravelZero\Framework\Commands\Command;
 
 final class InspireCommand extends Command
@@ -37,6 +38,7 @@ final class InspireCommand extends Command
     public function handle(): int
     {
         $this->info(config('music-dl.logo'));
+        $this->info(Inspiring::quote());
 
         return self::SUCCESS;
     }
