@@ -32,7 +32,7 @@ class Music implements Contracts\Music, HttpClientFactory
 
     protected function batchCarryDownloadUrl(array $withoutUrlSongs): array
     {
-        return array_reduce($withoutUrlSongs, function (array $songs, array $song) {
+        return array_reduce($withoutUrlSongs, function (array $songs, array $song): array {
             try {
                 $response = json_decode(
                     $this->meting->site($song['source'])->url($song['url_id']),
@@ -64,7 +64,7 @@ class Music implements Contracts\Music, HttpClientFactory
             return $this->batchCarryDownloadUrl($songs);
         }
 
-        $songs = array_reduce($channels, function (array $songs, string $channel) use ($keyword) {
+        $songs = array_reduce($channels, function (array $songs, string $channel) use ($keyword): array {
             $songs[] = json_decode($this->meting->site($channel)->search($keyword), true, 512, JSON_THROW_ON_ERROR);
 
             return $songs;
@@ -81,7 +81,7 @@ class Music implements Contracts\Music, HttpClientFactory
         $options = [
             'sink' => $savePath,
             'progress' => function (int $totalDownload, int $downloaded) use (&$progressBar, &$isDownloaded): void {
-                if ($totalDownload > 0 && $downloaded > 0 && empty($progressBar)) {
+                if ($totalDownload > 0 && $downloaded > 0 && ! $progressBar instanceof ProgressBar) {
                     $progressBar = new ProgressBar($this->consoleOutput, $totalDownload);
                     $progressBar->start();
                 }
@@ -96,10 +96,5 @@ class Music implements Contracts\Music, HttpClientFactory
         ];
 
         return $this->createHttpClient()->get($downloadUrl, $options);
-    }
-
-    public function getMeting(): Meting
-    {
-        return $this->meting;
     }
 }

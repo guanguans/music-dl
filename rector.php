@@ -16,6 +16,7 @@ use Rector\CodeQuality\Rector\Array_\CallableThisArrayToAnonymousFunctionRector;
 use Rector\CodeQuality\Rector\Class_\InlineConstructorDefaultToPropertyRector;
 use Rector\CodeQuality\Rector\Expression\InlineIfToExplicitIfRector;
 use Rector\CodeQuality\Rector\Identical\SimplifyBoolIdenticalTrueRector;
+use Rector\CodeQuality\Rector\If_\ExplicitBoolCompareRector;
 use Rector\CodeQuality\Rector\LogicalAnd\LogicalToBooleanRector;
 use Rector\CodingStyle\Enum\PreferenceSelfThis;
 use Rector\CodingStyle\Rector\ClassMethod\UnSpreadOperatorRector;
@@ -85,10 +86,15 @@ return static function (RectorConfig $rectorConfig): void {
         ChangeOrIfReturnToEarlyReturnRector::class,
         WrapEncapsedVariableInCurlyBracesRector::class,
 
+        ExplicitBoolCompareRector::class => [
+            __DIR__.'/app/Exceptions/Handler.php',
+        ],
+        NormalizeNamespaceByPSR4ComposerAutoloadRector::class => [
+            __DIR__.'/app/helpers.php',
+        ],
         RenameVariableToMatchMethodCallReturnTypeRector::class => [
             __DIR__.'/app/Commands/MusicCommand.php',
         ],
-
         RenameParamToMatchTypeRector::class => [
             __DIR__.'/app/Commands/MusicCommand.php',
         ],

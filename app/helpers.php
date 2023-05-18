@@ -17,7 +17,7 @@ if (! function_exists('array_reduce_with_keys')) {
     function array_reduce_with_keys(array $array, callable $callback, $carry = null): mixed
     {
         foreach ($array as $key => $value) {
-            $carry = call_user_func($callback, $carry, $value, $key);
+            $carry = $callback($carry, $value, $key);
         }
 
         return $carry;
@@ -29,7 +29,7 @@ if (! function_exists('array_map_with_keys')) {
     {
         $arr = [];
         foreach ($array as $key => $value) {
-            $arr[$key] = call_user_func($callback, $value, $key);
+            $arr[$key] = $callback($value, $key);
         }
 
         return $arr;

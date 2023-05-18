@@ -66,7 +66,7 @@ final class MusicCommand extends Command
 
         $this->app->bind(
             MusicContract::class,
-            fn (Container $container) => $this->option('concurrent')
+            fn (Container $container): MusicContract => $this->option('concurrent')
                 ? $container->make(ConcurrencyMusic::class)
                 : $container->make(Music::class)
         );
@@ -103,7 +103,7 @@ final class MusicCommand extends Command
         }
 
         $choices = collect($formatSongs)
-            ->transform(function (array $song): string {
+            ->transform(static function (array $song): string {
                 unset($song[0]);
 
                 return implode('  ', $song);
@@ -119,16 +119,16 @@ final class MusicCommand extends Command
         );
 
         collect($selectedValues)
-            ->transform(fn (string $select) => $choices->search($select))
-            ->pipe(function (Collection $selectedKeys) use ($lastKey, $songs) {
-                if (in_array($lastKey, $selectedKeys->all())) {
+            ->transform(static fn (string $select): bool|int|string => $choices->search($select))
+            ->pipe(static function (Collection $selectedKeys) use ($lastKey, $songs): Collection {
+                if (\in_array($lastKey, $selectedKeys->all())) {
                     return collect($songs)->keys();
                 }
 
                 return $selectedKeys;
             })
-            ->pipe(fn (Collection $selectedKeys) => collect($songs)->filter(
-                fn (array $song, int $key) => in_array($key, $selectedKeys->all())
+            ->pipe(static fn (Collection $selectedKeys): Collection => collect($songs)->filter(
+                static fn (array $song, int $key): bool => \in_array($key, $selectedKeys->all())
             ))
             ->each(function (array $song, int $index) use ($formatSongs, $musicContract): void {
                 try {
@@ -136,11 +136,9 @@ final class MusicCommand extends Command
                     $musicContract->download($song['url'], $savePath = get_save_path($song, $this->option('dir')));
                     $this->line(sprintf($this->config['save_path_tips'], $savePath));
                     $this->newLine();
-                } catch (\Throwable $e) {
-                    $this->line(sprintf($this->config['download_failed_tips'], $e->getMessage()));
+                } catch (\Throwable $throwable) {
+                    $this->line(sprintf($this->config['download_failed_tips'], $throwable->getMessage()));
                     $this->newLine();
-
-                    return;
                 }
             })
             ->when(! windows_os(), function (): void {
