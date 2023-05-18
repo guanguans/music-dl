@@ -35,7 +35,7 @@ final class MusicCommand extends Command
      * @var string
      */
     protected $signature = 'music
-                            {source?* : Specify the source(tencent、netease、kugou) of the song}
+                            {sources?* : Specify the sources(tencent、netease、kugou) of the song}
                             {--d|dir= : The directory where the songs are saved}
                             {--c|concurrent : Search for songs concurrently}';
 
@@ -87,7 +87,7 @@ final class MusicCommand extends Command
         $keyword = (string) str($this->ask($this->config['search_tips'], '腰乐队'))->trim();
         $this->line(sprintf($this->config['searching'], $keyword));
 
-        $channels = ($sources = (array) $this->argument('source')) ? $sources : $this->config['channels'];
+        $channels = ($sources = (array) $this->argument('sources')) ? $sources : $this->config['channels'];
         $timer->start();
         $songs = $musicContract->search($keyword, $channels);
         $duration = $timer->stop();

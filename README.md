@@ -26,29 +26,29 @@ Download the [music-dl](https://github.com/guanguans/music-dl/blob/master/builds
 Execute the music-dl file on your cli.
 
 ```shell
-╰─ ./builds/music-dl                                                              ─╯
+╰─ ./music-dl                                                               ─╯
 
-     __  __           _        _____  _      
-    |  \/  |         (_)      |  __ \| |     
-    | \  / |_   _ ___ _  ___  | |  | | |     
-    | |\/| | | | / __| |/ __| | |  | | |     
-    | |  | | |_| \__ \ | (__  | |__| | |____ 
-    |_|  |_|\__,_|___/_|\___| |_____/|______| v3.1.5
+     __  __           _        _____  _
+    |  \/  |         (_)      |  __ \| |
+    | \  / |_   _ ___ _  ___  | |  | | |
+    | |\/| | | | / __| |/ __| | |  | | |
+    | |  | | |_| \__ \ | (__  | |__| | |____
+    |_|  |_|\__,_|___/_|\___| |_____/|______| v3.3.1
 
- 请输入要关键字如：一个短篇  腰乐队  Yesterday once more，或 Ctrl+C 退出 [腰乐队]:
- > |
+ 请输入关键字如：一个短篇  腰乐队  Yesterday once more，或按 Ctrl+C 退出程序 [腰乐队]:
+ > 
 ```
 
 ```shell
-╰─ ./music-dl --help                                                                                                   ─╯
+╰─ ./music-dl --help                                                                                                      ─╯
 Description:
   Search and download songs.
 
 Usage:
-  music [options] [--] [<source>...]
+  music [options] [--] [<sources>...]
 
 Arguments:
-  source                Specify the source(tencent、netease、kugou) of the song
+  sources               Specify the sources(tencent、netease、kugou) of the song
 
 Options:
   -d, --dir[=DIR]       The directory where the songs are saved
@@ -63,17 +63,17 @@ Options:
 ```
 
 ```shell
-╰─ ./builds/music-dl list                                                         ─╯
+╰─ ./music-dl list                                                      ─╯
 
-  Music DL  v3.1.5
+  Music DL  v3.3.1
 
   USAGE: music-dl <command> [options] [arguments]
 
-  inspire      Display an inspiring quote
-  music        Search and download songs.
-  thanks       Thanks for using this tool.
-
-  schedule:run Run the scheduled commands
+  completion  Dump the shell completion script
+  inspire     Display an inspiring quote
+  music       Search and download songs.
+  self-update Allows to self-update a build application
+  thanks      Thanks for using this tool.
 ```
 
 ![vhs](resources/music-dl.gif)

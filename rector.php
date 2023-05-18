@@ -35,6 +35,8 @@ use Rector\EarlyReturn\Rector\If_\ChangeOrIfReturnToEarlyReturnRector;
 use Rector\EarlyReturn\Rector\Return_\ReturnBinaryOrToEarlyReturnRector;
 use Rector\Laravel\Set\LaravelLevelSetList;
 use Rector\Laravel\Set\LaravelSetList;
+use Rector\Naming\Rector\Assign\RenameVariableToMatchMethodCallReturnTypeRector;
+use Rector\Naming\Rector\ClassMethod\RenameParamToMatchTypeRector;
 use Rector\Php56\Rector\FunctionLike\AddDefaultValueForUndefinedVariableRector;
 use Rector\PHPUnit\Rector\Class_\AddSeeTestAnnotationRector;
 use Rector\PHPUnit\Set\PHPUnitLevelSetList;
@@ -83,6 +85,14 @@ return static function (RectorConfig $rectorConfig): void {
         ChangeOrIfReturnToEarlyReturnRector::class,
         WrapEncapsedVariableInCurlyBracesRector::class,
 
+        RenameVariableToMatchMethodCallReturnTypeRector::class => [
+            __DIR__.'/app/Commands/MusicCommand.php',
+        ],
+
+        RenameParamToMatchTypeRector::class => [
+            __DIR__.'/app/Commands/MusicCommand.php',
+        ],
+
         // paths
         '**/fixtures*',
         '**/fixtures/*',
@@ -92,6 +102,8 @@ return static function (RectorConfig $rectorConfig): void {
         '**/Source/*',
         '**/Expected/*',
         '**/Expected*',
+
+        __DIR__.'/tests/TestCase.php',
     ]);
 
     $rectorConfig->sets([
@@ -127,7 +139,8 @@ return static function (RectorConfig $rectorConfig): void {
 
     $rectorConfig->importNames(true, false);
     $rectorConfig->importShortClasses(false);
-    $rectorConfig->parallel(240);
+    $rectorConfig->disableParallel();
+    // $rectorConfig->parallel(240);
     $rectorConfig->phpstanConfig(__DIR__.'/phpstan.neon');
     $rectorConfig->phpVersion(PhpVersion::PHP_80);
 
