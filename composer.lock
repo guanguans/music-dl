@@ -1362,16 +1362,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v9.52.8",
+            "version": "v9.52.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "d4c62cc12544b8acc8d89fcb510f4aefb12e6dea"
+                "reference": "c512ece7b1ee393eac5893f37cb2b029a5413b97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/d4c62cc12544b8acc8d89fcb510f4aefb12e6dea",
-                "reference": "d4c62cc12544b8acc8d89fcb510f4aefb12e6dea",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/c512ece7b1ee393eac5893f37cb2b029a5413b97",
+                "reference": "c512ece7b1ee393eac5893f37cb2b029a5413b97",
                 "shasum": ""
             },
             "require": {
@@ -1556,7 +1556,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-05-30T14:45:57+00:00"
+            "time": "2023-06-08T20:06:23+00:00"
         },
         {
             "name": "laravel/serializable-closure",
@@ -7932,16 +7932,16 @@
         },
         {
             "name": "nunomaduro/larastan",
-            "version": "v2.6.1",
+            "version": "v2.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/larastan.git",
-                "reference": "7823bc1fdbd8e72fd1e9cd8d746e7e104bccf02c"
+                "reference": "fd1b5c2560ccf4a2a0075a30524b63ebb142cd6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/larastan/zipball/7823bc1fdbd8e72fd1e9cd8d746e7e104bccf02c",
-                "reference": "7823bc1fdbd8e72fd1e9cd8d746e7e104bccf02c",
+                "url": "https://api.github.com/repos/nunomaduro/larastan/zipball/fd1b5c2560ccf4a2a0075a30524b63ebb142cd6c",
+                "reference": "fd1b5c2560ccf4a2a0075a30524b63ebb142cd6c",
                 "shasum": ""
             },
             "require": {
@@ -8004,7 +8004,7 @@
             ],
             "support": {
                 "issues": "https://github.com/nunomaduro/larastan/issues",
-                "source": "https://github.com/nunomaduro/larastan/tree/v2.6.1"
+                "source": "https://github.com/nunomaduro/larastan/tree/v2.6.2"
             },
             "funding": [
                 {
@@ -8024,7 +8024,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2023-06-04T20:55:57+00:00"
+            "time": "2023-06-10T17:23:14+00:00"
         },
         {
             "name": "ondram/ci-detector",
