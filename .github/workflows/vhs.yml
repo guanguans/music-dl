@@ -28,7 +28,7 @@ jobs:
         run: composer install -n --prefer-dist
 
       - name: VHS Action
-        uses: charmbracelet/vhs-action@v1.2.2
+        uses: charmbracelet/vhs-action@v2.0.0
         with:
           path: 'music-dl.tape'
 
