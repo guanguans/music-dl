@@ -14,13 +14,7 @@ namespace App\Contracts;
 
 interface Music
 {
-    /**
-     * @return mixed
-     */
-    public function search(string $keyword, ?array $channels = null);
+    public function search(string $keyword, array $channels = null);
 
-    /**
-     * @return mixed
-     */
     public function download(string $downloadUrl, string $savePath);
 }

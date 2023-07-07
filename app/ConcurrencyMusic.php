@@ -55,7 +55,7 @@ class ConcurrencyMusic extends Music
      *
      * @throws \JsonException
      */
-    public function search(string $keyword, ?array $channels = null): array
+    public function search(string $keyword, array $channels = null): array
     {
         if (null === $channels) {
             $songs = json_decode($this->meting->search($keyword), true, 512, JSON_THROW_ON_ERROR);

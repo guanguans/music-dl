@@ -48,9 +48,6 @@ final class MusicCommand extends Command
 
     private array $config;
 
-    /**
-     * {@inheritdoc}
-     */
     protected function initialize(InputInterface $input, OutputInterface $output): void
     {
         if (

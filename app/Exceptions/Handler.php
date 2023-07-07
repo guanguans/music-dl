@@ -15,8 +15,6 @@ namespace App\Exceptions;
 class Handler extends \Illuminate\Foundation\Exceptions\Handler
 {
     /**
-     * {@inheritdoc}
-     *
      * @psalm-suppress UnusedClosureParam
      */
     public function register(): void
