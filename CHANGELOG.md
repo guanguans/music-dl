@@ -2,6 +2,48 @@
 
 All notable changes to `guanguans/music-dl` will be documented in this file.
 
+## v3.3.3 - 2023-07-09
+
+### What's Changed
+
+- Bump dependabot/fetch-metadata from 1.4.0 to 1.5.0 by @dependabot in https://github.com/guanguans/music-dl/pull/502
+- Bump friendsofphp/php-cs-fixer from 3.16.0 to 3.17.0 by @dependabot in https://github.com/guanguans/music-dl/pull/503
+- Bump guzzlehttp/guzzle from 7.6.1 to 7.7.0 by @dependabot in https://github.com/guanguans/music-dl/pull/504
+- Bump dependabot/fetch-metadata from 1.5.0 to 1.5.1 by @dependabot in https://github.com/guanguans/music-dl/pull/506
+- Bump rector/rector from 0.16.0 to 0.17.0 by @dependabot in https://github.com/guanguans/music-dl/pull/508
+- Bump mockery/mockery from 1.5.1 to 1.6.1 by @dependabot in https://github.com/guanguans/music-dl/pull/509
+- Bump phpstan/phpstan from 1.10.15 to 1.10.16 by @dependabot in https://github.com/guanguans/music-dl/pull/510
+- Bump vimeo/psalm from 5.11.0 to 5.12.0 by @dependabot in https://github.com/guanguans/music-dl/pull/505
+- Bump nunomaduro/larastan from 2.6.0 to 2.6.1 by @dependabot in https://github.com/guanguans/music-dl/pull/511
+- Bump phpstan/extension-installer from 1.3.0 to 1.3.1 by @dependabot in https://github.com/guanguans/music-dl/pull/507
+- Bump phpstan/phpstan from 1.10.16 to 1.10.17 by @dependabot in https://github.com/guanguans/music-dl/pull/512
+- Bump mockery/mockery from 1.6.1 to 1.6.2 by @dependabot in https://github.com/guanguans/music-dl/pull/513
+- Bump phpstan/phpstan from 1.10.17 to 1.10.18 by @dependabot in https://github.com/guanguans/music-dl/pull/514
+- Bump actions/checkout from 3.5.2 to 3.5.3 by @dependabot in https://github.com/guanguans/music-dl/pull/515
+- Bump nunomaduro/larastan from 2.6.1 to 2.6.2 by @dependabot in https://github.com/guanguans/music-dl/pull/516
+- Bump phpunit/phpunit from 9.6.8 to 9.6.9 by @dependabot in https://github.com/guanguans/music-dl/pull/517
+- Bump rector/rector from 0.17.0 to 0.17.1 by @dependabot in https://github.com/guanguans/music-dl/pull/518
+- Bump phpstan/phpstan from 1.10.18 to 1.10.19 by @dependabot in https://github.com/guanguans/music-dl/pull/519
+- Bump nunomaduro/larastan from 2.6.2 to 2.6.3 by @dependabot in https://github.com/guanguans/music-dl/pull/520
+- Bump friendsofphp/php-cs-fixer from 3.17.0 to 3.18.0 by @dependabot in https://github.com/guanguans/music-dl/pull/521
+- Bump phpstan/phpstan from 1.10.19 to 1.10.20 by @dependabot in https://github.com/guanguans/music-dl/pull/522
+- Bump phpstan/phpstan from 1.10.20 to 1.10.21 by @dependabot in https://github.com/guanguans/music-dl/pull/523
+- Bump friendsofphp/php-cs-fixer from 3.18.0 to 3.19.2 by @dependabot in https://github.com/guanguans/music-dl/pull/524
+- Bump vimeo/psalm from 5.12.0 to 5.13.0 by @dependabot in https://github.com/guanguans/music-dl/pull/525
+- Bump dependabot/fetch-metadata from 1.5.1 to 1.6.0 by @dependabot in https://github.com/guanguans/music-dl/pull/526
+- Bump vimeo/psalm from 5.13.0 to 5.13.1 by @dependabot in https://github.com/guanguans/music-dl/pull/527
+- Bump friendsofphp/php-cs-fixer from 3.19.2 to 3.20.0 by @dependabot in https://github.com/guanguans/music-dl/pull/528
+- Bump rector/rector from 0.17.1 to 0.17.2 by @dependabot in https://github.com/guanguans/music-dl/pull/529
+- Bump phpstan/phpstan from 1.10.21 to 1.10.22 by @dependabot in https://github.com/guanguans/music-dl/pull/530
+- Bump phpstan/phpstan from 1.10.22 to 1.10.23 by @dependabot in https://github.com/guanguans/music-dl/pull/531
+- Bump phpstan/phpstan from 1.10.23 to 1.10.24 by @dependabot in https://github.com/guanguans/music-dl/pull/533
+- Bump friendsofphp/php-cs-fixer from 3.20.0 to 3.21.0 by @dependabot in https://github.com/guanguans/music-dl/pull/534
+- Bump phpstan/phpstan from 1.10.24 to 1.10.25 by @dependabot in https://github.com/guanguans/music-dl/pull/535
+- Bump friendsofphp/php-cs-fixer from 3.21.0 to 3.21.1 by @dependabot in https://github.com/guanguans/music-dl/pull/536
+- Bump charmbracelet/vhs-action from 1.2.2 to 2.0.0 by @dependabot in https://github.com/guanguans/music-dl/pull/532
+
+**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.3.2...v3.3.3
+
 ## v3.3.2 - 2023-05-18
 
 **Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.3.1...v3.3.2
