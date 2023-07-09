@@ -18,7 +18,7 @@ use Metowolf\Meting;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
-class Music implements Contracts\Music, HttpClientFactory
+class SequenceMusic implements Contracts\Music, HttpClientFactory
 {
     use HasHttpClient;
 

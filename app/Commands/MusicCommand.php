@@ -15,7 +15,7 @@ namespace App\Commands;
 use App\Concerns\Sanitizer;
 use App\ConcurrencyMusic;
 use App\Contracts\Music as MusicContract;
-use App\Music;
+use App\SequenceMusic;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\Collection;
@@ -154,7 +154,7 @@ final class MusicCommand extends Command
             MusicContract::class,
             fn (Container $container): MusicContract => $this->option('concurrent')
                 ? $container->make(ConcurrencyMusic::class)
-                : $container->make(Music::class)
+                : $container->make(SequenceMusic::class)
         );
     }
 }

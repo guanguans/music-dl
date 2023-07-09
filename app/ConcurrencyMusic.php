@@ -14,7 +14,7 @@ namespace App;
 
 use Spatie\Async\Pool;
 
-class ConcurrencyMusic extends Music
+class ConcurrencyMusic extends SequenceMusic
 {
     /**
      * @return array<int, array>
