@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    backupGlobals="false"
-    backupStaticAttributes="false"
-    bootstrap="vendor/autoload.php"
-    colors="true"
-    convertErrorsToExceptions="true"
-    convertNoticesToExceptions="true"
-    convertWarningsToExceptions="true"
-    processIsolation="false"
-    stopOnFailure="false"
-    verbose="true"
-    printerClass="NunoMaduro\Collision\Adapters\Phpunit\Printer"
-    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  backupGlobals="false"
+  backupStaticAttributes="false"
+  bootstrap="vendor/autoload.php"
+  colors="true"
+  convertErrorsToExceptions="true"
+  convertNoticesToExceptions="true"
+  convertWarningsToExceptions="true"
+  printerClass="NunoMaduro\Collision\Adapters\Phpunit\Printer"
+  processIsolation="false"
+  stopOnFailure="false"
+  verbose="true"
+  xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
 >
   <coverage>
     <include>

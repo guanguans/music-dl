@@ -1,5 +1,5 @@
 includes:
-#    - phpstan-baseline.neon
+    - phpstan-baseline.neon
 #    - vendor/roave/no-floaters/rules.neon
 #    - vendor/phpstan/phpstan-strict-rules/rules.neon
 #    - vendor/ergebnis/phpstan-rules/rules.neon
