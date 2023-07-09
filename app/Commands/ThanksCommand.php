@@ -18,6 +18,17 @@ use LaravelZero\Framework\Commands\Command;
 final class ThanksCommand extends Command
 {
     /**
+     * The Command messages.
+     *
+     * @var string[]
+     */
+    protected const FUNDING_MESSAGES = [
+        '',
+        '  - Star or contribute to Music DL:',
+        '    <options=bold>https://github.com/guanguans/music-dl</>',
+    ];
+
+    /**
      * The signature of the command.
      *
      * @var string
@@ -30,17 +41,6 @@ final class ThanksCommand extends Command
      * @var string
      */
     protected $description = 'Thanks for using this tool.';
-
-    /**
-     * The Command messages.
-     *
-     * @var string[]
-     */
-    protected const FUNDING_MESSAGES = [
-        '',
-        '  - Star or contribute to Music DL:',
-        '    <options=bold>https://github.com/guanguans/music-dl</>',
-    ];
 
     /**
      * Execute the console command.

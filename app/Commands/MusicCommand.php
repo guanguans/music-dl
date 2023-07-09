@@ -48,27 +48,6 @@ final class MusicCommand extends Command
 
     private array $config;
 
-    protected function initialize(InputInterface $input, OutputInterface $output): void
-    {
-        if (
-            $this->option('dir')
-            && ! is_dir($this->option('dir'))
-            && ! mkdir($this->option('dir'), 0755, true)
-            && ! is_dir($this->option('dir'))
-        ) {
-            throw new \RuntimeException(sprintf('The directory "%s" was not created', $this->option('dir')));
-        }
-
-        $this->config = config('music-dl');
-
-        $this->app->bind(
-            MusicContract::class,
-            fn (Container $container): MusicContract => $this->option('concurrent')
-                ? $container->make(ConcurrencyMusic::class)
-                : $container->make(Music::class)
-        );
-    }
-
     /**
      * Execute the console command.
      *
@@ -90,6 +69,7 @@ final class MusicCommand extends Command
         $duration = $timer->stop();
         if (empty($songs)) {
             $this->line($this->config['empty_result']);
+
             goto START;
         }
 
@@ -155,5 +135,26 @@ final class MusicCommand extends Command
     public function schedule(Schedule $schedule): void
     {
         // $schedule->command(static::class)->everyMinute();
+    }
+
+    protected function initialize(InputInterface $input, OutputInterface $output): void
+    {
+        if (
+            $this->option('dir')
+            && ! is_dir($this->option('dir'))
+            && ! mkdir($this->option('dir'), 0755, true)
+            && ! is_dir($this->option('dir'))
+        ) {
+            throw new \RuntimeException(sprintf('The directory "%s" was not created', $this->option('dir')));
+        }
+
+        $this->config = config('music-dl');
+
+        $this->app->bind(
+            MusicContract::class,
+            fn (Container $container): MusicContract => $this->option('concurrent')
+                ? $container->make(ConcurrencyMusic::class)
+                : $container->make(Music::class)
+        );
     }
 }

@@ -18,44 +18,10 @@ class ConcurrencyMusic extends Music
 {
     /**
      * @return array<int, array>
-     */
-    protected function batchCarryDownloadUrl(array $withoutUrlSongs): array
-    {
-        $songs = transform($withoutUrlSongs, function (array $songs): array {
-            $pool = Pool::create()->concurrency(128)->timeout(5);
-            foreach ($songs as &$song) {
-                $pool
-                    ->add(function () use ($song) {
-                        try {
-                            return json_decode($this->meting->site($song['source'])->url($song['url_id']), true, 512, JSON_THROW_ON_ERROR);
-                        } catch (\Throwable) {
-                            return [];
-                        }
-                    })
-                    ->then(function ($output) use (&$song): void {
-                        $song += $output;
-                    })
-                    ->catch(function (\Throwable $throwable): void {
-                        $this->consoleOutput->writeln($throwable->getMessage());
-                    })
-                    ->timeout(static function (): void {
-                        // noop
-                    });
-            }
-            $pool->wait();
-
-            return $songs;
-        });
-
-        return array_values(array_filter((array) $songs, static fn (array $song): bool => ! empty($song['url'])));
-    }
-
-    /**
-     * @return array<int, array>
      *
      * @throws \JsonException
      */
-    public function search(string $keyword, array $channels = null): array
+    public function search(string $keyword, ?array $channels = null): array
     {
         if (null === $channels) {
             $songs = json_decode($this->meting->search($keyword), true, 512, JSON_THROW_ON_ERROR);
@@ -86,5 +52,39 @@ class ConcurrencyMusic extends Music
         });
 
         return $this->batchCarryDownloadUrl($songs);
+    }
+
+    /**
+     * @return array<int, array>
+     */
+    protected function batchCarryDownloadUrl(array $withoutUrlSongs): array
+    {
+        $songs = transform($withoutUrlSongs, function (array $songs): array {
+            $pool = Pool::create()->concurrency(128)->timeout(5);
+            foreach ($songs as &$song) {
+                $pool
+                    ->add(function () use ($song) {
+                        try {
+                            return json_decode($this->meting->site($song['source'])->url($song['url_id']), true, 512, JSON_THROW_ON_ERROR);
+                        } catch (\Throwable) {
+                            return [];
+                        }
+                    })
+                    ->then(function ($output) use (&$song): void {
+                        $song += $output;
+                    })
+                    ->catch(function (\Throwable $throwable): void {
+                        $this->consoleOutput->writeln($throwable->getMessage());
+                    })
+                    ->timeout(static function (): void {
+                        // noop
+                    });
+            }
+            $pool->wait();
+
+            return $songs;
+        });
+
+        return array_values(array_filter((array) $songs, static fn (array $song): bool => ! empty($song['url'])));
     }
 }

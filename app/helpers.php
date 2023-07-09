@@ -57,7 +57,7 @@ if (! function_exists('get_save_path')) {
     /**
      * @throws \App\Exceptions\RuntimeException
      */
-    function get_save_path(array $song, string $saveDir = null, string $defaultExt = 'mp3'): string
+    function get_save_path(array $song, ?string $saveDir = null, string $defaultExt = 'mp3'): string
     {
         $saveDir = Str::finish($saveDir ?: get_default_save_dir(), DIRECTORY_SEPARATOR);
         if (! is_dir($saveDir) && ! mkdir($saveDir, 0755, true) && ! is_dir($saveDir)) {

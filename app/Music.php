@@ -30,33 +30,10 @@ class Music implements Contracts\Music, HttpClientFactory
         $this->meting = $meting->format();
     }
 
-    protected function batchCarryDownloadUrl(array $withoutUrlSongs): array
-    {
-        return array_reduce($withoutUrlSongs, function (array $songs, array $song): array {
-            try {
-                $response = json_decode(
-                    $this->meting->site($song['source'])->url($song['url_id']),
-                    true,
-                    512,
-                    JSON_THROW_ON_ERROR
-                );
-                if (empty($response['url'])) {
-                    return $songs;
-                }
-
-                $songs[] = $song + $response;
-
-                return $songs;
-            } catch (Throwable) {
-                return $songs;
-            }
-        }, []);
-    }
-
     /**
      * @psalm-suppress NamedArgumentNotAllowed
      */
-    public function search(string $keyword, array $channels = null)
+    public function search(string $keyword, ?array $channels = null)
     {
         if (null === $channels) {
             $songs = json_decode($this->meting->search($keyword), true, 512, JSON_THROW_ON_ERROR);
@@ -96,5 +73,28 @@ class Music implements Contracts\Music, HttpClientFactory
         ];
 
         return $this->createHttpClient()->get($downloadUrl, $options);
+    }
+
+    protected function batchCarryDownloadUrl(array $withoutUrlSongs): array
+    {
+        return array_reduce($withoutUrlSongs, function (array $songs, array $song): array {
+            try {
+                $response = json_decode(
+                    $this->meting->site($song['source'])->url($song['url_id']),
+                    true,
+                    512,
+                    JSON_THROW_ON_ERROR
+                );
+                if (empty($response['url'])) {
+                    return $songs;
+                }
+
+                $songs[] = $song + $response;
+
+                return $songs;
+            } catch (Throwable) {
+                return $songs;
+            }
+        }, []);
     }
 }

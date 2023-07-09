@@ -32,7 +32,7 @@ trait Formatter
     /**
      * @return array<array-key, string>
      */
-    public function format(array $song, string $keyword, array $hideFields = null): array
+    public function format(array $song, string $keyword, ?array $hideFields = null): array
     {
         null === $hideFields and $hideFields = ['id', 'pic_id', 'url_id', 'lyric_id', 'url'];
         foreach ($hideFields as $hideField) {
