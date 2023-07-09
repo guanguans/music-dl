@@ -14,7 +14,7 @@ namespace App\Concerns;
 
 use GuzzleHttp\Client;
 
-trait WithHttpClient
+trait HasHttpClient
 {
     protected static ?Client $httpClient = null;
 

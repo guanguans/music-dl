@@ -124,7 +124,6 @@
             "@mark-separate",
             "@test",
             "@mark-separate",
-            "@psalm",
             "@mark-finish"
         ],
         "composer-validate": "@composer validate --check-lock --strict --ansi -v",

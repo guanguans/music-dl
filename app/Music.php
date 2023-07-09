@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace App;
 
-use App\Concerns\WithHttpClient;
+use App\Concerns\HasHttpClient;
 use App\Contracts\HttpClientFactory;
 use Metowolf\Meting;
 use Symfony\Component\Console\Helper\ProgressBar;
@@ -20,7 +20,7 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 
 class Music implements Contracts\Music, HttpClientFactory
 {
-    use WithHttpClient;
+    use HasHttpClient;
 
     public function __construct(
         protected Meting $meting,
@@ -32,7 +32,7 @@ class Music implements Contracts\Music, HttpClientFactory
     /**
      * @psalm-suppress NamedArgumentNotAllowed
      */
-    public function search(string $keyword, ?array $channels = null)
+    public function search(string $keyword, ?array $channels = null): array
     {
         if (null === $channels) {
             $songs = json_decode($this->meting->search($keyword), true, 512, JSON_THROW_ON_ERROR);
@@ -52,7 +52,7 @@ class Music implements Contracts\Music, HttpClientFactory
     /**
      * @psalm-suppress UnusedVariable
      */
-    public function download(string $downloadUrl, string $savePath)
+    public function download(string $url, string $savePath): void
     {
         $options = [
             'sink' => $savePath,
@@ -71,7 +71,7 @@ class Music implements Contracts\Music, HttpClientFactory
             },
         ];
 
-        return $this->createHttpClient()->get($downloadUrl, $options);
+        $this->createHttpClient()->get($url, $options);
     }
 
     protected function batchCarryDownloadUrl(array $withoutUrlSongs): array

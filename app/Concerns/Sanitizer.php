@@ -12,16 +12,18 @@ declare(strict_types=1);
 
 namespace App\Concerns;
 
-trait Formatter
+use Illuminate\Support\Arr;
+
+trait Sanitizer
 {
     /**
-     * @return array<mixed>
+     * @return array<array<string, null|int|string>>
      */
-    public function batchFormat(array $songs, string $keyword): array
+    public function sanitizes(array $songs, string $keyword): array
     {
         return collect($songs)
             ->mapWithKeys(function (array $song, int $index) use ($keyword): array {
-                $song = $this->format($song, $keyword);
+                $song = $this->sanitize($song, $keyword);
                 array_unshift($song, "<fg=cyan>$index</>");
 
                 return [$index => $song];
@@ -30,14 +32,11 @@ trait Formatter
     }
 
     /**
-     * @return array<array-key, string>
+     * @return array<string, null|int|string>
      */
-    public function format(array $song, string $keyword, ?array $hideFields = null): array
+    public function sanitize(array $song, string $keyword): array
     {
-        null === $hideFields and $hideFields = ['id', 'pic_id', 'url_id', 'lyric_id', 'url'];
-        foreach ($hideFields as $hideField) {
-            unset($song[$hideField]);
-        }
+        Arr::forget($song, ['id', 'pic_id', 'url_id', 'lyric_id', 'url']);
 
         $song['name'] = str_replace($keyword, "<fg=red;options=bold>$keyword</>", $song['name']);
         $song['album'] = str_replace($keyword, "<fg=red;options=bold>$keyword</>", $song['album']);

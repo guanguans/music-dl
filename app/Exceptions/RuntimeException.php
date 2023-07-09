@@ -12,6 +12,8 @@ declare(strict_types=1);
 
 namespace App\Exceptions;
 
-class RuntimeException extends Exception
+use App\Contracts\Throwable;
+
+class RuntimeException extends \RuntimeException implements Throwable
 {
 }

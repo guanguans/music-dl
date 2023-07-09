@@ -14,7 +14,7 @@ namespace App\Contracts;
 
 interface Music
 {
-    public function search(string $keyword, ?array $channels = null);
+    public function search(string $keyword, ?array $channels = null): array;
 
-    public function download(string $downloadUrl, string $savePath);
+    public function download(string $url, string $savePath): void;
 }

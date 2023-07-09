@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace App\Commands;
 
-use App\Concerns\Formatter;
+use App\Concerns\Sanitizer;
 use App\ConcurrencyMusic;
 use App\Contracts\Music as MusicContract;
 use App\Music;
@@ -27,7 +27,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 final class MusicCommand extends Command
 {
-    use Formatter;
+    use Sanitizer;
 
     /**
      * The signature of the command.
@@ -73,7 +73,7 @@ final class MusicCommand extends Command
             goto START;
         }
 
-        $this->table($this->config['table_header'], $formatSongs = $this->batchFormat($songs, $keyword));
+        $this->table($this->config['table_header'], $formatSongs = $this->sanitizes($songs, $keyword));
         $this->info($resourceUsageFormatter->resourceUsage($duration));
         if (! $this->confirm($this->config['confirm_download'])) {
             goto START;
