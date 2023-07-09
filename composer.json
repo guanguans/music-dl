@@ -22,8 +22,8 @@
         "source": "https://github.com/guanguans/music-dl"
     },
     "require": {
-        "php": "^8.0",
-        "guzzlehttp/guzzle": "^7.6",
+        "php": ">=8.0",
+        "guzzlehttp/guzzle": "^7.7",
         "laravel-zero/framework": "^9.2",
         "laravel-zero/phar-updater": "^1.3",
         "metowolf/meting": "^1.5",
@@ -33,12 +33,12 @@
     "require-dev": {
         "alecrabbit/php-cli-snake": "^0.6",
         "brainmaestro/composer-git-hooks": "^3.0",
-        "friendsofphp/php-cs-fixer": "^3.16",
+        "friendsofphp/php-cs-fixer": "^3.21",
         "guanguans/ai-commit": "^1.6",
         "infection/infection": "^0.26",
         "johnkary/phpunit-speedtrap": "^4.0",
         "kubawerlos/php-cs-fixer-custom-fixers": "^3.15",
-        "mockery/mockery": "^1.5",
+        "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^6.4",
         "nunomaduro/larastan": "^2.6",
         "nunomaduro/termwind": "^1.15",
@@ -51,10 +51,11 @@
         "phpunit/phpunit": "^9.6",
         "react/event-loop": "^1.4",
         "rector/rector": "^0.17",
+        "roave/security-advisories": "dev-latest",
         "spatie/invade": "^1.1",
         "spatie/pest-plugin-snapshots": "^1.1",
         "spatie/phpunit-snapshot-assertions": "^4.2",
-        "vimeo/psalm": "^5.11"
+        "vimeo/psalm": "^5.13"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -108,9 +109,13 @@
         "post-install-cmd": [],
         "post-update-cmd": [],
         "post-autoload-dump": [],
-        "cghooks": "./vendor/bin/cghooks",
+        "ai-commit": "@php ./vendor/bin/ai-commit commit --generator=bito_cli --ansi",
+        "benchmark": "@php ./vendor/bin/phpbench run --warmup=1 --retry-threshold=1 --iterations=3 --revs=5 --ansi -v",
+        "cghooks": "@php ./vendor/bin/cghooks --ansi -v",
         "checks": [
             "@mark-start",
+            "@composer-validate",
+            "@mark-separate",
             "@md-lint",
             "@mark-separate",
             "@lint",
@@ -122,19 +127,26 @@
             "@psalm",
             "@mark-finish"
         ],
-        "infection": "./vendor/bin/infection --test-framework=pest --show-mutations --threads=4 --ansi",
-        "lint": "for P in app bootstrap config tests; do find $P -type f -name '*.php' -exec php -l {} \\;; done",
+        "composer-validate": "@composer validate --check-lock --strict --ansi -v",
+        "facades-lint": "@facades-update -- --lint",
+        "facades-update": "/usr/local/opt/php@8.1/bin/php -f ./bin/facades.php",
+        "infection": "./vendor/bin/infection --test-framework=pest --show-mutations --threads=4 --ansi -v",
+        "lint": [
+            "for DIR in .; do find $DIR -maxdepth 1 -type f -name '*.php' -type f ! -name 'xxx.php' -exec php -l {} \\; 2>&1 | (! grep -v '^No syntax errors detected'); done",
+            "for DIR in ./app ./config ./tests; do find $DIR -type f -name '*.php' -type f ! -name 'xxx.php' -exec php -l {} \\; 2>&1 | (! grep -v '^No syntax errors detected'); done"
+        ],
         "mark-finish": "printf '\\n!\\n!\\t\\033[0;32m%s\\033[0m\\n!\\n\\n' \"Finished\"",
         "mark-separate": "printf '\\n!\\n!\\t\\033[0;33m%s\\033[0m\\n!\\n\\n' \"----------------\"",
         "mark-start": "printf '\\n!\\n!\\t\\033[0;36m%s\\033[0m\\n!\\n\\n' \"Started\"",
         "md-fix": "@md-lint --fix",
         "md-lint": "lint-md --config .lintmdrc ./*.md ./.github/ ./docs/",
-        "pest": "./vendor/bin/pest --cache-result-file=./build//phpunit/.phpunit.result.cache",
-        "pest-coverage": "@pest --coverage-html=./build/phpunit/ --coverage-clover=clover.xml --coverage",
-        "phpstan": "./vendor/bin/phpstan analyse -vv",
-        "phpstan-baseline": "@phpstan --generate-baseline",
+        "pest": "@php ./vendor/bin/pest",
+        "pest-coverage": "@pest --coverage-html=./build/phpunit/ --coverage-clover=./clover.xml --coverage",
+        "pest-migrate-configuration": "@pest --migrate-configuration",
+        "phpstan": "@php ./vendor/bin/phpstan analyse --ansi -v",
+        "phpstan-baseline": "@phpstan --generate-baseline --allow-empty-baseline",
         "post-merge": [
-            "composer install"
+            "composer install --ansi -v"
         ],
         "psalm": "@php ./vendor/bin/psalm",
         "psalm-baseline": "@psalm --update-baseline",

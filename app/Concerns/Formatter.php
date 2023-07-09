@@ -15,7 +15,7 @@ namespace App\Concerns;
 trait Formatter
 {
     /**
-     * @return mixed[]
+     * @return array<mixed>
      */
     public function batchFormat(array $songs, string $keyword): array
     {

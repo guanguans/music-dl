@@ -19,8 +19,6 @@ final class ThanksCommand extends Command
 {
     /**
      * The Command messages.
-     *
-     * @var string[]
      */
     protected const FUNDING_MESSAGES = [
         '',
