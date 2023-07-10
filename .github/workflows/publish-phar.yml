@@ -1,0 +1,55 @@
+name: Publish the released PHAR
+
+on:
+  release:
+    types: [ created ]
+
+jobs:
+  publish:
+    runs-on: ubuntu-22.04
+
+    name: Release PHAR
+
+    steps:
+      - name: Extract the tag version
+        id: tag
+        run: echo ::set-output name=tag::${GITHUB_REF##*v}
+
+      - name: Checkout the code
+        uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.0
+          extensions: dom, curl, libxml, mbstring, zip
+          ini-values: error_reporting=E_ALL
+          tools: composer:v2
+          coverage: none
+
+      - name: Install the dependencies
+        run: composer install --prefer-dist --optimize-autoloader --ansi --no-interaction --no-progress --no-suggest --no-scripts --no-dev
+
+      - name: Create the PHAR file.
+        run: ./music-dl app:build music-dl.phar --build-version=${{ steps.tag.outputs.tag }} -v
+
+      - name: Upload the PHAR artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: music-dl.phar
+          path: builds/music-dl.phar
+
+      - name: Upload the PHAR to release
+        run: gh release upload v${{ steps.tag.outputs.tag }} builds/music-dl.phar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Cp music-dl.phar to music-dl
+        run: cp builds/music-dl.phar builds/music-dl
+
+      - name: Commit bump
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          branch: master
+          commit_message: Bump to ${{ github.event.release.name }}
+          file_pattern: builds/music-dl CHANGELOG.md

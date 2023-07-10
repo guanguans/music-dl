@@ -107,8 +107,13 @@
         }
     },
     "scripts": {
-        "post-install-cmd": [],
-        "post-update-cmd": [],
+        "post-install-cmd": [
+            "@cghooks add --ignore-lock",
+            "@cghooks update"
+        ],
+        "post-update-cmd": [
+            "@cghooks update"
+        ],
         "post-autoload-dump": [],
         "ai-commit": "@php ./vendor/bin/ai-commit commit --generator=bito_cli --ansi",
         "benchmark": "@php ./vendor/bin/phpbench run --warmup=1 --retry-threshold=1 --iterations=3 --revs=5 --ansi -v",
