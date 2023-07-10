@@ -15,6 +15,7 @@ namespace App\Commands;
 use App\Concerns\Sanitizer;
 use App\Contracts\Music;
 use App\MusicManager;
+use App\Support\Utils;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Support\Collection;
@@ -111,7 +112,7 @@ final class MusicCommand extends Command
             ->each(function (array $song, int $index) use ($formatSongs): void {
                 try {
                     $this->table($formatSongs[$index], []);
-                    $this->music->download($song['url'], $savePath = get_save_path($song, $this->option('dir')));
+                    $this->music->download($song['url'], $savePath = Utils::get_save_path($song, $this->option('dir')));
                     $this->line(sprintf($this->config['save_path_tips'], $savePath));
                     $this->newLine();
                 } catch (\Throwable $throwable) {
@@ -122,7 +123,7 @@ final class MusicCommand extends Command
             ->when(! windows_os(), function (): void {
                 $this->notify(
                     config('app.name'),
-                    $this->option('dir') ?: get_default_save_dir(),
+                    $this->option('dir') ?: Utils::get_default_save_dir(),
                     $this->config['success_icon']
                 );
             });
@@ -143,7 +144,7 @@ final class MusicCommand extends Command
      */
     protected function initialize(InputInterface $input, OutputInterface $output): void
     {
-        File::ensureDirectoryExists($this->option('dir') ?: get_default_save_dir());
+        File::ensureDirectoryExists($this->option('dir') ?: Utils::get_default_save_dir());
         $this->config = config('music-dl');
         $this->music = $this->laravel->make(MusicManager::class)->driver($this->option('driver'));
     }
