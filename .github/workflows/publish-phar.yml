@@ -28,7 +28,7 @@ jobs:
           coverage: none
 
       - name: Install the dependencies
-        run: composer install --prefer-dist --optimize-autoloader --ansi --no-interaction --no-progress --no-suggest --no-scripts --no-dev
+        run: composer install --prefer-dist --optimize-autoloader --no-interaction --no-progress --no-suggest --no-scripts --no-dev --ansi -v
 
       - name: Create the PHAR file.
         run: ./music-dl app:build music-dl.phar --build-version=${{ steps.tag.outputs.tag }} -v
