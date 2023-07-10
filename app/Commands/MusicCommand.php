@@ -16,7 +16,9 @@ use App\Concerns\Sanitizer;
 use App\Contracts\Music;
 use App\MusicManager;
 use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\File;
 use LaravelZero\Framework\Commands\Command;
 use SebastianBergmann\Timer\ResourceUsageFormatter;
 use SebastianBergmann\Timer\Timer;
@@ -42,7 +44,7 @@ final class MusicCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Search and download songs.';
+    protected $description = 'Search and download music';
 
     private array $config;
     private Music $music;
@@ -52,7 +54,7 @@ final class MusicCommand extends Command
      *
      * @psalm-suppress InvalidReturnType
      */
-    public function handle(MusicManager $musicManager, Timer $timer, ResourceUsageFormatter $resourceUsageFormatter): void
+    public function handle(Timer $timer, ResourceUsageFormatter $resourceUsageFormatter): void
     {
         $this->line($this->config['logo']);
 
@@ -136,17 +138,12 @@ final class MusicCommand extends Command
         // $schedule->command(static::class)->everyMinute();
     }
 
+    /**
+     * @throws BindingResolutionException
+     */
     protected function initialize(InputInterface $input, OutputInterface $output): void
     {
-        if (
-            $this->option('dir')
-            && ! is_dir($this->option('dir'))
-            && ! mkdir($this->option('dir'), 0755, true)
-            && ! is_dir($this->option('dir'))
-        ) {
-            throw new \RuntimeException(sprintf('The directory "%s" was not created', $this->option('dir')));
-        }
-
+        File::ensureDirectoryExists($this->option('dir') ?: get_default_save_dir());
         $this->config = config('music-dl');
         $this->music = $this->laravel->make(MusicManager::class)->driver($this->option('driver'));
     }

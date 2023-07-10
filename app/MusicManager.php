@@ -31,7 +31,7 @@ class MusicManager extends Manager
 
     public function getDefaultDriver(): string
     {
-        return str(SequenceMusic::class)->classBasename()->replaceLast('Music', '');
+        return (string) str(SequenceMusic::class)->classBasename()->replaceLast('Music', '');
     }
 
     /**

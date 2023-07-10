@@ -21,7 +21,7 @@ class AsyncMusic extends Music
      *
      * @throws \JsonException
      */
-    public function search(string $keyword, ?array $sources = null): array
+    public function search(string $keyword, array $sources = []): array
     {
         if (null === $sources) {
             $songs = json_decode($this->meting->search($keyword), true, 512, JSON_THROW_ON_ERROR);

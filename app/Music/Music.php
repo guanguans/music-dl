@@ -12,15 +12,14 @@ declare(strict_types=1);
 
 namespace App\Music;
 
-use App\Concerns\HasHttpClient;
-use App\Contracts\HttpClientFactory;
+use App\Concerns\HttpClientFactory;
 use Metowolf\Meting;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
-abstract class Music implements \App\Contracts\Music, HttpClientFactory
+abstract class Music implements \App\Contracts\HttpClientFactory, \App\Contracts\Music
 {
-    use HasHttpClient;
+    use HttpClientFactory;
 
     public function __construct(
         protected Meting $meting,
