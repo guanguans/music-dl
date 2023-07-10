@@ -37,7 +37,7 @@ final class MusicCommand extends Command
      */
     protected $signature = 'music
                             {sources?* : Specify the music sources(tencent、netease、kugou)}
-                            {--driver=sequence : Specify the driver of the music manager}
+                            {--driver=sequence : Specify the search driver(sequence、async)}
                             {--d|dir= : Specify the download directory}';
 
     /**
