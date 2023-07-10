@@ -43,7 +43,7 @@ return [
 
     'splitter' => '-------------------------------',
     'search_tips' => '请输入关键字如：<fg=yellow>一个短篇  腰乐队  Yesterday once more</>，或按 <fg=yellow>Ctrl+C</> 退出程序',
-    'win_tips' => '<fg=yellow>CMD、PowerShell 仅支持英文搜索，Git Bash 支持中英文搜索</>',
+    'windows_tips' => '<fg=yellow>CMD、PowerShell 仅支持英文搜索，Git Bash 支持中英文搜索</>',
     'searching' => '正在搜索：<fg=yellow>%s</>，请耐心等待...',
     'search_statistics' => '搜索耗时 <fg=yellow>%.2f 秒</>、内存 <fg=yellow>%.2f</> M',
     'empty_result' => '<fg=yellow>o(╥﹏╥)o 没有搜索到相关歌曲</>',
