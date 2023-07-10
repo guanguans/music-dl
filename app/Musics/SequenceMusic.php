@@ -17,16 +17,16 @@ class SequenceMusic extends Music
     /**
      * @psalm-suppress NamedArgumentNotAllowed
      */
-    public function search(string $keyword, ?array $channels = null): array
+    public function search(string $keyword, ?array $sources = null): array
     {
-        if (null === $channels) {
+        if (null === $sources) {
             $songs = json_decode($this->meting->search($keyword), true, 512, JSON_THROW_ON_ERROR);
 
             return $this->batchCarryDownloadUrl($songs);
         }
 
-        $songs = array_reduce($channels, function (array $songs, string $channel) use ($keyword): array {
-            $songs[] = json_decode($this->meting->site($channel)->search($keyword), true, 512, JSON_THROW_ON_ERROR);
+        $songs = array_reduce($sources, function (array $songs, string $source) use ($keyword): array {
+            $songs[] = json_decode($this->meting->site($source)->search($keyword), true, 512, JSON_THROW_ON_ERROR);
 
             return $songs;
         }, []);

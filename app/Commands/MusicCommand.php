@@ -33,9 +33,9 @@ final class MusicCommand extends Command
      * @var string
      */
     protected $signature = 'music
-                            {sources?* : Specify the sources(tencent、netease、kugou) of the song}
-                            {--d|dir= : The directory where the songs are saved}
-                            {--driver=sequence : Specify the driver of the music manager}';
+                            {sources?* : Specify the music sources(tencent、netease、kugou)}
+                            {--driver=sequence : Specify the driver of the music manager}
+                            {--d|dir= : Specify the download directory}';
 
     /**
      * The description of the command.
@@ -62,9 +62,9 @@ final class MusicCommand extends Command
         $keyword = (string) str($this->ask($this->config['search_tips'], '腰乐队'))->trim();
         $this->line(sprintf($this->config['searching'], $keyword));
 
-        $channels = ($sources = (array) $this->argument('sources')) ? $sources : $this->config['channels'];
+        $sources = ($sources = (array) $this->argument('sources')) ? $sources : $this->config['sources'];
         $timer->start();
-        $songs = $this->music->search($keyword, $channels);
+        $songs = $this->music->search($keyword, $sources);
         $duration = $timer->stop();
         if (empty($songs)) {
             $this->line($this->config['empty_result']);

@@ -22,7 +22,7 @@ return [
         </>
         logo, config('app.version')),
 
-    'channels' => [
+    'sources' => [
         'tencent',
         'netease',
         'kugou',

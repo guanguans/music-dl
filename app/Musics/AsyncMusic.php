@@ -21,21 +21,21 @@ class AsyncMusic extends Music
      *
      * @throws \JsonException
      */
-    public function search(string $keyword, ?array $channels = null): array
+    public function search(string $keyword, ?array $sources = null): array
     {
-        if (null === $channels) {
+        if (null === $sources) {
             $songs = json_decode($this->meting->search($keyword), true, 512, JSON_THROW_ON_ERROR);
 
             return $this->batchCarryDownloadUrl($songs);
         }
 
-        $songs = value(function () use ($channels, $keyword): array {
+        $songs = value(function () use ($sources, $keyword): array {
             $songs = [];
 
             $pool = Pool::create()->concurrency(8)->timeout(3);
-            foreach ($channels as $channel) {
+            foreach ($sources as $source) {
                 $pool
-                    ->add(fn (): mixed => json_decode($this->meting->site($channel)->search($keyword), true, 512, JSON_THROW_ON_ERROR), 102400)
+                    ->add(fn (): mixed => json_decode($this->meting->site($source)->search($keyword), true, 512, JSON_THROW_ON_ERROR), 102400)
                     ->then(static function (array $output) use (&$songs): void {
                         $songs[] = $output;
                     })
