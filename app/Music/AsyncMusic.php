@@ -23,12 +23,6 @@ class AsyncMusic extends Music
      */
     public function search(string $keyword, array $sources = []): array
     {
-        if (null === $sources) {
-            $songs = json_decode($this->meting->search($keyword), true, 512, JSON_THROW_ON_ERROR);
-
-            return $this->batchCarryDownloadUrl($songs);
-        }
-
         $songs = value(function () use ($sources, $keyword): array {
             $songs = [];
 
@@ -51,13 +45,13 @@ class AsyncMusic extends Music
             return array_merge(...$songs);
         });
 
-        return $this->batchCarryDownloadUrl($songs);
+        return $this->carryUrl($songs);
     }
 
     /**
      * @return array<int, array>
      */
-    protected function batchCarryDownloadUrl(array $withoutUrlSongs): array
+    protected function carryUrl(array $withoutUrlSongs): array
     {
         $songs = transform($withoutUrlSongs, function (array $songs): array {
             $pool = Pool::create()->concurrency(128)->timeout(5);

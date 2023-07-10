@@ -25,10 +25,10 @@ class SequenceMusic extends Music
             return $songs;
         }, []);
 
-        return $this->carryDownloadUrl(array_merge(...$songs));
+        return $this->carryUrl(array_merge(...$songs));
     }
 
-    protected function carryDownloadUrl(array $withoutUrlSongs): array
+    protected function carryUrl(array $withoutUrlSongs): array
     {
         return array_reduce($withoutUrlSongs, function (array $songs, array $song): array {
             try {
