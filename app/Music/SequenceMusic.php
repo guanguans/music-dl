@@ -19,35 +19,37 @@ class SequenceMusic extends Music
      */
     public function search(string $keyword, array $sources = []): array
     {
-        $songs = array_reduce($sources, function (array $songs, string $source) use ($keyword): array {
-            $songs[] = json_decode($this->meting->site($source)->search($keyword), true, 512, JSON_THROW_ON_ERROR);
+        $songs = collect($sources)
+            ->map(fn (string $source): array => json_decode(
+                $this->meting->site($source)->search($keyword),
+                true,
+                512,
+                JSON_THROW_ON_ERROR
+            ))
+            ->collapse()
+            ->all();
 
-            return $songs;
-        }, []);
-
-        return $this->carryUrl(array_merge(...$songs));
+        return $this->ensureWithUrl($songs);
     }
 
-    protected function carryUrl(array $withoutUrlSongs): array
+    protected function ensureWithUrl(array $withoutUrlSongs): array
     {
-        return array_reduce($withoutUrlSongs, function (array $songs, array $song): array {
-            try {
-                $response = json_decode(
+        $songs = collect();
+
+        $this->withSpinner(
+            $withoutUrlSongs,
+            function (array $song) use ($songs): void {
+                $songs->add($song + json_decode(
                     $this->meting->site($song['source'])->url($song['url_id']),
                     true,
                     512,
                     JSON_THROW_ON_ERROR
-                );
-                if (empty($response['url'])) {
-                    return $songs;
-                }
+                ));
+            },
+            '<comment>searching...</comment>',
+            ['bar_character' => '<info>✔</info>']
+        );
 
-                $songs[] = $song + $response;
-
-                return $songs;
-            } catch (\Throwable) {
-                return $songs;
-            }
-        }, []);
+        return $songs->filter(static fn (array $song): bool => ! empty($song['url']))->all();
     }
 }

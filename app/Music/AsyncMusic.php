@@ -45,13 +45,13 @@ class AsyncMusic extends Music
             return array_merge(...$songs);
         });
 
-        return $this->carryUrl($songs);
+        return $this->ensureWithUrl($songs);
     }
 
     /**
      * @return array<int, array>
      */
-    protected function carryUrl(array $withoutUrlSongs): array
+    protected function ensureWithUrl(array $withoutUrlSongs): array
     {
         $songs = transform($withoutUrlSongs, function (array $songs): array {
             $pool = Pool::create()->concurrency(128)->timeout(5);

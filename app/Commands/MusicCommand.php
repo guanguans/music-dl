@@ -75,6 +75,7 @@ final class MusicCommand extends Command
             goto START;
         }
 
+        $this->newLine();
         $this->table($this->config['table_header'], $formatSongs = $this->sanitizes($songs, $keyword));
         $this->info($resourceUsageFormatter->resourceUsage($duration));
         if (! $this->confirm($this->config['confirm_download'])) {
