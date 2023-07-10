@@ -9641,16 +9641,16 @@
         },
         {
             "name": "rector/rector",
-            "version": "0.17.2",
+            "version": "0.17.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "b8f72ff7e4914bb1d1557cc5c6d33898f7fd2bfb"
+                "reference": "dbd0b13b4fe1787c04ae4732e3d54310bdc0c22b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/b8f72ff7e4914bb1d1557cc5c6d33898f7fd2bfb",
-                "reference": "b8f72ff7e4914bb1d1557cc5c6d33898f7fd2bfb",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/dbd0b13b4fe1787c04ae4732e3d54310bdc0c22b",
+                "reference": "dbd0b13b4fe1787c04ae4732e3d54310bdc0c22b",
                 "shasum": ""
             },
             "require": {
@@ -9690,7 +9690,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/0.17.2"
+                "source": "https://github.com/rectorphp/rector/tree/0.17.3"
             },
             "funding": [
                 {
@@ -9698,7 +9698,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-06-29T10:03:28+00:00"
+            "time": "2023-07-10T13:32:43+00:00"
         },
         {
             "name": "roave/security-advisories",
