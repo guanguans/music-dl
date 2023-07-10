@@ -22,8 +22,11 @@ namespace App\Music {
     }
 }
 
-namespace App {
-    class MusicManager
+namespace Rahul900Day\LaravelConsoleSpinner {
+    /**
+     * @mixin \Symfony\Component\Console\Helper\ProgressBar
+     */
+    class Spinner
     {
     }
 }

@@ -91,6 +91,9 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, \App\Contracts\
             ['bar_character' => '<info>✔</info>']
         );
 
-        return $songs->filter(static fn (array $song): bool => ! empty($song['url']))->all();
+        return $songs
+            ->filter(static fn (array $song): bool => ! empty($song['url']))
+            ->values()
+            ->all();
     }
 }
