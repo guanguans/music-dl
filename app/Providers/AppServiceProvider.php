@@ -12,10 +12,20 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\MusicManager;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
+    /**
+     * All of the container singletons that should be registered.
+     *
+     * @var array<array-key, string>
+     */
+    public array $singletons = [
+        MusicManager::class,
+    ];
+
     /**
      * Bootstrap any application services.
      */

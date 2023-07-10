@@ -10,11 +10,11 @@ declare(strict_types=1);
  * This source file is subject to the MIT license that is bundled.
  */
 
-namespace App;
+namespace App\Musics;
 
 use Spatie\Async\Pool;
 
-class ConcurrencyMusic extends SequenceMusic
+class AsyncMusic extends Music
 {
     /**
      * @return array<int, array>

@@ -12,12 +12,50 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\Exceptions\InvalidArgumentException;
+use App\Musics\SequenceMusic;
 use Illuminate\Support\Manager;
+use Illuminate\Support\Str;
+use Illuminate\Support\Traits\Conditionable;
+use Illuminate\Support\Traits\Macroable;
+use Illuminate\Support\Traits\Tappable;
 
+/**
+ * @mixin \App\Contracts\Music
+ */
 class MusicManager extends Manager
 {
-    public function getDefaultDriver(): void
+    use Conditionable;
+    use Macroable;
+    use Tappable;
+
+    public function getDefaultDriver(): string
     {
-        // TODO: Implement getDefaultDriver() method.
+        return str(SequenceMusic::class)->classBasename()->replaceLast('Music', '');
+    }
+
+    /**
+     * @noinspection MissingParentCallInspection
+     * @noinspection PhpMissingParentCallCommonInspection
+     *
+     * @param mixed $driver
+     */
+    protected function createDriver($driver)
+    {
+        if (isset($this->customCreators[$driver])) {
+            return $this->callCustomCreator($driver);
+        }
+
+        $studlyName = Str::studly($driver);
+
+        if (method_exists($this, $method = "create{$studlyName}Driver")) {
+            return $this->{$method}();
+        }
+
+        if (class_exists($class = "App\\Musics\\{$studlyName}Music")) {
+            return $this->container->make($class);
+        }
+
+        throw new InvalidArgumentException("Driver [$driver] not supported.");
     }
 }

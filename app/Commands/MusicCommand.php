@@ -13,11 +13,9 @@ declare(strict_types=1);
 namespace App\Commands;
 
 use App\Concerns\Sanitizer;
-use App\ConcurrencyMusic;
-use App\Contracts\Music as MusicContract;
-use App\SequenceMusic;
+use App\Contracts\Music;
+use App\MusicManager;
 use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\Collection;
 use LaravelZero\Framework\Commands\Command;
 use SebastianBergmann\Timer\ResourceUsageFormatter;
@@ -37,7 +35,7 @@ final class MusicCommand extends Command
     protected $signature = 'music
                             {sources?* : Specify the sources(tencent、netease、kugou) of the song}
                             {--d|dir= : The directory where the songs are saved}
-                            {--c|concurrent : Search for songs concurrently}';
+                            {--driver=sequence : Specify the driver of the music manager}';
 
     /**
      * The description of the command.
@@ -47,13 +45,14 @@ final class MusicCommand extends Command
     protected $description = 'Search and download songs.';
 
     private array $config;
+    private Music $music;
 
     /**
      * Execute the console command.
      *
      * @psalm-suppress InvalidReturnType
      */
-    public function handle(MusicContract $musicContract, Timer $timer, ResourceUsageFormatter $resourceUsageFormatter): void
+    public function handle(MusicManager $musicManager, Timer $timer, ResourceUsageFormatter $resourceUsageFormatter): void
     {
         $this->line($this->config['logo']);
 
@@ -65,7 +64,7 @@ final class MusicCommand extends Command
 
         $channels = ($sources = (array) $this->argument('sources')) ? $sources : $this->config['channels'];
         $timer->start();
-        $songs = $musicContract->search($keyword, $channels);
+        $songs = $this->music->search($keyword, $channels);
         $duration = $timer->stop();
         if (empty($songs)) {
             $this->line($this->config['empty_result']);
@@ -107,10 +106,10 @@ final class MusicCommand extends Command
             ->pipe(static fn (Collection $selectedKeys): Collection => collect($songs)->filter(
                 static fn (array $song, int $key): bool => \in_array($key, $selectedKeys->all())
             ))
-            ->each(function (array $song, int $index) use ($formatSongs, $musicContract): void {
+            ->each(function (array $song, int $index) use ($formatSongs): void {
                 try {
                     $this->table($formatSongs[$index], []);
-                    $musicContract->download($song['url'], $savePath = get_save_path($song, $this->option('dir')));
+                    $this->music->download($song['url'], $savePath = get_save_path($song, $this->option('dir')));
                     $this->line(sprintf($this->config['save_path_tips'], $savePath));
                     $this->newLine();
                 } catch (\Throwable $throwable) {
@@ -149,12 +148,6 @@ final class MusicCommand extends Command
         }
 
         $this->config = config('music-dl');
-
-        $this->app->bind(
-            MusicContract::class,
-            fn (Container $container): MusicContract => $this->option('concurrent')
-                ? $container->make(ConcurrencyMusic::class)
-                : $container->make(SequenceMusic::class)
-        );
+        $this->music = $this->laravel->make(MusicManager::class)->driver($this->option('driver'));
     }
 }
