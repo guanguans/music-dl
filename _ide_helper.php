@@ -10,14 +10,20 @@ declare(strict_types=1);
  * This source file is subject to the MIT license that is bundled.
  */
 
-namespace {
-    class A
+namespace App\Music {
+    /**
+     * @method \Rahul900Day\LaravelConsoleSpinner\Spinner spinner(int $max = 0);
+     * @method null|\Iterator|void withSpinner($totalSteps, \Closure $callback, string $message = '', array $options = []);
+     *
+     * @see \Rahul900Day\LaravelConsoleSpinner\SpinnerMixin
+     */
+    class Music
     {
     }
 }
 
 namespace App {
-    class B
+    class MusicManager
     {
     }
 }

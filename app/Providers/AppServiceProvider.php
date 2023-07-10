@@ -12,8 +12,13 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Music\Music;
 use App\MusicManager;
+use Illuminate\Console\OutputStyle;
 use Illuminate\Support\ServiceProvider;
+use Rahul900Day\LaravelConsoleSpinner\SpinnerMixin;
+use Symfony\Component\Console\Input\ArgvInput;
+use Symfony\Component\Console\Output\ConsoleOutput;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -31,6 +36,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Music::mixin(new SpinnerMixin());
     }
 
     /**
@@ -38,5 +44,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        $this->app->singletonIf(
+            OutputStyle::class,
+            static fn (): OutputStyle => new OutputStyle(new ArgvInput(), new ConsoleOutput())
+        );
     }
 }

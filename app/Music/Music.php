@@ -13,17 +13,19 @@ declare(strict_types=1);
 namespace App\Music;
 
 use App\Concerns\HttpClientFactory;
+use Illuminate\Console\OutputStyle;
+use Illuminate\Support\Traits\Macroable;
 use Metowolf\Meting;
 use Symfony\Component\Console\Helper\ProgressBar;
-use Symfony\Component\Console\Output\ConsoleOutput;
 
 abstract class Music implements \App\Contracts\HttpClientFactory, \App\Contracts\Music
 {
     use HttpClientFactory;
+    use Macroable;
 
     public function __construct(
         protected Meting $meting,
-        protected ConsoleOutput $consoleOutput
+        protected OutputStyle $output
     ) {
         $this->meting = $meting->format();
     }
@@ -37,7 +39,7 @@ abstract class Music implements \App\Contracts\HttpClientFactory, \App\Contracts
             'sink' => $savePath,
             'progress' => function (int $totalDownload, int $downloaded) use (&$progressBar, &$isDownloaded): void {
                 if ($totalDownload > 0 && $downloaded > 0 && ! $progressBar instanceof ProgressBar) {
-                    $progressBar = new ProgressBar($this->consoleOutput, $totalDownload);
+                    $progressBar = new ProgressBar($this->output, $totalDownload);
                     $progressBar->start();
                 }
 

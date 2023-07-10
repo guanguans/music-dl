@@ -34,7 +34,7 @@ class AsyncMusic extends Music
                         $songs[] = $output;
                     })
                     ->catch(function (\Throwable $throwable): void {
-                        $this->consoleOutput->writeln($throwable->getMessage());
+                        $this->output->writeln($throwable->getMessage());
                     })
                     ->timeout(static function (): void {
                         // noop
@@ -68,7 +68,7 @@ class AsyncMusic extends Music
                         $song += $output;
                     })
                     ->catch(function (\Throwable $throwable): void {
-                        $this->consoleOutput->writeln($throwable->getMessage());
+                        $this->output->writeln($throwable->getMessage());
                     })
                     ->timeout(static function (): void {
                         // noop
