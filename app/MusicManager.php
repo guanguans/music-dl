@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace App;
 
 use App\Exceptions\InvalidArgumentException;
-use App\Musics\SequenceMusic;
+use App\Music\SequenceMusic;
 use Illuminate\Support\Manager;
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\Conditionable;
@@ -52,7 +52,7 @@ class MusicManager extends Manager
             return $this->{$method}();
         }
 
-        if (class_exists($class = "App\\Musics\\{$studlyName}Music")) {
+        if (class_exists($class = "App\\Music\\{$studlyName}Music")) {
             return $this->container->make($class);
         }
 
