@@ -14,40 +14,8 @@ namespace App\Music;
 
 use Spatie\Async\Pool;
 
-class AsyncMusic extends Music
+class AsyncMusic extends SequenceMusic
 {
-    /**
-     * @return array<int, array>
-     *
-     * @throws \JsonException
-     */
-    public function search(string $keyword, array $sources = []): array
-    {
-        $songs = value(function () use ($sources, $keyword): array {
-            $songs = [];
-
-            $pool = Pool::create()->concurrency(8)->timeout(3);
-            foreach ($sources as $source) {
-                $pool
-                    ->add(fn (): mixed => json_decode($this->meting->site($source)->search($keyword), true, 512, JSON_THROW_ON_ERROR), 102400)
-                    ->then(static function (array $output) use (&$songs): void {
-                        $songs[] = $output;
-                    })
-                    ->catch(function (\Throwable $throwable): void {
-                        $this->output->writeln($throwable->getMessage());
-                    })
-                    ->timeout(static function (): void {
-                        // noop
-                    });
-            }
-            $pool->wait();
-
-            return array_merge(...$songs);
-        });
-
-        return $this->ensureWithUrl($songs);
-    }
-
     /**
      * @return array<int, array>
      */

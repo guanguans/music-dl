@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use App\Music\Music;
+use App\Music\SequenceMusic;
 use App\MusicManager;
 use Illuminate\Console\OutputStyle;
 use Illuminate\Support\ServiceProvider;
@@ -36,7 +36,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Music::mixin(new SpinnerMixin());
+        SequenceMusic::mixin(new SpinnerMixin());
     }
 
     /**

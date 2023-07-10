@@ -12,8 +12,24 @@ declare(strict_types=1);
 
 namespace App\Music;
 
-class SequenceMusic extends Music
+use App\Concerns\HttpClientFactory;
+use App\Support\Meting;
+use Illuminate\Console\OutputStyle;
+use Illuminate\Support\Traits\Macroable;
+use Symfony\Component\Console\Helper\ProgressBar;
+
+class SequenceMusic implements \App\Contracts\HttpClientFactory, \App\Contracts\Music
 {
+    use HttpClientFactory;
+    use Macroable;
+
+    public function __construct(
+        protected Meting $meting,
+        protected OutputStyle $output
+    ) {
+        $this->meting = $meting->format();
+    }
+
     /**
      * @psalm-suppress NamedArgumentNotAllowed
      */
@@ -30,6 +46,31 @@ class SequenceMusic extends Music
             ->all();
 
         return $this->ensureWithUrl($songs);
+    }
+
+    /**
+     * @psalm-suppress UnusedVariable
+     */
+    public function download(string $url, string $savePath): void
+    {
+        $options = [
+            'sink' => $savePath,
+            'progress' => function (int $totalDownload, int $downloaded) use (&$progressBar, &$isDownloaded): void {
+                if ($totalDownload > 0 && $downloaded > 0 && ! $progressBar instanceof ProgressBar) {
+                    $progressBar = new ProgressBar($this->output, $totalDownload);
+                    $progressBar->start();
+                }
+
+                if (! $isDownloaded && $progressBar && $totalDownload === $downloaded) {
+                    $progressBar->finish();
+                    $isDownloaded = true;
+                }
+
+                $progressBar and $progressBar->setProgress($downloaded);
+            },
+        ];
+
+        $this->createHttpClient()->get($url, $options);
     }
 
     protected function ensureWithUrl(array $withoutUrlSongs): array

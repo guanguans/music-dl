@@ -17,7 +17,7 @@ namespace App\Music {
      *
      * @see \Rahul900Day\LaravelConsoleSpinner\SpinnerMixin
      */
-    class Music
+    class SequenceMusic
     {
     }
 }
