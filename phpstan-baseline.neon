@@ -1,6 +1,31 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Method App\\\\Commands\\\\MusicCommand\\:\\:handle\\(\\) should return int but return statement is missing\\.$#"
+			message: "#^Parameter \\#1 \\$callback of method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),array\\<string, int\\|string\\|null\\>\\>\\:\\:transform\\(\\) expects callable\\(array\\<string, int\\|string\\|null\\>, int\\|string\\)\\: array\\<string, int\\|string\\|null\\>, Closure\\(array\\)\\: string given\\.$#"
 			count: 1
 			path: app/Commands/MusicCommand.php
+
+		-
+			message: "#^Match expression does not handle remaining values\\: 'BSD'\\|'Solaris'\\|'Unknown'$#"
+			count: 1
+			path: app/Commands/ThanksCommand.php
+
+		-
+			message: "#^Call to an undefined method Rahul900Day\\\\LaravelConsoleSpinner\\\\Spinner\\:\\:finish\\(\\)\\.$#"
+			count: 1
+			path: app/Music/AsyncMusic.php
+
+		-
+			message: "#^Call to an undefined method Rahul900Day\\\\LaravelConsoleSpinner\\\\Spinner\\:\\:setBarCharacter\\(\\)\\.$#"
+			count: 1
+			path: app/Music/AsyncMusic.php
+
+		-
+			message: "#^Call to an undefined method Rahul900Day\\\\LaravelConsoleSpinner\\\\Spinner\\:\\:setMessage\\(\\)\\.$#"
+			count: 1
+			path: app/Music/AsyncMusic.php
+
+		-
+			message: "#^Call to an undefined method Rahul900Day\\\\LaravelConsoleSpinner\\\\Spinner\\:\\:start\\(\\)\\.$#"
+			count: 1
+			path: app/Music/AsyncMusic.php

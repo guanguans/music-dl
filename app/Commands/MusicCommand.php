@@ -102,7 +102,7 @@ final class MusicCommand extends Command
                     return collect($songs);
                 }
 
-                return collect($songs)->only($selectedKeys);
+                return collect($songs)->only($selectedKeys->all());
             })
             ->each(function (array $song, int $index) use ($sanitizedSongs): void {
                 try {

@@ -49,7 +49,7 @@ final class ThanksCommand extends Command
             match (PHP_OS_FAMILY) {
                 'Windows' => exec('start https://github.com/guanguans/music-dl'),
                 'Darwin' => exec('open https://github.com/guanguans/music-dl'),
-                'Linux' => exec('xdg-open https://github.com/guanguans/music-dl'),
+                'Linux' => exec('xdg-open https://github.com/guanguans/music-dl')
             };
         }
 

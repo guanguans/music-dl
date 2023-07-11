@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="5.13.1@086b94371304750d1c673315321a55d15fc59015">
   <file src="app/Commands/MusicCommand.php">
-    <UnusedClosureParam occurrences="1">
-      <code>$song</code>
+    <UnusedVariable>
+      <code>$songs</code>
+    </UnusedVariable>
+    <InvalidArgument>
+      <code><![CDATA[static fn (array $song): string => implode('  ', Arr::except($song, [0]))]]></code>
+    </InvalidArgument>
+  </file>
+  <file src="app/Commands/ThanksCommand.php">
+    <UnhandledMatchCondition>
+      <code>PHP_OS_FAMILY</code>
+    </UnhandledMatchCondition>
+  </file>
+  <file src="app/Music/AsyncMusic.php">
+    <UnusedClosureParam>
+      <code>$throwable</code>
     </UnusedClosureParam>
   </file>
 </files>

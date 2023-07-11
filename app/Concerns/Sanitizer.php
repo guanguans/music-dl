@@ -17,7 +17,7 @@ use Illuminate\Support\Arr;
 trait Sanitizer
 {
     /**
-     * @return array<array-key, array<string, null|int|string>>
+     * @return array<array<array-key, null|int|string>>
      */
     public function sanitizes(array $songs, string $keyword): array
     {
