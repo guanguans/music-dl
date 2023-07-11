@@ -13,12 +13,20 @@ declare(strict_types=1);
 namespace App\Music;
 
 use App\Concerns\HttpClientFactory;
+use App\Contracts\Music;
 use App\Support\Meting;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Console\OutputStyle;
 use Illuminate\Support\Traits\Macroable;
 use Symfony\Component\Console\Helper\ProgressBar;
 
-class SequenceMusic implements \App\Contracts\HttpClientFactory, \App\Contracts\Music
+/**
+ * @method \Rahul900Day\LaravelConsoleSpinner\Spinner spinner(int $max = 0);
+ * @method null|\Iterator|void withSpinner($totalSteps, \Closure $callback, string $message = '', array $options = []);
+ *
+ * @see \Rahul900Day\LaravelConsoleSpinner\SpinnerMixin
+ */
+class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
 {
     use HttpClientFactory;
     use Macroable;
@@ -35,25 +43,27 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, \App\Contracts\
      */
     public function search(string $keyword, array $sources = []): array
     {
-        $songs = collect($sources)
-            ->map(fn (string $source): array => json_decode(
-                $this->meting->site($source)->search($keyword),
-                true,
-                512,
-                JSON_THROW_ON_ERROR
-            ))
-            ->collapse()
-            ->all();
-
-        return $this->ensureWithUrl($songs);
+        return $this->ensureWithUrl(
+            collect($sources)
+                ->map(fn (string $source): array => json_decode(
+                    $this->meting->site($source)->search($keyword),
+                    true,
+                    512,
+                    JSON_THROW_ON_ERROR
+                ))
+                ->collapse()
+                ->all()
+        );
     }
 
     /**
      * @psalm-suppress UnusedVariable
+     *
+     * @throws GuzzleException
      */
     public function download(string $url, string $savePath): void
     {
-        $options = [
+        $this->createHttpClient()->get($url, [
             'sink' => $savePath,
             'progress' => function (int $totalDownload, int $downloaded) use (&$progressBar, &$isDownloaded): void {
                 if ($totalDownload > 0 && $downloaded > 0 && ! $progressBar instanceof ProgressBar) {
@@ -68,9 +78,7 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, \App\Contracts\
 
                 $progressBar and $progressBar->setProgress($downloaded);
             },
-        ];
-
-        $this->createHttpClient()->get($url, $options);
+        ]);
     }
 
     protected function ensureWithUrl(array $withoutUrlSongs): array

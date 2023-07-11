@@ -16,6 +16,8 @@ class Handler extends \Illuminate\Foundation\Exceptions\Handler
 {
     /**
      * @psalm-suppress UnusedClosureParam
+     *
+     * @noinspection PhpMissingParentCallCommonInspection
      */
     public function register(): void
     {
