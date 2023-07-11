@@ -95,8 +95,8 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
                         JSON_THROW_ON_ERROR
                     ));
                 },
-                '<comment>searching...</comment>',
-                ['bar_character' => '<info>✔</info>']
+                config('console-spinner.message'),
+                ['bar_character' => config('console-spinner.bar_character')]
             );
         });
 

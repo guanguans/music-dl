@@ -25,4 +25,8 @@ return [
         '⣆',
         '⡇',
     ],
+
+    'message' => '',
+
+    'bar_character' => '<info>✔</info>',
 ];

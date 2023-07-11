@@ -32,8 +32,8 @@ class AsyncMusic extends SequenceMusic
             tap(
                 $this->spinner(\count($withoutUrlSongs)),
                 function (Spinner $spinner) use ($withoutUrlSongs, $songs): void {
-                    $spinner->setBarCharacter('<info>✔</info>');
-                    $spinner->setMessage('<comment>searching...</comment>');
+                    $spinner->setBarCharacter(config('console-spinner.bar_character'));
+                    $spinner->setMessage(config('console-spinner.message'));
                     $spinner->start();
 
                     tap(

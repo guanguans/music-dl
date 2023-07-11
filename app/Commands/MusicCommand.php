@@ -63,8 +63,8 @@ final class MusicCommand extends Command
         return collect()
             ->pipe(function () use ($timer, &$songs, &$sanitizedSongs, $resourceUsageFormatter, &$choices, &$lastKey): Collection {
                 $this->line($this->config['logo']);
-                windows_os() and $this->line($this->config['windows_tips']);
-                $keyword = str($this->argument('keyword') ?? $this->ask($this->config['search_tips'], '腰乐队'))->trim()->toString();
+                windows_os() and $this->line($this->config['windows_tip']);
+                $keyword = str($this->argument('keyword') ?? $this->ask($this->config['search_tip'], '腰乐队'))->trim()->toString();
                 $sources = array_filter((array) $this->option('sources')) ?: $this->config['sources'];
 
                 $this->line(sprintf($this->config['searching'], $keyword));
@@ -89,7 +89,7 @@ final class MusicCommand extends Command
                     ->add($this->config['download_all_songs']);
 
                 return collect($this->choice(
-                    $this->config['download_choice_tips'],
+                    $this->config['download_choice_tip'],
                     $choices->all(),
                     $lastKey = ($choices->count() - 1),
                     null,
@@ -109,9 +109,9 @@ final class MusicCommand extends Command
                     $this->table($sanitizedSongs[$index], []);
                     $savePath = Utils::get_save_path($song, $this->option('dir'));
                     $this->music->download($song['url'], $savePath);
-                    $this->line(sprintf($this->config['save_path_tips'], $savePath));
+                    $this->line(sprintf($this->config['download_success_tip'], $savePath));
                 } catch (\Throwable $throwable) {
-                    $this->line(sprintf($this->config['download_failed_tips'], $throwable->getMessage()));
+                    $this->line(sprintf($this->config['download_failed_tip'], $throwable->getMessage()));
                 } finally {
                     $this->newLine();
                 }
