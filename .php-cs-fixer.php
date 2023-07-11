@@ -25,7 +25,7 @@ $finder = Finder::create()
     ->in([
         __DIR__.'/app',
         __DIR__.'/config',
-        __DIR__.'/tests',
+        // __DIR__.'/tests',
     ])
     ->exclude([
         '.github/',
@@ -179,8 +179,8 @@ return (new Config())
         'phpdoc_param_order' => true,
         'regular_callable_call' => true,
         'single_line_throw' => false,
-        // 'static_lambda' => true, // pest
-        'static_lambda' => false, // pest
+        'static_lambda' => true, // pest
+        // 'static_lambda' => false, // pest
 
         // import
         'group_import' => false,
