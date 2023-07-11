@@ -52,6 +52,6 @@ final class AsyncMusic extends SequenceMusic
             $spinner->finish();
         });
 
-        return $this->clean($songs);
+        return $songs->all();
     }
 }

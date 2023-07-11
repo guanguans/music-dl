@@ -42,6 +42,6 @@ class ForkMusic extends SequenceMusic
 
         $spinner->finish();
 
-        return $this->clean(collect($songs));
+        return $songs;
     }
 }

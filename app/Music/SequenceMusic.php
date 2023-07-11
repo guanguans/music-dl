@@ -42,20 +42,25 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
 
     /**
      * @psalm-suppress NamedArgumentNotAllowed
+     *
+     * @throws \JsonException
      */
     public function search(string $keyword, array $sources = []): array
     {
-        return $this->ensureWithUrl(
-            collect($sources)
-                ->map(fn (string $source): array => json_decode(
-                    $this->meting->site($source)->search($keyword),
-                    true,
-                    512,
-                    JSON_THROW_ON_ERROR
-                ))
-                ->collapse()
-                ->all()
-        );
+        $withoutUrlSongs = collect($sources)
+            ->map(fn (string $source): array => json_decode(
+                $this->meting->site($source)->search($keyword),
+                true,
+                512,
+                JSON_THROW_ON_ERROR
+            ))
+            ->collapse()
+            ->all();
+
+        return collect($this->ensureWithUrl($withoutUrlSongs))
+            ->filter(static fn (array $song): bool => ! empty($song['url']))
+            ->values()
+            ->all();
     }
 
     /**
@@ -97,7 +102,7 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
             );
         });
 
-        return $this->clean($songs);
+        return $songs->all();
     }
 
     protected function createSpinner(array $withoutUrlSongs): Spinner
@@ -126,13 +131,5 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
             512,
             JSON_THROW_ON_ERROR
         );
-    }
-
-    protected function clean(Collection $songs): array
-    {
-        return $songs
-            ->filter(static fn (array $song): bool => ! empty($song['url']))
-            ->values()
-            ->all();
     }
 }
