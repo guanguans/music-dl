@@ -2,6 +2,14 @@
 
 All notable changes to `guanguans/music-dl` will be documented in this file.
 
+## v3.5.0 - 2023-07-11
+
+### What's Changed
+
+- chore(deps-dev): bump rector/rector from 0.17.2 to 0.17.3 by @dependabot in https://github.com/guanguans/music-dl/pull/537
+
+**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.4.1...v3.5.0
+
 ## v3.4.1 - 2023-07-10
 
 **Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.4.0...v3.4.1
