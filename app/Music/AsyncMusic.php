@@ -16,7 +16,7 @@ use Illuminate\Support\Collection;
 use Rahul900Day\LaravelConsoleSpinner\Spinner;
 use Spatie\Async\Pool;
 
-class AsyncMusic extends SequenceMusic
+final class AsyncMusic extends SequenceMusic
 {
     /**
      * @return array<array<string, int|string>>
@@ -39,16 +39,16 @@ class AsyncMusic extends SequenceMusic
                     tap(
                         Pool::create()->concurrency(min(\count($withoutUrlSongs), 128))->timeout(10),
                         function (Pool $pool) use ($withoutUrlSongs, $songs, $spinner): void {
-                            foreach ($withoutUrlSongs as $song) {
+                            foreach ($withoutUrlSongs as $withoutUrlSong) {
                                 $pool
                                     ->add(fn (): array => json_decode(
-                                        $this->meting->site($song['source'])->url($song['url_id']),
+                                        $this->meting->site($withoutUrlSong['source'])->url($withoutUrlSong['url_id']),
                                         true,
                                         512,
                                         JSON_THROW_ON_ERROR
                                     ))
-                                    ->then(static function (array $output) use ($songs, $song, $spinner): void {
-                                        $songs->add($song + $output);
+                                    ->then(static function (array $output) use ($songs, $withoutUrlSong, $spinner): void {
+                                        $songs->add($withoutUrlSong + $output);
                                         $spinner->advance();
                                     })
                                     ->catch(static function (\Throwable $throwable): void {
@@ -58,6 +58,7 @@ class AsyncMusic extends SequenceMusic
                                         // noop
                                     });
                             }
+
                             $pool->wait();
                         }
                     );

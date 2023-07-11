@@ -53,6 +53,7 @@ final class MusicCommand extends Command
     protected $description = 'Search and download music';
 
     private array $config;
+
     private Music $music;
 
     /**
@@ -72,7 +73,7 @@ final class MusicCommand extends Command
                 $songs = $this->music->search($keyword, $sources);
                 $duration = $timer->stop();
                 $this->newLine();
-                if (empty($songs)) {
+                if ([] === $songs) {
                     $this->line($this->config['empty_result']);
                     $this->reCall();
                 }
@@ -96,7 +97,7 @@ final class MusicCommand extends Command
                     true
                 ));
             })
-            ->transform(static fn (string $selectedValue) => $choices->search($selectedValue))
+            ->transform(static fn (string $selectedValue): bool|int|string => $choices->search($selectedValue))
             ->pipe(static function (Collection $selectedKeys) use ($lastKey, $songs): Collection {
                 if (\in_array($lastKey, $selectedKeys->all(), true)) {
                     return collect($songs);
@@ -149,7 +150,7 @@ final class MusicCommand extends Command
         $this->music = $this->laravel->make(MusicManager::class)->driver($this->option('driver'));
     }
 
-    protected function reCall(): int
+    private function reCall(): int
     {
         return $this->call(
             self::class,

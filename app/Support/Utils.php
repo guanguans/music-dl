@@ -15,7 +15,7 @@ namespace App\Support;
 use App\Exceptions\RuntimeException;
 use Illuminate\Support\Str;
 
-class Utils
+final class Utils
 {
     /**
      * @throws \App\Exceptions\RuntimeException

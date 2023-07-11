@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace App\Exceptions;
 
-class Handler extends \Illuminate\Foundation\Exceptions\Handler
+final class Handler extends \Illuminate\Foundation\Exceptions\Handler
 {
     /**
      * @psalm-suppress UnusedClosureParam

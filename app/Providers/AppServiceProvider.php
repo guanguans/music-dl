@@ -20,7 +20,7 @@ use Rahul900Day\LaravelConsoleSpinner\SpinnerMixin;
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
-class AppServiceProvider extends ServiceProvider
+final class AppServiceProvider extends ServiceProvider
 {
     /**
      * All of the container singletons that should be registered.

@@ -72,7 +72,7 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
                     $progressBar->start();
                 }
 
-                if (! $isDownloaded && $progressBar && $totalDownload === $downloaded) {
+                if (! $isDownloaded && $progressBar instanceof ProgressBar && $totalDownload === $downloaded) {
                     $progressBar->finish();
                     $isDownloaded = true;
                 }
@@ -87,9 +87,9 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
         $songs = tap(collect(), function (Collection $songs) use ($withoutUrlSongs): void {
             $this->withSpinner(
                 $withoutUrlSongs,
-                function (array $song) use ($songs): void {
-                    $songs->add($song + json_decode(
-                        $this->meting->site($song['source'])->url($song['url_id']),
+                function (array $withoutUrlSong) use ($songs): void {
+                    $songs->add($withoutUrlSong + json_decode(
+                        $this->meting->site($withoutUrlSong['source'])->url($withoutUrlSong['url_id']),
                         true,
                         512,
                         JSON_THROW_ON_ERROR

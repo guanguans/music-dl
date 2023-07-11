@@ -31,10 +31,12 @@ use Rector\EarlyReturn\Rector\If_\ChangeAndIfToEarlyReturnRector;
 use Rector\EarlyReturn\Rector\Return_\ReturnBinaryAndToEarlyReturnRector;
 use Rector\EarlyReturn\Rector\Return_\ReturnBinaryOrToEarlyReturnRector;
 use Rector\EarlyReturn\Rector\StmtsAwareInterface\ReturnEarlyIfVariableRector;
+use Rector\Naming\Rector\Class_\RenamePropertyToMatchTypeRector;
 use Rector\Naming\Rector\ClassMethod\RenameParamToMatchTypeRector;
 use Rector\Naming\Rector\Foreach_\RenameForeachValueVariableToMatchExprVariableRector;
 use Rector\Php56\Rector\FunctionLike\AddDefaultValueForUndefinedVariableRector;
 use Rector\Php71\Rector\FuncCall\RemoveExtraParametersRector;
+use Rector\Php80\Rector\Catch_\RemoveUnusedVariableInCatchRector;
 use Rector\PHPUnit\Rector\Class_\AddSeeTestAnnotationRector;
 use Rector\PHPUnit\Rector\MethodCall\RemoveExpectAnyFromMockRector;
 use Rector\PHPUnit\Set\PHPUnitLevelSetList;
@@ -45,7 +47,7 @@ use Rector\Set\ValueObject\SetList;
 use Rector\Strict\Rector\Empty_\DisallowedEmptyRuleFixerRector;
 
 return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->importNames(true, false);
+    $rectorConfig->importNames(false, false);
     $rectorConfig->importShortClasses(false);
     // $rectorConfig->disableParallel();
     $rectorConfig->parallel(300);
@@ -73,7 +75,7 @@ return static function (RectorConfig $rectorConfig): void {
 
     $rectorConfig->paths([
         __DIR__.'/app',
-        __DIR__.'/config',
+        // __DIR__.'/config',
         // __DIR__.'/tests',
         __DIR__.'/.*.php',
         __DIR__.'/*.php',
@@ -106,14 +108,24 @@ return static function (RectorConfig $rectorConfig): void {
         RemoveExtraParametersRector::class => [
             // __DIR__.'/src/Macros/QueryBuilderMacro.php',
         ],
+        RemoveUnusedVariableInCatchRector::class => [
+            // __DIR__.'/src/JavascriptRenderer.php',
+            '*',
+        ],
         ExplicitBoolCompareRector::class => [
             // __DIR__.'/src/JavascriptRenderer.php',
+            '*',
         ],
         RenameForeachValueVariableToMatchExprVariableRector::class => [
             // __DIR__.'/src/OutputManager.php',
         ],
         RenameParamToMatchTypeRector::class => [
             // __DIR__.'/src/Support/helpers.php',
+            '*',
+        ],
+        RenamePropertyToMatchTypeRector::class => [
+            // __DIR__.'/src/Support/helpers.php',
+            '*',
         ],
         StaticClosureRector::class => [
             __DIR__.'/tests',

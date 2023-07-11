@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace App\Support;
 
-class Meting extends \Metowolf\Meting
+final class Meting extends \Metowolf\Meting
 {
     protected array $temp = [];
 }
