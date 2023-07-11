@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\Contracts\Music;
 use App\Exceptions\InvalidArgumentException;
 use App\Music\SequenceMusic;
 use Illuminate\Contracts\Container\BindingResolutionException;
@@ -32,7 +33,9 @@ class MusicManager extends Manager
 
     public function getDefaultDriver(): string
     {
-        return (string) str(SequenceMusic::class)->classBasename()->replaceLast('Music', '');
+        return (string) str(SequenceMusic::class)
+            ->classBasename()
+            ->replaceLast(class_basename(Music::class), '');
     }
 
     /**
