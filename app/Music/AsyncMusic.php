@@ -37,7 +37,7 @@ final class AsyncMusic extends SequenceMusic
                     $spinner->start();
 
                     tap(
-                        Pool::create()->concurrency(min(\count($withoutUrlSongs), 128))->timeout(10),
+                        Pool::create()->concurrency($this->toConcurrency($withoutUrlSongs))->timeout(10),
                         function (Pool $pool) use ($withoutUrlSongs, $songs, $spinner): void {
                             foreach ($withoutUrlSongs as $withoutUrlSong) {
                                 $pool

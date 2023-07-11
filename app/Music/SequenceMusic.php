@@ -99,6 +99,11 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
         return $this->clean($songs);
     }
 
+    protected function toConcurrency(array $withoutUrlSongs): int
+    {
+        return min(\count($withoutUrlSongs), 128);
+    }
+
     /**
      * @throws \JsonException
      */

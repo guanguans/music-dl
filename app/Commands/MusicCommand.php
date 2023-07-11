@@ -40,7 +40,7 @@ final class MusicCommand extends Command
      */
     protected $signature = 'music
                             {keyword? : Search keyword for music}
-                            {--driver=sequence : Specify the search driver(sequence、async)}
+                            {--driver=sequence : Specify the search driver(async、fork、sequence)}
                             {--d|dir= : Specify the download directory}
                             {--sources=* : Specify the music sources(tencent、netease、kugou)}
                             ';
