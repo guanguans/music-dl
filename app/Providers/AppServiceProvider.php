@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
     /**
      * All of the container singletons that should be registered.
      *
-     * @var array<array-key, string>
+     * @var array<class-string|int, class-string>
      */
     public array $singletons = [
         MusicManager::class,

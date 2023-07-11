@@ -11,7 +11,7 @@ declare(strict_types=1);
  */
 
 if (! function_exists('array_reduce_with_keys')) {
-    function array_reduce_with_keys(array $array, callable $callback, $carry = null): mixed
+    function array_reduce_with_keys(array $array, callable $callback, mixed $carry = null): mixed
     {
         foreach ($array as $key => $value) {
             $carry = $callback($carry, $value, $key);

@@ -14,6 +14,7 @@ namespace App;
 
 use App\Exceptions\InvalidArgumentException;
 use App\Music\SequenceMusic;
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Support\Manager;
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\Conditionable;
@@ -39,6 +40,8 @@ class MusicManager extends Manager
      * @noinspection PhpMissingParentCallCommonInspection
      *
      * @param mixed $driver
+     *
+     * @throws BindingResolutionException
      */
     protected function createDriver($driver)
     {
