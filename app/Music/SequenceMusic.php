@@ -17,6 +17,7 @@ use App\Contracts\Music;
 use App\Support\Meting;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Console\OutputStyle;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Traits\Macroable;
 use Symfony\Component\Console\Helper\ProgressBar;
 
@@ -83,22 +84,27 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
 
     protected function ensureWithUrl(array $withoutUrlSongs): array
     {
-        $songs = collect();
+        $songs = tap(collect(), function (Collection $songs) use ($withoutUrlSongs): void {
+            $this->withSpinner(
+                $withoutUrlSongs,
+                function (array $song) use ($songs): void {
+                    $songs->add($song + json_decode(
+                        $this->meting->site($song['source'])->url($song['url_id']),
+                        true,
+                        512,
+                        JSON_THROW_ON_ERROR
+                    ));
+                },
+                '<comment>searching...</comment>',
+                ['bar_character' => '<info>✔</info>']
+            );
+        });
 
-        $this->withSpinner(
-            $withoutUrlSongs,
-            function (array $song) use ($songs): void {
-                $songs->add($song + json_decode(
-                    $this->meting->site($song['source'])->url($song['url_id']),
-                    true,
-                    512,
-                    JSON_THROW_ON_ERROR
-                ));
-            },
-            '<comment>searching...</comment>',
-            ['bar_character' => '<info>✔</info>']
-        );
+        return $this->clean($songs);
+    }
 
+    protected function clean(Collection $songs): array
+    {
         return $songs
             ->filter(static fn (array $song): bool => ! empty($song['url']))
             ->values()

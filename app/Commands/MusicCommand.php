@@ -71,12 +71,12 @@ final class MusicCommand extends Command
                 $timer->start();
                 $songs = $this->music->search($keyword, $sources);
                 $duration = $timer->stop();
+                $this->newLine();
                 if (empty($songs)) {
                     $this->line($this->config['empty_result']);
                     $this->reCall();
                 }
 
-                $this->newLine();
                 $sanitizedSongs = $this->sanitizes($songs, $keyword);
                 $this->table($this->config['table_header'], $sanitizedSongs);
                 $this->info($resourceUsageFormatter->resourceUsage($duration));

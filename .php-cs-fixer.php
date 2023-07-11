@@ -179,6 +179,7 @@ return (new Config())
         'phpdoc_param_order' => true,
         'regular_callable_call' => true,
         'single_line_throw' => false,
+        // 'static_lambda' => true, // pest
         'static_lambda' => false, // pest
 
         // import
