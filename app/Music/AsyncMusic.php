@@ -41,12 +41,7 @@ final class AsyncMusic extends SequenceMusic
                         function (Pool $pool) use ($withoutUrlSongs, $songs, $spinner): void {
                             foreach ($withoutUrlSongs as $withoutUrlSong) {
                                 $pool
-                                    ->add(fn (): array => json_decode(
-                                        $this->meting->site($withoutUrlSong['source'])->url($withoutUrlSong['url_id']),
-                                        true,
-                                        512,
-                                        JSON_THROW_ON_ERROR
-                                    ))
+                                    ->add(fn (): array => $this->requestUrl($withoutUrlSong))
                                     ->then(static function (array $output) use ($songs, $withoutUrlSong, $spinner): void {
                                         $songs->add($withoutUrlSong + $output);
                                         $spinner->advance();

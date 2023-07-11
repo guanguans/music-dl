@@ -82,25 +82,34 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
         ]);
     }
 
+    /**
+     * @throws \JsonException
+     */
     protected function ensureWithUrl(array $withoutUrlSongs): array
     {
         $songs = tap(collect(), function (Collection $songs) use ($withoutUrlSongs): void {
             $this->withSpinner(
                 $withoutUrlSongs,
-                function (array $withoutUrlSong) use ($songs): void {
-                    $songs->add($withoutUrlSong + json_decode(
-                        $this->meting->site($withoutUrlSong['source'])->url($withoutUrlSong['url_id']),
-                        true,
-                        512,
-                        JSON_THROW_ON_ERROR
-                    ));
-                },
+                fn (array $withoutUrlSong): Collection => $songs->add($withoutUrlSong + $this->requestUrl($withoutUrlSong)),
                 config('console-spinner.message'),
                 ['bar_character' => config('console-spinner.bar_character')]
             );
         });
 
         return $this->clean($songs);
+    }
+
+    /**
+     * @throws \JsonException
+     */
+    protected function requestUrl(array $song): array
+    {
+        return (array) json_decode(
+            $this->meting->site($song['source'])->url($song['url_id']),
+            true,
+            512,
+            JSON_THROW_ON_ERROR
+        );
     }
 
     protected function clean(Collection $songs): array
