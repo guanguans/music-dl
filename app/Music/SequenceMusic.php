@@ -19,6 +19,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Console\OutputStyle;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Traits\Macroable;
+use Rahul900Day\LaravelConsoleSpinner\Spinner;
 use Symfony\Component\Console\Helper\ProgressBar;
 
 /**
@@ -97,6 +98,16 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
         });
 
         return $this->clean($songs);
+    }
+
+    protected function createSpinner(array $withoutUrlSongs): Spinner
+    {
+        $spinner = $this->spinner(\count($withoutUrlSongs));
+        $spinner->setBarCharacter(config('console-spinner.bar_character'));
+        $spinner->setMessage(config('console-spinner.message'));
+        $spinner->start();
+
+        return $spinner;
     }
 
     protected function toConcurrency(array $withoutUrlSongs): int
