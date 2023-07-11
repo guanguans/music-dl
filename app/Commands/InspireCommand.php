@@ -45,6 +45,8 @@ final class InspireCommand extends Command
 
     /**
      * Define the command's schedule.
+     *
+     * @noinspection PhpMissingParentCallCommonInspection
      */
     public function schedule(Schedule $schedule): void
     {

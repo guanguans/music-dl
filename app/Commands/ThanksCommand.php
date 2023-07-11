@@ -45,23 +45,23 @@ final class ThanksCommand extends Command
      */
     public function handle(): int
     {
-        $wantsToSupport = $this->ask('Can you quickly <options=bold>star our GitHub repository</>? 🙏🏻', 'yes');
-
-        if ('yes' === $wantsToSupport) {
-            PHP_OS_FAMILY === 'Darwin' and exec('open https://github.com/guanguans/music-dl');
-            PHP_OS_FAMILY === 'Windows' and exec('start https://github.com/guanguans/music-dl');
-            PHP_OS_FAMILY === 'Linux' and exec('xdg-open https://github.com/guanguans/music-dl');
+        if ('yes' === $this->ask('Can you quickly <options=bold>star our GitHub repository</>? 🙏🏻', 'yes')) {
+            match (PHP_OS_FAMILY) {
+                'Windows' => exec('start https://github.com/guanguans/music-dl'),
+                'Darwin' => exec('open https://github.com/guanguans/music-dl'),
+                'Linux' => exec('xdg-open https://github.com/guanguans/music-dl'),
+            };
         }
 
-        foreach (self::FUNDING_MESSAGES as $message) {
-            $this->output->writeln($message);
-        }
+        $this->output->writeln(self::FUNDING_MESSAGES);
 
         return self::SUCCESS;
     }
 
     /**
      * Define the command's schedule.
+     *
+     * @noinspection PhpMissingParentCallCommonInspection
      */
     public function schedule(Schedule $schedule): void
     {
