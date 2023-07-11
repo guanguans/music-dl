@@ -17,7 +17,7 @@ use Illuminate\Support\Arr;
 trait Sanitizer
 {
     /**
-     * @return array<array<string, null|int|string>>
+     * @return array<array-key, array<string, null|int|string>>
      */
     public function sanitizes(array $songs, string $keyword): array
     {
@@ -36,11 +36,10 @@ trait Sanitizer
      */
     public function sanitize(array $song, string $keyword): array
     {
-        Arr::forget($song, ['id', 'pic_id', 'url_id', 'lyric_id', 'url']);
-
+        $song = Arr::only($song, ['name', 'artist', 'album', 'source', 'size', 'br']);
         $song['name'] = str_replace($keyword, "<fg=red;options=bold>$keyword</>", $song['name']);
-        $song['album'] = str_replace($keyword, "<fg=red;options=bold>$keyword</>", $song['album']);
         $song['artist'] = str_replace($keyword, "<fg=red;options=bold>$keyword</>", implode(',', $song['artist']));
+        $song['album'] = str_replace($keyword, "<fg=red;options=bold>$keyword</>", $song['album']);
         $song['size'] = isset($song['size']) ? sprintf('<fg=yellow>%.1fM</>', $song['size'] / 1024 / 1024) : null;
         $song['br'] = (int) $song['br'];
 
