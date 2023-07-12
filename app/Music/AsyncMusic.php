@@ -33,9 +33,9 @@ final class AsyncMusic extends SequenceMusic
 
             foreach ($withoutUrlSongs as $withoutUrlSong) {
                 $pool
-                    ->add(fn (): array => $this->requestUrl($withoutUrlSong))
+                    ->add(fn (): array => $this->ensureWithUrl($withoutUrlSong))
                     ->then(static fn (array $output): Collection => tap(
-                        $songs->add($withoutUrlSong + $output),
+                        $songs->add($output),
                         static function () use ($spinner): void {
                             $spinner->advance();
                         }
