@@ -72,15 +72,14 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
     {
         $this->createHttpClient()->get($url, [
             'sink' => $savePath,
-            'progress' => function (int $totalDownload, int $downloaded) use (&$progressBar, &$isDownloaded): void {
+            'progress' => function (int $totalDownload, int $downloaded) use (&$progressBar): void {
                 if ($totalDownload > 0 && $downloaded > 0 && ! $progressBar instanceof ProgressBar) {
                     $progressBar = new ProgressBar($this->output, $totalDownload);
                     $progressBar->start();
                 }
 
-                if (! $isDownloaded && $progressBar instanceof ProgressBar && $totalDownload === $downloaded) {
+                if ($totalDownload === $downloaded && $progressBar instanceof ProgressBar) {
                     $progressBar->finish();
-                    $isDownloaded = true;
                 }
 
                 $progressBar and $progressBar->setProgress($downloaded);
