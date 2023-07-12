@@ -12,6 +12,6 @@ declare(strict_types=1);
 
 namespace Tests\Unit;
 
-test('example', function (): void {
+it('example', function (): void {
     expect(true)->toBeTrue();
-});
+})->group(__DIR__, __FILE__);
