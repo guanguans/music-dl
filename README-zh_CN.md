@@ -6,6 +6,8 @@
 
 > Music Searcher and Downloader. - 音乐搜索下载器。
 
+> :warning: 本工具仅用于学习交流，禁止将本工具用于商业用途，如产生法律纠纷与本人无关。
+
 [![tests](https://github.com/guanguans/music-dl/workflows/tests/badge.svg)](https://github.com/guanguans/music-dl/actions)
 [![codecov](https://codecov.io/gh/guanguans/music-dl/branch/master/graph/badge.svg?token=Ja51ScYtHN)](https://codecov.io/gh/guanguans/music-dl)
 [![check & fix styling](https://github.com/guanguans/music-dl/actions/workflows/php-cs-fixer.yml/badge.svg)](https://github.com/guanguans/music-dl/actions)

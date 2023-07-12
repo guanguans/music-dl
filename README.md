@@ -6,6 +6,8 @@
 
 > Music Searcher and Downloader. - 音乐搜索下载器。
 
+> :warning: This tool is only used for learning and communication. It is forbidden to use this tool for commercial purposes. If a legal dispute arises, it has nothing to do with me.
+
 [![tests](https://github.com/guanguans/music-dl/workflows/tests/badge.svg)](https://github.com/guanguans/music-dl/actions)
 [![codecov](https://codecov.io/gh/guanguans/music-dl/branch/master/graph/badge.svg?token=Ja51ScYtHN)](https://codecov.io/gh/guanguans/music-dl)
 [![check & fix styling](https://github.com/guanguans/music-dl/actions/workflows/php-cs-fixer.yml/badge.svg)](https://github.com/guanguans/music-dl/actions)
