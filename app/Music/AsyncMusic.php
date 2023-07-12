@@ -25,11 +25,11 @@ final class AsyncMusic extends SequenceMusic
      * @noinspection PhpMissingParentCallCommonInspection
      * @noinspection MissingParentCallInspection
      */
-    protected function ensureWithUrl(array $withoutUrlSongs): array
+    protected function ensureWithUrls(array $withoutUrlSongs): array
     {
-        $songs = tap(collect(), function (Collection $songs) use ($withoutUrlSongs): void {
-            $spinner = $this->createSpinner($withoutUrlSongs);
-            $pool = Pool::create()->concurrency($this->toConcurrency($withoutUrlSongs))->timeout(10);
+        return tap(collect(), function (Collection $songs) use ($withoutUrlSongs): void {
+            $spinner = $this->createAndStartSpinner($withoutUrlSongs);
+            $pool = Pool::create()->concurrency($this->toConcurrent($withoutUrlSongs))->timeout(10);
 
             foreach ($withoutUrlSongs as $withoutUrlSong) {
                 $pool
@@ -50,8 +50,6 @@ final class AsyncMusic extends SequenceMusic
 
             $pool->wait();
             $spinner->finish();
-        });
-
-        return $songs->all();
+        })->all();
     }
 }

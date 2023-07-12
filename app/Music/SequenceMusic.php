@@ -57,7 +57,7 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
             ->collapse()
             ->all();
 
-        return collect($this->ensureWithUrl($withoutUrlSongs))
+        return collect($this->ensureWithUrls($withoutUrlSongs))
             ->filter(static fn (array $song): bool => ! empty($song['url']))
             ->values()
             ->all();
@@ -91,33 +91,24 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
     /**
      * @throws \JsonException
      */
-    protected function ensureWithUrl(array $withoutUrlSongs): array
+    protected function ensureWithUrls(array $withoutUrlSongs): array
     {
-        $songs = tap(collect(), function (Collection $songs) use ($withoutUrlSongs): void {
+        return tap(collect(), function (Collection $songs) use ($withoutUrlSongs): void {
             $this->withSpinner(
                 $withoutUrlSongs,
-                fn (array $withoutUrlSong): Collection => $songs->add($withoutUrlSong + $this->requestUrl($withoutUrlSong)),
+                fn (array $withoutUrlSong): Collection => $songs->add($this->ensureWithUrl($withoutUrlSong)),
                 config('console-spinner.message'),
                 ['bar_character' => config('console-spinner.bar_character')]
             );
-        });
-
-        return $songs->all();
+        })->all();
     }
 
-    protected function createSpinner(array $withoutUrlSongs): Spinner
+    /**
+     * @throws \JsonException
+     */
+    protected function ensureWithUrl(array $withoutUrlSong): array
     {
-        $spinner = $this->spinner(\count($withoutUrlSongs));
-        $spinner->setBarCharacter(config('console-spinner.bar_character'));
-        $spinner->setMessage(config('console-spinner.message'));
-        $spinner->start();
-
-        return $spinner;
-    }
-
-    protected function toConcurrency(array $withoutUrlSongs): int
-    {
-        return min(\count($withoutUrlSongs), 128);
+        return $withoutUrlSong + $this->requestUrl($withoutUrlSong);
     }
 
     /**
@@ -131,5 +122,20 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
             512,
             JSON_THROW_ON_ERROR
         );
+    }
+
+    protected function createAndStartSpinner(array $withoutUrlSongs): Spinner
+    {
+        $spinner = $this->spinner(\count($withoutUrlSongs));
+        $spinner->setBarCharacter(config('console-spinner.bar_character'));
+        $spinner->setMessage(config('console-spinner.message'));
+        $spinner->start();
+
+        return $spinner;
+    }
+
+    protected function toConcurrent(array $withoutUrlSongs): int
+    {
+        return min(\count($withoutUrlSongs), 128);
     }
 }

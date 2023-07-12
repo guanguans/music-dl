@@ -14,7 +14,7 @@ namespace App\Music;
 
 use Spatie\Fork\Fork;
 
-class ForkMusic extends SequenceMusic
+final class ForkMusic extends SequenceMusic
 {
     /**
      * @throws \JsonException
@@ -22,17 +22,17 @@ class ForkMusic extends SequenceMusic
      * @noinspection MissingParentCallInspection
      * @noinspection MissingParentCallInspection
      */
-    protected function ensureWithUrl(array $withoutUrlSongs): array
+    protected function ensureWithUrls(array $withoutUrlSongs): array
     {
-        $spinner = $this->createSpinner($withoutUrlSongs);
+        $spinner = $this->createAndStartSpinner($withoutUrlSongs);
 
         $songs = Fork::new()
             ->before()
             ->after()
-            ->concurrent($this->toConcurrency($withoutUrlSongs))
+            ->concurrent($this->toConcurrent($withoutUrlSongs))
             ->run(...array_map(
                 fn (array $withoutUrlSong): callable => fn (): array => tap(
-                    $withoutUrlSong + $this->requestUrl($withoutUrlSong),
+                    $this->ensureWithUrl($withoutUrlSong),
                     static function () use ($spinner): void {
                         $spinner->advance();
                     }
