@@ -43,5 +43,5 @@ it('can find downloaded music', function (): void {
         ->not->toBeEmpty();
 })
     ->group(__DIR__, __FILE__)
-    ->depends('it can search and download music')
+    // ->depends('it can search and download music')
     ->skip(PHP_OS_FAMILY !== 'Darwin');
