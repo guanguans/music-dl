@@ -25,7 +25,7 @@ jobs:
           key: composer-${{ hashFiles('composer.lock') }}
 
       - name: Run composer install
-        run: composer install -n --prefer-dist
+        run: composer install --prefer-dist --optimize-autoloader --no-interaction --no-progress --no-suggest --no-scripts --no-dev --ansi -v
 
       - name: VHS Action
         uses: charmbracelet/vhs-action@v2.0.0
