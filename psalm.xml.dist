@@ -5,6 +5,8 @@
   cacheDirectory="./build/psalm/"
   errorBaseline="psalm-baseline.xml"
   errorLevel="4"
+  findUnusedBaselineEntry="true"
+  findUnusedCode="false"
   findUnusedVariablesAndParams="true"
   xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
 >
