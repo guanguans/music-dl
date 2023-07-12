@@ -12,6 +12,6 @@ declare(strict_types=1);
 
 namespace Tests\Feature;
 
-it('inspire artisans', function (): void {
-    $this->artisan('inspire')->assertExitCode(0);
+it('can inspire Artisan', function (): void {
+    $this->artisan('inspire', ['name' => 'Artisan'])->assertSuccessful();
 });
