@@ -35,7 +35,7 @@ jobs:
         run: composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
 
       - name: Execute tests
-        run: vendor/bin/pest
+        run: composer test-c
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3.1.4
