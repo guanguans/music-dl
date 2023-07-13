@@ -2,6 +2,15 @@
 
 All notable changes to `guanguans/music-dl` will be documented in this file.
 
+## v3.5.5 - 2023-07-13
+
+### What's Changed
+
+- chore(deps-dev): bump pestphp/pest from 1.23.0 to 1.23.1 by @dependabot in https://github.com/guanguans/music-dl/pull/540
+- chore(deps-dev): bump rector/rector from 0.17.4 to 0.17.5 by @dependabot in https://github.com/guanguans/music-dl/pull/541
+
+**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.5.4...v3.5.5
+
 ## v3.5.4 - 2023-07-12
 
 **Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.5.3...v3.5.4
