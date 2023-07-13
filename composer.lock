@@ -9913,12 +9913,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "1e7ba87d020cf65f2573f7be3a5d27476c7f0d6e"
+                "reference": "e8f8fa0b9beaf8905026c13d8bd1153baa9f686c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/1e7ba87d020cf65f2573f7be3a5d27476c7f0d6e",
-                "reference": "1e7ba87d020cf65f2573f7be3a5d27476c7f0d6e",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/e8f8fa0b9beaf8905026c13d8bd1153baa9f686c",
+                "reference": "e8f8fa0b9beaf8905026c13d8bd1153baa9f686c",
                 "shasum": ""
             },
             "conflict": {
@@ -9978,6 +9978,7 @@
                 "cakephp/cakephp": "<3.10.3|>=4,<4.0.10|>=4.2,<4.2.12|>=4.3,<4.3.11|>=4.4,<4.4.10|= 1.3.7|>=4.1,<4.1.4",
                 "cakephp/database": ">=4.2,<4.2.12|>=4.3,<4.3.11|>=4.4,<4.4.10",
                 "cardgate/magento2": "<2.0.33",
+                "cardgate/woocommerce": "<=3.1.15",
                 "cart2quote/module-quotation": ">=4.1.6,<=4.4.5|>=5,<5.4.4",
                 "cartalyst/sentry": "<=2.1.6",
                 "catfan/medoo": "<1.7.5",
@@ -10260,6 +10261,7 @@
                 "phpxmlrpc/extras": "<0.6.1",
                 "phpxmlrpc/phpxmlrpc": "<4.9.2",
                 "pi/pi": "<=2.5",
+                "pimcore/admin-ui-classic-bundle": "<1.0.3",
                 "pimcore/customer-management-framework-bundle": "<3.4.1",
                 "pimcore/data-hub": "<1.2.4",
                 "pimcore/perspective-editor": "<1.5.1",
@@ -10417,7 +10419,7 @@
                 "truckersmp/phpwhois": "<=4.3.1",
                 "ttskch/pagination-service-provider": "<1",
                 "twig/twig": "<1.44.7|>=2,<2.15.3|>=3,<3.4.3",
-                "typo3/cms": "<2.0.5|>=3,<3.0.3|>=6.2,<6.2.30|>=7,<7.6.32|>=8,<8.7.38|>=9,<9.5.29|>=10,<10.4.35|>=11,<11.5.23|>=12,<12.2",
+                "typo3/cms": "<2.0.5|>=3,<3.0.3|>=6.2,<=6.2.38|>=7,<7.6.32|>=8,<8.7.38|>=9,<9.5.29|>=10,<10.4.35|>=11,<11.5.23|>=12,<12.2",
                 "typo3/cms-backend": ">=7,<=7.6.50|>=8,<=8.7.39|>=9,<=9.5.24|>=10,<=10.4.13|>=11,<=11.1",
                 "typo3/cms-core": "<8.7.51|>=9,<9.5.40|>=10,<10.4.36|>=11,<11.5.23|>=12,<12.2",
                 "typo3/cms-form": ">=8,<=8.7.39|>=9,<=9.5.24|>=10,<=10.4.13|>=11,<=11.1",
@@ -10537,7 +10539,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-07-11T23:04:27+00:00"
+            "time": "2023-07-13T00:16:59+00:00"
         },
         {
             "name": "sanmai/later",
