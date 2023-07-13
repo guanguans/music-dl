@@ -113,6 +113,7 @@
         ],
         "post-autoload-dump": [],
         "ai-commit": "@php ./vendor/bin/ai-commit commit --generator=bito_cli --ansi",
+        "ai-commit-no-verify": "@ai-commit --commit-options=--no-verify",
         "benchmark": "@php ./vendor/bin/phpbench run --warmup=1 --retry-threshold=1 --iterations=3 --revs=5 --ansi -v",
         "cghooks": "@php ./vendor/bin/cghooks --ansi -v",
         "checks": [
