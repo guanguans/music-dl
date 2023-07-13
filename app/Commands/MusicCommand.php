@@ -52,6 +52,8 @@ final class MusicCommand extends Command
      */
     protected $description = 'Search and download music';
 
+    private static bool $isOutputtedLogo = false;
+
     private array $config;
 
     private Music $music;
@@ -75,14 +77,14 @@ final class MusicCommand extends Command
                 $this->newLine();
                 if ([] === $songs) {
                     $this->line($this->config['empty_result']);
-                    $this->reCall();
+                    $this->reCallSelf();
                 }
 
                 $sanitizedSongs = $this->sanitizes($songs, $keyword);
                 $this->table($this->config['table_header'], $sanitizedSongs);
                 $this->info($resourceUsageFormatter->resourceUsage($duration));
                 if (! $this->confirm($this->config['confirm_download'], true)) {
-                    $this->reCall();
+                    $this->reCallSelf();
                 }
 
                 $choices = collect($sanitizedSongs)
@@ -125,7 +127,7 @@ final class MusicCommand extends Command
                     $this->config['success_icon']
                 )
             )
-            ->pipe(fn (): int => $this->reCall());
+            ->pipe(fn (): int => $this->reCallSelf());
     }
 
     /**
@@ -150,7 +152,7 @@ final class MusicCommand extends Command
         $this->music = $this->laravel->make(MusicManager::class)->driver($this->option('driver'));
     }
 
-    private function reCall(): int
+    private function reCallSelf(): int
     {
         return $this->call(
             self::class,
