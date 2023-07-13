@@ -59,7 +59,7 @@ Type "./music-dl --driver=fork --sources=netease" Sleep 1s
 Enter 1 Sleep 1s
 Type "不只是南方" Sleep 1s
 Enter 1 Sleep 1s
-Type@1s "yes" Sleep 1s
+Type@500ms "yes" Sleep 1s
 Enter 1 Sleep 1s
 Down@1s 5 Sleep 1s
 Enter 1 Sleep 12s
