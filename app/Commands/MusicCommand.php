@@ -64,9 +64,14 @@ final class MusicCommand extends Command
     public function handle(Timer $timer, ResourceUsageFormatter $resourceUsageFormatter): int
     {
         return collect()
-            ->pipe(function () use ($timer, &$songs, &$sanitizedSongs, $resourceUsageFormatter, &$choices, &$lastKey): Collection {
+            ->when(! self::$isOutputtedLogo, function (): void {
                 $this->line($this->config['logo']);
-                windows_os() and $this->line($this->config['windows_tip']);
+                self::$isOutputtedLogo = true;
+            })
+            ->when(windows_os(), function (): void {
+                $this->line($this->config['windows_tip']);
+            })
+            ->pipe(function () use ($timer, &$songs, &$sanitizedSongs, $resourceUsageFormatter, &$choices, &$lastKey): Collection {
                 $keyword = str($this->argument('keyword') ?? $this->ask($this->config['search_tip'], '腰乐队'))->trim()->toString();
                 $sources = array_filter((array) $this->option('sources')) ?: $this->config['sources'];
 
