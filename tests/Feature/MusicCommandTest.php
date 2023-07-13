@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 use App\Commands\MusicCommand;
 use Illuminate\Support\Facades\File;
-use Mockery\Exception\InvalidOrderException;
 
 beforeEach(function (): void {
     $this->downloadDir = base_path('tests/Download');
@@ -24,8 +23,9 @@ it('can search and download music', function (): void {
     $this
         ->artisan(MusicCommand::class, [
             'keyword' => '不只是南方',
-            '--driver' => 'fork',
             '--dir' => base_path('tests/Download'),
+            '--driver' => 'fork',
+            '--no-continue' => true,
             '--sources' => 'netease',
         ])
         ->expectsConfirmation(config('music-dl.confirm_download'), 'yes')
@@ -33,7 +33,6 @@ it('can search and download music', function (): void {
         ->assertSuccessful();
 })
     ->group(__DIR__, __FILE__)
-    ->throws(InvalidOrderException::class)
     ->skip(PHP_OS_FAMILY !== 'Darwin');
 
 it('can find downloaded music', function (): void {

@@ -42,6 +42,7 @@ final class MusicCommand extends Command
                             {keyword? : Search keyword for music}
                             {--driver=sequence : Specify the search driver(async、fork、sequence)}
                             {--d|dir= : Specify the download directory}
+                            {--no-continue : Specify whether to recall the command after the download is complete}
                             {--sources=* : Specify the music sources(tencent、netease、kugou)}
                             ';
 
@@ -68,9 +69,7 @@ final class MusicCommand extends Command
                 $this->line($this->config['logo']);
                 self::$isOutputtedLogo = true;
             })
-            ->when(windows_os(), function (): void {
-                $this->line($this->config['windows_tip']);
-            })
+            ->when(windows_os(), fn () => $this->line($this->config['windows_tip']))
             ->pipe(function () use ($timer, &$songs, &$sanitizedSongs, $resourceUsageFormatter, &$choices, &$lastKey): Collection {
                 $keyword = str($this->argument('keyword') ?? $this->ask($this->config['search_tip'], '腰乐队'))->trim()->toString();
                 $sources = array_filter((array) $this->option('sources')) ?: $this->config['sources'];
@@ -82,14 +81,14 @@ final class MusicCommand extends Command
                 $this->newLine();
                 if ([] === $songs) {
                     $this->line($this->config['empty_result']);
-                    $this->reCallSelf();
+                    $this->recallSelf();
                 }
 
                 $sanitizedSongs = $this->sanitizes($songs, $keyword);
                 $this->table($this->config['table_header'], $sanitizedSongs);
                 $this->info($resourceUsageFormatter->resourceUsage($duration));
                 if (! $this->confirm($this->config['confirm_download'], true)) {
-                    $this->reCallSelf();
+                    $this->recallSelf();
                 }
 
                 $choices = collect($sanitizedSongs)
@@ -124,15 +123,13 @@ final class MusicCommand extends Command
                     $this->newLine();
                 }
             })
-            ->when(
-                ! windows_os(),
-                fn () => $this->notify(
-                    config('app.name'),
-                    $this->option('dir') ?: Utils::get_default_save_dir(),
-                    $this->config['success_icon']
-                )
-            )
-            ->pipe(fn (): int => $this->reCallSelf());
+            ->when(! windows_os(), fn () => $this->notify(
+                config('app.name'),
+                $this->option('dir') ?: Utils::get_default_save_dir(),
+                $this->config['success_icon']
+            ))
+            ->when(! $this->option('no-continue'), fn (): int => $this->recallSelf())
+            ->pipe(static fn (): int => self::SUCCESS);
     }
 
     /**
@@ -157,7 +154,7 @@ final class MusicCommand extends Command
         $this->music = $this->laravel->make(MusicManager::class)->driver($this->option('driver'));
     }
 
-    private function reCallSelf(): int
+    private function recallSelf(): int
     {
         return $this->call(
             self::class,
