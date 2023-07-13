@@ -50,16 +50,16 @@ Require php
 
 Set Framerate 120
 Set FontSize 18
-Set Width 1250
-Set Height 773
+Set Width 1100
+Set Height 680
 Set TypingSpeed 50ms
 Set PlaybackSpeed 0.1
 
-Type "./music-dl --driver=fork --sources=netease" Sleep 3s
+Type "./music-dl --driver=fork --sources=netease" Sleep 1s
 Enter 1 Sleep 1s
-Type "不只是南方" Sleep 3s
+Type "不只是南方" Sleep 1s
 Enter 1 Sleep 1s
-Type "yes" Sleep 3s
+Type@1s "yes" Sleep 1s
 Enter 1 Sleep 1s
-Down@1s 5 Sleep 3s
+Down@1s 5 Sleep 1s
 Enter 1 Sleep 12s
