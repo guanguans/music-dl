@@ -28,7 +28,10 @@ jobs:
           coverage: none
 
       - name: Install the dependencies
-        run: composer install --prefer-dist --optimize-autoloader --no-interaction --no-progress --no-suggest --no-scripts --no-dev --ansi -v
+        run: composer install --prefer-dist --optimize-autoloader --no-interaction --no-progress --no-suggest --no-scripts --no-dev --ansi -v --ignore-platform-req=ext-pcntl --ignore-platform-req=ext-posix --ignore-platform-req=ext-sockets
+
+      - name: Update the dependencies # windows does not support ext-pcntl、ext-posix、ext-sockets
+        run: composer update --prefer-dist --optimize-autoloader --no-interaction --no-progress --no-suggest --no-scripts --no-dev --ansi -v --ignore-platform-req=ext-pcntl --ignore-platform-req=ext-posix --ignore-platform-req=ext-sockets
 
       - name: Create the PHAR file.
         run: ./music-dl app:build music-dl.phar --build-version=${{ steps.tag.outputs.tag }} -v
