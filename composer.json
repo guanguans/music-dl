@@ -119,20 +119,15 @@
         "benchmark": "@php ./vendor/bin/phpbench run --warmup=1 --retry-threshold=1 --iterations=3 --revs=5 --ansi -v",
         "cghooks": "@php ./vendor/bin/cghooks --ansi -v",
         "checks": [
-            "@mark-start",
+            "@composer-normalize",
             "@composer-validate",
-            "@mark-separate",
             "@md-lint",
-            "@mark-separate",
             "@lint",
-            "@mark-separate",
             "@style-lint",
-            "@mark-separate",
             "@test",
-            "@mark-separate",
-            "@psalm",
-            "@mark-finish"
+            "@psalm"
         ],
+        "composer-normalize": "@composer normalize --ansi -v",
         "composer-validate": "@composer validate --check-lock --strict --ansi -v",
         "facades-lint": "@facades-update -- --lint",
         "facades-update": "/usr/local/opt/php@8.1/bin/php -f ./bin/facades.php",
