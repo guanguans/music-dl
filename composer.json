@@ -35,6 +35,7 @@
     "require-dev": {
         "alecrabbit/php-cli-snake": "^0.6",
         "brainmaestro/composer-git-hooks": "^3.0",
+        "ergebnis/composer-normalize": "^2.31",
         "friendsofphp/php-cs-fixer": "^3.21",
         "guanguans/ai-commit": "^1.6",
         "infection/infection": "^0.26",
@@ -79,7 +80,8 @@
         "allow-plugins": {
             "infection/extension-installer": true,
             "pestphp/pest-plugin": true,
-            "phpstan/extension-installer": true
+            "phpstan/extension-installer": true,
+            "ergebnis/composer-normalize": true
         },
         "optimize-autoloader": true,
         "preferred-install": "dist",
