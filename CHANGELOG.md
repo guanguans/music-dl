@@ -2,6 +2,10 @@
 
 All notable changes to `guanguans/music-dl` will be documented in this file.
 
+## v3.5.7 - 2023-07-14
+
+**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.5.6...v3.5.7
+
 ## v3.5.6 - 2023-07-14
 
 ### What's Changed
