@@ -8,6 +8,12 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="3.6.1"></a>
+## [3.6.1] - 2023-07-23
+### Fix
+- **commands:** Fix recallSelf method calls
+
+
 <a name="3.6.0"></a>
 ## [3.6.0] - 2023-07-23
 ### Feat
@@ -566,7 +572,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.0...HEAD
+[Unreleased]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.1...HEAD
+[3.6.1]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.0...3.6.1
 [3.6.0]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.5.7...3.6.0
 [v3.5.7]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.5.6...v3.5.7
 [v3.5.6]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.5.5...v3.5.6
