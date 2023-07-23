@@ -7,24 +7,6 @@ All notable changes to this project will be documented in this file.
 <a name="unreleased"></a>
 ## [Unreleased]
 
-
-<a name="3.6.0"></a>
-## [3.6.0] - 2023-07-23
-### Feat
-- **monorepo-builder.php:** Add new file for monorepo configuration
-
-### Fix
-- **config:** Add php_unit_data_provider_return_type
-
-### Pull Requests
-- Merge pull request [#548](https://github.com/guanguans/monorepo-builder-worker/issues/548) from guanguans/dependabot/composer/mockery/mockery-1.6.4
-- Merge pull request [#547](https://github.com/guanguans/monorepo-builder-worker/issues/547) from guanguans/dependabot/composer/kubawerlos/php-cs-fixer-custom-fixers-3.16.0
-- Merge pull request [#546](https://github.com/guanguans/monorepo-builder-worker/issues/546) from guanguans/dependabot/composer/mockery/mockery-1.6.3
-- Merge pull request [#545](https://github.com/guanguans/monorepo-builder-worker/issues/545) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.22.0
-- Merge pull request [#544](https://github.com/guanguans/monorepo-builder-worker/issues/544) from guanguans/dependabot/composer/rector/rector-0.17.6
-- Merge pull request [#543](https://github.com/guanguans/monorepo-builder-worker/issues/543) from guanguans/dependabot/composer/guanguans/ai-commit-1.6.9
-
-
 <a name="v3.5.7"></a>
 ## [v3.5.7] - 2023-07-14
 ### Fix
