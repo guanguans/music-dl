@@ -81,14 +81,14 @@ final class MusicCommand extends Command
                 $this->newLine();
                 if ([] === $songs) {
                     $this->line($this->config['empty_result']);
-                    $this->recallSelf();
+                    $this->rehandle();
                 }
 
                 $sanitizedSongs = $this->sanitizes($songs, $keyword);
                 $this->table($this->config['table_header'], $sanitizedSongs);
                 $this->info($resourceUsageFormatter->resourceUsage($duration));
                 if (! $this->confirm($this->config['confirm_download'], true)) {
-                    $this->recallSelf();
+                    $this->rehandle();
                 }
 
                 $choices = collect($sanitizedSongs)
@@ -128,7 +128,7 @@ final class MusicCommand extends Command
                 $this->option('dir') ?: Utils::get_default_save_dir(),
                 $this->config['success_icon']
             ))
-            ->when(! $this->option('no-continue'), fn (): int => $this->recallSelf())
+            ->when(! $this->option('no-continue'), fn (): int => $this->rehandle())
             ->pipe(static fn (): int => self::SUCCESS);
     }
 
@@ -154,13 +154,8 @@ final class MusicCommand extends Command
         $this->music = $this->laravel->make(MusicManager::class)->driver($this->option('driver'));
     }
 
-    private function recallSelf(): int
+    private function rehandle(): int
     {
-        return $this->call(
-            self::class,
-            $this->arguments() + collect($this->options())
-                ->mapWithKeys(static fn ($option, string $key): array => ["--$key" => $option])
-                ->all()
-        );
+        return $this->handle(new Timer(), new ResourceUsageFormatter());
     }
 }
