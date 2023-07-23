@@ -1,447 +1,629 @@
+<!--- BEGIN HEADER -->
 # Changelog
 
-All notable changes to `guanguans/music-dl` will be documented in this file.
+All notable changes to this project will be documented in this file.
+<!--- END HEADER -->
 
-## v3.5.7 - 2023-07-14
+<a name="unreleased"></a>
+## [Unreleased]
 
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.5.6...v3.5.7
 
-## v3.5.6 - 2023-07-14
+<a name="3.6.0"></a>
+## [3.6.0] - 2023-07-23
+### Feat
+- **monorepo-builder.php:** Add new file for monorepo configuration
 
-### What's Changed
+### Fix
+- **config:** Add php_unit_data_provider_return_type
 
-- [ImgBot] Optimize images by @imgbot in https://github.com/guanguans/music-dl/pull/542
+### Pull Requests
+- Merge pull request [#548](https://github.com/guanguans/monorepo-builder-worker/issues/548) from guanguans/dependabot/composer/mockery/mockery-1.6.4
+- Merge pull request [#547](https://github.com/guanguans/monorepo-builder-worker/issues/547) from guanguans/dependabot/composer/kubawerlos/php-cs-fixer-custom-fixers-3.16.0
+- Merge pull request [#546](https://github.com/guanguans/monorepo-builder-worker/issues/546) from guanguans/dependabot/composer/mockery/mockery-1.6.3
+- Merge pull request [#545](https://github.com/guanguans/monorepo-builder-worker/issues/545) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.22.0
+- Merge pull request [#544](https://github.com/guanguans/monorepo-builder-worker/issues/544) from guanguans/dependabot/composer/rector/rector-0.17.6
+- Merge pull request [#543](https://github.com/guanguans/monorepo-builder-worker/issues/543) from guanguans/dependabot/composer/guanguans/ai-commit-1.6.9
 
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.5.5...v3.5.6
 
-## v3.5.5 - 2023-07-13
+<a name="v3.5.7"></a>
+## [v3.5.7] - 2023-07-14
+### Fix
+- **config:** update windows_tip message
 
-### What's Changed
 
-- chore(deps-dev): bump pestphp/pest from 1.23.0 to 1.23.1 by @dependabot in https://github.com/guanguans/music-dl/pull/540
-- chore(deps-dev): bump rector/rector from 0.17.4 to 0.17.5 by @dependabot in https://github.com/guanguans/music-dl/pull/541
+<a name="v3.5.6"></a>
+## [v3.5.6] - 2023-07-14
+### Pull Requests
+- Merge pull request [#542](https://github.com/guanguans/monorepo-builder-worker/issues/542) from guanguans/imgbot
 
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.5.4...v3.5.5
 
-## v3.5.4 - 2023-07-12
+<a name="v3.5.5"></a>
+## [v3.5.5] - 2023-07-13
+### Feat
+- **MusicCommand:** add --no-continue option
 
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.5.3...v3.5.4
+### Fix
+- **commit:** adjust dimensions and typing speed
+- **composer:** add ai-commit-no-verify command
+- **tape:** adjust typing delay
 
-## v3.5.3 - 2023-07-12
+### Refactor
+- **Command:** optimize logo and windows tip output
+- **command:** Remove unused property
 
-### What's Changed
+### Pull Requests
+- Merge pull request [#541](https://github.com/guanguans/monorepo-builder-worker/issues/541) from guanguans/dependabot/composer/rector/rector-0.17.5
+- Merge pull request [#540](https://github.com/guanguans/monorepo-builder-worker/issues/540) from guanguans/dependabot/composer/pestphp/pest-1.23.1
 
-- [ImgBot] Optimize images by @imgbot in https://github.com/guanguans/music-dl/pull/539
 
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.5.2...v3.5.3
+<a name="v3.5.4"></a>
+## [v3.5.4] - 2023-07-12
+### Docs
+- **readme:** add disclaimer for commercial use
 
-## v3.5.2 - 2023-07-12
+### Refactor
+- **console-spinner:** update spinner characters
 
-### What's Changed
 
-- chore(deps-dev): bump rector/rector from 0.17.3 to 0.17.4 by @dependabot in https://github.com/guanguans/music-dl/pull/538
+<a name="v3.5.3"></a>
+## [v3.5.3] - 2023-07-12
+### Docs
+- **README:** update installation instructions
+- **readme:** Update Chinese README
 
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.5.1...v3.5.2
-
-## v3.5.1 - 2023-07-11
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.5.0...v3.5.1
-
-## v3.5.0 - 2023-07-11
-
-### What's Changed
-
-- chore(deps-dev): bump rector/rector from 0.17.2 to 0.17.3 by @dependabot in https://github.com/guanguans/music-dl/pull/537
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.4.1...v3.5.0
-
-## v3.4.1 - 2023-07-10
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.4.0...v3.4.1
-
-## v3.4.0 - 2023-07-10
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.3.3...v3.4.0
-
-## v3.3.3 - 2023-07-09
-
-### What's Changed
-
-- Bump dependabot/fetch-metadata from 1.4.0 to 1.5.0 by @dependabot in https://github.com/guanguans/music-dl/pull/502
-- Bump friendsofphp/php-cs-fixer from 3.16.0 to 3.17.0 by @dependabot in https://github.com/guanguans/music-dl/pull/503
-- Bump guzzlehttp/guzzle from 7.6.1 to 7.7.0 by @dependabot in https://github.com/guanguans/music-dl/pull/504
-- Bump dependabot/fetch-metadata from 1.5.0 to 1.5.1 by @dependabot in https://github.com/guanguans/music-dl/pull/506
-- Bump rector/rector from 0.16.0 to 0.17.0 by @dependabot in https://github.com/guanguans/music-dl/pull/508
-- Bump mockery/mockery from 1.5.1 to 1.6.1 by @dependabot in https://github.com/guanguans/music-dl/pull/509
-- Bump phpstan/phpstan from 1.10.15 to 1.10.16 by @dependabot in https://github.com/guanguans/music-dl/pull/510
-- Bump vimeo/psalm from 5.11.0 to 5.12.0 by @dependabot in https://github.com/guanguans/music-dl/pull/505
-- Bump nunomaduro/larastan from 2.6.0 to 2.6.1 by @dependabot in https://github.com/guanguans/music-dl/pull/511
-- Bump phpstan/extension-installer from 1.3.0 to 1.3.1 by @dependabot in https://github.com/guanguans/music-dl/pull/507
-- Bump phpstan/phpstan from 1.10.16 to 1.10.17 by @dependabot in https://github.com/guanguans/music-dl/pull/512
-- Bump mockery/mockery from 1.6.1 to 1.6.2 by @dependabot in https://github.com/guanguans/music-dl/pull/513
-- Bump phpstan/phpstan from 1.10.17 to 1.10.18 by @dependabot in https://github.com/guanguans/music-dl/pull/514
-- Bump actions/checkout from 3.5.2 to 3.5.3 by @dependabot in https://github.com/guanguans/music-dl/pull/515
-- Bump nunomaduro/larastan from 2.6.1 to 2.6.2 by @dependabot in https://github.com/guanguans/music-dl/pull/516
-- Bump phpunit/phpunit from 9.6.8 to 9.6.9 by @dependabot in https://github.com/guanguans/music-dl/pull/517
-- Bump rector/rector from 0.17.0 to 0.17.1 by @dependabot in https://github.com/guanguans/music-dl/pull/518
-- Bump phpstan/phpstan from 1.10.18 to 1.10.19 by @dependabot in https://github.com/guanguans/music-dl/pull/519
-- Bump nunomaduro/larastan from 2.6.2 to 2.6.3 by @dependabot in https://github.com/guanguans/music-dl/pull/520
-- Bump friendsofphp/php-cs-fixer from 3.17.0 to 3.18.0 by @dependabot in https://github.com/guanguans/music-dl/pull/521
-- Bump phpstan/phpstan from 1.10.19 to 1.10.20 by @dependabot in https://github.com/guanguans/music-dl/pull/522
-- Bump phpstan/phpstan from 1.10.20 to 1.10.21 by @dependabot in https://github.com/guanguans/music-dl/pull/523
-- Bump friendsofphp/php-cs-fixer from 3.18.0 to 3.19.2 by @dependabot in https://github.com/guanguans/music-dl/pull/524
-- Bump vimeo/psalm from 5.12.0 to 5.13.0 by @dependabot in https://github.com/guanguans/music-dl/pull/525
-- Bump dependabot/fetch-metadata from 1.5.1 to 1.6.0 by @dependabot in https://github.com/guanguans/music-dl/pull/526
-- Bump vimeo/psalm from 5.13.0 to 5.13.1 by @dependabot in https://github.com/guanguans/music-dl/pull/527
-- Bump friendsofphp/php-cs-fixer from 3.19.2 to 3.20.0 by @dependabot in https://github.com/guanguans/music-dl/pull/528
-- Bump rector/rector from 0.17.1 to 0.17.2 by @dependabot in https://github.com/guanguans/music-dl/pull/529
-- Bump phpstan/phpstan from 1.10.21 to 1.10.22 by @dependabot in https://github.com/guanguans/music-dl/pull/530
-- Bump phpstan/phpstan from 1.10.22 to 1.10.23 by @dependabot in https://github.com/guanguans/music-dl/pull/531
-- Bump phpstan/phpstan from 1.10.23 to 1.10.24 by @dependabot in https://github.com/guanguans/music-dl/pull/533
-- Bump friendsofphp/php-cs-fixer from 3.20.0 to 3.21.0 by @dependabot in https://github.com/guanguans/music-dl/pull/534
-- Bump phpstan/phpstan from 1.10.24 to 1.10.25 by @dependabot in https://github.com/guanguans/music-dl/pull/535
-- Bump friendsofphp/php-cs-fixer from 3.21.0 to 3.21.1 by @dependabot in https://github.com/guanguans/music-dl/pull/536
-- Bump charmbracelet/vhs-action from 1.2.2 to 2.0.0 by @dependabot in https://github.com/guanguans/music-dl/pull/532
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.3.2...v3.3.3
-
-## v3.3.2 - 2023-05-18
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.3.1...v3.3.2
-
-## v3.3.1 - 2023-05-18
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.3.0...v3.3.1
-
-## v3.3.0 - 2023-05-18
-
-### What's Changed
-
-- Bump rector/rector from 0.14.8 to 0.15.0 by @dependabot in https://github.com/guanguans/music-dl/pull/385
-- Bump pestphp/pest from 1.22.2 to 1.22.3 by @dependabot in https://github.com/guanguans/music-dl/pull/386
-- Bump phpunit/phpunit from 9.5.26 to 9.5.27 by @dependabot in https://github.com/guanguans/music-dl/pull/387
-- Bump actions/checkout from 3.1.0 to 3.2.0 by @dependabot in https://github.com/guanguans/music-dl/pull/388
-- Bump vimeo/psalm from 5.1.0 to 5.2.0 by @dependabot in https://github.com/guanguans/music-dl/pull/389
-- Bump phpstan/phpstan from 1.9.2 to 1.9.3 by @dependabot in https://github.com/guanguans/music-dl/pull/390
-- Bump rector/rector from 0.15.0 to 0.15.1 by @dependabot in https://github.com/guanguans/music-dl/pull/391
-- Bump phpstan/phpstan from 1.9.3 to 1.9.4 by @dependabot in https://github.com/guanguans/music-dl/pull/392
-- Bump vimeo/psalm from 5.2.0 to 5.3.0 by @dependabot in https://github.com/guanguans/music-dl/pull/393
-- Bump friendsofphp/php-cs-fixer from 3.13.0 to 3.13.1 by @dependabot in https://github.com/guanguans/music-dl/pull/394
-- Bump vimeo/psalm from 5.3.0 to 5.4.0 by @dependabot in https://github.com/guanguans/music-dl/pull/395
-- Bump nunomaduro/larastan from 2.2.9 to 2.3.1 by @dependabot in https://github.com/guanguans/music-dl/pull/398
-- Bump rector/rector from 0.15.1 to 0.15.2 by @dependabot in https://github.com/guanguans/music-dl/pull/399
-- Bump nunomaduro/larastan from 2.3.1 to 2.3.2 by @dependabot in https://github.com/guanguans/music-dl/pull/400
-- Bump nunomaduro/larastan from 2.3.2 to 2.3.3 by @dependabot in https://github.com/guanguans/music-dl/pull/401
-- Bump nunomaduro/larastan from 2.3.3 to 2.3.4 by @dependabot in https://github.com/guanguans/music-dl/pull/402
-- Bump friendsofphp/php-cs-fixer from 3.13.1 to 3.13.2 by @dependabot in https://github.com/guanguans/music-dl/pull/403
-- Bump phpstan/phpstan from 1.9.4 to 1.9.6 by @dependabot in https://github.com/guanguans/music-dl/pull/404
-- Bump phpstan/phpstan from 1.9.6 to 1.9.7 by @dependabot in https://github.com/guanguans/music-dl/pull/405
-- Bump actions/checkout from 3.2.0 to 3.3.0 by @dependabot in https://github.com/guanguans/music-dl/pull/406
-- Bump actions/stale from 6 to 7 by @dependabot in https://github.com/guanguans/music-dl/pull/396
-- Bump rector/rector from 0.15.2 to 0.15.3 by @dependabot in https://github.com/guanguans/music-dl/pull/407
-- Bump phpstan/phpstan from 1.9.7 to 1.9.8 by @dependabot in https://github.com/guanguans/music-dl/pull/408
-- Bump rector/rector from 0.15.3 to 0.15.4 by @dependabot in https://github.com/guanguans/music-dl/pull/409
-- Bump nunomaduro/larastan from 2.3.4 to 2.3.5 by @dependabot in https://github.com/guanguans/music-dl/pull/410
-- Bump phpstan/phpstan from 1.9.8 to 1.9.9 by @dependabot in https://github.com/guanguans/music-dl/pull/411
-- Bump phpstan/phpstan from 1.9.9 to 1.9.11 by @dependabot in https://github.com/guanguans/music-dl/pull/412
-- Bump nunomaduro/larastan from 2.3.5 to 2.4.0 by @dependabot in https://github.com/guanguans/music-dl/pull/413
-- Bump pestphp/pest-plugin-laravel from 1.3.0 to 1.4.0 by @dependabot in https://github.com/guanguans/music-dl/pull/414
-- Bump rector/rector from 0.15.4 to 0.15.6 by @dependabot in https://github.com/guanguans/music-dl/pull/415
-- Bump rector/rector from 0.15.6 to 0.15.7 by @dependabot in https://github.com/guanguans/music-dl/pull/416
-- Bump phpunit/phpunit from 9.5.27 to 9.5.28 by @dependabot in https://github.com/guanguans/music-dl/pull/417
-- Bump phpstan/phpstan from 1.9.11 to 1.9.12 by @dependabot in https://github.com/guanguans/music-dl/pull/418
-- Bump phpstan/phpstan from 1.9.12 to 1.9.13 by @dependabot in https://github.com/guanguans/music-dl/pull/419
-- Bump infection/infection from 0.26.16 to 0.26.17 by @dependabot in https://github.com/guanguans/music-dl/pull/420
-- Bump phpstan/phpstan from 1.9.13 to 1.9.14 by @dependabot in https://github.com/guanguans/music-dl/pull/421
-- Bump rector/rector from 0.15.7 to 0.15.8 by @dependabot in https://github.com/guanguans/music-dl/pull/422
-- Bump vimeo/psalm from 5.4.0 to 5.6.0 by @dependabot in https://github.com/guanguans/music-dl/pull/423
-- Bump infection/infection from 0.26.17 to 0.26.18 by @dependabot in https://github.com/guanguans/music-dl/pull/424
-- Bump rector/rector from 0.15.8 to 0.15.10 by @dependabot in https://github.com/guanguans/music-dl/pull/425
-- Bump dependabot/fetch-metadata from 1.3.5 to 1.3.6 by @dependabot in https://github.com/guanguans/music-dl/pull/426
-- Bump friendsofphp/php-cs-fixer from 3.13.2 to 3.14.3 by @dependabot in https://github.com/guanguans/music-dl/pull/427
-- Bump symfony/http-kernel from 6.0.18 to 6.0.20 by @dependabot in https://github.com/guanguans/music-dl/pull/428
-- Bump rector/rector from 0.15.10 to 0.15.11 by @dependabot in https://github.com/guanguans/music-dl/pull/429
-- Bump pestphp/pest from 1.22.3 to 1.22.4 by @dependabot in https://github.com/guanguans/music-dl/pull/430
-- Bump phpunit/phpunit from 9.5.28 to 9.6.1 by @dependabot in https://github.com/guanguans/music-dl/pull/431
-- Bump rector/rector from 0.15.11 to 0.15.12 by @dependabot in https://github.com/guanguans/music-dl/pull/432
-- Bump infection/infection from 0.26.18 to 0.26.19 by @dependabot in https://github.com/guanguans/music-dl/pull/433
-- Bump phpunit/phpunit from 9.6.1 to 9.6.3 by @dependabot in https://github.com/guanguans/music-dl/pull/434
-- Bump phpstan/phpstan from 1.9.14 to 1.9.16 by @dependabot in https://github.com/guanguans/music-dl/pull/435
-- Bump rector/rector from 0.15.12 to 0.15.13 by @dependabot in https://github.com/guanguans/music-dl/pull/436
-- Bump phpstan/phpstan from 1.9.16 to 1.9.17 by @dependabot in https://github.com/guanguans/music-dl/pull/437
-- Bump friendsofphp/php-cs-fixer from 3.14.3 to 3.14.4 by @dependabot in https://github.com/guanguans/music-dl/pull/438
-- Bump rector/rector from 0.15.13 to 0.15.15 by @dependabot in https://github.com/guanguans/music-dl/pull/439
-- Bump rector/rector from 0.15.15 to 0.15.16 by @dependabot in https://github.com/guanguans/music-dl/pull/440
-- Bump nunomaduro/larastan from 2.4.0 to 2.4.1 by @dependabot in https://github.com/guanguans/music-dl/pull/441
-- Bump phpstan/phpstan from 1.9.17 to 1.9.18 by @dependabot in https://github.com/guanguans/music-dl/pull/442
-- Bump rector/rector from 0.15.16 to 0.15.17 by @dependabot in https://github.com/guanguans/music-dl/pull/443
-- Bump vimeo/psalm from 5.6.0 to 5.7.1 by @dependabot in https://github.com/guanguans/music-dl/pull/444
-- Bump phpstan/phpstan from 1.9.18 to 1.10.1 by @dependabot in https://github.com/guanguans/music-dl/pull/445
-- Bump vimeo/psalm from 5.7.1 to 5.7.5 by @dependabot in https://github.com/guanguans/music-dl/pull/446
-- Bump rector/rector from 0.15.17 to 0.15.18 by @dependabot in https://github.com/guanguans/music-dl/pull/447
-- Bump phpstan/phpstan from 1.10.1 to 1.10.2 by @dependabot in https://github.com/guanguans/music-dl/pull/448
-- Bump vimeo/psalm from 5.7.5 to 5.7.6 by @dependabot in https://github.com/guanguans/music-dl/pull/449
-- Bump vimeo/psalm from 5.7.6 to 5.7.7 by @dependabot in https://github.com/guanguans/music-dl/pull/450
-- Bump phpstan/phpstan from 1.10.2 to 1.10.3 by @dependabot in https://github.com/guanguans/music-dl/pull/451
-- Bump phpunit/phpunit from 9.6.3 to 9.6.4 by @dependabot in https://github.com/guanguans/music-dl/pull/452
-- Bump rector/rector from 0.15.18 to 0.15.19 by @dependabot in https://github.com/guanguans/music-dl/pull/453
-- Bump pestphp/pest from 1.22.4 to 1.22.5 by @dependabot in https://github.com/guanguans/music-dl/pull/454
-- Bump rector/rector from 0.15.19 to 0.15.21 by @dependabot in https://github.com/guanguans/music-dl/pull/455
-- Bump nunomaduro/larastan from 2.4.1 to 2.5.1 by @dependabot in https://github.com/guanguans/music-dl/pull/456
-- Bump phpstan/phpstan from 1.10.3 to 1.10.4 by @dependabot in https://github.com/guanguans/music-dl/pull/457
-- Bump phpstan/phpstan from 1.10.4 to 1.10.5 by @dependabot in https://github.com/guanguans/music-dl/pull/458
-- Bump phpunit/phpunit from 9.6.4 to 9.6.5 by @dependabot in https://github.com/guanguans/music-dl/pull/459
-- Bump phpstan/phpstan from 1.10.5 to 1.10.6 by @dependabot in https://github.com/guanguans/music-dl/pull/460
-- Bump vimeo/psalm from 5.7.7 to 5.8.0 by @dependabot in https://github.com/guanguans/music-dl/pull/461
-- Bump friendsofphp/php-cs-fixer from 3.14.4 to 3.15.0 by @dependabot in https://github.com/guanguans/music-dl/pull/462
-- Bump friendsofphp/php-cs-fixer from 3.15.0 to 3.15.1 by @dependabot in https://github.com/guanguans/music-dl/pull/463
-- Bump actions/checkout from 3.3.0 to 3.4.0 by @dependabot in https://github.com/guanguans/music-dl/pull/464
-- Bump phpstan/phpstan from 1.10.6 to 1.10.7 by @dependabot in https://github.com/guanguans/music-dl/pull/465
-- Bump pestphp/pest from 1.22.5 to 1.22.6 by @dependabot in https://github.com/guanguans/music-dl/pull/466
-- Bump rector/rector from 0.15.21 to 0.15.23 by @dependabot in https://github.com/guanguans/music-dl/pull/468
-- Bump actions/checkout from 3.4.0 to 3.5.0 by @dependabot in https://github.com/guanguans/music-dl/pull/469
-- Bump phpstan/phpstan from 1.10.7 to 1.10.8 by @dependabot in https://github.com/guanguans/music-dl/pull/470
-- Bump phpunit/phpunit from 9.6.5 to 9.6.6 by @dependabot in https://github.com/guanguans/music-dl/pull/471
-- Bump vimeo/psalm from 5.8.0 to 5.9.0 by @dependabot in https://github.com/guanguans/music-dl/pull/472
-- Bump phpstan/phpstan from 1.10.8 to 1.10.9 by @dependabot in https://github.com/guanguans/music-dl/pull/473
-- Bump phpstan/phpstan from 1.10.9 to 1.10.10 by @dependabot in https://github.com/guanguans/music-dl/pull/474
-- Bump friendsofphp/php-cs-fixer from 3.15.1 to 3.16.0 by @dependabot in https://github.com/guanguans/music-dl/pull/475
-- Bump phpstan/phpstan from 1.10.10 to 1.10.11 by @dependabot in https://github.com/guanguans/music-dl/pull/476
-- Bump rector/rector from 0.15.23 to 0.15.24 by @dependabot in https://github.com/guanguans/music-dl/pull/477
-- Bump codecov/codecov-action from 3.1.1 to 3.1.2 by @dependabot in https://github.com/guanguans/music-dl/pull/478
-- Bump actions/checkout from 3.5.0 to 3.5.1 by @dependabot in https://github.com/guanguans/music-dl/pull/479
-- Bump phpstan/phpstan from 1.10.11 to 1.10.13 by @dependabot in https://github.com/guanguans/music-dl/pull/480
-- Bump actions/checkout from 3.5.1 to 3.5.2 by @dependabot in https://github.com/guanguans/music-dl/pull/481
-- Bump charmbracelet/vhs-action from 1.2.0 to 1.2.1 by @dependabot in https://github.com/guanguans/music-dl/pull/482
-- Bump phpunit/phpunit from 9.6.6 to 9.6.7 by @dependabot in https://github.com/guanguans/music-dl/pull/483
-- Bump dependabot/fetch-metadata from 1.3.6 to 1.4.0 by @dependabot in https://github.com/guanguans/music-dl/pull/484
-- Bump phpstan/extension-installer from 1.2.0 to 1.3.0 by @dependabot in https://github.com/guanguans/music-dl/pull/486
-- Bump guzzlehttp/psr7 from 2.4.3 to 2.5.0 by @dependabot in https://github.com/guanguans/music-dl/pull/487
-- Bump guzzlehttp/guzzle from 7.5.0 to 7.5.1 by @dependabot in https://github.com/guanguans/music-dl/pull/485
-- Bump phpstan/phpstan from 1.10.13 to 1.10.14 by @dependabot in https://github.com/guanguans/music-dl/pull/488
-- Bump pestphp/pest from 1.22.6 to 1.23.0 by @dependabot in https://github.com/guanguans/music-dl/pull/489
-- Bump codecov/codecov-action from 3.1.2 to 3.1.3 by @dependabot in https://github.com/guanguans/music-dl/pull/490
-- Bump rector/rector from 0.15.24 to 0.15.25 by @dependabot in https://github.com/guanguans/music-dl/pull/492
-- Bump charmbracelet/vhs-action from 1.2.1 to 1.2.2 by @dependabot in https://github.com/guanguans/music-dl/pull/493
-- Bump vimeo/psalm from 5.9.0 to 5.10.0 by @dependabot in https://github.com/guanguans/music-dl/pull/494
-- Bump vimeo/psalm from 5.10.0 to 5.11.0 by @dependabot in https://github.com/guanguans/music-dl/pull/495
-- Bump rector/rector from 0.15.25 to 0.16.0 by @dependabot in https://github.com/guanguans/music-dl/pull/496
-- Bump react/event-loop from 1.3.0 to 1.4.0 by @dependabot in https://github.com/guanguans/music-dl/pull/497
-- Bump phpstan/phpstan from 1.10.14 to 1.10.15 by @dependabot in https://github.com/guanguans/music-dl/pull/498
-- Bump phpunit/phpunit from 9.6.7 to 9.6.8 by @dependabot in https://github.com/guanguans/music-dl/pull/499
-- Bump codecov/codecov-action from 3.1.3 to 3.1.4 by @dependabot in https://github.com/guanguans/music-dl/pull/500
-- Bump guzzlehttp/guzzle from 7.5.1 to 7.6.1 by @dependabot in https://github.com/guanguans/music-dl/pull/501
-- Bump actions/stale from 7 to 8 by @dependabot in https://github.com/guanguans/music-dl/pull/467
-- Bump nunomaduro/larastan from 2.5.1 to 2.6.0 by @dependabot in https://github.com/guanguans/music-dl/pull/491
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.2.3...v3.3.0
-
-## v3.2.3 - 2022-12-05
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.2.2...v3.2.3
-
-## v3.2.2 - 2022-12-03
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.2.1...v3.2.2
-
-## v3.2.1 - 2022-12-03
-
-### What's Changed
-
-- Bump vimeo/psalm from 4.28.0 to 4.29.0 by @dependabot in https://github.com/guanguans/music-dl/pull/372
-- Bump friendsofphp/php-cs-fixer from 3.11.0 to 3.12.0 by @dependabot in https://github.com/guanguans/music-dl/pull/373
-- Bump nunomaduro/termwind from 1.14.0 to 1.14.1 by @dependabot in https://github.com/guanguans/music-dl/pull/374
-- Bump friendsofphp/php-cs-fixer from 3.12.0 to 3.13.0 by @dependabot in https://github.com/guanguans/music-dl/pull/375
-- Bump nunomaduro/termwind from 1.14.1 to 1.14.2 by @dependabot in https://github.com/guanguans/music-dl/pull/376
-- Bump dependabot/fetch-metadata from 1.3.4 to 1.3.5 by @dependabot in https://github.com/guanguans/music-dl/pull/377
-- Bump vimeo/psalm from 4.29.0 to 4.30.0 by @dependabot in https://github.com/guanguans/music-dl/pull/378
-- Bump pestphp/pest from 1.22.1 to 1.22.2 by @dependabot in https://github.com/guanguans/music-dl/pull/379
-- Bump vimeo/psalm from 4.29.0 to 4.30.0 by @dependabot in https://github.com/guanguans/music-dl/pull/380
-- Bump friendsofphp/php-cs-fixer from 3.12.0 to 3.13.0 by @dependabot in https://github.com/guanguans/music-dl/pull/381
-- Bump vimeo/psalm from 4.30.0 to 5.0.0 by @dependabot in https://github.com/guanguans/music-dl/pull/382
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.2.0...v3.2.1
-
-## v3.2.0 - 2022-10-09
-
-### What's Changed
-
-- Bump friendsofphp/php-cs-fixer from 3.9.3 to 3.9.4 by @dependabot in https://github.com/guanguans/music-dl/pull/352
-- Bump laravel-zero/framework from 9.1.1 to 9.1.2 by @dependabot in https://github.com/guanguans/music-dl/pull/353
-- Bump friendsofphp/php-cs-fixer from 3.9.4 to 3.9.5 by @dependabot in https://github.com/guanguans/music-dl/pull/354
-- Bump vimeo/psalm from 4.24.0 to 4.25.0 by @dependabot in https://github.com/guanguans/music-dl/pull/355
-- Bump nunomaduro/termwind from 1.13.0 to 1.14.0 by @dependabot in https://github.com/guanguans/music-dl/pull/356
-- Bump vimeo/psalm from 4.25.0 to 4.26.0 by @dependabot in https://github.com/guanguans/music-dl/pull/357
-- Bump friendsofphp/php-cs-fixer from 3.9.5 to 3.10.0 by @dependabot in https://github.com/guanguans/music-dl/pull/358
-- Bump laravel-zero/framework from 9.1.2 to 9.1.3 by @dependabot in https://github.com/guanguans/music-dl/pull/359
-- Bump pestphp/pest from 1.21.3 to 1.22.1 by @dependabot in https://github.com/guanguans/music-dl/pull/360
-- Bump guzzlehttp/guzzle from 7.4.5 to 7.5.0 by @dependabot in https://github.com/guanguans/music-dl/pull/361
-- Bump friendsofphp/php-cs-fixer from 3.10.0 to 3.11.0 by @dependabot in https://github.com/guanguans/music-dl/pull/362
-- Bump vimeo/psalm from 4.26.0 to 4.27.0 by @dependabot in https://github.com/guanguans/music-dl/pull/363
-- Bump mockery/mockery from 1.5.0 to 1.5.1 by @dependabot in https://github.com/guanguans/music-dl/pull/364
-- Bump codecov/codecov-action from 3.1.0 to 3.1.1 by @dependabot in https://github.com/guanguans/music-dl/pull/365
-- Bump laravel-zero/framework from 9.1.3 to 9.2.0 by @dependabot in https://github.com/guanguans/music-dl/pull/367
-- Bump dependabot/fetch-metadata from 1.3.3 to 1.3.4 by @dependabot in https://github.com/guanguans/music-dl/pull/368
-- Bump actions/stale from 5 to 6 by @dependabot in https://github.com/guanguans/music-dl/pull/366
-- Bump actions/checkout from 2 to 3.1.0 by @dependabot in https://github.com/guanguans/music-dl/pull/370
-- Bump vimeo/psalm from 4.27.0 to 4.28.0 by @dependabot in https://github.com/guanguans/music-dl/pull/371
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.1.6...v3.2.0
-
-## v3.1.6 - 2022-07-14
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.1.5...v3.1.6
-
-## v3.1.5 - 2022-07-14
-
-### What's Changed
-
-- Bump nunomaduro/termwind from 1.10.1 to 1.11.1 by @dependabot in https://github.com/guanguans/music-dl/pull/342
-- Bump guzzlehttp/guzzle from 7.4.4 to 7.4.5 by @dependabot in https://github.com/guanguans/music-dl/pull/343
-- Bump spatie/async from 1.5.4 to 1.5.5 by @dependabot in https://github.com/guanguans/music-dl/pull/344
-- Bump vimeo/psalm from 4.23.0 to 4.24.0 by @dependabot in https://github.com/guanguans/music-dl/pull/345
-- Bump nunomaduro/termwind from 1.11.1 to 1.12.0 by @dependabot in https://github.com/guanguans/music-dl/pull/346
-- Bump dependabot/fetch-metadata from 1.3.1 to 1.3.2 by @dependabot in https://github.com/guanguans/music-dl/pull/347
-- Bump nunomaduro/termwind from 1.12.0 to 1.13.0 by @dependabot in https://github.com/guanguans/music-dl/pull/349
-- Bump dependabot/fetch-metadata from 1.3.2 to 1.3.3 by @dependabot in https://github.com/guanguans/music-dl/pull/348
-- Bump friendsofphp/php-cs-fixer from 3.8.0 to 3.9.2 by @dependabot in https://github.com/guanguans/music-dl/pull/350
-- Bump friendsofphp/php-cs-fixer from 3.9.2 to 3.9.3 by @dependabot in https://github.com/guanguans/music-dl/pull/351
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.1.4...v3.1.5
-
-## v3.1.4 - 2022-06-14
-
-### What's Changed
-
-- Bump guzzlehttp/guzzle from 7.4.3 to 7.4.4 by @dependabot in https://github.com/guanguans/music-dl/pull/341
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.1.3...v3.1.4
-
-## v3.1.3 - 2022-05-27
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.1.2...v3.1.3
-
-## v3.1.2 - 2022-05-27
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.1.1...v3.1.2
-
-## v3.1.1 - 2022-05-27
-
-## What's Changed
-
-- Bump guzzlehttp/guzzle from 7.4.2 to 7.4.3 by @dependabot in https://github.com/guanguans/music-dl/pull/340
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.1.0...v3.1.1
-
-## v3.1.0 - 2022-05-25
-
-## What's Changed
-
-- Bump actions/cache from 2 to 3 by @dependabot in https://github.com/guanguans/music-dl/pull/325
-- Bump nunomaduro/termwind from 1.6.0 to 1.6.2 by @dependabot in https://github.com/guanguans/music-dl/pull/326
-- Bump guzzlehttp/guzzle from 7.4.1 to 7.4.2 by @dependabot in https://github.com/guanguans/music-dl/pull/327
-- Bump friendsofphp/php-cs-fixer from 3.7.0 to 3.8.0 by @dependabot in https://github.com/guanguans/music-dl/pull/328
-- Bump nunomaduro/termwind from 1.6.2 to 1.7.0 by @dependabot in https://github.com/guanguans/music-dl/pull/329
-- Bump codecov/codecov-action from 2.1.0 to 3.0.0 by @dependabot in https://github.com/guanguans/music-dl/pull/331
-- Bump dependabot/fetch-metadata from 1.3.0 to 1.3.1 by @dependabot in https://github.com/guanguans/music-dl/pull/332
-- Bump codecov/codecov-action from 3.0.0 to 3.1.0 by @dependabot in https://github.com/guanguans/music-dl/pull/333
-- Bump nunomaduro/termwind from 1.7.0 to 1.8.0 by @dependabot in https://github.com/guanguans/music-dl/pull/334
-- Bump vimeo/psalm from 4.22.0 to 4.23.0 by @dependabot in https://github.com/guanguans/music-dl/pull/335
-- Bump nunomaduro/termwind from 1.8.0 to 1.10.1 by @dependabot in https://github.com/guanguans/music-dl/pull/337
-- Bump pestphp/pest from 1.21.2 to 1.21.3 by @dependabot in https://github.com/guanguans/music-dl/pull/338
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.0.10...v3.1.0
-
-## v3.0.10 - 2022-03-22
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.0.9...v3.0.10
-
-## v3.0.9 - 2022-03-20
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.0.8...v3.0.9
-
-## v3.0.8 - 2022-03-20
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.0.7...v3.0.8
-
-## v3.0.7 - 2022-03-20
-
-## What's Changed
-
-- [ImgBot] Optimize images by @imgbot in https://github.com/guanguans/music-dl/pull/324
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.0.6...v3.0.7
-
-## v3.0.6 - 2022-03-19
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.0.5...v3.0.6
-
-## v3.0.5 - 2022-03-19
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.0.4...v3.0.5
-
-## v3.0.4 - 2022-03-19
-
-## What's Changed
-
-- [ImgBot] Optimize images by @imgbot in https://github.com/guanguans/music-dl/pull/323
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.0.3...v3.0.4
-
-## v3.0.3 - 2022-03-19
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.0.2...v3.0.3
-
-## v3.0.2 - 2022-03-19
-
-## What's Changed
-
-- Bump dependabot/fetch-metadata from 1.2.0 to 1.3.0 by @dependabot in https://github.com/guanguans/music-dl/pull/321
-- Bump actions/stale from 4.1.0 to 5 by @dependabot in https://github.com/guanguans/music-dl/pull/320
-- Bump actions/labeler from 3.0.2 to 4 by @dependabot in https://github.com/guanguans/music-dl/pull/322
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.0.1...v3.0.2
-
-## v3.0.1 - 2022-03-18
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v3.0.0...v3.0.1
-
-## v3.0.0 - 2022-03-18
-
-## What's Changed
-
-- Update phpunit/phpunit requirement from ~7||~8 to ~7||~8||~0 by @dependabot in https://github.com/guanguans/music-dl/pull/45
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v2.1.6...v3.0.0
-
-## v3.0.0-rc3 - 2022-03-18
-
-## What's Changed
-
-- Update phpunit/phpunit requirement from ~7||~8 to ~7||~8||~0 by @dependabot in https://github.com/guanguans/music-dl/pull/45
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v2.1.6...v3.0.0-rc3
-
-## v3.0.0-rc2 - 2022-03-18
-
-## What's Changed
-
-- Update phpunit/phpunit requirement from ~7||~8 to ~7||~8||~0 by @dependabot in https://github.com/guanguans/music-dl/pull/45
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v2.1.6...v3.0.0-rc2
-
-## v3.0.0-rc1 - 2022-03-18
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v2.1.6...v3.0.0-rc1
-
-## v3.0.0-beta3 - 2022-03-18
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v2.1.6...v3.0.0-beta3
-
-## v3.0.0-beta2 - 2022-03-18
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v2.1.6...v3.0.0-beta2
-
-## v3.0.0-beta1 - 2022-03-18
-
-**Full Changelog**: https://github.com/guanguans/music-dl/compare/v2.1.6...v3.0.0-beta1
+### Feat
+- **commands:** Add VendorPublishCommand
+- **tests:** Add test to verify downloaded music exists
+
+### Fix
+- **tests:** Skip dependency on music search and download
+
+### Refactor
+- **VendorPublishCommand:** make VendorPublishCommand class final
+- **tests:** Update test cases and add new test file
+
+### Test
+- **Feature:** Add MusicCommandTest
+
+### Pull Requests
+- Merge pull request [#539](https://github.com/guanguans/monorepo-builder-worker/issues/539) from guanguans/imgbot
+
+
+<a name="v3.5.2"></a>
+## [v3.5.2] - 2023-07-12
+### Feat
+- **Exceptions:** Add InvalidArgumentException class
+- **Music:** Add spinner creation function in SequenceMusic
+- **music:** add ForkMusic class
+
+### Refactor
+- **AsyncMusic:** ensure songs have URL
+- **AsyncMusic:** Return all songs instead of cleaning
+- **AsyncMusic:** refactor the requestUrl method
+- **Music:** rename methods and variables for clarity
+- **SequenceMusic:** remove unused variable and simplify progress logic
+
+### Pull Requests
+- Merge pull request [#538](https://github.com/guanguans/monorepo-builder-worker/issues/538) from guanguans/dependabot/composer/rector/rector-0.17.4
+
+
+<a name="v3.5.1"></a>
+## [v3.5.1] - 2023-07-11
+### Fix
+- **MusicCommand:** modify collection handling
+
+
+<a name="v3.5.0"></a>
+## [v3.5.0] - 2023-07-11
+### Fix
+- **Command:** Fix issue with keyword argument in MusicCommand
+- **MusicManager:** Fix createDriver method throwing BindingResolutionException
+
+### Refactor
+- **Music:** modify SequenceMusic class
+- **MusicCommand:** update string literals
+- **SequenceMusic:** Refactor ensureWithUrl and add clean method
+- **command:** Improve ThanksCommand
+- **config:** Update paths in .php-cs-fixer.php and rector.php
+- **musicmanager:** improve default driver retrieval
+- **sanitizer:** update return type in sanitizes method
+
+### Pull Requests
+- Merge pull request [#537](https://github.com/guanguans/monorepo-builder-worker/issues/537) from guanguans/dependabot/composer/rector/rector-0.17.3
+
+
+<a name="v3.4.1"></a>
+## [v3.4.1] - 2023-07-10
+### Feat
+- **AsyncMusic:** Improve song loading efficiency
+- **Music:** Add spinner functionality to Music class
+- **app:** add LaravelConsoleSpinnerServiceProvider
+
+### Fix
+- **commands:** update Windows tips
+
+### Refactor
+- **Music:** Rename Music class to SequenceMusic
+- **SequenceMusic:** optimize carryUrl method
+- **commands:** change search driver option
+
+
+<a name="v3.4.0"></a>
+## [v3.4.0] - 2023-07-10
+### Feat
+- **support:** add Utils class
+
+### Refactor
+- **MusicCommand:** change 'channels' to 'sources'
+- **app:** move helpers.php to app/Support
+- **music:** Remove redundant code in AsyncMusic
+- **music:** rename Music namespace
+
+
+<a name="v3.3.3"></a>
+## [v3.3.3] - 2023-07-07
+### Pull Requests
+- Merge pull request [#532](https://github.com/guanguans/monorepo-builder-worker/issues/532) from guanguans/dependabot/github_actions/charmbracelet/vhs-action-2.0.0
+- Merge pull request [#536](https://github.com/guanguans/monorepo-builder-worker/issues/536) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.21.1
+- Merge pull request [#535](https://github.com/guanguans/monorepo-builder-worker/issues/535) from guanguans/dependabot/composer/phpstan/phpstan-1.10.25
+- Merge pull request [#534](https://github.com/guanguans/monorepo-builder-worker/issues/534) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.21.0
+- Merge pull request [#533](https://github.com/guanguans/monorepo-builder-worker/issues/533) from guanguans/dependabot/composer/phpstan/phpstan-1.10.24
+- Merge pull request [#531](https://github.com/guanguans/monorepo-builder-worker/issues/531) from guanguans/dependabot/composer/phpstan/phpstan-1.10.23
+- Merge pull request [#530](https://github.com/guanguans/monorepo-builder-worker/issues/530) from guanguans/dependabot/composer/phpstan/phpstan-1.10.22
+- Merge pull request [#529](https://github.com/guanguans/monorepo-builder-worker/issues/529) from guanguans/dependabot/composer/rector/rector-0.17.2
+- Merge pull request [#528](https://github.com/guanguans/monorepo-builder-worker/issues/528) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.20.0
+- Merge pull request [#527](https://github.com/guanguans/monorepo-builder-worker/issues/527) from guanguans/dependabot/composer/vimeo/psalm-5.13.1
+- Merge pull request [#526](https://github.com/guanguans/monorepo-builder-worker/issues/526) from guanguans/dependabot/github_actions/dependabot/fetch-metadata-1.6.0
+- Merge pull request [#525](https://github.com/guanguans/monorepo-builder-worker/issues/525) from guanguans/dependabot/composer/vimeo/psalm-5.13.0
+- Merge pull request [#524](https://github.com/guanguans/monorepo-builder-worker/issues/524) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.19.2
+- Merge pull request [#523](https://github.com/guanguans/monorepo-builder-worker/issues/523) from guanguans/dependabot/composer/phpstan/phpstan-1.10.21
+- Merge pull request [#522](https://github.com/guanguans/monorepo-builder-worker/issues/522) from guanguans/dependabot/composer/phpstan/phpstan-1.10.20
+- Merge pull request [#521](https://github.com/guanguans/monorepo-builder-worker/issues/521) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.18.0
+- Merge pull request [#520](https://github.com/guanguans/monorepo-builder-worker/issues/520) from guanguans/dependabot/composer/nunomaduro/larastan-2.6.3
+- Merge pull request [#519](https://github.com/guanguans/monorepo-builder-worker/issues/519) from guanguans/dependabot/composer/phpstan/phpstan-1.10.19
+- Merge pull request [#518](https://github.com/guanguans/monorepo-builder-worker/issues/518) from guanguans/dependabot/composer/rector/rector-0.17.1
+- Merge pull request [#517](https://github.com/guanguans/monorepo-builder-worker/issues/517) from guanguans/dependabot/composer/phpunit/phpunit-9.6.9
+- Merge pull request [#516](https://github.com/guanguans/monorepo-builder-worker/issues/516) from guanguans/dependabot/composer/nunomaduro/larastan-2.6.2
+- Merge pull request [#515](https://github.com/guanguans/monorepo-builder-worker/issues/515) from guanguans/dependabot/github_actions/actions/checkout-3.5.3
+- Merge pull request [#514](https://github.com/guanguans/monorepo-builder-worker/issues/514) from guanguans/dependabot/composer/phpstan/phpstan-1.10.18
+- Merge pull request [#513](https://github.com/guanguans/monorepo-builder-worker/issues/513) from guanguans/dependabot/composer/mockery/mockery-1.6.2
+- Merge pull request [#512](https://github.com/guanguans/monorepo-builder-worker/issues/512) from guanguans/dependabot/composer/phpstan/phpstan-1.10.17
+- Merge pull request [#507](https://github.com/guanguans/monorepo-builder-worker/issues/507) from guanguans/dependabot/composer/phpstan/extension-installer-1.3.1
+- Merge pull request [#511](https://github.com/guanguans/monorepo-builder-worker/issues/511) from guanguans/dependabot/composer/nunomaduro/larastan-2.6.1
+- Merge pull request [#505](https://github.com/guanguans/monorepo-builder-worker/issues/505) from guanguans/dependabot/composer/vimeo/psalm-5.12.0
+- Merge pull request [#510](https://github.com/guanguans/monorepo-builder-worker/issues/510) from guanguans/dependabot/composer/phpstan/phpstan-1.10.16
+- Merge pull request [#509](https://github.com/guanguans/monorepo-builder-worker/issues/509) from guanguans/dependabot/composer/mockery/mockery-1.6.1
+- Merge pull request [#508](https://github.com/guanguans/monorepo-builder-worker/issues/508) from guanguans/dependabot/composer/rector/rector-0.17.0
+- Merge pull request [#506](https://github.com/guanguans/monorepo-builder-worker/issues/506) from guanguans/dependabot/github_actions/dependabot/fetch-metadata-1.5.1
+- Merge pull request [#504](https://github.com/guanguans/monorepo-builder-worker/issues/504) from guanguans/dependabot/composer/guzzlehttp/guzzle-7.7.0
+- Merge pull request [#503](https://github.com/guanguans/monorepo-builder-worker/issues/503) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.17.0
+- Merge pull request [#502](https://github.com/guanguans/monorepo-builder-worker/issues/502) from guanguans/dependabot/github_actions/dependabot/fetch-metadata-1.5.0
+
+
+<a name="v3.3.2"></a>
+## [v3.3.2] - 2023-05-18
+
+<a name="v3.3.1"></a>
+## [v3.3.1] - 2023-05-18
+
+<a name="v3.3.0"></a>
+## [v3.3.0] - 2023-05-18
+### Pull Requests
+- Merge pull request [#491](https://github.com/guanguans/monorepo-builder-worker/issues/491) from guanguans/dependabot/composer/nunomaduro/larastan-2.6.0
+- Merge pull request [#467](https://github.com/guanguans/monorepo-builder-worker/issues/467) from guanguans/dependabot/github_actions/actions/stale-8
+- Merge pull request [#501](https://github.com/guanguans/monorepo-builder-worker/issues/501) from guanguans/dependabot/composer/guzzlehttp/guzzle-7.6.1
+- Merge pull request [#500](https://github.com/guanguans/monorepo-builder-worker/issues/500) from guanguans/dependabot/github_actions/codecov/codecov-action-3.1.4
+- Merge pull request [#499](https://github.com/guanguans/monorepo-builder-worker/issues/499) from guanguans/dependabot/composer/phpunit/phpunit-9.6.8
+- Merge pull request [#498](https://github.com/guanguans/monorepo-builder-worker/issues/498) from guanguans/dependabot/composer/phpstan/phpstan-1.10.15
+- Merge pull request [#497](https://github.com/guanguans/monorepo-builder-worker/issues/497) from guanguans/dependabot/composer/react/event-loop-1.4.0
+- Merge pull request [#496](https://github.com/guanguans/monorepo-builder-worker/issues/496) from guanguans/dependabot/composer/rector/rector-0.16.0
+- Merge pull request [#495](https://github.com/guanguans/monorepo-builder-worker/issues/495) from guanguans/dependabot/composer/vimeo/psalm-5.11.0
+- Merge pull request [#494](https://github.com/guanguans/monorepo-builder-worker/issues/494) from guanguans/dependabot/composer/vimeo/psalm-5.10.0
+- Merge pull request [#493](https://github.com/guanguans/monorepo-builder-worker/issues/493) from guanguans/dependabot/github_actions/charmbracelet/vhs-action-1.2.2
+- Merge pull request [#492](https://github.com/guanguans/monorepo-builder-worker/issues/492) from guanguans/dependabot/composer/rector/rector-0.15.25
+- Merge pull request [#490](https://github.com/guanguans/monorepo-builder-worker/issues/490) from guanguans/dependabot/github_actions/codecov/codecov-action-3.1.3
+- Merge pull request [#489](https://github.com/guanguans/monorepo-builder-worker/issues/489) from guanguans/dependabot/composer/pestphp/pest-1.23.0
+- Merge pull request [#488](https://github.com/guanguans/monorepo-builder-worker/issues/488) from guanguans/dependabot/composer/phpstan/phpstan-1.10.14
+- Merge pull request [#485](https://github.com/guanguans/monorepo-builder-worker/issues/485) from guanguans/dependabot/composer/guzzlehttp/guzzle-7.5.1
+- Merge pull request [#487](https://github.com/guanguans/monorepo-builder-worker/issues/487) from guanguans/dependabot/composer/guzzlehttp/psr7-2.5.0
+- Merge pull request [#486](https://github.com/guanguans/monorepo-builder-worker/issues/486) from guanguans/dependabot/composer/phpstan/extension-installer-1.3.0
+- Merge pull request [#484](https://github.com/guanguans/monorepo-builder-worker/issues/484) from guanguans/dependabot/github_actions/dependabot/fetch-metadata-1.4.0
+- Merge pull request [#483](https://github.com/guanguans/monorepo-builder-worker/issues/483) from guanguans/dependabot/composer/phpunit/phpunit-9.6.7
+- Merge pull request [#482](https://github.com/guanguans/monorepo-builder-worker/issues/482) from guanguans/dependabot/github_actions/charmbracelet/vhs-action-1.2.1
+- Merge pull request [#481](https://github.com/guanguans/monorepo-builder-worker/issues/481) from guanguans/dependabot/github_actions/actions/checkout-3.5.2
+- Merge pull request [#480](https://github.com/guanguans/monorepo-builder-worker/issues/480) from guanguans/dependabot/composer/phpstan/phpstan-1.10.13
+- Merge pull request [#479](https://github.com/guanguans/monorepo-builder-worker/issues/479) from guanguans/dependabot/github_actions/actions/checkout-3.5.1
+- Merge pull request [#478](https://github.com/guanguans/monorepo-builder-worker/issues/478) from guanguans/dependabot/github_actions/codecov/codecov-action-3.1.2
+- Merge pull request [#477](https://github.com/guanguans/monorepo-builder-worker/issues/477) from guanguans/dependabot/composer/rector/rector-0.15.24
+- Merge pull request [#476](https://github.com/guanguans/monorepo-builder-worker/issues/476) from guanguans/dependabot/composer/phpstan/phpstan-1.10.11
+- Merge pull request [#475](https://github.com/guanguans/monorepo-builder-worker/issues/475) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.16.0
+- Merge pull request [#474](https://github.com/guanguans/monorepo-builder-worker/issues/474) from guanguans/dependabot/composer/phpstan/phpstan-1.10.10
+- Merge pull request [#473](https://github.com/guanguans/monorepo-builder-worker/issues/473) from guanguans/dependabot/composer/phpstan/phpstan-1.10.9
+- Merge pull request [#472](https://github.com/guanguans/monorepo-builder-worker/issues/472) from guanguans/dependabot/composer/vimeo/psalm-5.9.0
+- Merge pull request [#471](https://github.com/guanguans/monorepo-builder-worker/issues/471) from guanguans/dependabot/composer/phpunit/phpunit-9.6.6
+- Merge pull request [#470](https://github.com/guanguans/monorepo-builder-worker/issues/470) from guanguans/dependabot/composer/phpstan/phpstan-1.10.8
+- Merge pull request [#469](https://github.com/guanguans/monorepo-builder-worker/issues/469) from guanguans/dependabot/github_actions/actions/checkout-3.5.0
+- Merge pull request [#468](https://github.com/guanguans/monorepo-builder-worker/issues/468) from guanguans/dependabot/composer/rector/rector-0.15.23
+- Merge pull request [#466](https://github.com/guanguans/monorepo-builder-worker/issues/466) from guanguans/dependabot/composer/pestphp/pest-1.22.6
+- Merge pull request [#465](https://github.com/guanguans/monorepo-builder-worker/issues/465) from guanguans/dependabot/composer/phpstan/phpstan-1.10.7
+- Merge pull request [#464](https://github.com/guanguans/monorepo-builder-worker/issues/464) from guanguans/dependabot/github_actions/actions/checkout-3.4.0
+- Merge pull request [#463](https://github.com/guanguans/monorepo-builder-worker/issues/463) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.15.1
+- Merge pull request [#462](https://github.com/guanguans/monorepo-builder-worker/issues/462) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.15.0
+- Merge pull request [#461](https://github.com/guanguans/monorepo-builder-worker/issues/461) from guanguans/dependabot/composer/vimeo/psalm-5.8.0
+- Merge pull request [#460](https://github.com/guanguans/monorepo-builder-worker/issues/460) from guanguans/dependabot/composer/phpstan/phpstan-1.10.6
+- Merge pull request [#459](https://github.com/guanguans/monorepo-builder-worker/issues/459) from guanguans/dependabot/composer/phpunit/phpunit-9.6.5
+- Merge pull request [#458](https://github.com/guanguans/monorepo-builder-worker/issues/458) from guanguans/dependabot/composer/phpstan/phpstan-1.10.5
+- Merge pull request [#457](https://github.com/guanguans/monorepo-builder-worker/issues/457) from guanguans/dependabot/composer/phpstan/phpstan-1.10.4
+- Merge pull request [#456](https://github.com/guanguans/monorepo-builder-worker/issues/456) from guanguans/dependabot/composer/nunomaduro/larastan-2.5.1
+- Merge pull request [#455](https://github.com/guanguans/monorepo-builder-worker/issues/455) from guanguans/dependabot/composer/rector/rector-0.15.21
+- Merge pull request [#454](https://github.com/guanguans/monorepo-builder-worker/issues/454) from guanguans/dependabot/composer/pestphp/pest-1.22.5
+- Merge pull request [#453](https://github.com/guanguans/monorepo-builder-worker/issues/453) from guanguans/dependabot/composer/rector/rector-0.15.19
+- Merge pull request [#452](https://github.com/guanguans/monorepo-builder-worker/issues/452) from guanguans/dependabot/composer/phpunit/phpunit-9.6.4
+- Merge pull request [#451](https://github.com/guanguans/monorepo-builder-worker/issues/451) from guanguans/dependabot/composer/phpstan/phpstan-1.10.3
+- Merge pull request [#450](https://github.com/guanguans/monorepo-builder-worker/issues/450) from guanguans/dependabot/composer/vimeo/psalm-5.7.7
+- Merge pull request [#449](https://github.com/guanguans/monorepo-builder-worker/issues/449) from guanguans/dependabot/composer/vimeo/psalm-5.7.6
+- Merge pull request [#448](https://github.com/guanguans/monorepo-builder-worker/issues/448) from guanguans/dependabot/composer/phpstan/phpstan-1.10.2
+- Merge pull request [#447](https://github.com/guanguans/monorepo-builder-worker/issues/447) from guanguans/dependabot/composer/rector/rector-0.15.18
+- Merge pull request [#446](https://github.com/guanguans/monorepo-builder-worker/issues/446) from guanguans/dependabot/composer/vimeo/psalm-5.7.5
+- Merge pull request [#445](https://github.com/guanguans/monorepo-builder-worker/issues/445) from guanguans/dependabot/composer/phpstan/phpstan-1.10.1
+- Merge pull request [#444](https://github.com/guanguans/monorepo-builder-worker/issues/444) from guanguans/dependabot/composer/vimeo/psalm-5.7.1
+- Merge pull request [#443](https://github.com/guanguans/monorepo-builder-worker/issues/443) from guanguans/dependabot/composer/rector/rector-0.15.17
+- Merge pull request [#442](https://github.com/guanguans/monorepo-builder-worker/issues/442) from guanguans/dependabot/composer/phpstan/phpstan-1.9.18
+- Merge pull request [#441](https://github.com/guanguans/monorepo-builder-worker/issues/441) from guanguans/dependabot/composer/nunomaduro/larastan-2.4.1
+- Merge pull request [#440](https://github.com/guanguans/monorepo-builder-worker/issues/440) from guanguans/dependabot/composer/rector/rector-0.15.16
+- Merge pull request [#439](https://github.com/guanguans/monorepo-builder-worker/issues/439) from guanguans/dependabot/composer/rector/rector-0.15.15
+- Merge pull request [#438](https://github.com/guanguans/monorepo-builder-worker/issues/438) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.14.4
+- Merge pull request [#437](https://github.com/guanguans/monorepo-builder-worker/issues/437) from guanguans/dependabot/composer/phpstan/phpstan-1.9.17
+- Merge pull request [#436](https://github.com/guanguans/monorepo-builder-worker/issues/436) from guanguans/dependabot/composer/rector/rector-0.15.13
+- Merge pull request [#435](https://github.com/guanguans/monorepo-builder-worker/issues/435) from guanguans/dependabot/composer/phpstan/phpstan-1.9.16
+- Merge pull request [#434](https://github.com/guanguans/monorepo-builder-worker/issues/434) from guanguans/dependabot/composer/phpunit/phpunit-9.6.3
+- Merge pull request [#433](https://github.com/guanguans/monorepo-builder-worker/issues/433) from guanguans/dependabot/composer/infection/infection-0.26.19
+- Merge pull request [#432](https://github.com/guanguans/monorepo-builder-worker/issues/432) from guanguans/dependabot/composer/rector/rector-0.15.12
+- Merge pull request [#431](https://github.com/guanguans/monorepo-builder-worker/issues/431) from guanguans/dependabot/composer/phpunit/phpunit-9.6.1
+- Merge pull request [#430](https://github.com/guanguans/monorepo-builder-worker/issues/430) from guanguans/dependabot/composer/pestphp/pest-1.22.4
+- Merge pull request [#429](https://github.com/guanguans/monorepo-builder-worker/issues/429) from guanguans/dependabot/composer/rector/rector-0.15.11
+- Merge pull request [#428](https://github.com/guanguans/monorepo-builder-worker/issues/428) from guanguans/dependabot/composer/symfony/http-kernel-6.0.20
+- Merge pull request [#427](https://github.com/guanguans/monorepo-builder-worker/issues/427) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.14.3
+- Merge pull request [#426](https://github.com/guanguans/monorepo-builder-worker/issues/426) from guanguans/dependabot/github_actions/dependabot/fetch-metadata-1.3.6
+- Merge pull request [#425](https://github.com/guanguans/monorepo-builder-worker/issues/425) from guanguans/dependabot/composer/rector/rector-0.15.10
+- Merge pull request [#424](https://github.com/guanguans/monorepo-builder-worker/issues/424) from guanguans/dependabot/composer/infection/infection-0.26.18
+- Merge pull request [#423](https://github.com/guanguans/monorepo-builder-worker/issues/423) from guanguans/dependabot/composer/vimeo/psalm-5.6.0
+- Merge pull request [#422](https://github.com/guanguans/monorepo-builder-worker/issues/422) from guanguans/dependabot/composer/rector/rector-0.15.8
+- Merge pull request [#421](https://github.com/guanguans/monorepo-builder-worker/issues/421) from guanguans/dependabot/composer/phpstan/phpstan-1.9.14
+- Merge pull request [#420](https://github.com/guanguans/monorepo-builder-worker/issues/420) from guanguans/dependabot/composer/infection/infection-0.26.17
+- Merge pull request [#419](https://github.com/guanguans/monorepo-builder-worker/issues/419) from guanguans/dependabot/composer/phpstan/phpstan-1.9.13
+- Merge pull request [#418](https://github.com/guanguans/monorepo-builder-worker/issues/418) from guanguans/dependabot/composer/phpstan/phpstan-1.9.12
+- Merge pull request [#417](https://github.com/guanguans/monorepo-builder-worker/issues/417) from guanguans/dependabot/composer/phpunit/phpunit-9.5.28
+- Merge pull request [#416](https://github.com/guanguans/monorepo-builder-worker/issues/416) from guanguans/dependabot/composer/rector/rector-0.15.7
+- Merge pull request [#415](https://github.com/guanguans/monorepo-builder-worker/issues/415) from guanguans/dependabot/composer/rector/rector-0.15.6
+- Merge pull request [#414](https://github.com/guanguans/monorepo-builder-worker/issues/414) from guanguans/dependabot/composer/pestphp/pest-plugin-laravel-1.4.0
+- Merge pull request [#413](https://github.com/guanguans/monorepo-builder-worker/issues/413) from guanguans/dependabot/composer/nunomaduro/larastan-2.4.0
+- Merge pull request [#412](https://github.com/guanguans/monorepo-builder-worker/issues/412) from guanguans/dependabot/composer/phpstan/phpstan-1.9.11
+- Merge pull request [#411](https://github.com/guanguans/monorepo-builder-worker/issues/411) from guanguans/dependabot/composer/phpstan/phpstan-1.9.9
+- Merge pull request [#410](https://github.com/guanguans/monorepo-builder-worker/issues/410) from guanguans/dependabot/composer/nunomaduro/larastan-2.3.5
+- Merge pull request [#409](https://github.com/guanguans/monorepo-builder-worker/issues/409) from guanguans/dependabot/composer/rector/rector-0.15.4
+- Merge pull request [#408](https://github.com/guanguans/monorepo-builder-worker/issues/408) from guanguans/dependabot/composer/phpstan/phpstan-1.9.8
+- Merge pull request [#407](https://github.com/guanguans/monorepo-builder-worker/issues/407) from guanguans/dependabot/composer/rector/rector-0.15.3
+- Merge pull request [#396](https://github.com/guanguans/monorepo-builder-worker/issues/396) from guanguans/dependabot/github_actions/actions/stale-7
+- Merge pull request [#406](https://github.com/guanguans/monorepo-builder-worker/issues/406) from guanguans/dependabot/github_actions/actions/checkout-3.3.0
+- Merge pull request [#405](https://github.com/guanguans/monorepo-builder-worker/issues/405) from guanguans/dependabot/composer/phpstan/phpstan-1.9.7
+- Merge pull request [#404](https://github.com/guanguans/monorepo-builder-worker/issues/404) from guanguans/dependabot/composer/phpstan/phpstan-1.9.6
+- Merge pull request [#403](https://github.com/guanguans/monorepo-builder-worker/issues/403) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.13.2
+- Merge pull request [#402](https://github.com/guanguans/monorepo-builder-worker/issues/402) from guanguans/dependabot/composer/nunomaduro/larastan-2.3.4
+- Merge pull request [#401](https://github.com/guanguans/monorepo-builder-worker/issues/401) from guanguans/dependabot/composer/nunomaduro/larastan-2.3.3
+- Merge pull request [#400](https://github.com/guanguans/monorepo-builder-worker/issues/400) from guanguans/dependabot/composer/nunomaduro/larastan-2.3.2
+- Merge pull request [#399](https://github.com/guanguans/monorepo-builder-worker/issues/399) from guanguans/dependabot/composer/rector/rector-0.15.2
+- Merge pull request [#398](https://github.com/guanguans/monorepo-builder-worker/issues/398) from guanguans/dependabot/composer/nunomaduro/larastan-2.3.1
+- Merge pull request [#395](https://github.com/guanguans/monorepo-builder-worker/issues/395) from guanguans/dependabot/composer/vimeo/psalm-5.4.0
+- Merge pull request [#394](https://github.com/guanguans/monorepo-builder-worker/issues/394) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.13.1
+- Merge pull request [#393](https://github.com/guanguans/monorepo-builder-worker/issues/393) from guanguans/dependabot/composer/vimeo/psalm-5.3.0
+- Merge pull request [#392](https://github.com/guanguans/monorepo-builder-worker/issues/392) from guanguans/dependabot/composer/phpstan/phpstan-1.9.4
+- Merge pull request [#391](https://github.com/guanguans/monorepo-builder-worker/issues/391) from guanguans/dependabot/composer/rector/rector-0.15.1
+- Merge pull request [#390](https://github.com/guanguans/monorepo-builder-worker/issues/390) from guanguans/dependabot/composer/phpstan/phpstan-1.9.3
+- Merge pull request [#389](https://github.com/guanguans/monorepo-builder-worker/issues/389) from guanguans/dependabot/composer/vimeo/psalm-5.2.0
+- Merge pull request [#388](https://github.com/guanguans/monorepo-builder-worker/issues/388) from guanguans/dependabot/github_actions/actions/checkout-3.2.0
+- Merge pull request [#387](https://github.com/guanguans/monorepo-builder-worker/issues/387) from guanguans/dependabot/composer/phpunit/phpunit-9.5.27
+- Merge pull request [#386](https://github.com/guanguans/monorepo-builder-worker/issues/386) from guanguans/dependabot/composer/pestphp/pest-1.22.3
+- Merge pull request [#385](https://github.com/guanguans/monorepo-builder-worker/issues/385) from guanguans/dependabot/composer/rector/rector-0.15.0
+
+
+<a name="v3.2.3"></a>
+## [v3.2.3] - 2022-12-05
+
+<a name="v3.2.2"></a>
+## [v3.2.2] - 2022-12-04
+
+<a name="v3.2.1"></a>
+## [v3.2.1] - 2022-12-03
+### Pull Requests
+- Merge pull request [#382](https://github.com/guanguans/monorepo-builder-worker/issues/382) from guanguans/dependabot/composer/vimeo/psalm-5.0.0
+- Merge pull request [#381](https://github.com/guanguans/monorepo-builder-worker/issues/381) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.13.0
+- Merge pull request [#380](https://github.com/guanguans/monorepo-builder-worker/issues/380) from guanguans/dependabot/composer/vimeo/psalm-4.30.0
+- Merge pull request [#379](https://github.com/guanguans/monorepo-builder-worker/issues/379) from guanguans/dependabot/composer/pestphp/pest-1.22.2
+- Merge pull request [#378](https://github.com/guanguans/monorepo-builder-worker/issues/378) from guanguans/dependabot/composer/vimeo/psalm-4.30.0
+- Merge pull request [#377](https://github.com/guanguans/monorepo-builder-worker/issues/377) from guanguans/dependabot/github_actions/dependabot/fetch-metadata-1.3.5
+- Merge pull request [#376](https://github.com/guanguans/monorepo-builder-worker/issues/376) from guanguans/dependabot/composer/nunomaduro/termwind-1.14.2
+- Merge pull request [#375](https://github.com/guanguans/monorepo-builder-worker/issues/375) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.13.0
+- Merge pull request [#374](https://github.com/guanguans/monorepo-builder-worker/issues/374) from guanguans/dependabot/composer/nunomaduro/termwind-1.14.1
+- Merge pull request [#373](https://github.com/guanguans/monorepo-builder-worker/issues/373) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.12.0
+- Merge pull request [#372](https://github.com/guanguans/monorepo-builder-worker/issues/372) from guanguans/dependabot/composer/vimeo/psalm-4.29.0
+
+
+<a name="v3.2.0"></a>
+## [v3.2.0] - 2022-10-09
+### Pull Requests
+- Merge pull request [#371](https://github.com/guanguans/monorepo-builder-worker/issues/371) from guanguans/dependabot/composer/vimeo/psalm-4.28.0
+- Merge pull request [#370](https://github.com/guanguans/monorepo-builder-worker/issues/370) from guanguans/dependabot/github_actions/actions/checkout-3.1.0
+- Merge pull request [#366](https://github.com/guanguans/monorepo-builder-worker/issues/366) from guanguans/dependabot/github_actions/actions/stale-6
+- Merge pull request [#368](https://github.com/guanguans/monorepo-builder-worker/issues/368) from guanguans/dependabot/github_actions/dependabot/fetch-metadata-1.3.4
+- Merge pull request [#367](https://github.com/guanguans/monorepo-builder-worker/issues/367) from guanguans/dependabot/composer/laravel-zero/framework-9.2.0
+- Merge pull request [#365](https://github.com/guanguans/monorepo-builder-worker/issues/365) from guanguans/dependabot/github_actions/codecov/codecov-action-3.1.1
+- Merge pull request [#364](https://github.com/guanguans/monorepo-builder-worker/issues/364) from guanguans/dependabot/composer/mockery/mockery-1.5.1
+- Merge pull request [#363](https://github.com/guanguans/monorepo-builder-worker/issues/363) from guanguans/dependabot/composer/vimeo/psalm-4.27.0
+- Merge pull request [#362](https://github.com/guanguans/monorepo-builder-worker/issues/362) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.11.0
+- Merge pull request [#361](https://github.com/guanguans/monorepo-builder-worker/issues/361) from guanguans/dependabot/composer/guzzlehttp/guzzle-7.5.0
+- Merge pull request [#360](https://github.com/guanguans/monorepo-builder-worker/issues/360) from guanguans/dependabot/composer/pestphp/pest-1.22.1
+- Merge pull request [#359](https://github.com/guanguans/monorepo-builder-worker/issues/359) from guanguans/dependabot/composer/laravel-zero/framework-9.1.3
+- Merge pull request [#358](https://github.com/guanguans/monorepo-builder-worker/issues/358) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.10.0
+- Merge pull request [#357](https://github.com/guanguans/monorepo-builder-worker/issues/357) from guanguans/dependabot/composer/vimeo/psalm-4.26.0
+- Merge pull request [#356](https://github.com/guanguans/monorepo-builder-worker/issues/356) from guanguans/dependabot/composer/nunomaduro/termwind-1.14.0
+- Merge pull request [#355](https://github.com/guanguans/monorepo-builder-worker/issues/355) from guanguans/dependabot/composer/vimeo/psalm-4.25.0
+- Merge pull request [#354](https://github.com/guanguans/monorepo-builder-worker/issues/354) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.9.5
+- Merge pull request [#353](https://github.com/guanguans/monorepo-builder-worker/issues/353) from guanguans/dependabot/composer/laravel-zero/framework-9.1.2
+- Merge pull request [#352](https://github.com/guanguans/monorepo-builder-worker/issues/352) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.9.4
+
+
+<a name="v3.1.6"></a>
+## [v3.1.6] - 2022-07-14
+
+<a name="v3.1.5"></a>
+## [v3.1.5] - 2022-07-14
+### Pull Requests
+- Merge pull request [#351](https://github.com/guanguans/monorepo-builder-worker/issues/351) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.9.3
+- Merge pull request [#350](https://github.com/guanguans/monorepo-builder-worker/issues/350) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.9.2
+- Merge pull request [#348](https://github.com/guanguans/monorepo-builder-worker/issues/348) from guanguans/dependabot/github_actions/dependabot/fetch-metadata-1.3.3
+- Merge pull request [#349](https://github.com/guanguans/monorepo-builder-worker/issues/349) from guanguans/dependabot/composer/nunomaduro/termwind-1.13.0
+- Merge pull request [#347](https://github.com/guanguans/monorepo-builder-worker/issues/347) from guanguans/dependabot/github_actions/dependabot/fetch-metadata-1.3.2
+- Merge pull request [#346](https://github.com/guanguans/monorepo-builder-worker/issues/346) from guanguans/dependabot/composer/nunomaduro/termwind-1.12.0
+- Merge pull request [#345](https://github.com/guanguans/monorepo-builder-worker/issues/345) from guanguans/dependabot/composer/vimeo/psalm-4.24.0
+- Merge pull request [#344](https://github.com/guanguans/monorepo-builder-worker/issues/344) from guanguans/dependabot/composer/spatie/async-1.5.5
+- Merge pull request [#343](https://github.com/guanguans/monorepo-builder-worker/issues/343) from guanguans/dependabot/composer/guzzlehttp/guzzle-7.4.5
+- Merge pull request [#342](https://github.com/guanguans/monorepo-builder-worker/issues/342) from guanguans/dependabot/composer/nunomaduro/termwind-1.11.1
+
+
+<a name="v3.1.4"></a>
+## [v3.1.4] - 2022-06-14
+### Pull Requests
+- Merge pull request [#341](https://github.com/guanguans/monorepo-builder-worker/issues/341) from guanguans/dependabot/composer/guzzlehttp/guzzle-7.4.4
+
+
+<a name="v3.1.3"></a>
+## [v3.1.3] - 2022-05-27
+
+<a name="v3.1.2"></a>
+## [v3.1.2] - 2022-05-27
+
+<a name="v3.1.1"></a>
+## [v3.1.1] - 2022-05-27
+### Pull Requests
+- Merge pull request [#340](https://github.com/guanguans/monorepo-builder-worker/issues/340) from guanguans/dependabot/composer/guzzlehttp/guzzle-7.4.3
+
+
+<a name="v3.1.0"></a>
+## [v3.1.0] - 2022-05-25
+### Pull Requests
+- Merge pull request [#338](https://github.com/guanguans/monorepo-builder-worker/issues/338) from guanguans/dependabot/composer/pestphp/pest-1.21.3
+- Merge pull request [#337](https://github.com/guanguans/monorepo-builder-worker/issues/337) from guanguans/dependabot/composer/nunomaduro/termwind-1.10.1
+- Merge pull request [#335](https://github.com/guanguans/monorepo-builder-worker/issues/335) from guanguans/dependabot/composer/vimeo/psalm-4.23.0
+- Merge pull request [#334](https://github.com/guanguans/monorepo-builder-worker/issues/334) from guanguans/dependabot/composer/nunomaduro/termwind-1.8.0
+- Merge pull request [#333](https://github.com/guanguans/monorepo-builder-worker/issues/333) from guanguans/dependabot/github_actions/codecov/codecov-action-3.1.0
+- Merge pull request [#332](https://github.com/guanguans/monorepo-builder-worker/issues/332) from guanguans/dependabot/github_actions/dependabot/fetch-metadata-1.3.1
+- Merge pull request [#331](https://github.com/guanguans/monorepo-builder-worker/issues/331) from guanguans/dependabot/github_actions/codecov/codecov-action-3.0.0
+- Merge pull request [#329](https://github.com/guanguans/monorepo-builder-worker/issues/329) from guanguans/dependabot/composer/nunomaduro/termwind-1.7.0
+- Merge pull request [#328](https://github.com/guanguans/monorepo-builder-worker/issues/328) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.8.0
+- Merge pull request [#327](https://github.com/guanguans/monorepo-builder-worker/issues/327) from guanguans/dependabot/composer/guzzlehttp/guzzle-7.4.2
+- Merge pull request [#326](https://github.com/guanguans/monorepo-builder-worker/issues/326) from guanguans/dependabot/composer/nunomaduro/termwind-1.6.2
+- Merge pull request [#325](https://github.com/guanguans/monorepo-builder-worker/issues/325) from guanguans/dependabot/github_actions/actions/cache-3
+
+
+<a name="v3.0.10"></a>
+## [v3.0.10] - 2022-03-22
+
+<a name="v3.0.9"></a>
+## [v3.0.9] - 2022-03-20
+
+<a name="v3.0.8"></a>
+## [v3.0.8] - 2022-03-20
+
+<a name="v3.0.7"></a>
+## [v3.0.7] - 2022-03-20
+### Pull Requests
+- Merge pull request [#324](https://github.com/guanguans/monorepo-builder-worker/issues/324) from guanguans/imgbot
+
+
+<a name="v3.0.6"></a>
+## [v3.0.6] - 2022-03-20
+
+<a name="v3.0.5"></a>
+## [v3.0.5] - 2022-03-19
+
+<a name="v3.0.4"></a>
+## [v3.0.4] - 2022-03-19
+### Pull Requests
+- Merge pull request [#323](https://github.com/guanguans/monorepo-builder-worker/issues/323) from guanguans/imgbot
+
+
+<a name="v3.0.3"></a>
+## [v3.0.3] - 2022-03-19
+
+<a name="v3.0.2"></a>
+## [v3.0.2] - 2022-03-19
+### Pull Requests
+- Merge pull request [#322](https://github.com/guanguans/monorepo-builder-worker/issues/322) from guanguans/dependabot/github_actions/actions/labeler-4
+- Merge pull request [#320](https://github.com/guanguans/monorepo-builder-worker/issues/320) from guanguans/dependabot/github_actions/actions/stale-5
+- Merge pull request [#321](https://github.com/guanguans/monorepo-builder-worker/issues/321) from guanguans/dependabot/github_actions/dependabot/fetch-metadata-1.3.0
+
+
+<a name="v3.0.1"></a>
+## [v3.0.1] - 2022-03-18
+
+<a name="v3.0.0"></a>
+## [v3.0.0] - 2022-03-18
+
+<a name="v3.0.0-rc3"></a>
+## [v3.0.0-rc3] - 2022-03-18
+
+<a name="v3.0.0-rc2"></a>
+## [v3.0.0-rc2] - 2022-03-18
+
+<a name="v3.0.0-rc1"></a>
+## [v3.0.0-rc1] - 2022-03-18
+
+<a name="v3.0.0-beta3"></a>
+## [v3.0.0-beta3] - 2022-03-18
+
+<a name="v3.0.0-beta2"></a>
+## [v3.0.0-beta2] - 2022-03-18
+
+<a name="v3.0.0-beta1"></a>
+## [v3.0.0-beta1] - 2022-03-18
+### Pull Requests
+- Merge pull request [#45](https://github.com/guanguans/monorepo-builder-worker/issues/45) from guanguans/dependabot/composer/phpunit/phpunit-approx-7or-approx-8or-approx-0
+
+
+<a name="v2.1.6"></a>
+## [v2.1.6] - 2021-09-30
+### Pull Requests
+- Merge pull request [#44](https://github.com/guanguans/monorepo-builder-worker/issues/44) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-tw-2.1or-tw-3.0
+- Merge pull request [#42](https://github.com/guanguans/monorepo-builder-worker/issues/42) from guanguans/dependabot/composer/guzzlehttp/guzzle-tw-6.3or-tw-7.0
+
+
+<a name="v2.1.5"></a>
+## [v2.1.5] - 2021-07-07
+
+<a name="v2.1.4"></a>
+## [v2.1.4] - 2021-06-15
+
+<a name="v2.1.3"></a>
+## [v2.1.3] - 2021-04-23
+### Fix
+- Remove xiami platform support
+
+
+<a name="v2.1.2"></a>
+## [v2.1.2] - 2020-08-31
+### Pull Requests
+- Merge pull request [#33](https://github.com/guanguans/monorepo-builder-worker/issues/33) from guanguans/imgbot
+- Merge pull request [#39](https://github.com/guanguans/monorepo-builder-worker/issues/39) from guanguans/analysis-1b2l5A
+- Merge pull request [#40](https://github.com/guanguans/monorepo-builder-worker/issues/40) from guanguans/multi_progress
+
+
+<a name="v2.1.1"></a>
+## [v2.1.1] - 2020-08-28
+
+<a name="v2.1.0"></a>
+## [v2.1.0] - 2020-02-12
+
+<a name="v2.0.0"></a>
+## [v2.0.0] - 2020-02-11
+### Docs
+- add luokuncool as a contributor ([#16](https://github.com/guanguans/monorepo-builder-worker/issues/16))
+- create .all-contributorsrc
+- update README.md
+
+
+<a name="v1.1.7"></a>
+## [v1.1.7] - 2019-06-23
+
+<a name="v1.1.6"></a>
+## [v1.1.6] - 2019-06-17
+
+<a name="v1.1.5"></a>
+## [v1.1.5] - 2019-06-16
+
+<a name="v1.1.4"></a>
+## [v1.1.4] - 2019-06-15
+
+<a name="v1.1.3"></a>
+## [v1.1.3] - 2019-06-13
+
+<a name="v1.1.2"></a>
+## [v1.1.2] - 2019-06-01
+
+<a name="v1.1.1"></a>
+## [v1.1.1] - 2019-06-01
+
+<a name="v1.1.0"></a>
+## [v1.1.0] - 2019-05-31
+
+<a name="v1.0.2"></a>
+## [v1.0.2] - 2019-05-30
+
+<a name="v1.0.1"></a>
+## [v1.0.1] - 2019-05-27
+
+<a name="v1.0.0"></a>
+## v1.0.0 - 2019-05-23
+
+[Unreleased]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.0...HEAD
+[3.6.0]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.5.7...3.6.0
+[v3.5.7]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.5.6...v3.5.7
+[v3.5.6]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.5.5...v3.5.6
+[v3.5.5]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.5.4...v3.5.5
+[v3.5.4]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.5.3...v3.5.4
+[v3.5.3]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.5.2...v3.5.3
+[v3.5.2]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.5.1...v3.5.2
+[v3.5.1]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.5.0...v3.5.1
+[v3.5.0]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.4.1...v3.5.0
+[v3.4.1]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.4.0...v3.4.1
+[v3.4.0]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.3.3...v3.4.0
+[v3.3.3]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.3.2...v3.3.3
+[v3.3.2]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.3.1...v3.3.2
+[v3.3.1]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.3.0...v3.3.1
+[v3.3.0]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.2.3...v3.3.0
+[v3.2.3]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.2.2...v3.2.3
+[v3.2.2]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.2.1...v3.2.2
+[v3.2.1]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.2.0...v3.2.1
+[v3.2.0]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.1.6...v3.2.0
+[v3.1.6]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.1.5...v3.1.6
+[v3.1.5]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.1.4...v3.1.5
+[v3.1.4]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.1.3...v3.1.4
+[v3.1.3]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.1.2...v3.1.3
+[v3.1.2]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.1.1...v3.1.2
+[v3.1.1]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.1.0...v3.1.1
+[v3.1.0]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.0.10...v3.1.0
+[v3.0.10]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.0.9...v3.0.10
+[v3.0.9]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.0.8...v3.0.9
+[v3.0.8]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.0.7...v3.0.8
+[v3.0.7]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.0.6...v3.0.7
+[v3.0.6]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.0.5...v3.0.6
+[v3.0.5]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.0.4...v3.0.5
+[v3.0.4]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.0.3...v3.0.4
+[v3.0.3]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.0.2...v3.0.3
+[v3.0.2]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.0.1...v3.0.2
+[v3.0.1]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.0.0...v3.0.1
+[v3.0.0]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.0.0-rc3...v3.0.0
+[v3.0.0-rc3]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.0.0-rc2...v3.0.0-rc3
+[v3.0.0-rc2]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.0.0-rc1...v3.0.0-rc2
+[v3.0.0-rc1]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.0.0-beta3...v3.0.0-rc1
+[v3.0.0-beta3]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.0.0-beta2...v3.0.0-beta3
+[v3.0.0-beta2]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.0.0-beta1...v3.0.0-beta2
+[v3.0.0-beta1]: https://github.com/guanguans/monorepo-builder-worker/compare/v2.1.6...v3.0.0-beta1
+[v2.1.6]: https://github.com/guanguans/monorepo-builder-worker/compare/v2.1.5...v2.1.6
+[v2.1.5]: https://github.com/guanguans/monorepo-builder-worker/compare/v2.1.4...v2.1.5
+[v2.1.4]: https://github.com/guanguans/monorepo-builder-worker/compare/v2.1.3...v2.1.4
+[v2.1.3]: https://github.com/guanguans/monorepo-builder-worker/compare/v2.1.2...v2.1.3
+[v2.1.2]: https://github.com/guanguans/monorepo-builder-worker/compare/v2.1.1...v2.1.2
+[v2.1.1]: https://github.com/guanguans/monorepo-builder-worker/compare/v2.1.0...v2.1.1
+[v2.1.0]: https://github.com/guanguans/monorepo-builder-worker/compare/v2.0.0...v2.1.0
+[v2.0.0]: https://github.com/guanguans/monorepo-builder-worker/compare/v1.1.7...v2.0.0
+[v1.1.7]: https://github.com/guanguans/monorepo-builder-worker/compare/v1.1.6...v1.1.7
+[v1.1.6]: https://github.com/guanguans/monorepo-builder-worker/compare/v1.1.5...v1.1.6
+[v1.1.5]: https://github.com/guanguans/monorepo-builder-worker/compare/v1.1.4...v1.1.5
+[v1.1.4]: https://github.com/guanguans/monorepo-builder-worker/compare/v1.1.3...v1.1.4
+[v1.1.3]: https://github.com/guanguans/monorepo-builder-worker/compare/v1.1.2...v1.1.3
+[v1.1.2]: https://github.com/guanguans/monorepo-builder-worker/compare/v1.1.1...v1.1.2
+[v1.1.1]: https://github.com/guanguans/monorepo-builder-worker/compare/v1.1.0...v1.1.1
+[v1.1.0]: https://github.com/guanguans/monorepo-builder-worker/compare/v1.0.2...v1.1.0
+[v1.0.2]: https://github.com/guanguans/monorepo-builder-worker/compare/v1.0.1...v1.0.2
+[v1.0.1]: https://github.com/guanguans/monorepo-builder-worker/compare/v1.0.0...v1.0.1
