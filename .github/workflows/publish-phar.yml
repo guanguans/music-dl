@@ -47,7 +47,7 @@ jobs:
           path: builds/music-dl.phar
 
       - name: Upload the PHAR to release
-        run: gh release upload v${{ steps.tag.outputs.tag }} builds/music-dl.phar
+        run: gh release upload ${{ steps.tag.outputs.tag }} builds/music-dl.phar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
