@@ -7726,16 +7726,16 @@
         },
         {
             "name": "guanguans/ai-commit",
-            "version": "v1.6.9",
+            "version": "1.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guanguans/ai-commit.git",
-                "reference": "e56ba1f32fcab4ae9d909910b29f4df52f90746e"
+                "reference": "5e88eab28fa92a565d451636b9aae43008eb9624"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guanguans/ai-commit/zipball/e56ba1f32fcab4ae9d909910b29f4df52f90746e",
-                "reference": "e56ba1f32fcab4ae9d909910b29f4df52f90746e",
+                "url": "https://api.github.com/repos/guanguans/ai-commit/zipball/5e88eab28fa92a565d451636b9aae43008eb9624",
+                "reference": "5e88eab28fa92a565d451636b9aae43008eb9624",
                 "shasum": ""
             },
             "require": {
@@ -7746,6 +7746,7 @@
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.8",
                 "brainmaestro/composer-git-hooks": "^2.8",
+                "guanguans/monorepo-builder-worker": "^1.1",
                 "guzzlehttp/guzzle": "^7.7",
                 "illuminate/http": "^8.83 || ^9.0 || ^10.0",
                 "illuminate/translation": "^8.83 || ^9.0 || ^10.0",
@@ -7835,7 +7836,7 @@
                     "type": "wechat"
                 }
             ],
-            "time": "2023-07-14T13:35:05+00:00"
+            "time": "2023-07-24T07:53:14+00:00"
         },
         {
             "name": "guanguans/monorepo-builder-worker",
