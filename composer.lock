@@ -7839,28 +7839,29 @@
         },
         {
             "name": "guanguans/monorepo-builder-worker",
-            "version": "1.1.8",
+            "version": "1.1.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guanguans/monorepo-builder-worker.git",
-                "reference": "14af76f030b22fb95cf2344c410cc206ed030abb"
+                "reference": "9f28d3be51fbbfcd9b9cf10ee3fa2385a224efc5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guanguans/monorepo-builder-worker/zipball/14af76f030b22fb95cf2344c410cc206ed030abb",
-                "reference": "14af76f030b22fb95cf2344c410cc206ed030abb",
+                "url": "https://api.github.com/repos/guanguans/monorepo-builder-worker/zipball/9f28d3be51fbbfcd9b9cf10ee3fa2385a224efc5",
+                "reference": "9f28d3be51fbbfcd9b9cf10ee3fa2385a224efc5",
                 "shasum": ""
             },
             "require": {
                 "marcocesarato/php-conventional-changelog": "^1.17",
                 "php": ">=7.3",
+                "symfony/polyfill-php80": "^1.27",
                 "symplify/monorepo-builder": "^11.2"
             },
             "require-dev": {
                 "brainmaestro/composer-git-hooks": "^2.8 || ^3.0",
                 "ergebnis/composer-normalize": "^2.20",
                 "friendsofphp/php-cs-fixer": "^3.4",
-                "guanguans/ai-commit": "^1.6",
+                "guanguans/ai-commit": "^1.7",
                 "kubawerlos/php-cs-fixer-custom-fixers": "^3.7",
                 "mockery/mockery": "^1.5",
                 "nunomaduro/mock-final-classes": "^1.2",
@@ -7917,7 +7918,7 @@
                 }
             ],
             "description": "List of release worker collections for symplify/monorepo-builder.",
-            "homepage": "https://github.com/guanguans/monorepo-builder-worker",
+            "homepage": "https://github.com/guanguans/worker",
             "keywords": [
                 "changelog",
                 "git",
@@ -7928,8 +7929,8 @@
                 "workflow"
             ],
             "support": {
-                "issues": "https://github.com/guanguans/monorepo-builder-worker/issues",
-                "source": "https://github.com/guanguans/monorepo-builder-worker"
+                "issues": "https://github.com/guanguans/worker/issues",
+                "source": "https://github.com/guanguans/worker"
             },
             "funding": [
                 {
@@ -7937,7 +7938,7 @@
                     "type": "wechat"
                 }
             ],
-            "time": "2023-07-22T15:09:29+00:00"
+            "time": "2023-07-24T09:03:04+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
