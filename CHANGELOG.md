@@ -8,6 +8,9 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="3.6.3"></a>
+## [3.6.3] - 2023-07-30
+
 <a name="3.6.2"></a>
 ## [3.6.2] - 2023-07-30
 ### Refactor
@@ -586,7 +589,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.2...HEAD
+[Unreleased]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.3...HEAD
+[3.6.3]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.2...3.6.3
 [3.6.2]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.1...3.6.2
 [3.6.1]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.0...3.6.1
 [3.6.0]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.5.7...3.6.0
