@@ -37,7 +37,7 @@
         "brainmaestro/composer-git-hooks": "^3.0",
         "ergebnis/composer-normalize": "^2.31",
         "friendsofphp/php-cs-fixer": "^3.22",
-        "guanguans/ai-commit": "^1.6",
+        "guanguans/ai-commit": "^1.7",
         "guanguans/monorepo-builder-worker": "^1.1",
         "infection/infection": "^0.26",
         "johnkary/phpunit-speedtrap": "^4.0",
