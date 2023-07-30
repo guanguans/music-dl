@@ -8,6 +8,20 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="3.6.2"></a>
+## [3.6.2] - 2023-07-30
+### Refactor
+- **Utils:** update method names to camelCase
+- **rector.php:** update rules configuration
+- **utils:** update default save directory logic
+
+### Pull Requests
+- Merge pull request [#552](https://github.com/guanguans/monorepo-builder-worker/issues/552) from guanguans/dependabot/composer/guanguans/ai-commit-1.7.6
+- Merge pull request [#551](https://github.com/guanguans/monorepo-builder-worker/issues/551) from guanguans/dependabot/composer/guanguans/ai-commit-1.7.3
+- Merge pull request [#550](https://github.com/guanguans/monorepo-builder-worker/issues/550) from guanguans/dependabot/composer/guanguans/monorepo-builder-worker-1.1.11
+- Merge pull request [#549](https://github.com/guanguans/monorepo-builder-worker/issues/549) from guanguans/dependabot/composer/rector/rector-0.17.7
+
+
 <a name="3.6.1"></a>
 ## [3.6.1] - 2023-07-23
 ### Fix
@@ -572,7 +586,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.1...HEAD
+[Unreleased]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.2...HEAD
+[3.6.2]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.1...3.6.2
 [3.6.1]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.0...3.6.1
 [3.6.0]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.5.7...3.6.0
 [v3.5.7]: https://github.com/guanguans/monorepo-builder-worker/compare/v3.5.6...v3.5.7
