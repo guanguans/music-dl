@@ -23,8 +23,8 @@ final class Utils
     public static function getDefaultSaveDir(): string
     {
         $saveDir = windows_os()
-            ? sprintf('C:\\Users\\%s\\Downloads\\MusicDL\\', get_current_user())
-            : sprintf('%s/Downloads/MusicDL/', exec('cd ~; pwd'));
+            ? sprintf('%s\\Downloads\\MusicDL\\', exec('echo %USERPROFILE%') ?: sprintf('C:\\Users\\%s', get_current_user()))
+            : sprintf('%s/Downloads/MusicDL/', exec('echo $HOME') ?: exec('cd ~; pwd'));
 
         if (! is_dir($saveDir) && ! mkdir($saveDir, 0755, true) && ! is_dir($saveDir)) {
             throw new RuntimeException(sprintf('The directory "%s" was not created.', $saveDir));
