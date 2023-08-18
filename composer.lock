@@ -7726,16 +7726,16 @@
         },
         {
             "name": "guanguans/ai-commit",
-            "version": "1.8.0",
+            "version": "1.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guanguans/ai-commit.git",
-                "reference": "890af42b961a18be7ce2fb08af2fb80612de0266"
+                "reference": "21f9a1523149c91b6a12ef91999ef7de9020702f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guanguans/ai-commit/zipball/890af42b961a18be7ce2fb08af2fb80612de0266",
-                "reference": "890af42b961a18be7ce2fb08af2fb80612de0266",
+                "url": "https://api.github.com/repos/guanguans/ai-commit/zipball/21f9a1523149c91b6a12ef91999ef7de9020702f",
+                "reference": "21f9a1523149c91b6a12ef91999ef7de9020702f",
                 "shasum": ""
             },
             "require": {
@@ -7753,7 +7753,7 @@
                 "laminas/laminas-text": "^2.9",
                 "laravel-zero/framework": "^8.10 || ^9.0 || ^10.0",
                 "laravel-zero/phar-updater": "^1.1",
-                "mockery/mockery": "^1.5",
+                "mockery/mockery": "^1.6",
                 "pestphp/pest": "^1.23",
                 "php-mock/php-mock-phpunit": "^2.7"
             },
@@ -7762,6 +7762,11 @@
             ],
             "type": "project",
             "extra": {
+                "bamarni-bin": {
+                    "bin-links": true,
+                    "forward-command": true,
+                    "target-directory": "vendor-bin"
+                },
                 "branch-alias": {
                     "dev-main": "1.x-dev"
                 },
@@ -7835,7 +7840,7 @@
                     "type": "wechat"
                 }
             ],
-            "time": "2023-08-17T09:25:22+00:00"
+            "time": "2023-08-18T08:18:00+00:00"
         },
         {
             "name": "guanguans/monorepo-builder-worker",
