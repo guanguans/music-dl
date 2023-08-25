@@ -3566,16 +3566,16 @@
         },
         {
             "name": "spatie/async",
-            "version": "1.5.5",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/async.git",
-                "reference": "742708736b1e6d606dd1cd0f60acb7e354211e41"
+                "reference": "59985e70e94b8afb1ef1d65de73e8f80cddb4146"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/async/zipball/742708736b1e6d606dd1cd0f60acb7e354211e41",
-                "reference": "742708736b1e6d606dd1cd0f60acb7e354211e41",
+                "url": "https://api.github.com/repos/spatie/async/zipball/59985e70e94b8afb1ef1d65de73e8f80cddb4146",
+                "reference": "59985e70e94b8afb1ef1d65de73e8f80cddb4146",
                 "shasum": ""
             },
             "require": {
@@ -3621,7 +3621,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/async/issues",
-                "source": "https://github.com/spatie/async/tree/1.5.5"
+                "source": "https://github.com/spatie/async/tree/1.6.0"
             },
             "funding": [
                 {
@@ -3629,7 +3629,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-06-21T06:40:45+00:00"
+            "time": "2023-08-25T16:07:30+00:00"
         },
         {
             "name": "spatie/fork",
