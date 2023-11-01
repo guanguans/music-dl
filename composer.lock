@@ -7646,16 +7646,16 @@
         },
         {
             "name": "guanguans/ai-commit",
-            "version": "1.8.2",
+            "version": "1.8.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guanguans/ai-commit.git",
-                "reference": "21f9a1523149c91b6a12ef91999ef7de9020702f"
+                "reference": "d800a520732fb34ea7b6eb5be80718ad69d43ac9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guanguans/ai-commit/zipball/21f9a1523149c91b6a12ef91999ef7de9020702f",
-                "reference": "21f9a1523149c91b6a12ef91999ef7de9020702f",
+                "url": "https://api.github.com/repos/guanguans/ai-commit/zipball/d800a520732fb34ea7b6eb5be80718ad69d43ac9",
+                "reference": "d800a520732fb34ea7b6eb5be80718ad69d43ac9",
                 "shasum": ""
             },
             "require": {
@@ -7666,7 +7666,7 @@
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.8",
                 "brainmaestro/composer-git-hooks": "^2.8",
-                "guzzlehttp/guzzle": "^7.7",
+                "guzzlehttp/guzzle": "^7.8",
                 "illuminate/http": "^8.83 || ^9.0 || ^10.0",
                 "illuminate/translation": "^8.83 || ^9.0 || ^10.0",
                 "illuminate/validation": "^8.83 || ^9.0 || ^10.0",
@@ -7675,7 +7675,7 @@
                 "laravel-zero/phar-updater": "^1.1",
                 "mockery/mockery": "^1.6",
                 "pestphp/pest": "^1.23",
-                "php-mock/php-mock-phpunit": "^2.7"
+                "php-mock/php-mock-phpunit": "^2.8"
             },
             "bin": [
                 "builds/ai-commit"
@@ -7760,7 +7760,7 @@
                     "type": "wechat"
                 }
             ],
-            "time": "2023-08-18T08:18:00+00:00"
+            "time": "2023-11-01T09:16:13+00:00"
         },
         {
             "name": "guanguans/monorepo-builder-worker",
@@ -13256,5 +13256,5 @@
         "php": ">=8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
