@@ -2332,16 +2332,16 @@
         },
         {
             "name": "nette/utils",
-            "version": "v4.0.1",
+            "version": "v4.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/utils.git",
-                "reference": "9124157137da01b1f5a5a22d6486cb975f26db7e"
+                "reference": "a9d127dd6a203ce6d255b2e2db49759f7506e015"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/utils/zipball/9124157137da01b1f5a5a22d6486cb975f26db7e",
-                "reference": "9124157137da01b1f5a5a22d6486cb975f26db7e",
+                "url": "https://api.github.com/repos/nette/utils/zipball/a9d127dd6a203ce6d255b2e2db49759f7506e015",
+                "reference": "a9d127dd6a203ce6d255b2e2db49759f7506e015",
                 "shasum": ""
             },
             "require": {
@@ -2363,8 +2363,7 @@
                 "ext-intl": "to use Strings::webalize(), toAscii(), normalize() and compare()",
                 "ext-json": "to use Nette\\Utils\\Json",
                 "ext-mbstring": "to use Strings::lower() etc...",
-                "ext-tokenizer": "to use Nette\\Utils\\Reflection::getUseStatements()",
-                "ext-xml": "to use Strings::length() etc. when mbstring is not available"
+                "ext-tokenizer": "to use Nette\\Utils\\Reflection::getUseStatements()"
             },
             "type": "library",
             "extra": {
@@ -2413,9 +2412,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/utils/issues",
-                "source": "https://github.com/nette/utils/tree/v4.0.1"
+                "source": "https://github.com/nette/utils/tree/v4.0.3"
             },
-            "time": "2023-07-30T15:42:21+00:00"
+            "time": "2023-10-29T21:02:13+00:00"
         },
         {
             "name": "nunomaduro/collision",
@@ -4722,16 +4721,16 @@
         },
         {
             "name": "symfony/polyfill-intl-idn",
-            "version": "v1.27.0",
+            "version": "v1.28.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-idn.git",
-                "reference": "639084e360537a19f9ee352433b84ce831f3d2da"
+                "reference": "ecaafce9f77234a6a449d29e49267ba10499116d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-idn/zipball/639084e360537a19f9ee352433b84ce831f3d2da",
-                "reference": "639084e360537a19f9ee352433b84ce831f3d2da",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-idn/zipball/ecaafce9f77234a6a449d29e49267ba10499116d",
+                "reference": "ecaafce9f77234a6a449d29e49267ba10499116d",
                 "shasum": ""
             },
             "require": {
@@ -4745,7 +4744,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.27-dev"
+                    "dev-main": "1.28-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -4789,7 +4788,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-intl-idn/tree/v1.27.0"
+                "source": "https://github.com/symfony/polyfill-intl-idn/tree/v1.28.0"
             },
             "funding": [
                 {
@@ -4805,7 +4804,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-11-03T14:55:06+00:00"
+            "time": "2023-01-26T09:30:37+00:00"
         },
         {
             "name": "symfony/polyfill-intl-normalizer",
@@ -4976,16 +4975,16 @@
         },
         {
             "name": "symfony/polyfill-php72",
-            "version": "v1.27.0",
+            "version": "v1.28.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php72.git",
-                "reference": "869329b1e9894268a8a61dabb69153029b7a8c97"
+                "reference": "70f4aebd92afca2f865444d30a4d2151c13c3179"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php72/zipball/869329b1e9894268a8a61dabb69153029b7a8c97",
-                "reference": "869329b1e9894268a8a61dabb69153029b7a8c97",
+                "url": "https://api.github.com/repos/symfony/polyfill-php72/zipball/70f4aebd92afca2f865444d30a4d2151c13c3179",
+                "reference": "70f4aebd92afca2f865444d30a4d2151c13c3179",
                 "shasum": ""
             },
             "require": {
@@ -4994,7 +4993,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.27-dev"
+                    "dev-main": "1.28-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -5032,7 +5031,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php72/tree/v1.27.0"
+                "source": "https://github.com/symfony/polyfill-php72/tree/v1.28.0"
             },
             "funding": [
                 {
@@ -5048,7 +5047,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-11-03T14:55:06+00:00"
+            "time": "2023-01-26T09:26:14+00:00"
         },
         {
             "name": "symfony/polyfill-php80",
@@ -7764,22 +7763,22 @@
         },
         {
             "name": "guanguans/monorepo-builder-worker",
-            "version": "1.2.2",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guanguans/monorepo-builder-worker.git",
-                "reference": "c05e9b2594abb598d5b67e55c77628095b7684be"
+                "reference": "72226612b79257518cfb02f72a5abdf84c1cc4f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guanguans/monorepo-builder-worker/zipball/c05e9b2594abb598d5b67e55c77628095b7684be",
-                "reference": "c05e9b2594abb598d5b67e55c77628095b7684be",
+                "url": "https://api.github.com/repos/guanguans/monorepo-builder-worker/zipball/72226612b79257518cfb02f72a5abdf84c1cc4f4",
+                "reference": "72226612b79257518cfb02f72a5abdf84c1cc4f4",
                 "shasum": ""
             },
             "require": {
                 "marcocesarato/php-conventional-changelog": "^1.17",
                 "php": ">=7.3",
-                "symfony/polyfill-php80": "^1.27",
+                "symfony/polyfill-php80": "^1.28",
                 "symplify/monorepo-builder": "^11.2"
             },
             "require-dev": {
@@ -7792,7 +7791,7 @@
                 "nunomaduro/mock-final-classes": "^1.2",
                 "pestphp/pest": "^1.23 || ^2.0",
                 "pestphp/pest-plugin-faker": "^1.0 || ^2.0",
-                "php-mock/php-mock-phpunit": "^2.7",
+                "php-mock/php-mock-phpunit": "^2.8",
                 "phpstan/extension-installer": "^1.3",
                 "phpstan/phpstan": "^1.10",
                 "phpstan/phpstan-deprecation-rules": "^1.1",
@@ -7868,7 +7867,7 @@
                     "type": "wechat"
                 }
             ],
-            "time": "2023-08-22T04:02:32+00:00"
+            "time": "2023-11-01T09:03:12+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
@@ -12896,16 +12895,16 @@
         },
         {
             "name": "symplify/monorepo-builder",
-            "version": "11.2.17",
+            "version": "11.2.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/monorepo-builder.git",
-                "reference": "98354c0260029984c47f2b8c8e3a8c90bd5e21fd"
+                "reference": "4069de89595f188b9931454ba6753662e66a10d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/monorepo-builder/zipball/98354c0260029984c47f2b8c8e3a8c90bd5e21fd",
-                "reference": "98354c0260029984c47f2b8c8e3a8c90bd5e21fd",
+                "url": "https://api.github.com/repos/symplify/monorepo-builder/zipball/4069de89595f188b9931454ba6753662e66a10d3",
+                "reference": "4069de89595f188b9931454ba6753662e66a10d3",
                 "shasum": ""
             },
             "require": {
@@ -12932,7 +12931,7 @@
             "description": "Prefixed version of Not only Composer tools to build a Monorepo.",
             "support": {
                 "issues": "https://github.com/symplify/monorepo-builder/issues",
-                "source": "https://github.com/symplify/monorepo-builder/tree/11.2.17"
+                "source": "https://github.com/symplify/monorepo-builder/tree/11.2.19"
             },
             "funding": [
                 {
@@ -12944,7 +12943,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-08-18T07:53:00+00:00"
+            "time": "2023-10-20T06:31:52+00:00"
         },
         {
             "name": "thecodingmachine/safe",
@@ -13256,5 +13255,5 @@
         "php": ">=8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
