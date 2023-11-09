@@ -7645,16 +7645,16 @@
         },
         {
             "name": "guanguans/ai-commit",
-            "version": "1.8.3",
+            "version": "1.8.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guanguans/ai-commit.git",
-                "reference": "d800a520732fb34ea7b6eb5be80718ad69d43ac9"
+                "reference": "ecf01865491bded2e18fc1ba32bc4fd1cc28e219"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guanguans/ai-commit/zipball/d800a520732fb34ea7b6eb5be80718ad69d43ac9",
-                "reference": "d800a520732fb34ea7b6eb5be80718ad69d43ac9",
+                "url": "https://api.github.com/repos/guanguans/ai-commit/zipball/ecf01865491bded2e18fc1ba32bc4fd1cc28e219",
+                "reference": "ecf01865491bded2e18fc1ba32bc4fd1cc28e219",
                 "shasum": ""
             },
             "require": {
@@ -7759,7 +7759,7 @@
                     "type": "wechat"
                 }
             ],
-            "time": "2023-11-01T09:16:13+00:00"
+            "time": "2023-11-09T06:46:36+00:00"
         },
         {
             "name": "guanguans/monorepo-builder-worker",
