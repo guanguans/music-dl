@@ -7763,16 +7763,16 @@
         },
         {
             "name": "guanguans/monorepo-builder-worker",
-            "version": "1.3.2",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guanguans/monorepo-builder-worker.git",
-                "reference": "1c46977e82436d5eca646d91bf520864afb5e249"
+                "reference": "973570090dc9fa8b65d5f9750945c10f33bbbe29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guanguans/monorepo-builder-worker/zipball/1c46977e82436d5eca646d91bf520864afb5e249",
-                "reference": "1c46977e82436d5eca646d91bf520864afb5e249",
+                "url": "https://api.github.com/repos/guanguans/monorepo-builder-worker/zipball/973570090dc9fa8b65d5f9750945c10f33bbbe29",
+                "reference": "973570090dc9fa8b65d5f9750945c10f33bbbe29",
                 "shasum": ""
             },
             "require": {
@@ -7867,7 +7867,7 @@
                     "type": "wechat"
                 }
             ],
-            "time": "2023-11-09T06:32:34+00:00"
+            "time": "2023-11-13T07:24:40+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
