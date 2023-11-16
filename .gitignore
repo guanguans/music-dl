@@ -18,3 +18,4 @@ tests.php
 music-dl.phar
 /.env
 Download/
+cghooks.lock
