@@ -83,7 +83,7 @@ return (new Config())
         // array_notation
 
         // basic
-        'curly_braces_position' => [
+        'braces_position' => [
             'control_structures_opening_brace' => 'same_line',
             'functions_opening_brace' => 'next_line_unless_newline_at_signature_end',
             'anonymous_functions_opening_brace' => 'same_line',

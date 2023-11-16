@@ -17,16 +17,12 @@ namespace App\Music {
      *
      * @see \Rahul900Day\LaravelConsoleSpinner\SpinnerMixin
      */
-    final class SequenceMusic
-    {
-    }
+    final class SequenceMusic {}
 }
 
 namespace Rahul900Day\LaravelConsoleSpinner {
     /**
      * @mixin \Symfony\Component\Console\Helper\ProgressBar
      */
-    final class Spinner
-    {
-    }
+    final class Spinner {}
 }

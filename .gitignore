@@ -19,3 +19,4 @@ music-dl.phar
 /.env
 Download/
 cghooks.lock
+.ai-commit.json

@@ -23,16 +23,12 @@ abstract class TestCase extends BaseTestCase
     /**
      * This method is called before the first test of this test class is run.
      */
-    public static function setUpBeforeClass(): void
-    {
-    }
+    public static function setUpBeforeClass(): void {}
 
     /**
      * This method is called after the last test of this test class is run.
      */
-    public static function tearDownAfterClass(): void
-    {
-    }
+    public static function tearDownAfterClass(): void {}
 
     /**
      * This method is called before each test.

@@ -15,14 +15,10 @@ use Illuminate\Support\Facades\Http;
 use Tests\TestCase;
 
 uses(TestCase::class)
-    ->beforeAll(function (): void {
-    })
-    ->beforeEach(function (): void {
-    })
-    ->afterEach(function (): void {
-    })
-    ->afterAll(function (): void {
-    })
+    ->beforeAll(function (): void {})
+    ->beforeEach(function (): void {})
+    ->afterEach(function (): void {})
+    ->afterAll(function (): void {})
     ->in('Feature', 'Unit');
 
 /*

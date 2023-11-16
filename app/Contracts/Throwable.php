@@ -12,6 +12,4 @@ declare(strict_types=1);
 
 namespace App\Contracts;
 
-interface Throwable extends \Throwable
-{
-}
+interface Throwable extends \Throwable {}
