@@ -10,11 +10,11 @@ declare(strict_types=1);
  * This source file is subject to the MIT license that is bundled.
  */
 
-use Guanguans\MonorepoBuilderWorker\CreateGithubReleaseWorker;
-use Guanguans\MonorepoBuilderWorker\GoUpdateChangelogReleaseWorker;
-use Guanguans\MonorepoBuilderWorker\NodeUpdateChangelogReleaseWorker;
-use Guanguans\MonorepoBuilderWorker\PhpUpdateChangelogReleaseWorker;
+use Guanguans\MonorepoBuilderWorker\CreateGithubReleaseReleaseWorker;
 use Guanguans\MonorepoBuilderWorker\Support\EnvironmentChecker;
+use Guanguans\MonorepoBuilderWorker\UpdateChangelogViaGoReleaseWorker;
+use Guanguans\MonorepoBuilderWorker\UpdateChangelogViaNodeReleaseWorker;
+use Guanguans\MonorepoBuilderWorker\UpdateChangelogViaPhpReleaseWorker;
 use Symplify\MonorepoBuilder\Config\MBConfig;
 use Symplify\MonorepoBuilder\Release\ReleaseWorker\AddTagToChangelogReleaseWorker;
 use Symplify\MonorepoBuilder\Release\ReleaseWorker\PushNextDevReleaseWorker;
@@ -38,12 +38,12 @@ return static function (MBConfig $mbConfig): void {
         // UpdateReplaceReleaseWorker::class,
         // SetCurrentMutualDependenciesReleaseWorker::class,
         // AddTagToChangelogReleaseWorker::class,
-        // NodeUpdateChangelogReleaseWorker::class,
         TagVersionReleaseWorker::class,
         PushTagReleaseWorker::class,
-        GoUpdateChangelogReleaseWorker::class,
-        // PhpUpdateChangelogReleaseWorker::class,
-        CreateGithubReleaseWorker::class,
+        UpdateChangelogViaGoReleaseWorker::class,
+        // UpdateChangelogViaNodeReleaseWorker::class,
+        // UpdateChangelogViaPhpReleaseWorker::class,
+        CreateGithubReleaseReleaseWorker::class,
         // SetNextMutualDependenciesReleaseWorker::class,
         // UpdateBranchAliasReleaseWorker::class,
         // PushNextDevReleaseWorker::class,
