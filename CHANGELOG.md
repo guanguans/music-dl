@@ -8,6 +8,67 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="3.6.4"></a>
+## [3.6.4] - 2023-11-17
+### Refactor
+- **monorepo-builder:** update release workers
+- **php-cs-fixer:** Change curly_braces_position to braces_position
+
+### Pull Requests
+- Merge pull request [#605](https://github.com/guanguans/monorepo-builder-worker/issues/605) from guanguans/dependabot/composer/rector/rector-0.18.10
+- Merge pull request [#604](https://github.com/guanguans/monorepo-builder-worker/issues/604) from guanguans/dependabot/composer/rector/rector-0.18.8
+- Merge pull request [#603](https://github.com/guanguans/monorepo-builder-worker/issues/603) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.38.2
+- Merge pull request [#602](https://github.com/guanguans/monorepo-builder-worker/issues/602) from guanguans/dependabot/composer/guanguans/ai-commit-1.8.5
+- Merge pull request [#601](https://github.com/guanguans/monorepo-builder-worker/issues/601) from guanguans/dependabot/composer/rector/rector-0.18.7
+- Merge pull request [#600](https://github.com/guanguans/monorepo-builder-worker/issues/600) from guanguans/dependabot/composer/guanguans/monorepo-builder-worker-1.4.1
+- Merge pull request [#599](https://github.com/guanguans/monorepo-builder-worker/issues/599) from guanguans/dependabot/composer/guanguans/ai-commit-1.8.4
+- Merge pull request [#598](https://github.com/guanguans/monorepo-builder-worker/issues/598) from guanguans/dependabot/composer/guanguans/monorepo-builder-worker-1.3.2
+- Merge pull request [#597](https://github.com/guanguans/monorepo-builder-worker/issues/597) from guanguans/dependabot/composer/guanguans/monorepo-builder-worker-1.3.1
+- Merge pull request [#596](https://github.com/guanguans/monorepo-builder-worker/issues/596) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.38.0
+- Merge pull request [#595](https://github.com/guanguans/monorepo-builder-worker/issues/595) from guanguans/dependabot/composer/guanguans/ai-commit-1.8.3
+- Merge pull request [#594](https://github.com/guanguans/monorepo-builder-worker/issues/594) from guanguans/dependabot/composer/guanguans/monorepo-builder-worker-1.3.0
+- Merge pull request [#593](https://github.com/guanguans/monorepo-builder-worker/issues/593) from guanguans/dependabot/composer/php-mock/php-mock-phpunit-2.8.0
+- Merge pull request [#592](https://github.com/guanguans/monorepo-builder-worker/issues/592) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.37.1
+- Merge pull request [#591](https://github.com/guanguans/monorepo-builder-worker/issues/591) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.36.0
+- Merge pull request [#590](https://github.com/guanguans/monorepo-builder-worker/issues/590) from guanguans/dependabot/composer/rector/rector-0.18.6
+- Merge pull request [#586](https://github.com/guanguans/monorepo-builder-worker/issues/586) from guanguans/dependabot/github_actions/stefanzweifel/git-auto-commit-action-5
+- Merge pull request [#573](https://github.com/guanguans/monorepo-builder-worker/issues/573) from guanguans/dependabot/github_actions/actions/checkout-4
+- Merge pull request [#588](https://github.com/guanguans/monorepo-builder-worker/issues/588) from guanguans/dependabot/github_actions/charmbracelet/vhs-action-2.0.1
+- Merge pull request [#587](https://github.com/guanguans/monorepo-builder-worker/issues/587) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.35.1
+- Merge pull request [#585](https://github.com/guanguans/monorepo-builder-worker/issues/585) from guanguans/dependabot/composer/rector/rector-0.18.5
+- Merge pull request [#584](https://github.com/guanguans/monorepo-builder-worker/issues/584) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.34.1
+- Merge pull request [#583](https://github.com/guanguans/monorepo-builder-worker/issues/583) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.34.0
+- Merge pull request [#582](https://github.com/guanguans/monorepo-builder-worker/issues/582) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.30.0
+- Merge pull request [#581](https://github.com/guanguans/monorepo-builder-worker/issues/581) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.29.0
+- Merge pull request [#580](https://github.com/guanguans/monorepo-builder-worker/issues/580) from guanguans/dependabot/composer/rector/rector-0.18.4
+- Merge pull request [#579](https://github.com/guanguans/monorepo-builder-worker/issues/579) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.28.0
+- Merge pull request [#578](https://github.com/guanguans/monorepo-builder-worker/issues/578) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.27.0
+- Merge pull request [#577](https://github.com/guanguans/monorepo-builder-worker/issues/577) from guanguans/dependabot/composer/rector/rector-0.18.3
+- Merge pull request [#576](https://github.com/guanguans/monorepo-builder-worker/issues/576) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.26.1
+- Merge pull request [#575](https://github.com/guanguans/monorepo-builder-worker/issues/575) from guanguans/dependabot/composer/rector/rector-0.18.2
+- Merge pull request [#574](https://github.com/guanguans/monorepo-builder-worker/issues/574) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.25.1
+- Merge pull request [#572](https://github.com/guanguans/monorepo-builder-worker/issues/572) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.25.0
+- Merge pull request [#571](https://github.com/guanguans/monorepo-builder-worker/issues/571) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.24.0
+- Merge pull request [#570](https://github.com/guanguans/monorepo-builder-worker/issues/570) from guanguans/dependabot/composer/rector/rector-0.18.1
+- Merge pull request [#569](https://github.com/guanguans/monorepo-builder-worker/issues/569) from guanguans/dependabot/composer/guzzlehttp/guzzle-7.8.0
+- Merge pull request [#568](https://github.com/guanguans/monorepo-builder-worker/issues/568) from guanguans/dependabot/composer/spatie/async-1.6.0
+- Merge pull request [#567](https://github.com/guanguans/monorepo-builder-worker/issues/567) from guanguans/dependabot/composer/guanguans/monorepo-builder-worker-1.2.2
+- Merge pull request [#566](https://github.com/guanguans/monorepo-builder-worker/issues/566) from guanguans/dependabot/composer/vimeo/psalm-5.15.0
+- Merge pull request [#565](https://github.com/guanguans/monorepo-builder-worker/issues/565) from guanguans/dependabot/composer/guanguans/ai-commit-1.8.2
+- Merge pull request [#564](https://github.com/guanguans/monorepo-builder-worker/issues/564) from guanguans/dependabot/composer/guanguans/ai-commit-1.8.0
+- Merge pull request [#563](https://github.com/guanguans/monorepo-builder-worker/issues/563) from guanguans/dependabot/composer/rector/rector-0.18.0
+- Merge pull request [#562](https://github.com/guanguans/monorepo-builder-worker/issues/562) from guanguans/dependabot/composer/rector/rector-0.17.13
+- Merge pull request [#561](https://github.com/guanguans/monorepo-builder-worker/issues/561) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.23.0
+- Merge pull request [#560](https://github.com/guanguans/monorepo-builder-worker/issues/560) from guanguans/dependabot/composer/rector/rector-0.17.12
+- Merge pull request [#559](https://github.com/guanguans/monorepo-builder-worker/issues/559) from guanguans/dependabot/composer/mockery/mockery-1.6.6
+- Merge pull request [#558](https://github.com/guanguans/monorepo-builder-worker/issues/558) from guanguans/dependabot/composer/guanguans/monorepo-builder-worker-1.2.1
+- Merge pull request [#557](https://github.com/guanguans/monorepo-builder-worker/issues/557) from guanguans/dependabot/composer/kubawerlos/php-cs-fixer-custom-fixers-3.16.2
+- Merge pull request [#556](https://github.com/guanguans/monorepo-builder-worker/issues/556) from guanguans/dependabot/composer/mockery/mockery-1.6.5
+- Merge pull request [#555](https://github.com/guanguans/monorepo-builder-worker/issues/555) from guanguans/dependabot/composer/rector/rector-0.17.10
+- Merge pull request [#554](https://github.com/guanguans/monorepo-builder-worker/issues/554) from guanguans/dependabot/composer/vimeo/psalm-5.14.1
+- Merge pull request [#553](https://github.com/guanguans/monorepo-builder-worker/issues/553) from guanguans/dependabot/composer/vimeo/psalm-5.14.0
+
+
 <a name="3.6.3"></a>
 ## [3.6.3] - 2023-07-30
 
@@ -589,7 +650,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.3...HEAD
+[Unreleased]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.4...HEAD
+[3.6.4]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.3...3.6.4
 [3.6.3]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.2...3.6.3
 [3.6.2]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.1...3.6.2
 [3.6.1]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.0...3.6.1
