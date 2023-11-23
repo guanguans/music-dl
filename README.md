@@ -18,7 +18,7 @@
 
 ## Requirement
 
-* PHP >= 8.0
+* PHP >= 8.1
 
 ## Installation
 
@@ -32,8 +32,8 @@ chmod +x music-dl
 ### Install via Composer
 
 ```shell
-composer global require guanguans/music-dl --dev -v # global
-composer require guanguans/music-dl --dev -v # local
+composer global require guanguans/music-dl:dev-master --dev -v # global
+composer require guanguans/music-dl:dev-master --dev -v # local
 ```
 
 ## Usage

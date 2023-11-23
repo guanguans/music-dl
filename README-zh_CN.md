@@ -18,7 +18,7 @@
 
 ## 环境要求
 
-* PHP >= 8.0
+* PHP >= 8.1
 
 ## 安装
 
@@ -32,8 +32,8 @@ chmod +x music-dl
 ### 通过 Composer 安装
 
 ```shell
-composer global require guanguans/music-dl --dev -v # 全局
-composer require guanguans/music-dl --dev -v # 本地
+composer global require guanguans/music-dl:dev-master --dev -v # 全局
+composer require guanguans/music-dl:dev-master --dev -v # 本地
 ```
 
 ## 使用
