@@ -2,47 +2,27 @@
 <phpunit
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   backupGlobals="false"
-  backupStaticAttributes="false"
+  backupStaticProperties="false"
   bootstrap="vendor/autoload.php"
+  cacheDirectory=".phpunit.cache"
   colors="true"
-  convertErrorsToExceptions="true"
-  convertNoticesToExceptions="true"
-  convertWarningsToExceptions="true"
-  printerClass="NunoMaduro\Collision\Adapters\Phpunit\Printer"
   processIsolation="false"
   stopOnFailure="false"
-  verbose="true"
-  xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
+  xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.4/phpunit.xsd"
 >
-  <coverage>
-    <include>
-      <directory suffix=".php">app/</directory>
-    </include>
-    <exclude>
-      <file>src/Skeleton.php</file>
-    </exclude>
-  </coverage>
+  <coverage/>
   <testsuites>
     <testsuite name="Guanguans Test Suite">
       <directory>tests/</directory>
       <exclude>vendor/</exclude>
     </testsuite>
   </testsuites>
-  <listeners>
-    <listener class="JohnKary\PHPUnit\Listener\SpeedTrapListener">
-      <arguments>
-        <array>
-          <element key="slowThreshold">
-            <integer>500</integer>
-          </element>
-          <element key="reportLength">
-            <integer>10</integer>
-          </element>
-          <element key="stopOnSlow">
-            <boolean>false</boolean>
-          </element>
-        </array>
-      </arguments>
-    </listener>
-  </listeners>
+  <source>
+    <include>
+      <directory suffix=".php">app/</directory>
+    </include>
+    <exclude>
+      <file>src/Skeleton.php</file>
+    </exclude>
+  </source>
 </phpunit>
