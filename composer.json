@@ -30,7 +30,8 @@
         "phpunit/php-timer": "^6.0",
         "rahul900day/laravel-console-spinner": "^1.1",
         "spatie/async": "^1.6",
-        "spatie/fork": "^1.2"
+        "spatie/fork": "^1.2",
+        "symfony/polyfill-php83": "^1.28"
     },
     "require-dev": {
         "alecrabbit/php-cli-snake": "^0.6",
@@ -39,7 +40,6 @@
         "friendsofphp/php-cs-fixer": "^3.39",
         "guanguans/ai-commit": "dev-main",
         "guanguans/monorepo-builder-worker": "^1.4",
-        "infection/infection": "^0.27",
         "kubawerlos/php-cs-fixer-custom-fixers": "^3.17",
         "laravel/facade-documenter": "dev-main",
         "mockery/mockery": "^1.6",
