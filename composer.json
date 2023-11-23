@@ -41,6 +41,7 @@
         "guanguans/monorepo-builder-worker": "^1.4",
         "infection/infection": "^0.27",
         "kubawerlos/php-cs-fixer-custom-fixers": "^3.17",
+        "laravel/facade-documenter": "dev-main",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^7.10",
         "nunomaduro/larastan": "^2.6",
@@ -54,6 +55,12 @@
         "roave/security-advisories": "dev-latest",
         "spatie/pest-plugin-snapshots": "^2.1",
         "vimeo/psalm": "^5.16"
+    },
+    "repositories": {
+        "facade-documenter": {
+            "type": "vcs",
+            "url": "git@github.com:laravel/facade-documenter.git"
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -126,10 +133,10 @@
             "@test",
             "@psalm"
         ],
-        "composer-normalize": "@composer normalize --ansi -v",
+        "composer-normalize": "@composer normalize --dry-run --diff --ansi -v",
         "composer-validate": "@composer validate --check-lock --strict --ansi -v",
-        "facades-lint": "@facades-update -- --lint",
-        "facades-update": "/usr/local/opt/php@8.1/bin/php -f ./bin/facades.php",
+        "facade-lint": "@facade-update --lint",
+        "facade-update": "/opt/homebrew/opt/php@8.1/bin/php -f ./facade.php -- Guanguans\\\\LaravelExceptionNotify\\\\Facades\\\\ExceptionNotify",
         "infection": "./vendor/bin/infection --test-framework=pest --show-mutations --threads=4 --ansi -v",
         "lint": [
             "for DIR in .; do find $DIR -maxdepth 1 -type f -name '*.php' -type f ! -name 'xxx.php' -exec php -l {} \\; 2>&1 | (! grep -v '^No syntax errors detected'); done",
@@ -140,7 +147,7 @@
         "mark-start": "printf '\\n!\\n!\\t\\033[0;36m%s\\033[0m\\n!\\n\\n' \"Started\"",
         "md-fix": "@md-lint --fix",
         "md-lint": "lint-md --config .lintmdrc ./*.md ./.github/ ./docs/",
-        "pest": "@php ./vendor/bin/pest",
+        "pest": "@php ./vendor/bin/pest --coverage",
         "pest-coverage": "@pest --coverage-html=./build/phpunit/ --coverage-clover=./clover.xml --coverage",
         "pest-migrate-configuration": "@pest --migrate-configuration",
         "phpstan": "@php ./vendor/bin/phpstan analyse --ansi -v",

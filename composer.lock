@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ddc21b7ab0a9546a4222846ebb2aeeca",
+    "content-hash": "68ed61e8aff143d5212ed9954eb6b5a5",
     "packages": [
         {
             "name": "brick/math",
@@ -8580,6 +8580,38 @@
             "time": "2023-11-19T12:08:42+00:00"
         },
         {
+            "name": "laravel/facade-documenter",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/facade-documenter.git",
+                "reference": "84913b176aac4873e022fec20de8685e91b61337"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/facade-documenter/zipball/84913b176aac4873e022fec20de8685e91b61337",
+                "reference": "84913b176aac4873e022fec20de8685e91b61337",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^9.51|^10.0|^11.0",
+                "phpstan/phpdoc-parser": "^1.16"
+            },
+            "default-branch": true,
+            "bin": [
+                "facade.php"
+            ],
+            "type": "library",
+            "license": [
+                "MIT"
+            ],
+            "support": {
+                "source": "https://github.com/laravel/facade-documenter/tree/main",
+                "issues": "https://github.com/laravel/facade-documenter/issues"
+            },
+            "time": "2023-09-14T12:35:40+00:00"
+        },
+        {
             "name": "localheinz/diff",
             "version": "1.1.1",
             "source": {
@@ -13624,6 +13656,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "guanguans/ai-commit": 20,
+        "laravel/facade-documenter": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,
