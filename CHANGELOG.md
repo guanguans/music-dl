@@ -8,6 +8,19 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="4.0.0"></a>
+## [4.0.0] - 2023-11-23
+### Docs
+- **readme:** update PHP version requirement
+
+### Feat
+- **composer:** Add laravel/facade-documenter
+
+### Pull Requests
+- Merge pull request [#607](https://github.com/guanguans/monorepo-builder-worker/issues/607) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.39.0
+- Merge pull request [#606](https://github.com/guanguans/monorepo-builder-worker/issues/606) from guanguans/dependabot/composer/kubawerlos/php-cs-fixer-custom-fixers-3.17.0
+
+
 <a name="3.6.4"></a>
 ## [3.6.4] - 2023-11-17
 ### Refactor
@@ -650,7 +663,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.4...HEAD
+[Unreleased]: https://github.com/guanguans/monorepo-builder-worker/compare/4.0.0...HEAD
+[4.0.0]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.4...4.0.0
 [3.6.4]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.3...3.6.4
 [3.6.3]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.2...3.6.3
 [3.6.2]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.1...3.6.2
