@@ -94,6 +94,11 @@
         "sort-packages": true
     },
     "extra": {
+        "bamarni-bin": {
+            "bin-links": true,
+            "forward-command": true,
+            "target-directory": "vendor-bin"
+        },
         "branch-alias": {
             "dev-main": "3.x-dev"
         },
