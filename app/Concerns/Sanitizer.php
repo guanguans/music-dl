@@ -39,9 +39,9 @@ trait Sanitizer
     public function sanitize(array $song, string $keyword): array
     {
         $song = Arr::only($song, ['name', 'artist', 'album', 'source', 'size', 'br']);
-        $song['name'] = str_replace($keyword, "<fg=red;options=bold>$keyword</>", $song['name']);
+        $song['name'] = str_replace($keyword, "<fg=red;options=bold>$keyword</>", (string) $song['name']);
         $song['artist'] = str_replace($keyword, "<fg=red;options=bold>$keyword</>", implode(',', $song['artist']));
-        $song['album'] = str_replace($keyword, "<fg=red;options=bold>$keyword</>", $song['album']);
+        $song['album'] = str_replace($keyword, "<fg=red;options=bold>$keyword</>", (string) $song['album']);
         $song['size'] = isset($song['size']) ? sprintf('<fg=yellow>%.1fM</>', $song['size'] / 1024 / 1024) : null;
         $song['br'] = (int) $song['br'];
 

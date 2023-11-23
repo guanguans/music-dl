@@ -49,7 +49,7 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
     {
         $withoutUrlSongs = collect($sources)
             ->map(fn (string $source): array => json_decode(
-                $this->meting->site($source)->search($keyword),
+                (string) $this->meting->site($source)->search($keyword),
                 true,
                 512,
                 JSON_THROW_ON_ERROR
@@ -116,7 +116,7 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
     protected function requestUrl(array $song): array
     {
         return (array) json_decode(
-            $this->meting->site($song['source'])->url($song['url_id']),
+            (string) $this->meting->site($song['source'])->url($song['url_id']),
             true,
             512,
             JSON_THROW_ON_ERROR

@@ -157,7 +157,7 @@
         ],
         "psalm": "@php ./vendor/bin/psalm",
         "psalm-baseline": "@psalm --update-baseline",
-        "rector": "@php ./vendor/bin/rector --clear-cache --ansi -v",
+        "rector": "@php ./vendor/bin/rector --ansi -v",
         "rector-dry-run": "@rector --dry-run",
         "release": "@php ./vendor/bin/monorepo-builder release --ansi -v",
         "release-major": "@release major",
