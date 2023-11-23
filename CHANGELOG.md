@@ -8,6 +8,12 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="4.0.1"></a>
+## [4.0.1] - 2023-11-23
+### Feat
+- **Facades:** Add Music facade
+
+
 <a name="4.0.0"></a>
 ## [4.0.0] - 2023-11-23
 ### Docs
@@ -663,7 +669,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/monorepo-builder-worker/compare/4.0.0...HEAD
+[Unreleased]: https://github.com/guanguans/monorepo-builder-worker/compare/4.0.1...HEAD
+[4.0.1]: https://github.com/guanguans/monorepo-builder-worker/compare/4.0.0...4.0.1
 [4.0.0]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.4...4.0.0
 [3.6.4]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.3...3.6.4
 [3.6.3]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.2...3.6.3
