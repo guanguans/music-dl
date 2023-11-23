@@ -22,10 +22,10 @@
         "source": "https://github.com/guanguans/music-dl"
     },
     "require": {
-        "php": ">=8.0",
+        "php": ">=8.1",
         "guzzlehttp/guzzle": "^7.8",
-        "laravel-zero/framework": "^9.2 || ^10.0",
-        "laravel-zero/phar-updater": "^1.3",
+        "laravel-zero/framework": "^10.0",
+        "laravel-zero/phar-updater": "^1.4",
         "metowolf/meting": "^1.5",
         "phpunit/php-timer": "^5.0",
         "rahul900day/laravel-console-spinner": "^1.1",
@@ -35,13 +35,13 @@
     "require-dev": {
         "alecrabbit/php-cli-snake": "^0.6",
         "brainmaestro/composer-git-hooks": "^3.0",
-        "ergebnis/composer-normalize": "^2.31",
-        "friendsofphp/php-cs-fixer": "^3.38",
+        "ergebnis/composer-normalize": "^2.39",
+        "friendsofphp/php-cs-fixer": "^3.39",
         "guanguans/ai-commit": "dev-main",
         "guanguans/monorepo-builder-worker": "^1.4",
         "infection/infection": "^0.26",
         "johnkary/phpunit-speedtrap": "^4.0",
-        "kubawerlos/php-cs-fixer-custom-fixers": "^3.16",
+        "kubawerlos/php-cs-fixer-custom-fixers": "^3.17",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^6.4",
         "nunomaduro/larastan": "^2.6",
@@ -55,7 +55,7 @@
         "rector/rector": "^0.18",
         "roave/security-advisories": "dev-latest",
         "spatie/pest-plugin-snapshots": "^1.1",
-        "vimeo/psalm": "^5.15"
+        "vimeo/psalm": "^5.16"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
