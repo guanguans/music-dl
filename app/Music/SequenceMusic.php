@@ -58,6 +58,7 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
             ->all();
 
         return collect($this->ensureWithUrls($withoutUrlSongs))
+            ->filter()
             ->filter(static fn (array $song): bool => ! empty($song['url']))
             ->values()
             ->all();
