@@ -31,6 +31,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 use function Laravel\Prompts\confirm;
 use function Laravel\Prompts\multiselect;
+use function Laravel\Prompts\spin;
 use function Laravel\Prompts\table;
 use function Laravel\Prompts\text;
 
@@ -79,9 +80,11 @@ final class MusicCommand extends Command
                 $keyword = str($this->argument('keyword') ?? text($this->config['search_tip'], '关键字', '腰乐队', true))->trim()->toString();
                 $sources = array_filter((array) $this->option('sources')) ?: $this->config['sources'];
 
-                \Laravel\Prompts\info(sprintf($this->config['searching'], $keyword));
                 $timer->start();
-                $songs = $this->music->search($keyword, $sources);
+                $songs = spin(
+                    fn (): array => $this->music->search($keyword, $sources),
+                    sprintf($this->config['searching'], $keyword)
+                );
                 $duration = $timer->stop();
                 $this->newLine();
                 if ([] === $songs) {
