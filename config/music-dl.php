@@ -43,7 +43,7 @@ return [
 
     'keyword_label' => '请输入关键字',
     'keyword_default' => '腰乐队',
-    'windows_hint' => 'CMD、PowerShell 可能不支持中文搜索，Git Bash 支持中英文搜索',
+    'windows_hint' => 'CMD、PowerShell 可能不支持中文搜索，Git Bash、WSL 支持中英文搜索',
     'searching_hint' => '搜索中...',
     'empty_hint' => 'o(╥﹏╥)o 没有搜索到相关歌曲',
     'confirm_label' => '是否下载歌曲？',
