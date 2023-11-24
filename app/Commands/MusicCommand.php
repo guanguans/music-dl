@@ -29,10 +29,12 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 use function Laravel\Prompts\confirm;
+use function Laravel\Prompts\error;
 use function Laravel\Prompts\multiselect;
 use function Laravel\Prompts\spin;
 use function Laravel\Prompts\table;
 use function Laravel\Prompts\text;
+use function Laravel\Prompts\warning;
 
 final class MusicCommand extends Command
 {
@@ -58,8 +60,6 @@ final class MusicCommand extends Command
      */
     protected $description = 'Search and download music';
 
-    private static bool $isOutputtedLogo = false;
-
     private array $config;
 
     private Music $music;
@@ -70,47 +70,43 @@ final class MusicCommand extends Command
     public function handle(Timer $timer, ResourceUsageFormatter $resourceUsageFormatter): int
     {
         return collect()
-            ->when(! self::$isOutputtedLogo, function (): void {
-                \Laravel\Prompts\info($this->config['logo']);
-                self::$isOutputtedLogo = true;
-            })
-            ->when(windows_os(), fn () => \Laravel\Prompts\info($this->config['windows_tip']))
-            ->pipe(function () use ($timer, &$songs, &$sanitizedSongs, $resourceUsageFormatter, &$choices): Collection {
-                $keyword = str($this->argument('keyword') ?? text($this->config['search_tip'], '关键字', '腰乐队', true))->trim()->toString();
+            ->tap(fn () => \Laravel\Prompts\info($this->config['logo']))
+            ->when(windows_os(), fn () => warning($this->config['windows_hint']))
+            ->pipe(function () use ($timer, &$songs, &$sanitizedSongs, $resourceUsageFormatter, &$options): Collection {
+                $keyword = str($this->argument('keyword') ?? text($this->config['keyword_label'], '关键字', '腰乐队', true, hint: $this->config['keyword_hint']))
+                    ->trim()
+                    ->toString();
                 $sources = array_filter((array) $this->option('sources')) ?: $this->config['sources'];
 
                 $timer->start();
-                $songs = spin(
-                    fn (): array => $this->music->search($keyword, $sources),
-                    sprintf($this->config['searching'], $keyword)
-                );
+                $songs = spin(fn (): array => $this->music->search($keyword, $sources), $this->config['searching_hint']);
                 $duration = $timer->stop();
-                $this->newLine();
                 if ([] === $songs) {
-                    \Laravel\Prompts\info($this->config['empty_result']);
+                    warning($this->config['empty_result_hint']);
                     $this->rehandle();
                 }
 
                 $sanitizedSongs = $this->sanitizes($songs, $keyword);
                 table($this->config['table_header'], $sanitizedSongs);
                 $this->info($resourceUsageFormatter->resourceUsage($duration));
-                if (! confirm($this->config['confirm_download'])) {
+                if (! confirm($this->config['confirm_download_label'])) {
                     $this->rehandle();
                 }
 
-                $choices = collect($sanitizedSongs)
+                $options = collect($sanitizedSongs)
                     ->transform(static fn (array $song): string => implode('  ', Arr::except($song, [0])))
-                    ->prepend($this->config['download_all_songs']);
+                    ->prepend($this->config['all_songs']);
 
                 return collect(multiselect(
-                    $this->config['download_choice_tip'],
-                    $choices->all(),
-                    [$choices->first()],
+                    $this->config['select_label'],
+                    $options->all(),
+                    [$options->first()],
                     20,
-                    true
+                    true,
+                    hint: $this->config['select_hint'],
                 ));
             })
-            ->transform(static fn (string $selectedValue): bool|int|string => $choices->search($selectedValue))
+            ->transform(static fn (string $selectedValue): bool|int|string => $options->search($selectedValue))
             ->pipe(
                 static fn (Collection $selectedKeys): Collection => collect($songs)
                     ->pipe(
@@ -119,16 +115,12 @@ final class MusicCommand extends Command
                             : $songs->only($selectedKeys->all())->mapWithKeys(static fn (array $song, int $index): array => [$index - 1 => $song])
                     )
             )
-            ->each(function (array $song, int $index) use ($sanitizedSongs): void {
+            ->each(function (array $song, int $index): void {
                 try {
-                    table($sanitizedSongs[$index], []);
-                    $savePath = Utils::getSavePath($song, $this->option('dir'));
-                    $this->music->download($song['url'], $savePath);
-                    // \Laravel\Prompts\info(sprintf($this->config['download_success_tip'], $savePath));
+                    // table($sanitizedSongs[$index], []);
+                    $this->music->download($song['url'], Utils::getSavePath($song, $this->option('dir')));
                 } catch (\Throwable $throwable) {
-                    \Laravel\Prompts\info(sprintf($this->config['download_failed_tip'], $throwable->getMessage()));
-                } finally {
-                    $this->newLine();
+                    error($throwable->getMessage());
                 }
             })
             ->when(! windows_os(), fn () => $this->notify(

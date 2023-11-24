@@ -73,7 +73,7 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
                 }
 
                 if (! $progress instanceof Progress) {
-                    $progress = progress(pathinfo($savePath, PATHINFO_BASENAME), $totalDownload);
+                    $progress = progress($savePath, $totalDownload);
                     $progress->start();
                 }
 
