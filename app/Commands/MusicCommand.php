@@ -113,9 +113,11 @@ final class MusicCommand extends Command
             ->transform(static fn (string $selectedValue): bool|int|string => $choices->search($selectedValue))
             ->pipe(
                 static fn (Collection $selectedKeys): Collection => collect($songs)
-                    ->when(! \in_array(0, $selectedKeys->all(), true))
-                    ->only($selectedKeys->all())
-                    ->mapWithKeys(fn (array $song, int $index): array => [$index - 1 => $song])
+                    ->pipe(
+                        static fn (Collection $songs): Collection => \in_array(0, $selectedKeys->all(), true)
+                            ? $songs
+                            : $songs->only($selectedKeys->all())->mapWithKeys(static fn (array $song, int $index): array => [$index - 1 => $song])
+                    )
             )
             ->each(function (array $song, int $index) use ($sanitizedSongs): void {
                 try {
