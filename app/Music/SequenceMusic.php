@@ -67,7 +67,7 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
     {
         $this->createHttpClient()->get($url, [
             'sink' => $savePath,
-            'progress' => function (int $totalDownload, int $downloaded) use (&$progress, $savePath): void {
+            'progress' => static function (int $totalDownload, int $downloaded) use (&$progress, $savePath): void {
                 if (0 === $totalDownload || 0 === $downloaded || 'submit' === $progress?->state) {
                     return;
                 }
