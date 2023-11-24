@@ -29,6 +29,11 @@ use SebastianBergmann\Timer\Timer;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+use function Laravel\Prompts\confirm;
+use function Laravel\Prompts\multiselect;
+use function Laravel\Prompts\table;
+use function Laravel\Prompts\text;
+
 final class MusicCommand extends Command
 {
     use Sanitizer;
@@ -71,7 +76,7 @@ final class MusicCommand extends Command
             })
             ->when(windows_os(), fn () => $this->line($this->config['windows_tip']))
             ->pipe(function () use ($timer, &$songs, &$sanitizedSongs, $resourceUsageFormatter, &$choices, &$lastKey): Collection {
-                $keyword = str($this->argument('keyword') ?? $this->ask($this->config['search_tip'], '腰乐队'))->trim()->toString();
+                $keyword = str($this->argument('keyword') ?? text($this->config['search_tip'], '关键字', '腰乐队', true))->trim()->toString();
                 $sources = array_filter((array) $this->option('sources')) ?: $this->config['sources'];
 
                 $this->line(sprintf($this->config['searching'], $keyword));
@@ -85,9 +90,9 @@ final class MusicCommand extends Command
                 }
 
                 $sanitizedSongs = $this->sanitizes($songs, $keyword);
-                $this->table($this->config['table_header'], $sanitizedSongs);
+                table($this->config['table_header'], $sanitizedSongs);
                 $this->info($resourceUsageFormatter->resourceUsage($duration));
-                if (! $this->confirm($this->config['confirm_download'], true)) {
+                if (! confirm($this->config['confirm_download'])) {
                     $this->rehandle();
                 }
 
@@ -95,17 +100,17 @@ final class MusicCommand extends Command
                     ->transform(static fn (array $song): string => implode('  ', Arr::except($song, [0])))
                     ->add($this->config['download_all_songs']);
 
-                return collect($this->choice(
+                return collect(multiselect(
                     $this->config['download_choice_tip'],
                     $choices->all(),
-                    $lastKey = ($choices->count() - 1),
-                    null,
+                    $lastKey = [$choices->last()],
+                    10,
                     true
                 ));
             })
             ->transform(static fn (string $selectedValue): bool|int|string => $choices->search($selectedValue))
-            ->pipe(static function (Collection $selectedKeys) use ($lastKey, $songs): Collection {
-                if (\in_array($lastKey, $selectedKeys->all(), true)) {
+            ->pipe(static function (Collection $selectedKeys) use ($choices, $songs): Collection {
+                if (\in_array($choices->count() - 1, $selectedKeys->all(), true)) {
                     return collect($songs);
                 }
 
@@ -113,7 +118,7 @@ final class MusicCommand extends Command
             })
             ->each(function (array $song, int $index) use ($sanitizedSongs): void {
                 try {
-                    $this->table($sanitizedSongs[$index], []);
+                    table($sanitizedSongs[$index], []);
                     $savePath = Utils::getSavePath($song, $this->option('dir'));
                     $this->music->download($song['url'], $savePath);
                     $this->line(sprintf($this->config['download_success_tip'], $savePath));
