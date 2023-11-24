@@ -18,7 +18,9 @@ use App\Support\Meting;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Console\OutputStyle;
 use Illuminate\Support\Traits\Macroable;
-use Symfony\Component\Console\Helper\ProgressBar;
+use Laravel\Prompts\Progress;
+
+use function Laravel\Prompts\progress;
 
 class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
 {
@@ -65,17 +67,24 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
     {
         $this->createHttpClient()->get($url, [
             'sink' => $savePath,
-            'progress' => function (int $totalDownload, int $downloaded) use (&$progressBar): void {
-                if ($totalDownload > 0 && $downloaded > 0 && ! $progressBar instanceof ProgressBar) {
-                    $progressBar = new ProgressBar($this->output, $totalDownload);
-                    $progressBar->start();
+            'progress' => function (int $totalDownload, int $downloaded) use (&$progress, $savePath): void {
+                if (0 === $totalDownload || 0 === $downloaded) {
+                    return;
                 }
 
-                if ($totalDownload === $downloaded && $progressBar instanceof ProgressBar) {
-                    $progressBar->finish();
+                if (! $progress instanceof Progress) {
+                    $progress = progress($savePath, $totalDownload);
+                    $progress->start();
                 }
 
-                $progressBar and $progressBar->setProgress($downloaded);
+                if ($totalDownload !== $downloaded) {
+                    $progress->progress = $downloaded;
+                    $progress->advance(0);
+                }
+
+                if ($totalDownload === $downloaded && 'submit' !== $progress->state) {
+                    $progress->finish();
+                }
             },
         ]);
     }
