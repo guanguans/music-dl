@@ -86,14 +86,14 @@ final class MusicCommand extends Command
                 $duration = $timer->stop();
                 if ([] === $songs) {
                     warning($this->config['empty_hint']);
-                    $this->rehandle();
+                    $this->reHandle();
                 }
 
                 $sanitizedSongs = $this->sanitizes($songs, $keyword);
                 table($this->config['table_header'], $sanitizedSongs);
                 $this->info($resourceUsageFormatter->resourceUsage($duration));
                 if (! confirm($this->config['confirm_label'])) {
-                    $this->rehandle();
+                    $this->reHandle();
                 }
 
                 $options = collect($sanitizedSongs)
@@ -118,21 +118,16 @@ final class MusicCommand extends Command
                             : $songs->only($selectedKeys->all())->mapWithKeys(static fn (array $song, int $index): array => [$index - 1 => $song])
                     )
             )
-            ->each(function (array $song): void {
-                try {
-                    $this->music->download($song['url'], Utils::getSavePath($song, $this->option('dir')));
-                } catch (\Throwable $throwable) {
-                    error($throwable->getMessage());
-                }
-            })
-            ->tap(function (): void {
-                try {
-                    $this->notify(config('app.name'), $this->option('dir'), resource_path('notify-icon.png'));
-                } catch (\Throwable $throwable) {
-                    error($throwable->getMessage());
-                }
-            })
-            ->when(! $this->option('no-continue'), fn (): int => $this->rehandle())
+            ->each(fn (array $song) => $this->wrappedExceptionHandler(fn () => $this->music->download(
+                $song['url'],
+                Utils::getSavePath($song, $this->option('dir'))
+            )))
+            ->tap(fn () => $this->wrappedExceptionHandler(fn () => $this->notify(
+                config('app.name'),
+                $this->option('dir'),
+                resource_path('notify-icon.png')
+            )))
+            ->when(! $this->option('no-continue'), fn (): int => $this->reHandle())
             ->pipe(static fn (): int => self::SUCCESS);
     }
 
@@ -159,7 +154,23 @@ final class MusicCommand extends Command
         $this->music = \App\Facades\Music::driver($this->option('driver'));
     }
 
-    private function rehandle(): int
+    /**
+     * @return \Exception|mixed|\Throwable|void
+     *
+     * @noinspection MissingReturnTypeInspection
+     */
+    private function wrappedExceptionHandler(callable $callback, ...$parameters)
+    {
+        try {
+            return $callback(...$parameters);
+        } catch (\Throwable $throwable) {
+            error($throwable->getMessage());
+
+            return $throwable;
+        }
+    }
+
+    private function reHandle(): int
     {
         return $this->handle(new Timer(), new ResourceUsageFormatter());
     }
