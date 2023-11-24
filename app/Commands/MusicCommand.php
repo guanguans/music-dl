@@ -111,13 +111,11 @@ final class MusicCommand extends Command
                 ));
             })
             ->transform(static fn (string $selectedValue): bool|int|string => $choices->search($selectedValue))
-            ->pipe(static function (Collection $selectedKeys) use ($choices, $songs): Collection {
-                if (\in_array($choices->count() - 1, $selectedKeys->all(), true)) {
-                    return collect($songs);
-                }
-
-                return collect($songs)->only($selectedKeys->all());
-            })
+            ->pipe(
+                static fn (Collection $selectedKeys): Collection => collect($songs)
+                    ->when(! \in_array($choices->count() - 1, $selectedKeys->all(), true))
+                    ->only($selectedKeys->all())
+            )
             ->each(function (array $song, int $index) use ($sanitizedSongs): void {
                 try {
                     table($sanitizedSongs[$index], []);
