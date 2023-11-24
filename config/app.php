@@ -78,6 +78,5 @@ return [
 
     'providers' => [
         App\Providers\AppServiceProvider::class,
-        Rahul900Day\LaravelConsoleSpinner\LaravelConsoleSpinnerServiceProvider::class,
     ],
 ];

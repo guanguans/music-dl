@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fb77d71ec2e64c2530ca58849511989c",
+    "content-hash": "24073f9222fb259e6681f570abc3862c",
     "packages": [
         {
             "name": "brick/math",
@@ -3361,64 +3361,6 @@
             "time": "2021-10-29T13:26:27+00:00"
         },
         {
-            "name": "rahul900day/laravel-console-spinner",
-            "version": "1.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/RahulDey12/laravel-console-spinner.git",
-                "reference": "071bf58fb33582d457219fdaa06d3727d0946e33"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/RahulDey12/laravel-console-spinner/zipball/071bf58fb33582d457219fdaa06d3727d0946e33",
-                "reference": "071bf58fb33582d457219fdaa06d3727d0946e33",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/console": "^6.0|^7.0|^8.0|^9.0|^10.0",
-                "illuminate/support": "^6.0|^7.0|^8.0|^9.0|^10.0",
-                "php": "^7.3|^8.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Rahul900Day\\LaravelConsoleSpinner\\LaravelConsoleSpinnerServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Rahul900Day\\LaravelConsoleSpinner\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Rahul Dey",
-                    "email": "rahul900day@gmail.com"
-                }
-            ],
-            "description": "Laravel Console Spinner is a spinner output for Laravel command line.",
-            "keywords": [
-                "artisan",
-                "cli",
-                "command-line",
-                "console",
-                "laravel",
-                "php",
-                "symfony"
-            ],
-            "support": {
-                "issues": "https://github.com/RahulDey12/laravel-console-spinner/issues",
-                "source": "https://github.com/RahulDey12/laravel-console-spinner/tree/1.1.1"
-            },
-            "time": "2023-02-20T04:52:54+00:00"
-        },
-        {
             "name": "ralouphie/getallheaders",
             "version": "3.0.3",
             "source": {
@@ -6297,64 +6239,6 @@
         }
     ],
     "packages-dev": [
-        {
-            "name": "alecrabbit/php-cli-snake",
-            "version": "0.6.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/alecrabbit/php-cli-snake.git",
-                "reference": "2312ac6a6e19ae22a05aec9f4ea70d3063dfde46"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/alecrabbit/php-cli-snake/zipball/2312ac6a6e19ae22a05aec9f4ea70d3063dfde46",
-                "reference": "2312ac6a6e19ae22a05aec9f4ea70d3063dfde46",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.3 || ^8.0"
-            },
-            "require-dev": {
-                "nunomaduro/collision": "^4.2",
-                "phpunit/phpunit": "^9.5",
-                "react/event-loop": "^1.1",
-                "symfony/var-dumper": "^5.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "AlecRabbit\\Snake\\": "src\\Snake"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Lightweight cli spinner with zero dependencies",
-            "keywords": [
-                "256color",
-                "8bit",
-                "ansi",
-                "cli",
-                "color",
-                "colorful",
-                "console",
-                "php",
-                "snake",
-                "spinner"
-            ],
-            "support": {
-                "issues": "https://github.com/alecrabbit/php-cli-snake/issues",
-                "source": "https://github.com/alecrabbit/php-cli-snake/tree/0.6.0"
-            },
-            "funding": [
-                {
-                    "url": "https://www.patreon.com/alecrabbit",
-                    "type": "patreon"
-                }
-            ],
-            "time": "2020-12-19T18:42:31+00:00"
-        },
         {
             "name": "amphp/amp",
             "version": "v2.6.2",

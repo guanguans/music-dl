@@ -11,18 +11,9 @@ declare(strict_types=1);
  */
 
 namespace App\Music {
-    /**
-     * @method \Rahul900Day\LaravelConsoleSpinner\Spinner spinner(int $max = 0);
-     * @method null|\Iterator|void withSpinner($totalSteps, \Closure $callback, string $message = '', array $options = []);
-     *
-     * @see \Rahul900Day\LaravelConsoleSpinner\SpinnerMixin
-     */
     final class SequenceMusic {}
 }
 
-namespace Rahul900Day\LaravelConsoleSpinner {
-    /**
-     * @mixin \Symfony\Component\Console\Helper\ProgressBar
-     */
-    final class Spinner {}
+namespace App {
+    final class MusicManager {}
 }

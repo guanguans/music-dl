@@ -12,11 +12,9 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use App\Music\SequenceMusic;
 use App\MusicManager;
 use Illuminate\Console\OutputStyle;
 use Illuminate\Support\ServiceProvider;
-use Rahul900Day\LaravelConsoleSpinner\SpinnerMixin;
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
@@ -34,10 +32,7 @@ final class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
-    {
-        SequenceMusic::mixin(new SpinnerMixin());
-    }
+    public function boot(): void {}
 
     /**
      * Register any application services.

@@ -18,15 +18,8 @@ use App\Support\Meting;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Console\OutputStyle;
 use Illuminate\Support\Traits\Macroable;
-use Rahul900Day\LaravelConsoleSpinner\Spinner;
 use Symfony\Component\Console\Helper\ProgressBar;
 
-/**
- * @method \Rahul900Day\LaravelConsoleSpinner\Spinner spinner(int $max = 0);
- * @method null|\Iterator|void withSpinner($totalSteps, \Closure $callback, string $message = '', array $options = []);
- *
- * @see \Rahul900Day\LaravelConsoleSpinner\SpinnerMixin
- */
 class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
 {
     use HttpClientFactory;
@@ -116,16 +109,6 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
             512,
             JSON_THROW_ON_ERROR
         );
-    }
-
-    protected function createAndStartSpinner(array $withoutUrlSongs): Spinner
-    {
-        $spinner = $this->spinner(\count($withoutUrlSongs));
-        $spinner->setBarCharacter(config('console-spinner.bar_character'));
-        $spinner->setMessage(config('console-spinner.message'));
-        $spinner->start();
-
-        return $spinner;
     }
 
     protected function toConcurrent(array $withoutUrlSongs): int
