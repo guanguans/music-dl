@@ -125,6 +125,13 @@ final class MusicCommand extends Command
                     error($throwable->getMessage());
                 }
             })
+            ->tap(function (): void {
+                try {
+                    $this->notify(config('app.name'), $this->option('dir'), resource_path('notify-icon.png'));
+                } catch (\Throwable $throwable) {
+                    error($throwable->getMessage());
+                }
+            })
             ->when(! $this->option('no-continue'), fn (): int => $this->rehandle())
             ->pipe(static fn (): int => self::SUCCESS);
     }
@@ -146,7 +153,8 @@ final class MusicCommand extends Command
      */
     protected function initialize(InputInterface $input, OutputInterface $output): void
     {
-        File::ensureDirectoryExists($this->option('dir') ?: Utils::getDefaultSaveDir());
+        $this->input->setOption('dir', $this->option('dir') ?: Utils::getDefaultSaveDir());
+        File::ensureDirectoryExists($this->option('dir'));
         $this->config = config('music-dl');
         $this->music = \App\Facades\Music::driver($this->option('driver'));
     }
