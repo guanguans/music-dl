@@ -42,13 +42,13 @@ return [
     ],
 
     'keyword_label' => '请输入关键字',
-    'keyword_hint' => '如：一个短篇  腰乐队  Yesterday once more，或按 Ctrl+C 退出程序',
+    'keyword_default' => '腰乐队',
     'windows_hint' => 'CMD、PowerShell 可能不支持中文搜索，Git Bash 支持中英文搜索',
     'searching_hint' => '搜索中...',
-    'empty_result_hint' => 'o(╥﹏╥)o 没有搜索到相关歌曲',
-    'confirm_download_label' => '是否下载歌曲？',
+    'empty_hint' => 'o(╥﹏╥)o 没有搜索到相关歌曲',
+    'confirm_label' => '是否下载歌曲？',
     'all_songs' => '全部歌曲',
     'select_label' => '请按选择歌曲',
-    'select_hint' => '空格键选中选项',
+    'select_hint' => '空格键选中/取消选项',
     'success_icon' => resource_path('success-icon.png'),
 ];

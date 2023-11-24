@@ -73,23 +73,26 @@ final class MusicCommand extends Command
             ->tap(fn () => \Laravel\Prompts\info($this->config['logo']))
             ->when(windows_os(), fn () => warning($this->config['windows_hint']))
             ->pipe(function () use ($timer, &$songs, &$sanitizedSongs, $resourceUsageFormatter, &$options): Collection {
-                $keyword = str($this->argument('keyword') ?? text($this->config['keyword_label'], '关键字', '腰乐队', true, hint: $this->config['keyword_hint']))
-                    ->trim()
-                    ->toString();
+                $keyword = str($this->argument('keyword') ?? text(
+                    $this->config['keyword_label'],
+                    $this->config['keyword_label'],
+                    $this->config['keyword_default'],
+                    $this->config['keyword_label']
+                ))->trim()->toString();
                 $sources = array_filter((array) $this->option('sources')) ?: $this->config['sources'];
 
                 $timer->start();
                 $songs = spin(fn (): array => $this->music->search($keyword, $sources), $this->config['searching_hint']);
                 $duration = $timer->stop();
                 if ([] === $songs) {
-                    warning($this->config['empty_result_hint']);
+                    warning($this->config['empty_hint']);
                     $this->rehandle();
                 }
 
                 $sanitizedSongs = $this->sanitizes($songs, $keyword);
                 table($this->config['table_header'], $sanitizedSongs);
                 $this->info($resourceUsageFormatter->resourceUsage($duration));
-                if (! confirm($this->config['confirm_download_label'])) {
+                if (! confirm($this->config['confirm_label'])) {
                     $this->rehandle();
                 }
 
@@ -102,7 +105,7 @@ final class MusicCommand extends Command
                     $options->all(),
                     [$options->first()],
                     20,
-                    true,
+                    $this->config['select_label'],
                     hint: $this->config['select_hint'],
                 ));
             })
@@ -115,9 +118,8 @@ final class MusicCommand extends Command
                             : $songs->only($selectedKeys->all())->mapWithKeys(static fn (array $song, int $index): array => [$index - 1 => $song])
                     )
             )
-            ->each(function (array $song, int $index): void {
+            ->each(function (array $song): void {
                 try {
-                    // table($sanitizedSongs[$index], []);
                     $this->music->download($song['url'], Utils::getSavePath($song, $this->option('dir')));
                 } catch (\Throwable $throwable) {
                     error($throwable->getMessage());
