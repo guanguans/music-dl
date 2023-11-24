@@ -68,21 +68,19 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
         $this->createHttpClient()->get($url, [
             'sink' => $savePath,
             'progress' => function (int $totalDownload, int $downloaded) use (&$progress, $savePath): void {
-                if (0 === $totalDownload || 0 === $downloaded) {
+                if (0 === $totalDownload || 0 === $downloaded || 'submit' === $progress?->state) {
                     return;
                 }
 
                 if (! $progress instanceof Progress) {
-                    $progress = progress($savePath, $totalDownload);
+                    $progress = progress(pathinfo($savePath, PATHINFO_BASENAME), $totalDownload);
                     $progress->start();
                 }
 
-                if ($totalDownload !== $downloaded) {
-                    $progress->progress = $downloaded;
-                    $progress->advance(0);
-                }
+                $progress->progress = $downloaded;
+                $progress->advance(0);
 
-                if ($totalDownload === $downloaded && 'submit' !== $progress->state) {
+                if ($totalDownload === $downloaded) {
                     $progress->finish();
                 }
             },

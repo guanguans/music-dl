@@ -124,7 +124,7 @@ final class MusicCommand extends Command
                     table($sanitizedSongs[$index], []);
                     $savePath = Utils::getSavePath($song, $this->option('dir'));
                     $this->music->download($song['url'], $savePath);
-                    \Laravel\Prompts\info(sprintf($this->config['download_success_tip'], $savePath));
+                    // \Laravel\Prompts\info(sprintf($this->config['download_success_tip'], $savePath));
                 } catch (\Throwable $throwable) {
                     \Laravel\Prompts\info(sprintf($this->config['download_failed_tip'], $throwable->getMessage()));
                 } finally {
