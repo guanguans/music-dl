@@ -7,8 +7,7 @@
         "vendor"
     ],
     "files": [
-        "composer.json",
-        "resources/success-icon.png"
+        "composer.json"
     ],
     "exclude-composer-files": false,
     "exclude-dev-files": true,

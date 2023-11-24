@@ -125,11 +125,6 @@ final class MusicCommand extends Command
                     error($throwable->getMessage());
                 }
             })
-            ->when(! windows_os(), fn () => $this->notify(
-                config('app.name'),
-                $this->option('dir') ?: Utils::getDefaultSaveDir(),
-                $this->config['notify_icon']
-            ))
             ->when(! $this->option('no-continue'), fn (): int => $this->rehandle())
             ->pipe(static fn (): int => self::SUCCESS);
     }
