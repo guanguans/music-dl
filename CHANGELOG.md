@@ -8,6 +8,25 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="4.1.0"></a>
+## [4.1.0] - 2023-11-24
+### Fix
+- **app:** Filter songs without URL in SequenceMusic
+- **commands:** Fix MusicCommand pipe function
+
+### Refactor
+- **MusicCommand:** refactor MusicCommand class
+- **app:** remove unused imports(spinner)
+- **command:** refactor MusicCommand.php
+- **command:** Refactor MusicCommand.php
+- **command:** refactor MusicCommand.php
+- **commands:** Remove async driver option
+- **commands:** Remove unused import in MusicCommand
+
+### Pull Requests
+- Merge pull request [#608](https://github.com/guanguans/monorepo-builder-worker/issues/608) from guanguans/dependabot/composer/spatie/fork-1.2.1
+
+
 <a name="4.0.1"></a>
 ## [4.0.1] - 2023-11-23
 ### Feat
@@ -669,7 +688,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/monorepo-builder-worker/compare/4.0.1...HEAD
+[Unreleased]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.0...HEAD
+[4.1.0]: https://github.com/guanguans/monorepo-builder-worker/compare/4.0.1...4.1.0
 [4.0.1]: https://github.com/guanguans/monorepo-builder-worker/compare/4.0.0...4.0.1
 [4.0.0]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.4...4.0.0
 [3.6.4]: https://github.com/guanguans/monorepo-builder-worker/compare/3.6.3...3.6.4
