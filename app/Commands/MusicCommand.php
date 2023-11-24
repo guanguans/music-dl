@@ -71,21 +71,21 @@ final class MusicCommand extends Command
     {
         return collect()
             ->when(! self::$isOutputtedLogo, function (): void {
-                $this->line($this->config['logo']);
+                \Laravel\Prompts\info($this->config['logo']);
                 self::$isOutputtedLogo = true;
             })
-            ->when(windows_os(), fn () => $this->line($this->config['windows_tip']))
+            ->when(windows_os(), fn () => \Laravel\Prompts\info($this->config['windows_tip']))
             ->pipe(function () use ($timer, &$songs, &$sanitizedSongs, $resourceUsageFormatter, &$choices, &$lastKey): Collection {
                 $keyword = str($this->argument('keyword') ?? text($this->config['search_tip'], '关键字', '腰乐队', true))->trim()->toString();
                 $sources = array_filter((array) $this->option('sources')) ?: $this->config['sources'];
 
-                $this->line(sprintf($this->config['searching'], $keyword));
+                \Laravel\Prompts\info(sprintf($this->config['searching'], $keyword));
                 $timer->start();
                 $songs = $this->music->search($keyword, $sources);
                 $duration = $timer->stop();
                 $this->newLine();
                 if ([] === $songs) {
-                    $this->line($this->config['empty_result']);
+                    \Laravel\Prompts\info($this->config['empty_result']);
                     $this->rehandle();
                 }
 
@@ -121,9 +121,9 @@ final class MusicCommand extends Command
                     table($sanitizedSongs[$index], []);
                     $savePath = Utils::getSavePath($song, $this->option('dir'));
                     $this->music->download($song['url'], $savePath);
-                    $this->line(sprintf($this->config['download_success_tip'], $savePath));
+                    \Laravel\Prompts\info(sprintf($this->config['download_success_tip'], $savePath));
                 } catch (\Throwable $throwable) {
-                    $this->line(sprintf($this->config['download_failed_tip'], $throwable->getMessage()));
+                    \Laravel\Prompts\info(sprintf($this->config['download_failed_tip'], $throwable->getMessage()));
                 } finally {
                     $this->newLine();
                 }
