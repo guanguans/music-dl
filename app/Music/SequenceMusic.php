@@ -17,7 +17,6 @@ use App\Contracts\Music;
 use App\Support\Meting;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Console\OutputStyle;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Traits\Macroable;
 use Rahul900Day\LaravelConsoleSpinner\Spinner;
 use Symfony\Component\Console\Helper\ProgressBar;
@@ -93,14 +92,9 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
      */
     protected function ensureWithUrls(array $withoutUrlSongs): array
     {
-        return tap(collect(), function (Collection $songs) use ($withoutUrlSongs): void {
-            $this->withSpinner(
-                $withoutUrlSongs,
-                fn (array $withoutUrlSong): Collection => $songs->add($this->ensureWithUrl($withoutUrlSong)),
-                config('console-spinner.message'),
-                ['bar_character' => config('console-spinner.bar_character')]
-            );
-        })->all();
+        return collect($withoutUrlSongs)
+            ->transform(fn (array $withoutUrlSong): array => $this->ensureWithUrl($withoutUrlSong))
+            ->all();
     }
 
     /**

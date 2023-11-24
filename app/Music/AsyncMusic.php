@@ -28,18 +28,12 @@ final class AsyncMusic extends SequenceMusic
     protected function ensureWithUrls(array $withoutUrlSongs): array
     {
         return tap(collect(), function (Collection $songs) use ($withoutUrlSongs): void {
-            $spinner = $this->createAndStartSpinner($withoutUrlSongs);
             $pool = Pool::create()->concurrency($this->toConcurrent($withoutUrlSongs))->timeout(10);
 
             foreach ($withoutUrlSongs as $withoutUrlSong) {
                 $pool
                     ->add(fn (): array => $this->ensureWithUrl($withoutUrlSong))
-                    ->then(static fn (array $output): Collection => tap(
-                        $songs->add($output),
-                        static function () use ($spinner): void {
-                            $spinner->advance();
-                        }
-                    ))
+                    ->then(static fn (array $output): Collection => $songs->add($output))
                     ->catch(static function (\Throwable $throwable): void {
                         // noop
                     })
@@ -49,7 +43,6 @@ final class AsyncMusic extends SequenceMusic
             }
 
             $pool->wait();
-            $spinner->finish();
         })->all();
     }
 }

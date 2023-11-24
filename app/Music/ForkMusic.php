@@ -24,24 +24,13 @@ final class ForkMusic extends SequenceMusic
      */
     protected function ensureWithUrls(array $withoutUrlSongs): array
     {
-        $spinner = $this->createAndStartSpinner($withoutUrlSongs);
-
-        $songs = Fork::new()
+        return Fork::new()
             ->before()
             ->after()
             ->concurrent($this->toConcurrent($withoutUrlSongs))
             ->run(...array_map(
-                fn (array $withoutUrlSong): callable => fn (): array => tap(
-                    $this->ensureWithUrl($withoutUrlSong),
-                    static function () use ($spinner): void {
-                        $spinner->advance();
-                    }
-                ),
+                fn (array $withoutUrlSong): callable => fn (): array => $this->ensureWithUrl($withoutUrlSong),
                 $withoutUrlSongs
             ));
-
-        $spinner->finish();
-
-        return $songs;
     }
 }
