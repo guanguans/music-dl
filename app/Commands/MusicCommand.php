@@ -16,7 +16,6 @@ namespace App\Commands;
 
 use App\Concerns\Sanitizer;
 use App\Contracts\Music;
-use App\MusicManager;
 use App\Support\Utils;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Container\BindingResolutionException;
@@ -159,7 +158,7 @@ final class MusicCommand extends Command
     {
         File::ensureDirectoryExists($this->option('dir') ?: Utils::getDefaultSaveDir());
         $this->config = config('music-dl');
-        $this->music = $this->laravel->make(MusicManager::class)->driver($this->option('driver'));
+        $this->music = \App\Facades\Music::driver($this->option('driver'));
     }
 
     private function rehandle(): int
