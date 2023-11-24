@@ -29,7 +29,6 @@
         "laravel/prompts": "^0.1",
         "metowolf/meting": "^1.5",
         "phpunit/php-timer": "^6.0",
-        "spatie/async": "^1.6",
         "spatie/fork": "^1.2",
         "symfony/polyfill-php83": "^1.28"
     },

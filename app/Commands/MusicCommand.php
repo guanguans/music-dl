@@ -45,7 +45,7 @@ final class MusicCommand extends Command
      */
     protected $signature = 'music
                             {keyword? : Search keyword for music}
-                            {--driver=sequence : Specify the search driver(async、fork、sequence)}
+                            {--driver=sequence : Specify the search driver(fork、sequence)}
                             {--d|dir= : Specify the download directory}
                             {--no-continue : Specify whether to recall the command after the download is complete}
                             {--sources=* : Specify the music sources(tencent、netease、kugou)}
