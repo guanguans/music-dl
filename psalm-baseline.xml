@@ -5,6 +5,9 @@
       <code>$songs</code>
     </UnusedVariable>
     <InvalidArgument>
+      <code><![CDATA[$choices->all()]]></code>
+      <code><![CDATA[$lastKey = [$choices->last()]]]></code>
+      <code>$sanitizedSongs</code>
       <code><![CDATA[static fn (array $song): string => implode('  ', Arr::except($song, [0]))]]></code>
     </InvalidArgument>
   </file>
@@ -12,10 +15,5 @@
     <UnhandledMatchCondition>
       <code>PHP_OS_FAMILY</code>
     </UnhandledMatchCondition>
-  </file>
-  <file src="app/Music/AsyncMusic.php">
-    <UnusedClosureParam>
-      <code>$throwable</code>
-    </UnusedClosureParam>
   </file>
 </files>

@@ -33,7 +33,7 @@ it('can search and download music', function (): void {
         ->assertSuccessful();
 })
     ->group(__DIR__, __FILE__)
-    ->skipOnWindows();
+    ->skip();
 
 it('can find downloaded music', function (): void {
     expect(File::files($this->downloadDir))
@@ -43,4 +43,4 @@ it('can find downloaded music', function (): void {
 })
     ->group(__DIR__, __FILE__)
     // ->depends('it can search and download music')
-    ->skipOnWindows();
+    ->skip();

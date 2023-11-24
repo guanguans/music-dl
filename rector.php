@@ -84,7 +84,6 @@ return static function (RectorConfig $rectorConfig): void {
         // CallableThisArrayToAnonymousFunctionRector::class,
         // ChangeAndIfToEarlyReturnRector::class,
         // ExplicitBoolCompareRector::class,
-        // RemoveEmptyClassMethodRector::class,
         // RemoveUnusedVariableAssignRector::class,
         // ReturnBinaryOrToEarlyReturnRector::class,
         // SimplifyBoolIdenticalTrueRector::class,
@@ -111,6 +110,9 @@ return static function (RectorConfig $rectorConfig): void {
         ],
         FinalizeClassesWithoutChildrenRector::class => [
             __DIR__.'/app/Music/SequenceMusic.php',
+        ],
+        RemoveEmptyClassMethodRector::class => [
+            __DIR__.'/app/Providers/AppServiceProvider.php',
         ],
         RenameForeachValueVariableToMatchExprVariableRector::class => [
             // __DIR__.'/src/OutputManager.php',

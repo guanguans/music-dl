@@ -6,16 +6,16 @@ parameters:
 			path: app/Commands/MusicCommand.php
 
 		-
+			message: "#^Parameter \\#2 \\$options of function Laravel\\\\Prompts\\\\multiselect expects array\\<int\\|string, string\\>\\|Illuminate\\\\Support\\\\Collection\\<int\\|string, string\\>, array\\<array\\<int\\|string\\|null\\>\\> given\\.$#"
+			count: 1
+			path: app/Commands/MusicCommand.php
+
+		-
+			message: "#^Parameter \\#3 \\$default of function Laravel\\\\Prompts\\\\multiselect expects array\\<int\\|string\\>\\|Illuminate\\\\Support\\\\Collection\\<int, int\\|string\\>, array\\{array\\<int\\|string\\|null\\>\\|null\\} given\\.$#"
+			count: 1
+			path: app/Commands/MusicCommand.php
+
+		-
 			message: "#^Match expression does not handle remaining values\\: 'BSD'\\|'Solaris'\\|'Unknown'$#"
 			count: 1
 			path: app/Commands/ThanksCommand.php
-
-		-
-			message: "#^Call to an undefined method Rahul900Day\\\\LaravelConsoleSpinner\\\\Spinner\\:\\:finish\\(\\)\\.$#"
-			count: 1
-			path: app/Music/AsyncMusic.php
-
-		-
-			message: "#^Call to an undefined method Rahul900Day\\\\LaravelConsoleSpinner\\\\Spinner\\:\\:finish\\(\\)\\.$#"
-			count: 1
-			path: app/Music/ForkMusic.php
