@@ -75,7 +75,7 @@ final class MusicCommand extends Command
                 self::$isOutputtedLogo = true;
             })
             ->when(windows_os(), fn () => \Laravel\Prompts\info($this->config['windows_tip']))
-            ->pipe(function () use ($timer, &$songs, &$sanitizedSongs, $resourceUsageFormatter, &$choices, &$lastKey): Collection {
+            ->pipe(function () use ($timer, &$songs, &$sanitizedSongs, $resourceUsageFormatter, &$choices): Collection {
                 $keyword = str($this->argument('keyword') ?? text($this->config['search_tip'], '关键字', '腰乐队', true))->trim()->toString();
                 $sources = array_filter((array) $this->option('sources')) ?: $this->config['sources'];
 
@@ -100,21 +100,22 @@ final class MusicCommand extends Command
 
                 $choices = collect($sanitizedSongs)
                     ->transform(static fn (array $song): string => implode('  ', Arr::except($song, [0])))
-                    ->add($this->config['download_all_songs']);
+                    ->prepend($this->config['download_all_songs']);
 
                 return collect(multiselect(
                     $this->config['download_choice_tip'],
                     $choices->all(),
-                    $lastKey = [$choices->last()],
-                    10,
+                    [$choices->first()],
+                    20,
                     true
                 ));
             })
             ->transform(static fn (string $selectedValue): bool|int|string => $choices->search($selectedValue))
             ->pipe(
                 static fn (Collection $selectedKeys): Collection => collect($songs)
-                    ->when(! \in_array($choices->count() - 1, $selectedKeys->all(), true))
+                    ->when(! \in_array(0, $selectedKeys->all(), true))
                     ->only($selectedKeys->all())
+                    ->mapWithKeys(fn (array $song, int $index): array => [$index - 1 => $song])
             )
             ->each(function (array $song, int $index) use ($sanitizedSongs): void {
                 try {
