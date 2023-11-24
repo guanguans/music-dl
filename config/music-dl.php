@@ -50,5 +50,5 @@ return [
     'all_songs' => '全部歌曲',
     'select_label' => '请按选择歌曲',
     'select_hint' => '空格键选中/取消选项',
-    'success_icon' => resource_path('success-icon.png'),
+    'notify_icon' => resource_path('notify-icon.png'),
 ];
