@@ -8,6 +8,23 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="4.1.2"></a>
+## [4.1.2] - 2023-11-25
+### Fix
+- **MusicCommand:** Fix type hint in mapWithKeys callback
+- **commands:** Add #[\Override] attribute to schedule method
+
+### Refactor
+- **HttpClientFactory:** Update nullability of httpClient
+- **Music:** change return type of search method in SequenceMusic class
+- **Sanitizer:** update method signature
+- **app:** refactor exception handler, music facade, fork music, and music manager
+- **command:** simplify MusicCommand.php
+- **command:** Update MusicCommand.php
+- **commands:** refactor MusicCommand.php
+- **commands:** Refactor MusicCommand class
+
+
 <a name="4.1.1"></a>
 ## [4.1.1] - 2023-11-24
 ### Fix
@@ -701,7 +718,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.1...HEAD
+[Unreleased]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.2...HEAD
+[4.1.2]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.1...4.1.2
 [4.1.1]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.0...4.1.1
 [4.1.0]: https://github.com/guanguans/monorepo-builder-worker/compare/4.0.1...4.1.0
 [4.0.1]: https://github.com/guanguans/monorepo-builder-worker/compare/4.0.0...4.0.1
