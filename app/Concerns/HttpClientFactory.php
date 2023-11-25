@@ -16,7 +16,7 @@ use GuzzleHttp\Client;
 
 trait HttpClientFactory
 {
-    protected static null|Client $httpClient = null;
+    protected static ?Client $httpClient = null;
 
     public function createHttpClient(array $config = []): Client
     {

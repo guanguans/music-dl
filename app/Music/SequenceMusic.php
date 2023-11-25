@@ -37,8 +37,6 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
 
     /**
      * @psalm-suppress NamedArgumentNotAllowed
-     *
-     * @throws \JsonException
      */
     public function search(string $keyword, array $sources = []): Collection
     {
@@ -87,9 +85,6 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
         ]);
     }
 
-    /**
-     * @throws \JsonException
-     */
     protected function ensureWithUrls(array $withoutUrlSongs): array
     {
         return collect($withoutUrlSongs)
