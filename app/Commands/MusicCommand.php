@@ -28,7 +28,6 @@ use SebastianBergmann\Timer\Timer;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-use function Laravel\Prompts\confirm;
 use function Laravel\Prompts\error;
 use function Laravel\Prompts\multiselect;
 use function Laravel\Prompts\spin;
@@ -72,52 +71,52 @@ final class MusicCommand extends Command
         return collect()
             ->tap(fn () => \Laravel\Prompts\info($this->config['logo']))
             ->when(windows_os(), fn () => warning($this->config['windows_hint']))
-            ->pipe(function () use ($timer, &$songs, &$sanitizedSongs, $resourceUsageFormatter, &$options): Collection {
+            ->tap(function () use (&$keyword): void {
                 $keyword = str($this->argument('keyword') ?? text(
                     $this->config['keyword_label'],
                     $this->config['keyword_label'],
                     $this->config['keyword_default'],
                     $this->config['keyword_label']
                 ))->trim()->toString();
-                $sources = array_filter((array) $this->option('sources')) ?: $this->config['sources'];
+            })
+            ->pipe(function () use (&$songs, $timer, $keyword): Collection {
+                $songs = spin(
+                    function () use ($timer, $keyword): array {
+                        $timer->start();
 
-                $timer->start();
-                $songs = spin(fn (): array => $this->music->search($keyword, $sources), $this->config['searching_hint']);
-                $duration = $timer->stop();
-                if ([] === $songs) {
-                    warning($this->config['empty_hint']);
-                    $this->reHandle();
-                }
+                        return $this->music->search($keyword, $this->option('sources'));
+                    },
+                    $this->config['searching_hint']
+                );
 
-                $sanitizedSongs = $this->sanitizes($songs, $keyword);
-                table($this->config['table_header'], $sanitizedSongs);
-                $this->info($resourceUsageFormatter->resourceUsage($duration));
-                if (! confirm($this->config['confirm_label'])) {
-                    $this->reHandle();
-                }
-
-                $options = collect($sanitizedSongs)
+                return $songs = collect($songs)->mapWithKeys(static fn ($song, $index): array => [$index + 1 => $song]);
+            })
+            ->whenEmpty(function (): void {
+                warning($this->config['empty_hint']);
+                $this->reHandle();
+            })
+            ->tap(function (Collection $songs) use ($keyword, $resourceUsageFormatter, $timer): void {
+                table($this->config['table_header'], $this->sanitizes($songs->all(), $keyword));
+                \Laravel\Prompts\info($resourceUsageFormatter->resourceUsage($timer->stop()));
+            })
+            ->tap(function (Collection $songs) use (&$options, $keyword) {
+                return $options = collect($this->sanitizes($songs->all(), $keyword))
                     ->transform(static fn (array $song): string => implode('  ', Arr::except($song, [0])))
                     ->prepend($this->config['all_songs']);
-
-                return collect(multiselect(
-                    $this->config['select_label'],
-                    $options->all(),
-                    [$options->first()],
-                    20,
-                    $this->config['select_label'],
-                    hint: $this->config['select_hint'],
-                ));
             })
-            ->transform(static fn (string $selectedValue): bool|int|string => $options->search($selectedValue))
-            ->pipe(
-                static fn (Collection $selectedKeys): Collection => collect($songs)
-                    ->pipe(
-                        static fn (Collection $songs): Collection => \in_array(0, $selectedKeys->all(), true)
-                            ? $songs
-                            : $songs->only($selectedKeys->all())->mapWithKeys(static fn (array $song, int $index): array => [$index - 1 => $song])
+            ->tap(function () use (&$selectedKeys, $options): void {
+                $selectedKeys = collect(
+                    multiselect(
+                        $this->config['select_label'],
+                        $options->all(),
+                        [$options->first()],
+                        20,
+                        $this->config['select_label'],
+                        hint: $this->config['select_hint'],
                     )
-            )
+                )->transform(static fn (string $selectedValue): bool|int|string => $options->search($selectedValue));
+            })
+            ->pipe(fn (Collection $songs) => \in_array(0, $selectedKeys->all(), true) ? $songs : $songs->only($selectedKeys->all()))
             ->each(fn (array $song) => $this->wrappedExceptionHandler(fn () => $this->music->download(
                 $song['url'],
                 Utils::getSavePath($song, $this->option('dir'))
@@ -148,10 +147,11 @@ final class MusicCommand extends Command
      */
     protected function initialize(InputInterface $input, OutputInterface $output): void
     {
-        $this->input->setOption('dir', $this->option('dir') ?: Utils::getDefaultSaveDir());
-        File::ensureDirectoryExists($this->option('dir'));
         $this->config = config('music-dl');
         $this->music = \App\Facades\Music::driver($this->option('driver'));
+        $this->input->setOption('dir', $this->option('dir') ?: Utils::getDefaultSaveDir());
+        File::ensureDirectoryExists($this->option('dir'));
+        $this->input->setOption('sources', array_filter((array) $this->option('sources')) ?: $this->config['sources']);
     }
 
     /**
