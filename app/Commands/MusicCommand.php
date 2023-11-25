@@ -27,6 +27,7 @@ use SebastianBergmann\Timer\Timer;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+use function Laravel\Prompts\confirm;
 use function Laravel\Prompts\error;
 use function Laravel\Prompts\multiselect;
 use function Laravel\Prompts\spin;
@@ -98,6 +99,7 @@ final class MusicCommand extends Command
                 table($this->config['table_header'], $sanitizedSongs = $this->sanitizes($songs, $keyword));
                 \Laravel\Prompts\info($resourceUsageFormatter->resourceUsage($duration));
             })
+            ->tap(fn (): bool => confirm($this->config['confirm_label']) or $this->reHandle())
             ->tap(function () use (&$options, $sanitizedSongs): void {
                 $options = $sanitizedSongs
                     ->transform(static fn (array $song): string => implode('  ', Arr::except($song, [0])))
