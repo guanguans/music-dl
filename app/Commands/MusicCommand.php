@@ -18,7 +18,6 @@ use App\Concerns\Sanitizer;
 use App\Contracts\Music;
 use App\Support\Utils;
 use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
@@ -79,7 +78,7 @@ final class MusicCommand extends Command
                     $this->config['keyword_label']
                 ))->trim()->toString();
             })
-            ->pipe(function () use ($timer, &$songs, $keyword, &$duration): Collection {
+            ->pipe(function () use ($timer, $keyword, &$duration): Collection {
                 $timer->start();
                 $songs = spin(
                     fn (): array => $this->music->search($keyword, $this->option('sources')),
@@ -87,7 +86,7 @@ final class MusicCommand extends Command
                 );
                 $duration = $timer->stop();
 
-                return $songs = collect($songs)->mapWithKeys(static fn ($song, $index): array => [$index + 1 => $song]);
+                return collect($songs)->mapWithKeys(static fn ($song, $index): array => [$index + 1 => $song]);
             })
             ->whenEmpty(function (): void {
                 warning($this->config['empty_hint']);
@@ -115,14 +114,14 @@ final class MusicCommand extends Command
                 )->transform(static fn (string $selectedValue): bool|int|string => $options->search($selectedValue));
             })
             ->pipe(
-                fn (Collection $songs): Collection => \in_array(0, $selectedKeys->all(), true)
-                ? $songs : $songs->only($selectedKeys->all())
+                static fn (Collection $songs): Collection => \in_array(0, $selectedKeys->all(), true)
+                    ? $songs : $songs->only($selectedKeys->all())
             )
-            ->each(fn (array $song) => $this->wrappedExceptionHandler(fn () => $this->music->download(
+            ->each(fn (array $song): mixed => $this->wrappedExceptionHandler(fn () => $this->music->download(
                 $song['url'],
                 Utils::getSavePath($song, $this->option('dir'))
             )))
-            ->tap(fn () => $this->wrappedExceptionHandler(fn () => $this->notify(
+            ->tap(fn (): mixed => $this->wrappedExceptionHandler(fn () => $this->notify(
                 config('app.name'),
                 $this->option('dir'),
                 resource_path('notify-icon.png')
@@ -136,16 +135,16 @@ final class MusicCommand extends Command
      *
      * @noinspection PhpMissingParentCallCommonInspection
      */
+    #[\Override]
     public function schedule(Schedule $schedule): void
     {
         // $schedule->command(static::class)->everyMinute();
     }
 
     /**
-     * @throws BindingResolutionException
-     *
      * @noinspection PhpMissingParentCallCommonInspection
      */
+    #[\Override]
     protected function initialize(InputInterface $input, OutputInterface $output): void
     {
         $this->config = config('music-dl');
