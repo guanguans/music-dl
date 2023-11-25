@@ -45,12 +45,12 @@ final class MusicCommand extends Command
      * @var string
      */
     protected $signature = 'music
-                            {keyword? : Search keyword for music}
-                            {--driver=sequence : Specify the search driver(fork、sequence)}
-                            {--d|dir= : Specify the download directory}
-                            {--no-continue : Specify whether to recall the command after the download is complete}
-                            {--sources=* : Specify the music sources(tencent、netease、kugou)}
-                            ';
+        {keyword? : Search keyword for music}
+        {--driver=sequence : Specify the search driver(fork、sequence)}
+        {--d|dir= : Specify the download directory}
+        {--no-continue : Specify whether to recall the command after the download is complete}
+        {--sources=* : Specify the music sources(tencent、netease、kugou)}
+    ';
 
     /**
      * The description of the command.
@@ -79,15 +79,13 @@ final class MusicCommand extends Command
                     $this->config['keyword_label']
                 ))->trim()->toString();
             })
-            ->pipe(function () use (&$songs, $timer, $keyword): Collection {
+            ->pipe(function () use ($timer, &$songs, $keyword, &$duration): Collection {
+                $timer->start();
                 $songs = spin(
-                    function () use ($timer, $keyword): array {
-                        $timer->start();
-
-                        return $this->music->search($keyword, $this->option('sources'));
-                    },
+                    fn (): array => $this->music->search($keyword, $this->option('sources')),
                     $this->config['searching_hint']
                 );
+                $duration = $timer->stop();
 
                 return $songs = collect($songs)->mapWithKeys(static fn ($song, $index): array => [$index + 1 => $song]);
             })
@@ -95,12 +93,12 @@ final class MusicCommand extends Command
                 warning($this->config['empty_hint']);
                 $this->reHandle();
             })
-            ->tap(function (Collection $songs) use ($keyword, $resourceUsageFormatter, $timer): void {
-                table($this->config['table_header'], $this->sanitizes($songs->all(), $keyword));
-                \Laravel\Prompts\info($resourceUsageFormatter->resourceUsage($timer->stop()));
+            ->tap(function (Collection $songs) use (&$sanitizedSongs, $keyword, $resourceUsageFormatter, $duration): void {
+                table($this->config['table_header'], $sanitizedSongs = $this->sanitizes($songs->all(), $keyword));
+                \Laravel\Prompts\info($resourceUsageFormatter->resourceUsage($duration));
             })
-            ->tap(function (Collection $songs) use (&$options, $keyword) {
-                return $options = collect($this->sanitizes($songs->all(), $keyword))
+            ->tap(function () use (&$options, $sanitizedSongs): void {
+                $options = collect($sanitizedSongs)
                     ->transform(static fn (array $song): string => implode('  ', Arr::except($song, [0])))
                     ->prepend($this->config['all_songs']);
             })
@@ -116,7 +114,10 @@ final class MusicCommand extends Command
                     )
                 )->transform(static fn (string $selectedValue): bool|int|string => $options->search($selectedValue));
             })
-            ->pipe(fn (Collection $songs) => \in_array(0, $selectedKeys->all(), true) ? $songs : $songs->only($selectedKeys->all()))
+            ->pipe(
+                fn (Collection $songs): Collection => \in_array(0, $selectedKeys->all(), true)
+                ? $songs : $songs->only($selectedKeys->all())
+            )
             ->each(fn (array $song) => $this->wrappedExceptionHandler(fn () => $this->music->download(
                 $song['url'],
                 Utils::getSavePath($song, $this->option('dir'))
