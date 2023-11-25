@@ -48,6 +48,7 @@ final class InspireCommand extends Command
      *
      * @noinspection PhpMissingParentCallCommonInspection
      */
+    #[\Override]
     public function schedule(Schedule $schedule): void
     {
         // $schedule->command(static::class)->everyMinute();

@@ -19,6 +19,7 @@ final class VendorPublishCommand extends \Illuminate\Foundation\Console\VendorPu
      *
      * @noinspection PhpMissingParentCallCommonInspection
      */
+    #[\Override]
     public function isEnabled(): bool
     {
         return ! $this->laravel->isProduction();
