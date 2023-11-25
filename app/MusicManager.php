@@ -25,7 +25,7 @@ use Illuminate\Support\Traits\Tappable;
 /**
  * @mixin \App\Contracts\Music
  */
-final class MusicManager extends Manager
+class MusicManager extends Manager
 {
     use Conditionable;
     use Macroable;
