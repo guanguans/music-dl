@@ -98,7 +98,7 @@
             "target-directory": "vendor-bin"
         },
         "branch-alias": {
-            "dev-main": "3.x-dev"
+            "dev-main": "4.x-dev"
         },
         "hooks": {
             "post-merge": [
@@ -151,7 +151,7 @@
         "md-fix": "@md-lint --fix",
         "md-lint": "lint-md --config .lintmdrc ./*.md ./.github/ ./docs/",
         "pest": "@php ./vendor/bin/pest --coverage",
-        "pest-coverage": "@pest --coverage-html=./build/phpunit/ --coverage-clover=./clover.xml --coverage",
+        "pest-coverage": "@pest --coverage-html=./build/phpunit/ --coverage-clover=./clover.xml",
         "pest-migrate-configuration": "@pest --migrate-configuration",
         "phpstan": "@php ./vendor/bin/phpstan analyse --ansi -v",
         "phpstan-baseline": "@phpstan --generate-baseline --allow-empty-baseline",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "69a3c858678e6eb86d8e7a8a442b9001",
+    "content-hash": "c9b778cb6d52356319bf3d957963ece1",
     "packages": [
         {
             "name": "brick/math",
@@ -7452,16 +7452,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v3.39.0",
+            "version": "v3.39.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer.git",
-                "reference": "04bf7b28fc847185b247d112cab617da941e3cca"
+                "reference": "857046d26b0d92dc13c4be769309026b100b517e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/04bf7b28fc847185b247d112cab617da941e3cca",
-                "reference": "04bf7b28fc847185b247d112cab617da941e3cca",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/857046d26b0d92dc13c4be769309026b100b517e",
+                "reference": "857046d26b0d92dc13c4be769309026b100b517e",
                 "shasum": ""
             },
             "require": {
@@ -7533,7 +7533,7 @@
             ],
             "support": {
                 "issues": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/issues",
-                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.39.0"
+                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.39.1"
             },
             "funding": [
                 {
@@ -7541,7 +7541,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-11-22T11:20:09+00:00"
+            "time": "2023-11-24T22:59:03+00:00"
         },
         {
             "name": "guanguans/ai-commit",
