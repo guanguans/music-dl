@@ -95,11 +95,11 @@ final class MusicCommand extends Command
                 $this->reHandle();
             })
             ->tap(function (Collection $songs) use (&$sanitizedSongs, $keyword, $resourceUsageFormatter, $duration): void {
-                table($this->config['table_header'], $sanitizedSongs = $this->sanitizes($songs->all(), $keyword));
+                table($this->config['table_header'], $sanitizedSongs = $this->sanitizes($songs, $keyword));
                 \Laravel\Prompts\info($resourceUsageFormatter->resourceUsage($duration));
             })
             ->tap(function () use (&$options, $sanitizedSongs): void {
-                $options = collect($sanitizedSongs)
+                $options = $sanitizedSongs
                     ->transform(static fn (array $song): string => implode('  ', Arr::except($song, [0])))
                     ->prepend($this->config['all_songs']);
             })

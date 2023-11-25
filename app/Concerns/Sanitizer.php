@@ -13,22 +13,18 @@ declare(strict_types=1);
 namespace App\Concerns;
 
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 
 trait Sanitizer
 {
-    /**
-     * @return array<array<array-key, null|int|string>>
-     */
-    public function sanitizes(array $songs, string $keyword): array
+    public function sanitizes(Collection $songs, string $keyword): Collection
     {
-        return collect($songs)
-            ->mapWithKeys(function (array $song, int $index) use ($keyword): array {
-                $song = $this->sanitize($song, $keyword);
-                array_unshift($song, "<fg=cyan>$index</>");
+        return $songs->mapWithKeys(function (array $song, int $index) use ($keyword): array {
+            $song = $this->sanitize($song, $keyword);
+            array_unshift($song, "<fg=cyan>$index</>");
 
-                return [$index => $song];
-            })
-            ->all();
+            return [$index => $song];
+        });
     }
 
     /**
