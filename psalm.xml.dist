@@ -20,6 +20,11 @@
 
   <issueHandlers>
     <PropertyNotSetInConstructor errorLevel="info"/>
+    <UnusedVariable>
+      <errorLevel type="suppress">
+        <file name="app/Commands/MusicCommand.php"/>
+      </errorLevel>
+    </UnusedVariable>
   </issueHandlers>
   <plugins>
     <!--<pluginClass class="Psalm\LaravelPlugin\Plugin"/>-->

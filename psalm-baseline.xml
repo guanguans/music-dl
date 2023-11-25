@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="5.16.0@2897ba636551a8cb61601cc26f6ccfbba6c36591">
   <file src="app/Commands/MusicCommand.php">
-    <UnusedVariable>
-      <code>$songs</code>
-    </UnusedVariable>
-    <InvalidArgument>
-      <code><![CDATA[$options->all()]]></code>
-      <code>$sanitizedSongs</code>
-      <code><![CDATA[[$options->first()]]]></code>
-      <code><![CDATA[static fn (array $song): string => implode('  ', Arr::except($song, [0]))]]></code>
-    </InvalidArgument>
+    <InvalidScalarArgument>
+      <code><![CDATA[static fn (string $selectedValue): int => $options->search($selectedValue)]]></code>
+      <code>transform</code>
+    </InvalidScalarArgument>
   </file>
   <file src="app/Commands/ThanksCommand.php">
     <UnhandledMatchCondition>

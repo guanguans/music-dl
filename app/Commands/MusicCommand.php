@@ -88,7 +88,7 @@ final class MusicCommand extends Command
                         return $songs;
                     },
                     $this->config['searching_hint']
-                )->mapWithKeys(static fn ($song, $index): array => [$index + 1 => $song]);
+                )->mapWithKeys(static fn (array $song, int $index): array => [$index + 1 => $song]);
             })
             ->whenEmpty(function (): void {
                 warning($this->config['empty_hint']);
@@ -113,7 +113,7 @@ final class MusicCommand extends Command
                         $this->config['select_label'],
                         hint: $this->config['select_hint'],
                     )
-                )->transform(static fn (string $selectedValue): bool|int|string => $options->search($selectedValue));
+                )->transform(static fn (string $selectedValue): int => $options->search($selectedValue));
             })
             ->pipe(
                 static fn (Collection $songs): Collection => \in_array(0, $selectedKeys->all(), true)
