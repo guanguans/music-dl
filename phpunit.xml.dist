@@ -22,7 +22,7 @@
       <directory suffix=".php">app/</directory>
     </include>
     <exclude>
-      <file>src/Skeleton.php</file>
+      <file>app/Support/helpers.php</file>
     </exclude>
   </source>
 </phpunit>
