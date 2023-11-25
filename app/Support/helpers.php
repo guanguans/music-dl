@@ -11,9 +11,7 @@ declare(strict_types=1);
  */
 
 if (! function_exists('array_reduce_with_keys')) {
-    /**
-     * @codeCoverageIgnore
-     */
+    #[\PHPUnit\Framework\Attributes\CodeCoverageIgnore]
     function array_reduce_with_keys(array $array, callable $callback, mixed $carry = null): mixed
     {
         foreach ($array as $key => $value) {
@@ -25,9 +23,7 @@ if (! function_exists('array_reduce_with_keys')) {
 }
 
 if (! function_exists('array_map_with_keys')) {
-    /**
-     * @codeCoverageIgnore
-     */
+    #[\PHPUnit\Framework\Attributes\CodeCoverageIgnore]
     function array_map_with_keys(callable $callback, array $array): array
     {
         $arr = [];

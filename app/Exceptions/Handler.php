@@ -20,10 +20,9 @@ final class Handler extends \Illuminate\Foundation\Exceptions\Handler
      * @noinspection PhpMissingParentCallCommonInspection
      * @noinspection PhpUnusedParameterInspection
      * @noinspection PhpInconsistentReturnPointsInspection
-     *
-     * @codeCoverageIgnore
      */
     #[\Override]
+    #[\PHPUnit\Framework\Attributes\CodeCoverageIgnore]
     public function register(): void
     {
         $this->reportable(static function (\Throwable $throwable) {

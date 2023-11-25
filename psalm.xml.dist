@@ -25,6 +25,11 @@
         <file name="app/Commands/MusicCommand.php"/>
       </errorLevel>
     </UnusedVariable>
+    <InvalidAttribute>
+      <errorLevel type="suppress">
+        <file name="app/Support/helpers.php"/>
+      </errorLevel>
+    </InvalidAttribute>
   </issueHandlers>
   <plugins>
     <!--<pluginClass class="Psalm\LaravelPlugin\Plugin"/>-->
