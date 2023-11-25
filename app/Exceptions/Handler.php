@@ -20,6 +20,8 @@ final class Handler extends \Illuminate\Foundation\Exceptions\Handler
      * @noinspection PhpMissingParentCallCommonInspection
      * @noinspection PhpUnusedParameterInspection
      * @noinspection PhpInconsistentReturnPointsInspection
+     *
+     * @codeCoverageIgnore
      */
     #[\Override]
     public function register(): void
