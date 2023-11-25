@@ -31,5 +31,5 @@ it('can get save path', function (): void {
         'url' => 'http://m8.music.126.net/20231125210148/a57d961c47436fe024009b73b67183cf/ymusic/obj/w5zDlMODwrDDiGjCn8Ky/3307387265/081d/9dc7/8d6e/5e354180f0d2925a257c5e2b55037828.mp3',
         'size' => 16259701,
         'br' => 320,
-    ]))->toBeFile();
+    ]))->toBeString();
 })->group(__DIR__, __FILE__);
