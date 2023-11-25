@@ -1,15 +1,14 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Create The Application
-|--------------------------------------------------------------------------
-|
-| The first thing we will do is create a new Laravel application instance
-| which serves as the "glue" for all the components of Laravel, and is
-| the IoC container for the system binding all of the various parts.
-|
-*/
+declare(strict_types=1);
+
+/**
+ * This file is part of the guanguans/music-dl.
+ *
+ * (c) guanguans <ityaozm@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled.
+ */
 
 $app = new LaravelZero\Framework\Application(
     dirname(__DIR__)

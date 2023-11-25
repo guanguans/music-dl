@@ -24,7 +24,9 @@ $header = <<<'HEADER'
 $finder = Finder::create()
     ->in([
         __DIR__.'/app',
+        __DIR__.'/bootstrap',
         __DIR__.'/config',
+        __DIR__.'/resources',
         __DIR__.'/tests',
     ])
     ->exclude([
@@ -35,6 +37,7 @@ $finder = Finder::create()
         '__snapshots__/',
     ])
     ->append(glob(__DIR__.'/{*,.*}.php', GLOB_BRACE))
+    ->append([__DIR__.'/music-dl'])
     ->notPath([
         'bootstrap/*',
         'storage/*',
