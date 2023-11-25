@@ -31,6 +31,7 @@ final class MusicManager extends Manager
     use Macroable;
     use Tappable;
 
+    #[\Override]
     public function getDefaultDriver(): string
     {
         return (string) str(SequenceMusic::class)
@@ -42,11 +43,12 @@ final class MusicManager extends Manager
      * @noinspection MissingParentCallInspection
      * @noinspection PhpMissingParentCallCommonInspection
      *
-     * @param mixed $driver
+     * @param string $driver
      *
      * @throws BindingResolutionException
      */
-    protected function createDriver($driver)
+    #[\Override]
+    protected function createDriver($driver): Music
     {
         if (isset($this->customCreators[$driver])) {
             return $this->callCustomCreator($driver);

@@ -18,7 +18,10 @@ final class Handler extends \Illuminate\Foundation\Exceptions\Handler
      * @psalm-suppress UnusedClosureParam
      *
      * @noinspection PhpMissingParentCallCommonInspection
+     * @noinspection PhpUnusedParameterInspection
+     * @noinspection PhpInconsistentReturnPointsInspection
      */
+    #[\Override]
     public function register(): void
     {
         $this->reportable(static function (\Throwable $throwable) {

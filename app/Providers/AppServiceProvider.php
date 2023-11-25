@@ -36,7 +36,10 @@ final class AppServiceProvider extends ServiceProvider
 
     /**
      * Register any application services.
+     *
+     * @noinspection PhpMissingParentCallCommonInspection
      */
+    #[\Override]
     public function register(): void
     {
         $this->app->singletonIf(

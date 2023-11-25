@@ -40,6 +40,7 @@ final class Music extends Facade
     /**
      * @noinspection MissingParentCallInspection
      * @noinspection MethodVisibilityInspection
+     * @noinspection PhpMissingParentCallCommonInspection
      */
     #[\Override]
     protected static function getFacadeAccessor(): string

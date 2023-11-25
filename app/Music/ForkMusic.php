@@ -17,11 +17,9 @@ use Spatie\Fork\Fork;
 final class ForkMusic extends SequenceMusic
 {
     /**
-     * @throws \JsonException
-     *
-     * @noinspection MissingParentCallInspection
-     * @noinspection MissingParentCallInspection
+     * @noinspection PhpMissingParentCallCommonInspection
      */
+    #[\Override]
     protected function ensureWithUrls(array $withoutUrlSongs): array
     {
         return Fork::new()
