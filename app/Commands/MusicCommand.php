@@ -79,14 +79,16 @@ final class MusicCommand extends Command
                 ))->trim()->toString();
             })
             ->pipe(function () use ($timer, $keyword, &$duration): Collection {
-                $timer->start();
-                $songs = spin(
-                    fn (): array => $this->music->search($keyword, $this->option('sources')),
-                    $this->config['searching_hint']
-                );
-                $duration = $timer->stop();
+                return spin(
+                    function () use ($timer, $keyword, &$duration): Collection {
+                        $timer->start();
+                        $songs = $this->music->search($keyword, $this->option('sources'));
+                        $duration = $timer->stop();
 
-                return collect($songs)->mapWithKeys(static fn ($song, $index): array => [$index + 1 => $song]);
+                        return $songs;
+                    },
+                    $this->config['searching_hint']
+                )->mapWithKeys(static fn ($song, $index): array => [$index + 1 => $song]);
             })
             ->whenEmpty(function (): void {
                 warning($this->config['empty_hint']);

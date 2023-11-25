@@ -30,7 +30,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static bool hasMacro(string $name)
  * @method static void flushMacros()
  * @method static \App\MusicManager|\Illuminate\Support\HigherOrderTapProxy tap(callable|null $callback = null)
- * @method static array search(string $keyword, array $sources = [])
+ * @method static \Illuminate\Support\Collection search(string $keyword, array $sources = [])
  * @method static void download(string $url, string $savePath)
  *
  * @see \App\MusicManager

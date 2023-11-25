@@ -17,6 +17,7 @@ use App\Contracts\Music;
 use App\Support\Meting;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Console\OutputStyle;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Traits\Macroable;
 use Laravel\Prompts\Progress;
 
@@ -39,7 +40,7 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
      *
      * @throws \JsonException
      */
-    public function search(string $keyword, array $sources = []): array
+    public function search(string $keyword, array $sources = []): Collection
     {
         $withoutUrlSongs = collect($sources)
             ->map(fn (string $source): array => json_decode(
@@ -54,8 +55,7 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
         return collect($this->ensureWithUrls($withoutUrlSongs))
             ->filter()
             ->filter(static fn (array $song): bool => ! empty($song['url']))
-            ->values()
-            ->all();
+            ->values();
     }
 
     /**

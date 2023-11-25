@@ -12,9 +12,11 @@ declare(strict_types=1);
 
 namespace App\Contracts;
 
+use Illuminate\Support\Collection;
+
 interface Music
 {
-    public function search(string $keyword, array $sources = []): array;
+    public function search(string $keyword, array $sources = []): Collection;
 
     public function download(string $url, string $savePath): void;
 }
