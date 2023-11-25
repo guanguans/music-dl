@@ -14,7 +14,7 @@ use App\Commands\MusicCommand;
 use Illuminate\Support\Facades\File;
 
 beforeEach(function (): void {
-    $this->downloadDir = base_path('tests/Download');
+    $this->downloadDir = base_path('tests/Downloads');
 });
 
 it('can search and download music', function (): void {
@@ -23,7 +23,7 @@ it('can search and download music', function (): void {
     $this
         ->artisan(MusicCommand::class, [
             'keyword' => '不只是南方',
-            '--dir' => base_path('tests/Download'),
+            '--dir' => base_path('tests/Downloads'),
             '--driver' => 'fork',
             '--no-continue' => true,
             '--sources' => 'netease',

@@ -16,7 +16,6 @@ use App\Concerns\HttpClientFactory;
 use App\Contracts\Music;
 use App\Support\Meting;
 use GuzzleHttp\Exception\GuzzleException;
-use Illuminate\Console\OutputStyle;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Traits\Macroable;
 use Laravel\Prompts\Progress;
@@ -28,10 +27,8 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
     use HttpClientFactory;
     use Macroable;
 
-    public function __construct(
-        protected Meting $meting,
-        protected OutputStyle $output
-    ) {
+    public function __construct(protected Meting $meting)
+    {
         $this->meting = $meting->format();
     }
 

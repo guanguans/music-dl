@@ -111,6 +111,7 @@ return static function (RectorConfig $rectorConfig): void {
         FinalizeClassesWithoutChildrenRector::class => [
             __DIR__.'/app/Music/SequenceMusic.php',
             __DIR__.'/app/MusicManager.php',
+            __DIR__.'/app/Support/Meting.php',
         ],
         RemoveEmptyClassMethodRector::class => [
             __DIR__.'/app/Providers/AppServiceProvider.php',

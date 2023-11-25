@@ -63,3 +63,8 @@ function reset_http_fake(?Factory $factory = null): void
         $this->stubCallbacks = collect();
     })->call($factory ?? Http::getFacadeRoot());
 }
+
+function downloads_path(string $path = ''): string
+{
+    return base_path('tests/Downloads/'.$path);
+}
