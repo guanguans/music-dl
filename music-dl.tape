@@ -50,16 +50,19 @@ Require php
 
 Set Framerate 120
 Set FontSize 18
-Set Width 1100
-Set Height 680
-Set TypingSpeed 50ms
-Set PlaybackSpeed 0.1
+Set Width 1300
+Set Height 803
+Set TypingSpeed 10ms
+Set PlaybackSpeed 0.2
 
-Type "./music-dl --driver=fork --sources=netease" Sleep 1s
-Enter 1 Sleep 1s
-Type "不只是南方" Sleep 1s
-Enter 1 Sleep 1s
-Type@500ms "yes" Sleep 1s
-Enter 1 Sleep 1s
-Down@1s 5 Sleep 1s
-Enter 1 Sleep 12s
+Type "./music-dl --driver=fork --sources=netease" Sleep 500ms
+Enter@500ms 1 Sleep 500ms
+Enter@500ms 1 Sleep 500ms
+Enter@500ms 1 Sleep 500ms
+Space@500ms 1 Sleep 100ms
+Down@500ms 1 Sleep 100ms
+Space@500ms 1 Sleep 100ms
+Down@500ms 2 Sleep 100ms
+Space@500ms 1 Sleep 100ms
+Enter@500ms 1 Sleep 5s
+Backspace@200ms 3 Sleep 2s
