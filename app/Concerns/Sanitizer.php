@@ -19,11 +19,11 @@ trait Sanitizer
 {
     public function sanitizes(Collection $songs, string $keyword): Collection
     {
-        return $songs->mapWithKeys(function (array $song, int $index) use ($keyword): array {
+        return $songs->map(function (array $song, int $index) use ($keyword): array {
             $song = $this->sanitize($song, $keyword);
             array_unshift($song, "<fg=cyan>$index</>");
 
-            return [$index => $song];
+            return $song;
         });
     }
 

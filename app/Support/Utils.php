@@ -23,11 +23,11 @@ final class Utils
     public static function getDefaultSaveDir(): string
     {
         $saveDir = windows_os()
-            ? sprintf('%s\\Downloads\\MusicDL\\', exec('echo %USERPROFILE%') ?: sprintf('C:\\Users\\%s', get_current_user()))
+            ? sprintf('%s\\Downloads\\MusicDL\\', exec('echo %USERPROFILE%') ?: sprintf('C:\\Users\\%s', get_current_user())) // @codeCoverageIgnore
             : sprintf('%s/Downloads/MusicDL/', exec('echo $HOME') ?: exec('cd ~; pwd'));
 
         if (! is_dir($saveDir) && ! mkdir($saveDir, 0755, true) && ! is_dir($saveDir)) {
-            throw new RuntimeException(sprintf('The directory "%s" was not created.', $saveDir));
+            throw new RuntimeException(sprintf('The directory "%s" was not created.', $saveDir)); // @codeCoverageIgnore
         }
 
         return $saveDir;
@@ -41,7 +41,7 @@ final class Utils
         $saveDir = Str::finish($saveDir ?? self::getDefaultSaveDir(), \DIRECTORY_SEPARATOR);
 
         if (! is_dir($saveDir) && ! mkdir($saveDir, 0755, true) && ! is_dir($saveDir)) {
-            throw new RuntimeException(sprintf('The directory "%s" was not created.', $saveDir));
+            throw new RuntimeException(sprintf('The directory "%s" was not created.', $saveDir)); // @codeCoverageIgnore
         }
 
         return sprintf(
