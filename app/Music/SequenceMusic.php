@@ -68,12 +68,14 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
                 }
 
                 if (! $progress instanceof Progress) {
-                    $progress = progress($savePath, $totalDownload);
-                    $progress->start();
+                    /** @noinspection PhpVoidFunctionResultUsedInspection */
+                    $progress = tap(progress($savePath, $totalDownload))->start();
                 }
 
-                $progress->progress = $downloaded;
-                $progress->advance(0);
+                value(static function (Progress $progress, int $downloaded): void {
+                    $progress->progress = $downloaded;
+                    $progress->advance(0);
+                }, $progress, $downloaded);
 
                 if ($totalDownload === $downloaded) {
                     $progress->finish();
