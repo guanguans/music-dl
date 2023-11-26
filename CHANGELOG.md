@@ -8,6 +8,21 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="4.1.4"></a>
+## [4.1.4] - 2023-11-26
+### Refactor
+- **Hydrator:** Add Hydrator trait for MusicCommand
+- **MusicCommand:** refactor code for selecting keys
+- **MusicCommand:** simplify song mapping
+- **Sanitizer:** Update mapWithKeys to map
+- **handler:** add code coverage ignore annotation to register method
+- **tests:** refactor ForkMusicTest
+- **tests:** refactor `Pest.php` test file
+
+### Test
+- **Feature:** fix music download error
+
+
 <a name="4.1.3"></a>
 ## [4.1.3] - 2023-11-26
 ### Fix
@@ -734,7 +749,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.3...HEAD
+[Unreleased]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.4...HEAD
+[4.1.4]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.3...4.1.4
 [4.1.3]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.2...4.1.3
 [4.1.2]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.1...4.1.2
 [4.1.1]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.0...4.1.1
