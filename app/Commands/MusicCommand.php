@@ -74,7 +74,7 @@ final class MusicCommand extends Command
             ->tap(function () use (&$keyword): void {
                 $keyword = str($this->argument('keyword') ?? text(
                     $this->config['keyword_label'],
-                    $this->config['keyword_label'],
+                    $this->config['keyword_placeholder'],
                     $this->config['keyword_default'],
                     $this->config['keyword_label']
                 ))->trim()->toString();
