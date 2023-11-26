@@ -9,8 +9,3 @@ parameters:
 			message: "#^Match expression does not handle remaining values\\: 'BSD'\\|'Solaris'\\|'Unknown'$#"
 			count: 1
 			path: app/Commands/ThanksCommand.php
-
-		-
-			message: "#^Attribute class PHPUnit\\\\Framework\\\\Attributes\\\\CodeCoverageIgnore does not have the function target\\.$#"
-			count: 2
-			path: app/Support/helpers.php

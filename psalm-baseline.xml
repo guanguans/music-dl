@@ -2,8 +2,7 @@
 <files psalm-version="5.16.0@2897ba636551a8cb61601cc26f6ccfbba6c36591">
   <file src="app/Commands/MusicCommand.php">
     <InvalidScalarArgument>
-      <code><![CDATA[static fn (string $selectedValue): int => $options->search($selectedValue)]]></code>
-      <code>transform</code>
+      <code><![CDATA[static fn (string $selectedValue) => $options->search($selectedValue)]]></code>
     </InvalidScalarArgument>
   </file>
   <file src="app/Commands/ThanksCommand.php">

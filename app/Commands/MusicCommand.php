@@ -102,18 +102,16 @@ final class MusicCommand extends Command
             })
             ->tap(fn (): bool => confirm($this->config['confirm_label']) or $this->handle())
             ->tap(function (Collection $songs) use (&$selectedKeys, $keyword): void {
-                $selectedKeys = $this->hydrates($songs, $keyword)->pipe(function (Collection $options): Collection {
-                    return collect(
-                        multiselect(
-                            $this->config['select_label'],
-                            $options->all(),
-                            [$options->first()],
-                            20,
-                            $this->config['select_label'],
-                            hint: $this->config['select_hint'],
-                        )
-                    )->transform(static fn (string $selectedValue) => $options->search($selectedValue));
-                });
+                $selectedKeys = $this
+                    ->hydrates($songs, $keyword)
+                    ->pipe(fn (Collection $options): Collection => collect(multiselect(
+                        $this->config['select_label'],
+                        $options->all(),
+                        [$options->first()],
+                        20,
+                        $this->config['select_label'],
+                        hint: $this->config['select_hint'],
+                    ))->map(static fn (string $selectedValue) => $options->search($selectedValue)));
             })
             ->pipe(
                 static fn (Collection $songs): Collection => \in_array(0, $selectedKeys->all(), true)
