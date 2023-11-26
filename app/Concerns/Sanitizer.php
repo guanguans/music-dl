@@ -30,7 +30,7 @@ trait Sanitizer
     /**
      * @psalm-suppress InvalidReturnType
      *
-     * @return array<string, null|int|string>
+     * @return array<string, null|scalar>
      */
     public function sanitize(array $song, string $keyword): array
     {

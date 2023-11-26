@@ -23,7 +23,7 @@ it('can get default save dir', function (): void {
     // expect(Utils::getDefaultSaveDir())->toBeString();
 })->group(__DIR__, __FILE__);
 
-it('can get save path', function ($song): void {
+it('can get save path', function (array $song): void {
     expect(Utils::getSavePath($song))->toBeString();
 })->group(__DIR__, __FILE__)->with([
     [

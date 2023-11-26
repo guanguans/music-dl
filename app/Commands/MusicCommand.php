@@ -14,11 +14,10 @@ declare(strict_types=1);
 
 namespace App\Commands;
 
-use App\Concerns\Sanitizer;
+use App\Concerns\Hydrator;
 use App\Contracts\Music;
 use App\Support\Utils;
 use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
 use Laravel\Prompts;
@@ -38,7 +37,7 @@ use function Laravel\Prompts\warning;
 
 final class MusicCommand extends Command
 {
-    use Sanitizer;
+    use Hydrator;
 
     /**
      * The signature of the command.
@@ -97,27 +96,24 @@ final class MusicCommand extends Command
                 warning($this->config['empty_hint']);
                 $this->handle();
             })
-            ->tap(function (Collection $songs) use (&$sanitizedSongs, $keyword, $duration): void {
-                table($this->config['table_header'], $sanitizedSongs = $this->sanitizes($songs, $keyword));
+            ->tap(function (Collection $songs) use ($keyword, $duration): void {
+                table($this->config['table_header'], $this->sanitizes($songs, $keyword));
                 Prompts\info((new ResourceUsageFormatter())->resourceUsage($duration));
             })
             ->tap(fn (): bool => confirm($this->config['confirm_label']) or $this->handle())
-            ->tap(function () use (&$options, $sanitizedSongs): void {
-                $options = $sanitizedSongs
-                    ->transform(static fn (array $song): string => implode('  ', Arr::except($song, [0])))
-                    ->prepend($this->config['all_songs']);
-            })
-            ->tap(function () use (&$selectedKeys, $options): void {
-                $selectedKeys = collect(
-                    multiselect(
-                        $this->config['select_label'],
-                        $options->all(),
-                        [$options->first()],
-                        20,
-                        $this->config['select_label'],
-                        hint: $this->config['select_hint'],
-                    )
-                )->transform(static fn (string $selectedValue): int => $options->search($selectedValue));
+            ->tap(function (Collection $songs) use (&$selectedKeys, $keyword): void {
+                $selectedKeys = $this->hydrates($songs, $keyword)->pipe(function (Collection $options): Collection {
+                    return collect(
+                        multiselect(
+                            $this->config['select_label'],
+                            $options->all(),
+                            [$options->first()],
+                            20,
+                            $this->config['select_label'],
+                            hint: $this->config['select_hint'],
+                        )
+                    )->transform(static fn (string $selectedValue) => $options->search($selectedValue));
+                });
             })
             ->pipe(
                 static fn (Collection $songs): Collection => \in_array(0, $selectedKeys->all(), true)

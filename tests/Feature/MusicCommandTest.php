@@ -11,29 +11,25 @@ declare(strict_types=1);
  */
 
 use App\Commands\MusicCommand;
-use App\Concerns\Sanitizer;
+use App\Concerns\Hydrator;
 use App\Music\SequenceMusic;
-use Illuminate\Support\Arr;
 use Laravel\Prompts\Prompt;
 
-uses(Sanitizer::class);
+uses(Hydrator::class);
 
 beforeEach(function (): void {
     // Prompt::fallbackWhen(true);
 });
 
-it('can search and download music', function ($songs): void {
+it('can search and download music', function (array $songs): void {
     $mockSequenceMusic = Mockery::mock(SequenceMusic::class);
     $mockSequenceMusic->allows('search')->andReturn(collect($songs));
     $mockSequenceMusic->allows('download')->andReturnUndefined();
     App\Facades\Music::shouldReceive('driver')->andReturn($mockSequenceMusic->makePartial());
 
-    $options = $this->sanitizes(collect($songs), '不只是南方')
-        ->transform(static fn (array $song): string => implode('  ', Arr::except($song, [0])))
-        ->prepend(config('music-dl.all_songs'));
     $this
         ->artisan(MusicCommand::class, [
-            'keyword' => '不只是南方',
+            'keyword' => $keyword = '不只是南方',
             '--dir' => downloads_path(),
             '--driver' => 'sequence',
             '--no-continue' => true,
@@ -41,6 +37,10 @@ it('can search and download music', function ($songs): void {
         ])
         ->expectsConfirmation(config('music-dl.confirm_label'), 'yes')
         // ->expectsQuestion(config('music-dl.select_label'), [config('music-dl.all_songs')])
-        ->expectsChoice(config('music-dl.select_label'), [config('music-dl.all_songs')], $options->all())
+        ->expectsChoice(
+            config('music-dl.select_label'),
+            [config('music-dl.all_songs')],
+            $this->hydrates(collect($songs), $keyword)->all()
+        )
         ->assertSuccessful();
 })->group(__DIR__, __FILE__)->with('songs');
