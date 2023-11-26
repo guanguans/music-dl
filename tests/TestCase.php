@@ -22,17 +22,29 @@ abstract class TestCase extends BaseTestCase
 
     /**
      * This method is called before the first test of this test class is run.
+     *
+     * @noinspection PhpMissingParentCallCommonInspection
      */
+    #[\Override]
     public static function setUpBeforeClass(): void {}
 
     /**
      * This method is called after the last test of this test class is run.
+     *
+     * @noinspection SenselessProxyMethodInspection
      */
-    public static function tearDownAfterClass(): void {}
+    #[\Override]
+    public static function tearDownAfterClass(): void
+    {
+        parent::tearDownAfterClass();
+    }
 
     /**
      * This method is called before each test.
+     *
+     * @noinspection SenselessProxyMethodInspection
      */
+    #[\Override]
     protected function setUp(): void
     {
         parent::setUp();
@@ -41,6 +53,7 @@ abstract class TestCase extends BaseTestCase
     /**
      * This method is called after each test.
      */
+    #[\Override]
     protected function tearDown(): void
     {
         parent::tearDown();

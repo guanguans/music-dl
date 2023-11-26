@@ -13,18 +13,17 @@ declare(strict_types=1);
 namespace Tests\Unit\Music;
 
 use App\Music\SequenceMusic;
-use App\Support\Meting;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\TransferException;
 use Illuminate\Support\Collection;
 
 it('can search songs', function (): void {
-    expect(new SequenceMusic(mock_meting()))->search('腰乐队', ['netease'])->toBeInstanceOf(Collection::class);
+    expect(app(SequenceMusic::class)->search('腰乐队', config('music-dl.sources')))->toBeInstanceOf(Collection::class);
 })->group(__DIR__, __FILE__);
 
 it('will throw exception when download failed', function (): void {
     try {
-        (new SequenceMusic(new Meting()))->download('foo.mp3', downloads_path('foo.mp3'));
+        app(SequenceMusic::class)->download('foo.mp3', downloads_path('foo.mp3'));
     } catch (GuzzleException $e) {
         throw new TransferException($e->getMessage());
     }

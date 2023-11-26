@@ -15,7 +15,9 @@ use Tests\TestCase;
 
 uses(TestCase::class)
     ->beforeAll(function (): void {})
-    ->beforeEach(function (): void {})
+    ->beforeEach(function (): void {
+        app()->extend(Meting::class, static fn (): Meting => mock_meting());
+    })
     ->afterEach(function (): void {})
     ->afterAll(function (): void {})
     ->in('Feature', 'Unit');
@@ -31,7 +33,7 @@ uses(TestCase::class)
 |
 */
 
-expect()->extend('toBeOne', fn (): Pest\Expectation => $this->toBe(1));
+expect()->extend('toBeTwo', fn (): Pest\Expectation => $this->toBe(2));
 
 /*
 |--------------------------------------------------------------------------
@@ -45,21 +47,6 @@ expect()->extend('toBeOne', fn (): Pest\Expectation => $this->toBe(1));
 */
 
 /**
- * @throws ReflectionException
- */
-function class_namespace(object|string $class): string
-{
-    $class = is_object($class) ? get_class($class) : $class;
-
-    return (new ReflectionClass($class))->getNamespaceName();
-}
-
-function downloads_path(string $path = ''): string
-{
-    return base_path('tests/Fixtures/Downloads/'.$path);
-}
-
-/**
  * @noinspection HttpUrlsUsage
  */
 function mock_meting(): Meting&Mockery\MockInterface
@@ -69,4 +56,19 @@ function mock_meting(): Meting&Mockery\MockInterface
     $mockMeting->allows('url')->andReturns('{"url":"http://m802.music.126.net/20231125200728/e2f7be51f869df3e345fc6bf7afe9de2/jd-musicrep-ts/740f/2dee/6215/f56c69d40ec9e7d3a62c529121e86385.mp3","size":481115,"br":128.012}');
 
     return $mockMeting->makePartial();
+}
+
+function downloads_path(string $path = ''): string
+{
+    return base_path('tests/Fixtures/Downloads/'.$path);
+}
+
+/**
+ * @throws ReflectionException
+ */
+function class_namespace(object|string $class): string
+{
+    $class = is_object($class) ? get_class($class) : $class;
+
+    return (new ReflectionClass($class))->getNamespaceName();
 }

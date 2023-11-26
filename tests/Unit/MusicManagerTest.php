@@ -19,7 +19,7 @@ use App\Exceptions\InvalidArgumentException;
 use App\MusicManager;
 
 it('will throw exception when driver not exists', function (): void {
-    expect(new MusicManager(app()))->driver('bar')->toBeInstanceOf(Music::class);
+    app(MusicManager::class)->driver('bar');
 })->group(__DIR__, __FILE__)->throws(InvalidArgumentException::class);
 
 it('can get default driver', function (): void {
@@ -27,7 +27,7 @@ it('can get default driver', function (): void {
 })->group(__DIR__, __FILE__);
 
 it('can get custom driver', function (): void {
-    $musicManager = new MusicManager(app());
+    $musicManager = app(MusicManager::class);
     $musicManager->extend('foo', static fn (): Music => \Mockery::mock(Music::class));
     expect($musicManager)->driver('foo')->toBeInstanceOf(Music::class);
 })->group(__DIR__, __FILE__);
