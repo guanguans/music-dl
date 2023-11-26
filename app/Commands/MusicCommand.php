@@ -90,7 +90,7 @@ final class MusicCommand extends Command
                         return $songs;
                     },
                     $this->config['searching_hint']
-                )->mapWithKeys(static fn (array $song, int $index): array => [$index + 1 => $song]);
+                );
             })
             ->whenEmpty(function (): void {
                 warning($this->config['empty_hint']);
