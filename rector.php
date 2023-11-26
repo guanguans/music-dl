@@ -1,5 +1,8 @@
 <?php
 
+/** @noinspection PhpInArrayCanBeReplacedWithComparisonInspection */
+/** @noinspection InArrayMissUseInspection */
+
 declare(strict_types=1);
 
 /**
@@ -10,10 +13,12 @@ declare(strict_types=1);
  * This source file is subject to the MIT license that is bundled.
  */
 
+use PHPUnit\Framework\Attributes\CodeCoverageIgnore;
 use Rector\Caching\ValueObject\Storage\FileCacheStorage;
 use Rector\CodeQuality\Rector\Array_\CallableThisArrayToAnonymousFunctionRector;
 use Rector\CodeQuality\Rector\Class_\InlineConstructorDefaultToPropertyRector;
 use Rector\CodeQuality\Rector\Expression\InlineIfToExplicitIfRector;
+use Rector\CodeQuality\Rector\FuncCall\SingleInArrayToCompareRector;
 use Rector\CodeQuality\Rector\Identical\SimplifyBoolIdenticalTrueRector;
 use Rector\CodeQuality\Rector\If_\ExplicitBoolCompareRector;
 use Rector\CodeQuality\Rector\LogicalAnd\LogicalToBooleanRector;
@@ -34,6 +39,8 @@ use Rector\Naming\Rector\ClassMethod\RenameParamToMatchTypeRector;
 use Rector\Naming\Rector\Foreach_\RenameForeachValueVariableToMatchExprVariableRector;
 use Rector\Php71\Rector\FuncCall\RemoveExtraParametersRector;
 use Rector\Php80\Rector\Catch_\RemoveUnusedVariableInCatchRector;
+use Rector\Php80\Rector\Class_\AnnotationToAttributeRector;
+use Rector\Php80\ValueObject\AnnotationToAttribute;
 use Rector\PHPUnit\Set\PHPUnitLevelSetList;
 use Rector\PHPUnit\Set\PHPUnitSetList;
 use Rector\Privatization\Rector\Class_\FinalizeClassesWithoutChildrenRector;
@@ -128,7 +135,11 @@ return static function (RectorConfig $rectorConfig): void {
             '*',
         ],
         StaticClosureRector::class => [
+            __FILE__,
             __DIR__.'/tests',
+        ],
+        SingleInArrayToCompareRector::class => [
+            __FILE__,
         ],
         // ReturnEarlyIfVariableRector::class => [
         //     __DIR__.'/src/Support/EscapeArg.php',
@@ -179,4 +190,17 @@ return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->ruleWithConfiguration(RenameFunctionRector::class, [
         'test' => 'it',
     ]);
+
+    (function ($rectorConfig): void {
+        $rectorConfig->ruleConfigurations[AnnotationToAttributeRector::class] = array_filter(
+            $rectorConfig->ruleConfigurations[AnnotationToAttributeRector::class],
+            static fn (AnnotationToAttribute $annotationToAttribute): bool => ! in_array(
+                $annotationToAttribute->getAttributeClass(),
+                [
+                    CodeCoverageIgnore::class,
+                ],
+                true
+            )
+        );
+    })->call($rectorConfig, $rectorConfig);
 };
