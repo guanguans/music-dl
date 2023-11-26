@@ -16,5 +16,5 @@ use App\Music\ForkMusic;
 use Illuminate\Support\Collection;
 
 it('can search songs', function (): void {
-    expect(new ForkMusic(mock_meting()))->search('腰乐队', ['netease'])->toBeInstanceOf(Collection::class);
+    expect(app(ForkMusic::class)->search('腰乐队', ['netease']))->toBeInstanceOf(Collection::class);
 })->group(__DIR__, __FILE__)->skipOnWindows();
