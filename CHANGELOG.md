@@ -8,6 +8,22 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="4.1.3"></a>
+## [4.1.3] - 2023-11-26
+### Fix
+- **Exceptions:** Remove unused annotations in Handler.php
+- **tests:** Fix GuzzleHttp exception class name
+- **tests:** Fix download path in MusicCommandTest
+
+### Refactor
+- **MusicManager:** remove final keyword
+- **SequenceMusic:** improve progress bar
+
+### Test
+- **CommitMessages:** Add commit messages for git diff output
+- **Unit:** Add SanitizerTest
+
+
 <a name="4.1.2"></a>
 ## [4.1.2] - 2023-11-25
 ### Fix
@@ -718,7 +734,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.2...HEAD
+[Unreleased]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.3...HEAD
+[4.1.3]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.2...4.1.3
 [4.1.2]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.1...4.1.2
 [4.1.1]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.0...4.1.1
 [4.1.0]: https://github.com/guanguans/monorepo-builder-worker/compare/4.0.1...4.1.0
