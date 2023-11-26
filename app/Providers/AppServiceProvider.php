@@ -42,9 +42,9 @@ final class AppServiceProvider extends ServiceProvider
     #[\Override]
     public function register(): void
     {
-        // $this->app->singletonIf(
-        //     OutputStyle::class,
-        //     static fn (): OutputStyle => new OutputStyle(new ArgvInput(), new ConsoleOutput())
-        // );
+        $this->app->singletonIf(
+            OutputStyle::class,
+            static fn (): OutputStyle => new OutputStyle(new ArgvInput(), new ConsoleOutput())
+        );
     }
 }
