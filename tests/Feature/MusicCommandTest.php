@@ -24,7 +24,7 @@ beforeEach(function (): void {
 it('can search and download music', function (array $songs): void {
     $mockSequenceMusic = Mockery::mock(SequenceMusic::class);
     $mockSequenceMusic->allows('search')->andReturn(collect($songs));
-    $mockSequenceMusic->allows('download')->andReturnUndefined();
+    $mockSequenceMusic->allows('download')->andThrow(new RuntimeException());
     App\Facades\Music::shouldReceive('driver')->andReturn($mockSequenceMusic->makePartial());
 
     $this
