@@ -1,6 +1,6 @@
 # music-dl
 
-<p align="center"><img src="resources/usage.gif" alt="usage" title="usage"></p>
+<p align="center"><img src="resources/music-dl.gif" alt="usage" title="usage"></p>
 
 [简体中文](README-zh_CN.md) | [ENGLISH](README.md)
 
@@ -32,8 +32,8 @@ chmod +x music-dl
 ### Install via Composer
 
 ```shell
-composer global require guanguans/music-dl:dev-master --dev -v # global
-composer require guanguans/music-dl:dev-master --dev -v # local
+composer global require guanguans/music-dl --dev -v --ignore-platform-req=ext-pcntl # global
+composer require guanguans/music-dl --dev -v --ignore-platform-req=ext-pcntl # local
 ```
 
 ## Usage
