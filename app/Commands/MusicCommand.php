@@ -21,6 +21,7 @@ use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
+use Laravel\Prompts;
 use LaravelZero\Framework\Commands\Command;
 use SebastianBergmann\Timer\ResourceUsageFormatter;
 use SebastianBergmann\Timer\Timer;
@@ -66,10 +67,10 @@ final class MusicCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle(Timer $timer, ResourceUsageFormatter $resourceUsageFormatter): int
+    public function handle(): int
     {
         return collect()
-            ->tap(fn () => \Laravel\Prompts\info($this->config['logo']))
+            ->tap(fn () => Prompts\info($this->config['logo']))
             ->when(windows_os(), fn () => warning($this->config['windows_hint']))
             ->tap(function () use (&$keyword): void {
                 $keyword = str($this->argument('keyword') ?? text(
@@ -79,10 +80,11 @@ final class MusicCommand extends Command
                     $this->config['keyword_label']
                 ))->trim()->toString();
             })
-            ->pipe(function () use ($timer, $keyword, &$duration): Collection {
+            ->pipe(function () use ($keyword, &$duration): Collection {
                 return spin(
-                    function () use ($timer, $keyword, &$duration): Collection {
-                        $timer->start();
+                    function () use ($keyword, &$duration): Collection {
+                        /** @noinspection PhpVoidFunctionResultUsedInspection */
+                        $timer = tap(new Timer())->start();
                         $songs = $this->music->search($keyword, $this->option('sources'));
                         $duration = $timer->stop();
 
@@ -93,13 +95,13 @@ final class MusicCommand extends Command
             })
             ->whenEmpty(function (): void {
                 warning($this->config['empty_hint']);
-                $this->reHandle();
+                $this->handle();
             })
-            ->tap(function (Collection $songs) use (&$sanitizedSongs, $keyword, $resourceUsageFormatter, $duration): void {
+            ->tap(function (Collection $songs) use (&$sanitizedSongs, $keyword, $duration): void {
                 table($this->config['table_header'], $sanitizedSongs = $this->sanitizes($songs, $keyword));
-                \Laravel\Prompts\info($resourceUsageFormatter->resourceUsage($duration));
+                Prompts\info((new ResourceUsageFormatter())->resourceUsage($duration));
             })
-            ->tap(fn (): bool => confirm($this->config['confirm_label']) or $this->reHandle())
+            ->tap(fn (): bool => confirm($this->config['confirm_label']) or $this->handle())
             ->tap(function () use (&$options, $sanitizedSongs): void {
                 $options = $sanitizedSongs
                     ->transform(static fn (array $song): string => implode('  ', Arr::except($song, [0])))
@@ -130,7 +132,7 @@ final class MusicCommand extends Command
                 $this->option('dir'),
                 resource_path('notify-icon.png')
             )))
-            ->when(! $this->option('no-continue'), fn (): int => $this->reHandle())
+            ->when(! $this->option('no-continue'), fn (): int => $this->handle())
             ->pipe(static fn (): int => self::SUCCESS);
     }
 
@@ -172,10 +174,5 @@ final class MusicCommand extends Command
 
             return $throwable;
         }
-    }
-
-    private function reHandle(): int
-    {
-        return $this->handle(new Timer(), new ResourceUsageFormatter());
     }
 }
