@@ -39,21 +39,7 @@ composer require guanguans/music-dl:dev-master --dev -v --ignore-platform-req=ex
 ## 使用
 
 ```shell
-╰─ ./music-dl                                                                         ─╯
-
-     __  __           _        _____  _
-    |  \/  |         (_)      |  __ \| |
-    | \  / |_   _ ___ _  ___  | |  | | |
-    | |\/| | | | / __| |/ __| | |  | | |
-    | |  | | |_| \__ \ | (__  | |__| | |____
-    |_|  |_|\__,_|___/_|\___| |_____/|______| 3.5.2
-
- 请输入关键字如：一个短篇  腰乐队  Yesterday once more，或按 Ctrl+C 退出程序 [腰乐队]:
- > 
-```
-
-```shell
-╰─ ./music-dl --help                                                                                                       ─╯
+╰─ ./music-dl --help                                                                                                      ─╯
 Description:
   Search and download music
 
@@ -64,8 +50,9 @@ Arguments:
   keyword                  Search keyword for music
 
 Options:
-      --driver[=DRIVER]    Specify the search driver(async、fork、sequence) [default: "sequence"]
+      --driver[=DRIVER]    Specify the search driver(fork、sequence) [default: "sequence"]
   -d, --dir[=DIR]          Specify the download directory
+      --no-continue        Specify whether to recall the command after the download is complete
       --sources[=SOURCES]  Specify the music sources(tencent、netease、kugou) (multiple values allowed)
   -h, --help               Display help for the given command. When no command is given display help for the music command
   -q, --quiet              Do not output any message
@@ -77,17 +64,17 @@ Options:
 ```
 
 ```shell
-╰─ ./music-dl list                                           ─╯
+╰─ ./music-dl list                                                                                                        ─╯
 
-  Music DL  3.5.2
+  Music DL  refs/tags/4.1.6
 
-  USAGE: music-dl <command> [options] [arguments]
+  USAGE:  <command> [options] [arguments]
 
-  completion     Dump the shell completion script
-  inspire        Display an inspiring quote
-  music          Search and download music
-  self-update    Allows to self-update a build application
-  thanks         Thanks for using this tool.
+  completion  Dump the shell completion script
+  inspire     Display an inspiring quote
+  music       Search and download music
+  self-update Allows to self-update a build application
+  thanks      Thanks for using this tool.
 ```
 
 ![vhs](resources/music-dl.gif)
