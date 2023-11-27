@@ -48,7 +48,7 @@ class MusicManager extends Manager
      * @throws BindingResolutionException
      */
     #[\Override]
-    protected function createDriver($driver): Music
+    protected function createDriver(mixed $driver): Music
     {
         if (isset($this->customCreators[$driver])) {
             return $this->callCustomCreator($driver);

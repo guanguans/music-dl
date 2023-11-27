@@ -162,7 +162,7 @@ final class MusicCommand extends Command
      *
      * @noinspection MissingReturnTypeInspection
      */
-    private function wrappedExceptionHandler(callable $callback, ...$parameters)
+    private function wrappedExceptionHandler(callable $callback, mixed ...$parameters)
     {
         try {
             return $callback(...$parameters);
