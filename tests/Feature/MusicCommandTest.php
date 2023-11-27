@@ -13,17 +13,16 @@ declare(strict_types=1);
 use App\Commands\MusicCommand;
 use App\Concerns\Hydrator;
 use App\Music\SequenceMusic;
+use Illuminate\Support\Collection;
 use Laravel\Prompts\Prompt;
 
-uses(Hydrator::class);
-
-beforeEach(function (): void {
+uses(Hydrator::class)->beforeEach(function (): void {
     // Prompt::fallbackWhen(true);
 });
 
-it('can search and download music', function (array $songs): void {
+it('can search and download music', function (Collection $songs): void {
     $mockSequenceMusic = Mockery::mock(SequenceMusic::class);
-    $mockSequenceMusic->allows('search')->andReturn(collect($songs));
+    $mockSequenceMusic->allows('search')->andReturn($songs);
     $mockSequenceMusic->allows('download')->andThrow(new RuntimeException());
     App\Facades\Music::shouldReceive('driver')->andReturn($mockSequenceMusic->makePartial());
 
@@ -33,7 +32,7 @@ it('can search and download music', function (array $songs): void {
             '--dir' => downloads_path(),
             '--driver' => 'sequence',
             '--no-continue' => true,
-            '--sources' => 'netease',
+            '--sources' => config('music-dl.sources'),
         ])
         ->expectsConfirmation(config('music-dl.confirm_label'), 'yes')
         // ->expectsQuestion(config('music-dl.select_label'), [config('music-dl.all_songs')])

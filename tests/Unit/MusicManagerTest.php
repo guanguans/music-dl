@@ -23,7 +23,7 @@ it('will throw exception when driver not exists', function (): void {
 })->group(__DIR__, __FILE__)->throws(InvalidArgumentException::class);
 
 it('can get default driver', function (): void {
-    expect(new MusicManager(app()))->driver()->toBeInstanceOf(Music::class);
+    expect(app(MusicManager::class))->driver()->toBeInstanceOf(Music::class);
 })->group(__DIR__, __FILE__);
 
 it('can get custom driver', function (): void {

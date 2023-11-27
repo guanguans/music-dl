@@ -17,6 +17,6 @@ use Illuminate\Support\Collection;
 
 uses(Hydrator::class);
 
-it('can batch sanitize songs', function (array $songs): void {
-    expect($this)->hydrates(collect($songs), '腰乐队')->toBeInstanceOf(Collection::class);
+it('can batch sanitize songs', function (Collection $songs): void {
+    expect($this)->hydrates($songs, '腰乐队')->toBeInstanceOf(Collection::class);
 })->group(__DIR__, __FILE__)->with('songs');

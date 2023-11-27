@@ -15,10 +15,10 @@ namespace Tests\Unit\Concerns;
 use App\Concerns\HttpClientFactory;
 use GuzzleHttp\Client;
 
+uses(HttpClientFactory::class);
+
 it('can create http client', function (): void {
-    expect(new class() {
-        use HttpClientFactory;
-    })
+    expect($this)
         ->createHttpClient()->toBeInstanceOf(Client::class)
         ->createHttpClient()->toBeInstanceOf(Client::class);
 })->group(__DIR__, __FILE__);
