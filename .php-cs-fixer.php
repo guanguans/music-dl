@@ -69,12 +69,12 @@ return (new Config())
         '@PHP74Migration:risky' => true,
         '@PHP80Migration' => true,
         '@PHP80Migration:risky' => true,
-        // '@PHP81Migration' => true,
+        '@PHP81Migration' => true,
         // '@PHP82Migration' => true,
 
         // '@PHPUnit75Migration:risky' => true,
         // '@PHPUnit84Migration:risky' => true,
-        // '@PHPUnit100Migration:risky' => true,
+        '@PHPUnit100Migration:risky' => true,
 
         // '@DoctrineAnnotation' => true,
         '@PhpCsFixer' => true,

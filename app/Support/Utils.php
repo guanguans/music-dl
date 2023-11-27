@@ -26,7 +26,7 @@ final class Utils
             ? sprintf('%s\\Downloads\\MusicDL\\', exec('echo %USERPROFILE%') ?: sprintf('C:\\Users\\%s', get_current_user())) // @codeCoverageIgnore
             : sprintf('%s/Downloads/MusicDL/', exec('echo $HOME') ?: exec('cd ~; pwd'));
 
-        if (! is_dir($saveDir) && ! mkdir($saveDir, 0755, true) && ! is_dir($saveDir)) {
+        if (! is_dir($saveDir) && ! mkdir($saveDir, 0o755, true) && ! is_dir($saveDir)) {
             throw new RuntimeException(sprintf('The directory "%s" was not created.', $saveDir)); // @codeCoverageIgnore
         }
 
@@ -40,7 +40,7 @@ final class Utils
     {
         $saveDir = Str::finish($saveDir ?? self::getDefaultSaveDir(), \DIRECTORY_SEPARATOR);
 
-        if (! is_dir($saveDir) && ! mkdir($saveDir, 0755, true) && ! is_dir($saveDir)) {
+        if (! is_dir($saveDir) && ! mkdir($saveDir, 0o755, true) && ! is_dir($saveDir)) {
             throw new RuntimeException(sprintf('The directory "%s" was not created.', $saveDir)); // @codeCoverageIgnore
         }
 
