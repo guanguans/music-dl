@@ -24,7 +24,7 @@ it('can search songs', function (): void {
 it('will throw exception when download failed', function (): void {
     try {
         app(SequenceMusic::class)->download('foo.mp3', downloads_path('foo.mp3'));
-    } catch (GuzzleException $e) {
-        throw new TransferException($e->getMessage());
+    } catch (GuzzleException $guzzleException) {
+        throw new TransferException($guzzleException->getMessage());
     }
 })->group(__DIR__, __FILE__)->throws(TransferException::class);

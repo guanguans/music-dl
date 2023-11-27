@@ -22,6 +22,7 @@ use Rector\CodeQuality\Rector\FuncCall\SingleInArrayToCompareRector;
 use Rector\CodeQuality\Rector\Identical\SimplifyBoolIdenticalTrueRector;
 use Rector\CodeQuality\Rector\If_\ExplicitBoolCompareRector;
 use Rector\CodeQuality\Rector\LogicalAnd\LogicalToBooleanRector;
+use Rector\CodingStyle\Rector\ArrowFunction\StaticArrowFunctionRector;
 use Rector\CodingStyle\Rector\Class_\AddArrayDefaultToArrayPropertyRector;
 use Rector\CodingStyle\Rector\Closure\StaticClosureRector;
 use Rector\CodingStyle\Rector\Encapsed\EncapsedStringsToSprintfRector;
@@ -34,6 +35,7 @@ use Rector\DeadCode\Rector\ClassMethod\RemoveEmptyClassMethodRector;
 use Rector\EarlyReturn\Rector\If_\ChangeAndIfToEarlyReturnRector;
 use Rector\EarlyReturn\Rector\Return_\ReturnBinaryOrToEarlyReturnRector;
 use Rector\EarlyReturn\Rector\StmtsAwareInterface\ReturnEarlyIfVariableRector;
+use Rector\Naming\Rector\Assign\RenameVariableToMatchMethodCallReturnTypeRector;
 use Rector\Naming\Rector\Class_\RenamePropertyToMatchTypeRector;
 use Rector\Naming\Rector\ClassMethod\RenameParamToMatchTypeRector;
 use Rector\Naming\Rector\Foreach_\RenameForeachValueVariableToMatchExprVariableRector;
@@ -79,8 +81,7 @@ return static function (RectorConfig $rectorConfig): void {
 
     $rectorConfig->paths([
         __DIR__.'/app',
-        // __DIR__.'/config',
-        // __DIR__.'/tests',
+        __DIR__.'/tests',
         __DIR__.'/.*.php',
         __DIR__.'/*.php',
     ]);
@@ -126,6 +127,9 @@ return static function (RectorConfig $rectorConfig): void {
         RenameForeachValueVariableToMatchExprVariableRector::class => [
             // __DIR__.'/src/OutputManager.php',
         ],
+        RenameVariableToMatchMethodCallReturnTypeRector::class => [
+            __DIR__.'/tests/',
+        ],
         RenameParamToMatchTypeRector::class => [
             // __DIR__.'/src/Support/helpers.php',
             '*',
@@ -138,6 +142,10 @@ return static function (RectorConfig $rectorConfig): void {
             __FILE__,
             __DIR__.'/tests',
         ],
+        StaticArrowFunctionRector::class => [
+            __DIR__.'/tests',
+        ],
+
         SingleInArrayToCompareRector::class => [
             __FILE__,
         ],
