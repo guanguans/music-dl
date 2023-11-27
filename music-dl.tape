@@ -50,8 +50,8 @@ Require php
 
 Set Framerate 120
 Set FontSize 18
-Set Width 1300
-Set Height 803
+Set Width 1200
+Set Height 742
 Set TypingSpeed 10ms
 Set PlaybackSpeed 0.2
 
@@ -64,5 +64,5 @@ Down@500ms 1 Sleep 100ms
 Space@500ms 1 Sleep 100ms
 Down@500ms 2 Sleep 100ms
 Space@500ms 1 Sleep 100ms
-Enter@500ms 1 Sleep 5s
-Backspace@200ms 3 Sleep 2s
+Enter@500ms 1 Sleep 3s
+Backspace@200ms 3 Sleep 1s
