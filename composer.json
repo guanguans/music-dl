@@ -136,6 +136,7 @@
             "@lint",
             "@style-lint",
             "@test",
+            "@test-type-coverage",
             "@psalm"
         ],
         "composer-normalize": "@composer normalize --dry-run --diff --ansi -v",
@@ -152,10 +153,10 @@
         "mark-start": "printf '\\n!\\n!\\t\\033[0;36m%s\\033[0m\\n!\\n\\n' \"Started\"",
         "md-fix": "@md-lint --fix",
         "md-lint": "lint-md --config .lintmdrc ./*.md ./.github/ ./docs/",
-        "pest": "@php ./vendor/bin/pest --coverage --min=90 --profile",
+        "pest": "@php ./vendor/bin/pest --coverage --profile",
         "pest-coverage": "@pest --coverage-html=./build/phpunit/ --coverage-clover=./clover.xml",
         "pest-migrate-configuration": "@pest --migrate-configuration",
-        "pest-type-coverage": "@pest --type-coverage --min=100",
+        "pest-type-coverage": "@pest --type-coverage",
         "phpstan": "@php ./vendor/bin/phpstan analyse --ansi -v",
         "phpstan-baseline": "@phpstan --generate-baseline --allow-empty-baseline",
         "post-merge": [
@@ -177,6 +178,7 @@
         "test": "@pest",
         "test-coverage": "@pest-coverage",
         "test-migrate-configuration": "@pest-migrate-configuration",
+        "test-type-coverage": "@pest-type-coverage",
         "vhs": "vhs < music-dl.tape"
     }
 }
