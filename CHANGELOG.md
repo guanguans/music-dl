@@ -8,6 +8,15 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="4.1.5"></a>
+## [4.1.5] - 2023-11-27
+### Refactor
+- **commands:** refactor MusicCommand handle method
+
+### Pull Requests
+- Merge pull request [#609](https://github.com/guanguans/monorepo-builder-worker/issues/609) from guanguans/imgbot
+
+
 <a name="4.1.4"></a>
 ## [4.1.4] - 2023-11-26
 ### Refactor
@@ -749,7 +758,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.4...HEAD
+[Unreleased]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.5...HEAD
+[4.1.5]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.4...4.1.5
 [4.1.4]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.3...4.1.4
 [4.1.3]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.2...4.1.3
 [4.1.2]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.1...4.1.2
