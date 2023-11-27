@@ -69,9 +69,9 @@ final class MusicCommand extends Command
     public function handle(): int
     {
         return collect()
-            ->when(! $this->laravel->has('outputted_logo'), function (): void {
+            ->when(! $this->laravel->has('logo'), function (): void {
                 Prompts\info($this->config['logo']);
-                $this->laravel->instance('outputted_logo', true);
+                $this->laravel->instance('logo', $this->config['logo']);
             })
             ->when(windows_os(), fn () => warning($this->config['windows_hint']))
             ->tap(function () use (&$keyword): void {
