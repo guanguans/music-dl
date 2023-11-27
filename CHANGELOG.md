@@ -8,6 +8,22 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="4.1.6"></a>
+## [4.1.6] - 2023-11-27
+### Docs
+- **readme:** Update README file
+
+### Feat
+- **github:** Add CODE_OF_CONDUCT.md
+
+### Fix
+- **coding-style:** fix arrow function usage
+
+### Refactor
+- **tests:** refactor test cases
+- **utils:** Remove codeCoverageIgnore comments
+
+
 <a name="4.1.5"></a>
 ## [4.1.5] - 2023-11-27
 ### Refactor
@@ -758,7 +774,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.5...HEAD
+[Unreleased]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.6...HEAD
+[4.1.6]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.5...4.1.6
 [4.1.5]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.4...4.1.5
 [4.1.4]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.3...4.1.4
 [4.1.3]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.2...4.1.3
