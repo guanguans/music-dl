@@ -32,8 +32,8 @@ chmod +x music-dl
 ### 通过 Composer 安装
 
 ```shell
-composer global require guanguans/music-dl --dev -v --ignore-platform-req=ext-pcntl # 全局
-composer require guanguans/music-dl --dev -v --ignore-platform-req=ext-pcntl # 本地
+composer global require guanguans/music-dl:dev-master --dev -v --ignore-platform-req=ext-pcntl # 全局
+composer require guanguans/music-dl:dev-master --dev -v --ignore-platform-req=ext-pcntl # 本地
 ```
 
 ## 使用

@@ -79,7 +79,7 @@
         }
     },
     "bin": [
-        "music-dl"
+        "builds/music-dl"
     ],
     "config": {
         "allow-plugins": {

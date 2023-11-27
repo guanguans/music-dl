@@ -32,8 +32,8 @@ chmod +x music-dl
 ### Install via Composer
 
 ```shell
-composer global require guanguans/music-dl --dev -v --ignore-platform-req=ext-pcntl # global
-composer require guanguans/music-dl --dev -v --ignore-platform-req=ext-pcntl # local
+composer global require guanguans/music-dl:dev-master --dev -v --ignore-platform-req=ext-pcntl # global
+composer require guanguans/music-dl:dev-master --dev -v --ignore-platform-req=ext-pcntl # local
 ```
 
 ## Usage
