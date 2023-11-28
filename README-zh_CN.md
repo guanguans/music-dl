@@ -39,7 +39,21 @@ composer require guanguans/music-dl:dev-master --dev -v --ignore-platform-req=ex
 ## 使用
 
 ```shell
-╰─ ./music-dl --help                                                                                                      ─╯
+╰─ ./music-dl list                                                                                                        ─╯
+
+  Music DL  refs/tags/4.1.6
+
+  USAGE:  <command> [options] [arguments]
+
+  completion  Dump the shell completion script
+  inspire     Display an inspiring quote
+  music       Search and download music
+  self-update Allows to self-update a build application
+  thanks      Thanks for using this tool.
+```
+
+```shell
+╰─ ./music-dl music --help                                                                                                      ─╯
 Description:
   Search and download music
 
@@ -63,21 +77,13 @@ Options:
   -v|vv|vvv, --verbose     Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
 ```
 
-```shell
-╰─ ./music-dl list                                                                                                        ─╯
+![usage](resources/music-dl.gif)
 
-  Music DL  refs/tags/4.1.6
+## 测试
 
-  USAGE:  <command> [options] [arguments]
-
-  completion  Dump the shell completion script
-  inspire     Display an inspiring quote
-  music       Search and download music
-  self-update Allows to self-update a build application
-  thanks      Thanks for using this tool.
+```bash
+composer test
 ```
-
-![vhs](resources/music-dl.gif)
 
 ## 变更日志
 
