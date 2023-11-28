@@ -8,6 +8,20 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="4.1.7"></a>
+## [4.1.7] - 2023-11-28
+### Docs
+- update README files
+- **readme:** Update README.md and README-zh_CN.md
+
+### Fix
+- **MusicManager:** Update type hint for createDriver parameter
+
+### Pull Requests
+- Merge pull request [#611](https://github.com/guanguans/monorepo-builder-worker/issues/611) from guanguans/imgbot
+- Merge pull request [#610](https://github.com/guanguans/monorepo-builder-worker/issues/610) from guanguans/dependabot/composer/rector/rector-0.18.11
+
+
 <a name="4.1.6"></a>
 ## [4.1.6] - 2023-11-27
 ### Docs
@@ -774,7 +788,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.6...HEAD
+[Unreleased]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.7...HEAD
+[4.1.7]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.6...4.1.7
 [4.1.6]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.5...4.1.6
 [4.1.5]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.4...4.1.5
 [4.1.4]: https://github.com/guanguans/monorepo-builder-worker/compare/4.1.3...4.1.4
