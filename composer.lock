@@ -3663,16 +3663,16 @@
         },
         {
             "name": "spatie/fork",
-            "version": "1.2.1",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/fork.git",
-                "reference": "b18a3103038e4cc0c2bba32edb69a633c3fb357c"
+                "reference": "c79b4c10ce1c22efb7e90429a5ff30d36c7d8ae3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/fork/zipball/b18a3103038e4cc0c2bba32edb69a633c3fb357c",
-                "reference": "b18a3103038e4cc0c2bba32edb69a633c3fb357c",
+                "url": "https://api.github.com/repos/spatie/fork/zipball/c79b4c10ce1c22efb7e90429a5ff30d36c7d8ae3",
+                "reference": "c79b4c10ce1c22efb7e90429a5ff30d36c7d8ae3",
                 "shasum": ""
             },
             "require": {
@@ -3716,7 +3716,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/fork/issues",
-                "source": "https://github.com/spatie/fork/tree/1.2.1"
+                "source": "https://github.com/spatie/fork/tree/1.2.2"
             },
             "funding": [
                 {
@@ -3724,7 +3724,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-11-23T15:12:48+00:00"
+            "time": "2023-12-07T16:42:08+00:00"
         },
         {
             "name": "symfony/console",
