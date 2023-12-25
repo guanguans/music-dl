@@ -8033,16 +8033,16 @@
         },
         {
             "name": "kubawerlos/php-cs-fixer-custom-fixers",
-            "version": "v3.17.0",
+            "version": "v3.17.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kubawerlos/php-cs-fixer-custom-fixers.git",
-                "reference": "bbfb4ff20d148ed9531b1cfc9c9a861faba72b9a"
+                "reference": "1adfc79e5bd11ff713b1c2a512c382cc8fcff34e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kubawerlos/php-cs-fixer-custom-fixers/zipball/bbfb4ff20d148ed9531b1cfc9c9a861faba72b9a",
-                "reference": "bbfb4ff20d148ed9531b1cfc9c9a861faba72b9a",
+                "url": "https://api.github.com/repos/kubawerlos/php-cs-fixer-custom-fixers/zipball/1adfc79e5bd11ff713b1c2a512c382cc8fcff34e",
+                "reference": "1adfc79e5bd11ff713b1c2a512c382cc8fcff34e",
                 "shasum": ""
             },
             "require": {
@@ -8073,9 +8073,9 @@
             "description": "A set of custom fixers for PHP CS Fixer",
             "support": {
                 "issues": "https://github.com/kubawerlos/php-cs-fixer-custom-fixers/issues",
-                "source": "https://github.com/kubawerlos/php-cs-fixer-custom-fixers/tree/v3.17.0"
+                "source": "https://github.com/kubawerlos/php-cs-fixer-custom-fixers/tree/v3.17.1"
             },
-            "time": "2023-11-19T12:08:42+00:00"
+            "time": "2023-12-23T14:34:27+00:00"
         },
         {
             "name": "laravel/facade-documenter",
