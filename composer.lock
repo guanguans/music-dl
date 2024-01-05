@@ -8986,26 +8986,26 @@
         },
         {
             "name": "pestphp/pest-plugin-type-coverage",
-            "version": "v2.6.0",
+            "version": "v2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest-plugin-type-coverage.git",
-                "reference": "48767b283c7fe97bc890d8f19dd6a920262b5c09"
+                "reference": "751f0c1185b044baa35d8ae65414f688a41fe43d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest-plugin-type-coverage/zipball/48767b283c7fe97bc890d8f19dd6a920262b5c09",
-                "reference": "48767b283c7fe97bc890d8f19dd6a920262b5c09",
+                "url": "https://api.github.com/repos/pestphp/pest-plugin-type-coverage/zipball/751f0c1185b044baa35d8ae65414f688a41fe43d",
+                "reference": "751f0c1185b044baa35d8ae65414f688a41fe43d",
                 "shasum": ""
             },
             "require": {
                 "pestphp/pest-plugin": "^2.1.1",
                 "php": "^8.1",
-                "phpstan/phpstan": "^1.10.50",
+                "phpstan/phpstan": "^1.10.52",
                 "tomasvotruba/type-coverage": "^0.2.1"
             },
             "require-dev": {
-                "pestphp/pest": "^2.28.1",
+                "pestphp/pest": "^2.30.0",
                 "pestphp/pest-dev-tools": "^2.16.0"
             },
             "type": "library",
@@ -9039,7 +9039,7 @@
             ],
             "support": {
                 "issues": "https://github.com/pestphp/pest-plugin-type-coverage/issues",
-                "source": "https://github.com/pestphp/pest-plugin-type-coverage/tree/v2.6.0"
+                "source": "https://github.com/pestphp/pest-plugin-type-coverage/tree/v2.7.0"
             },
             "funding": [
                 {
@@ -9055,7 +9055,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2023-12-26T16:05:31+00:00"
+            "time": "2024-01-05T11:19:32+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -9723,16 +9723,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.50",
+            "version": "1.10.54",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "06a98513ac72c03e8366b5a0cb00750b487032e4"
+                "reference": "3e25f279dada0adc14ffd7bad09af2e2fc3523bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/06a98513ac72c03e8366b5a0cb00750b487032e4",
-                "reference": "06a98513ac72c03e8366b5a0cb00750b487032e4",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/3e25f279dada0adc14ffd7bad09af2e2fc3523bb",
+                "reference": "3e25f279dada0adc14ffd7bad09af2e2fc3523bb",
                 "shasum": ""
             },
             "require": {
@@ -9781,7 +9781,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-12-13T10:59:42+00:00"
+            "time": "2024-01-05T15:50:47+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
