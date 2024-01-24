@@ -41,7 +41,7 @@ jobs:
         run: ./music-dl app:build music-dl.phar --build-version=${{ steps.tag.outputs.tag }} -v
 
       - name: Upload the PHAR artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: music-dl.phar
           path: builds/music-dl.phar
