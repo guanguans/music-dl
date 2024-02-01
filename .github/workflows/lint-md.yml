@@ -9,9 +9,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: lint-md-github-action
-        uses: lint-md/github-action@v0.1.1
-        with:
-          configFile: .lintmdrc
-          failOnWarnings: false
-          files: ./ ./.github/ ./docs/
+      - name: Set node version
+        uses: actions/setup-node@v4
+
+      - name: Install lint-md
+        run: npm install -g @lint-md/cli
+
+      - name: Lint markdown
+        run: lint-md --config .lintmdrc ./*.md ./.github/
