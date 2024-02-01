@@ -37,7 +37,10 @@ $finder = Finder::create()
         '__snapshots__/',
     ])
     ->append(glob(__DIR__.'/{*,.*}.php', GLOB_BRACE))
-    ->append([__DIR__.'/music-dl'])
+    ->append([
+        __DIR__.'/music-dl',
+        __DIR__.'/composer-updater',
+    ])
     ->notPath([
         'bootstrap/*',
         'storage/*',
@@ -313,6 +316,10 @@ return (new Config())
         'statement_indentation' => true,
 
         'strict_param' => false,
+        'class_definition' => [
+            'inline_constructor_arguments' => false,
+            'space_before_parenthesis' => true,
+        ],
 
         // https://github.com/kubawerlos/php-cs-fixer-custom-fixers
         // PhpCsFixerCustomFixers\Fixer\CommentSurroundedBySpacesFixer::name() => true,

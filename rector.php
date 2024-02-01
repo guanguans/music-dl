@@ -84,6 +84,7 @@ return static function (RectorConfig $rectorConfig): void {
         __DIR__.'/tests',
         __DIR__.'/.*.php',
         __DIR__.'/*.php',
+        __DIR__.'/composer-updater',
     ]);
 
     $rectorConfig->skip([
