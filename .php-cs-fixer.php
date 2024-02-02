@@ -316,9 +316,35 @@ return (new Config())
         'statement_indentation' => true,
 
         'strict_param' => false,
+        'fully_qualified_strict_types' => [
+            'import_symbols' => false,
+            'leading_backslash_in_global_namespace' => false,
+            'phpdoc_tags' => [
+                // 'param',
+                // 'phpstan-param',
+                // 'phpstan-property',
+                // 'phpstan-property-read',
+                // 'phpstan-property-write',
+                // 'phpstan-return',
+                // 'phpstan-var',
+                // 'property',
+                // 'property-read',
+                // 'property-write',
+                // 'psalm-param',
+                // 'psalm-property',
+                // 'psalm-property-read',
+                // 'psalm-property-write',
+                // 'psalm-return',
+                // 'psalm-var',
+                // 'return',
+                // 'see',
+                // 'throws',
+                // 'var',
+            ],
+        ],
         'class_definition' => [
             'inline_constructor_arguments' => false,
-            'space_before_parenthesis' => true,
+            'space_before_parenthesis' => false,
         ],
 
         // https://github.com/kubawerlos/php-cs-fixer-custom-fixers
