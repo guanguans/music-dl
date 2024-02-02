@@ -49,6 +49,6 @@ return [
     'empty_hint' => 'o(╥﹏╥)o 没有搜索到相关歌曲',
     'confirm_label' => '是否下载歌曲？',
     'all_songs' => '全部歌曲',
-    'select_label' => '请按选择歌曲',
+    'select_label' => '请选择歌曲',
     'select_hint' => '空格键选中/取消选项',
 ];
