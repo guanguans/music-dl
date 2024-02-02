@@ -2,7 +2,7 @@ style: github
 template: CHANGELOG.tpl.md
 info:
   title: CHANGELOG
-  repository_url: https://github.com/guanguans/monorepo-builder-worker
+  repository_url: https://github.com/guanguans/music-dl
 options:
   commits:
     filters:

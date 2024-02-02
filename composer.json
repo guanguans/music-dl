@@ -137,7 +137,8 @@
             "@style-lint",
             "@test",
             "@test-type-coverage",
-            "@psalm"
+            "@psalm",
+            "@rector-d"
         ],
         "composer-normalize": "@composer normalize --dry-run --diff --ansi -v",
         "composer-updater": [
