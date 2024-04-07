@@ -8,6 +8,12 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="4.2.1"></a>
+## [4.2.1] - 2024-04-07
+### Feat
+- **box.json:** Add support for disabling requirements check
+
+
 <a name="4.2.0"></a>
 ## [4.2.0] - 2024-04-07
 ### Feat
@@ -915,7 +921,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/4.2.0...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/4.2.1...HEAD
+[4.2.1]: https://github.com/guanguans/music-dl/compare/4.2.0...4.2.1
 [4.2.0]: https://github.com/guanguans/music-dl/compare/4.1.8...4.2.0
 [4.1.8]: https://github.com/guanguans/music-dl/compare/4.1.7...4.1.8
 [4.1.7]: https://github.com/guanguans/music-dl/compare/4.1.6...4.1.7
