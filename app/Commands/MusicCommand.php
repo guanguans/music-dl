@@ -122,7 +122,7 @@ final class MusicCommand extends Command
             )
             ->each(fn (array $song): mixed => $this->wrappedExceptionHandler(fn () => $this->music->download(
                 $song['url'],
-                Utils::getSavePath($song, $this->option('dir'))
+                Utils::savePathFor($song, $this->option('dir'))
             )))
             ->tap(fn (): mixed => $this->wrappedExceptionHandler(fn () => $this->notify(
                 config('app.name'),
@@ -152,7 +152,7 @@ final class MusicCommand extends Command
     {
         $this->config = config('music-dl');
         $this->music = \App\Facades\Music::driver($this->option('driver'));
-        $this->input->setOption('dir', $this->option('dir') ?: Utils::getDefaultSaveDir());
+        $this->input->setOption('dir', $this->option('dir') ?: Utils::defaultSaveDir());
         File::ensureDirectoryExists($this->option('dir'));
         $this->input->setOption('sources', array_filter((array) $this->option('sources')) ?: $this->config['sources']);
     }

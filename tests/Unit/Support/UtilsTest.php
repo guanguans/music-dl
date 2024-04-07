@@ -15,11 +15,11 @@ namespace Tests\Unit\Support;
 use App\Support\Utils;
 
 it('can get default save dir', function (): void {
-    expect(Utils::getDefaultSaveDir())->toBeDirectory();
+    expect(Utils::defaultSaveDir())->toBeDirectory();
 })->group(__DIR__, __FILE__);
 
 it('can get save path', function (array $song): void {
-    expect(Utils::getSavePath($song))->toBeString();
+    expect(Utils::savePathFor($song))->toBeString();
 })->group(__DIR__, __FILE__)->with([
     fn (): array => [
         'id' => 1_386_737_246,
