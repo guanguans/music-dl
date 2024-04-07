@@ -25,7 +25,7 @@
 ### 直接下载 [music-dl](./builds/music-dl) 文件
 
 ```shell
-curl 'https://raw.githubusercontent.com/guanguans/music-dl/master/builds/music-dl' -o music-dl --progress
+curl 'https://raw.githubusercontent.com/guanguans/music-dl/master/builds/music-dl' -o music-dl --progress-bar
 chmod +x music-dl
 ```
 

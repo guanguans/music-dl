@@ -25,7 +25,7 @@
 ### Download the [music-dl](./builds/music-dl) file
 
 ```shell
-curl 'https://raw.githubusercontent.com/guanguans/music-dl/master/builds/music-dl' -o music-dl --progress
+curl 'https://raw.githubusercontent.com/guanguans/music-dl/master/builds/music-dl' -o music-dl --progress-bar
 chmod +x music-dl
 ```
 
