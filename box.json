@@ -1,20 +1,21 @@
 {
+    "check-requirements": false,
     "chmod": "0755",
+    "compactors": [
+        "KevinGH\\Box\\Compactor\\Php",
+        "KevinGH\\Box\\Compactor\\Json"
+    ],
+    "compression": "GZ",
     "directories": [
         "app",
         "bootstrap",
         "config",
         "vendor"
     ],
+    "exclude-composer-files": false,
+    "exclude-dev-files": true,
     "files": [
         "composer.json",
         "resources/notify-icon.png"
-    ],
-    "exclude-composer-files": false,
-    "exclude-dev-files": true,
-    "compression": "GZ",
-    "compactors": [
-        "KevinGH\\Box\\Compactor\\Php",
-        "KevinGH\\Box\\Compactor\\Json"
     ]
 }
