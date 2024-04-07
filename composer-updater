@@ -12,6 +12,8 @@ declare(strict_types=1);
  */
 
 use Composer\InstalledVersions;
+use SebastianBergmann\Diff\Differ;
+use SebastianBergmann\Diff\Output\UnifiedDiffOutputBuilder;
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -33,6 +35,7 @@ $status = (new SingleCommandApplication())
     ->addOption('composer-binary', null, InputOption::VALUE_OPTIONAL)
     ->addOption('except-packages', null, InputOption::VALUE_IS_ARRAY | InputOption::VALUE_OPTIONAL)
     ->addOption('except-dependency-versions', null, InputOption::VALUE_IS_ARRAY | InputOption::VALUE_OPTIONAL)
+    ->addOption('dry-run', null, InputOption::VALUE_NONE)
     ->setCode(function (InputInterface $input, OutputInterface $output): void {
         assert_options(ASSERT_BAIL, 1);
         assert($this instanceof SingleCommandApplication);
@@ -44,13 +47,17 @@ $status = (new SingleCommandApplication())
             $input->getOption('composer-binary'),
             $input->getOption('except-packages'),
             $input->getOption('except-dependency-versions'),
+            $input->getOption('dry-run'),
             new SymfonyStyle($input, $output),
+            new Differ(new UnifiedDiffOutputBuilder("--- Original\n+++ New\n", true)),
         ) {
+            private string $composerJsonContents;
             private string $highestComposerBinary;
             private string $composerBinary;
             private array $exceptPackages;
             private array $exceptDependencyVersions;
             private SymfonyStyle $symfonyStyle;
+            private Differ $differ;
 
             /**
              * @noinspection ParameterDefaultsNullInspection
@@ -61,11 +68,14 @@ $status = (new SingleCommandApplication())
                 ?string $composerBinary = null,
                 array $exceptPackages = [],
                 array $exceptDependencyVersions = [],
-                ?SymfonyStyle $symfonyStyle = null
+                private bool $dryRun = false,
+                ?SymfonyStyle $symfonyStyle = null,
+                ?Differ $differ = null
             ) {
                 assert_options(ASSERT_BAIL, 1);
                 assert((bool) $composerJsonPath);
 
+                $this->composerJsonContents = file_get_contents($composerJsonPath);
                 $this->highestComposerBinary = $this->getComposerBinary($composerBinary, $highestPhpBinary);
                 $this->composerBinary = $this->getComposerBinary($composerBinary);
                 $this->exceptPackages = array_merge([
@@ -79,6 +89,7 @@ $status = (new SingleCommandApplication())
                     // '*|*',
                 ], $exceptDependencyVersions);
                 $this->symfonyStyle = $symfonyStyle ?? new SymfonyStyle(new ArgvInput(), new ConsoleOutput());
+                $this->differ = $differ ?? new Differ(new UnifiedDiffOutputBuilder("--- Original\n+++ New\n", true));
             }
 
             public function __invoke(): void
@@ -102,16 +113,26 @@ $status = (new SingleCommandApplication())
 
             /**
              * @noinspection JsonEncodingApiUsageInspection
+             *
+             * @return $this|never-return
              */
             private function updateOutdatedComposerPackages(): self
             {
-                file_put_contents(
-                    $this->composerJsonPath,
-                    json_encode(
-                        $this->getOutdatedDecodedComposerJson(),
-                        JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
-                    ).PHP_EOL
-                );
+                $outdatedComposerJsonContents = json_encode(
+                    $this->getOutdatedDecodedComposerJson(),
+                    JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
+                ).PHP_EOL;
+
+                if ($this->dryRun) {
+                    $this->symfonyStyle->writeln($this->formatDiff($this->differ->diff(
+                        $this->composerJsonContents,
+                        $outdatedComposerJsonContents
+                    )));
+
+                    exit(0);
+                }
+
+                file_put_contents($this->composerJsonPath, $outdatedComposerJsonContents);
 
                 return $this;
             }
@@ -135,7 +156,7 @@ $status = (new SingleCommandApplication())
             {
                 $outdatedComposerPackages = $this->getOutdatedComposerPackages();
                 $decodedComposerJson = json_decode(file_get_contents($this->composerJsonPath), true);
-                InstalledVersions::reload([]);
+                (fn () => self::reload(null))->call(new InstalledVersions());
 
                 foreach ($decodedComposerJson as $name => &$value) {
                     if (! in_array($name, ['require', 'require-dev'], true)) {
@@ -206,17 +227,16 @@ $status = (new SingleCommandApplication())
             }
 
             /**
-             * @param array|string $command
              * @param mixed $input The input as stream resource, scalar or \Traversable, or null for no input
              *
              * @noinspection MissingParameterTypeDeclarationInspection
              * @noinspection PhpSameParameterValueInspection
              */
             private function mustRunCommand(
-                $command,
+                array|string $command,
                 ?string $cwd = null,
                 ?array $env = null,
-                $input = null,
+                mixed $input = null,
                 ?float $timeout = 300
             ): Process {
                 $process = is_string($command)
@@ -244,13 +264,11 @@ $status = (new SingleCommandApplication())
             }
 
             /**
-             * @param array|string $pattern
-             *
              * @noinspection SuspiciousLoopInspection
              * @noinspection ComparisonScalarOrderInspection
              * @noinspection MissingParameterTypeDeclarationInspection
              */
-            private function strIs($pattern, string $value): bool
+            private function strIs(array|string $pattern, string $value): bool
             {
                 $patterns = (array) $pattern;
                 if (empty($patterns)) {
@@ -271,6 +289,33 @@ $status = (new SingleCommandApplication())
                 }
 
                 return false;
+            }
+
+            private function formatDiff(string $diff): string
+            {
+                $lines = explode(
+                    "\n",
+                    $diff,
+                );
+
+                $formatted = array_map(static function (string $line): string {
+                    return preg_replace(
+                        [
+                            '/^(\+.*)$/',
+                            '/^(-.*)$/',
+                        ],
+                        [
+                            '<fg=green>$1</>',
+                            '<fg=red>$1</>',
+                        ],
+                        $line,
+                    );
+                }, $lines);
+
+                return implode(
+                    "\n",
+                    $formatted,
+                );
             }
         })();
     })
