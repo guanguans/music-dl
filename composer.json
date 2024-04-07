@@ -178,7 +178,7 @@
         "release-minor-dry-run": "@release-minor --dry-run",
         "release-patch": "@release patch",
         "release-patch-dry-run": "@release-patch --dry-run",
-        "style-fix": "@php ./vendor/bin/php-cs-fixer fix --using-cache=yes --config=.php-cs-fixer.php --ansi -v",
+        "style-fix": "@php ./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --show-progress=dots --ansi -v",
         "style-lint": "@style-fix --diff --dry-run",
         "test": "@pest",
         "test-coverage": "@pest-coverage",

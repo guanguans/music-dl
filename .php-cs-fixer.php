@@ -170,9 +170,7 @@ return (new Config())
             'scope' => 'namespaced',
             'strict' => true,
         ],
-        'nullable_type_declaration_for_default_null_value' => [
-            'use_nullable_type_declaration' => true,
-        ],
+        'nullable_type_declaration_for_default_null_value' => true,
         // 'phpdoc_to_param_type' => [
         //     'scalar_types' => true,
         // ],
@@ -275,6 +273,7 @@ return (new Config())
                 'var',
             ],
         ],
+        'phpdoc_array_type' => true,
 
         // return_notation
         'simplified_null_return' => true,
@@ -383,7 +382,7 @@ return (new Config())
         PhpCsFixerCustomFixers\Fixer\PhpUnitAssertArgumentsOrderFixer::name() => true,
         PhpCsFixerCustomFixers\Fixer\PhpUnitDedicatedAssertFixer::name() => true,
         PhpCsFixerCustomFixers\Fixer\PhpUnitNoUselessReturnFixer::name() => true,
-        PhpCsFixerCustomFixers\Fixer\PhpdocArrayStyleFixer::name() => true,
+        // PhpCsFixerCustomFixers\Fixer\PhpdocArrayStyleFixer::name() => true,
         PhpCsFixerCustomFixers\Fixer\PhpdocNoIncorrectVarAnnotationFixer::name() => true,
         PhpCsFixerCustomFixers\Fixer\PhpdocNoSuperfluousParamFixer::name() => true,
         // PhpCsFixerCustomFixers\Fixer\PhpdocOnlyAllowedAnnotationsFixer::name() => [
