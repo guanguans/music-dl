@@ -23,7 +23,7 @@ trait Hydrator
     {
         return $this->sanitizes($songs, $keyword)
             ->transform(fn (array $sanitizedSong): string => $this->hydrate($sanitizedSong))
-            ->prepend(config('music-dl.all_songs'));
+            ->prepend(__('all_songs'));
     }
 
     public function hydrate(array $sanitizedSong): string
