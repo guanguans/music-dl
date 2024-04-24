@@ -8,6 +8,36 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="4.3.0"></a>
+## [4.3.0] - 2024-04-24
+### Feat
+- Add language pack support
+- **ServiceProvider:** Add conditional registration of language-related services
+- **lang:** add language option to specify the language
+
+### Fix
+- **config:** Update music-dl config key to app
+
+### Refactor
+- Removed unnecessary language files and service providers from the Laravel application.
+- **ServiceProvider:** Remove unnecessary code from AppServiceProvider
+- **config:** Update logo and sources in app configuration
+- **hydrator:** improve song hydration process
+- **i18n:** update language keys for music command
+- **music-dl:** update language keys for MusicCommand
+
+### Pull Requests
+- Merge pull request [#731](https://github.com/guanguans/music-dl/issues/731) from guanguans/dependabot/composer/laravel/prompts-0.1.20
+- Merge pull request [#730](https://github.com/guanguans/music-dl/issues/730) from guanguans/dependabot/composer/laravel-zero/framework-10.4.0
+- Merge pull request [#729](https://github.com/guanguans/music-dl/issues/729) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.54.0
+- Merge pull request [#728](https://github.com/guanguans/music-dl/issues/728) from guanguans/dependabot/composer/laravel/prompts-0.1.19
+- Merge pull request [#727](https://github.com/guanguans/music-dl/issues/727) from guanguans/dependabot/composer/nunomaduro/larastan-2.9.5
+- Merge pull request [#726](https://github.com/guanguans/music-dl/issues/726) from guanguans/dependabot/composer/nunomaduro/larastan-2.9.4
+- Merge pull request [#725](https://github.com/guanguans/music-dl/issues/725) from guanguans/dependabot/github_actions/codecov/codecov-action-4.3.0
+- Merge pull request [#724](https://github.com/guanguans/music-dl/issues/724) from guanguans/dependabot/composer/laravel/prompts-0.1.18
+- Merge pull request [#723](https://github.com/guanguans/music-dl/issues/723) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.53.0
+
+
 <a name="4.2.1"></a>
 ## [4.2.1] - 2024-04-07
 ### Feat
@@ -921,7 +951,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/4.2.1...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/4.3.0...HEAD
+[4.3.0]: https://github.com/guanguans/music-dl/compare/4.2.1...4.3.0
 [4.2.1]: https://github.com/guanguans/music-dl/compare/4.2.0...4.2.1
 [4.2.0]: https://github.com/guanguans/music-dl/compare/4.1.8...4.2.0
 [4.1.8]: https://github.com/guanguans/music-dl/compare/4.1.7...4.1.8
