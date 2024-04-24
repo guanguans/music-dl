@@ -71,7 +71,7 @@ final class MusicCommand extends Command
                 Prompts\info(config('app.logo'));
                 $this->laravel->instance('logo', config('app.logo'));
             })
-            ->when(windows_os(), fn () => warning(__('windows_hint')))
+            ->when(windows_os(), static fn () => warning(__('windows_hint')))
             ->tap(function () use (&$keyword): void {
                 $keyword = str($this->argument('keyword') ?? text(
                     __('keyword_label'),
@@ -105,7 +105,7 @@ final class MusicCommand extends Command
             ->tap(function (Collection $songs) use (&$selectedKeys, $keyword): void {
                 $selectedKeys = $this
                     ->hydrates($songs, $keyword)
-                    ->pipe(fn (Collection $options): Collection => collect(multiselect(
+                    ->pipe(static fn (Collection $options): Collection => collect(multiselect(
                         __('select_label'),
                         $options->all(),
                         [$options->first()],

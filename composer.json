@@ -139,7 +139,7 @@
             "@test",
             "@test-type-coverage",
             "@psalm",
-            "@rector-d"
+            "@rector-dry-run"
         ],
         "composer-normalize": "@composer normalize --dry-run --diff --ansi -v",
         "composer-updater": "@php ./composer-updater --highest-php-binary=/opt/homebrew/opt/php@8.3/bin/php --ansi",
