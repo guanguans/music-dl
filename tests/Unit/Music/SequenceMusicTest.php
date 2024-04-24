@@ -18,7 +18,7 @@ use GuzzleHttp\Exception\TransferException;
 use Illuminate\Support\Collection;
 
 it('can search songs', function (): void {
-    expect(app(SequenceMusic::class))->search('腰乐队', config('music-dl.sources'))->toBeInstanceOf(Collection::class);
+    expect(app(SequenceMusic::class))->search('腰乐队', config('app.sources'))->toBeInstanceOf(Collection::class);
 })->group(__DIR__, __FILE__);
 
 it('will throw exception when download failed', function (): void {

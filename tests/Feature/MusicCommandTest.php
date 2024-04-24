@@ -32,13 +32,13 @@ it('can search and download music', function (Collection $songs): void {
             '--dir' => downloads_path(),
             '--driver' => 'sequence',
             '--no-continue' => true,
-            '--sources' => config('music-dl.sources'),
+            '--sources' => config('app.sources'),
         ])
-        ->expectsConfirmation(config('music-dl.confirm_label'), 'yes')
-        // ->expectsQuestion(config('music-dl.select_label'), [config('music-dl.all_songs')])
+        ->expectsConfirmation(__('confirm_label'), 'yes')
+        // ->expectsQuestion(__('select_label'), [__('all_songs')])
         ->expectsChoice(
-            config('music-dl.select_label'),
-            [config('music-dl.all_songs')],
+            __('select_label'),
+            [__('all_songs')],
             $this->hydrates(collect($songs), $keyword)->all()
         )
         ->assertSuccessful();
