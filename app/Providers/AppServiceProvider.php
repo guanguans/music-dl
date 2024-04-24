@@ -15,11 +15,16 @@ namespace App\Providers;
 use App\MusicManager;
 use Illuminate\Console\OutputStyle;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Traits\Conditionable;
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 final class AppServiceProvider extends ServiceProvider
 {
+    use Conditionable {
+        Conditionable::when as whenever;
+    }
+
     /**
      * All of the container singletons that should be registered.
      *
@@ -42,6 +47,14 @@ final class AppServiceProvider extends ServiceProvider
     #[\Override]
     public function register(): void
     {
+        $this->unless($this->app->isProduction(), function (): void {
+            $this->app->register(\LaravelLang\Attributes\ServiceProvider::class);
+            $this->app->register(\LaravelLang\HttpStatuses\ServiceProvider::class);
+            $this->app->register(\LaravelLang\Lang\ServiceProvider::class);
+            $this->app->register(\LaravelLang\Locales\ServiceProvider::class);
+            $this->app->register(\LaravelLang\Publisher\ServiceProvider::class);
+        });
+
         $this->app->singletonIf(
             OutputStyle::class,
             static fn (): OutputStyle => new OutputStyle(new ArgvInput(), new ConsoleOutput())
