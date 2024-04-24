@@ -24,7 +24,7 @@
     "require": {
         "php": ">=8.1",
         "guzzlehttp/guzzle": "^7.8",
-        "laravel-zero/framework": "^10.3",
+        "laravel-zero/framework": "^10.4",
         "laravel-zero/phar-updater": "^1.4",
         "laravel/prompts": "^0.1",
         "metowolf/meting": "^1.5",
@@ -35,10 +35,11 @@
     "require-dev": {
         "brainmaestro/composer-git-hooks": "^3.0",
         "ergebnis/composer-normalize": "^2.42",
-        "friendsofphp/php-cs-fixer": "^3.52",
+        "friendsofphp/php-cs-fixer": "^3.54",
         "guanguans/ai-commit": "dev-main",
         "guanguans/monorepo-builder-worker": "^1.4",
         "kubawerlos/php-cs-fixer-custom-fixers": "^3.21",
+        "laravel-lang/common": "^6.2",
         "laravel/facade-documenter": "dev-main",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^7.10 || ^8.0",
