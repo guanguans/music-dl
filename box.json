@@ -10,6 +10,7 @@
         "app",
         "bootstrap",
         "config",
+        "resources/lang",
         "vendor"
     ],
     "exclude-composer-files": false,
