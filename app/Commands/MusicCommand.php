@@ -73,13 +73,13 @@ final class MusicCommand extends Command
                 Prompts\info($this->config['logo']);
                 $this->laravel->instance('logo', $this->config['logo']);
             })
-            ->when(windows_os(), fn () => warning($this->config['windows_hint']))
+            ->when(windows_os(), fn () => warning(__('music-dl.windows_hint')))
             ->tap(function () use (&$keyword): void {
                 $keyword = str($this->argument('keyword') ?? text(
-                    $this->config['keyword_label'],
-                    $this->config['keyword_placeholder'],
-                    $this->config['keyword_default'],
-                    $this->config['keyword_label']
+                    __('music-dl.keyword_label'),
+                    __('music-dl.keyword_placeholder'),
+                    __('music-dl.keyword_default'),
+                    __('music-dl.keyword_label')
                 ))->trim()->toString();
             })
             ->pipe(function () use ($keyword, &$duration): Collection {
@@ -92,28 +92,28 @@ final class MusicCommand extends Command
 
                         return $songs;
                     },
-                    $this->config['searching_hint']
+                    __('music-dl.searching_hint')
                 );
             })
             ->whenEmpty(function (): void {
-                warning($this->config['empty_hint']);
+                warning(__('music-dl.empty_hint'));
                 $this->handle();
             })
             ->tap(function (Collection $songs) use ($keyword, $duration): void {
-                table($this->config['table_header'], $this->sanitizes($songs, $keyword));
+                table(__('music-dl.table_header'), $this->sanitizes($songs, $keyword));
                 Prompts\info((new ResourceUsageFormatter())->resourceUsage($duration));
             })
-            ->tap(fn (): bool => confirm($this->config['confirm_label']) or $this->handle())
+            ->tap(fn (): bool => confirm(__('music-dl.confirm_label')) or $this->handle())
             ->tap(function (Collection $songs) use (&$selectedKeys, $keyword): void {
                 $selectedKeys = $this
                     ->hydrates($songs, $keyword)
                     ->pipe(fn (Collection $options): Collection => collect(multiselect(
-                        $this->config['select_label'],
+                        __('music-dl.select_label'),
                         $options->all(),
                         [$options->first()],
                         20,
-                        $this->config['select_label'],
-                        hint: $this->config['select_hint'],
+                        __('music-dl.select_label'),
+                        hint: __('music-dl.select_hint'),
                     ))->map(static fn (string $selectedValue) => $options->search($selectedValue)));
             })
             ->pipe(
