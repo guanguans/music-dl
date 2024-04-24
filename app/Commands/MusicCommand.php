@@ -59,8 +59,6 @@ final class MusicCommand extends Command
      */
     protected $description = 'Search and download music';
 
-    private array $config;
-
     private Music $music;
 
     /**
@@ -70,8 +68,8 @@ final class MusicCommand extends Command
     {
         return collect()
             ->when(! $this->laravel->has('logo'), function (): void {
-                Prompts\info($this->config['logo']);
-                $this->laravel->instance('logo', $this->config['logo']);
+                Prompts\info(config('app.logo'));
+                $this->laravel->instance('logo', config('app.logo'));
             })
             ->when(windows_os(), fn () => warning(__('windows_hint')))
             ->tap(function () use (&$keyword): void {
@@ -150,11 +148,10 @@ final class MusicCommand extends Command
     #[\Override]
     protected function initialize(InputInterface $input, OutputInterface $output): void
     {
-        $this->config = config('music-dl');
         $this->music = \App\Facades\Music::driver($this->option('driver'));
         $this->input->setOption('dir', $this->option('dir') ?: Utils::defaultSaveDir());
         File::ensureDirectoryExists($this->option('dir'));
-        $this->input->setOption('sources', array_filter((array) $this->option('sources')) ?: $this->config['sources']);
+        $this->input->setOption('sources', array_filter((array) $this->option('sources')) ?: config('app.sources'));
     }
 
     /**
