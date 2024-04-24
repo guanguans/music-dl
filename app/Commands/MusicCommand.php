@@ -48,6 +48,7 @@ final class MusicCommand extends Command
         {keyword? : Search keyword for music}
         {--driver=sequence : Specify the search driver(fork、sequence)}
         {--d|dir= : Specify the download directory}
+        {--l|lang= : Specify the language}
         {--no-continue : Specify whether to recall the command after the download is complete}
         {--sources=* : Specify the music sources(tencent、netease、kugou)}
     ';
@@ -150,6 +151,7 @@ final class MusicCommand extends Command
     {
         $this->music = \App\Facades\Music::driver($this->option('driver'));
         $this->input->setOption('dir', $this->option('dir') ?: Utils::defaultSaveDir());
+        $this->option('lang') and config()->set('app.locale', $this->option('lang'));
         File::ensureDirectoryExists($this->option('dir'));
         $this->input->setOption('sources', array_filter((array) $this->option('sources')) ?: config('app.sources'));
     }

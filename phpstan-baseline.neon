@@ -6,7 +6,7 @@ parameters:
 			path: app/Commands/MusicCommand.php
 
 		-
-			message: "#^Out of 32 possible return types, only 31 \\- 96\\.9 %% actually have it\\. Add more return types to get over 99 %%$#"
+			message: "#^Out of 32 possible return types, only 31 \\- 96\\.8 %% actually have it\\. Add more return types to get over 99 %%$#"
 			count: 1
 			path: app/Commands/MusicCommand.php
 
