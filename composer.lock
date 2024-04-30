@@ -1449,16 +1449,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v10.48.9",
+            "version": "v10.48.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "ad758500b47964d022addf119600a1b1b0230733"
+                "reference": "91e2b9e218afa4e5c377510faa11957042831ba3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/ad758500b47964d022addf119600a1b1b0230733",
-                "reference": "ad758500b47964d022addf119600a1b1b0230733",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/91e2b9e218afa4e5c377510faa11957042831ba3",
+                "reference": "91e2b9e218afa4e5c377510faa11957042831ba3",
                 "shasum": ""
             },
             "require": {
@@ -1652,20 +1652,20 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2024-04-23T15:01:33+00:00"
+            "time": "2024-04-30T12:52:59+00:00"
         },
         {
             "name": "laravel/prompts",
-            "version": "v0.1.20",
+            "version": "v0.1.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/prompts.git",
-                "reference": "bf9a360c484976692de0f3792f30066f4f4b34a2"
+                "reference": "23ea808e8a145653e0ab29e30d4385e49f40a920"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/prompts/zipball/bf9a360c484976692de0f3792f30066f4f4b34a2",
-                "reference": "bf9a360c484976692de0f3792f30066f4f4b34a2",
+                "url": "https://api.github.com/repos/laravel/prompts/zipball/23ea808e8a145653e0ab29e30d4385e49f40a920",
+                "reference": "23ea808e8a145653e0ab29e30d4385e49f40a920",
                 "shasum": ""
             },
             "require": {
@@ -1705,11 +1705,12 @@
             "license": [
                 "MIT"
             ],
+            "description": "Add beautiful and user-friendly forms to your command-line applications.",
             "support": {
                 "issues": "https://github.com/laravel/prompts/issues",
-                "source": "https://github.com/laravel/prompts/tree/v0.1.20"
+                "source": "https://github.com/laravel/prompts/tree/v0.1.21"
             },
-            "time": "2024-04-18T00:45:25+00:00"
+            "time": "2024-04-30T12:46:16+00:00"
         },
         {
             "name": "laravel/serializable-closure",
