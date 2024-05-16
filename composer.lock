@@ -7958,16 +7958,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v3.57.0",
+            "version": "v3.57.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer.git",
-                "reference": "0d4fcaea3e1d1304f75b9ff58474f60484e43498"
+                "reference": "3f7efe667a8c9818aacceee478add7c0fc24cb21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/0d4fcaea3e1d1304f75b9ff58474f60484e43498",
-                "reference": "0d4fcaea3e1d1304f75b9ff58474f60484e43498",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/3f7efe667a8c9818aacceee478add7c0fc24cb21",
+                "reference": "3f7efe667a8c9818aacceee478add7c0fc24cb21",
                 "shasum": ""
             },
             "require": {
@@ -8046,7 +8046,7 @@
             ],
             "support": {
                 "issues": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/issues",
-                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.57.0"
+                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.57.1"
             },
             "funding": [
                 {
@@ -8054,7 +8054,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-05-15T14:45:33+00:00"
+            "time": "2024-05-15T22:01:07+00:00"
         },
         {
             "name": "guanguans/ai-commit",
