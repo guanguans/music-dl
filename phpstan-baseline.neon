@@ -6,11 +6,6 @@ parameters:
 			path: app/Commands/MusicCommand.php
 
 		-
-			message: "#^Out of 32 possible return types, only 31 \\- 96\\.8 %% actually have it\\. Add more return types to get over 99 %%$#"
+			message: "#^Calling the helper function 'value\\(\\)' without a closure as the first argument simply returns the first argument without doing anything$#"
 			count: 1
-			path: app/Commands/MusicCommand.php
-
-		-
-			message: "#^Match expression does not handle remaining values\\: 'BSD'\\|'Solaris'\\|'Unknown'$#"
-			count: 1
-			path: app/Commands/ThanksCommand.php
+			path: app/Music/SequenceMusic.php

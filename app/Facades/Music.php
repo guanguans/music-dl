@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static string getDefaultDriver()
  * @method static array getDrivers()
  * @method static bool hasMacro(string $name)
- * @method static void macro(string $name, object|callable $macro)
+ * @method static void macro(string $name, object|callable $macro, object|callable $macro = null)
  * @method static void mixin(object $mixin, bool $replace = true)
  * @method static \Illuminate\Support\Collection search(string $keyword, array $sources = [])
  * @method static \App\MusicManager setContainer(\Illuminate\Contracts\Container\Container $container)

@@ -36,11 +36,6 @@ final class AppServiceProvider extends ServiceProvider
     ];
 
     /**
-     * Bootstrap any application services.
-     */
-    public function boot(): void {}
-
-    /**
      * Register any application services.
      *
      * @noinspection PhpMissingParentCallCommonInspection
