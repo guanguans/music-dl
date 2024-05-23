@@ -3,11 +3,12 @@
 declare(strict_types=1);
 
 /**
- * This file is part of the guanguans/music-dl.
+ * Copyright (c) 2019-2024 guanguans<ityaozm@gmail.com>
  *
- * (c) guanguans <ityaozm@gmail.com>
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  *
- * This source file is subject to the MIT license that is bundled.
+ * @see https://github.com/guanguans/music-dl
  */
 
 namespace App\Commands;
@@ -18,18 +19,10 @@ use LaravelZero\Framework\Commands\Command;
 
 final class InspireCommand extends Command
 {
-    /**
-     * The signature of the command.
-     *
-     * @var string
-     */
+    /** The signature of the command. */
     protected $signature = 'inspire {name=Artisan}';
 
-    /**
-     * The description of the command.
-     *
-     * @var string
-     */
+    /** The description of the command. */
     protected $description = 'Display an inspiring quote';
 
     /**

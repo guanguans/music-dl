@@ -3,11 +3,12 @@
 declare(strict_types=1);
 
 /**
- * This file is part of the guanguans/music-dl.
+ * Copyright (c) 2019-2024 guanguans<ityaozm@gmail.com>
  *
- * (c) guanguans <ityaozm@gmail.com>
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  *
- * This source file is subject to the MIT license that is bundled.
+ * @see https://github.com/guanguans/music-dl
  */
 
 use App\Commands\MusicCommand;
@@ -23,7 +24,7 @@ uses(Hydrator::class)->beforeEach(function (): void {
 it('can search and download music', function (Collection $songs): void {
     $mockSequenceMusic = Mockery::mock(SequenceMusic::class);
     $mockSequenceMusic->allows('search')->andReturn($songs);
-    $mockSequenceMusic->allows('download')->andThrow(new RuntimeException());
+    $mockSequenceMusic->allows('download')->andThrow(new RuntimeException);
     App\Facades\Music::shouldReceive('driver')->andReturn($mockSequenceMusic->makePartial());
 
     $this

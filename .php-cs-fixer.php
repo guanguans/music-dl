@@ -3,12 +3,12 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2021-2024 guanguans<ityaozm@gmail.com>
+ * Copyright (c) 2019-2024 guanguans<ityaozm@gmail.com>
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
  *
- * @see https://github.com/guanguans/laravel-exception-notify
+ * @see https://github.com/guanguans/music-dl
  */
 
 use Ergebnis\License;
@@ -37,17 +37,20 @@ $ruleSet = Config\RuleSet\Php74::create()
         '@PHP73Migration' => true,
         '@PHP74Migration' => true,
         '@PHP74Migration:risky' => true,
-        // '@PHP80Migration' => true,
-        // '@PHP80Migration:risky' => true,
-        // '@PHP81Migration' => true,
-        // '@PHP82Migration' => true,
+        '@PHP80Migration' => true,
+        '@PHP80Migration:risky' => true,
+        '@PHP81Migration' => true,
+        '@PHP82Migration' => true,
         // '@PHP83Migration' => true,
         // '@PHPUnit75Migration:risky' => true,
         // '@PHPUnit84Migration:risky' => true,
-        // '@PHPUnit100Migration:risky' => true,
+        '@PHPUnit100Migration:risky' => true,
         // '@DoctrineAnnotation' => true,
         // '@PhpCsFixer' => true,
         // '@PhpCsFixer:risky' => true,
+        'align_multiline_comment' => [
+            'comment_type' => 'phpdocs_only',
+        ],
         'blank_line_before_statement' => [
             'statements' => [
                 'break',
@@ -91,7 +94,7 @@ $ruleSet = Config\RuleSet\Php74::create()
         'explicit_string_variable' => false,
         'final_class' => false,
         // 'final_internal_class' => false,
-        // 'final_public_method_for_abstract_class' => false,
+        'final_public_method_for_abstract_class' => false,
         'logical_operators' => false,
         'mb_str_functions' => false,
         'native_function_invocation' => [
@@ -194,6 +197,7 @@ return Config\Factory::fromRuleSet($ruleSet)
             ])
             ->append(glob(__DIR__.'/{*,.*}.php', \GLOB_BRACE))
             ->append([
+                __DIR__.'/music-dl',
                 __DIR__.'/composer-updater',
             ])
             ->notPath([

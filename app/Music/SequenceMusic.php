@@ -3,11 +3,12 @@
 declare(strict_types=1);
 
 /**
- * This file is part of the guanguans/music-dl.
+ * Copyright (c) 2019-2024 guanguans<ityaozm@gmail.com>
  *
- * (c) guanguans <ityaozm@gmail.com>
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  *
- * This source file is subject to the MIT license that is bundled.
+ * @see https://github.com/guanguans/music-dl
  */
 
 namespace App\Music;
@@ -19,7 +20,6 @@ use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Traits\Macroable;
 use Laravel\Prompts\Progress;
-
 use function Laravel\Prompts\progress;
 
 class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
@@ -42,14 +42,14 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
                 (string) $this->meting->site($source)->search($keyword),
                 true,
                 512,
-                JSON_THROW_ON_ERROR
+                \JSON_THROW_ON_ERROR
             ))
             ->collapse()
             ->all();
 
         return collect($this->ensureWithUrls($withoutUrlSongs))
             ->filter()
-            ->filter(static fn (array $song): bool => ! empty($song['url']))
+            ->filter(static fn (array $song): bool => !empty($song['url']))
             ->values()
             ->mapWithKeys(static fn (array $song, int $index): array => [$index + 1 => $song]);
     }
@@ -68,7 +68,7 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
                     return;
                 }
 
-                if (! $progress instanceof Progress) {
+                if (!$progress instanceof Progress) {
                     /** @noinspection PhpVoidFunctionResultUsedInspection */
                     $progress = tap(progress($savePath, $totalDownload))->start();
                 }
@@ -109,7 +109,7 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
             (string) $this->meting->site($song['source'])->url($song['url_id']),
             true,
             512,
-            JSON_THROW_ON_ERROR
+            \JSON_THROW_ON_ERROR
         );
     }
 

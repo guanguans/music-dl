@@ -3,11 +3,12 @@
 declare(strict_types=1);
 
 /**
- * This file is part of the guanguans/music-dl.
+ * Copyright (c) 2019-2024 guanguans<ityaozm@gmail.com>
  *
- * (c) guanguans <ityaozm@gmail.com>
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  *
- * This source file is subject to the MIT license that is bundled.
+ * @see https://github.com/guanguans/music-dl
  */
 
 namespace App\Support;
@@ -26,7 +27,7 @@ final class Utils
             ? sprintf('%s\\Downloads\\MusicDL\\', exec('echo %USERPROFILE%') ?: sprintf('C:\\Users\\%s', get_current_user()))
             : sprintf('%s/Downloads/MusicDL/', exec('echo $HOME') ?: exec('cd ~; pwd'));
 
-        if (! is_dir($saveDir) && ! mkdir($saveDir, 0o755, true) && ! is_dir($saveDir)) {
+        if (!is_dir($saveDir) && !mkdir($saveDir, 0o755, true) && !is_dir($saveDir)) {
             throw new RuntimeException(sprintf('The directory "%s" was not created.', $saveDir));
         }
 
@@ -40,7 +41,7 @@ final class Utils
     {
         $saveDir = Str::finish($saveDir ?? self::defaultSaveDir(), \DIRECTORY_SEPARATOR);
 
-        if (! is_dir($saveDir) && ! mkdir($saveDir, 0o755, true) && ! is_dir($saveDir)) {
+        if (!is_dir($saveDir) && !mkdir($saveDir, 0o755, true) && !is_dir($saveDir)) {
             throw new RuntimeException(sprintf('The directory "%s" was not created.', $saveDir));
         }
 
@@ -49,7 +50,7 @@ final class Utils
             $saveDir,
             implode(',', $song['artist']),
             $song['name'],
-            preg_replace('/\?.*/', '', pathinfo((string) $song['url'], PATHINFO_EXTENSION)) ?: $defaultExt
+            preg_replace('/\?.*/', '', pathinfo((string) $song['url'], \PATHINFO_EXTENSION)) ?: $defaultExt
         );
     }
 }

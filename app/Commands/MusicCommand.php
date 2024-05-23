@@ -5,11 +5,12 @@
 declare(strict_types=1);
 
 /**
- * This file is part of the guanguans/music-dl.
+ * Copyright (c) 2019-2024 guanguans<ityaozm@gmail.com>
  *
- * (c) guanguans <ityaozm@gmail.com>
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  *
- * This source file is subject to the MIT license that is bundled.
+ * @see https://github.com/guanguans/music-dl
  */
 
 namespace App\Commands;
@@ -26,7 +27,6 @@ use SebastianBergmann\Timer\ResourceUsageFormatter;
 use SebastianBergmann\Timer\Timer;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-
 use function Laravel\Prompts\confirm;
 use function Laravel\Prompts\error;
 use function Laravel\Prompts\multiselect;
@@ -39,27 +39,19 @@ final class MusicCommand extends Command
 {
     use Hydrator;
 
-    /**
-     * The signature of the command.
-     *
-     * @var string
-     */
-    protected $signature = 'music
+    /** The signature of the command. */
+    protected $signature = <<<'SIGNATURE'
+        music
         {keyword? : Search keyword for music}
         {--driver=sequence : Specify the search driver(fork、sequence)}
         {--d|dir= : Specify the download directory}
         {--l|lang= : Specify the language}
         {--no-continue : Specify whether to recall the command after the download is complete}
         {--sources=* : Specify the music sources(tencent、netease、kugou)}
-    ';
+        SIGNATURE;
 
-    /**
-     * The description of the command.
-     *
-     * @var string
-     */
+    /** The description of the command. */
     protected $description = 'Search and download music';
-
     private Music $music;
 
     /**
@@ -68,7 +60,7 @@ final class MusicCommand extends Command
     public function handle(): int
     {
         return collect()
-            ->when(! $this->laravel->has('logo'), function (): void {
+            ->when(!$this->laravel->has('logo'), function (): void {
                 Prompts\info(config('app.logo'));
                 $this->laravel->instance('logo', config('app.logo'));
             })
@@ -85,7 +77,7 @@ final class MusicCommand extends Command
                 return spin(
                     function () use ($keyword, &$duration): Collection {
                         /** @noinspection PhpVoidFunctionResultUsedInspection */
-                        $timer = tap(new Timer())->start();
+                        $timer = tap(new Timer)->start();
                         $songs = $this->music->search($keyword, $this->option('sources'));
                         $duration = $timer->stop();
 
@@ -100,7 +92,7 @@ final class MusicCommand extends Command
             })
             ->tap(function (Collection $songs) use ($keyword, $duration): void {
                 table(__('table_header'), $this->sanitizes($songs, $keyword));
-                Prompts\info((new ResourceUsageFormatter())->resourceUsage($duration));
+                Prompts\info((new ResourceUsageFormatter)->resourceUsage($duration));
             })
             ->tap(fn (): bool => confirm(__('confirm_label')) or $this->handle())
             ->tap(function (Collection $songs) use (&$selectedKeys, $keyword): void {
@@ -128,7 +120,7 @@ final class MusicCommand extends Command
                 $this->option('dir'),
                 resource_path('notify-icon.png')
             )))
-            ->when(! $this->option('no-continue'), fn (): int => $this->handle())
+            ->when(!$this->option('no-continue'), fn (): int => $this->handle())
             ->pipe(static fn (): int => self::SUCCESS);
     }
 
@@ -156,12 +148,7 @@ final class MusicCommand extends Command
         $this->input->setOption('sources', array_filter((array) $this->option('sources')) ?: config('app.sources'));
     }
 
-    /**
-     * @return \Exception|mixed|\Throwable|void
-     *
-     * @noinspection MissingReturnTypeInspection
-     */
-    private function wrappedExceptionHandler(callable $callback, mixed ...$parameters)
+    private function wrappedExceptionHandler(callable $callback, mixed ...$parameters): mixed
     {
         try {
             return $callback(...$parameters);

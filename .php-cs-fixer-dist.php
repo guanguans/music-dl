@@ -3,11 +3,12 @@
 declare(strict_types=1);
 
 /**
- * This file is part of the guanguans/music-dl.
+ * Copyright (c) 2019-2024 guanguans<ityaozm@gmail.com>
  *
- * (c) guanguans <ityaozm@gmail.com>
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  *
- * This source file is subject to the MIT license that is bundled.
+ * @see https://github.com/guanguans/music-dl
  */
 
 use PhpCsFixer\Config;
@@ -36,7 +37,7 @@ $finder = Finder::create()
         'vendor/',
         '__snapshots__/',
     ])
-    ->append(glob(__DIR__.'/{*,.*}.php', GLOB_BRACE))
+    ->append(glob(__DIR__.'/{*,.*}.php', \GLOB_BRACE))
     ->append([
         __DIR__.'/music-dl',
         __DIR__.'/composer-updater',
@@ -55,12 +56,12 @@ $finder = Finder::create()
     ->ignoreDotFiles(true)
     ->ignoreVCS(true);
 
-return (new Config())
+return (new Config)
     ->setFinder($finder)
     ->setRiskyAllowed(true)
     ->setUsingCache(false)
     ->setCacheFile(__DIR__.'/.php-cs-fixer.cache')
-    ->registerCustomFixers(new PhpCsFixerCustomFixers\Fixers())
+    ->registerCustomFixers(new PhpCsFixerCustomFixers\Fixers)
     // ->registerCustomFixers(new PedroTroller\CS\Fixer\Fixers())
     ->setRules([
         '@PHP70Migration' => true,

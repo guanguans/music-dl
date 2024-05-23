@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.21.1@8c473e2437be8b6a8fd8f630f0f11a16b114c494">
+<files psalm-version="5.24.0@462c80e31c34e58cc4f750c656be3927e80e550e">
   <file src="app/Commands/ThanksCommand.php">
-    <UnhandledMatchCondition>
-      <code>PHP_OS_FAMILY</code>
-    </UnhandledMatchCondition>
+    <UnhandledMatchCondition/>
   </file>
   <file src="app/Commands/MusicCommand.php">
     <UndefinedVariable>
-      <code>$keyword</code>
+      <code><![CDATA[$keyword]]></code>
     </UndefinedVariable>
   </file>
   <file src="app/Music/SequenceMusic.php">
     <UndefinedVariable>
-      <code>$progress</code>
+      <code><![CDATA[$progress]]></code>
     </UndefinedVariable>
   </file>
 </files>
