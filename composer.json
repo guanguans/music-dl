@@ -22,9 +22,9 @@
         "source": "https://github.com/guanguans/music-dl"
     },
     "require": {
-        "php": ">=8.1",
+        "php": ">=8.2",
         "guzzlehttp/guzzle": "^7.8",
-        "laravel-zero/framework": "^10.4 || ^11.0",
+        "laravel-zero/framework": "^11.0",
         "laravel-zero/phar-updater": "^1.4",
         "laravel/prompts": "^0.1",
         "metowolf/meting": "^1.5",
@@ -33,17 +33,17 @@
         "symfony/polyfill-php83": "^1.29"
     },
     "require-dev": {
-        "brainmaestro/composer-git-hooks": "^3.0",
+        "bamarni/composer-bin-plugin": "^1.8",
         "ergebnis/composer-normalize": "^2.42",
-        "friendsofphp/php-cs-fixer": "^3.57",
+        "ergebnis/license": "^2.4",
+        "ergebnis/php-cs-fixer-config": "^6.29",
         "guanguans/ai-commit": "dev-main",
         "guanguans/monorepo-builder-worker": "^1.4",
-        "kubawerlos/php-cs-fixer-custom-fixers": "^3.21",
+        "larastan/larastan": "^2.9",
         "laravel-lang/common": "^6.2",
         "laravel/facade-documenter": "dev-main",
         "mockery/mockery": "^1.6",
-        "nunomaduro/collision": "^7.10 || ^8.0",
-        "nunomaduro/larastan": "^2.9",
+        "nunomaduro/collision": "^8.1",
         "pestphp/pest": "^2.34",
         "pestphp/pest-plugin-faker": "^2.0",
         "pestphp/pest-plugin-laravel": "^2.4",
@@ -85,6 +85,7 @@
     ],
     "config": {
         "allow-plugins": {
+            "bamarni/composer-bin-plugin": true,
             "ergebnis/composer-normalize": true,
             "infection/extension-installer": true,
             "pestphp/pest-plugin": true,
@@ -99,9 +100,6 @@
             "bin-links": true,
             "forward-command": true,
             "target-directory": "vendor-bin"
-        },
-        "branch-alias": {
-            "dev-main": "4.x-dev"
         },
         "hooks": {
             "post-merge": [
@@ -141,7 +139,11 @@
             "@psalm",
             "@rector-dry-run"
         ],
+        "composer-bin-all-update": "@composer bin all update --ansi -v",
         "composer-normalize": "@composer normalize --dry-run --diff --ansi -v",
+        "composer-require-checker": "@php ./vendor/bin/composer-require-checker check --config-file=composer-require-checker.json composer.json --ansi -v",
+        "composer-require-checker-json": "@php ./vendor/bin/composer-require-checker check --config-file=composer-require-checker.json composer.json --ansi -v --output=json | jq",
+        "composer-unused": "@php ./vendor/bin/composer-unused --ansi -v",
         "composer-updater": "@php ./composer-updater --highest-php-binary=/opt/homebrew/opt/php@8.3/bin/php --ansi",
         "composer-updater-dry-run": "@composer-updater --dry-run",
         "composer-validate": "@composer validate --check-lock --strict --ansi -v",

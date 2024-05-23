@@ -1,0 +1,10 @@
+{
+    "require-dev": {
+        "brainmaestro/composer-git-hooks": "dev-master"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    }
+}
