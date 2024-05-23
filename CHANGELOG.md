@@ -8,6 +8,30 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="4.3.1"></a>
+## [4.3.1] - 2024-05-23
+### Pull Requests
+- Merge pull request [#750](https://github.com/guanguans/music-dl/issues/750) from guanguans/dependabot/composer/laravel/prompts-0.1.22
+- Merge pull request [#749](https://github.com/guanguans/music-dl/issues/749) from guanguans/dependabot/composer/rector/rector-1.1.0
+- Merge pull request [#748](https://github.com/guanguans/music-dl/issues/748) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.57.2
+- Merge pull request [#747](https://github.com/guanguans/music-dl/issues/747) from guanguans/dependabot/github_actions/codecov/codecov-action-4.4.1
+- Merge pull request [#746](https://github.com/guanguans/music-dl/issues/746) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.57.1
+- Merge pull request [#745](https://github.com/guanguans/music-dl/issues/745) from guanguans/dependabot/composer/mockery/mockery-1.6.12
+- Merge pull request [#744](https://github.com/guanguans/music-dl/issues/744) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.57.0
+- Merge pull request [#743](https://github.com/guanguans/music-dl/issues/743) from guanguans/dependabot/github_actions/codecov/codecov-action-4.4.0
+- Merge pull request [#742](https://github.com/guanguans/music-dl/issues/742) from guanguans/dependabot/composer/pestphp/pest-plugin-type-coverage-2.8.2
+- Merge pull request [#741](https://github.com/guanguans/music-dl/issues/741) from guanguans/dependabot/composer/rector/rector-1.0.5
+- Merge pull request [#740](https://github.com/guanguans/music-dl/issues/740) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.56.1
+- Merge pull request [#739](https://github.com/guanguans/music-dl/issues/739) from guanguans/dependabot/composer/nunomaduro/larastan-2.9.6
+- Merge pull request [#738](https://github.com/guanguans/music-dl/issues/738) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.56.0
+- Merge pull request [#737](https://github.com/guanguans/music-dl/issues/737) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.55.0
+- Merge pull request [#736](https://github.com/guanguans/music-dl/issues/736) from guanguans/dependabot/composer/vimeo/psalm-5.24.0
+- Merge pull request [#735](https://github.com/guanguans/music-dl/issues/735) from guanguans/dependabot/github_actions/codecov/codecov-action-4.3.1
+- Merge pull request [#734](https://github.com/guanguans/music-dl/issues/734) from guanguans/dependabot/composer/laravel/prompts-0.1.21
+- Merge pull request [#733](https://github.com/guanguans/music-dl/issues/733) from guanguans/dependabot/composer/pestphp/pest-plugin-laravel-2.4.0
+- Merge pull request [#732](https://github.com/guanguans/music-dl/issues/732) from guanguans/dependabot/github_actions/dependabot/fetch-metadata-2.1.0
+
+
 <a name="4.3.0"></a>
 ## [4.3.0] - 2024-04-24
 ### Feat
@@ -951,7 +975,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/4.3.0...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/4.3.1...HEAD
+[4.3.1]: https://github.com/guanguans/music-dl/compare/4.3.0...4.3.1
 [4.3.0]: https://github.com/guanguans/music-dl/compare/4.2.1...4.3.0
 [4.2.1]: https://github.com/guanguans/music-dl/compare/4.2.0...4.2.1
 [4.2.0]: https://github.com/guanguans/music-dl/compare/4.1.8...4.2.0
