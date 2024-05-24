@@ -11,6 +11,6 @@ declare(strict_types=1);
  * @see https://github.com/guanguans/music-dl
  */
 
-use LaravelZero\Framework\Application;
-
-return Application::configure(basePath: \dirname(__DIR__))->create();
+return [
+    App\Providers\AppServiceProvider::class,
+];
