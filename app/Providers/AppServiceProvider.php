@@ -15,8 +15,11 @@ namespace App\Providers;
 
 use App\MusicManager;
 use Illuminate\Console\OutputStyle;
+use Illuminate\Log\LogManager;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Traits\Conditionable;
+use LaravelZero\Framework\Application;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
@@ -57,5 +60,16 @@ final class AppServiceProvider extends ServiceProvider
             OutputStyle::class,
             static fn (): OutputStyle => new OutputStyle(new ArgvInput, new ConsoleOutput)
         );
+    }
+
+    public function boot(): void
+    {
+        $this->app->extend(LogManager::class, static function (LoggerInterface $logger, Application $application) {
+            if (!$logger instanceof LogManager) {
+                return new LogManager($application);
+            }
+
+            return $logger;
+        });
     }
 }
