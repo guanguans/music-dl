@@ -11,6 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/guanguans/music-dl
  */
 
+use App\MusicManager;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Log\LogManager;
 use LaravelZero\Framework\Application;
@@ -33,4 +34,7 @@ return Application::configure(basePath: \dirname(__DIR__))
             }
         });
     })
+    ->withSingletons([
+        MusicManager::class,
+    ])
     ->create();

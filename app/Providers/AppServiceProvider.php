@@ -35,7 +35,7 @@ final class AppServiceProvider extends ServiceProvider
      * @var array<class-string|int, class-string>
      */
     public array $singletons = [
-        MusicManager::class,
+        // MusicManager::class,
     ];
 
     /**
