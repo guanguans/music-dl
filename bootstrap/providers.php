@@ -12,5 +12,15 @@ declare(strict_types=1);
  */
 
 return [
+    // Laravel Framework Service Providers...
+    // Illuminate\Cache\CacheServiceProvider::class,
+    // Illuminate\Filesystem\FilesystemServiceProvider::class,
+    // Illuminate\Hashing\HashServiceProvider::class,
+    // Illuminate\Pipeline\PipelineServiceProvider::class,
+    Illuminate\Translation\TranslationServiceProvider::class,
+    // Illuminate\Validation\ValidationServiceProvider::class,
+    // Illuminate\View\ViewServiceProvider::class,
+
+    // Application Service Providers...
     App\Providers\AppServiceProvider::class,
 ];
