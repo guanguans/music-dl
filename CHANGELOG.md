@@ -8,6 +8,19 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="5.0.0"></a>
+## [5.0.0] - 2024-05-24
+### Docs
+- **README:** Update PHP version requirement to 8.2
+
+### Feat
+- **.php-cs-fixer.php:** add MIT license header and update rules
+- **app:** add LogManager extension in AppServiceProvider
+
+### Refactor
+- **command:** Update return types in handle method
+
+
 <a name="4.3.1"></a>
 ## [4.3.1] - 2024-05-23
 ### Pull Requests
@@ -975,7 +988,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/4.3.1...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/5.0.0...HEAD
+[5.0.0]: https://github.com/guanguans/music-dl/compare/4.3.1...5.0.0
 [4.3.1]: https://github.com/guanguans/music-dl/compare/4.3.0...4.3.1
 [4.3.0]: https://github.com/guanguans/music-dl/compare/4.2.1...4.3.0
 [4.2.1]: https://github.com/guanguans/music-dl/compare/4.2.0...4.2.1
