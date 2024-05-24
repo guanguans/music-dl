@@ -28,12 +28,10 @@ final class InspireCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle(): int
+    public function handle(): void
     {
         $this->info(config('app.logo'));
         $this->components->info(Inspiring::quote());
-
-        return self::SUCCESS;
     }
 
     /**

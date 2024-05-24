@@ -35,7 +35,7 @@ final class ThanksCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle(): int
+    public function handle(): void
     {
         if ('yes' === $this->ask('Can you quickly <options=bold>star our GitHub repository</>? 🙏🏻', 'yes')) {
             match (\PHP_OS_FAMILY) {
@@ -47,8 +47,6 @@ final class ThanksCommand extends Command
         }
 
         $this->output->writeln(self::FUNDING_MESSAGES);
-
-        return self::SUCCESS;
     }
 
     /**

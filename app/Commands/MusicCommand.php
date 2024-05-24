@@ -57,9 +57,9 @@ final class MusicCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle(): int
+    public function handle(): void
     {
-        return collect()
+        collect()
             ->when(!$this->laravel->has('logo'), function (): void {
                 Prompts\info(config('app.logo'));
                 $this->laravel->instance('logo', config('app.logo'));
@@ -120,8 +120,7 @@ final class MusicCommand extends Command
                 $this->option('dir'),
                 resource_path('notify-icon.png')
             )))
-            ->when(!$this->option('no-continue'), fn (): int => $this->handle())
-            ->pipe(static fn (): int => self::SUCCESS);
+            ->when(!$this->option('no-continue'), fn (): int => $this->handle());
     }
 
     /**
