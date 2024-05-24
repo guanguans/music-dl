@@ -25,10 +25,10 @@ final class Handler extends \Illuminate\Foundation\Exceptions\Handler
     #[\Override]
     public function register(): void
     {
-        $this->reportable(static function (\Throwable $throwable) {
-            if (\Phar::running()) {
-                return false;
-            }
-        });
+        // $this->reportable(static function (\Throwable $throwable) {
+        //     if (\Phar::running()) {
+        //         return false;
+        //     }
+        // });
     }
 }

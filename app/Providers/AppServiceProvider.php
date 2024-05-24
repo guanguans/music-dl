@@ -64,12 +64,12 @@ final class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        $this->app->extend(LogManager::class, static function (LoggerInterface $logger, Application $application) {
-            if (!$logger instanceof LogManager) {
-                return new LogManager($application);
-            }
-
-            return $logger;
-        });
+        // $this->app->extend(LogManager::class, static function (LoggerInterface $logger, Application $application) {
+        //     if (!$logger instanceof LogManager) {
+        //         return new LogManager($application);
+        //     }
+        //
+        //     return $logger;
+        // });
     }
 }

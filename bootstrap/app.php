@@ -11,7 +11,26 @@ declare(strict_types=1);
  * @see https://github.com/guanguans/music-dl
  */
 
+use Illuminate\Foundation\Configuration\Exceptions;
+use Illuminate\Log\LogManager;
 use LaravelZero\Framework\Application;
+use Psr\Log\LoggerInterface;
 
 return Application::configure(basePath: \dirname(__DIR__))
+    ->booted(static function (Application $app): void {
+        $app->extend(LogManager::class, static function (LoggerInterface $logger, Application $application) {
+            if (!$logger instanceof LogManager) {
+                return new LogManager($application);
+            }
+
+            return $logger;
+        });
+    })
+    ->withExceptions(static function (Exceptions $exceptions): void {
+        $exceptions->reportable(static function (\Throwable $throwable) {
+            if (\Phar::running()) {
+                return false;
+            }
+        });
+    })
     ->create();
