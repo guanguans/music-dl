@@ -8,6 +8,17 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="5.0.1"></a>
+## [5.0.1] - 2024-05-24
+### Feat
+- **bootstrap:** Add Application configuration and create method
+
+### Refactor
+- **app:** Update MusicManager singleton registration
+- **app:** update service provider configuration
+- **handler:** remove unnecessary code in Handler.php
+
+
 <a name="5.0.0"></a>
 ## [5.0.0] - 2024-05-24
 ### Docs
@@ -988,7 +999,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/5.0.0...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/5.0.1...HEAD
+[5.0.1]: https://github.com/guanguans/music-dl/compare/5.0.0...5.0.1
 [5.0.0]: https://github.com/guanguans/music-dl/compare/4.3.1...5.0.0
 [4.3.1]: https://github.com/guanguans/music-dl/compare/4.3.0...4.3.1
 [4.3.0]: https://github.com/guanguans/music-dl/compare/4.2.1...4.3.0
