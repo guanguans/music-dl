@@ -9033,16 +9033,16 @@
         },
         {
             "name": "laravel-lang/common",
-            "version": "6.2.1",
+            "version": "6.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Lang/common.git",
-                "reference": "ca96d7f06e231d9c519a3fc22789b3a534e19b17"
+                "reference": "934371d4c775647ce30361d5aef661d4e1622613"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Lang/common/zipball/ca96d7f06e231d9c519a3fc22789b3a534e19b17",
-                "reference": "ca96d7f06e231d9c519a3fc22789b3a534e19b17",
+                "url": "https://api.github.com/repos/Laravel-Lang/common/zipball/934371d4c775647ce30361d5aef661d4e1622613",
+                "reference": "934371d4c775647ce30361d5aef661d4e1622613",
                 "shasum": ""
             },
             "require": {
@@ -9053,6 +9053,7 @@
                 "laravel-lang/lang": "^13.12 || ^14.0 || ^15.5.1",
                 "laravel-lang/locales": "^2.8",
                 "laravel-lang/publisher": "^16.4",
+                "laravel-lang/routes": "^1.0",
                 "php": "^8.1"
             },
             "require-dev": {
@@ -9112,20 +9113,20 @@
                 "issues": "https://github.com/Laravel-Lang/common/issues",
                 "source": "https://github.com/Laravel-Lang/common"
             },
-            "time": "2024-06-05T19:18:26+00:00"
+            "time": "2024-06-09T19:31:17+00:00"
         },
         {
             "name": "laravel-lang/config",
-            "version": "1.0.3",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Lang/config.git",
-                "reference": "9deb92b5e15f41f29f5ce7cfc53e67ae472a4665"
+                "reference": "902928dd9010b3dcccd0c35477e5aaf721beb49e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Lang/config/zipball/9deb92b5e15f41f29f5ce7cfc53e67ae472a4665",
-                "reference": "9deb92b5e15f41f29f5ce7cfc53e67ae472a4665",
+                "url": "https://api.github.com/repos/Laravel-Lang/config/zipball/902928dd9010b3dcccd0c35477e5aaf721beb49e",
+                "reference": "902928dd9010b3dcccd0c35477e5aaf721beb49e",
                 "shasum": ""
             },
             "require": {
@@ -9184,9 +9185,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Lang/config/issues",
-                "source": "https://github.com/Laravel-Lang/config/tree/1.0.3"
+                "source": "https://github.com/Laravel-Lang/config/tree/1.1.1"
             },
-            "time": "2024-06-04T10:22:13+00:00"
+            "time": "2024-06-09T15:20:01+00:00"
         },
         {
             "name": "laravel-lang/http-statuses",
@@ -9803,6 +9804,72 @@
                 "source": "https://github.com/Laravel-Lang/publisher"
             },
             "time": "2024-06-02T00:22:33+00:00"
+        },
+        {
+            "name": "laravel-lang/routes",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Laravel-Lang/routes.git",
+                "reference": "82f77b4c9e15d8136448f99519ee1c0351d4c58c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Laravel-Lang/routes/zipball/82f77b4c9e15d8136448f99519ee1c0351d4c58c",
+                "reference": "82f77b4c9e15d8136448f99519ee1c0351d4c58c",
+                "shasum": ""
+            },
+            "require": {
+                "dragon-code/support": "^6.13",
+                "illuminate/config": "^10.0 || ^11.0",
+                "illuminate/http": "^10.0 || ^11.0",
+                "illuminate/support": "^10.0 || ^11.0",
+                "laravel-lang/config": "^1.1",
+                "laravel-lang/locales": "^2.8",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^8.23 || ^9.1",
+                "pestphp/pest": "^2.34",
+                "pestphp/pest-plugin-laravel": "^2.4",
+                "symfony/var-dumper": "^6.0 || ^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LaravelLang\\Routes\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrey Helldar",
+                    "email": "helldar@dragon-code.pro",
+                    "homepage": "https://dragon-code.pro"
+                },
+                {
+                    "name": "Laravel-Lang Team",
+                    "homepage": "https://github.com/Laravel-Lang"
+                }
+            ],
+            "description": "Easy and fast way to localize routes",
+            "keywords": [
+                "l18n",
+                "languages",
+                "laravel",
+                "localization",
+                "routes",
+                "translate",
+                "translations"
+            ],
+            "support": {
+                "issues": "https://github.com/Laravel-Lang/routes/issues",
+                "source": "https://github.com/Laravel-Lang/routes"
+            },
+            "time": "2024-06-09T19:08:12+00:00"
         },
         {
             "name": "laravel/facade-documenter",
