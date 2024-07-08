@@ -8,6 +8,35 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="5.0.2"></a>
+## [5.0.2] - 2024-07-08
+### CI
+- **automation:** Update method signature in Music.php facade
+
+### Fix
+- **MusicCommand:** Fix return type in when closure
+
+### Pull Requests
+- Merge pull request [#768](https://github.com/guanguans/music-dl/issues/768) from guanguans/dependabot/github_actions/dependabot/fetch-metadata-2.2.0
+- Merge pull request [#767](https://github.com/guanguans/music-dl/issues/767) from guanguans/dependabot/composer/rector/rector-1.2.0
+- Merge pull request [#766](https://github.com/guanguans/music-dl/issues/766) from guanguans/dependabot/composer/pestphp/pest-plugin-type-coverage-2.8.4
+- Merge pull request [#765](https://github.com/guanguans/music-dl/issues/765) from guanguans/dependabot/composer/rector/rector-1.1.1
+- Merge pull request [#764](https://github.com/guanguans/music-dl/issues/764) from guanguans/dependabot/composer/symfony/polyfill-php83-1.30.0
+- Merge pull request [#763](https://github.com/guanguans/music-dl/issues/763) from guanguans/dependabot/composer/vimeo/psalm-5.25.0
+- Merge pull request [#762](https://github.com/guanguans/music-dl/issues/762) from guanguans/dependabot/composer/laravel/prompts-0.1.24
+- Merge pull request [#761](https://github.com/guanguans/music-dl/issues/761) from guanguans/dependabot/composer/ergebnis/composer-normalize-2.43.0
+- Merge pull request [#760](https://github.com/guanguans/music-dl/issues/760) from guanguans/dependabot/composer/ergebnis/php-cs-fixer-config-6.31.0
+- Merge pull request [#759](https://github.com/guanguans/music-dl/issues/759) from guanguans/dependabot/composer/pestphp/pest-2.34.8
+- Merge pull request [#758](https://github.com/guanguans/music-dl/issues/758) from guanguans/dependabot/composer/laravel-lang/common-6.3.0
+- Merge pull request [#757](https://github.com/guanguans/music-dl/issues/757) from guanguans/dependabot/composer/phpstan/extension-installer-1.4.1
+- Merge pull request [#756](https://github.com/guanguans/music-dl/issues/756) from guanguans/dependabot/composer/phpstan/extension-installer-1.4.0
+- Merge pull request [#755](https://github.com/guanguans/music-dl/issues/755) from guanguans/dependabot/composer/laravel-lang/common-6.2.1
+- Merge pull request [#754](https://github.com/guanguans/music-dl/issues/754) from guanguans/dependabot/composer/pestphp/pest-plugin-type-coverage-2.8.3
+- Merge pull request [#753](https://github.com/guanguans/music-dl/issues/753) from guanguans/dependabot/composer/ergebnis/php-cs-fixer-config-6.30.1
+- Merge pull request [#752](https://github.com/guanguans/music-dl/issues/752) from guanguans/dependabot/composer/larastan/larastan-2.9.7
+- Merge pull request [#751](https://github.com/guanguans/music-dl/issues/751) from guanguans/dependabot/composer/laravel/prompts-0.1.23
+
+
 <a name="5.0.1"></a>
 ## [5.0.1] - 2024-05-24
 ### Feat
@@ -999,7 +1028,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/5.0.1...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/5.0.2...HEAD
+[5.0.2]: https://github.com/guanguans/music-dl/compare/5.0.1...5.0.2
 [5.0.1]: https://github.com/guanguans/music-dl/compare/5.0.0...5.0.1
 [5.0.0]: https://github.com/guanguans/music-dl/compare/4.3.1...5.0.0
 [4.3.1]: https://github.com/guanguans/music-dl/compare/4.3.0...4.3.1
