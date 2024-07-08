@@ -120,7 +120,7 @@ final class MusicCommand extends Command
                 $this->option('dir'),
                 resource_path('notify-icon.png')
             )))
-            ->when(!$this->option('no-continue'), fn (): int => $this->handle());
+            ->when(!$this->option('no-continue'), fn (): null => $this->handle());
     }
 
     /**
