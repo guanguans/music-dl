@@ -30,7 +30,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static void mixin(object $mixin, bool $replace = true)
  * @method static \Illuminate\Support\Collection search(string $keyword, array $sources = [])
  * @method static \App\MusicManager setContainer(\Illuminate\Contracts\Container\Container $container)
- * @method static \App\MusicManager|\Illuminate\Support\HigherOrderTapProxy tap(callable|null $callback = null)
+ * @method static void tap(callable|null $callback = null)
  * @method static \App\MusicManager|mixed unless(\Closure|mixed|null $value = null, callable|null $callback = null, callable|null $default = null)
  * @method static \App\MusicManager|mixed when(\Closure|mixed|null $value = null, callable|null $callback = null, callable|null $default = null)
  *

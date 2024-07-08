@@ -56,7 +56,7 @@ return RectorConfig::configure()
     ])
     ->withParallel()
     // ->withoutParallel()
-    ->withImportNames(false)
+    ->withImportNames(importNames: false, importDocBlockNames: false)
     // ->withDeadCodeLevel(42)
     // ->withTypeCoverageLevel(23)
     // ->withFluentCallNewLine()
@@ -87,6 +87,10 @@ return RectorConfig::configure()
         LaravelSetList::LARAVEL_LEGACY_FACTORIES_TO_CLASSES,
         LaravelSetList::LARAVEL_FACADE_ALIASES_TO_FULL_NAMES,
         LaravelSetList::LARAVEL_ELOQUENT_MAGIC_METHOD_TO_QUERY_BUILDER,
+    ])
+    ->withRules([
+        StaticArrowFunctionRector::class,
+        StaticClosureRector::class,
     ])
     ->withRules([
         // // RectorLaravel\Rector\Assign\CallOnAppArrayAccessToStandaloneAssignRector::class,
