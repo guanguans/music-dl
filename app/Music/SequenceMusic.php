@@ -121,7 +121,7 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
         );
     }
 
-    protected function toConcurrent(array $withoutUrlSongs): int
+    protected function concurrentFor(array $withoutUrlSongs): int
     {
         return min(\count($withoutUrlSongs), 128);
     }

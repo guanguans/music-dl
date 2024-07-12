@@ -23,12 +23,5 @@ final class Handler extends \Illuminate\Foundation\Exceptions\Handler
      * @psalm-suppress UnusedClosureParam
      */
     #[\Override]
-    public function register(): void
-    {
-        // $this->reportable(static function (\Throwable $throwable) {
-        //     if (\Phar::running()) {
-        //         return false;
-        //     }
-        // });
-    }
+    public function register(): void {}
 }

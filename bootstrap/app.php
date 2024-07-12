@@ -19,6 +19,9 @@ use LaravelZero\Framework\Application;
 use Psr\Log\LoggerInterface;
 
 return Application::configure(basePath: \dirname(__DIR__))
+    ->withSingletons([
+        MusicManager::class,
+    ])
     ->booted(static function (Application $app): void {
         if (class_exists(TinkerZeroServiceProvider::class) && !$app->isProduction()) {
             $app->register(TinkerZeroServiceProvider::class);
@@ -40,7 +43,4 @@ return Application::configure(basePath: \dirname(__DIR__))
             }
         });
     })
-    ->withSingletons([
-        MusicManager::class,
-    ])
     ->create();

@@ -26,7 +26,7 @@ final class ForkMusic extends SequenceMusic
         return Fork::new()
             ->before()
             ->after()
-            ->concurrent($this->toConcurrent($withoutUrlSongs))
+            ->concurrent($this->concurrentFor($withoutUrlSongs))
             ->run(...array_map(
                 fn (array $withoutUrlSong): callable => fn (): array => $this->ensureWithUrl($withoutUrlSong),
                 $withoutUrlSongs
