@@ -15,6 +15,7 @@ namespace App\Concerns;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Number;
 
 trait Sanitizer
 {
@@ -39,7 +40,7 @@ trait Sanitizer
         $song['name'] = str_replace($keyword, "<fg=red;options=bold>$keyword</>", (string) $song['name']);
         $song['artist'] = str_replace($keyword, "<fg=red;options=bold>$keyword</>", implode(',', $song['artist']));
         $song['album'] = str_replace($keyword, "<fg=red;options=bold>$keyword</>", (string) $song['album']);
-        $song['size'] = isset($song['size']) ? sprintf('<fg=yellow>%.1fM</>', $song['size'] / 1024 / 1024) : null;
+        $song['size'] = isset($song['size']) ? sprintf('<fg=yellow>%s</>', Number::fileSize((float) $song['size'])) : null;
         $song['br'] = (int) $song['br'];
 
         return $song;
