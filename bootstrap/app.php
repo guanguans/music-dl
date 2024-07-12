@@ -20,7 +20,9 @@ use Psr\Log\LoggerInterface;
 
 return Application::configure(basePath: \dirname(__DIR__))
     ->booted(static function (Application $app): void {
-        $app->isProduction() or $app->register(TinkerZeroServiceProvider::class);
+        if (class_exists(TinkerZeroServiceProvider::class) && !$app->isProduction()) {
+            $app->register(TinkerZeroServiceProvider::class);
+        }
     })
     ->booted(static function (Application $app): void {
         $app->extend(LogManager::class, static function (LoggerInterface $logger, Application $application) {
