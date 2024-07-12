@@ -41,6 +41,7 @@
         "ergebnis/php-cs-fixer-config": "^6.31",
         "guanguans/ai-commit": "dev-main",
         "guanguans/monorepo-builder-worker": "^1.4",
+        "intonate/tinker-zero": "^1.2",
         "larastan/larastan": "^2.9",
         "laravel-lang/common": "^6.4",
         "laravel/facade-documenter": "dev-main",
