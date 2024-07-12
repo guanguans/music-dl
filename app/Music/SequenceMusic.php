@@ -50,6 +50,14 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
         return collect($this->ensureWithUrls($withoutUrlSongs))
             ->filter()
             ->filter(static fn (array $song): bool => !empty($song['url']))
+            ->sortBy([
+                ['name', 'asc'],
+                ['artist', 'asc'],
+                ['size', 'desc'],
+                ['br', 'desc'],
+                ['album', 'asc'],
+                ['source', 'asc'],
+            ])
             ->values()
             ->mapWithKeys(static fn (array $song, int $index): array => [$index + 1 => $song]);
     }
