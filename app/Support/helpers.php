@@ -24,19 +24,3 @@ if (!\function_exists('array_reduce_with_keys')) {
         return $carry;
     }
 }
-
-if (!\function_exists('array_map_with_keys')) {
-    /**
-     * @codeCoverageIgnore
-     */
-    function array_map_with_keys(callable $callback, array $array): array
-    {
-        $arr = [];
-
-        foreach ($array as $key => $value) {
-            $arr[$key] = $callback($value, $key);
-        }
-
-        return $arr;
-    }
-}

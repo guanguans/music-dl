@@ -21,33 +21,33 @@ final class Utils
     /**
      * @throws \App\Exceptions\RuntimeException
      */
-    public static function defaultSaveDir(): string
+    public static function defaultSavedDir(): string
     {
-        $saveDir = windows_os()
+        $savedDir = windows_os()
             ? sprintf('%s\\Downloads\\MusicDL\\', exec('echo %USERPROFILE%') ?: sprintf('C:\\Users\\%s', get_current_user()))
             : sprintf('%s/Downloads/MusicDL/', exec('echo $HOME') ?: exec('cd ~; pwd'));
 
-        if (!is_dir($saveDir) && !mkdir($saveDir, 0o755, true) && !is_dir($saveDir)) {
-            throw new RuntimeException(sprintf('The directory "%s" was not created.', $saveDir));
+        if (!is_dir($savedDir) && !mkdir($savedDir, 0o755, true) && !is_dir($savedDir)) {
+            throw new RuntimeException(sprintf('The directory "%s" was not created.', $savedDir));
         }
 
-        return $saveDir;
+        return $savedDir;
     }
 
     /**
      * @throws \App\Exceptions\RuntimeException
      */
-    public static function savePathFor(array $song, ?string $saveDir = null, string $defaultExt = 'mp3'): string
+    public static function savedPathFor(array $song, ?string $savedDir = null, string $defaultExt = 'mp3'): string
     {
-        $saveDir = Str::finish($saveDir ?? self::defaultSaveDir(), \DIRECTORY_SEPARATOR);
+        $savedDir = Str::finish($savedDir ?? self::defaultSavedDir(), \DIRECTORY_SEPARATOR);
 
-        if (!is_dir($saveDir) && !mkdir($saveDir, 0o755, true) && !is_dir($saveDir)) {
-            throw new RuntimeException(sprintf('The directory "%s" was not created.', $saveDir));
+        if (!is_dir($savedDir) && !mkdir($savedDir, 0o755, true) && !is_dir($savedDir)) {
+            throw new RuntimeException(sprintf('The directory "%s" was not created.', $savedDir));
         }
 
         return sprintf(
             '%s%s - %s.%s',
-            $saveDir,
+            $savedDir,
             implode(',', $song['artist']),
             $song['name'],
             preg_replace('/\?.*/', '', pathinfo((string) $song['url'], \PATHINFO_EXTENSION)) ?: $defaultExt
