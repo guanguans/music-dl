@@ -67,18 +67,18 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
      *
      * @throws GuzzleException
      */
-    public function download(string $url, string $savePath): void
+    public function download(string $url, string $savedPath): void
     {
         $this->createHttpClient()->get($url, [
-            'sink' => $savePath,
-            'progress' => static function (int $totalDownload, int $downloaded) use (&$progress, $savePath): void {
+            'sink' => $savedPath,
+            'progress' => static function (int $totalDownload, int $downloaded) use (&$progress, $savedPath): void {
                 if (0 === $totalDownload || 0 === $downloaded || 'submit' === $progress?->state) {
                     return;
                 }
 
                 if (!$progress instanceof Progress) {
                     /** @noinspection PhpVoidFunctionResultUsedInspection */
-                    $progress = tap(progress($savePath, $totalDownload))->start();
+                    $progress = tap(progress($savedPath, $totalDownload))->start();
                 }
 
                 value(static function (Progress $progress, int $downloaded): void {

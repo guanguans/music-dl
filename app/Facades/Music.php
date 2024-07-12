@@ -17,7 +17,7 @@ use App\MusicManager;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static void download(string $url, string $savePath)
+ * @method static void download(string $url, string $savedPath)
  * @method static mixed driver(string|null $driver = null)
  * @method static \App\MusicManager extend(string $driver, \Closure $callback)
  * @method static void flushMacros()
