@@ -8,6 +8,19 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="5.1.3"></a>
+## [5.1.3] - 2024-07-12
+### Feat
+- **SequenceMusic:** Add sorting by multiple fields
+- **composer:** add rector/swiss-knife to composer.json
+
+### Refactor
+- **utils:** Change method names for default save directory and saved path
+
+### Test
+- **test:** Update pest command to include colors
+
+
 <a name="5.1.2"></a>
 ## [5.1.2] - 2024-07-12
 ### Refactor
@@ -1050,7 +1063,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/5.1.2...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/5.1.3...HEAD
+[5.1.3]: https://github.com/guanguans/music-dl/compare/5.1.2...5.1.3
 [5.1.2]: https://github.com/guanguans/music-dl/compare/5.1.1...5.1.2
 [5.1.1]: https://github.com/guanguans/music-dl/compare/5.1.0...5.1.1
 [5.1.0]: https://github.com/guanguans/music-dl/compare/5.0.2...5.1.0
