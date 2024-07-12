@@ -167,7 +167,7 @@
         "mark-start": "printf '\\n!\\n!\\t\\033[0;36m%s\\033[0m\\n!\\n\\n' \"Started\"",
         "md-fix": "@md-lint --fix",
         "md-lint": "lint-md --config .lintmdrc ./*.md ./.github/ ./docs/",
-        "pest": "@php ./vendor/bin/pest --coverage --profile",
+        "pest": "@php ./vendor/bin/pest --coverage --profile --colors=always",
         "pest-coverage": "@pest --coverage-html=./build/phpunit/ --coverage-clover=./clover.xml",
         "pest-migrate-configuration": "@pest --migrate-configuration",
         "pest-type-coverage": "@pest --type-coverage",
