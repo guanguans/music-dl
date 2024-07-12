@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1bc73cbf47839dd828a47e5c5f72b753",
+    "content-hash": "fdf4b386c27a53fa84a0aa62e63d99bb",
     "packages": [
         {
             "name": "brick/math",
@@ -12884,6 +12884,48 @@
                 }
             ],
             "time": "2024-07-01T14:24:45+00:00"
+        },
+        {
+            "name": "rector/swiss-knife",
+            "version": "0.2.17",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rectorphp/swiss-knife.git",
+                "reference": "f072ed1bcf93813e131284c28ee4f4a92862afdb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rectorphp/swiss-knife/zipball/f072ed1bcf93813e131284c28ee4f4a92862afdb",
+                "reference": "f072ed1bcf93813e131284c28ee4f4a92862afdb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "bin": [
+                "bin/swiss-knife"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Swiss knife in pocket of every upgrade architect",
+            "support": {
+                "issues": "https://github.com/rectorphp/swiss-knife/issues",
+                "source": "https://github.com/rectorphp/swiss-knife/tree/0.2.17"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.me/rectorphp",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/tomasvotruba",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-07-02T08:41:42+00:00"
         },
         {
             "name": "roave/security-advisories",
