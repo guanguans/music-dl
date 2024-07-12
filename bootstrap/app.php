@@ -14,10 +14,14 @@ declare(strict_types=1);
 use App\MusicManager;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Log\LogManager;
+use Intonate\TinkerZero\TinkerZeroServiceProvider;
 use LaravelZero\Framework\Application;
 use Psr\Log\LoggerInterface;
 
 return Application::configure(basePath: \dirname(__DIR__))
+    ->booted(static function (Application $app): void {
+        $app->isProduction() or $app->register(TinkerZeroServiceProvider::class);
+    })
     ->booted(static function (Application $app): void {
         $app->extend(LogManager::class, static function (LoggerInterface $logger, Application $application) {
             if (!$logger instanceof LogManager) {
