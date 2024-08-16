@@ -8,6 +8,27 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="5.1.4"></a>
+## [5.1.4] - 2024-08-16
+### Feat
+- **exceptions:** remove Handler.php file
+
+### Pull Requests
+- Merge pull request [#782](https://github.com/guanguans/music-dl/issues/782) from guanguans/dependabot/composer/ergebnis/php-cs-fixer-config-6.35.0
+- Merge pull request [#781](https://github.com/guanguans/music-dl/issues/781) from guanguans/dependabot/composer/rector/rector-1.2.3
+- Merge pull request [#780](https://github.com/guanguans/music-dl/issues/780) from guanguans/dependabot/composer/pestphp/pest-2.35.0
+- Merge pull request [#779](https://github.com/guanguans/music-dl/issues/779) from guanguans/dependabot/composer/pestphp/pest-plugin-type-coverage-2.8.5
+- Merge pull request [#778](https://github.com/guanguans/music-dl/issues/778) from guanguans/dependabot/composer/ergebnis/php-cs-fixer-config-6.34.0
+- Merge pull request [#777](https://github.com/guanguans/music-dl/issues/777) from guanguans/dependabot/composer/driftingly/rector-laravel-1.2.1
+- Merge pull request [#776](https://github.com/guanguans/music-dl/issues/776) from guanguans/dependabot/composer/rector/rector-1.2.2
+- Merge pull request [#775](https://github.com/guanguans/music-dl/issues/775) from guanguans/dependabot/composer/ergebnis/php-cs-fixer-config-6.33.0
+- Merge pull request [#774](https://github.com/guanguans/music-dl/issues/774) from guanguans/dependabot/composer/guzzlehttp/guzzle-7.9.2
+- Merge pull request [#773](https://github.com/guanguans/music-dl/issues/773) from guanguans/dependabot/composer/guzzlehttp/guzzle-7.9.1
+- Merge pull request [#772](https://github.com/guanguans/music-dl/issues/772) from guanguans/dependabot/composer/guzzlehttp/guzzle-7.9.0
+- Merge pull request [#771](https://github.com/guanguans/music-dl/issues/771) from guanguans/dependabot/composer/rector/rector-1.2.1
+- Merge pull request [#770](https://github.com/guanguans/music-dl/issues/770) from guanguans/dependabot/composer/ergebnis/php-cs-fixer-config-6.32.0
+
+
 <a name="5.1.3"></a>
 ## [5.1.3] - 2024-07-12
 ### Feat
@@ -1063,7 +1084,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/5.1.3...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/5.1.4...HEAD
+[5.1.4]: https://github.com/guanguans/music-dl/compare/5.1.3...5.1.4
 [5.1.3]: https://github.com/guanguans/music-dl/compare/5.1.2...5.1.3
 [5.1.2]: https://github.com/guanguans/music-dl/compare/5.1.1...5.1.2
 [5.1.1]: https://github.com/guanguans/music-dl/compare/5.1.0...5.1.1
