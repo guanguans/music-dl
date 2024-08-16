@@ -24,11 +24,11 @@ final class Utils
     public static function defaultSavedDir(): string
     {
         $savedDir = windows_os()
-            ? sprintf('%s\\Downloads\\MusicDL\\', exec('echo %USERPROFILE%') ?: sprintf('C:\\Users\\%s', get_current_user()))
-            : sprintf('%s/Downloads/MusicDL/', exec('echo $HOME') ?: exec('cd ~; pwd'));
+            ? \sprintf('%s\\Downloads\\MusicDL\\', exec('echo %USERPROFILE%') ?: \sprintf('C:\\Users\\%s', get_current_user()))
+            : \sprintf('%s/Downloads/MusicDL/', exec('echo $HOME') ?: exec('cd ~; pwd'));
 
         if (!is_dir($savedDir) && !mkdir($savedDir, 0o755, true) && !is_dir($savedDir)) {
-            throw new RuntimeException(sprintf('The directory "%s" was not created.', $savedDir));
+            throw new RuntimeException(\sprintf('The directory "%s" was not created.', $savedDir));
         }
 
         return $savedDir;
@@ -42,10 +42,10 @@ final class Utils
         $savedDir = Str::finish($savedDir ?? self::defaultSavedDir(), \DIRECTORY_SEPARATOR);
 
         if (!is_dir($savedDir) && !mkdir($savedDir, 0o755, true) && !is_dir($savedDir)) {
-            throw new RuntimeException(sprintf('The directory "%s" was not created.', $savedDir));
+            throw new RuntimeException(\sprintf('The directory "%s" was not created.', $savedDir));
         }
 
-        return sprintf(
+        return \sprintf(
             '%s%s - %s.%s',
             $savedDir,
             implode(',', $song['artist']),

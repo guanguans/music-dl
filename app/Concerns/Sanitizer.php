@@ -40,7 +40,7 @@ trait Sanitizer
         $song['name'] = str_replace($keyword, "<fg=red;options=bold>$keyword</>", (string) $song['name']);
         $song['artist'] = str_replace($keyword, "<fg=red;options=bold>$keyword</>", implode(',', $song['artist']));
         $song['album'] = str_replace($keyword, "<fg=red;options=bold>$keyword</>", (string) $song['album']);
-        $song['size'] = isset($song['size']) ? sprintf('<fg=yellow>%s</>', Number::fileSize((float) $song['size'], 1)) : null;
+        $song['size'] = isset($song['size']) ? \sprintf('<fg=yellow>%s</>', Number::fileSize((float) $song['size'], 1)) : null;
         $song['br'] = (int) $song['br'];
 
         return $song;

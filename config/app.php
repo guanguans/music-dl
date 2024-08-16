@@ -26,7 +26,7 @@ return [
     'name' => 'Music DL',
 
     // The logo of the application.
-    'logo' => sprintf(<<<'logo'
+    'logo' => \sprintf(<<<'logo'
         <fg=green;options=bold>
              __  __           _        _____  _
             |  \/  |         (_)      |  __ \| |

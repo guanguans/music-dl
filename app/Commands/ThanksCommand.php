@@ -42,7 +42,7 @@ final class ThanksCommand extends Command
                 'Windows' => exec('start https://github.com/guanguans/music-dl'),
                 'Darwin' => exec('open https://github.com/guanguans/music-dl'),
                 'Linux' => exec('xdg-open https://github.com/guanguans/music-dl'),
-                default => throw new RuntimeException(sprintf('Unsupported OS: %s', \PHP_OS_FAMILY)),
+                default => throw new RuntimeException(\sprintf('Unsupported OS: %s', \PHP_OS_FAMILY)),
             };
         }
 
