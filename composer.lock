@@ -12899,16 +12899,16 @@
         },
         {
             "name": "rector/swiss-knife",
-            "version": "0.2.30",
+            "version": "0.2.33",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/swiss-knife.git",
-                "reference": "1339c65233dad2d87b842c9efe654c15cfd2c69d"
+                "reference": "c3efda474a0068906e5a56ea63fe19ae2a3f0884"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/swiss-knife/zipball/1339c65233dad2d87b842c9efe654c15cfd2c69d",
-                "reference": "1339c65233dad2d87b842c9efe654c15cfd2c69d",
+                "url": "https://api.github.com/repos/rectorphp/swiss-knife/zipball/c3efda474a0068906e5a56ea63fe19ae2a3f0884",
+                "reference": "c3efda474a0068906e5a56ea63fe19ae2a3f0884",
                 "shasum": ""
             },
             "require": {
@@ -12925,7 +12925,7 @@
             "description": "Swiss knife in pocket of every upgrade architect",
             "support": {
                 "issues": "https://github.com/rectorphp/swiss-knife/issues",
-                "source": "https://github.com/rectorphp/swiss-knife/tree/0.2.30"
+                "source": "https://github.com/rectorphp/swiss-knife/tree/0.2.33"
             },
             "funding": [
                 {
@@ -12937,7 +12937,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-09-06T15:10:41+00:00"
+            "time": "2024-09-07T07:24:37+00:00"
         },
         {
             "name": "roave/security-advisories",
