@@ -7489,16 +7489,16 @@
         },
         {
             "name": "driftingly/rector-laravel",
-            "version": "1.2.3",
+            "version": "1.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/driftingly/rector-laravel.git",
-                "reference": "50c68bde7ddc18f89f1d6c53099ac48f741d408f"
+                "reference": "b55c3b374ba0eccdb9c5b1bc356749224ea13680"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/driftingly/rector-laravel/zipball/50c68bde7ddc18f89f1d6c53099ac48f741d408f",
-                "reference": "50c68bde7ddc18f89f1d6c53099ac48f741d408f",
+                "url": "https://api.github.com/repos/driftingly/rector-laravel/zipball/b55c3b374ba0eccdb9c5b1bc356749224ea13680",
+                "reference": "b55c3b374ba0eccdb9c5b1bc356749224ea13680",
                 "shasum": ""
             },
             "require": {
@@ -7518,9 +7518,9 @@
             "description": "Rector upgrades rules for Laravel Framework",
             "support": {
                 "issues": "https://github.com/driftingly/rector-laravel/issues",
-                "source": "https://github.com/driftingly/rector-laravel/tree/1.2.3"
+                "source": "https://github.com/driftingly/rector-laravel/tree/1.2.4"
             },
-            "time": "2024-09-09T21:30:39+00:00"
+            "time": "2024-09-12T12:55:41+00:00"
         },
         {
             "name": "ergebnis/composer-normalize",
