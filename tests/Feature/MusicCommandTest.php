@@ -13,16 +13,15 @@ declare(strict_types=1);
 
 use App\Commands\MusicCommand;
 use App\Concerns\Hydrator;
-use App\Music\SequenceMusic;
+use App\Music;
 use Illuminate\Support\Collection;
-use Laravel\Prompts\Prompt;
 
 uses(Hydrator::class)->beforeEach(function (): void {
     // Prompt::fallbackWhen(true);
 });
 
 it('can search and download music', function (Collection $songs): void {
-    $mockSequenceMusic = Mockery::mock(SequenceMusic::class);
+    $mockSequenceMusic = Mockery::mock(Music::class);
     $mockSequenceMusic->allows('search')->andReturn($songs);
     $mockSequenceMusic->allows('download')->andThrow(new RuntimeException);
     App\Facades\Music::shouldReceive('driver')->andReturn($mockSequenceMusic->makePartial());

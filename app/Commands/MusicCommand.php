@@ -16,8 +16,8 @@ declare(strict_types=1);
 namespace App\Commands;
 
 use App\Concerns\Hydrator;
-use App\Contracts\Music;
-use App\Music\SequenceMusic;
+use App\Contracts\Music as MusicContract;
+use App\Music;
 use App\Support\Utils;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\Collection;
@@ -54,7 +54,7 @@ final class MusicCommand extends Command
 
     /** The description of the command. */
     protected $description = 'Search and download music';
-    private Music $music;
+    private MusicContract $music;
 
     /**
      * Execute the console command.
@@ -143,7 +143,7 @@ final class MusicCommand extends Command
     protected function initialize(InputInterface $input, OutputInterface $output): void
     {
         // $this->music = \App\Facades\Music::driver($this->option('driver'));
-        $this->music = $this->laravel->make(SequenceMusic::class, [
+        $this->music = $this->laravel->make(Music::class, [
             'driver' => Concurrency::driver($this->option('driver')),
         ]);
         $this->input->setOption('dir', $this->option('dir') ?: Utils::defaultSavedDir());

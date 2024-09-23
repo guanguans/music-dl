@@ -13,18 +13,18 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Music;
 
-use App\Music\SequenceMusic;
+use App\Music;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\TransferException;
 use Illuminate\Support\Collection;
 
 it('can search songs', function (): void {
-    expect(app(SequenceMusic::class))->search('腰乐队', config('app.sources'))->toBeInstanceOf(Collection::class);
+    expect(app(Music::class))->search('腰乐队', config('app.sources'))->toBeInstanceOf(Collection::class);
 })->group(__DIR__, __FILE__);
 
 it('will throw exception when download failed', function (): void {
     try {
-        app(SequenceMusic::class)->download('foo.mp3', downloads_path('foo.mp3'));
+        app(Music::class)->download('foo.mp3', downloads_path('foo.mp3'));
     } catch (GuzzleException $guzzleException) {
         throw new TransferException($guzzleException->getMessage());
     }

@@ -11,10 +11,9 @@ declare(strict_types=1);
  * @see https://github.com/guanguans/music-dl
  */
 
-namespace App\Music;
+namespace App;
 
 use App\Concerns\HttpClientFactory;
-use App\Contracts\Music;
 use App\Support\Meting;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Contracts\Concurrency\Driver;
@@ -23,7 +22,7 @@ use Illuminate\Support\Traits\Macroable;
 use Laravel\Prompts\Progress;
 use function Laravel\Prompts\progress;
 
-class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
+class Music implements Contracts\HttpClientFactory, Contracts\Music
 {
     use HttpClientFactory;
     use Macroable;
@@ -100,10 +99,6 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
             fn (array $withoutUrlSong): callable => fn (): array => $this->ensureWithUrl($withoutUrlSong),
             $withoutUrlSongs
         ));
-
-        return collect($withoutUrlSongs)
-            ->transform(fn (array $withoutUrlSong): array => $this->ensureWithUrl($withoutUrlSong))
-            ->all();
     }
 
     /**
@@ -125,10 +120,5 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
             512,
             \JSON_THROW_ON_ERROR
         );
-    }
-
-    protected function concurrentFor(array $withoutUrlSongs): int
-    {
-        return min(\count($withoutUrlSongs), 128);
     }
 }
