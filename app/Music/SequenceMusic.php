@@ -17,6 +17,7 @@ use App\Concerns\HttpClientFactory;
 use App\Contracts\Music;
 use App\Support\Meting;
 use GuzzleHttp\Exception\GuzzleException;
+use Illuminate\Contracts\Concurrency\Driver;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Traits\Macroable;
 use Laravel\Prompts\Progress;
@@ -27,7 +28,7 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
     use HttpClientFactory;
     use Macroable;
 
-    public function __construct(protected Meting $meting)
+    public function __construct(protected Meting $meting, protected Driver $driver)
     {
         $this->meting = $meting->format();
     }
@@ -95,6 +96,11 @@ class SequenceMusic implements \App\Contracts\HttpClientFactory, Music
 
     protected function ensureWithUrls(array $withoutUrlSongs): array
     {
+        return $this->driver->run(array_map(
+            fn (array $withoutUrlSong): callable => fn (): array => $this->ensureWithUrl($withoutUrlSong),
+            $withoutUrlSongs
+        ));
+
         return collect($withoutUrlSongs)
             ->transform(fn (array $withoutUrlSong): array => $this->ensureWithUrl($withoutUrlSong))
             ->all();

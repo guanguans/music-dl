@@ -17,9 +17,11 @@ namespace App\Commands;
 
 use App\Concerns\Hydrator;
 use App\Contracts\Music;
+use App\Music\SequenceMusic;
 use App\Support\Utils;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Concurrency;
 use Illuminate\Support\Facades\File;
 use Laravel\Prompts;
 use LaravelZero\Framework\Commands\Command;
@@ -140,7 +142,10 @@ final class MusicCommand extends Command
     #[\Override]
     protected function initialize(InputInterface $input, OutputInterface $output): void
     {
-        $this->music = \App\Facades\Music::driver($this->option('driver'));
+        // $this->music = \App\Facades\Music::driver($this->option('driver'));
+        $this->music = $this->laravel->make(SequenceMusic::class, [
+            'driver' => Concurrency::driver($this->option('driver')),
+        ]);
         $this->input->setOption('dir', $this->option('dir') ?: Utils::defaultSavedDir());
         $this->option('lang') and config()->set('app.locale', $this->option('lang'));
         File::ensureDirectoryExists($this->option('dir'));
