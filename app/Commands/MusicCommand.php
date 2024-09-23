@@ -45,7 +45,7 @@ final class MusicCommand extends Command
     protected $signature = <<<'SIGNATURE'
         music
         {keyword? : Search keyword for music}
-        {--driver=sequence : Specify the search driver(fork、sequence)}
+        {--driver=sync : Specify the search driver(sync、fork、process)}
         {--d|dir= : Specify the download directory}
         {--l|lang= : Specify the language}
         {--no-continue : Specify whether to recall the command after the download is complete}
@@ -138,11 +138,12 @@ final class MusicCommand extends Command
 
     /**
      * @noinspection PhpMissingParentCallCommonInspection
+     *
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     #[\Override]
     protected function initialize(InputInterface $input, OutputInterface $output): void
     {
-        // $this->music = \App\Facades\Music::driver($this->option('driver'));
         $this->music = $this->laravel->make(Music::class, [
             'driver' => Concurrency::driver($this->option('driver')),
         ]);
