@@ -20,6 +20,8 @@ use Rector\CodingStyle\Rector\Encapsed\EncapsedStringsToSprintfRector;
 use Rector\CodingStyle\Rector\Encapsed\WrapEncapsedVariableInCurlyBracesRector;
 use Rector\CodingStyle\Rector\Stmt\NewlineAfterStatementRector;
 use Rector\Config\RectorConfig;
+use Rector\Naming\Rector\Class_\RenamePropertyToMatchTypeRector;
+use Rector\Naming\Rector\Foreach_\RenameForeachValueVariableToMatchMethodCallReturnTypeRector;
 use Rector\PHPUnit\Set\PHPUnitSetList;
 use Rector\Renaming\Rector\FuncCall\RenameFunctionRector;
 use Rector\Renaming\Rector\Name\RenameClassRector;
@@ -194,6 +196,12 @@ return RectorConfig::configure()
         WrapEncapsedVariableInCurlyBracesRector::class,
     ])
     ->withSkip([
+        RenameForeachValueVariableToMatchMethodCallReturnTypeRector::class => [
+            __DIR__.'/tests/Pest.php',
+        ],
+        RenamePropertyToMatchTypeRector::class => [
+            __DIR__.'/app/Commands/MusicCommand.php',
+        ],
         UseComponentPropertyWithinCommandsRector::class => [
             __DIR__.'/app/Commands/InspireCommand.php',
         ],
