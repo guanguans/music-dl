@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 use App\Contracts\Music as MusicContract;
 use App\Music;
-use App\MusicManager;
 use App\Support\Meting;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Log\LogManager;
@@ -23,9 +22,6 @@ use LaravelZero\Framework\Application;
 use Psr\Log\LoggerInterface;
 
 return Application::configure(basePath: \dirname(__DIR__))
-    ->withSingletons([
-        MusicManager::class,
-    ])
     ->booted(static function (Application $app): void {
         $app->singleton(
             Music::class,

@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use App\MusicManager;
 use Illuminate\Console\OutputStyle;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Traits\Conditionable;
@@ -32,9 +31,7 @@ final class AppServiceProvider extends ServiceProvider
      *
      * @var array<class-string|int, class-string>
      */
-    public array $singletons = [
-        // MusicManager::class,
-    ];
+    public array $singletons = [];
 
     /**
      * Register any application services.
