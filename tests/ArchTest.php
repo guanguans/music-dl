@@ -13,19 +13,20 @@ declare(strict_types=1);
 
 namespace Tests;
 
-// arch('will not use debugging functions')
-//     ->expect([
-//         'echo',
-//         'print',
-//         'die',
-//         'exit',
-//         'printf',
-//         'vprintf',
-//         'var_dump',
-//         'dump',
-//         'dd',
-//         'ray',
-//         'print_r',
-//         'var_export',
-//     ])
-//     ->each->not->toBeUsed();
+arch('will not use debugging functions')
+    // ->skip()
+    ->expect([
+        'dd',
+        'die',
+        'dump',
+        'echo',
+        'exit',
+        'print',
+        'print_r',
+        'printf',
+        'ray',
+        'var_dump',
+        'var_export',
+        'vprintf',
+    ])
+    ->each->not->toBeUsed();

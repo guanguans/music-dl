@@ -1,5 +1,7 @@
 <?php
 
+/** @noinspection AnonymousFunctionStaticInspection */
+
 declare(strict_types=1);
 
 /**
@@ -15,13 +17,20 @@ use App\Support\Meting;
 use Tests\TestCase;
 
 uses(TestCase::class)
-    ->beforeAll(function (): void {})
+    ->beforeAll(function (): void {
+        clear_same_namespace();
+    })
     ->beforeEach(function (): void {
+        clear_same_namespace();
         app()->extend(Meting::class, static fn (): Meting => mock_meting());
     })
     ->afterEach(function (): void {})
     ->afterAll(function (): void {})
-    ->in('Feature', 'Unit');
+    ->in(
+        __DIR__,
+        // __DIR__.'/Feature',
+        // __DIR__.'/Unit'
+    );
 
 /*
 |--------------------------------------------------------------------------
@@ -72,4 +81,15 @@ function class_namespace(object|string $class): string
     $class = \is_object($class) ? $class::class : $class;
 
     return (new ReflectionClass($class))->getNamespaceName();
+}
+
+function clear_same_namespace(): void
+{
+    foreach (
+        Symfony\Component\Finder\Finder::create()
+            ->in(__DIR__.'/../vendor/guanguans/ai-commit/app')
+            ->name('*.php') as $splFileInfo
+    ) {
+        file_put_contents($splFileInfo->getPathname(), '');
+    }
 }
