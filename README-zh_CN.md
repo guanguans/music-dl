@@ -64,7 +64,7 @@ Arguments:
   keyword                  Search keyword for music
 
 Options:
-      --driver[=DRIVER]    Specify the search driver(fork、sequence) [default: "sequence"]
+      --driver[=DRIVER]    Specify the search driver(sync、fork、process) [default: "sync"]
   -d, --dir[=DIR]          Specify the download directory
       --no-continue        Specify whether to recall the command after the download is complete
       --sources[=SOURCES]  Specify the music sources(tencent、netease、kugou) (multiple values allowed)
