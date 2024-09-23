@@ -21,16 +21,19 @@ uses(Hydrator::class)->beforeEach(function (): void {
 });
 
 it('can search and download music', function (Collection $songs): void {
-    $mockSequenceMusic = Mockery::mock(Music::class);
-    $mockSequenceMusic->allows('search')->andReturn($songs);
-    $mockSequenceMusic->allows('download')->andThrow(new RuntimeException);
-    App\Facades\Music::shouldReceive('driver')->andReturn($mockSequenceMusic->makePartial());
+    $this->app->singleton(Music::class, static function () use ($songs) {
+        $mockMusic = Mockery::mock(Music::class);
+        $mockMusic->allows('search')->andReturn($songs);
+        $mockMusic->allows('download')->andThrow(new RuntimeException);
+
+        return $mockMusic->makePartial();
+    });
 
     $this
         ->artisan(MusicCommand::class, [
             'keyword' => $keyword = '不只是南方',
             '--dir' => downloads_path(),
-            '--driver' => 'sequence',
+            '--driver' => 'sync',
             '--no-continue' => true,
             '--sources' => config('app.sources'),
         ])

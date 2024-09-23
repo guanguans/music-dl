@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static void macro(string $name, object|callable $macro)
  * @method static void mixin(object $mixin, bool $replace = true)
  * @method static \Illuminate\Support\Collection search(string $keyword, array $sources = [])
+ * @method static \App\Music setDriver(\Illuminate\Contracts\Concurrency\Driver $driver)
  *
  * @see \App\Music
  */

@@ -93,6 +93,13 @@ class Music implements Contracts\HttpClientFactory, Contracts\Music
         ]);
     }
 
+    public function setDriver(Driver $driver): self
+    {
+        $this->driver = $driver;
+
+        return $this;
+    }
+
     protected function ensureWithUrls(array $withoutUrlSongs): array
     {
         return $this->driver->run(array_map(

@@ -14,7 +14,8 @@ declare(strict_types=1);
 namespace Tests\Unit\Facades;
 
 use App\Facades\Music;
+use Illuminate\Support\Facades\Concurrency;
 
-it('can get music driver', function (): void {
-    expect(Music::driver())->toBeInstanceOf(\App\Contracts\Music::class);
+it('can set music driver', function (): void {
+    expect(Music::setDriver(Concurrency::driver()))->toBeInstanceOf(\App\Contracts\Music::class);
 })->group(__DIR__, __FILE__);
