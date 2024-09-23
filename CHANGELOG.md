@@ -8,6 +8,43 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="5.2.0"></a>
+## [5.2.0] - 2024-09-23
+### Feat
+- **concurrency:** add concurrency service provider and config
+- **music:** Refactor music command and rename SequenceMusic
+- **music:** Refactor MusicCommand to use SequenceMusic with Concurrency
+
+### Fix
+- **command:** update music command driver option
+
+### Refactor
+- **music:** replace MusicManager with MusicContract
+
+### Test
+- **tests:** Improve pest configuration and debugging checks
+
+### Pull Requests
+- Merge pull request [#802](https://github.com/guanguans/music-dl/issues/802) from guanguans/dependabot/composer/rector/swiss-knife-0.2.35
+- Merge pull request [#801](https://github.com/guanguans/music-dl/issues/801) from guanguans/dependabot/composer/driftingly/rector-laravel-1.2.4
+- Merge pull request [#800](https://github.com/guanguans/music-dl/issues/800) from guanguans/dependabot/composer/driftingly/rector-laravel-1.2.3
+- Merge pull request [#799](https://github.com/guanguans/music-dl/issues/799) from guanguans/dependabot/composer/rector/rector-1.2.5
+- Merge pull request [#798](https://github.com/guanguans/music-dl/issues/798) from guanguans/dependabot/composer/rector/swiss-knife-0.2.33
+- Merge pull request [#797](https://github.com/guanguans/music-dl/issues/797) from guanguans/dependabot/composer/symfony/polyfill-php83-1.31.0
+- Merge pull request [#796](https://github.com/guanguans/music-dl/issues/796) from guanguans/dependabot/composer/vimeo/psalm-5.26.1
+- Merge pull request [#795](https://github.com/guanguans/music-dl/issues/795) from guanguans/dependabot/composer/rector/swiss-knife-0.2.30
+- Merge pull request [#794](https://github.com/guanguans/music-dl/issues/794) from guanguans/dependabot/composer/phpstan/extension-installer-1.4.3
+- Merge pull request [#793](https://github.com/guanguans/music-dl/issues/793) from guanguans/dependabot/composer/driftingly/rector-laravel-1.2.2
+- Merge pull request [#792](https://github.com/guanguans/music-dl/issues/792) from guanguans/dependabot/composer/ergebnis/php-cs-fixer-config-6.36.0
+- Merge pull request [#791](https://github.com/guanguans/music-dl/issues/791) from guanguans/dependabot/composer/pestphp/pest-plugin-type-coverage-2.8.6
+- Merge pull request [#789](https://github.com/guanguans/music-dl/issues/789) from guanguans/dependabot/composer/phpstan/extension-installer-1.4.2
+- Merge pull request [#788](https://github.com/guanguans/music-dl/issues/788) from guanguans/dependabot/composer/rector/rector-1.2.4
+- Merge pull request [#787](https://github.com/guanguans/music-dl/issues/787) from guanguans/dependabot/composer/pestphp/pest-2.35.1
+- Merge pull request [#786](https://github.com/guanguans/music-dl/issues/786) from guanguans/dependabot/composer/laravel/prompts-0.1.25
+- Merge pull request [#785](https://github.com/guanguans/music-dl/issues/785) from guanguans/dependabot/composer/rector/swiss-knife-0.2.18
+- Merge pull request [#783](https://github.com/guanguans/music-dl/issues/783) from guanguans/dependabot/composer/guanguans/monorepo-builder-worker-1.4.3
+
+
 <a name="5.1.4"></a>
 ## [5.1.4] - 2024-08-16
 ### Feat
@@ -1084,7 +1121,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/5.1.4...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/5.2.0...HEAD
+[5.2.0]: https://github.com/guanguans/music-dl/compare/5.1.4...5.2.0
 [5.1.4]: https://github.com/guanguans/music-dl/compare/5.1.3...5.1.4
 [5.1.3]: https://github.com/guanguans/music-dl/compare/5.1.2...5.1.3
 [5.1.2]: https://github.com/guanguans/music-dl/compare/5.1.1...5.1.2
