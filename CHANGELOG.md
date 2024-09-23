@@ -8,6 +8,18 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="5.2.1"></a>
+## [5.2.1] - 2024-09-23
+### Docs
+- **readme:** update search driver options in documentation
+
+### Fix
+- **app:** remove unused MusicManager references
+
+### Test
+- **music:** add setDriver method and update tests
+
+
 <a name="5.2.0"></a>
 ## [5.2.0] - 2024-09-23
 ### Feat
@@ -1121,7 +1133,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/5.2.0...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/5.2.1...HEAD
+[5.2.1]: https://github.com/guanguans/music-dl/compare/5.2.0...5.2.1
 [5.2.0]: https://github.com/guanguans/music-dl/compare/5.1.4...5.2.0
 [5.1.4]: https://github.com/guanguans/music-dl/compare/5.1.3...5.1.4
 [5.1.3]: https://github.com/guanguans/music-dl/compare/5.1.2...5.1.3
