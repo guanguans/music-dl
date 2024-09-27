@@ -13,6 +13,7 @@ declare(strict_types=1);
  * @see https://github.com/guanguans/music-dl
  */
 
+use App\Music;
 use App\Support\Meting;
 use Tests\TestCase;
 
@@ -23,6 +24,7 @@ uses(TestCase::class)
     ->beforeEach(function (): void {
         clear_same_namespace();
         app()->extend(Meting::class, static fn (): Meting => mock_meting());
+        app()->extend(Music::class, static fn (Music $music): Music => $music->setMinCallMicroseconds(0 * 1000));
     })
     ->afterEach(function (): void {})
     ->afterAll(function (): void {})

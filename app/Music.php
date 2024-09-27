@@ -41,6 +41,7 @@ class Music implements Contracts\HttpClientFactory, Contracts\Music
         private ?Meting $meting = null,
         private ?Driver $driver = null,
         private ?Timebox $timebox = null,
+        private int $minCallMicroseconds = 3820 * 1000,
     ) {
         $this->meting ??= new Meting;
         $this->driver ??= Concurrency::driver();
@@ -74,7 +75,7 @@ class Music implements Contracts\HttpClientFactory, Contracts\Music
                 ])
                 ->values()
                 ->mapWithKeys(static fn (array $song, int $index): array => [$index + 1 => $song]),
-            3820 * 1000
+            $this->minCallMicroseconds
         );
     }
 
@@ -112,6 +113,13 @@ class Music implements Contracts\HttpClientFactory, Contracts\Music
     public function setDriver(Driver $driver): self
     {
         $this->driver = $driver;
+
+        return $this;
+    }
+
+    public function setMinCallMicroseconds(int $minCallMicroseconds): self
+    {
+        $this->minCallMicroseconds = $minCallMicroseconds;
 
         return $this;
     }
