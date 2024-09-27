@@ -22,7 +22,6 @@ use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Console\Isolatable;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
-use Laravel\Prompts;
 use LaravelZero\Framework\Commands\Command;
 use SebastianBergmann\Timer\ResourceUsageFormatter;
 use SebastianBergmann\Timer\Timer;
@@ -30,6 +29,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use function Laravel\Prompts\confirm;
 use function Laravel\Prompts\error;
+use function Laravel\Prompts\info;
 use function Laravel\Prompts\multiselect;
 use function Laravel\Prompts\spin;
 use function Laravel\Prompts\table;
@@ -58,7 +58,7 @@ final class MusicCommand extends Command implements Isolatable
     {
         collect()
             ->unless($this->laravel->has('logo'), function (): void {
-                Prompts\info(config('app.logo'));
+                info(config('app.logo'));
                 $this->laravel->instance('logo', config('app.logo'));
             })
             ->when(windows_os(), static fn () => warning(__('windows_hint')))
@@ -66,9 +66,10 @@ final class MusicCommand extends Command implements Isolatable
                 $keyword = str($this->argument('keyword') ?? text(
                     __('keyword_label'),
                     __('keyword_placeholder'),
-                    __('keyword_default'),
+                    $this->laravel->has('keyword') ? '' : __('keyword_default'),
                     __('keyword_label')
                 ))->trim()->toString();
+                $this->laravel->instance('keyword', $keyword);
             })
             ->pipe(function () use ($keyword, &$duration): Collection {
                 return spin(
@@ -89,7 +90,7 @@ final class MusicCommand extends Command implements Isolatable
             })
             ->tap(function (Collection $songs) use ($keyword, $duration): void {
                 table(__('table_header'), $this->sanitizes($songs, $keyword));
-                Prompts\info((new ResourceUsageFormatter)->resourceUsage($duration));
+                info((new ResourceUsageFormatter)->resourceUsage($duration));
             })
             ->tap(fn (): bool => confirm(__('confirm_label')) or $this->handle())
             ->tap(function (Collection $songs) use (&$selectedKeys, $keyword): void {
