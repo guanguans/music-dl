@@ -8,6 +8,20 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="5.2.2"></a>
+## [5.2.2] - 2024-09-27
+### Feat
+- **music:** add timebox functionality to search method
+
+### Refactor
+- **commands:** remove unnecessary docblocks
+- **music:** improve dependency injection and initialization
+- **music:** Implement Isolatable interface and improve visibility
+
+### Test
+- **music:** ensure fork concurrency is set by default
+
+
 <a name="5.2.1"></a>
 ## [5.2.1] - 2024-09-23
 ### Docs
@@ -1133,7 +1147,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/5.2.1...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/5.2.2...HEAD
+[5.2.2]: https://github.com/guanguans/music-dl/compare/5.2.1...5.2.2
 [5.2.1]: https://github.com/guanguans/music-dl/compare/5.2.0...5.2.1
 [5.2.0]: https://github.com/guanguans/music-dl/compare/5.1.4...5.2.0
 [5.1.4]: https://github.com/guanguans/music-dl/compare/5.1.3...5.1.4
