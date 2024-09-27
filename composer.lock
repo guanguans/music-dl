@@ -7974,16 +7974,16 @@
         },
         {
             "name": "ergebnis/php-cs-fixer-config",
-            "version": "6.36.0",
+            "version": "6.37.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/php-cs-fixer-config.git",
-                "reference": "59357a795fc8a28131935fe50f2e17afc2593399"
+                "reference": "741cf139c5889d58cae8c89fa693b73fc3d92ac1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/59357a795fc8a28131935fe50f2e17afc2593399",
-                "reference": "59357a795fc8a28131935fe50f2e17afc2593399",
+                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/741cf139c5889d58cae8c89fa693b73fc3d92ac1",
+                "reference": "741cf139c5889d58cae8c89fa693b73fc3d92ac1",
                 "shasum": ""
             },
             "require": {
@@ -7991,22 +7991,22 @@
                 "ext-filter": "*",
                 "friendsofphp/php-cs-fixer": "~3.64.0",
                 "kubawerlos/php-cs-fixer-custom-fixers": "~3.22.0",
-                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0"
+                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0"
             },
             "require-dev": {
                 "ergebnis/composer-normalize": "^2.43.0",
                 "ergebnis/data-provider": "^3.2.0",
                 "ergebnis/license": "^2.4.0",
-                "ergebnis/phpunit-slow-test-detector": "^2.15.0",
+                "ergebnis/phpunit-slow-test-detector": "^2.15.1",
                 "ergebnis/rector-rules": "~1.0.1",
                 "fakerphp/faker": "^1.23.1",
                 "infection/infection": "~0.26.6",
                 "phpunit/phpunit": "^9.6.19",
                 "psalm/plugin-phpunit": "~0.19.0",
-                "rector/rector": "^1.2.4",
+                "rector/rector": "^1.2.5",
                 "symfony/filesystem": "^5.0.0 || ^6.0.0",
                 "symfony/process": "^5.0.0 || ^6.0.0",
-                "vimeo/psalm": "^5.25.0"
+                "vimeo/psalm": "^5.26.1"
             },
             "type": "library",
             "extra": {
@@ -8038,7 +8038,7 @@
                 "security": "https://github.com/ergebnis/php-cs-fixer-config/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/php-cs-fixer-config"
             },
-            "time": "2024-09-02T11:45:42+00:00"
+            "time": "2024-09-27T15:41:26+00:00"
         },
         {
             "name": "erickskrauch/php-cs-fixer-custom-fixers",
