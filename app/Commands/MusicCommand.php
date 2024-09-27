@@ -17,6 +17,7 @@ namespace App\Commands;
 
 use App\Concerns\Hydrator;
 use App\Contracts\Music as MusicContract;
+use App\Facades\Music;
 use App\Support\Utils;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Console\Isolatable;
@@ -139,7 +140,7 @@ final class MusicCommand extends Command implements Isolatable
     protected function initialize(InputInterface $input, OutputInterface $output): void
     {
         $this->option('driver') and config()->set('concurrency.default', $this->option('driver'));
-        $this->music = $this->laravel->make(MusicContract::class);
+        $this->music = Music::getFacadeRoot();
         $this->input->setOption('dir', $this->option('dir') ?: Utils::defaultSavedDir());
         $this->option('lang') and config()->set('app.locale', $this->option('lang'));
         File::ensureDirectoryExists($this->option('dir'));

@@ -38,14 +38,12 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
     use Localizable;
 
     public function __construct(
-        private ?Meting $meting = null,
+        private readonly Meting $meting = new Meting,
         private ?Driver $driver = null,
-        private ?Timebox $timebox = null,
+        private readonly Timebox $timebox = new Timebox,
         private int $minCallMicroseconds = 3820 * 1000,
     ) {
-        $this->meting ??= new Meting;
         $this->driver ??= Concurrency::driver();
-        $this->timebox ??= new Timebox;
     }
 
     /**
