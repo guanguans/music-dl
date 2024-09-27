@@ -18,7 +18,11 @@ use App\Support\Meting;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Contracts\Concurrency\Driver;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Traits\Conditionable;
+use Illuminate\Support\Traits\Dumpable;
+use Illuminate\Support\Traits\Localizable;
 use Illuminate\Support\Traits\Macroable;
+use Illuminate\Support\Traits\Tappable;
 use Laravel\Prompts\Progress;
 use function Laravel\Prompts\progress;
 
@@ -26,6 +30,10 @@ class Music implements Contracts\HttpClientFactory, Contracts\Music
 {
     use HttpClientFactory;
     use Macroable;
+    use Dumpable;
+    use Conditionable;
+    use Tappable;
+    use Localizable;
 
     public function __construct(private Meting $meting, private Driver $driver)
     {
@@ -37,19 +45,15 @@ class Music implements Contracts\HttpClientFactory, Contracts\Music
      */
     public function search(string $keyword, array $sources = []): Collection
     {
-        return collect($this->ensureWithUrls(
-            collect($sources)
-                ->map(fn (string $source): array => json_decode(
-                    (string) $this->meting->site($source)->search($keyword),
-                    true,
-                    512,
-                    \JSON_THROW_ON_ERROR
-                ))
-                ->collapse()
-                ->all()
-        ))
-            ->filter()
-            ->filter(static fn (array $song): bool => !empty($song['url']))
+        return collect($sources)
+            ->map(fn (string $source): array => json_decode(
+                (string) $this->meting->site($source)->search($keyword),
+                true,
+                512,
+                \JSON_THROW_ON_ERROR
+            ))
+            ->collapse()
+            ->pipe(fn (Collection $songs): Collection => $this->ensureWithUrls($songs))
             ->sortBy([
                 ['name', 'asc'],
                 ['artist', 'asc'],
@@ -100,32 +104,17 @@ class Music implements Contracts\HttpClientFactory, Contracts\Music
         return $this;
     }
 
-    private function ensureWithUrls(array $withoutUrlSongs): array
+    private function ensureWithUrls(Collection $songs): Collection
     {
-        return $this->driver->run(array_map(
-            fn (array $withoutUrlSong): callable => fn (): array => $this->ensureWithUrl($withoutUrlSong),
-            $withoutUrlSongs
-        ));
-    }
-
-    /**
-     * @throws \JsonException
-     */
-    private function ensureWithUrl(array $withoutUrlSong): array
-    {
-        return $withoutUrlSong + $this->requestUrl($withoutUrlSong);
-    }
-
-    /**
-     * @throws \JsonException
-     */
-    private function requestUrl(array $song): array
-    {
-        return (array) json_decode(
-            (string) $this->meting->site($song['source'])->url($song['url_id']),
-            true,
-            512,
-            \JSON_THROW_ON_ERROR
-        );
+        return collect($this->driver->run(
+            $songs->map(fn (array $song): callable => fn (): array => $song + (array) json_decode(
+                (string) $this->meting->site($song['source'])->url($song['url_id']),
+                true,
+                512,
+                \JSON_THROW_ON_ERROR
+            ))->all()
+        ))
+            ->filter()
+            ->filter(static fn (array $song): bool => !empty($song['url']));
     }
 }

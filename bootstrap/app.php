@@ -25,7 +25,12 @@ use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 return Application::configure(basePath: \dirname(__DIR__))
-    ->booted(static function (Application $app): void {
+    ->registered(static function (Application $app): void {
+        if (class_exists(TinkerZeroServiceProvider::class) && !$app->isProduction()) {
+            $app->register(TinkerZeroServiceProvider::class);
+        }
+    })
+    ->booting(static function (Application $app): void {
         $app->singleton(
             Music::class,
             static fn (Application $app): Music => new Music(new Meting, Concurrency::driver())
@@ -40,11 +45,6 @@ return Application::configure(basePath: \dirname(__DIR__))
             OutputStyle::class,
             static fn (): OutputStyle => new OutputStyle(new ArgvInput, new ConsoleOutput)
         );
-    })
-    ->booted(static function (Application $app): void {
-        if (class_exists(TinkerZeroServiceProvider::class) && !$app->isProduction()) {
-            $app->register(TinkerZeroServiceProvider::class);
-        }
     })
     ->booted(static function (Application $app): void {
         $app->extend(LogManager::class, static function (LoggerInterface $logger, Application $application) {

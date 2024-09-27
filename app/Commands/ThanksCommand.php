@@ -25,16 +25,9 @@ final class ThanksCommand extends Command
         '  - Star or contribute to Music DL:',
         '    <options=bold>https://github.com/guanguans/music-dl</>',
     ];
-
-    /** The signature of the command. */
     protected $signature = 'thanks';
-
-    /** The description of the command. */
     protected $description = 'Thanks for using this tool.';
 
-    /**
-     * Execute the console command.
-     */
     public function handle(): void
     {
         if ('yes' === $this->ask('Can you quickly <options=bold>star our GitHub repository</>? 🙏🏻', 'yes')) {
@@ -50,8 +43,6 @@ final class ThanksCommand extends Command
     }
 
     /**
-     * Define the command's schedule.
-     *
      * @noinspection PhpMissingParentCallCommonInspection
      */
     #[\Override]

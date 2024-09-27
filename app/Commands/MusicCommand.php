@@ -39,8 +39,6 @@ use function Laravel\Prompts\warning;
 final class MusicCommand extends Command implements Isolatable
 {
     use Hydrator;
-
-    /** The signature of the command. */
     protected $signature = <<<'SIGNATURE'
         music
         {keyword? : Search keyword for music}
@@ -50,14 +48,10 @@ final class MusicCommand extends Command implements Isolatable
         {--no-continue : Specify whether to recall the command after the download is complete}
         {--sources=* : Specify the music sources(tencent、netease、kugou)}
         SIGNATURE;
-
-    /** The description of the command. */
     protected $description = 'Search and download music';
     private MusicContract $music;
 
     /**
-     * Execute the console command.
-     *
      * @noinspection PhpVoidFunctionResultUsedInspection
      */
     public function handle(): void
@@ -127,8 +121,6 @@ final class MusicCommand extends Command implements Isolatable
     }
 
     /**
-     * Define the command's schedule.
-     *
      * @noinspection PhpMissingParentCallCommonInspection
      */
     #[\Override]

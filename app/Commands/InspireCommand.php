@@ -19,15 +19,9 @@ use LaravelZero\Framework\Commands\Command;
 
 final class InspireCommand extends Command
 {
-    /** The signature of the command. */
     protected $signature = 'inspire {name=Artisan}';
-
-    /** The description of the command. */
     protected $description = 'Display an inspiring quote';
 
-    /**
-     * Execute the console command.
-     */
     public function handle(): void
     {
         $this->info(config('app.logo'));
@@ -35,8 +29,6 @@ final class InspireCommand extends Command
     }
 
     /**
-     * Define the command's schedule.
-     *
      * @noinspection PhpMissingParentCallCommonInspection
      */
     #[\Override]

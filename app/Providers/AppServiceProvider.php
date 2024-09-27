@@ -22,16 +22,10 @@ final class AppServiceProvider extends ServiceProvider
         Conditionable::when as whenever;
     }
 
-    /**
-     * All of the container singletons that should be registered.
-     *
-     * @var array<class-string|int, class-string>
-     */
+    /** @var array<class-string|int, class-string> */
     public array $singletons = [];
 
     /**
-     * Register any application services.
-     *
      * @noinspection PhpMissingParentCallCommonInspection
      */
     #[\Override]
@@ -48,9 +42,6 @@ final class AppServiceProvider extends ServiceProvider
         // });
     }
 
-    /**
-     * Bootstrap any application services.
-     */
     public function boot(): void
     {
         // ...

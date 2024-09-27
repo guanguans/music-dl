@@ -19,8 +19,5 @@ interface Music
 {
     public function search(string $keyword, array $sources = []): Collection;
 
-    /**
-     * @throws \Throwable
-     */
     public function download(string $url, string $savedPath): void;
 }
