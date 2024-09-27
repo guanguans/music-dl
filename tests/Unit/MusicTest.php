@@ -25,9 +25,9 @@ it('can search songs', function (Collection $songs): void {
     //
     //     return $mockMusic->makePartial();
     // });
+    config()->set('concurrency.default', 'fork');
     expect(app(Music::class))->search('腰乐队', config('app.sources'))->toBeInstanceOf(Collection::class);
-})->group(__DIR__, __FILE__)->with('songs');
-
+})->group(__DIR__, __FILE__)->with('songs')->skipOnWindows();
 it('will throw exception when download failed', function (): void {
     try {
         app(Music::class)->download('foo.mp3', downloads_path('foo.mp3'));
