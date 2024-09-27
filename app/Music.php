@@ -27,7 +27,7 @@ class Music implements Contracts\HttpClientFactory, Contracts\Music
     use HttpClientFactory;
     use Macroable;
 
-    public function __construct(protected Meting $meting, protected Driver $driver)
+    public function __construct(private Meting $meting, private Driver $driver)
     {
         $this->meting = $meting->format();
     }
@@ -37,17 +37,17 @@ class Music implements Contracts\HttpClientFactory, Contracts\Music
      */
     public function search(string $keyword, array $sources = []): Collection
     {
-        $withoutUrlSongs = collect($sources)
-            ->map(fn (string $source): array => json_decode(
-                (string) $this->meting->site($source)->search($keyword),
-                true,
-                512,
-                \JSON_THROW_ON_ERROR
-            ))
-            ->collapse()
-            ->all();
-
-        return collect($this->ensureWithUrls($withoutUrlSongs))
+        return collect($this->ensureWithUrls(
+            collect($sources)
+                ->map(fn (string $source): array => json_decode(
+                    (string) $this->meting->site($source)->search($keyword),
+                    true,
+                    512,
+                    \JSON_THROW_ON_ERROR
+                ))
+                ->collapse()
+                ->all()
+        ))
             ->filter()
             ->filter(static fn (array $song): bool => !empty($song['url']))
             ->sortBy([
@@ -100,7 +100,7 @@ class Music implements Contracts\HttpClientFactory, Contracts\Music
         return $this;
     }
 
-    protected function ensureWithUrls(array $withoutUrlSongs): array
+    private function ensureWithUrls(array $withoutUrlSongs): array
     {
         return $this->driver->run(array_map(
             fn (array $withoutUrlSong): callable => fn (): array => $this->ensureWithUrl($withoutUrlSong),
@@ -111,7 +111,7 @@ class Music implements Contracts\HttpClientFactory, Contracts\Music
     /**
      * @throws \JsonException
      */
-    protected function ensureWithUrl(array $withoutUrlSong): array
+    private function ensureWithUrl(array $withoutUrlSong): array
     {
         return $withoutUrlSong + $this->requestUrl($withoutUrlSong);
     }
@@ -119,7 +119,7 @@ class Music implements Contracts\HttpClientFactory, Contracts\Music
     /**
      * @throws \JsonException
      */
-    protected function requestUrl(array $song): array
+    private function requestUrl(array $song): array
     {
         return (array) json_decode(
             (string) $this->meting->site($song['source'])->url($song['url_id']),

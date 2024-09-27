@@ -14,12 +14,15 @@ declare(strict_types=1);
 use App\Contracts\Music as MusicContract;
 use App\Music;
 use App\Support\Meting;
+use Illuminate\Console\OutputStyle;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Log\LogManager;
 use Illuminate\Support\Facades\Concurrency;
 use Intonate\TinkerZero\TinkerZeroServiceProvider;
 use LaravelZero\Framework\Application;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\Console\Input\ArgvInput;
+use Symfony\Component\Console\Output\ConsoleOutput;
 
 return Application::configure(basePath: \dirname(__DIR__))
     ->booted(static function (Application $app): void {
@@ -31,6 +34,11 @@ return Application::configure(basePath: \dirname(__DIR__))
         $app->bind(
             MusicContract::class,
             static fn (Application $app): MusicContract => $app->make(Music::class)
+        );
+
+        $app->singletonIf(
+            OutputStyle::class,
+            static fn (): OutputStyle => new OutputStyle(new ArgvInput, new ConsoleOutput)
         );
     })
     ->booted(static function (Application $app): void {

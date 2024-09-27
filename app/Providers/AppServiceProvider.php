@@ -13,12 +13,8 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use Illuminate\Console\OutputStyle;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Traits\Conditionable;
-use LaravelZero\Framework\Application;
-use Symfony\Component\Console\Input\ArgvInput;
-use Symfony\Component\Console\Output\ConsoleOutput;
 
 final class AppServiceProvider extends ServiceProvider
 {
@@ -50,11 +46,6 @@ final class AppServiceProvider extends ServiceProvider
         //     $this->app->register(\LaravelLang\Locales\ServiceProvider::class);
         //     $this->app->register(\LaravelLang\Publisher\ServiceProvider::class);
         // });
-
-        $this->app->singletonIf(
-            OutputStyle::class,
-            static fn (): OutputStyle => new OutputStyle(new ArgvInput, new ConsoleOutput)
-        );
     }
 
     /**

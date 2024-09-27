@@ -19,6 +19,7 @@ use App\Concerns\Hydrator;
 use App\Contracts\Music as MusicContract;
 use App\Support\Utils;
 use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Contracts\Console\Isolatable;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
 use Laravel\Prompts;
@@ -35,7 +36,7 @@ use function Laravel\Prompts\table;
 use function Laravel\Prompts\text;
 use function Laravel\Prompts\warning;
 
-final class MusicCommand extends Command
+final class MusicCommand extends Command implements Isolatable
 {
     use Hydrator;
 
@@ -56,6 +57,8 @@ final class MusicCommand extends Command
 
     /**
      * Execute the console command.
+     *
+     * @noinspection PhpVoidFunctionResultUsedInspection
      */
     public function handle(): void
     {
