@@ -8,6 +8,16 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="5.2.3"></a>
+## [5.2.3] - 2024-09-27
+### Feat
+- 修改MusicCommand.php以支持动态关键词默认值
+- **Music.php:** 移除了Music类中的meting格式化方法
+
+### Refactor
+- **music:** make minimum call time configurable
+
+
 <a name="5.2.2"></a>
 ## [5.2.2] - 2024-09-27
 ### Feat
@@ -1147,7 +1157,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/5.2.2...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/5.2.3...HEAD
+[5.2.3]: https://github.com/guanguans/music-dl/compare/5.2.2...5.2.3
 [5.2.2]: https://github.com/guanguans/music-dl/compare/5.2.1...5.2.2
 [5.2.1]: https://github.com/guanguans/music-dl/compare/5.2.0...5.2.1
 [5.2.0]: https://github.com/guanguans/music-dl/compare/5.1.4...5.2.0
