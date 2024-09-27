@@ -35,6 +35,7 @@
     "require-dev": {
         "bamarni/composer-bin-plugin": "^1.8",
         "brainmaestro/composer-git-hooks": "^3.0",
+        "dg/bypass-finals": "^1.8",
         "driftingly/rector-laravel": "^1.2",
         "ergebnis/composer-normalize": "^2.43",
         "ergebnis/license": "^2.4",
@@ -104,6 +105,13 @@
             "bin-links": true,
             "forward-command": true,
             "target-directory": "vendor-bin"
+        },
+        "cleaner-ignore": {
+            "ergebnis/composer-normalize": true,
+            "ergebnis/license": true,
+            "foo/bar": [
+                "baz*"
+            ]
         },
         "hooks": {
             "post-merge": [

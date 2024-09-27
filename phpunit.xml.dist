@@ -25,4 +25,7 @@
       <file>app/Support/helpers.php</file>
     </exclude>
   </source>
+  <!--<extensions>
+    <bootstrap class="DG\BypassFinals\PHPUnitExtension"/>
+  </extensions>-->
 </phpunit>

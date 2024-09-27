@@ -13,12 +13,12 @@ declare(strict_types=1);
 
 namespace App\Support;
 
-class Meting extends \Metowolf\Meting
+final class Meting extends \Metowolf\Meting
 {
     /** @noinspection ClassOverridesFieldOfSuperClassInspection */
     protected array $temp = [];
 
-    public function __construct($value = 'netease')
+    public function __construct(string $value = 'netease')
     {
         parent::__construct($value);
         $this->format();

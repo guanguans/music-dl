@@ -28,7 +28,7 @@ use Illuminate\Support\Traits\Tappable;
 use Laravel\Prompts\Progress;
 use function Laravel\Prompts\progress;
 
-class Music implements Contracts\HttpClientFactory, Contracts\Music
+final class Music implements Contracts\HttpClientFactory, Contracts\Music
 {
     use HttpClientFactory;
     use Macroable;

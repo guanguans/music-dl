@@ -15,10 +15,21 @@ declare(strict_types=1);
 
 use App\Music;
 use App\Support\Meting;
+use DG\BypassFinals;
 use Tests\TestCase;
 
 uses(TestCase::class)
     ->beforeAll(function (): void {
+        BypassFinals::enable(bypassReadOnly: false);
+        BypassFinals::allowPaths([
+            \dirname(__DIR__).'/app/*',
+            // '*/app/*',
+        ]);
+        BypassFinals::denyPaths([
+            '*/vendor/*',
+        ]);
+        BypassFinals::setCacheDirectory(__DIR__.'/../build/bypass-finals');
+
         clear_same_namespace();
     })
     ->beforeEach(function (): void {
