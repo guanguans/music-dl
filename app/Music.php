@@ -18,6 +18,7 @@ use App\Support\Meting;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Contracts\Concurrency\Driver;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Timebox;
 use Illuminate\Support\Traits\Conditionable;
 use Illuminate\Support\Traits\Dumpable;
 use Illuminate\Support\Traits\Localizable;
@@ -35,35 +36,44 @@ class Music implements Contracts\HttpClientFactory, Contracts\Music
     use Tappable;
     use Localizable;
 
-    public function __construct(private Meting $meting, private Driver $driver)
-    {
+    public function __construct(
+        private Meting $meting,
+        private Driver $driver,
+        private ?Timebox $timebox = null,
+    ) {
         $this->meting = $meting->format();
+        $this->timebox = $timebox ?: new Timebox;
     }
 
     /**
      * @psalm-suppress NamedArgumentNotAllowed
+     *
+     * @throws \Throwable
      */
     public function search(string $keyword, array $sources = []): Collection
     {
-        return collect($sources)
-            ->map(fn (string $source): array => json_decode(
-                (string) $this->meting->site($source)->search($keyword),
-                true,
-                512,
-                \JSON_THROW_ON_ERROR
-            ))
-            ->collapse()
-            ->pipe(fn (Collection $songs): Collection => $this->ensureWithUrls($songs))
-            ->sortBy([
-                ['name', 'asc'],
-                ['artist', 'asc'],
-                ['size', 'desc'],
-                ['br', 'desc'],
-                ['album', 'asc'],
-                ['source', 'asc'],
-            ])
-            ->values()
-            ->mapWithKeys(static fn (array $song, int $index): array => [$index + 1 => $song]);
+        return $this->timebox->call(
+            fn (): Collection => collect($sources)
+                ->map(fn (string $source): array => json_decode(
+                    (string) $this->meting->site($source)->search($keyword),
+                    true,
+                    512,
+                    \JSON_THROW_ON_ERROR
+                ))
+                ->collapse()
+                ->pipe(fn (Collection $songs): Collection => $this->ensureWithUrls($songs))
+                ->sortBy([
+                    ['name', 'asc'],
+                    ['artist', 'asc'],
+                    ['size', 'desc'],
+                    ['br', 'desc'],
+                    ['album', 'asc'],
+                    ['source', 'asc'],
+                ])
+                ->values()
+                ->mapWithKeys(static fn (array $song, int $index): array => [$index + 1 => $song]),
+            6180 * 1000
+        );
     }
 
     /**
