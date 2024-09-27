@@ -17,4 +17,10 @@ class Meting extends \Metowolf\Meting
 {
     /** @noinspection ClassOverridesFieldOfSuperClassInspection */
     protected array $temp = [];
+
+    public function __construct($value = 'netease')
+    {
+        parent::__construct($value);
+        $this->format();
+    }
 }

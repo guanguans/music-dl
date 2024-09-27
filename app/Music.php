@@ -45,8 +45,6 @@ class Music implements Contracts\HttpClientFactory, Contracts\Music
         $this->meting ??= new Meting;
         $this->driver ??= Concurrency::driver();
         $this->timebox ??= new Timebox;
-
-        $this->meting->format();
     }
 
     /**
