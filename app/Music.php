@@ -18,6 +18,7 @@ use App\Support\Meting;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Contracts\Concurrency\Driver;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Concurrency;
 use Illuminate\Support\Timebox;
 use Illuminate\Support\Traits\Conditionable;
 use Illuminate\Support\Traits\Dumpable;
@@ -37,12 +38,15 @@ class Music implements Contracts\HttpClientFactory, Contracts\Music
     use Localizable;
 
     public function __construct(
-        private Meting $meting,
-        private Driver $driver,
+        private ?Meting $meting = null,
+        private ?Driver $driver = null,
         private ?Timebox $timebox = null,
     ) {
-        $this->meting = $meting->format();
-        $this->timebox = $timebox ?: new Timebox;
+        $this->meting ??= new Meting;
+        $this->driver ??= Concurrency::driver();
+        $this->timebox ??= new Timebox;
+
+        $this->meting->format();
     }
 
     /**
@@ -72,7 +76,7 @@ class Music implements Contracts\HttpClientFactory, Contracts\Music
                 ])
                 ->values()
                 ->mapWithKeys(static fn (array $song, int $index): array => [$index + 1 => $song]),
-            6180 * 1000
+            3820 * 1000
         );
     }
 

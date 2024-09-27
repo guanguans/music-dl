@@ -13,11 +13,9 @@ declare(strict_types=1);
 
 use App\Contracts\Music as MusicContract;
 use App\Music;
-use App\Support\Meting;
 use Illuminate\Console\OutputStyle;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Log\LogManager;
-use Illuminate\Support\Facades\Concurrency;
 use Intonate\TinkerZero\TinkerZeroServiceProvider;
 use LaravelZero\Framework\Application;
 use Psr\Log\LoggerInterface;
@@ -31,15 +29,8 @@ return Application::configure(basePath: \dirname(__DIR__))
         }
     })
     ->booting(static function (Application $app): void {
-        $app->singleton(
-            Music::class,
-            static fn (Application $app): Music => new Music(new Meting, Concurrency::driver())
-        );
-
-        $app->bind(
-            MusicContract::class,
-            static fn (Application $app): MusicContract => $app->make(Music::class)
-        );
+        $app->singleton(Music::class);
+        $app->bind(MusicContract::class, Music::class);
 
         $app->singletonIf(
             OutputStyle::class,

@@ -22,9 +22,6 @@ final class AppServiceProvider extends ServiceProvider
         Conditionable::when as whenever;
     }
 
-    /** @var array<class-string|int, class-string> */
-    public array $singletons = [];
-
     /**
      * @noinspection PhpMissingParentCallCommonInspection
      */
