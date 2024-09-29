@@ -8,6 +8,27 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="5.2.4"></a>
+## [5.2.4] - 2024-09-29
+### Docs
+- **music:** add setMinCallMicroseconds method to facade
+
+### Feat
+- **HttpClientFactory:** add setHttpClient method
+- **music:** refactor Music class and remove InvalidArgumentException
+
+### Perf
+- **Music:** Refactor constructor for improved initialization
+
+### Test
+- **commands:** update assertion methods to assertOk
+- **tests:** rename ArchTest and update Pest usage paths
+
+### Pull Requests
+- Merge pull request [#804](https://github.com/guanguans/music-dl/issues/804) from guanguans/dependabot/composer/ergebnis/license-2.5.0
+- Merge pull request [#803](https://github.com/guanguans/music-dl/issues/803) from guanguans/dependabot/composer/ergebnis/php-cs-fixer-config-6.37.0
+
+
 <a name="5.2.3"></a>
 ## [5.2.3] - 2024-09-27
 ### Feat
@@ -1157,7 +1178,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/5.2.3...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/5.2.4...HEAD
+[5.2.4]: https://github.com/guanguans/music-dl/compare/5.2.3...5.2.4
 [5.2.3]: https://github.com/guanguans/music-dl/compare/5.2.2...5.2.3
 [5.2.2]: https://github.com/guanguans/music-dl/compare/5.2.1...5.2.2
 [5.2.1]: https://github.com/guanguans/music-dl/compare/5.2.0...5.2.1
