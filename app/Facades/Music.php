@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static void mixin(object $mixin, bool $replace = true)
  * @method static \Illuminate\Support\Collection search(string $keyword, array $sources = [])
  * @method static \App\Music setDriver(\Illuminate\Contracts\Concurrency\Driver $driver)
+ * @method static \App\Music setMeting(\App\Support\Meting $meting)
  * @method static \App\Music setMinCallMicroseconds(int $minCallMicroseconds)
  * @method static \Illuminate\Support\HigherOrderTapProxy|\App\Music tap(callable|null $callback = null)
  * @method static \App\Music|mixed unless(\Closure|mixed|null $value = null, callable|null $callback = null, callable|null $default = null)

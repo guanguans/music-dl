@@ -1,6 +1,8 @@
 <?php
 
+/** @noinspection PhpUnhandledExceptionInspection */
 /** @noinspection AnonymousFunctionStaticInspection */
+/** @noinspection StaticClosureCanBeUsedInspection */
 
 declare(strict_types=1);
 
@@ -45,9 +47,10 @@ uses(TestCase::class)
     ->afterEach(function (): void {})
     ->afterAll(function (): void {})
     ->in(
-        __DIR__,
-        // __DIR__.'/Feature',
-        // __DIR__.'/Unit'
+        // __DIR__,
+        __DIR__.'/Arch',
+        __DIR__.'/Feature',
+        __DIR__.'/Unit'
     );
 
 /*

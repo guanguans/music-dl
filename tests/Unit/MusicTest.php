@@ -1,5 +1,9 @@
 <?php
 
+/** @noinspection PhpUnhandledExceptionInspection */
+/** @noinspection AnonymousFunctionStaticInspection */
+/** @noinspection StaticClosureCanBeUsedInspection */
+
 declare(strict_types=1);
 
 /**
@@ -17,9 +21,11 @@ use App\Music;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\TransferException;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Concurrency;
 
 it('can search songs', function (): void {
-    expect(app(Music::class))->search('腰乐队', config('app.sources'))->toBeInstanceOf(Collection::class);
+    expect(app(Music::class)->setDriver(Concurrency::driver(config('concurrency.default'))))
+        ->search('腰乐队', config('app.sources'))->toBeInstanceOf(Collection::class);
 })->group(__DIR__, __FILE__);
 it('will throw exception when download failed', function (): void {
     try {

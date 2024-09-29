@@ -1,5 +1,9 @@
 <?php
 
+/** @noinspection PhpUnhandledExceptionInspection */
+/** @noinspection AnonymousFunctionStaticInspection */
+/** @noinspection StaticClosureCanBeUsedInspection */
+
 declare(strict_types=1);
 
 /**
