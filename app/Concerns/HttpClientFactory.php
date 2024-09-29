@@ -19,6 +19,11 @@ trait HttpClientFactory
 {
     protected static ?Client $httpClient = null;
 
+    public static function setHttpClient(?Client $httpClient): void
+    {
+        self::$httpClient = $httpClient;
+    }
+
     public function createHttpClient(array $config = []): Client
     {
         if (!self::$httpClient instanceof Client || $config) {

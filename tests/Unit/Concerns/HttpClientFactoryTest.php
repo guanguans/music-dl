@@ -18,12 +18,9 @@ declare(strict_types=1);
 namespace Tests\Unit\Concerns;
 
 use App\Concerns\HttpClientFactory;
-use GuzzleHttp\Client;
 
 uses(HttpClientFactory::class);
 
 it('can create http client', function (): void {
-    expect($this)
-        ->createHttpClient()->toBeInstanceOf(Client::class)
-        ->createHttpClient()->toBeInstanceOf(Client::class);
+    expect($this->createHttpClient())->toBe($this->createHttpClient());
 })->group(__DIR__, __FILE__);

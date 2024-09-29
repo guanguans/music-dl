@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 // use App\Support\Rectors\RenameToPsrNameRector;
+use App\Music;
 use Rector\CodeQuality\Rector\If_\ExplicitBoolCompareRector;
 use Rector\CodeQuality\Rector\LogicalAnd\LogicalToBooleanRector;
 use Rector\CodingStyle\Rector\ArrowFunction\StaticArrowFunctionRector;
@@ -28,6 +29,8 @@ use Rector\Renaming\Rector\Name\RenameClassRector;
 use Rector\Renaming\Rector\StaticCall\RenameStaticMethodRector;
 use Rector\Renaming\Rector\String_\RenameStringRector;
 use Rector\Set\ValueObject\DowngradeLevelSetList;
+use Rector\Transform\Rector\MethodCall\MethodCallToStaticCallRector;
+use Rector\Transform\ValueObject\MethodCallToStaticCall;
 use RectorLaravel\Rector\MethodCall\UseComponentPropertyWithinCommandsRector;
 use RectorLaravel\Set\LaravelSetList;
 
@@ -175,6 +178,9 @@ return RectorConfig::configure()
     ->withConfiguredRule(RenameStaticMethodRector::class, [
     ])
     ->withConfiguredRule(RenameStringRector::class, [
+    ])
+    ->withConfiguredRule(MethodCallToStaticCallRector::class, [
+        // new MethodCallToStaticCall(Music::class, 'createHttpClient', Music::class, 'createHttpClient'),
     ])
     ->withSkip([
         '**/__snapshots__/*',
