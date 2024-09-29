@@ -38,7 +38,7 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
     use Localizable;
 
     public function __construct(
-        private readonly Meting $meting = new Meting,
+        private Meting $meting = new Meting,
         private ?Driver $driver = null,
         private readonly Timebox $timebox = new Timebox,
         private int $minCallMicroseconds = 3820 * 1000,
@@ -106,6 +106,13 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
                 }
             },
         ]);
+    }
+
+    public function setMeting(Meting $meting): self
+    {
+        $this->meting = $meting;
+
+        return $this;
     }
 
     public function setDriver(Driver $driver): self

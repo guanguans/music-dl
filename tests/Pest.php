@@ -35,7 +35,12 @@ uses(TestCase::class)
     ->beforeEach(function (): void {
         clear_same_namespace();
         app()->extend(Meting::class, static fn (): Meting => mock_meting());
-        app()->extend(Music::class, static fn (Music $music): Music => $music->setMinCallMicroseconds(0 * 1000));
+        app()->extend(
+            Music::class,
+            static fn (Music $music): Music => $music
+                ->setMeting(mock_meting())
+                ->setMinCallMicroseconds(0 * 1000)
+        );
     })
     ->afterEach(function (): void {})
     ->afterAll(function (): void {})
