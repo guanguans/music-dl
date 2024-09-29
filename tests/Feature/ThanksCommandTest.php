@@ -20,5 +20,5 @@ it('can thanks for using this tool', function (): void {
 
     $this->artisan(ThanksCommand::class)
         ->expectsQuestion('Can you quickly <options=bold>star our GitHub repository</>? 🙏🏻', 'yes')
-        ->assertSuccessful();
+        ->assertOk();
 })->group(__DIR__, __FILE__);

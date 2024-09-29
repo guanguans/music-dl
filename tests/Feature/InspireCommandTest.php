@@ -16,5 +16,5 @@ namespace Tests\Feature;
 use App\Commands\InspireCommand;
 
 it('can inspire Artisan', function (): void {
-    $this->artisan(InspireCommand::class, ['name' => 'Artisan'])->assertSuccessful();
+    $this->artisan(InspireCommand::class, ['name' => 'Artisan'])->assertOk();
 })->group(__DIR__, __FILE__);

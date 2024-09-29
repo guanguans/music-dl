@@ -42,7 +42,7 @@ it('can search and download music', function (Collection $songs): void {
         ->expectsChoice(
             __('select_label'),
             [__('all_songs')],
-            $this->hydrates(collect($songs), $keyword)->all()
+            $this->hydrates($songs, $keyword)->all()
         )
         ->assertSuccessful();
 })->group(__DIR__, __FILE__)->with('songs');
