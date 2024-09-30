@@ -18,11 +18,7 @@ declare(strict_types=1);
 namespace Tests\Unit;
 
 use App\Music;
-use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ConnectException;
-use GuzzleHttp\Handler\MockHandler;
-use GuzzleHttp\HandlerStack;
-use GuzzleHttp\Psr7\Response;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Concurrency;
 
@@ -32,16 +28,10 @@ it('can search songs', function (): void {
 })->group(__DIR__, __FILE__);
 
 it('will throw ConnectException when download failed', function (): void {
-    Music::setHttpClient(null);
-    app(Music::class)->download('foo.mp3', downloads_path('foo.mp3'));
+    app(Music::class)->setHttpClient(null)->download('foo.mp3', downloads_path('foo.mp3'));
 })->group(__DIR__, __FILE__)->throws(ConnectException::class);
 
 it('will download song', function (): void {
-    Music::setHttpClient(new Client([
-        'handler' => HandlerStack::create(new MockHandler([
-            new Response(body: 'foo'),
-        ])),
-    ]));
     expect(app(Music::class))
         ->download('foo.mp3', $path = downloads_path('foo.mp3'))->toBeNull()
         ->and($path)->toBeFile();

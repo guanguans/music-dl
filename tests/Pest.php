@@ -18,6 +18,10 @@ declare(strict_types=1);
 use App\Music;
 use App\Support\Meting;
 use DG\BypassFinals;
+use GuzzleHttp\Client;
+use GuzzleHttp\Handler\MockHandler;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Psr7\Response;
 use Tests\TestCase;
 
 uses(TestCase::class)
@@ -40,6 +44,11 @@ uses(TestCase::class)
         app()->extend(
             Music::class,
             static fn (Music $music): Music => $music
+                ->setHttpClient(new Client([
+                    'handler' => HandlerStack::create(new MockHandler([
+                        new Response(body: 'foo'),
+                    ])),
+                ]))
                 ->setMeting(mock_meting())
                 ->setMinCallMicroseconds(0 * 1000)
         );
