@@ -8,6 +8,18 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="5.2.5"></a>
+## [5.2.5] - 2024-09-30
+### Feat
+- 更新了league/flysystem、league/flysystem-local和nikic/php-parser依赖版本
+
+### Refactor
+- **HttpClientFactory:** change setHttpClient to instance method
+
+### Test
+- **Music:** Mock HTTP client for music downloads
+
+
 <a name="5.2.4"></a>
 ## [5.2.4] - 2024-09-29
 ### Docs
@@ -1178,7 +1190,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/5.2.4...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/5.2.5...HEAD
+[5.2.5]: https://github.com/guanguans/music-dl/compare/5.2.4...5.2.5
 [5.2.4]: https://github.com/guanguans/music-dl/compare/5.2.3...5.2.4
 [5.2.3]: https://github.com/guanguans/music-dl/compare/5.2.2...5.2.3
 [5.2.2]: https://github.com/guanguans/music-dl/compare/5.2.1...5.2.2
