@@ -37,7 +37,7 @@
         "brainmaestro/composer-git-hooks": "^3.0",
         "dg/bypass-finals": "^1.8",
         "driftingly/rector-laravel": "^1.2",
-        "ergebnis/composer-normalize": "^2.43",
+        "ergebnis/composer-normalize": "^2.44",
         "ergebnis/license": "^2.5",
         "ergebnis/php-cs-fixer-config": "^6.37",
         "guanguans/ai-commit": "dev-main",
