@@ -49,7 +49,7 @@ final class Utils
             '%s%s - %s.%s',
             $savedDir,
             implode(',', $song['artist']),
-            $song['name'],
+            preg_replace('/[\\\|\/|\:|\*|\?|\"|\<|\>|\|| ]+/', ' ', $song['name']),
             preg_replace('/\?.*/', '', pathinfo((string) $song['url'], \PATHINFO_EXTENSION)) ?: $defaultExt
         );
     }
