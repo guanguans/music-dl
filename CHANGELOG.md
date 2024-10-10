@@ -8,6 +8,12 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="5.2.9"></a>
+## [5.2.9] - 2024-10-10
+### Refactor
+- **commands:** add Rescuer trait to MusicCommand
+
+
 <a name="5.2.8"></a>
 ## [5.2.8] - 2024-10-10
 ### Fix
@@ -1226,7 +1232,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/5.2.8...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/5.2.9...HEAD
+[5.2.9]: https://github.com/guanguans/music-dl/compare/5.2.8...5.2.9
 [5.2.8]: https://github.com/guanguans/music-dl/compare/5.2.7...5.2.8
 [5.2.7]: https://github.com/guanguans/music-dl/compare/5.2.6...5.2.7
 [5.2.6]: https://github.com/guanguans/music-dl/compare/5.2.5...5.2.6
