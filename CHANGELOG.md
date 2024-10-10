@@ -8,6 +8,12 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="5.2.7"></a>
+## [5.2.7] - 2024-10-10
+### Fix
+- **Utils:** update directory separator handling
+
+
 <a name="5.2.6"></a>
 ## [5.2.6] - 2024-10-10
 ### Fix
@@ -1207,7 +1213,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/5.2.6...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/5.2.7...HEAD
+[5.2.7]: https://github.com/guanguans/music-dl/compare/5.2.6...5.2.7
 [5.2.6]: https://github.com/guanguans/music-dl/compare/5.2.5...5.2.6
 [5.2.5]: https://github.com/guanguans/music-dl/compare/5.2.4...5.2.5
 [5.2.4]: https://github.com/guanguans/music-dl/compare/5.2.3...5.2.4
