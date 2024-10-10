@@ -49,15 +49,12 @@ final class Utils
             '%s%s.%s',
             $savedDir,
             str(\sprintf('%s - %s', implode(',', $song['artist']), $song['name']))
-                ->replace(
-                    match (\PHP_OS_FAMILY) {
-                        'Windows' => ['<', '>', '/', '\\', '|', ':', '"', '?', '*'],
-                        'Darwin' => [':'],
-                        'Linux' => ['/'],
-                        default => [\DIRECTORY_SEPARATOR],
-                    },
-                    '',
-                )
+                ->remove(match (\PHP_OS_FAMILY) {
+                    'Windows' => ['<', '>', '/', '\\', '|', ':', '"', '?', '*'],
+                    'Darwin' => [':'],
+                    'Linux' => ['/'],
+                    default => [\DIRECTORY_SEPARATOR],
+                })
                 ->ltrim('.')
                 ->toString(),
             preg_replace('/\?.*/', '', pathinfo((string) $song['url'], \PATHINFO_EXTENSION)) ?: $defaultExt
