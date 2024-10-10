@@ -16,12 +16,12 @@ declare(strict_types=1);
 namespace App\Commands;
 
 use App\Concerns\Hydrator;
+use App\Concerns\Rescuer;
 use App\Contracts\Music as MusicContract;
 use App\Facades\Music;
 use App\Support\Utils;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Console\Isolatable;
-use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
 use LaravelZero\Framework\Commands\Command;
@@ -40,6 +40,7 @@ use function Laravel\Prompts\warning;
 final class MusicCommand extends Command implements Isolatable
 {
     use Hydrator;
+    use Rescuer;
     protected $signature = <<<'SIGNATURE'
         music
         {keyword? : Search keyword for music}
@@ -145,31 +146,5 @@ final class MusicCommand extends Command implements Isolatable
         $this->option('lang') and config()->set('app.locale', $this->option('lang'));
         File::ensureDirectoryExists($this->option('dir'));
         $this->input->setOption('sources', array_filter((array) $this->option('sources')) ?: config('app.sources'));
-    }
-
-    /**
-     * @psalm-suppress InvalidReturnType
-     * @psalm-suppress InvalidReturnStatement
-     *
-     * @template TValue
-     *
-     * @param callable(): TValue $callback
-     * @param bool|callable(\Throwable): bool $report
-     *
-     * @throws \Illuminate\Contracts\Container\BindingResolutionException
-     *
-     * @return \Throwable|TValue
-     */
-    private function rescue(callable $callback, bool|callable $report = false): mixed
-    {
-        return rescue(
-            $callback,
-            function (\Throwable $throwable): \Throwable {
-                $this->laravel->make(ExceptionHandler::class)->renderForConsole($this->output, $throwable);
-
-                return $throwable;
-            },
-            $report
-        );
     }
 }
