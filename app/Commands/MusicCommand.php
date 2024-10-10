@@ -21,6 +21,7 @@ use App\Facades\Music;
 use App\Support\Utils;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Console\Isolatable;
+use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
 use LaravelZero\Framework\Commands\Command;
@@ -29,7 +30,6 @@ use SebastianBergmann\Timer\Timer;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use function Laravel\Prompts\confirm;
-use function Laravel\Prompts\error;
 use function Laravel\Prompts\info;
 use function Laravel\Prompts\multiselect;
 use function Laravel\Prompts\spin;
@@ -110,11 +110,11 @@ final class MusicCommand extends Command implements Isolatable
                 static fn (Collection $songs): Collection => \in_array(0, $selectedKeys->all(), true)
                     ? $songs : $songs->only($selectedKeys->all())
             )
-            ->each(fn (array $song): mixed => $this->wrappedExceptionHandler(fn () => $this->music->download(
+            ->each(fn (array $song): mixed => $this->rescue(fn () => $this->music->download(
                 $song['url'],
                 Utils::savedPathFor($song, $this->option('dir'))
             )))
-            ->tap(fn (): mixed => $this->wrappedExceptionHandler(fn () => $this->notify(
+            ->tap(fn (): mixed => $this->rescue(fn () => $this->notify(
                 config('app.name'),
                 $this->option('dir'),
                 resource_path('notify-icon.png')
@@ -147,14 +147,26 @@ final class MusicCommand extends Command implements Isolatable
         $this->input->setOption('sources', array_filter((array) $this->option('sources')) ?: config('app.sources'));
     }
 
-    private function wrappedExceptionHandler(callable $callback, mixed ...$parameters): mixed
+    /**
+     * @template TValue
+     *
+     * @param callable(): TValue $callback
+     * @param bool|callable(\Throwable): bool $report
+     *
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     *
+     * @return \Throwable|TValue
+     */
+    private function rescue(callable $callback, bool|callable $report = false): mixed
     {
-        try {
-            return $callback(...$parameters);
-        } catch (\Throwable $throwable) {
-            error($throwable->getMessage());
+        return rescue(
+            $callback,
+            function (\Throwable $throwable): \Throwable {
+                $this->laravel->make(ExceptionHandler::class)->renderForConsole($this->output, $throwable);
 
-            return $throwable;
-        }
+                return $throwable;
+            },
+            $report
+        );
     }
 }
