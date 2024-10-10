@@ -44,8 +44,8 @@ trait Sanitizer
             "<fg=red;options=bold>$keyword</>",
             collect($song['artist'])
                 ->when(
-                    \count($song['artist']) > Utils::ARTIST_LIMIT,
-                    static fn (Collection $artist): Collection => $artist->take(Utils::ARTIST_LIMIT)->push('...')
+                    \count($song['artist']) > Utils::ARTIST_TAKE,
+                    static fn (Collection $artist): Collection => $artist->take(Utils::ARTIST_TAKE)->push('...')
                 )
                 ->implode(',')
         );

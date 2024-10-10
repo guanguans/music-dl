@@ -54,6 +54,8 @@ final class MusicCommand extends Command implements Isolatable
 
     /**
      * @noinspection PhpVoidFunctionResultUsedInspection
+     *
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function handle(): void
     {
@@ -133,8 +135,6 @@ final class MusicCommand extends Command implements Isolatable
 
     /**
      * @noinspection PhpMissingParentCallCommonInspection
-     *
-     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     #[\Override]
     protected function initialize(InputInterface $input, OutputInterface $output): void
