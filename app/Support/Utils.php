@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace App\Support;
 
 use App\Exceptions\RuntimeException;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
 final class Utils
@@ -48,7 +49,16 @@ final class Utils
         return \sprintf(
             '%s%s.%s',
             $savedDir,
-            str(\sprintf('%s - %s', implode(',', $song['artist']), $song['name']))
+            str(\sprintf(
+                '%s - %s',
+                collect($song['artist'])
+                    ->when(
+                        \count($song['artist']) > 3,
+                        static fn (Collection $artist): Collection => $artist->take(3)->push('...')
+                    )
+                    ->implode(','),
+                $song['name']
+            ))
                 ->remove(match (\PHP_OS_FAMILY) {
                     'Windows' => ['<', '>', '/', '\\', '|', ':', '"', '?', '*'],
                     'Darwin' => [':'],
