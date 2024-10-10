@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace App\Concerns;
 
+use App\Support\Utils;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Number;
@@ -43,8 +44,8 @@ trait Sanitizer
             "<fg=red;options=bold>$keyword</>",
             collect($song['artist'])
                 ->when(
-                    \count($song['artist']) > 3,
-                    static fn (Collection $artist): Collection => $artist->take(3)->push('...')
+                    \count($song['artist']) > Utils::ARTIST_LIMIT,
+                    static fn (Collection $artist): Collection => $artist->take(Utils::ARTIST_LIMIT)->push('...')
                 )
                 ->implode(',')
         );

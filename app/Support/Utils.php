@@ -19,6 +19,8 @@ use Illuminate\Support\Str;
 
 final class Utils
 {
+    public const ARTIST_LIMIT = 3;
+
     /**
      * @throws \App\Exceptions\RuntimeException
      */
@@ -53,8 +55,8 @@ final class Utils
                 '%s - %s',
                 collect($song['artist'])
                     ->when(
-                        \count($song['artist']) > 3,
-                        static fn (Collection $artist): Collection => $artist->take(3)->push('...')
+                        \count($song['artist']) > self::ARTIST_LIMIT,
+                        static fn (Collection $artist): Collection => $artist->take(self::ARTIST_LIMIT)->push('...')
                     )
                     ->implode(','),
                 $song['name']
