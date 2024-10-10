@@ -8,6 +8,19 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="5.2.8"></a>
+## [5.2.8] - 2024-10-10
+### Fix
+- **Utils:** improve song name formatting and handle multi-artist scenarios
+
+### Perf
+- **Utils:** Simplify filename sanitization logic
+
+### Refactor
+- **Sanitizer:** improve artist names display
+- **utils:** extract artist limit to constant
+
+
 <a name="5.2.7"></a>
 ## [5.2.7] - 2024-10-10
 ### Fix
@@ -1213,7 +1226,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/5.2.7...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/5.2.8...HEAD
+[5.2.8]: https://github.com/guanguans/music-dl/compare/5.2.7...5.2.8
 [5.2.7]: https://github.com/guanguans/music-dl/compare/5.2.6...5.2.7
 [5.2.6]: https://github.com/guanguans/music-dl/compare/5.2.5...5.2.6
 [5.2.5]: https://github.com/guanguans/music-dl/compare/5.2.4...5.2.5
