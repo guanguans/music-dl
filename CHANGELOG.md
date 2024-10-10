@@ -8,6 +8,23 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="5.2.6"></a>
+## [5.2.6] - 2024-10-10
+### Fix
+- 文件名不能包含下列任何字符 \ / : * ? " < > |
+- **utils:** Improve song name formatting
+
+### Refactor
+- **music-command:** Replace exception handler method
+
+### Pull Requests
+- Merge pull request [#812](https://github.com/guanguans/music-dl/issues/812) from midfar/master
+- Merge pull request [#809](https://github.com/guanguans/music-dl/issues/809) from guanguans/dependabot/composer/laravel-zero/framework-11.0.2
+- Merge pull request [#806](https://github.com/guanguans/music-dl/issues/806) from guanguans/dependabot/composer/rector/swiss-knife-1.0.0
+- Merge pull request [#807](https://github.com/guanguans/music-dl/issues/807) from guanguans/dependabot/composer/rector/rector-1.2.6
+- Merge pull request [#805](https://github.com/guanguans/music-dl/issues/805) from guanguans/dependabot/composer/ergebnis/composer-normalize-2.44.0
+
+
 <a name="5.2.5"></a>
 ## [5.2.5] - 2024-09-30
 ### Feat
@@ -1190,7 +1207,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/5.2.5...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/5.2.6...HEAD
+[5.2.6]: https://github.com/guanguans/music-dl/compare/5.2.5...5.2.6
 [5.2.5]: https://github.com/guanguans/music-dl/compare/5.2.4...5.2.5
 [5.2.4]: https://github.com/guanguans/music-dl/compare/5.2.3...5.2.4
 [5.2.3]: https://github.com/guanguans/music-dl/compare/5.2.2...5.2.3
