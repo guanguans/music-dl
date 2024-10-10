@@ -53,7 +53,8 @@ final class Utils
                     match (\PHP_OS_FAMILY) {
                         'Windows' => ['<', '>', '/', '\\', '|', ':', '"', '?', '*'],
                         'Darwin' => [':'],
-                        default => [],
+                        'Linux' => ['/'],
+                        default => [\DIRECTORY_SEPARATOR],
                     },
                     '',
                 )
