@@ -148,6 +148,9 @@ final class MusicCommand extends Command implements Isolatable
     }
 
     /**
+     * @psalm-suppress InvalidReturnType
+     * @psalm-suppress InvalidReturnStatement
+     *
      * @template TValue
      *
      * @param callable(): TValue $callback

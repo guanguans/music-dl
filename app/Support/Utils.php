@@ -46,10 +46,19 @@ final class Utils
         }
 
         return \sprintf(
-            '%s%s - %s.%s',
+            '%s%s.%s',
             $savedDir,
-            implode(',', $song['artist']),
-            preg_replace('/[\\\|\/|\:|\*|\?|\"|\<|\>|\|| ]+/', ' ', $song['name']),
+            str(\sprintf('%s - %s', implode(',', $song['artist']), $song['name']))
+                ->replace(
+                    match (\PHP_OS_FAMILY) {
+                        'Windows' => ['<', '>', '/', '\\', '|', ':', '"', '?', '*'],
+                        'Darwin' => [':'],
+                        default => [],
+                    },
+                    '',
+                )
+                ->ltrim('.')
+                ->toString(),
             preg_replace('/\?.*/', '', pathinfo((string) $song['url'], \PATHINFO_EXTENSION)) ?: $defaultExt
         );
     }
