@@ -38,7 +38,16 @@ trait Sanitizer
     {
         $song = Arr::only($song, ['name', 'artist', 'album', 'source', 'size', 'br']);
         $song['name'] = str_replace($keyword, "<fg=red;options=bold>$keyword</>", (string) $song['name']);
-        $song['artist'] = str_replace($keyword, "<fg=red;options=bold>$keyword</>", implode(',', $song['artist']));
+        $song['artist'] = str_replace(
+            $keyword,
+            "<fg=red;options=bold>$keyword</>",
+            collect($song['artist'])
+                ->when(
+                    \count($song['artist']) > 3,
+                    static fn (Collection $artist): Collection => $artist->take(3)->push('...')
+                )
+                ->implode(',')
+        );
         $song['album'] = str_replace($keyword, "<fg=red;options=bold>$keyword</>", (string) $song['album']);
         $song['size'] = isset($song['size']) ? \sprintf('<fg=yellow>%s</>', Number::fileSize((float) $song['size'], 1)) : null;
         $song['br'] = (int) $song['br'];
