@@ -98,7 +98,7 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
 
                 value(static function (Progress $progress, int $downloaded): void {
                     $progress->progress = $downloaded;
-                    $progress->advance(0);
+                    $progress->render();
                 }, $progress, $downloaded);
 
                 if ($totalDownload === $downloaded) {
