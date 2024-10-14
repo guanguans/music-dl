@@ -38,7 +38,7 @@ return Application::configure(basePath: \dirname(__DIR__))
         );
     })
     ->booted(static function (Application $app): void {
-        $app->extend(LogManager::class, static function (LoggerInterface $logger, Application $application): LogManager {
+        $app->extend(LoggerInterface::class, static function (LoggerInterface $logger, Application $application): LogManager {
             if (!$logger instanceof LogManager) {
                 $logger = new LogManager($application);
             }
