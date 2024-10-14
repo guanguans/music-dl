@@ -96,14 +96,12 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
                     $progress = tap(progress($savedPath, $totalDownload))->start();
                 }
 
-                value(static function (Progress $progress, int $downloaded): void {
-                    $progress->progress = $downloaded;
-                    $progress->render();
-                }, $progress, $downloaded);
-
                 if ($totalDownload === $downloaded) {
                     $progress->finish();
                 }
+
+                $progress->progress = $downloaded;
+                $progress->render();
             },
         ]);
     }
