@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 // use App\Support\Rectors\RenameToPsrNameRector;
 use App\Music;
+use Rector\CodeQuality\Rector\FuncCall\CompactToVariablesRector;
 use Rector\CodeQuality\Rector\If_\ExplicitBoolCompareRector;
 use Rector\CodeQuality\Rector\LogicalAnd\LogicalToBooleanRector;
 use Rector\CodingStyle\Rector\ArrowFunction\StaticArrowFunctionRector;
@@ -202,6 +203,9 @@ return RectorConfig::configure()
         WrapEncapsedVariableInCurlyBracesRector::class,
     ])
     ->withSkip([
+        CompactToVariablesRector::class => [
+            __DIR__.'/app/Commands/MusicCommand.php',
+        ],
         RenameForeachValueVariableToMatchMethodCallReturnTypeRector::class => [
             __DIR__.'/tests/Pest.php',
         ],
