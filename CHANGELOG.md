@@ -8,6 +8,23 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="5.3.0"></a>
+## [5.3.0] - 2024-10-14
+### Feat
+- **localization:** Improve searching hint with dynamic keyword
+- **music:** read keyword from stdin for pipeline usage
+
+### Fix
+- **Music:** correct progress display on completion
+- **MusicCommand:** trim stdin input to remove trailing spaces
+
+### Perf
+- **Music:** optimize progress update handling
+
+### Refactor
+- **app:** improve logger extension and exception handling
+
+
 <a name="5.2.9"></a>
 ## [5.2.9] - 2024-10-10
 ### Refactor
@@ -1232,7 +1249,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/5.2.9...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/5.3.0...HEAD
+[5.3.0]: https://github.com/guanguans/music-dl/compare/5.2.9...5.3.0
 [5.2.9]: https://github.com/guanguans/music-dl/compare/5.2.8...5.2.9
 [5.2.8]: https://github.com/guanguans/music-dl/compare/5.2.7...5.2.8
 [5.2.7]: https://github.com/guanguans/music-dl/compare/5.2.6...5.2.7
