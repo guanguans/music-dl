@@ -66,8 +66,15 @@ final class MusicCommand extends Command implements Isolatable
                 $this->laravel->instance('logo', config('app.logo'));
             })
             ->when(windows_os(), static fn () => warning(__('windows_hint')))
-            ->tap(function () use (&$keyword): void {
-                $keyword = str($this->argument('keyword') ?? text(
+            ->tap(static function () use (&$stdinKeyword): void {
+                if (($fstat = fstat(\STDIN)) && 0 < $fstat['size']) {
+                    $stdinKeyword = rtrim(stream_get_contents(\STDIN));
+                }
+
+                // fclose(\STDIN);
+            })
+            ->tap(function () use (&$keyword, $stdinKeyword): void {
+                $keyword = str($stdinKeyword ?: $this->argument('keyword') ?? text(
                     __('keyword_label'),
                     __('keyword_placeholder'),
                     $this->laravel->has('keyword') ? '' : __('keyword_default'),
