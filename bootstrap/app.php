@@ -38,19 +38,20 @@ return Application::configure(basePath: \dirname(__DIR__))
         );
     })
     ->booted(static function (Application $app): void {
-        $app->extend(LogManager::class, static function (LoggerInterface $logger, Application $application) {
+        $app->extend(LogManager::class, static function (LoggerInterface $logger, Application $application): LogManager {
             if (!$logger instanceof LogManager) {
-                return new LogManager($application);
+                $logger = new LogManager($application);
             }
 
-            return $logger;
+            /** @noinspection PhpVoidFunctionResultUsedInspection */
+            /** @noinspection PhpPossiblePolymorphicInvocationInspection */
+            return tap($logger)->setDefaultDriver('null');
         });
     })
     ->withExceptions(static function (Exceptions $exceptions): void {
-        $exceptions->reportable(static function (\Throwable $throwable) {
-            if (\Phar::running()) {
-                return false;
-            }
-        });
+        $exceptions
+            ->dontReport(\Throwable::class)
+            ->reportable(static fn (\Throwable $throwable): false => false)
+            ->stop();
     })
     ->create();
