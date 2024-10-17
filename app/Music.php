@@ -26,6 +26,7 @@ use Illuminate\Support\Traits\Localizable;
 use Illuminate\Support\Traits\Macroable;
 use Illuminate\Support\Traits\Tappable;
 use Laravel\Prompts\Progress;
+use Psr\Http\Message\ResponseInterface;
 use function Laravel\Prompts\progress;
 
 final class Music implements Contracts\HttpClientFactory, Contracts\Music
@@ -80,30 +81,34 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
     /**
      * @psalm-suppress UnusedVariable
      *
+     * @throws \Throwable
      * @throws GuzzleException
      */
     public function download(string $url, string $savedPath): void
     {
-        $this->createHttpClient()->get($url, [
-            'sink' => $savedPath,
-            'progress' => static function (int $totalDownload, int $downloaded) use (&$progress, $savedPath): void {
-                if (0 === $totalDownload || 0 === $downloaded || 'submit' === $progress?->state) {
-                    return;
-                }
+        $this->timebox->call(
+            fn (): ResponseInterface => $this->createHttpClient()->get($url, [
+                'sink' => $savedPath,
+                'progress' => static function (int $totalDownload, int $downloaded) use (&$progress, $savedPath): void {
+                    if (0 === $totalDownload || 0 === $downloaded || 'submit' === $progress?->state) {
+                        return;
+                    }
 
-                if (!$progress instanceof Progress) {
-                    /** @noinspection PhpVoidFunctionResultUsedInspection */
-                    $progress = tap(progress($savedPath, $totalDownload))->start();
-                }
+                    if (!$progress instanceof Progress) {
+                        /** @noinspection PhpVoidFunctionResultUsedInspection */
+                        $progress = tap(progress($savedPath, $totalDownload))->start();
+                    }
 
-                if ($totalDownload === $downloaded) {
-                    $progress->finish();
-                }
+                    if ($totalDownload === $downloaded) {
+                        $progress->finish();
+                    }
 
-                $progress->progress = $downloaded;
-                $progress->render();
-            },
-        ]);
+                    $progress->progress = $downloaded;
+                    $progress->render();
+                },
+            ]),
+            $this->minCallMicroseconds
+        );
     }
 
     public function setMeting(Meting $meting): self
