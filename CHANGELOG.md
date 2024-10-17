@@ -8,55 +8,67 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="5.3.1"></a>
+## [5.3.1] - 2024-10-17
+### Bug Fixes
+- **bootstrap:** update logger extension reference
+
+### Performance Improvements
+- **app:** optimize download performance
+
+### Pull Requests
+- Merge pull request [#815](https://github.com/guanguans/music-dl/issues/815) from guanguans/dependabot/composer/larastan/larastan-2.9.9
+
+
 <a name="5.3.0"></a>
 ## [5.3.0] - 2024-10-14
-### Feat
-- **localization:** Improve searching hint with dynamic keyword
-- **music:** read keyword from stdin for pipeline usage
-
-### Fix
+### Bug Fixes
 - **Music:** correct progress display on completion
 - **MusicCommand:** trim stdin input to remove trailing spaces
 
-### Perf
-- **Music:** optimize progress update handling
-
-### Refactor
+### Code Refactoring
 - **app:** improve logger extension and exception handling
+
+### Features
+- **localization:** Improve searching hint with dynamic keyword
+- **music:** read keyword from stdin for pipeline usage
+
+### Performance Improvements
+- **Music:** optimize progress update handling
 
 
 <a name="5.2.9"></a>
 ## [5.2.9] - 2024-10-10
-### Refactor
+### Code Refactoring
 - **commands:** add Rescuer trait to MusicCommand
 
 
 <a name="5.2.8"></a>
 ## [5.2.8] - 2024-10-10
-### Fix
+### Bug Fixes
 - **Utils:** improve song name formatting and handle multi-artist scenarios
 
-### Perf
-- **Utils:** Simplify filename sanitization logic
-
-### Refactor
+### Code Refactoring
 - **Sanitizer:** improve artist names display
 - **utils:** extract artist limit to constant
+
+### Performance Improvements
+- **Utils:** Simplify filename sanitization logic
 
 
 <a name="5.2.7"></a>
 ## [5.2.7] - 2024-10-10
-### Fix
+### Bug Fixes
 - **Utils:** update directory separator handling
 
 
 <a name="5.2.6"></a>
 ## [5.2.6] - 2024-10-10
-### Fix
+### Bug Fixes
 - 文件名不能包含下列任何字符 \ / : * ? " < > |
 - **utils:** Improve song name formatting
 
-### Refactor
+### Code Refactoring
 - **music-command:** Replace exception handler method
 
 ### Pull Requests
@@ -69,11 +81,11 @@ All notable changes to this project will be documented in this file.
 
 <a name="5.2.5"></a>
 ## [5.2.5] - 2024-09-30
-### Feat
-- 更新了league/flysystem、league/flysystem-local和nikic/php-parser依赖版本
-
-### Refactor
+### Code Refactoring
 - **HttpClientFactory:** change setHttpClient to instance method
+
+### Features
+- 更新了league/flysystem、league/flysystem-local和nikic/php-parser依赖版本
 
 ### Test
 - **Music:** Mock HTTP client for music downloads
@@ -84,11 +96,11 @@ All notable changes to this project will be documented in this file.
 ### Docs
 - **music:** add setMinCallMicroseconds method to facade
 
-### Feat
+### Features
 - **HttpClientFactory:** add setHttpClient method
 - **music:** refactor Music class and remove InvalidArgumentException
 
-### Perf
+### Performance Improvements
 - **Music:** Refactor constructor for improved initialization
 
 ### Test
@@ -102,23 +114,23 @@ All notable changes to this project will be documented in this file.
 
 <a name="5.2.3"></a>
 ## [5.2.3] - 2024-09-27
-### Feat
+### Code Refactoring
+- **music:** make minimum call time configurable
+
+### Features
 - 修改MusicCommand.php以支持动态关键词默认值
 - **Music.php:** 移除了Music类中的meting格式化方法
-
-### Refactor
-- **music:** make minimum call time configurable
 
 
 <a name="5.2.2"></a>
 ## [5.2.2] - 2024-09-27
-### Feat
-- **music:** add timebox functionality to search method
-
-### Refactor
+### Code Refactoring
 - **commands:** remove unnecessary docblocks
 - **music:** improve dependency injection and initialization
 - **music:** Implement Isolatable interface and improve visibility
+
+### Features
+- **music:** add timebox functionality to search method
 
 ### Test
 - **music:** ensure fork concurrency is set by default
@@ -126,11 +138,11 @@ All notable changes to this project will be documented in this file.
 
 <a name="5.2.1"></a>
 ## [5.2.1] - 2024-09-23
+### Bug Fixes
+- **app:** remove unused MusicManager references
+
 ### Docs
 - **readme:** update search driver options in documentation
-
-### Fix
-- **app:** remove unused MusicManager references
 
 ### Test
 - **music:** add setDriver method and update tests
@@ -138,16 +150,16 @@ All notable changes to this project will be documented in this file.
 
 <a name="5.2.0"></a>
 ## [5.2.0] - 2024-09-23
-### Feat
+### Bug Fixes
+- **command:** update music command driver option
+
+### Code Refactoring
+- **music:** replace MusicManager with MusicContract
+
+### Features
 - **concurrency:** add concurrency service provider and config
 - **music:** Refactor music command and rename SequenceMusic
 - **music:** Refactor MusicCommand to use SequenceMusic with Concurrency
-
-### Fix
-- **command:** update music command driver option
-
-### Refactor
-- **music:** replace MusicManager with MusicContract
 
 ### Test
 - **tests:** Improve pest configuration and debugging checks
@@ -175,7 +187,7 @@ All notable changes to this project will be documented in this file.
 
 <a name="5.1.4"></a>
 ## [5.1.4] - 2024-08-16
-### Feat
+### Features
 - **exceptions:** remove Handler.php file
 
 ### Pull Requests
@@ -196,12 +208,12 @@ All notable changes to this project will be documented in this file.
 
 <a name="5.1.3"></a>
 ## [5.1.3] - 2024-07-12
-### Feat
+### Code Refactoring
+- **utils:** Change method names for default save directory and saved path
+
+### Features
 - **SequenceMusic:** Add sorting by multiple fields
 - **composer:** add rector/swiss-knife to composer.json
-
-### Refactor
-- **utils:** Change method names for default save directory and saved path
 
 ### Test
 - **test:** Update pest command to include colors
@@ -209,19 +221,19 @@ All notable changes to this project will be documented in this file.
 
 <a name="5.1.2"></a>
 ## [5.1.2] - 2024-07-12
-### Refactor
+### Code Refactoring
 - **Sanitizer:** update file size formatting
 
 
 <a name="5.1.1"></a>
 ## [5.1.1] - 2024-07-12
-### Fix
+### Bug Fixes
 - **app.php:** Improve registration of TinkerZeroServiceProvider
 
 
 <a name="5.1.0"></a>
 ## [5.1.0] - 2024-07-12
-### Feat
+### Features
 - **bootstrap:** Register TinkerZeroServiceProvider in production
 - **deps:** add tinker-zero dependency
 
@@ -231,11 +243,11 @@ All notable changes to this project will be documented in this file.
 
 <a name="5.0.2"></a>
 ## [5.0.2] - 2024-07-08
+### Bug Fixes
+- **MusicCommand:** Fix return type in when closure
+
 ### CI
 - **automation:** Update method signature in Music.php facade
-
-### Fix
-- **MusicCommand:** Fix return type in when closure
 
 ### Pull Requests
 - Merge pull request [#768](https://github.com/guanguans/music-dl/issues/768) from guanguans/dependabot/github_actions/dependabot/fetch-metadata-2.2.0
@@ -260,26 +272,26 @@ All notable changes to this project will be documented in this file.
 
 <a name="5.0.1"></a>
 ## [5.0.1] - 2024-05-24
-### Feat
-- **bootstrap:** Add Application configuration and create method
-
-### Refactor
+### Code Refactoring
 - **app:** Update MusicManager singleton registration
 - **app:** update service provider configuration
 - **handler:** remove unnecessary code in Handler.php
 
+### Features
+- **bootstrap:** Add Application configuration and create method
+
 
 <a name="5.0.0"></a>
 ## [5.0.0] - 2024-05-24
+### Code Refactoring
+- **command:** Update return types in handle method
+
 ### Docs
 - **README:** Update PHP version requirement to 8.2
 
-### Feat
+### Features
 - **.php-cs-fixer.php:** add MIT license header and update rules
 - **app:** add LogManager extension in AppServiceProvider
-
-### Refactor
-- **command:** Update return types in handle method
 
 
 <a name="4.3.1"></a>
@@ -308,21 +320,21 @@ All notable changes to this project will be documented in this file.
 
 <a name="4.3.0"></a>
 ## [4.3.0] - 2024-04-24
-### Feat
-- Add language pack support
-- **ServiceProvider:** Add conditional registration of language-related services
-- **lang:** add language option to specify the language
-
-### Fix
+### Bug Fixes
 - **config:** Update music-dl config key to app
 
-### Refactor
+### Code Refactoring
 - Removed unnecessary language files and service providers from the Laravel application.
 - **ServiceProvider:** Remove unnecessary code from AppServiceProvider
 - **config:** Update logo and sources in app configuration
 - **hydrator:** improve song hydration process
 - **i18n:** update language keys for music command
 - **music-dl:** update language keys for MusicCommand
+
+### Features
+- Add language pack support
+- **ServiceProvider:** Add conditional registration of language-related services
+- **lang:** add language option to specify the language
 
 ### Pull Requests
 - Merge pull request [#731](https://github.com/guanguans/music-dl/issues/731) from guanguans/dependabot/composer/laravel/prompts-0.1.20
@@ -338,18 +350,18 @@ All notable changes to this project will be documented in this file.
 
 <a name="4.2.1"></a>
 ## [4.2.1] - 2024-04-07
-### Feat
+### Features
 - **box.json:** Add support for disabling requirements check
 
 
 <a name="4.2.0"></a>
 ## [4.2.0] - 2024-04-07
-### Feat
-- **composer-updater:** add dry-run option
-
-### Refactor
+### Code Refactoring
 - **utils:** improve savePathFor method
 - **utils:** update method names for saving files
+
+### Features
+- **composer-updater:** add dry-run option
 
 ### Pull Requests
 - Merge pull request [#714](https://github.com/guanguans/music-dl/issues/714) from guanguans/dependabot/github_actions/dependabot/fetch-metadata-2.0.0
@@ -399,7 +411,7 @@ All notable changes to this project will be documented in this file.
 
 <a name="4.1.8"></a>
 ## [4.1.8] - 2024-02-02
-### Refactor
+### Code Refactoring
 - **composer-updater:** refactor SingleCommandApplication class
 
 ### Pull Requests
@@ -471,12 +483,12 @@ All notable changes to this project will be documented in this file.
 
 <a name="4.1.7"></a>
 ## [4.1.7] - 2023-11-28
+### Bug Fixes
+- **MusicManager:** Update type hint for createDriver parameter
+
 ### Docs
 - update README files
 - **readme:** Update README.md and README-zh_CN.md
-
-### Fix
-- **MusicManager:** Update type hint for createDriver parameter
 
 ### Pull Requests
 - Merge pull request [#611](https://github.com/guanguans/music-dl/issues/611) from guanguans/imgbot
@@ -485,23 +497,23 @@ All notable changes to this project will be documented in this file.
 
 <a name="4.1.6"></a>
 ## [4.1.6] - 2023-11-27
+### Bug Fixes
+- **coding-style:** fix arrow function usage
+
+### Code Refactoring
+- **tests:** refactor test cases
+- **utils:** Remove codeCoverageIgnore comments
+
 ### Docs
 - **readme:** Update README file
 
-### Feat
+### Features
 - **github:** Add CODE_OF_CONDUCT.md
-
-### Fix
-- **coding-style:** fix arrow function usage
-
-### Refactor
-- **tests:** refactor test cases
-- **utils:** Remove codeCoverageIgnore comments
 
 
 <a name="4.1.5"></a>
 ## [4.1.5] - 2023-11-27
-### Refactor
+### Code Refactoring
 - **commands:** refactor MusicCommand handle method
 
 ### Pull Requests
@@ -510,7 +522,7 @@ All notable changes to this project will be documented in this file.
 
 <a name="4.1.4"></a>
 ## [4.1.4] - 2023-11-26
-### Refactor
+### Code Refactoring
 - **Hydrator:** Add Hydrator trait for MusicCommand
 - **MusicCommand:** refactor code for selecting keys
 - **MusicCommand:** simplify song mapping
@@ -525,12 +537,12 @@ All notable changes to this project will be documented in this file.
 
 <a name="4.1.3"></a>
 ## [4.1.3] - 2023-11-26
-### Fix
+### Bug Fixes
 - **Exceptions:** Remove unused annotations in Handler.php
 - **tests:** Fix GuzzleHttp exception class name
 - **tests:** Fix download path in MusicCommandTest
 
-### Refactor
+### Code Refactoring
 - **MusicManager:** remove final keyword
 - **SequenceMusic:** improve progress bar
 
@@ -541,11 +553,11 @@ All notable changes to this project will be documented in this file.
 
 <a name="4.1.2"></a>
 ## [4.1.2] - 2023-11-25
-### Fix
+### Bug Fixes
 - **MusicCommand:** Fix type hint in mapWithKeys callback
 - **commands:** Add #[\Override] attribute to schedule method
 
-### Refactor
+### Code Refactoring
 - **HttpClientFactory:** Update nullability of httpClient
 - **Music:** change return type of search method in SequenceMusic class
 - **Sanitizer:** update method signature
@@ -558,11 +570,11 @@ All notable changes to this project will be documented in this file.
 
 <a name="4.1.1"></a>
 ## [4.1.1] - 2023-11-24
-### Fix
+### Bug Fixes
 - **SequenceMusic:** Fix progress callback in createHttpClient
 - **SequenceMusic:** Update progress handling in download
 
-### Refactor
+### Code Refactoring
 - **SequenceMusic:** Remove unused imports and update progress handling
 - **commands:** remove unnecessary notification
 - **commands:** refactor MusicCommand
@@ -571,11 +583,11 @@ All notable changes to this project will be documented in this file.
 
 <a name="4.1.0"></a>
 ## [4.1.0] - 2023-11-24
-### Fix
+### Bug Fixes
 - **app:** Filter songs without URL in SequenceMusic
 - **commands:** Fix MusicCommand pipe function
 
-### Refactor
+### Code Refactoring
 - **MusicCommand:** refactor MusicCommand class
 - **app:** remove unused imports(spinner)
 - **command:** refactor MusicCommand.php
@@ -590,7 +602,7 @@ All notable changes to this project will be documented in this file.
 
 <a name="4.0.1"></a>
 ## [4.0.1] - 2023-11-23
-### Feat
+### Features
 - **Facades:** Add Music facade
 
 
@@ -599,7 +611,7 @@ All notable changes to this project will be documented in this file.
 ### Docs
 - **readme:** update PHP version requirement
 
-### Feat
+### Features
 - **composer:** Add laravel/facade-documenter
 
 ### Pull Requests
@@ -609,7 +621,7 @@ All notable changes to this project will be documented in this file.
 
 <a name="3.6.4"></a>
 ## [3.6.4] - 2023-11-17
-### Refactor
+### Code Refactoring
 - **monorepo-builder:** update release workers
 - **php-cs-fixer:** Change curly_braces_position to braces_position
 
@@ -673,7 +685,7 @@ All notable changes to this project will be documented in this file.
 
 <a name="3.6.2"></a>
 ## [3.6.2] - 2023-07-30
-### Refactor
+### Code Refactoring
 - **Utils:** update method names to camelCase
 - **rector.php:** update rules configuration
 - **utils:** update default save directory logic
@@ -687,18 +699,18 @@ All notable changes to this project will be documented in this file.
 
 <a name="3.6.1"></a>
 ## [3.6.1] - 2023-07-23
-### Fix
+### Bug Fixes
 - **commands:** Fix recallSelf method calls
 
 
 <a name="3.6.0"></a>
 ## [3.6.0] - 2023-07-23
-### Feat
-- **monorepo-builder.php:** Add new file for monorepo configuration
-
-### Fix
+### Bug Fixes
 - **config:** Add php_unit_data_provider_return_type
 - **workflows:** fix upload command in publish-phar.yml
+
+### Features
+- **monorepo-builder.php:** Add new file for monorepo configuration
 
 ### Pull Requests
 - Merge pull request [#548](https://github.com/guanguans/music-dl/issues/548) from guanguans/dependabot/composer/mockery/mockery-1.6.4
@@ -711,7 +723,7 @@ All notable changes to this project will be documented in this file.
 
 <a name="v3.5.7"></a>
 ## [v3.5.7] - 2023-07-14
-### Fix
+### Bug Fixes
 - **config:** update windows_tip message
 
 
@@ -723,17 +735,17 @@ All notable changes to this project will be documented in this file.
 
 <a name="v3.5.5"></a>
 ## [v3.5.5] - 2023-07-13
-### Feat
-- **MusicCommand:** add --no-continue option
-
-### Fix
+### Bug Fixes
 - **commit:** adjust dimensions and typing speed
 - **composer:** add ai-commit-no-verify command
 - **tape:** adjust typing delay
 
-### Refactor
+### Code Refactoring
 - **Command:** optimize logo and windows tip output
 - **command:** Remove unused property
+
+### Features
+- **MusicCommand:** add --no-continue option
 
 ### Pull Requests
 - Merge pull request [#541](https://github.com/guanguans/music-dl/issues/541) from guanguans/dependabot/composer/rector/rector-0.17.5
@@ -742,29 +754,29 @@ All notable changes to this project will be documented in this file.
 
 <a name="v3.5.4"></a>
 ## [v3.5.4] - 2023-07-12
+### Code Refactoring
+- **console-spinner:** update spinner characters
+
 ### Docs
 - **readme:** add disclaimer for commercial use
-
-### Refactor
-- **console-spinner:** update spinner characters
 
 
 <a name="v3.5.3"></a>
 ## [v3.5.3] - 2023-07-12
+### Bug Fixes
+- **tests:** Skip dependency on music search and download
+
+### Code Refactoring
+- **VendorPublishCommand:** make VendorPublishCommand class final
+- **tests:** Update test cases and add new test file
+
 ### Docs
 - **README:** update installation instructions
 - **readme:** Update Chinese README
 
-### Feat
+### Features
 - **commands:** Add VendorPublishCommand
 - **tests:** Add test to verify downloaded music exists
-
-### Fix
-- **tests:** Skip dependency on music search and download
-
-### Refactor
-- **VendorPublishCommand:** make VendorPublishCommand class final
-- **tests:** Update test cases and add new test file
 
 ### Test
 - **Feature:** Add MusicCommandTest
@@ -775,17 +787,17 @@ All notable changes to this project will be documented in this file.
 
 <a name="v3.5.2"></a>
 ## [v3.5.2] - 2023-07-12
-### Feat
-- **Exceptions:** Add InvalidArgumentException class
-- **Music:** Add spinner creation function in SequenceMusic
-- **music:** add ForkMusic class
-
-### Refactor
+### Code Refactoring
 - **AsyncMusic:** ensure songs have URL
 - **AsyncMusic:** Return all songs instead of cleaning
 - **AsyncMusic:** refactor the requestUrl method
 - **Music:** rename methods and variables for clarity
 - **SequenceMusic:** remove unused variable and simplify progress logic
+
+### Features
+- **Exceptions:** Add InvalidArgumentException class
+- **Music:** Add spinner creation function in SequenceMusic
+- **music:** add ForkMusic class
 
 ### Pull Requests
 - Merge pull request [#538](https://github.com/guanguans/music-dl/issues/538) from guanguans/dependabot/composer/rector/rector-0.17.4
@@ -793,17 +805,17 @@ All notable changes to this project will be documented in this file.
 
 <a name="v3.5.1"></a>
 ## [v3.5.1] - 2023-07-11
-### Fix
+### Bug Fixes
 - **MusicCommand:** modify collection handling
 
 
 <a name="v3.5.0"></a>
 ## [v3.5.0] - 2023-07-11
-### Fix
+### Bug Fixes
 - **Command:** Fix issue with keyword argument in MusicCommand
 - **MusicManager:** Fix createDriver method throwing BindingResolutionException
 
-### Refactor
+### Code Refactoring
 - **Music:** modify SequenceMusic class
 - **MusicCommand:** update string literals
 - **SequenceMusic:** Refactor ensureWithUrl and add clean method
@@ -818,30 +830,30 @@ All notable changes to this project will be documented in this file.
 
 <a name="v3.4.1"></a>
 ## [v3.4.1] - 2023-07-10
-### Feat
-- **AsyncMusic:** Improve song loading efficiency
-- **Music:** Add spinner functionality to Music class
-- **app:** add LaravelConsoleSpinnerServiceProvider
-
-### Fix
+### Bug Fixes
 - **commands:** update Windows tips
 
-### Refactor
+### Code Refactoring
 - **Music:** Rename Music class to SequenceMusic
 - **SequenceMusic:** optimize carryUrl method
 - **commands:** change search driver option
 
+### Features
+- **AsyncMusic:** Improve song loading efficiency
+- **Music:** Add spinner functionality to Music class
+- **app:** add LaravelConsoleSpinnerServiceProvider
+
 
 <a name="v3.4.0"></a>
 ## [v3.4.0] - 2023-07-10
-### Feat
-- **support:** add Utils class
-
-### Refactor
+### Code Refactoring
 - **MusicCommand:** change 'channels' to 'sources'
 - **app:** move helpers.php to app/Support
 - **music:** Remove redundant code in AsyncMusic
 - **music:** rename Music namespace
+
+### Features
+- **support:** add Utils class
 
 
 <a name="v3.3.3"></a>
@@ -1190,7 +1202,7 @@ All notable changes to this project will be documented in this file.
 
 <a name="v2.1.3"></a>
 ## [v2.1.3] - 2021-04-23
-### Fix
+### Bug Fixes
 - Remove xiami platform support
 
 
@@ -1249,7 +1261,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/5.3.0...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/5.3.1...HEAD
+[5.3.1]: https://github.com/guanguans/music-dl/compare/5.3.0...5.3.1
 [5.3.0]: https://github.com/guanguans/music-dl/compare/5.2.9...5.3.0
 [5.2.9]: https://github.com/guanguans/music-dl/compare/5.2.8...5.2.9
 [5.2.8]: https://github.com/guanguans/music-dl/compare/5.2.7...5.2.8
