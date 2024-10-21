@@ -48,6 +48,10 @@ final class Utils
             throw new RuntimeException(\sprintf('The directory "%s" was not created.', $savedDir));
         }
 
+        // $resource = fopen($song['url'], 'rb');
+        // fstat($resource);
+        // stat($song['url']);
+
         return \sprintf(
             '%s%s.%s',
             $savedDir,
