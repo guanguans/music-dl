@@ -65,6 +65,7 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
                 ->collapse()
                 ->pipe(fn (Collection $songs): Collection => $this->ensureWithUrls($songs))
                 ->sortBy([
+                    // ['name', \SORT_ASC],
                     ['name', 'asc'],
                     ['artist', 'asc'],
                     ['size', 'desc'],

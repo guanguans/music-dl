@@ -192,9 +192,12 @@ $status = (new SingleCommandApplication)
             {
                 return array_reduce(
                     json_decode(
-                        $this
-                            ->mustRunCommand("$this->highestComposerBinary outdated --format=json --direct --ansi")
-                            ->getOutput(),
+                        substr(
+                            $output = $this
+                                ->mustRunCommand("$this->highestComposerBinary outdated --format=json --direct --ansi")
+                                ->getOutput(),
+                            strpos($output, '{')
+                        ),
                         true
                     )['installed'],
                     function (array $carry, array $package): array {
