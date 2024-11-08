@@ -8,6 +8,17 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="5.3.2"></a>
+## [5.3.2] - 2024-11-08
+### Pull Requests
+- Merge pull request [#821](https://github.com/guanguans/music-dl/issues/821) from guanguans/dependabot/composer/symfony/process-7.1.7
+- Merge pull request [#820](https://github.com/guanguans/music-dl/issues/820) from guanguans/dependabot/composer/symfony/http-foundation-7.1.7
+- Merge pull request [#819](https://github.com/guanguans/music-dl/issues/819) from guanguans/dependabot/composer/larastan/larastan-2.9.10
+- Merge pull request [#818](https://github.com/guanguans/music-dl/issues/818) from guanguans/dependabot/composer/rector/rector-1.2.9
+- Merge pull request [#817](https://github.com/guanguans/music-dl/issues/817) from guanguans/dependabot/composer/driftingly/rector-laravel-1.2.5
+- Merge pull request [#816](https://github.com/guanguans/music-dl/issues/816) from guanguans/dependabot/composer/rector/rector-1.2.8
+
+
 <a name="5.3.1"></a>
 ## [5.3.1] - 2024-10-17
 ### Bug Fixes
@@ -1261,7 +1272,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/5.3.1...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/5.3.2...HEAD
+[5.3.2]: https://github.com/guanguans/music-dl/compare/5.3.1...5.3.2
 [5.3.1]: https://github.com/guanguans/music-dl/compare/5.3.0...5.3.1
 [5.3.0]: https://github.com/guanguans/music-dl/compare/5.2.9...5.3.0
 [5.2.9]: https://github.com/guanguans/music-dl/compare/5.2.8...5.2.9
