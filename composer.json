@@ -55,7 +55,7 @@
         "php-mock/php-mock-phpunit": "^2.10",
         "phpstan/extension-installer": "^1.4",
         "rector/rector": "^1.2",
-        "rector/swiss-knife": "^1.0",
+        "rector/swiss-knife": "^2.0",
         "roave/security-advisories": "dev-latest",
         "vimeo/psalm": "^5.26"
     },
