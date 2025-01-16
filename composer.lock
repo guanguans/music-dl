@@ -7280,16 +7280,16 @@
         },
         {
             "name": "dg/bypass-finals",
-            "version": "v1.8.0",
+            "version": "v1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dg/bypass-finals.git",
-                "reference": "86b00f0d900c7e15d3341e687e0df89e8c2d4632"
+                "reference": "920a7da2f3c1422fd83f9ec4df007af53dc4018b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dg/bypass-finals/zipball/86b00f0d900c7e15d3341e687e0df89e8c2d4632",
-                "reference": "86b00f0d900c7e15d3341e687e0df89e8c2d4632",
+                "url": "https://api.github.com/repos/dg/bypass-finals/zipball/920a7da2f3c1422fd83f9ec4df007af53dc4018b",
+                "reference": "920a7da2f3c1422fd83f9ec4df007af53dc4018b",
                 "shasum": ""
             },
             "require": {
@@ -7327,9 +7327,9 @@
             ],
             "support": {
                 "issues": "https://github.com/dg/bypass-finals/issues",
-                "source": "https://github.com/dg/bypass-finals/tree/v1.8.0"
+                "source": "https://github.com/dg/bypass-finals/tree/v1.9.0"
             },
-            "time": "2024-07-02T22:24:43+00:00"
+            "time": "2025-01-16T00:46:05+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
