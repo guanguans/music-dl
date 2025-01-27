@@ -3922,16 +3922,16 @@
         },
         {
             "name": "spatie/fork",
-            "version": "1.2.3",
+            "version": "1.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/fork.git",
-                "reference": "a1140fe2e938782cf36948bfe13f8f72616477f9"
+                "reference": "24cd50797eae6dd3e1a4978f9fe0b9266520bc99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/fork/zipball/a1140fe2e938782cf36948bfe13f8f72616477f9",
-                "reference": "a1140fe2e938782cf36948bfe13f8f72616477f9",
+                "url": "https://api.github.com/repos/spatie/fork/zipball/24cd50797eae6dd3e1a4978f9fe0b9266520bc99",
+                "reference": "24cd50797eae6dd3e1a4978f9fe0b9266520bc99",
                 "shasum": ""
             },
             "require": {
@@ -3975,7 +3975,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/fork/issues",
-                "source": "https://github.com/spatie/fork/tree/1.2.3"
+                "source": "https://github.com/spatie/fork/tree/1.2.4"
             },
             "funding": [
                 {
@@ -3983,7 +3983,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-12-11T11:28:01+00:00"
+            "time": "2025-01-27T09:34:15+00:00"
         },
         {
             "name": "symfony/clock",
