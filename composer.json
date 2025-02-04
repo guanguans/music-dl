@@ -155,6 +155,7 @@
             "@test",
             "@test-type-coverage",
             "@psalm",
+            "@phpstan",
             "@rector-dry-run"
         ],
         "composer-bin-all-update": "@composer bin all update --ansi -v",
