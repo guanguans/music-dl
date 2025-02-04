@@ -24,7 +24,12 @@
       <file>app/Support/helpers.php</file>
     </exclude>
   </source>
-  <!--<extensions>
-    <bootstrap class="DG\BypassFinals\PHPUnitExtension"/>
-  </extensions>-->
+  <extensions>
+    <!--<bootstrap class="DG\BypassFinals\PHPUnitExtension"/>-->
+    <bootstrap class="DG\BypassFinals\PHPUnitExtension">
+      <parameter name="bypassReadOnly" value="false"/>
+      <parameter name="bypassFinal" value="true"/>
+      <parameter name="cacheDirectory" value="./build/bypass-finals"/>
+    </bootstrap>
+  </extensions>
 </phpunit>
