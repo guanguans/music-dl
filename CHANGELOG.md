@@ -8,6 +8,51 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="5.3.3"></a>
+## [5.3.3] - 2025-02-04
+### Bug Fixes
+- **config:** switch locale and fallback_locale settings
+- **lang:** Update translations from Chinese to English
+
+### CI
+- **composer-updater:** Refactor constructor properties to readonly
+- **license:** Update copyright year to 2025
+- **workflows:** Update PHP version in workflow and dependencies
+
+### Pull Requests
+- Merge pull request [#854](https://github.com/guanguans/music-dl/issues/854) from guanguans/dependabot/composer/rector/swiss-knife-2.1.7
+- Merge pull request [#853](https://github.com/guanguans/music-dl/issues/853) from guanguans/dependabot/composer/ergebnis/php-cs-fixer-config-6.42.2
+- Merge pull request [#852](https://github.com/guanguans/music-dl/issues/852) from guanguans/dependabot/composer/laravel/prompts-0.3.4
+- Merge pull request [#851](https://github.com/guanguans/music-dl/issues/851) from guanguans/dependabot/composer/spatie/fork-1.2.4
+- Merge pull request [#850](https://github.com/guanguans/music-dl/issues/850) from guanguans/dependabot/github_actions/dependabot/fetch-metadata-2.3.0
+- Merge pull request [#849](https://github.com/guanguans/music-dl/issues/849) from guanguans/dependabot/composer/ergebnis/php-cs-fixer-config-6.42.1
+- Merge pull request [#848](https://github.com/guanguans/music-dl/issues/848) from guanguans/dependabot/composer/rector/swiss-knife-2.1.6
+- Merge pull request [#847](https://github.com/guanguans/music-dl/issues/847) from guanguans/dependabot/composer/dg/bypass-finals-1.9.0
+- Merge pull request [#846](https://github.com/guanguans/music-dl/issues/846) from guanguans/dependabot/composer/ergebnis/php-cs-fixer-config-6.42.0
+- Merge pull request [#845](https://github.com/guanguans/music-dl/issues/845) from guanguans/dependabot/composer/laravel/prompts-0.3.3
+- Merge pull request [#844](https://github.com/guanguans/music-dl/issues/844) from guanguans/dependabot/composer/rector/swiss-knife-2.1.5
+- Merge pull request [#842](https://github.com/guanguans/music-dl/issues/842) from guanguans/dependabot/composer/ergebnis/php-cs-fixer-config-6.41.0
+- Merge pull request [#841](https://github.com/guanguans/music-dl/issues/841) from guanguans/dependabot/composer/rector/swiss-knife-2.1.1
+- Merge pull request [#840](https://github.com/guanguans/music-dl/issues/840) from guanguans/dependabot/composer/ergebnis/php-cs-fixer-config-6.40.0
+- Merge pull request [#839](https://github.com/guanguans/music-dl/issues/839) from guanguans/dependabot/composer/rector/swiss-knife-2.1.0
+- Merge pull request [#838](https://github.com/guanguans/music-dl/issues/838) from guanguans/dependabot/composer/rector/swiss-knife-2.0.8
+- Merge pull request [#837](https://github.com/guanguans/music-dl/issues/837) from guanguans/dependabot/composer/laravel-zero/framework-11.36.1
+- Merge pull request [#836](https://github.com/guanguans/music-dl/issues/836) from guanguans/dependabot/composer/rector/swiss-knife-2.0.3
+- Merge pull request [#835](https://github.com/guanguans/music-dl/issues/835) from guanguans/dependabot/composer/rector/swiss-knife-2.0.2
+- Merge pull request [#834](https://github.com/guanguans/music-dl/issues/834) from guanguans/dependabot/composer/spatie/fork-1.2.3
+- Merge pull request [#833](https://github.com/guanguans/music-dl/issues/833) from guanguans/dependabot/composer/league/commonmark-2.6.0
+- Merge pull request [#832](https://github.com/guanguans/music-dl/issues/832) from guanguans/dependabot/composer/driftingly/rector-laravel-1.2.6
+- Merge pull request [#831](https://github.com/guanguans/music-dl/issues/831) from guanguans/dependabot/composer/ergebnis/composer-normalize-2.45.0
+- Merge pull request [#828](https://github.com/guanguans/music-dl/issues/828) from guanguans/dependabot/github_actions/codecov/codecov-action-5
+- Merge pull request [#830](https://github.com/guanguans/music-dl/issues/830) from guanguans/dependabot/composer/ergebnis/php-cs-fixer-config-6.39.0
+- Merge pull request [#829](https://github.com/guanguans/music-dl/issues/829) from guanguans/dependabot/composer/ergebnis/license-2.6.0
+- Merge pull request [#827](https://github.com/guanguans/music-dl/issues/827) from guanguans/dependabot/composer/larastan/larastan-2.9.11
+- Merge pull request [#826](https://github.com/guanguans/music-dl/issues/826) from guanguans/dependabot/composer/laravel/prompts-0.3.2
+- Merge pull request [#825](https://github.com/guanguans/music-dl/issues/825) from guanguans/dependabot/composer/laravel-zero/framework-11.0.3
+- Merge pull request [#823](https://github.com/guanguans/music-dl/issues/823) from guanguans/dependabot/composer/rector/rector-1.2.10
+- Merge pull request [#822](https://github.com/guanguans/music-dl/issues/822) from guanguans/dependabot/composer/laravel/prompts-0.3.1
+
+
 <a name="5.3.2"></a>
 ## [5.3.2] - 2024-11-08
 ### Pull Requests
@@ -1272,7 +1317,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/5.3.2...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/5.3.3...HEAD
+[5.3.3]: https://github.com/guanguans/music-dl/compare/5.3.2...5.3.3
 [5.3.2]: https://github.com/guanguans/music-dl/compare/5.3.1...5.3.2
 [5.3.1]: https://github.com/guanguans/music-dl/compare/5.3.0...5.3.1
 [5.3.0]: https://github.com/guanguans/music-dl/compare/5.2.9...5.3.0
