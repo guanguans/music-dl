@@ -1,11 +1,2 @@
 parameters:
-	ignoreErrors:
-		-
-			message: "#^Cannot call method pipe\\(\\) on int\\.$#"
-			count: 1
-			path: app/Commands/MusicCommand.php
-
-		-
-			message: "#^Calling the helper function 'value\\(\\)' without a closure as the first argument simply returns the first argument without doing anything$#"
-			count: 1
-			path: app/Music/SequenceMusic.php
+	ignoreErrors: []

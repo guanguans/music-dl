@@ -4,8 +4,6 @@
     <UndefinedVariable>
       <code><![CDATA[$stdinKeyword]]></code>
     </UndefinedVariable>
-    <UnusedVariable>
-    </UnusedVariable>
   </file>
   <file src="app/Music.php">
     <UndefinedVariable>

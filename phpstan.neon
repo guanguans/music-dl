@@ -12,7 +12,7 @@ parameters:
     tmpDir: build/phpstan
 #    checkOctaneCompatibility: true
 #    checkModelProperties: true
-    checkMissingIterableValueType: true
+#    checkMissingIterableValueType: true
 #    disallowFloatsEverywhere: true
 
 #    strictRules:

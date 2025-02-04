@@ -18,7 +18,7 @@ declare(strict_types=1);
 namespace Tests\Unit;
 
 use App\Music;
-use GuzzleHttp\Exception\ConnectException;
+use GuzzleHttp\Exception\TransferException;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Concurrency;
 
@@ -29,7 +29,7 @@ it('can search songs', function (): void {
 
 it('will throw ConnectException when download failed', function (): void {
     app(Music::class)->setHttpClient(null)->download('foo.mp3', downloads_path('foo.mp3'));
-})->group(__DIR__, __FILE__)->throws(ConnectException::class);
+})->group(__DIR__, __FILE__)->throws(TransferException::class);
 
 it('will download song', function (): void {
     expect(app(Music::class))

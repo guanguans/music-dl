@@ -29,7 +29,6 @@ use Rector\Renaming\Rector\FuncCall\RenameFunctionRector;
 use Rector\Renaming\Rector\Name\RenameClassRector;
 use Rector\Renaming\Rector\StaticCall\RenameStaticMethodRector;
 use Rector\Renaming\Rector\String_\RenameStringRector;
-use Rector\Set\ValueObject\DowngradeLevelSetList;
 use Rector\Transform\Rector\MethodCall\MethodCallToStaticCallRector;
 use Rector\Transform\ValueObject\MethodCallToStaticCall;
 use RectorLaravel\Rector\MethodCall\UseComponentPropertyWithinCommandsRector;
@@ -48,6 +47,7 @@ use RectorLaravel\Set\LaravelSetList;
 //     );
 // })->call($rectorConfig, $rectorConfig);
 
+/** @noinspection PhpUnhandledExceptionInspection */
 return RectorConfig::configure()
     ->withPaths([
         __DIR__.'/*.php',
@@ -66,6 +66,7 @@ return RectorConfig::configure()
     // ->withDeadCodeLevel(42)
     // ->withTypeCoverageLevel(23)
     // ->withFluentCallNewLine()
+    ->withDowngradeSets(php82: true)
     ->withPhpSets(php82: true)
     ->withPreparedSets(
         deadCode: true,
@@ -81,7 +82,6 @@ return RectorConfig::configure()
         phpunit: true
     )
     ->withSets([
-        DowngradeLevelSetList::DOWN_TO_PHP_82,
         PHPUnitSetList::PHPUNIT_100,
         PHPUnitSetList::PHPUNIT_CODE_QUALITY,
         PHPUnitSetList::ANNOTATIONS_TO_ATTRIBUTES,
