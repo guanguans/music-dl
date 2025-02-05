@@ -9,7 +9,7 @@
         "br": "Bitrate"
     },
     "keyword_label": "Please input keywords",
-    "keyword_placeholder": "Keyword",
+    "keyword_placeholder": "Keywords",
     "keyword_default": "Yesterday Once More",
     "windows_hint": "Chinese search may not be supported for CMD、PowerShell, supports search in both chinese and english for Git Bash、WSL",
     "searching_hint": "Searching [<fg=red;options=bold>:keyword</>] ...",
