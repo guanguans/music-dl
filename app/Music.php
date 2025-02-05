@@ -64,15 +64,15 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
                 ))
                 ->collapse()
                 ->pipe(fn (Collection $songs): Collection => $this->ensureWithUrls($songs))
-                ->sortBy([
-                    // ['name', \SORT_ASC],
-                    ['name', 'asc'],
-                    ['artist', 'asc'],
-                    ['size', 'desc'],
-                    ['br', 'desc'],
-                    ['album', 'asc'],
-                    ['source', 'asc'],
-                ])
+                // ->sortBy([
+                //     // ['name', \SORT_ASC],
+                //     ['name', 'asc'],
+                //     ['artist', 'asc'],
+                //     ['size', 'desc'],
+                //     ['br', 'desc'],
+                //     ['album', 'asc'],
+                //     ['source', 'asc'],
+                // ])
                 ->values()
                 ->mapWithKeys(static fn (array $song, int $index): array => [$index + 1 => $song]),
             $this->minCallMicroseconds
