@@ -8,6 +8,12 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="5.3.5"></a>
+## [5.3.5] - 2025-02-05
+### Bug Fixes
+- **music:** Remove sorting criteria for songs
+
+
 <a name="5.3.4"></a>
 ## [5.3.4] - 2025-02-05
 ### Bug Fixes
@@ -1326,7 +1332,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/5.3.4...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/5.3.5...HEAD
+[5.3.5]: https://github.com/guanguans/music-dl/compare/5.3.4...5.3.5
 [5.3.4]: https://github.com/guanguans/music-dl/compare/5.3.3...5.3.4
 [5.3.3]: https://github.com/guanguans/music-dl/compare/5.3.2...5.3.3
 [5.3.2]: https://github.com/guanguans/music-dl/compare/5.3.1...5.3.2
