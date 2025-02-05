@@ -1,14 +1,14 @@
 {
     "table_header": {
-        "index": "Serial number",
-        "name": "Song title",
-        "artist": "Artist",
+        "index": "Index",
+        "name": "Name",
+        "artist": "Artists",
         "album": "Album",
         "source": "Source",
         "size": "Size",
         "br": "Bitrate"
     },
-    "keyword_label": "Please enter a keyword",
+    "keyword_label": "Please input keywords",
     "keyword_placeholder": "Keyword",
     "keyword_default": "Yesterday Once More",
     "windows_hint": "Chinese search may not be supported for CMD、PowerShell, supports search in both chinese and english for Git Bash、WSL",
