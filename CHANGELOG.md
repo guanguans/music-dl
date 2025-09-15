@@ -8,6 +8,9 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="6.0.1"></a>
+## [6.0.1] - 2025-09-15
+
 <a name="6.0.0"></a>
 ## [6.0.0] - 2025-09-15
 ### 💅 Code Refactorings
@@ -1373,7 +1376,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/6.0.0...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/6.0.1...HEAD
+[6.0.1]: https://github.com/guanguans/music-dl/compare/6.0.0...6.0.1
 [6.0.0]: https://github.com/guanguans/music-dl/compare/5.3.6...6.0.0
 [5.3.6]: https://github.com/guanguans/music-dl/compare/5.3.5...5.3.6
 [5.3.5]: https://github.com/guanguans/music-dl/compare/5.3.4...5.3.5
