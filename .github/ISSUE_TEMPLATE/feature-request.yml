@@ -37,9 +37,9 @@ body:
       label: Validations
       description: Before submitting the issue, please make sure you do the following
       options:
-        - label: Follow our [Code of Conduct](https://github.com/guanguans/ai-commit/blob/master/.github/CODE_OF_CONDUCT.md)
+        - label: Follow our [Code of Conduct](https://github.com/guanguans/music-dl/blob/master/.github/CODE_OF_CONDUCT.md)
           required: true
-        - label: Read the [Contributing Guide](https://github.com/guanguans/ai-commit/blob/master/.github/CONTRIBUTING.md).
+        - label: Read the [Contributing Guide](https://github.com/guanguans/music-dl/blob/master/.github/CONTRIBUTING.md).
           required: true
         - label: Check that there isn't already an issue that request the same feature to avoid creating a duplicate.
           required: true

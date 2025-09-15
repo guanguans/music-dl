@@ -126,7 +126,7 @@ final class MusicCommand extends Command implements Isolatable
             ->tap(fn (): mixed => $this->rescue(fn () => $this->notify(
                 config('app.name'),
                 $this->option('dir'),
-                resource_path('notify-icon.png')
+                resource_path('images/notify-icon.png')
             )))
             ->unless($this->option('no-continue'), fn (): null => $this->handle());
     }

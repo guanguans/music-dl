@@ -10,7 +10,7 @@
     ],
     "files": [
         "composer.json",
-        "resources/notify-icon.png"
+        "resources/images/notify-icon.png"
     ],
     "exclude-composer-files": false,
     "exclude-dev-files": false,

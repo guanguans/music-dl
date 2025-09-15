@@ -1,6 +1,6 @@
 # music-dl
 
-<p align="center"><img src="resources/music-dl.gif" alt="usage" title="usage"></p>
+<p align="center"><img src="resources/images/music-dl.gif" alt="usage" title="usage"></p>
 
 [简体中文](README-zh_CN.md) | [ENGLISH](README.md)
 
@@ -77,7 +77,7 @@ Options:
   -v|vv|vvv, --verbose     Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
 ```
 
-![usage](resources/music-dl.gif)
+![usage](resources/images/music-dl.gif)
 
 ## Testing
 
