@@ -331,8 +331,8 @@ return Factory::fromRuleSet(Php83::create()
             ->ignoreVCS(true)
             ->ignoreVCSIgnored(true)
             ->append([
-                __DIR__.'/readme-lint',
-                __DIR__.'/music-dl',
                 __DIR__.'/composer-updater',
+                __DIR__.'/music-dl',
+                __DIR__.'/readme-lint',
             ])
     );

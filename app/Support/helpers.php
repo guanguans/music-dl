@@ -11,7 +11,11 @@ declare(strict_types=1);
  * @see https://github.com/guanguans/music-dl
  */
 
+namespace App\Support;
+
+use App\Exceptions\InvalidArgumentException;
 use Composer\Autoload\ClassLoader;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 
 if (!\function_exists('App\Support\classes')) {
@@ -24,43 +28,89 @@ if (!\function_exists('App\Support\classes')) {
      * @see \get_declared_interfaces()
      * @see \get_declared_traits()
      * @see \DG\BypassFinals::enable()
+     * @see \Composer\Util\ErrorHandler
+     * @see \Monolog\ErrorHandler
+     * @see \PhpCsFixer\ExecutorWithoutErrorHandler
+     * @see \Phrity\Util\ErrorHandler
      *
      * @noinspection RedundantDocCommentTagInspection
      *
-     * @param callable(string, class-string): bool $filter
+     * @param null|(callable(class-string, string): bool) $filter
+     *
+     * @return \Illuminate\Support\Collection<class-string, \ReflectionClass>
      */
-    function classes(callable $filter): Collection
+    function classes(?callable $filter = null): Collection
     {
-        static $allClasses;
+        static $classes;
 
-        $allClasses ??= collect(spl_autoload_functions())->flatMap(
+        $classes ??= collect(spl_autoload_functions())->flatMap(
             static fn (mixed $loader): array => \is_array($loader) && $loader[0] instanceof ClassLoader
                 ? $loader[0]->getClassMap()
                 : []
         );
 
-        return $allClasses
-            ->filter($filter)
+        return $classes
+            ->when(
+                \is_callable($filter),
+                static fn (Collection $classes): Collection => $classes->filter(
+                    static function (string $file, string $class) use ($filter) {
+                        /** @var callable $filter */
+                        return $filter($class, $file);
+                    }
+                )
+            )
             ->mapWithKeys(static function (string $file, string $class): array {
                 try {
-                    return [$class => new ReflectionClass($class)];
-                } catch (Throwable $throwable) {
+                    // return [$class => (new ErrorHandler)->with(static fn () => new ReflectionClass($class))];
+                    return [$class => new \ReflectionClass($class)];
+                } catch (\Throwable $throwable) {
                     return [$class => $throwable];
                 }
             });
     }
 }
 
-if (!\function_exists('array_reduce_with_keys')) {
+if (!\function_exists('App\Support\make')) {
     /**
-     * @codeCoverageIgnore
+     * @see https://github.com/laravel/framework/blob/12.x/src/Illuminate/Foundation/helpers.php
+     * @see https://github.com/yiisoft/yii2/blob/master/framework/BaseYii.php
+     *
+     * @template TClass of object
+     *
+     * @param array<string, mixed>|class-string<TClass>|string $name
+     * @param array<string, mixed> $parameters
+     *
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     *
+     * @return ($name is class-string<TClass> ? TClass : mixed)
      */
-    function array_reduce_with_keys(array $array, callable $callback, mixed $carry = null): mixed
+    function make(array|string $name, array $parameters = []): mixed
     {
-        foreach ($array as $key => $value) {
-            $carry = $callback($carry, $value, $key);
+        if (\is_string($name)) {
+            return resolve($name, $parameters);
         }
 
-        return $carry;
+        foreach (
+            $keys = [
+                '__abstract',
+                '__class',
+                '__name',
+                '_abstract',
+                '_class',
+                '_name',
+                'abstract',
+                'class',
+                'name',
+            ] as $key
+        ) {
+            if (isset($name[$key])) {
+                return make($name[$key], $parameters + Arr::except($name, $key));
+            }
+        }
+
+        throw new InvalidArgumentException(\sprintf(
+            'The argument of abstract must be an array containing a `%s` element.',
+            implode('` or `', $keys)
+        ));
     }
 }

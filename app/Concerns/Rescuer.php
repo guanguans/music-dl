@@ -25,9 +25,6 @@ trait Rescuer
      *
      * @noinspection RedundantDocCommentTagInspection
      *
-     * @psalm-suppress InvalidReturnType
-     * @psalm-suppress InvalidReturnStatement
-     *
      * @param callable(): TValue $callback
      * @param bool|callable(\Throwable): bool $report
      *

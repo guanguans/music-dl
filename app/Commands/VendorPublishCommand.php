@@ -17,8 +17,6 @@ final class VendorPublishCommand extends \Illuminate\Foundation\Console\VendorPu
 {
     /**
      * @noinspection PhpMissingParentCallCommonInspection
-     *
-     * @psalm-suppress UndefinedInterfaceMethod
      */
     #[\Override]
     public function isEnabled(): bool

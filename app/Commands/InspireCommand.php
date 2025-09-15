@@ -24,7 +24,7 @@ final class InspireCommand extends Command
 
     public function handle(): void
     {
-        $this->info(config('app.logo'));
+        $this->components->info(config('app.logo'));
         $this->components->info(Inspiring::quote());
     }
 

@@ -1,9 +1,12 @@
 <?php
 
-/** @noinspection PhpUnhandledExceptionInspection */
 /** @noinspection AnonymousFunctionStaticInspection */
+/** @noinspection NullPointerExceptionInspection */
+/** @noinspection PhpPossiblePolymorphicInvocationInspection */
+/** @noinspection PhpUndefinedClassInspection */
+/** @noinspection PhpUnhandledExceptionInspection */
+/** @noinspection PhpVoidFunctionResultUsedInspection */
 /** @noinspection StaticClosureCanBeUsedInspection */
-
 declare(strict_types=1);
 
 /**
@@ -15,11 +18,9 @@ declare(strict_types=1);
  * @see https://github.com/guanguans/music-dl
  */
 
-namespace Tests\Unit\Facades;
-
 use App\Facades\Music;
 use Illuminate\Support\Facades\Concurrency;
 
 it('can set music driver', function (): void {
-    expect(Music::setDriver(Concurrency::driver()))->toBeInstanceOf(\App\Contracts\Music::class);
+    expect(Music::setDriver(Concurrency::driver()))->toBeInstanceOf(App\Contracts\Music::class);
 })->group(__DIR__, __FILE__);

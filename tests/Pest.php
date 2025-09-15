@@ -1,9 +1,12 @@
 <?php
 
-/** @noinspection PhpUnhandledExceptionInspection */
 /** @noinspection AnonymousFunctionStaticInspection */
+/** @noinspection NullPointerExceptionInspection */
+/** @noinspection PhpPossiblePolymorphicInvocationInspection */
+/** @noinspection PhpUndefinedClassInspection */
+/** @noinspection PhpUnhandledExceptionInspection */
+/** @noinspection PhpVoidFunctionResultUsedInspection */
 /** @noinspection StaticClosureCanBeUsedInspection */
-
 declare(strict_types=1);
 
 /**
@@ -22,6 +25,9 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
+use Mockery\MockInterface;
+use Pest\Expectation;
+use Symfony\Component\Finder\Finder;
 use Tests\TestCase;
 
 uses(TestCase::class)
@@ -73,7 +79,7 @@ uses(TestCase::class)
 |
 */
 
-expect()->extend('toBeTwo', fn (): Pest\Expectation => $this->toBe(2));
+expect()->extend('toBeTwo', fn (): Expectation => $this->toBe(2));
 
 /*
 |--------------------------------------------------------------------------
@@ -89,7 +95,7 @@ expect()->extend('toBeTwo', fn (): Pest\Expectation => $this->toBe(2));
 /**
  * @noinspection HttpUrlsUsage
  */
-function mock_meting(): Meting&Mockery\MockInterface
+function mock_meting(): Meting&MockInterface
 {
     $mockMeting = Mockery::mock(Meting::class);
     $mockMeting->allows('search')->andReturns('[{"id":28768120,"name":"硬汉","artist":["腰乐队"],"album":"相见恨晚","pic_id":"109951164144451252","url_id":28768120,"lyric_id":28768120,"source":"netease"},{"id":1386737246,"name":"公路之光","artist":["腰乐队"],"album":"他们说忘了摇滚有问题","pic_id":"109951164323917099","url_id":1386737246,"lyric_id":1386737246,"source":"netease"},{"id":28768123,"name":"晚春","artist":["腰乐队"],"album":"相见恨晚","pic_id":"109951164144451252","url_id":28768123,"lyric_id":28768123,"source":"netease"}]');
@@ -116,7 +122,7 @@ function class_namespace(object|string $class): string
 function clear_same_namespace(): void
 {
     foreach (
-        Symfony\Component\Finder\Finder::create()
+        Finder::create()
             ->in(__DIR__.'/../vendor/guanguans/ai-commit/app')
             ->name('*.php') as $splFileInfo
     ) {

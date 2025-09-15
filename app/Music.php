@@ -48,8 +48,6 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
     }
 
     /**
-     * @psalm-suppress NamedArgumentNotAllowed
-     *
      * @throws \Throwable
      */
     public function search(string $keyword, array $sources = []): Collection
@@ -80,8 +78,6 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
     }
 
     /**
-     * @psalm-suppress UnusedVariable
-     *
      * @throws \Throwable
      * @throws GuzzleException
      */
@@ -144,6 +140,6 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
             ))->all()
         ))
             ->filter()
-            ->filter(static fn (array $song): bool => !empty($song['url']));
+            ->reject(static fn (array $song): bool => empty($song['url']));
     }
 }

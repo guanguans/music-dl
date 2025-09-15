@@ -91,7 +91,7 @@ final class MusicCommand extends Command implements Isolatable
 
                         return $songs;
                     },
-                    __('searching_hint', compact('keyword')),
+                    __('searching_hint', ['keyword' => $keyword]),
                 );
             })
             ->whenEmpty(function (): void {

@@ -22,9 +22,7 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 
 require __DIR__.'/vendor/autoload.php';
 
-app()->singleton(OutputStyle::class, static function (): OutputStyle {
-    return new OutputStyle(new ArgvInput, new ConsoleOutput);
-});
+app()->singleton(OutputStyle::class, static fn (): OutputStyle => new OutputStyle(new ArgvInput, new ConsoleOutput));
 
 (new Pipeline(app()))
     ->send(glob('README-*.md'))

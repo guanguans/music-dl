@@ -1,9 +1,12 @@
 <?php
 
-/** @noinspection PhpUnhandledExceptionInspection */
 /** @noinspection AnonymousFunctionStaticInspection */
+/** @noinspection NullPointerExceptionInspection */
+/** @noinspection PhpPossiblePolymorphicInvocationInspection */
+/** @noinspection PhpUndefinedClassInspection */
+/** @noinspection PhpUnhandledExceptionInspection */
+/** @noinspection PhpVoidFunctionResultUsedInspection */
 /** @noinspection StaticClosureCanBeUsedInspection */
-
 declare(strict_types=1);
 
 /**
@@ -14,5 +17,3 @@ declare(strict_types=1);
  *
  * @see https://github.com/guanguans/music-dl
  */
-
-namespace Tests\Unit\Support;

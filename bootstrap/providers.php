@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 use Illuminate\Support\Collection;
+use function App\Support\classes;
 
 return [
     // Laravel Framework Service Providers...
@@ -28,12 +29,11 @@ return [
     App\Providers\AppServiceProvider::class,
 
     ...classes(
-        static fn (
-            string $file,
-            string $class
-        ): bool => str($class)->startsWith('LaravelLang') && str($class)->endsWith('ServiceProvider') && !str($class)->is([
-            LaravelLang\Routes\ServiceProvider::class,
-        ])
+        static fn (string $class): bool => str($class)->startsWith('LaravelLang')
+            && str($class)->endsWith('ServiceProvider')
+            && !str($class)->is([
+                LaravelLang\Routes\ServiceProvider::class,
+            ])
     )
         ->keys()
         ->when(Phar::running(), static fn (): Collection => Collection::empty())

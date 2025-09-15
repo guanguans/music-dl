@@ -1,9 +1,12 @@
 <?php
 
-/** @noinspection PhpUnhandledExceptionInspection */
 /** @noinspection AnonymousFunctionStaticInspection */
+/** @noinspection NullPointerExceptionInspection */
+/** @noinspection PhpPossiblePolymorphicInvocationInspection */
+/** @noinspection PhpUndefinedClassInspection */
+/** @noinspection PhpUnhandledExceptionInspection */
+/** @noinspection PhpVoidFunctionResultUsedInspection */
 /** @noinspection StaticClosureCanBeUsedInspection */
-
 declare(strict_types=1);
 
 /**
@@ -17,6 +20,7 @@ declare(strict_types=1);
 
 use App\Commands\MusicCommand;
 use App\Concerns\Hydrator;
+use App\Exceptions\RuntimeException;
 use App\Music;
 use Illuminate\Support\Collection;
 
