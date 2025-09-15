@@ -320,7 +320,7 @@
         "pest-update-snapshots": "@pest -d --update-snapshots",
         "phparkitect": "@php vendor/bin/phparkitect check --ansi -v",
         "phpcs": "@php vendor/bin/phpcs app/ bootstrap/ config/ resources/ tests/ --extensions=php --ignore=*/vendor/* --parallel=8 --cache --colors -n -p -s -v",
-        "phpcs:compatibility": "@phpcs --standard=PHPCompatibility --exclude=PHPCompatibility.FunctionDeclarations.NewClosure --runtime-set testVersion 8.2-",
+        "phpcs:compatibility": "@phpcs --standard=PHPCompatibility --exclude=PHPCompatibility.FunctionDeclarations.NewClosure --runtime-set testVersion 8.3-",
         "phpcs:help": "@phpcs --help",
         "phpcs:i": "@phpcs -i",
         "phploc": "@php vendor/bin/phploc --suffix=php app/",
