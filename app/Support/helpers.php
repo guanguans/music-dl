@@ -54,7 +54,7 @@ if (!\function_exists('App\Support\classes')) {
                 \is_callable($filter),
                 static fn (Collection $classes): Collection => $classes->filter(
                     static function (string $file, string $class) use ($filter) {
-                        /** @var callable $filter */
+                        /** @var callable(class-string, string): bool $filter */
                         return $filter($class, $file);
                     }
                 )

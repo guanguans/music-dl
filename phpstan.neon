@@ -1,30 +1,115 @@
 includes:
-    - phpstan-baseline.neon
-#    - vendor/roave/no-floaters/rules.neon
-#    - vendor/phpstan/phpstan-strict-rules/rules.neon
-#    - vendor/ergebnis/phpstan-rules/rules.neon
+    - baselines/loader.neon
+#    - phpstan-baseline.neon
+
+    - vendor/spaze/phpstan-disallowed-calls/disallowed-dangerous-calls.neon
+    - vendor/spaze/phpstan-disallowed-calls/disallowed-execution-calls.neon
+    - vendor/spaze/phpstan-disallowed-calls/disallowed-insecure-calls.neon
+    - vendor/spaze/phpstan-disallowed-calls/disallowed-loose-calls.neon
+#    - vendor/spaze/phpstan-disallowed-calls/extension.neon
+
+#    - vendor-bin/larastan/vendor/larastan/larastan/extension.neon
 #    - vendor/ekino/phpstan-banned-code/extension.neon
+#    - vendor/ergebnis/phpstan-rules/rules.neon
+#    - vendor/phpstan/phpstan-strict-rules/rules.neon
+#    - vendor/roave/no-floaters/rules.neon
+#    - vendor/shipmonk/dead-code-detector/rules.neon
+#    - vendor/staabm/phpstan-todo-by/extension.neon
+
+    - vendor/symplify/phpstan-rules/config/code-complexity-rules.neon
+#    - vendor/symplify/phpstan-rules/config/configurable-rules.neon
+    - vendor/symplify/phpstan-rules/config/naming-rules.neon
+    - vendor/symplify/phpstan-rules/config/static-rules.neon
+#    - vendor/symplify/phpstan-rules/config/symplify-rules.neon
+
+#    - vendor/symplify/phpstan-rules/config/doctrine-rules.neon
+    - vendor/symplify/phpstan-rules/config/phpunit-rules.neon
+#    - vendor/symplify/phpstan-rules/config/rector-rules.neon
+#    - vendor/symplify/phpstan-rules/config/symfony-rules.neon
 
 parameters:
-    level: 5
     paths:
-        - app
-    tmpDir: .build/phpstan
-#    checkOctaneCompatibility: true
-#    checkModelProperties: true
-#    checkMissingIterableValueType: true
-#    disallowFloatsEverywhere: true
-
-#    strictRules:
-#        allRules: false
-#        booleansInConditions: false
-#        uselessCast: false
-#        requireParentConstructorCall: false
-#        disallowedConstructs: false
-#        overwriteVariablesWithLoop: false
-#        closureUsesThis: false
-#        matchingInheritedMethodNames: false
-#        numericOperandsInArithmeticOperators: false
-#        strictCalls: false
-#        switchConditionsMatchingType: false
-#        noVariableVariables: false
+        - app/
+        - bootstrap/
+        - config/
+        - resources/lang/
+    scanFiles:
+        - vendor/composer/InstalledVersions.php
+    excludePaths:
+        - tests/Fixtures/
+        - *.blade.php
+    level: max
+#    level: 10
+    tmpDir: .build/phpstan/
+    editorUrl: 'phpstorm://open?file=%%file%%&line=%%line%%'
+#    errorFormat: symplify
+    errorFormat: friendly
+    friendly:
+        lineBefore: 3
+        lineAfter: 3
+        editorUrl: 'phpstorm://open?file=%%file%%&line=%%line%%'
+    treatPhpDocTypesAsCertain: false
+    strictRules:
+        # https://github.com/phpstan/phpstan-strict-rules
+        allRules: true
+        booleansInConditions: false
+        disallowedShortTernary: false
+    cognitive_complexity:
+        class: 42
+        function: 8
+        dependency_tree: 150
+        dependency_tree_types:
+            # only these explicit types are checked, nothing else
+#            - Rector\Contract\Rector\RectorInterface
+    type_coverage:
+        declare: 100
+        param_type: 100
+        return_type: 100
+        constant_type: 100
+        property_type: 100
+    type_perfect:
+        narrow_param: true
+        narrow_return: true
+        null_over_false: true
+        no_mixed: false
+        no_mixed_property: true
+        no_mixed_caller: false
+    disallowedFunctionCalls:
+        -
+            function: 'env_explode()'
+            message: 'use config() instead'
+    ignoreErrors:
+#        - identifier: binaryOp.invalid
+#        - identifier: encapsedStringPart.nonString
+#        - identifier: foreach.valueOverwrite
+#        - identifier: logicalAnd.resultUnused
+#        - identifier: method.dynamicName
+#        - identifier: return.void
+#        - identifier: symplify.forbiddenExtendOfNonAbstractClass
+#        - identifier: symplify.noDynamicName
+#        - identifier: symplify.noReference
+#        - identifier: typePerfect.noMixedMethodCaller
+        - identifier: argument.templateType
+        - identifier: argument.type
+        - identifier: arrayFilter.strict
+        - identifier: assign.propertyType
+        - identifier: cast.double
+        - identifier: cast.int
+        - identifier: cast.string
+        - identifier: empty.notAllowed
+        - identifier: method.nonObject
+        - identifier: missingType.generics
+        - identifier: missingType.iterableValue
+        - identifier: return.type
+        - identifier: shipmonk.deadMethod
+        - identifier: symplify.explicitTraitSuffixName
+        - identifier: symplify.noReturnSetterMethod
+        - identifier: symplify.requireExceptionNamespace
+        -
+            identifier: symplify.explicitInterfaceSuffixName
+            path: app/Contracts/
+        -
+            message: '#^Calling exec\(\) is forbidden\.$#'
+            paths:
+                - app/Commands/ThanksCommand.php
+                - app/Support/Utils.php

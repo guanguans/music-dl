@@ -1,0 +1,6 @@
+# total 4 errors
+
+includes:
+    - shipmonk.deadConstant.neon
+    - staticMethod.dynamicCall.neon
+    - typePerfect.narrowPublicClassMethodParamType.neon
