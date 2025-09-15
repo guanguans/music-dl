@@ -107,6 +107,24 @@ $ruleSet = Config\RuleSet\Php74::create()
             'anonymous_class' => false,
             'named_class' => false,
         ],
+        'no_extra_blank_lines' => [
+            'tokens' => [
+                'attribute',
+                'break',
+                'case',
+                // 'comma',
+                'continue',
+                'curly_brace_block',
+                'default',
+                'extra',
+                'parenthesis_brace_block',
+                'return',
+                'square_brace_block',
+                'switch',
+                'throw',
+                'use',
+            ],
+        ],
         'php_unit_data_provider_name' => [
             'prefix' => 'provide',
             'suffix' => 'Cases',
@@ -170,6 +188,7 @@ $ruleSet = Config\RuleSet\Php74::create()
             'stick_comment_to_next_continuous_control_statement' => true,
         ],
         'static_lambda' => false, // pest
+        'static_private_method' => false,
     ]));
 
 $ruleSet->withCustomFixers(Config\Fixers::fromFixers(
