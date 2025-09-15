@@ -37,10 +37,10 @@ return Application::configure(basePath: \dirname(__DIR__))
             static fn (): OutputStyle => new OutputStyle(new ArgvInput, new ConsoleOutput)
         );
     })
-    ->booted(static function (Application $app): void {
-        $app->extend(LoggerInterface::class, static function (LoggerInterface $logger, Application $application): LogManager {
+    ->booting(static function (Application $app): void {
+        $app->extend(LoggerInterface::class, static function (LoggerInterface $logger, Application $app): LogManager {
             if (!$logger instanceof LogManager) {
-                $logger = new LogManager($application);
+                $logger = new LogManager($app);
             }
 
             /** @noinspection PhpVoidFunctionResultUsedInspection */
