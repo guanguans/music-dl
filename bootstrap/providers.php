@@ -11,6 +11,8 @@ declare(strict_types=1);
  * @see https://github.com/guanguans/music-dl
  */
 
+use Illuminate\Support\Collection;
+
 return [
     // Laravel Framework Service Providers...
     // Illuminate\Cache\CacheServiceProvider::class,
@@ -24,4 +26,17 @@ return [
 
     // Application Service Providers...
     App\Providers\AppServiceProvider::class,
+
+    ...classes(
+        static fn (
+            string $file,
+            string $class
+        ): bool => str($class)->startsWith('LaravelLang') && str($class)->endsWith('ServiceProvider') && !str($class)->is([
+            LaravelLang\Routes\ServiceProvider::class,
+        ])
+    )
+        ->keys()
+        ->when(Phar::running(), static fn (): Collection => Collection::empty())
+        // ->dd()
+        ->all(),
 ];

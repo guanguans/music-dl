@@ -10,7 +10,7 @@
         "tests/",
         "vendor-bin/",
         "vendor/",
-        "./CHANGELOG.md"
+        "CHANGELOG.md"
     ],
     "rules": {
         "space-around-alphabet": 2,

@@ -41,16 +41,15 @@ return (new Configuration)
     )
     ->ignoreErrorsOnPackages(
         [
-            'laminas/laminas-text',
-            'laravel-lang/common',
             'laravel-zero/phar-updater',
+            'spatie/fork',
+            'symfony/polyfill-php84',
+            'symfony/polyfill-php85',
         ],
         [ErrorType::UNUSED_DEPENDENCY]
     )
     ->ignoreErrorsOnPackages(
         [
-            'composer/xdebug-handler',
-            'guzzlehttp/psr7',
             'laravel-lang/config',
             'laravel-lang/locale-list',
             'laravel-lang/routes',
@@ -59,7 +58,6 @@ return (new Configuration)
             'psr/http-message',
             'psr/log',
             'symfony/console',
-            'symfony/process',
         ],
         [ErrorType::SHADOW_DEPENDENCY]
     )
