@@ -369,7 +369,7 @@
         "roave-no-leaks": "@php vendor/bin/roave-no-leaks",
         "sk": "@php vendor/bin/swiss-knife --ansi -v",
         "sk-alice-yaml-fixtures-to-php": "@sk alice-yaml-fixtures-to-php --help",
-        "sk-check-commented-code": "@sk check-commented-code app/ bootstrap/ config/ resources/ tests/ --line-limit=6 --skip-file=bootstrap/providers.php --skip-file=app/Music.php",
+        "sk-check-commented-code": "@sk check-commented-code app/ config/ resources/ tests/ --line-limit=6 --skip-file=app/Music.php",
         "sk-check-conflicts": "@sk check-conflicts app/ bootstrap/ config/ resources/ tests/",
         "sk-dump-editorconfig": "@sk dump-editorconfig",
         "sk-finalize-classes": "@sk finalize-classes app/",

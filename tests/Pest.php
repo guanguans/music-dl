@@ -25,6 +25,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
+use Illuminate\Support\Facades\Http;
 use Mockery\MockInterface;
 use Pest\Expectation;
 use Symfony\Component\Finder\Finder;
@@ -79,7 +80,15 @@ uses(TestCase::class)
 |
 */
 
-expect()->extend('toBeTwo', fn (): Expectation => $this->toBe(2));
+expect()->extend('toAssert', function (Closure $assertions): Expectation {
+    $assertions($this->value);
+
+    return $this;
+});
+
+expect()->extend('toBetween', fn (int $min, int $max): Expectation => expect($this->value)
+    ->toBeGreaterThanOrEqual($min)
+    ->toBeLessThanOrEqual($max));
 
 /*
 |--------------------------------------------------------------------------
@@ -91,6 +100,33 @@ expect()->extend('toBeTwo', fn (): Expectation => $this->toBe(2));
 | global functions to help you to reduce the number of lines of code in your test files.
 |
 */
+
+/**
+ * @throws \ReflectionException
+ */
+function class_namespace(object|string $class): string
+{
+    $class = \is_object($class) ? $class::class : $class;
+
+    return (new ReflectionClass($class))->getNamespaceName();
+}
+
+function fixtures_path(string $path = ''): string
+{
+    return __DIR__.'/Fixtures'.($path ? \DIRECTORY_SEPARATOR.$path : $path);
+}
+
+function running_in_github_action(): bool
+{
+    return getenv('GITHUB_ACTIONS') === 'true';
+}
+
+function reset_http_fake(?Factory $factory = null): void
+{
+    (function (): void {
+        $this->stubCallbacks = collect();
+    })->call($factory ?? Http::getFacadeRoot());
+}
 
 /**
  * @noinspection HttpUrlsUsage
@@ -107,16 +143,6 @@ function mock_meting(): Meting&MockInterface
 function downloads_path(string $path = ''): string
 {
     return base_path('tests/Fixtures/Downloads/'.$path);
-}
-
-/**
- * @throws ReflectionException
- */
-function class_namespace(object|string $class): string
-{
-    $class = \is_object($class) ? $class::class : $class;
-
-    return (new ReflectionClass($class))->getNamespaceName();
 }
 
 function clear_same_namespace(): void
