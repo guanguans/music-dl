@@ -66,8 +66,8 @@ return RectorConfig::configure()
     // ->withDeadCodeLevel(42)
     // ->withTypeCoverageLevel(23)
     // ->withFluentCallNewLine()
-    ->withDowngradeSets(php82: true)
-    ->withPhpSets(php82: true)
+    ->withDowngradeSets(php83: true)
+    ->withPhpSets(php83: true)
     ->withPreparedSets(
         deadCode: true,
         codeQuality: true,
@@ -141,7 +141,7 @@ return RectorConfig::configure()
         RectorLaravel\Rector\MethodCall\RedirectRouteToToRouteHelperRector::class,
         RectorLaravel\Rector\MethodCall\RefactorBlueprintGeometryColumnsRector::class,
         // // RectorLaravel\Rector\MethodCall\ReplaceWithoutJobsEventsAndNotificationsWithFacadeFakeRector::class,
-        RectorLaravel\Rector\MethodCall\UseComponentPropertyWithinCommandsRector::class,
+        UseComponentPropertyWithinCommandsRector::class,
         RectorLaravel\Rector\MethodCall\ValidationRuleArrayStringValueToArrayRector::class,
         // // RectorLaravel\Rector\Namespace_\FactoryDefinitionRector::class,
         RectorLaravel\Rector\New_\AddGuardToLoginEventRector::class,

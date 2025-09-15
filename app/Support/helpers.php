@@ -43,8 +43,8 @@ if (!\function_exists('App\Support\classes')) {
             ->filter($filter)
             ->mapWithKeys(static function (string $file, string $class): array {
                 try {
-                    return [$class => new \ReflectionClass($class)];
-                } catch (\Throwable $throwable) {
+                    return [$class => new ReflectionClass($class)];
+                } catch (Throwable $throwable) {
                     return [$class => $throwable];
                 }
             });

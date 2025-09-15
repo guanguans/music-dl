@@ -11,36 +11,87 @@ declare(strict_types=1);
  * @see https://github.com/guanguans/music-dl
  */
 
-use Ergebnis\License;
-use Ergebnis\PhpCsFixer\Config;
+use Ergebnis\License\Holder;
+use Ergebnis\License\Range;
+use Ergebnis\License\Type\MIT;
+use Ergebnis\License\Url;
+use Ergebnis\License\Year;
+use Ergebnis\PhpCsFixer\Config\Factory;
+use Ergebnis\PhpCsFixer\Config\Fixers;
+use Ergebnis\PhpCsFixer\Config\Rules;
+use Ergebnis\PhpCsFixer\Config\RuleSet\Php83;
 use PhpCsFixer\Finder;
+use PhpCsFixer\Fixer\DeprecatedFixerInterface;
+use PhpCsFixerCustomFixers\Fixer\AbstractFixer;
 
-$license = License\Type\MIT::text(
-    __DIR__.'/LICENSE',
-    License\Range::since(
-        License\Year::fromString('2019'),
-        new DateTimeZone('Asia/Shanghai'),
-    ),
-    License\Holder::fromString('guanguans<ityaozm@gmail.com>'),
-    License\Url::fromString('https://github.com/guanguans/music-dl'),
-);
+// putenv('PHP_CS_FIXER_ENFORCE_CACHE=1');
+// putenv('PHP_CS_FIXER_IGNORE_ENV=1');
+putenv('PHP_CS_FIXER_FUTURE_MODE=1');
+putenv('PHP_CS_FIXER_NON_MONOLITHIC=1');
+putenv('PHP_CS_FIXER_PARALLEL=1');
 
-$license->save();
+return Factory::fromRuleSet(Php83::create()
+    ->withHeader(
+        (static function (): string {
+            $mit = MIT::text(
+                __DIR__.'/LICENSE',
+                Range::since(
+                    Year::fromString('2019'),
+                    new DateTimeZone('Asia/Shanghai'),
+                ),
+                Holder::fromString('guanguans<ityaozm@gmail.com>'),
+                Url::fromString('https://github.com/guanguans/music-dl'),
+            );
 
-$ruleSet = Config\RuleSet\Php74::create()
-    ->withHeader($license->header())
-    ->withRules(Config\Rules::fromArray([
-        '@PHP70Migration' => true,
-        '@PHP70Migration:risky' => true,
-        '@PHP71Migration' => true,
-        '@PHP71Migration:risky' => true,
-        '@PHP73Migration' => true,
-        '@PHP74Migration' => true,
-        '@PHP74Migration:risky' => true,
-        '@PHP80Migration' => true,
-        '@PHP80Migration:risky' => true,
-        '@PHP81Migration' => true,
-        '@PHP82Migration' => true,
+            $mit->save();
+
+            return $mit->header();
+        })()
+    )
+    ->withCustomFixers(Fixers::fromFixers(...$phpCsFixerCustomFixers = array_filter(
+        iterator_to_array(new PhpCsFixerCustomFixers\Fixers),
+        static fn (AbstractFixer $fixer): bool => !$fixer instanceof DeprecatedFixerInterface
+            && !\array_key_exists($fixer->getName(), Php83::create()->rules()->toArray())
+    )))
+    // ->withRules(Rules::fromArray(array_reduce(
+    //     $phpCsFixerCustomFixers,
+    //     static function (array $rules, AbstractFixer $fixer): array {
+    //         if (
+    //             \in_array(
+    //                 $fixer->getName(),
+    //                 [
+    //                     'PhpCsFixerCustomFixers/comment_surrounded_by_spaces',
+    //                     'PhpCsFixerCustomFixers/declare_after_opening_tag',
+    //                     'PhpCsFixerCustomFixers/isset_to_array_key_exists',
+    //                     'PhpCsFixerCustomFixers/no_commented_out_code',
+    //                     'PhpCsFixerCustomFixers/phpdoc_only_allowed_annotations',
+    //                     'PhpCsFixerCustomFixers/phpdoc_var_annotation_to_assert',
+    //                 ],
+    //                 true
+    //             )
+    //         ) {
+    //             return $rules;
+    //
+    //         }
+    //
+    //         $rules[$fixer->getName()] = true;
+    //
+    //         return $rules;
+    //     },
+    //     []
+    // )))
+    ->withRules(Rules::fromArray([
+        // '@PHP70Migration' => true,
+        // '@PHP70Migration:risky' => true,
+        // '@PHP71Migration' => true,
+        // '@PHP71Migration:risky' => true,
+        // '@PHP73Migration' => true,
+        // '@PHP74Migration' => true,
+        // '@PHP74Migration:risky' => true,
+        // '@PHP80Migration' => true,
+        // '@PHP80Migration:risky' => true,
+        // '@PHP81Migration' => true,
+        // '@PHP82Migration' => true,
         '@PHP83Migration' => true,
         // '@PHPUnit75Migration:risky' => true,
         // '@PHPUnit84Migration:risky' => true,
@@ -48,8 +99,13 @@ $ruleSet = Config\RuleSet\Php74::create()
         // '@DoctrineAnnotation' => true,
         // '@PhpCsFixer' => true,
         // '@PhpCsFixer:risky' => true,
+    ]))
+    ->withRules(Rules::fromArray([
         'align_multiline_comment' => [
             'comment_type' => 'phpdocs_only',
+        ],
+        'attribute_empty_parentheses' => [
+            'use_parentheses' => false,
         ],
         'blank_line_before_statement' => [
             'statements' => [
@@ -95,6 +151,32 @@ $ruleSet = Config\RuleSet\Php74::create()
         'final_class' => false,
         // 'final_internal_class' => false,
         'final_public_method_for_abstract_class' => false,
+        'fully_qualified_strict_types' => [
+            'import_symbols' => false,
+            'leading_backslash_in_global_namespace' => false,
+            'phpdoc_tags' => [
+                // 'param',
+                // 'phpstan-param',
+                // 'phpstan-property',
+                // 'phpstan-property-read',
+                // 'phpstan-property-write',
+                // 'phpstan-return',
+                // 'phpstan-var',
+                // 'property',
+                // 'property-read',
+                // 'property-write',
+                // 'psalm-param',
+                // 'psalm-property',
+                // 'psalm-property-read',
+                // 'psalm-property-write',
+                // 'psalm-return',
+                // 'psalm-var',
+                // 'return',
+                // 'see',
+                // 'throws',
+                // 'var',
+            ],
+        ],
         'logical_operators' => false,
         'mb_str_functions' => false,
         'native_function_invocation' => [
@@ -124,6 +206,9 @@ $ruleSet = Config\RuleSet\Php74::create()
                 'throw',
                 'use',
             ],
+        ],
+        'ordered_traits' => [
+            'case_sensitive' => true,
         ],
         'php_unit_data_provider_name' => [
             'prefix' => 'provide',
@@ -157,28 +242,54 @@ $ruleSet = Config\RuleSet\Php74::create()
         ],
         'phpdoc_order' => [
             'order' => [
+                'noinspection',
+                'phan-suppress',
+                'phpcsSuppress',
+                'phpstan-ignore',
+                'psalm-suppress',
+
                 'deprecated',
                 'internal',
                 'covers',
                 'uses',
                 'dataProvider',
-                'noinspection',
-                'psalm-suppress',
                 'param',
                 'throws',
                 'return',
             ],
         ],
+        'phpdoc_order_by_value' => [
+            'annotations' => [
+                'author',
+                'covers',
+                'coversNothing',
+                'dataProvider',
+                'depends',
+                'group',
+                'internal',
+                // 'method',
+                'mixin',
+                'property',
+                'property-read',
+                'property-write',
+                'requires',
+                'throws',
+                'uses',
+            ],
+        ],
         'phpdoc_to_param_type' => [
             'scalar_types' => true,
+            'types_map' => [],
             'union_types' => true,
         ],
         'phpdoc_to_property_type' => [
             'scalar_types' => true,
+            'types_map' => [],
             'union_types' => true,
         ],
         'phpdoc_to_return_type' => [
             'scalar_types' => true,
+            'types_map' => [],
             'union_types' => true,
         ],
         'simplified_if_return' => true,
@@ -187,51 +298,41 @@ $ruleSet = Config\RuleSet\Php74::create()
         'statement_indentation' => [
             'stick_comment_to_next_continuous_control_statement' => true,
         ],
-        'static_lambda' => false, // pest
-        'static_private_method' => false,
-    ]));
-
-$ruleSet->withCustomFixers(Config\Fixers::fromFixers(
-    ...array_filter(
-        iterator_to_array(new PhpCsFixerCustomFixers\Fixers),
-        static fn (
-            PhpCsFixerCustomFixers\Fixer\AbstractFixer $fixer
-        ): bool => !$fixer instanceof PhpCsFixer\Fixer\DeprecatedFixerInterface
-            && !\array_key_exists($fixer->getName(), $ruleSet->rules()->toArray())
-    )
-));
-
-return Config\Factory::fromRuleSet($ruleSet)
+        'static_lambda' => false,
+        'static_private_method' => false, // pest
+        // 'string_implicit_backslashes' => false,
+    ])))
+    ->setUsingCache(true)
+    ->setCacheFile(__DIR__.'/.build/php-cs-fixer/.php-cs-fixer.cache')
+    ->setUnsupportedPhpVersionAllowed(true)
     ->setFinder(
+        /**
+         * @see https://github.com/laravel/pint/blob/main/app/Commands/DefaultCommand.php
+         * @see https://github.com/laravel/pint/blob/main/app/Factories/ConfigurationFactory.php
+         * @see https://github.com/laravel/pint/blob/main/app/Repositories/ConfigurationJsonRepository.php
+         */
         Finder::create()
             ->in(__DIR__)
             ->exclude([
-                '.build/',
-                '.chglog/',
-                '.github/',
-                'build/',
-                'docs/',
+                '__snapshots__',
+                'cache/',
+                'Fixtures/',
+                'lang/',
                 'vendor-bin/',
-                '__snapshots__/',
             ])
-            ->append(glob(__DIR__.'/{*,.*}.php', \GLOB_BRACE))
+            ->notPath([
+                // '/lang\/.*\.json$/',
+            ])
+            ->notName([
+                '/\.blade\.php$/',
+            ])
+            ->ignoreDotFiles(false)
+            ->ignoreUnreadableDirs(false)
+            ->ignoreVCS(true)
+            ->ignoreVCSIgnored(true)
             ->append([
+                __DIR__.'/readme-lint',
                 __DIR__.'/music-dl',
                 __DIR__.'/composer-updater',
             ])
-            ->notPath([
-                'bootstrap/*',
-                'storage/*',
-                'resources/view/mail/*',
-                'vendor-bin/*',
-            ])
-            ->notName([
-                '*.blade.php',
-                // '_ide_helper.php',
-            ])
-            ->ignoreDotFiles(true)
-            ->ignoreVCS(true)
-    )
-    ->setRiskyAllowed(true)
-    ->setUsingCache(true)
-    ->setCacheFile(__DIR__.'/build/php-cs-fixer/.php-cs-fixer.cache');
+    );

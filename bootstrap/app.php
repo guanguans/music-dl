@@ -50,8 +50,8 @@ return Application::configure(basePath: \dirname(__DIR__))
     })
     ->withExceptions(static function (Exceptions $exceptions): void {
         $exceptions
-            ->dontReport(\Throwable::class)
-            ->reportable(static fn (\Throwable $throwable): false => false)
+            ->dontReport(Throwable::class)
+            ->reportable(static fn (Throwable $throwable): false => false)
             ->stop();
     })
     ->create();

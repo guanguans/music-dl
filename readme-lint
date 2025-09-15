@@ -4,11 +4,12 @@
 declare(strict_types=1);
 
 /**
- * This file is part of the guanguans/ai-commit.
+ * Copyright (c) 2019-2025 guanguans<ityaozm@gmail.com>
  *
- * (c) guanguans <ityaozm@gmail.com>
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  *
- * This source file is subject to the MIT license that is bundled.
+ * @see https://github.com/guanguans/music-dl
  */
 
 use GrahamCampbell\ResultType\Error;
@@ -22,14 +23,14 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 require __DIR__.'/vendor/autoload.php';
 
 app()->singleton(OutputStyle::class, static function (): OutputStyle {
-    return new OutputStyle(new ArgvInput(), new ConsoleOutput());
+    return new OutputStyle(new ArgvInput, new ConsoleOutput);
 });
 
 (new Pipeline(app()))
     ->send(glob('README-*.md'))
     ->through([
         pipeFor(static function (string $translatedReadme, string $readme): Result {
-            if (count(file($translatedReadme)) !== count(file($readme))) {
+            if (\count(file($translatedReadme)) !== \count(file($readme))) {
                 return Error::create("The file [$translatedReadme] has a different number of lines than [$readme]");
             }
 
@@ -37,6 +38,7 @@ app()->singleton(OutputStyle::class, static function (): OutputStyle {
         }),
         pipeFor(static function (string $translatedReadme, string $readme): Result {
             $translatedReadmeFile = file($translatedReadme);
+
             foreach (file($readme) as $lineNumber => $line) {
                 /** @noinspection NotOptimalIfConditionsInspection */
                 if (
@@ -89,14 +91,14 @@ app()->singleton(OutputStyle::class, static function (): OutputStyle {
                         '<!--',
                         '[//]: # (',
                     ])
-                    && ! str($translatedReadmeFile[$lineNumber])->startsWith(str($line)->before(' ')->append(' '))
+                    && !str($translatedReadmeFile[$lineNumber])->startsWith(str($line)->before(' ')->append(' '))
                 ) {
                     app(OutputStyle::class)->listing([
                         $line,
                         $translatedReadmeFile[$lineNumber],
                     ]);
 
-                    return Error::create(sprintf(
+                    return Error::create(\sprintf(
                         'The file [%s] has a different markdown line [%s] than [%s]',
                         $translatedReadme,
                         $lineNumber + 1,
@@ -110,11 +112,12 @@ app()->singleton(OutputStyle::class, static function (): OutputStyle {
     ])
     ->then(static function (): void {
         app(OutputStyle::class)->success('All readme files are ok');
+
         exit(0);
     });
 
 /**
- * @param  \Closure(string, string): \GrahamCampbell\ResultType\Result  $checker
+ * @param \Closure(string, string): \GrahamCampbell\ResultType\Result $checker
  *
  * @return \Closure(array, \Closure): array
  */
@@ -124,6 +127,7 @@ function pipeFor(Closure $checker): Closure
         foreach ($translatedReadmes as $translatedReadme) {
             if ($value = $checker($translatedReadme, 'README.md')->error()->getOrElse(null)) {
                 app(OutputStyle::class)->error($value);
+
                 exit(1);
             }
         }

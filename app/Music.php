@@ -31,12 +31,12 @@ use function Laravel\Prompts\progress;
 
 final class Music implements Contracts\HttpClientFactory, Contracts\Music
 {
-    use HttpClientFactory;
-    use Macroable;
-    use Dumpable;
     use Conditionable;
-    use Tappable;
+    use Dumpable;
+    use HttpClientFactory;
     use Localizable;
+    use Macroable;
+    use Tappable;
 
     public function __construct(
         private Meting $meting = new Meting,

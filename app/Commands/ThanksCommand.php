@@ -19,8 +19,12 @@ use LaravelZero\Framework\Commands\Command;
 
 final class ThanksCommand extends Command
 {
-    /** The Command messages. */
-    protected const FUNDING_MESSAGES = [
+    /**
+     * The Command messages.
+     *
+     * @var list<string>
+     */
+    protected const array FUNDING_MESSAGES = [
         '',
         '  - Star or contribute to Music DL:',
         '    <options=bold>https://github.com/guanguans/music-dl</>',
