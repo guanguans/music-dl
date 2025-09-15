@@ -216,6 +216,7 @@
             "@composer-validate-prefer-lowest",
             "@phpmnd",
             "@style-lint",
+            "@facade-lint",
             "@sk-check-conflicts",
             "@sk-check-commented-code",
             "@sk-finalize-classes-dry-run",
