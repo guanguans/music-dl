@@ -1,3 +1,9 @@
+# This file is for unifying the coding style for different editors and IDEs.
+# More information at https://editorconfig.org
+# https://github.com/laravel/laravel/blob/12.x/.editorconfig
+# https://github.com/symfony/symfony/blob/7.3/.editorconfig
+# https://github.com/yiisoft/yii2/blob/master/.editorconfig
+
 root = true
 
 [*]
@@ -8,8 +14,21 @@ indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
 
+[COMMIT_EDITMSG]
+max_line_length = 0
+
+[*.bat]
+end_of_line = crlf
+
+[*.go]
+indent_style = tab
+
 [*.md]
 trim_trailing_whitespace = false
+max_line_length = 80
 
-[*.{yml,yaml,xml,xml.dist}]
+[*.{yml,yml.dist,yaml,yaml.dist,xml,xml.dist}]
+indent_size = 2
+
+[*.{html,css,scss,js,ts,vue,jsx,tsx}]
 indent_size = 2

@@ -1,0 +1,133 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+/**
+ * This file is part of the guanguans/ai-commit.
+ *
+ * (c) guanguans <ityaozm@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled.
+ */
+
+use GrahamCampbell\ResultType\Error;
+use GrahamCampbell\ResultType\Result;
+use GrahamCampbell\ResultType\Success;
+use Illuminate\Console\OutputStyle;
+use Illuminate\Pipeline\Pipeline;
+use Symfony\Component\Console\Input\ArgvInput;
+use Symfony\Component\Console\Output\ConsoleOutput;
+
+require __DIR__.'/vendor/autoload.php';
+
+app()->singleton(OutputStyle::class, static function (): OutputStyle {
+    return new OutputStyle(new ArgvInput(), new ConsoleOutput());
+});
+
+(new Pipeline(app()))
+    ->send(glob('README-*.md'))
+    ->through([
+        pipeFor(static function (string $translatedReadme, string $readme): Result {
+            if (count(file($translatedReadme)) !== count(file($readme))) {
+                return Error::create("The file [$translatedReadme] has a different number of lines than [$readme]");
+            }
+
+            return Success::create('ok');
+        }),
+        pipeFor(static function (string $translatedReadme, string $readme): Result {
+            $translatedReadmeFile = file($translatedReadme);
+            foreach (file($readme) as $lineNumber => $line) {
+                /** @noinspection NotOptimalIfConditionsInspection */
+                if (
+                    $line !== $translatedReadmeFile[$lineNumber]
+                    && str($line)->trim()->isNotEmpty()
+                    && str($line)->startsWith([
+                        // markdown title
+                        '#',
+                        '##',
+                        '###',
+                        '####',
+                        '#####',
+                        '######',
+                        // markdown list
+                        '-',
+                        '*',
+                        // markdown link
+                        '[',
+                        // markdown image
+                        '![',
+                        // markdown code
+                        '```',
+                        // markdown table
+                        '|-',
+                        '|',
+                        '-',
+                        // markdown blockquote
+                        '>',
+                        // markdown horizontal rule
+                        '---',
+                        // markdown bold
+                        '**',
+                        // markdown italic
+                        '*',
+                        // markdown strikethrough
+                        '~~',
+                        // markdown inline code
+                        '`',
+                        // markdown footnote
+                        '[^',
+                        // markdown superscript
+                        '^',
+                        // markdown subscript
+                        '_',
+                        // markdown escape
+                        '\\',
+                        // markdown html
+                        '<',
+                        // markdown comment
+                        '<!--',
+                        '[//]: # (',
+                    ])
+                    && ! str($translatedReadmeFile[$lineNumber])->startsWith(str($line)->before(' ')->append(' '))
+                ) {
+                    app(OutputStyle::class)->listing([
+                        $line,
+                        $translatedReadmeFile[$lineNumber],
+                    ]);
+
+                    return Error::create(sprintf(
+                        'The file [%s] has a different markdown line [%s] than [%s]',
+                        $translatedReadme,
+                        $lineNumber + 1,
+                        $readme
+                    ));
+                }
+            }
+
+            return Success::create('ok');
+        }),
+    ])
+    ->then(static function (): void {
+        app(OutputStyle::class)->success('All readme files are ok');
+        exit(0);
+    });
+
+/**
+ * @param  \Closure(string, string): \GrahamCampbell\ResultType\Result  $checker
+ *
+ * @return \Closure(array, \Closure): array
+ */
+function pipeFor(Closure $checker): Closure
+{
+    return static function (array $translatedReadmes, Closure $next) use ($checker): array {
+        foreach ($translatedReadmes as $translatedReadme) {
+            if ($value = $checker($translatedReadme, 'README.md')->error()->getOrElse(null)) {
+                app(OutputStyle::class)->error($value);
+                exit(1);
+            }
+        }
+
+        return $next($translatedReadmes);
+    };
+}

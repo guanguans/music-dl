@@ -1,7 +1,63 @@
-* text=auto
-/.github export-ignore
-.styleci.yml export-ignore
-.scrutinizer.yml export-ignore
-BACKERS.md export-ignore
-CONTRIBUTING.md export-ignore
-CHANGELOG.md export-ignore
+# Path-based git attributes
+# https://www.kernel.org/pub/software/scm/git/docs/gitattributes.html
+# https://github.com/cakephp/app/blob/5.x/.gitattributes
+# https://github.com/laravel/framework/blob/12.x/.gitattributes
+# https://github.com/yiisoft/yii2/blob/master/.gitattributes
+
+# Define the line ending behavior of the different file extensions
+# Set default behavior, in case users don't have core.autocrlf set.
+* text=auto eol=lf
+
+# Declare files that will always have CRLF line endings on checkout.
+*.bat   eol=crlf
+
+# blade 模板文件使用 html diff 高亮
+*.blade.php   diff=html
+
+# Avoid merge conflicts in CHANGELOG
+/CHANGELOG.md     merge=union
+/CHANGELOG-*.md   merge=union
+
+# neon、stub、xml.dist 文件指定 linguist 语言类型
+*.neon.dist   linguist-language=neon
+*.stub        linguist-language=php
+*.xml.dist    linguist-language=xml
+
+# Denote all files that are truly binary and should not be modified.
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.phar   binary
+*.mp4    binary
+
+# Remove files for archives generated using `git archive --format=zip --output=music-dl.zip master -v`
+# Ignore all test and documentation with "export-ignore".
+/.*/           export-ignore
+/baselines/    export-ignore
+/benchmarks/   export-ignore
+#/docs/         export-ignore
+#/examples/     export-ignore
+/tests/        export-ignore
+/vendor-bin/   export-ignore
+/vendor/       export-ignore
+/workbench/    export-ignore
+
+*.mp4                               export-ignore
+*.tape                              export-ignore
+*.zip                               export-ignore
+/.*                                 export-ignore
+/_ide_helper.php                    export-ignore
+/CHANGELOG-*.md                     export-ignore
+/CHANGELOG.md                       export-ignore
+/composer-dependency-analyser.php   export-ignore
+/composer-updater                   export-ignore
+/monorepo-builder.php               export-ignore
+/phpbench.json                      export-ignore
+/phpstan.neon                       export-ignore
+/phpunit.xml.dist                   export-ignore
+/readme-lint                        export-ignore
+/rector-*.php                       export-ignore
+/rector.php                         export-ignore
+/testbench.yaml                     export-ignore
+/tests.*                            export-ignore
