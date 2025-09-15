@@ -8,10 +8,17 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="6.0.0"></a>
+## [6.0.0] - 2025-09-15
+### 💅 Code Refactorings
+- apply rector ([d39738f](https://github.com/guanguans/music-dl/commit/d39738f))
+- **Music.php:** Update method annotations and linting rules ([88df2c2](https://github.com/guanguans/music-dl/commit/88df2c2))
+
+
 <a name="5.3.6"></a>
 ## [5.3.6] - 2025-09-15
-### Bug Fixes
-- **lang:** Correct keyword placeholder in language file
+### 🐞 Bug Fixes
+- **lang:** Correct keyword placeholder in language file ([51466b2](https://github.com/guanguans/music-dl/commit/51466b2))
 
 ### Pull Requests
 - Merge pull request [#861](https://github.com/guanguans/music-dl/issues/861) from guanguans/dependabot/github_actions/actions/labeler-6
@@ -24,29 +31,29 @@ All notable changes to this project will be documented in this file.
 
 <a name="5.3.5"></a>
 ## [5.3.5] - 2025-02-05
-### Bug Fixes
-- **music:** Remove sorting criteria for songs
+### 🐞 Bug Fixes
+- **music:** Remove sorting criteria for songs ([4c29c75](https://github.com/guanguans/music-dl/commit/4c29c75))
 
 
 <a name="5.3.4"></a>
 ## [5.3.4] - 2025-02-05
-### Bug Fixes
-- **lang:** Update English labels in JSON file
+### 🐞 Bug Fixes
+- **lang:** Update English labels in JSON file ([b24489f](https://github.com/guanguans/music-dl/commit/b24489f))
 
-### CI
-- **composer:** Add PHPStan dependency to composer.json
+### 🤖 Continuous Integrations
+- **composer:** Add PHPStan dependency to composer.json ([599e483](https://github.com/guanguans/music-dl/commit/599e483))
 
 
 <a name="5.3.3"></a>
 ## [5.3.3] - 2025-02-04
-### Bug Fixes
-- **config:** switch locale and fallback_locale settings
-- **lang:** Update translations from Chinese to English
+### 🐞 Bug Fixes
+- **config:** switch locale and fallback_locale settings ([b759137](https://github.com/guanguans/music-dl/commit/b759137))
+- **lang:** Update translations from Chinese to English ([c4f1be1](https://github.com/guanguans/music-dl/commit/c4f1be1))
 
-### CI
-- **composer-updater:** Refactor constructor properties to readonly
-- **license:** Update copyright year to 2025
-- **workflows:** Update PHP version in workflow and dependencies
+### 🤖 Continuous Integrations
+- **composer-updater:** Refactor constructor properties to readonly ([c54c544](https://github.com/guanguans/music-dl/commit/c54c544))
+- **license:** Update copyright year to 2025 ([ca9670a](https://github.com/guanguans/music-dl/commit/ca9670a))
+- **workflows:** Update PHP version in workflow and dependencies ([78672a5](https://github.com/guanguans/music-dl/commit/78672a5))
 
 ### Pull Requests
 - Merge pull request [#854](https://github.com/guanguans/music-dl/issues/854) from guanguans/dependabot/composer/rector/swiss-knife-2.1.7
@@ -84,6 +91,9 @@ All notable changes to this project will be documented in this file.
 
 <a name="5.3.2"></a>
 ## [5.3.2] - 2024-11-08
+### 📦 Builds
+- **updater:** Refactor command output handling and add ai-commit generators ([a290fd4](https://github.com/guanguans/music-dl/commit/a290fd4))
+
 ### Pull Requests
 - Merge pull request [#821](https://github.com/guanguans/music-dl/issues/821) from guanguans/dependabot/composer/symfony/process-7.1.7
 - Merge pull request [#820](https://github.com/guanguans/music-dl/issues/820) from guanguans/dependabot/composer/symfony/http-foundation-7.1.7
@@ -95,11 +105,11 @@ All notable changes to this project will be documented in this file.
 
 <a name="5.3.1"></a>
 ## [5.3.1] - 2024-10-17
-### Bug Fixes
-- **bootstrap:** update logger extension reference
+### 🐞 Bug Fixes
+- **bootstrap:** update logger extension reference ([7d4915d](https://github.com/guanguans/music-dl/commit/7d4915d))
 
-### Performance Improvements
-- **app:** optimize download performance
+### 🏎 Performance Improvements
+- **app:** optimize download performance ([9630046](https://github.com/guanguans/music-dl/commit/9630046))
 
 ### Pull Requests
 - Merge pull request [#815](https://github.com/guanguans/music-dl/issues/815) from guanguans/dependabot/composer/larastan/larastan-2.9.9
@@ -107,54 +117,57 @@ All notable changes to this project will be documented in this file.
 
 <a name="5.3.0"></a>
 ## [5.3.0] - 2024-10-14
-### Bug Fixes
-- **Music:** correct progress display on completion
-- **MusicCommand:** trim stdin input to remove trailing spaces
+### ✨ Features
+- **localization:** Improve searching hint with dynamic keyword ([f6da589](https://github.com/guanguans/music-dl/commit/f6da589))
+- **music:** read keyword from stdin for pipeline usage ([934f550](https://github.com/guanguans/music-dl/commit/934f550))
 
-### Code Refactoring
-- **app:** improve logger extension and exception handling
+### 🐞 Bug Fixes
+- **Music:** correct progress display on completion ([16f9c3e](https://github.com/guanguans/music-dl/commit/16f9c3e))
+- **MusicCommand:** trim stdin input to remove trailing spaces ([b6933c2](https://github.com/guanguans/music-dl/commit/b6933c2))
 
-### Features
-- **localization:** Improve searching hint with dynamic keyword
-- **music:** read keyword from stdin for pipeline usage
+### 💅 Code Refactorings
+- **app:** improve logger extension and exception handling ([fc33ae7](https://github.com/guanguans/music-dl/commit/fc33ae7))
 
-### Performance Improvements
-- **Music:** optimize progress update handling
+### 🏎 Performance Improvements
+- **Music:** optimize progress update handling ([6dbe893](https://github.com/guanguans/music-dl/commit/6dbe893))
 
 
 <a name="5.2.9"></a>
 ## [5.2.9] - 2024-10-10
-### Code Refactoring
-- **commands:** add Rescuer trait to MusicCommand
+### 🎨 Styles
+- **utils:** Rename ARTIST_LIMIT to ARTIST_TAKE ([0b9f613](https://github.com/guanguans/music-dl/commit/0b9f613))
+
+### 💅 Code Refactorings
+- **commands:** add Rescuer trait to MusicCommand ([7ca0eaf](https://github.com/guanguans/music-dl/commit/7ca0eaf))
 
 
 <a name="5.2.8"></a>
 ## [5.2.8] - 2024-10-10
-### Bug Fixes
-- **Utils:** improve song name formatting and handle multi-artist scenarios
+### 🐞 Bug Fixes
+- **Utils:** improve song name formatting and handle multi-artist scenarios ([cac25dd](https://github.com/guanguans/music-dl/commit/cac25dd))
 
-### Code Refactoring
-- **Sanitizer:** improve artist names display
-- **utils:** extract artist limit to constant
+### 💅 Code Refactorings
+- **Sanitizer:** improve artist names display ([2c605da](https://github.com/guanguans/music-dl/commit/2c605da))
+- **utils:** extract artist limit to constant ([8837f04](https://github.com/guanguans/music-dl/commit/8837f04))
 
-### Performance Improvements
-- **Utils:** Simplify filename sanitization logic
+### 🏎 Performance Improvements
+- **Utils:** Simplify filename sanitization logic ([67bb221](https://github.com/guanguans/music-dl/commit/67bb221))
 
 
 <a name="5.2.7"></a>
 ## [5.2.7] - 2024-10-10
-### Bug Fixes
-- **Utils:** update directory separator handling
+### 🐞 Bug Fixes
+- **Utils:** update directory separator handling ([ff80dd4](https://github.com/guanguans/music-dl/commit/ff80dd4))
 
 
 <a name="5.2.6"></a>
 ## [5.2.6] - 2024-10-10
-### Bug Fixes
-- 文件名不能包含下列任何字符 \ / : * ? " < > |
-- **utils:** Improve song name formatting
+### 🐞 Bug Fixes
+- 文件名不能包含下列任何字符 \ / : * ? " < > | ([17e6ac2](https://github.com/guanguans/music-dl/commit/17e6ac2))
+- **utils:** Improve song name formatting ([b82a9e2](https://github.com/guanguans/music-dl/commit/b82a9e2))
 
-### Code Refactoring
-- **music-command:** Replace exception handler method
+### 💅 Code Refactorings
+- **music-command:** Replace exception handler method ([b1937cc](https://github.com/guanguans/music-dl/commit/b1937cc))
 
 ### Pull Requests
 - Merge pull request [#812](https://github.com/guanguans/music-dl/issues/812) from midfar/master
@@ -166,31 +179,31 @@ All notable changes to this project will be documented in this file.
 
 <a name="5.2.5"></a>
 ## [5.2.5] - 2024-09-30
-### Code Refactoring
-- **HttpClientFactory:** change setHttpClient to instance method
+### ✨ Features
+- 更新了league/flysystem、league/flysystem-local和nikic/php-parser依赖版本 ([8802b68](https://github.com/guanguans/music-dl/commit/8802b68))
 
-### Features
-- 更新了league/flysystem、league/flysystem-local和nikic/php-parser依赖版本
+### 💅 Code Refactorings
+- **HttpClientFactory:** change setHttpClient to instance method ([0cafd96](https://github.com/guanguans/music-dl/commit/0cafd96))
 
-### Test
-- **Music:** Mock HTTP client for music downloads
+### ✅ Tests
+- **Music:** Mock HTTP client for music downloads ([2129994](https://github.com/guanguans/music-dl/commit/2129994))
 
 
 <a name="5.2.4"></a>
 ## [5.2.4] - 2024-09-29
-### Docs
-- **music:** add setMinCallMicroseconds method to facade
+### ✨ Features
+- **HttpClientFactory:** add setHttpClient method ([7d0b775](https://github.com/guanguans/music-dl/commit/7d0b775))
+- **music:** refactor Music class and remove InvalidArgumentException ([222cce0](https://github.com/guanguans/music-dl/commit/222cce0))
 
-### Features
-- **HttpClientFactory:** add setHttpClient method
-- **music:** refactor Music class and remove InvalidArgumentException
+### 📖 Documents
+- **music:** add setMinCallMicroseconds method to facade ([ca5e150](https://github.com/guanguans/music-dl/commit/ca5e150))
 
-### Performance Improvements
-- **Music:** Refactor constructor for improved initialization
+### 🏎 Performance Improvements
+- **Music:** Refactor constructor for improved initialization ([87dc626](https://github.com/guanguans/music-dl/commit/87dc626))
 
-### Test
-- **commands:** update assertion methods to assertOk
-- **tests:** rename ArchTest and update Pest usage paths
+### ✅ Tests
+- **commands:** update assertion methods to assertOk ([61a305f](https://github.com/guanguans/music-dl/commit/61a305f))
+- **tests:** rename ArchTest and update Pest usage paths ([3859945](https://github.com/guanguans/music-dl/commit/3859945))
 
 ### Pull Requests
 - Merge pull request [#804](https://github.com/guanguans/music-dl/issues/804) from guanguans/dependabot/composer/ergebnis/license-2.5.0
@@ -199,55 +212,55 @@ All notable changes to this project will be documented in this file.
 
 <a name="5.2.3"></a>
 ## [5.2.3] - 2024-09-27
-### Code Refactoring
-- **music:** make minimum call time configurable
+### ✨ Features
+- 修改MusicCommand.php以支持动态关键词默认值 ([e1d513b](https://github.com/guanguans/music-dl/commit/e1d513b))
+- **Music.php:** 移除了Music类中的meting格式化方法 ([3e78737](https://github.com/guanguans/music-dl/commit/3e78737))
 
-### Features
-- 修改MusicCommand.php以支持动态关键词默认值
-- **Music.php:** 移除了Music类中的meting格式化方法
+### 💅 Code Refactorings
+- **music:** make minimum call time configurable ([a73f4bc](https://github.com/guanguans/music-dl/commit/a73f4bc))
 
 
 <a name="5.2.2"></a>
 ## [5.2.2] - 2024-09-27
-### Code Refactoring
-- **commands:** remove unnecessary docblocks
-- **music:** improve dependency injection and initialization
-- **music:** Implement Isolatable interface and improve visibility
+### ✨ Features
+- **music:** add timebox functionality to search method ([4a3f341](https://github.com/guanguans/music-dl/commit/4a3f341))
 
-### Features
-- **music:** add timebox functionality to search method
+### 💅 Code Refactorings
+- **commands:** remove unnecessary docblocks ([ddc6586](https://github.com/guanguans/music-dl/commit/ddc6586))
+- **music:** improve dependency injection and initialization ([6ae0cf9](https://github.com/guanguans/music-dl/commit/6ae0cf9))
+- **music:** Implement Isolatable interface and improve visibility ([f1634f9](https://github.com/guanguans/music-dl/commit/f1634f9))
 
-### Test
-- **music:** ensure fork concurrency is set by default
+### ✅ Tests
+- **music:** ensure fork concurrency is set by default ([5dc625b](https://github.com/guanguans/music-dl/commit/5dc625b))
 
 
 <a name="5.2.1"></a>
 ## [5.2.1] - 2024-09-23
-### Bug Fixes
-- **app:** remove unused MusicManager references
+### 🐞 Bug Fixes
+- **app:** remove unused MusicManager references ([9f95de6](https://github.com/guanguans/music-dl/commit/9f95de6))
 
-### Docs
-- **readme:** update search driver options in documentation
+### 📖 Documents
+- **readme:** update search driver options in documentation ([d63bae8](https://github.com/guanguans/music-dl/commit/d63bae8))
 
-### Test
-- **music:** add setDriver method and update tests
+### ✅ Tests
+- **music:** add setDriver method and update tests ([554e492](https://github.com/guanguans/music-dl/commit/554e492))
 
 
 <a name="5.2.0"></a>
 ## [5.2.0] - 2024-09-23
-### Bug Fixes
-- **command:** update music command driver option
+### ✨ Features
+- **concurrency:** add concurrency service provider and config ([5e9463d](https://github.com/guanguans/music-dl/commit/5e9463d))
+- **music:** Refactor music command and rename SequenceMusic ([4112333](https://github.com/guanguans/music-dl/commit/4112333))
+- **music:** Refactor MusicCommand to use SequenceMusic with Concurrency ([5e75faa](https://github.com/guanguans/music-dl/commit/5e75faa))
 
-### Code Refactoring
-- **music:** replace MusicManager with MusicContract
+### 🐞 Bug Fixes
+- **command:** update music command driver option ([c39dd05](https://github.com/guanguans/music-dl/commit/c39dd05))
 
-### Features
-- **concurrency:** add concurrency service provider and config
-- **music:** Refactor music command and rename SequenceMusic
-- **music:** Refactor MusicCommand to use SequenceMusic with Concurrency
+### 💅 Code Refactorings
+- **music:** replace MusicManager with MusicContract ([5723d61](https://github.com/guanguans/music-dl/commit/5723d61))
 
-### Test
-- **tests:** Improve pest configuration and debugging checks
+### ✅ Tests
+- **tests:** Improve pest configuration and debugging checks ([ee7b009](https://github.com/guanguans/music-dl/commit/ee7b009))
 
 ### Pull Requests
 - Merge pull request [#802](https://github.com/guanguans/music-dl/issues/802) from guanguans/dependabot/composer/rector/swiss-knife-0.2.35
@@ -272,8 +285,11 @@ All notable changes to this project will be documented in this file.
 
 <a name="5.1.4"></a>
 ## [5.1.4] - 2024-08-16
-### Features
-- **exceptions:** remove Handler.php file
+### ✨ Features
+- **exceptions:** remove Handler.php file ([f140579](https://github.com/guanguans/music-dl/commit/f140579))
+
+### 📦 Builds
+- **dependencies:** update guzzlehttp/guzzle and other packages ([153061b](https://github.com/guanguans/music-dl/commit/153061b))
 
 ### Pull Requests
 - Merge pull request [#782](https://github.com/guanguans/music-dl/issues/782) from guanguans/dependabot/composer/ergebnis/php-cs-fixer-config-6.35.0
@@ -293,34 +309,38 @@ All notable changes to this project will be documented in this file.
 
 <a name="5.1.3"></a>
 ## [5.1.3] - 2024-07-12
-### Code Refactoring
-- **utils:** Change method names for default save directory and saved path
+### ✨ Features
+- **SequenceMusic:** Add sorting by multiple fields ([d0233b6](https://github.com/guanguans/music-dl/commit/d0233b6))
+- **composer:** add rector/swiss-knife to composer.json ([37ad419](https://github.com/guanguans/music-dl/commit/37ad419))
 
-### Features
-- **SequenceMusic:** Add sorting by multiple fields
-- **composer:** add rector/swiss-knife to composer.json
+### 🎨 Styles
+- **Music:** Fix variable naming in download method ([0f3677b](https://github.com/guanguans/music-dl/commit/0f3677b))
+- **app:** refactor method names for clarity ([fceddcd](https://github.com/guanguans/music-dl/commit/fceddcd))
 
-### Test
-- **test:** Update pest command to include colors
+### 💅 Code Refactorings
+- **utils:** Change method names for default save directory and saved path ([4a641fb](https://github.com/guanguans/music-dl/commit/4a641fb))
+
+### ✅ Tests
+- **test:** Update pest command to include colors ([a8b0641](https://github.com/guanguans/music-dl/commit/a8b0641))
 
 
 <a name="5.1.2"></a>
 ## [5.1.2] - 2024-07-12
-### Code Refactoring
-- **Sanitizer:** update file size formatting
+### 💅 Code Refactorings
+- **Sanitizer:** update file size formatting ([bebe5f4](https://github.com/guanguans/music-dl/commit/bebe5f4))
 
 
 <a name="5.1.1"></a>
 ## [5.1.1] - 2024-07-12
-### Bug Fixes
-- **app.php:** Improve registration of TinkerZeroServiceProvider
+### 🐞 Bug Fixes
+- **app.php:** Improve registration of TinkerZeroServiceProvider ([3fa2b15](https://github.com/guanguans/music-dl/commit/3fa2b15))
 
 
 <a name="5.1.0"></a>
 ## [5.1.0] - 2024-07-12
-### Features
-- **bootstrap:** Register TinkerZeroServiceProvider in production
-- **deps:** add tinker-zero dependency
+### ✨ Features
+- **bootstrap:** Register TinkerZeroServiceProvider in production ([3e10bda](https://github.com/guanguans/music-dl/commit/3e10bda))
+- **deps:** add tinker-zero dependency ([a1bad2b](https://github.com/guanguans/music-dl/commit/a1bad2b))
 
 ### Pull Requests
 - Merge pull request [#769](https://github.com/guanguans/music-dl/issues/769) from guanguans/dependabot/composer/pestphp/pest-2.34.9
@@ -328,11 +348,14 @@ All notable changes to this project will be documented in this file.
 
 <a name="5.0.2"></a>
 ## [5.0.2] - 2024-07-08
-### Bug Fixes
-- **MusicCommand:** Fix return type in when closure
+### 🐞 Bug Fixes
+- **MusicCommand:** Fix return type in when closure ([126ece0](https://github.com/guanguans/music-dl/commit/126ece0))
 
-### CI
-- **automation:** Update method signature in Music.php facade
+### 📦 Builds
+- **composer:** update composer dependencies ([5dfe33a](https://github.com/guanguans/music-dl/commit/5dfe33a))
+
+### 🤖 Continuous Integrations
+- **automation:** Update method signature in Music.php facade ([bcb8eb0](https://github.com/guanguans/music-dl/commit/bcb8eb0))
 
 ### Pull Requests
 - Merge pull request [#768](https://github.com/guanguans/music-dl/issues/768) from guanguans/dependabot/github_actions/dependabot/fetch-metadata-2.2.0
@@ -357,26 +380,30 @@ All notable changes to this project will be documented in this file.
 
 <a name="5.0.1"></a>
 ## [5.0.1] - 2024-05-24
-### Code Refactoring
-- **app:** Update MusicManager singleton registration
-- **app:** update service provider configuration
-- **handler:** remove unnecessary code in Handler.php
+### ✨ Features
+- **bootstrap:** Add Application configuration and create method ([70760e5](https://github.com/guanguans/music-dl/commit/70760e5))
 
-### Features
-- **bootstrap:** Add Application configuration and create method
+### 💅 Code Refactorings
+- **app:** Update MusicManager singleton registration ([d0885be](https://github.com/guanguans/music-dl/commit/d0885be))
+- **app:** update service provider configuration ([0bf37f5](https://github.com/guanguans/music-dl/commit/0bf37f5))
+- **handler:** remove unnecessary code in Handler.php ([996e3a8](https://github.com/guanguans/music-dl/commit/996e3a8))
 
 
 <a name="5.0.0"></a>
 ## [5.0.0] - 2024-05-24
-### Code Refactoring
-- **command:** Update return types in handle method
+### ✨ Features
+- **.php-cs-fixer.php:** add MIT license header and update rules ([bc02765](https://github.com/guanguans/music-dl/commit/bc02765))
+- **app:** add LogManager extension in AppServiceProvider ([5499480](https://github.com/guanguans/music-dl/commit/5499480))
 
-### Docs
-- **README:** Update PHP version requirement to 8.2
+### 📖 Documents
+- **README:** Update PHP version requirement to 8.2 ([8232c4c](https://github.com/guanguans/music-dl/commit/8232c4c))
 
-### Features
-- **.php-cs-fixer.php:** add MIT license header and update rules
-- **app:** add LogManager extension in AppServiceProvider
+### 🎨 Styles
+- apply rector ([c3cf623](https://github.com/guanguans/music-dl/commit/c3cf623))
+- apply php-cs-fixer ([7113def](https://github.com/guanguans/music-dl/commit/7113def))
+
+### 💅 Code Refactorings
+- **command:** Update return types in handle method ([b327548](https://github.com/guanguans/music-dl/commit/b327548))
 
 
 <a name="4.3.1"></a>
@@ -405,21 +432,21 @@ All notable changes to this project will be documented in this file.
 
 <a name="4.3.0"></a>
 ## [4.3.0] - 2024-04-24
-### Bug Fixes
-- **config:** Update music-dl config key to app
+### ✨ Features
+- Add language pack support ([6df187b](https://github.com/guanguans/music-dl/commit/6df187b))
+- **ServiceProvider:** Add conditional registration of language-related services ([dac0677](https://github.com/guanguans/music-dl/commit/dac0677))
+- **lang:** add language option to specify the language ([7c0f7e6](https://github.com/guanguans/music-dl/commit/7c0f7e6))
 
-### Code Refactoring
-- Removed unnecessary language files and service providers from the Laravel application.
-- **ServiceProvider:** Remove unnecessary code from AppServiceProvider
-- **config:** Update logo and sources in app configuration
-- **hydrator:** improve song hydration process
-- **i18n:** update language keys for music command
-- **music-dl:** update language keys for MusicCommand
+### 🐞 Bug Fixes
+- **config:** Update music-dl config key to app ([9bd6a19](https://github.com/guanguans/music-dl/commit/9bd6a19))
 
-### Features
-- Add language pack support
-- **ServiceProvider:** Add conditional registration of language-related services
-- **lang:** add language option to specify the language
+### 💅 Code Refactorings
+- Removed unnecessary language files and service providers from the Laravel application. ([25d476f](https://github.com/guanguans/music-dl/commit/25d476f))
+- **ServiceProvider:** Remove unnecessary code from AppServiceProvider ([43cc2fe](https://github.com/guanguans/music-dl/commit/43cc2fe))
+- **config:** Update logo and sources in app configuration ([30f6e96](https://github.com/guanguans/music-dl/commit/30f6e96))
+- **hydrator:** improve song hydration process ([ed20ec7](https://github.com/guanguans/music-dl/commit/ed20ec7))
+- **i18n:** update language keys for music command ([f7179a5](https://github.com/guanguans/music-dl/commit/f7179a5))
+- **music-dl:** update language keys for MusicCommand ([da2097c](https://github.com/guanguans/music-dl/commit/da2097c))
 
 ### Pull Requests
 - Merge pull request [#731](https://github.com/guanguans/music-dl/issues/731) from guanguans/dependabot/composer/laravel/prompts-0.1.20
@@ -435,18 +462,18 @@ All notable changes to this project will be documented in this file.
 
 <a name="4.2.1"></a>
 ## [4.2.1] - 2024-04-07
-### Features
-- **box.json:** Add support for disabling requirements check
+### ✨ Features
+- **box.json:** Add support for disabling requirements check ([b9d4d82](https://github.com/guanguans/music-dl/commit/b9d4d82))
 
 
 <a name="4.2.0"></a>
 ## [4.2.0] - 2024-04-07
-### Code Refactoring
-- **utils:** improve savePathFor method
-- **utils:** update method names for saving files
+### ✨ Features
+- **composer-updater:** add dry-run option ([9291dd1](https://github.com/guanguans/music-dl/commit/9291dd1))
 
-### Features
-- **composer-updater:** add dry-run option
+### 💅 Code Refactorings
+- **utils:** improve savePathFor method ([006ad09](https://github.com/guanguans/music-dl/commit/006ad09))
+- **utils:** update method names for saving files ([40a3b64](https://github.com/guanguans/music-dl/commit/40a3b64))
 
 ### Pull Requests
 - Merge pull request [#714](https://github.com/guanguans/music-dl/issues/714) from guanguans/dependabot/github_actions/dependabot/fetch-metadata-2.0.0
@@ -496,8 +523,8 @@ All notable changes to this project will be documented in this file.
 
 <a name="4.1.8"></a>
 ## [4.1.8] - 2024-02-02
-### Code Refactoring
-- **composer-updater:** refactor SingleCommandApplication class
+### 💅 Code Refactorings
+- **composer-updater:** refactor SingleCommandApplication class ([d6a4396](https://github.com/guanguans/music-dl/commit/d6a4396))
 
 ### Pull Requests
 - Merge pull request [#676](https://github.com/guanguans/music-dl/issues/676) from guanguans/dependabot/composer/vimeo/psalm-5.21.1
@@ -568,12 +595,12 @@ All notable changes to this project will be documented in this file.
 
 <a name="4.1.7"></a>
 ## [4.1.7] - 2023-11-28
-### Bug Fixes
-- **MusicManager:** Update type hint for createDriver parameter
+### 🐞 Bug Fixes
+- **MusicManager:** Update type hint for createDriver parameter ([9f0c884](https://github.com/guanguans/music-dl/commit/9f0c884))
 
-### Docs
-- update README files
-- **readme:** Update README.md and README-zh_CN.md
+### 📖 Documents
+- update README files ([6eb2b99](https://github.com/guanguans/music-dl/commit/6eb2b99))
+- **readme:** Update README.md and README-zh_CN.md ([5f931e4](https://github.com/guanguans/music-dl/commit/5f931e4))
 
 ### Pull Requests
 - Merge pull request [#611](https://github.com/guanguans/music-dl/issues/611) from guanguans/imgbot
@@ -582,24 +609,24 @@ All notable changes to this project will be documented in this file.
 
 <a name="4.1.6"></a>
 ## [4.1.6] - 2023-11-27
-### Bug Fixes
-- **coding-style:** fix arrow function usage
+### ✨ Features
+- **github:** Add CODE_OF_CONDUCT.md ([e3a3099](https://github.com/guanguans/music-dl/commit/e3a3099))
 
-### Code Refactoring
-- **tests:** refactor test cases
-- **utils:** Remove codeCoverageIgnore comments
+### 🐞 Bug Fixes
+- **coding-style:** fix arrow function usage ([c256e28](https://github.com/guanguans/music-dl/commit/c256e28))
 
-### Docs
-- **readme:** Update README file
+### 📖 Documents
+- **readme:** Update README file ([440f233](https://github.com/guanguans/music-dl/commit/440f233))
 
-### Features
-- **github:** Add CODE_OF_CONDUCT.md
+### 💅 Code Refactorings
+- **tests:** refactor test cases ([a753615](https://github.com/guanguans/music-dl/commit/a753615))
+- **utils:** Remove codeCoverageIgnore comments ([26e34d4](https://github.com/guanguans/music-dl/commit/26e34d4))
 
 
 <a name="4.1.5"></a>
 ## [4.1.5] - 2023-11-27
-### Code Refactoring
-- **commands:** refactor MusicCommand handle method
+### 💅 Code Refactorings
+- **commands:** refactor MusicCommand handle method ([ee779a1](https://github.com/guanguans/music-dl/commit/ee779a1))
 
 ### Pull Requests
 - Merge pull request [#609](https://github.com/guanguans/music-dl/issues/609) from guanguans/imgbot
@@ -607,79 +634,79 @@ All notable changes to this project will be documented in this file.
 
 <a name="4.1.4"></a>
 ## [4.1.4] - 2023-11-26
-### Code Refactoring
-- **Hydrator:** Add Hydrator trait for MusicCommand
-- **MusicCommand:** refactor code for selecting keys
-- **MusicCommand:** simplify song mapping
-- **Sanitizer:** Update mapWithKeys to map
-- **handler:** add code coverage ignore annotation to register method
-- **tests:** refactor ForkMusicTest
-- **tests:** refactor `Pest.php` test file
+### 💅 Code Refactorings
+- **Hydrator:** Add Hydrator trait for MusicCommand ([aadabf2](https://github.com/guanguans/music-dl/commit/aadabf2))
+- **MusicCommand:** refactor code for selecting keys ([5914121](https://github.com/guanguans/music-dl/commit/5914121))
+- **MusicCommand:** simplify song mapping ([5dcb623](https://github.com/guanguans/music-dl/commit/5dcb623))
+- **Sanitizer:** Update mapWithKeys to map ([b7deb92](https://github.com/guanguans/music-dl/commit/b7deb92))
+- **handler:** add code coverage ignore annotation to register method ([8d46312](https://github.com/guanguans/music-dl/commit/8d46312))
+- **tests:** refactor ForkMusicTest ([09dcc40](https://github.com/guanguans/music-dl/commit/09dcc40))
+- **tests:** refactor `Pest.php` test file ([87833ef](https://github.com/guanguans/music-dl/commit/87833ef))
 
-### Test
-- **Feature:** fix music download error
+### ✅ Tests
+- **Feature:** fix music download error ([a500117](https://github.com/guanguans/music-dl/commit/a500117))
 
 
 <a name="4.1.3"></a>
 ## [4.1.3] - 2023-11-26
-### Bug Fixes
-- **Exceptions:** Remove unused annotations in Handler.php
-- **tests:** Fix GuzzleHttp exception class name
-- **tests:** Fix download path in MusicCommandTest
+### 🐞 Bug Fixes
+- **Exceptions:** Remove unused annotations in Handler.php ([c648e01](https://github.com/guanguans/music-dl/commit/c648e01))
+- **tests:** Fix GuzzleHttp exception class name ([4a0750e](https://github.com/guanguans/music-dl/commit/4a0750e))
+- **tests:** Fix download path in MusicCommandTest ([242918d](https://github.com/guanguans/music-dl/commit/242918d))
 
-### Code Refactoring
-- **MusicManager:** remove final keyword
-- **SequenceMusic:** improve progress bar
+### 💅 Code Refactorings
+- **MusicManager:** remove final keyword ([e7c4099](https://github.com/guanguans/music-dl/commit/e7c4099))
+- **SequenceMusic:** improve progress bar ([f9cb4b8](https://github.com/guanguans/music-dl/commit/f9cb4b8))
 
-### Test
-- **CommitMessages:** Add commit messages for git diff output
-- **Unit:** Add SanitizerTest
+### ✅ Tests
+- **CommitMessages:** Add commit messages for git diff output ([f5b94b4](https://github.com/guanguans/music-dl/commit/f5b94b4))
+- **Unit:** Add SanitizerTest ([8bb6143](https://github.com/guanguans/music-dl/commit/8bb6143))
 
 
 <a name="4.1.2"></a>
 ## [4.1.2] - 2023-11-25
-### Bug Fixes
-- **MusicCommand:** Fix type hint in mapWithKeys callback
-- **commands:** Add #[\Override] attribute to schedule method
+### 🐞 Bug Fixes
+- **MusicCommand:** Fix type hint in mapWithKeys callback ([d7a6421](https://github.com/guanguans/music-dl/commit/d7a6421))
+- **commands:** Add #[\Override] attribute to schedule method ([955bfd1](https://github.com/guanguans/music-dl/commit/955bfd1))
 
-### Code Refactoring
-- **HttpClientFactory:** Update nullability of httpClient
-- **Music:** change return type of search method in SequenceMusic class
-- **Sanitizer:** update method signature
-- **app:** refactor exception handler, music facade, fork music, and music manager
-- **command:** simplify MusicCommand.php
-- **command:** Update MusicCommand.php
-- **commands:** refactor MusicCommand.php
-- **commands:** Refactor MusicCommand class
+### 💅 Code Refactorings
+- **HttpClientFactory:** Update nullability of httpClient ([c280c14](https://github.com/guanguans/music-dl/commit/c280c14))
+- **Music:** change return type of search method in SequenceMusic class ([4248e01](https://github.com/guanguans/music-dl/commit/4248e01))
+- **Sanitizer:** update method signature ([d50de00](https://github.com/guanguans/music-dl/commit/d50de00))
+- **app:** refactor exception handler, music facade, fork music, and music manager ([1ddf6ef](https://github.com/guanguans/music-dl/commit/1ddf6ef))
+- **command:** simplify MusicCommand.php ([250a8de](https://github.com/guanguans/music-dl/commit/250a8de))
+- **command:** Update MusicCommand.php ([6b4e0be](https://github.com/guanguans/music-dl/commit/6b4e0be))
+- **commands:** refactor MusicCommand.php ([ca25043](https://github.com/guanguans/music-dl/commit/ca25043))
+- **commands:** Refactor MusicCommand class ([5ff1643](https://github.com/guanguans/music-dl/commit/5ff1643))
 
 
 <a name="4.1.1"></a>
 ## [4.1.1] - 2023-11-24
-### Bug Fixes
-- **SequenceMusic:** Fix progress callback in createHttpClient
-- **SequenceMusic:** Update progress handling in download
+### 🐞 Bug Fixes
+- **SequenceMusic:** Fix progress callback in createHttpClient ([552e255](https://github.com/guanguans/music-dl/commit/552e255))
+- **SequenceMusic:** Update progress handling in download ([22feb31](https://github.com/guanguans/music-dl/commit/22feb31))
 
-### Code Refactoring
-- **SequenceMusic:** Remove unused imports and update progress handling
-- **commands:** remove unnecessary notification
-- **commands:** refactor MusicCommand
-- **music:** refactor MusicCommand.php
+### 💅 Code Refactorings
+- **SequenceMusic:** Remove unused imports and update progress handling ([a90bde5](https://github.com/guanguans/music-dl/commit/a90bde5))
+- **commands:** remove unnecessary notification ([b8410dd](https://github.com/guanguans/music-dl/commit/b8410dd))
+- **commands:** refactor MusicCommand ([8933dbf](https://github.com/guanguans/music-dl/commit/8933dbf))
+- **music:** refactor MusicCommand.php ([fb32a95](https://github.com/guanguans/music-dl/commit/fb32a95))
 
 
 <a name="4.1.0"></a>
 ## [4.1.0] - 2023-11-24
-### Bug Fixes
-- **app:** Filter songs without URL in SequenceMusic
-- **commands:** Fix MusicCommand pipe function
+### 🐞 Bug Fixes
+- **app:** Filter songs without URL in SequenceMusic ([6f686ba](https://github.com/guanguans/music-dl/commit/6f686ba))
+- **commands:** Fix MusicCommand pipe function ([f2b9354](https://github.com/guanguans/music-dl/commit/f2b9354))
 
-### Code Refactoring
-- **MusicCommand:** refactor MusicCommand class
-- **app:** remove unused imports(spinner)
-- **command:** refactor MusicCommand.php
-- **command:** Refactor MusicCommand.php
-- **command:** refactor MusicCommand.php
-- **commands:** Remove async driver option
-- **commands:** Remove unused import in MusicCommand
+### 💅 Code Refactorings
+- **MusicCommand:** refactor MusicCommand class ([6a9a292](https://github.com/guanguans/music-dl/commit/6a9a292))
+- **app:** remove unused imports(spinner) ([d7a0236](https://github.com/guanguans/music-dl/commit/d7a0236))
+- **command:** refactor MusicCommand.php ([fa4453b](https://github.com/guanguans/music-dl/commit/fa4453b))
+- **command:** Refactor MusicCommand.php ([0e552c5](https://github.com/guanguans/music-dl/commit/0e552c5))
+- **command:** refactor MusicCommand.php ([83ecde3](https://github.com/guanguans/music-dl/commit/83ecde3))
+- **commands:** Remove async driver option ([9a8e56d](https://github.com/guanguans/music-dl/commit/9a8e56d))
+- **commands:** Remove unused import in MusicCommand ([af9bb21](https://github.com/guanguans/music-dl/commit/af9bb21))
 
 ### Pull Requests
 - Merge pull request [#608](https://github.com/guanguans/music-dl/issues/608) from guanguans/dependabot/composer/spatie/fork-1.2.1
@@ -687,17 +714,17 @@ All notable changes to this project will be documented in this file.
 
 <a name="4.0.1"></a>
 ## [4.0.1] - 2023-11-23
-### Features
-- **Facades:** Add Music facade
+### ✨ Features
+- **Facades:** Add Music facade ([2d37b70](https://github.com/guanguans/music-dl/commit/2d37b70))
 
 
 <a name="4.0.0"></a>
 ## [4.0.0] - 2023-11-23
-### Docs
-- **readme:** update PHP version requirement
+### ✨ Features
+- **composer:** Add laravel/facade-documenter ([937393b](https://github.com/guanguans/music-dl/commit/937393b))
 
-### Features
-- **composer:** Add laravel/facade-documenter
+### 📖 Documents
+- **readme:** update PHP version requirement ([59e3233](https://github.com/guanguans/music-dl/commit/59e3233))
 
 ### Pull Requests
 - Merge pull request [#607](https://github.com/guanguans/music-dl/issues/607) from guanguans/dependabot/composer/friendsofphp/php-cs-fixer-3.39.0
@@ -706,9 +733,9 @@ All notable changes to this project will be documented in this file.
 
 <a name="3.6.4"></a>
 ## [3.6.4] - 2023-11-17
-### Code Refactoring
-- **monorepo-builder:** update release workers
-- **php-cs-fixer:** Change curly_braces_position to braces_position
+### 💅 Code Refactorings
+- **monorepo-builder:** update release workers ([9cb8f2c](https://github.com/guanguans/music-dl/commit/9cb8f2c))
+- **php-cs-fixer:** Change curly_braces_position to braces_position ([37e7502](https://github.com/guanguans/music-dl/commit/37e7502))
 
 ### Pull Requests
 - Merge pull request [#605](https://github.com/guanguans/music-dl/issues/605) from guanguans/dependabot/composer/rector/rector-0.18.10
@@ -770,10 +797,10 @@ All notable changes to this project will be documented in this file.
 
 <a name="3.6.2"></a>
 ## [3.6.2] - 2023-07-30
-### Code Refactoring
-- **Utils:** update method names to camelCase
-- **rector.php:** update rules configuration
-- **utils:** update default save directory logic
+### 💅 Code Refactorings
+- **Utils:** update method names to camelCase ([634c49c](https://github.com/guanguans/music-dl/commit/634c49c))
+- **rector.php:** update rules configuration ([61cd897](https://github.com/guanguans/music-dl/commit/61cd897))
+- **utils:** update default save directory logic ([1c00aee](https://github.com/guanguans/music-dl/commit/1c00aee))
 
 ### Pull Requests
 - Merge pull request [#552](https://github.com/guanguans/music-dl/issues/552) from guanguans/dependabot/composer/guanguans/ai-commit-1.7.6
@@ -784,18 +811,18 @@ All notable changes to this project will be documented in this file.
 
 <a name="3.6.1"></a>
 ## [3.6.1] - 2023-07-23
-### Bug Fixes
-- **commands:** Fix recallSelf method calls
+### 🐞 Bug Fixes
+- **commands:** Fix recallSelf method calls ([7a22b69](https://github.com/guanguans/music-dl/commit/7a22b69))
 
 
 <a name="3.6.0"></a>
 ## [3.6.0] - 2023-07-23
-### Bug Fixes
-- **config:** Add php_unit_data_provider_return_type
-- **workflows:** fix upload command in publish-phar.yml
+### ✨ Features
+- **monorepo-builder.php:** Add new file for monorepo configuration ([14c9396](https://github.com/guanguans/music-dl/commit/14c9396))
 
-### Features
-- **monorepo-builder.php:** Add new file for monorepo configuration
+### 🐞 Bug Fixes
+- **config:** Add php_unit_data_provider_return_type ([6101ab1](https://github.com/guanguans/music-dl/commit/6101ab1))
+- **workflows:** fix upload command in publish-phar.yml ([68a3e25](https://github.com/guanguans/music-dl/commit/68a3e25))
 
 ### Pull Requests
 - Merge pull request [#548](https://github.com/guanguans/music-dl/issues/548) from guanguans/dependabot/composer/mockery/mockery-1.6.4
@@ -808,8 +835,8 @@ All notable changes to this project will be documented in this file.
 
 <a name="v3.5.7"></a>
 ## [v3.5.7] - 2023-07-14
-### Bug Fixes
-- **config:** update windows_tip message
+### 🐞 Bug Fixes
+- **config:** update windows_tip message ([f2beebc](https://github.com/guanguans/music-dl/commit/f2beebc))
 
 
 <a name="v3.5.6"></a>
@@ -820,17 +847,17 @@ All notable changes to this project will be documented in this file.
 
 <a name="v3.5.5"></a>
 ## [v3.5.5] - 2023-07-13
-### Bug Fixes
-- **commit:** adjust dimensions and typing speed
-- **composer:** add ai-commit-no-verify command
-- **tape:** adjust typing delay
+### ✨ Features
+- **MusicCommand:** add --no-continue option ([6828d66](https://github.com/guanguans/music-dl/commit/6828d66))
 
-### Code Refactoring
-- **Command:** optimize logo and windows tip output
-- **command:** Remove unused property
+### 🐞 Bug Fixes
+- **commit:** adjust dimensions and typing speed ([9482ebe](https://github.com/guanguans/music-dl/commit/9482ebe))
+- **composer:** add ai-commit-no-verify command ([03d7922](https://github.com/guanguans/music-dl/commit/03d7922))
+- **tape:** adjust typing delay ([6ba7873](https://github.com/guanguans/music-dl/commit/6ba7873))
 
-### Features
-- **MusicCommand:** add --no-continue option
+### 💅 Code Refactorings
+- **Command:** optimize logo and windows tip output ([bef72d2](https://github.com/guanguans/music-dl/commit/bef72d2))
+- **command:** Remove unused property ([26e62ab](https://github.com/guanguans/music-dl/commit/26e62ab))
 
 ### Pull Requests
 - Merge pull request [#541](https://github.com/guanguans/music-dl/issues/541) from guanguans/dependabot/composer/rector/rector-0.17.5
@@ -839,32 +866,32 @@ All notable changes to this project will be documented in this file.
 
 <a name="v3.5.4"></a>
 ## [v3.5.4] - 2023-07-12
-### Code Refactoring
-- **console-spinner:** update spinner characters
+### 📖 Documents
+- **readme:** add disclaimer for commercial use ([fd73eac](https://github.com/guanguans/music-dl/commit/fd73eac))
 
-### Docs
-- **readme:** add disclaimer for commercial use
+### 💅 Code Refactorings
+- **console-spinner:** update spinner characters ([299f20c](https://github.com/guanguans/music-dl/commit/299f20c))
 
 
 <a name="v3.5.3"></a>
 ## [v3.5.3] - 2023-07-12
-### Bug Fixes
-- **tests:** Skip dependency on music search and download
+### ✨ Features
+- **commands:** Add VendorPublishCommand ([3c89783](https://github.com/guanguans/music-dl/commit/3c89783))
+- **tests:** Add test to verify downloaded music exists ([d7e40a6](https://github.com/guanguans/music-dl/commit/d7e40a6))
 
-### Code Refactoring
-- **VendorPublishCommand:** make VendorPublishCommand class final
-- **tests:** Update test cases and add new test file
+### 🐞 Bug Fixes
+- **tests:** Skip dependency on music search and download ([bef9bdc](https://github.com/guanguans/music-dl/commit/bef9bdc))
 
-### Docs
-- **README:** update installation instructions
-- **readme:** Update Chinese README
+### 📖 Documents
+- **README:** update installation instructions ([8cce689](https://github.com/guanguans/music-dl/commit/8cce689))
+- **readme:** Update Chinese README ([5e648fd](https://github.com/guanguans/music-dl/commit/5e648fd))
 
-### Features
-- **commands:** Add VendorPublishCommand
-- **tests:** Add test to verify downloaded music exists
+### 💅 Code Refactorings
+- **VendorPublishCommand:** make VendorPublishCommand class final ([0ff7760](https://github.com/guanguans/music-dl/commit/0ff7760))
+- **tests:** Update test cases and add new test file ([851b75d](https://github.com/guanguans/music-dl/commit/851b75d))
 
-### Test
-- **Feature:** Add MusicCommandTest
+### ✅ Tests
+- **Feature:** Add MusicCommandTest ([e6dd388](https://github.com/guanguans/music-dl/commit/e6dd388))
 
 ### Pull Requests
 - Merge pull request [#539](https://github.com/guanguans/music-dl/issues/539) from guanguans/imgbot
@@ -872,17 +899,17 @@ All notable changes to this project will be documented in this file.
 
 <a name="v3.5.2"></a>
 ## [v3.5.2] - 2023-07-12
-### Code Refactoring
-- **AsyncMusic:** ensure songs have URL
-- **AsyncMusic:** Return all songs instead of cleaning
-- **AsyncMusic:** refactor the requestUrl method
-- **Music:** rename methods and variables for clarity
-- **SequenceMusic:** remove unused variable and simplify progress logic
+### ✨ Features
+- **Exceptions:** Add InvalidArgumentException class ([fa153d9](https://github.com/guanguans/music-dl/commit/fa153d9))
+- **Music:** Add spinner creation function in SequenceMusic ([5b762e0](https://github.com/guanguans/music-dl/commit/5b762e0))
+- **music:** add ForkMusic class ([8a0940f](https://github.com/guanguans/music-dl/commit/8a0940f))
 
-### Features
-- **Exceptions:** Add InvalidArgumentException class
-- **Music:** Add spinner creation function in SequenceMusic
-- **music:** add ForkMusic class
+### 💅 Code Refactorings
+- **AsyncMusic:** ensure songs have URL ([bfec254](https://github.com/guanguans/music-dl/commit/bfec254))
+- **AsyncMusic:** Return all songs instead of cleaning ([190950b](https://github.com/guanguans/music-dl/commit/190950b))
+- **AsyncMusic:** refactor the requestUrl method ([9a2af60](https://github.com/guanguans/music-dl/commit/9a2af60))
+- **Music:** rename methods and variables for clarity ([99dca59](https://github.com/guanguans/music-dl/commit/99dca59))
+- **SequenceMusic:** remove unused variable and simplify progress logic ([de607da](https://github.com/guanguans/music-dl/commit/de607da))
 
 ### Pull Requests
 - Merge pull request [#538](https://github.com/guanguans/music-dl/issues/538) from guanguans/dependabot/composer/rector/rector-0.17.4
@@ -890,24 +917,24 @@ All notable changes to this project will be documented in this file.
 
 <a name="v3.5.1"></a>
 ## [v3.5.1] - 2023-07-11
-### Bug Fixes
-- **MusicCommand:** modify collection handling
+### 🐞 Bug Fixes
+- **MusicCommand:** modify collection handling ([55664d7](https://github.com/guanguans/music-dl/commit/55664d7))
 
 
 <a name="v3.5.0"></a>
 ## [v3.5.0] - 2023-07-11
-### Bug Fixes
-- **Command:** Fix issue with keyword argument in MusicCommand
-- **MusicManager:** Fix createDriver method throwing BindingResolutionException
+### 🐞 Bug Fixes
+- **Command:** Fix issue with keyword argument in MusicCommand ([4c1363f](https://github.com/guanguans/music-dl/commit/4c1363f))
+- **MusicManager:** Fix createDriver method throwing BindingResolutionException ([5279c36](https://github.com/guanguans/music-dl/commit/5279c36))
 
-### Code Refactoring
-- **Music:** modify SequenceMusic class
-- **MusicCommand:** update string literals
-- **SequenceMusic:** Refactor ensureWithUrl and add clean method
-- **command:** Improve ThanksCommand
-- **config:** Update paths in .php-cs-fixer.php and rector.php
-- **musicmanager:** improve default driver retrieval
-- **sanitizer:** update return type in sanitizes method
+### 💅 Code Refactorings
+- **Music:** modify SequenceMusic class ([e15d156](https://github.com/guanguans/music-dl/commit/e15d156))
+- **MusicCommand:** update string literals ([7814a61](https://github.com/guanguans/music-dl/commit/7814a61))
+- **SequenceMusic:** Refactor ensureWithUrl and add clean method ([9d6d95c](https://github.com/guanguans/music-dl/commit/9d6d95c))
+- **command:** Improve ThanksCommand ([fc969f4](https://github.com/guanguans/music-dl/commit/fc969f4))
+- **config:** Update paths in .php-cs-fixer.php and rector.php ([8739c37](https://github.com/guanguans/music-dl/commit/8739c37))
+- **musicmanager:** improve default driver retrieval ([1a7e41b](https://github.com/guanguans/music-dl/commit/1a7e41b))
+- **sanitizer:** update return type in sanitizes method ([7f21464](https://github.com/guanguans/music-dl/commit/7f21464))
 
 ### Pull Requests
 - Merge pull request [#537](https://github.com/guanguans/music-dl/issues/537) from guanguans/dependabot/composer/rector/rector-0.17.3
@@ -915,30 +942,30 @@ All notable changes to this project will be documented in this file.
 
 <a name="v3.4.1"></a>
 ## [v3.4.1] - 2023-07-10
-### Bug Fixes
-- **commands:** update Windows tips
+### ✨ Features
+- **AsyncMusic:** Improve song loading efficiency ([63ebccb](https://github.com/guanguans/music-dl/commit/63ebccb))
+- **Music:** Add spinner functionality to Music class ([2138bb1](https://github.com/guanguans/music-dl/commit/2138bb1))
+- **app:** add LaravelConsoleSpinnerServiceProvider ([e9f9a1a](https://github.com/guanguans/music-dl/commit/e9f9a1a))
 
-### Code Refactoring
-- **Music:** Rename Music class to SequenceMusic
-- **SequenceMusic:** optimize carryUrl method
-- **commands:** change search driver option
+### 🐞 Bug Fixes
+- **commands:** update Windows tips ([7d598ac](https://github.com/guanguans/music-dl/commit/7d598ac))
 
-### Features
-- **AsyncMusic:** Improve song loading efficiency
-- **Music:** Add spinner functionality to Music class
-- **app:** add LaravelConsoleSpinnerServiceProvider
+### 💅 Code Refactorings
+- **Music:** Rename Music class to SequenceMusic ([2f79726](https://github.com/guanguans/music-dl/commit/2f79726))
+- **SequenceMusic:** optimize carryUrl method ([b1ff863](https://github.com/guanguans/music-dl/commit/b1ff863))
+- **commands:** change search driver option ([bee4479](https://github.com/guanguans/music-dl/commit/bee4479))
 
 
 <a name="v3.4.0"></a>
 ## [v3.4.0] - 2023-07-10
-### Code Refactoring
-- **MusicCommand:** change 'channels' to 'sources'
-- **app:** move helpers.php to app/Support
-- **music:** Remove redundant code in AsyncMusic
-- **music:** rename Music namespace
+### ✨ Features
+- **support:** add Utils class ([c981396](https://github.com/guanguans/music-dl/commit/c981396))
 
-### Features
-- **support:** add Utils class
+### 💅 Code Refactorings
+- **MusicCommand:** change 'channels' to 'sources' ([f9ba18f](https://github.com/guanguans/music-dl/commit/f9ba18f))
+- **app:** move helpers.php to app/Support ([3b7e358](https://github.com/guanguans/music-dl/commit/3b7e358))
+- **music:** Remove redundant code in AsyncMusic ([e2ff7f4](https://github.com/guanguans/music-dl/commit/e2ff7f4))
+- **music:** rename Music namespace ([79ccf9c](https://github.com/guanguans/music-dl/commit/79ccf9c))
 
 
 <a name="v3.3.3"></a>
@@ -1287,8 +1314,8 @@ All notable changes to this project will be documented in this file.
 
 <a name="v2.1.3"></a>
 ## [v2.1.3] - 2021-04-23
-### Bug Fixes
-- Remove xiami platform support
+### 🐞 Bug Fixes
+- Remove xiami platform support ([00a969f](https://github.com/guanguans/music-dl/commit/00a969f))
 
 
 <a name="v2.1.2"></a>
@@ -1307,10 +1334,10 @@ All notable changes to this project will be documented in this file.
 
 <a name="v2.0.0"></a>
 ## [v2.0.0] - 2020-02-11
-### Docs
-- add luokuncool as a contributor ([#16](https://github.com/guanguans/music-dl/issues/16))
-- create .all-contributorsrc
-- update README.md
+### 📖 Documents
+- add luokuncool as a contributor ([#16](https://github.com/guanguans/music-dl/issues/16)) ([934d85e](https://github.com/guanguans/music-dl/commit/934d85e))
+- create .all-contributorsrc ([ea93ace](https://github.com/guanguans/music-dl/commit/ea93ace))
+- update README.md ([5c28636](https://github.com/guanguans/music-dl/commit/5c28636))
 
 
 <a name="v1.1.7"></a>
@@ -1346,7 +1373,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/5.3.6...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/6.0.0...HEAD
+[6.0.0]: https://github.com/guanguans/music-dl/compare/5.3.6...6.0.0
 [5.3.6]: https://github.com/guanguans/music-dl/compare/5.3.5...5.3.6
 [5.3.5]: https://github.com/guanguans/music-dl/compare/5.3.4...5.3.5
 [5.3.4]: https://github.com/guanguans/music-dl/compare/5.3.3...5.3.4
