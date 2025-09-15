@@ -1,6 +1,7 @@
 name: "update changelog"
 
 on:
+  workflow_dispatch:
   release:
     types: [ released ]
 

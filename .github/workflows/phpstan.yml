@@ -1,18 +1,19 @@
-name: rector
+name: phpstan
 
 on:
   workflow_dispatch:
   push:
     paths:
       - '**.php'
-      - '.github/**.yml'
-      - '.github/**.yaml'
+      - '*.neon'
       - '*.xml'
       - '*.xml.dist'
+      - '.github/**.yaml'
+      - '.github/**.yml'
 
 jobs:
-  rector:
-    name: rector
+  phpstan:
+    name: phpstan
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -35,5 +36,5 @@ jobs:
       - name: Run composer install
         run: composer install --no-interaction --prefer-dist --ansi -v
 
-      - name: Run rector
-        run: composer rector-dry-run
+      - name: Run phpstan
+        run: composer phpstan

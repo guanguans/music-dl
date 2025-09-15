@@ -1,6 +1,8 @@
 name: check & fix styling
 
-on: [ push ]
+on:
+  workflow_dispatch:
+  push:
 
 jobs:
   php-cs-fixer:
@@ -15,6 +17,8 @@ jobs:
           php-version: '8.3'
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick
           coverage: none
+        env:
+          COMPOSER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Cache composer dependencies
         uses: actions/cache@v4
@@ -26,11 +30,10 @@ jobs:
         run: composer install --no-interaction --prefer-dist --ansi -v
 
       - name: Run php-cs-fixer
-        run: composer style-fix
+        run: composer style-lint
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v6
         with:
           commit_message: Fix styling
           file_pattern: '**.php'
-

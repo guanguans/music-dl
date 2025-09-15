@@ -1,14 +1,20 @@
 name: tests
 
-on: [ push, pull_request ]
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
+
+permissions: write-all
 
 jobs:
   test:
     runs-on: ${{ matrix.os }}
+
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
-        os: [ windows-latest, ubuntu-latest ]
+        os: [ ubuntu-latest, windows-latest ]
         php: [ 8.3, 8.4 ]
         dependency-version: [ prefer-stable ]
 
@@ -30,17 +36,19 @@ jobs:
           php-version: ${{ matrix.php }}
           extensions: dom, curl, libxml, mbstring, zip, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, sockets, pcntl, fileinfo
           coverage: xdebug
+        env:
+          COMPOSER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install dependencies
         run: composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --ansi -v --ignore-platform-req=ext-pcntl
 
       - name: Execute tests
-        run: composer test-c
+        run: composer test-coverage
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
         with:
-          files: ./clover.xml
-          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
-          fail_ci_if_error: true # optional (default = false)
-          verbose: true # optional (default = false)
+          files: ./.build/phpunit/clover.xml
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
+          verbose: true

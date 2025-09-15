@@ -1,6 +1,7 @@
 name: issues-translator
 
 on:
+  workflow_dispatch:
   issue_comment:
     types: [ created ]
   issues:
