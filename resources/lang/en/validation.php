@@ -2,15 +2,6 @@
 
 declare(strict_types=1);
 
-/**
- * Copyright (c) 2019-2025 guanguans<ityaozm@gmail.com>
- *
- * For the full copyright and license information, please view
- * the LICENSE file that was distributed with this source code.
- *
- * @see https://github.com/guanguans/music-dl
- */
-
 return [
     'accepted' => 'The :attribute field must be accepted.',
     'accepted_if' => 'The :attribute field must be accepted when :other is :value.',

@@ -41,6 +41,7 @@ return (new Configuration)
     )
     ->ignoreErrorsOnPackages(
         [
+            'laravel-lang/common',
             'laravel-zero/phar-updater',
             'spatie/fork',
             'symfony/polyfill-php84',
