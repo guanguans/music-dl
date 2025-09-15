@@ -1,33 +1,76 @@
 style: github
+# https://github.com/garden-io/garden/tree/main/.chglog
+# https://github.com/git-chglog/git-chglog
+# https://github.com/quay/clair/tree/main/.chglog
 template: CHANGELOG.tpl.md
 info:
   title: CHANGELOG
   repository_url: https://github.com/guanguans/music-dl
 options:
+  sort: semver
   commits:
+    sort_by: Scope
     filters:
       Type:
+        - build
+        # - chore
+        - ci
+        - docs
         - feat
         - fix
         - perf
         - refactor
-        - docs
-        - test
-        - ci
         - revert
+        - style
+        - test
   commit_groups:
+    group_by: Type
+    sort_by: Custom
+    title_order:
+      # https://github.com/fobgochod/git-commit-message-format/blob/main/src/main/resources/messages/GitBundle.properties#L37
+      - feat
+      - fix
+      - docs
+      - style
+      - refactor
+      - perf
+      - test
+      - build
+      - ci
+      - chore
+      - revert
     title_maps:
-      ci: CI
-      feat: Features
-      fix: Bug Fixes
-      perf: Performance Improvements
-      refactor: Code Refactoring
+      # https://github.com/antfu/changelogithub/blob/main/src/config.ts
+      # https://github.com/unjs/changelogen/blob/main/src/config.ts
+      # https://gitmoji.dev/
+      build: 📦 Builds
+      chore: 🏡 Chores
+      ci: 🤖 Continuous Integrations
+      docs: 📖 Documents
+      feat: ✨ Features # 🚀 Enhancements
+      fix: 🐞 Bug Fixes
+      perf: 🏎 Performance Improvements
+      refactor: 💅 Code Refactorings
+      revert: ⏪️ Reverts
+      style: 🎨 Styles
+      test: ✅ Tests
+
+      examples: 🏀 Examples
+      types: 🌊 Types
   header:
     pattern: "^(\\w*)(?:\\(([\\w\\$\\.\\-\\*\\s]*)\\))?\\:\\s(.*)$"
     pattern_maps:
       - Type
       - Scope
       - Subject
+  issues:
+    prefix:
+      - "#"
+  refs:
+    actions:
+      - Closes
+      - Fixes
+      - PullRequest
   notes:
     keywords:
       - BREAKING CHANGE
