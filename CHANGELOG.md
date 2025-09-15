@@ -8,6 +8,20 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="5.3.6"></a>
+## [5.3.6] - 2025-09-15
+### Bug Fixes
+- **lang:** Correct keyword placeholder in language file
+
+### Pull Requests
+- Merge pull request [#861](https://github.com/guanguans/music-dl/issues/861) from guanguans/dependabot/github_actions/actions/labeler-6
+- Merge pull request [#860](https://github.com/guanguans/music-dl/issues/860) from guanguans/dependabot/github_actions/actions/setup-node-5
+- Merge pull request [#859](https://github.com/guanguans/music-dl/issues/859) from guanguans/dependabot/github_actions/actions/stale-10
+- Merge pull request [#858](https://github.com/guanguans/music-dl/issues/858) from guanguans/dependabot/github_actions/actions/checkout-5
+- Merge pull request [#857](https://github.com/guanguans/music-dl/issues/857) from guanguans/dependabot/github_actions/stefanzweifel/git-auto-commit-action-6
+- Merge pull request [#856](https://github.com/guanguans/music-dl/issues/856) from guanguans/dependabot/github_actions/dependabot/fetch-metadata-2.4.0
+
+
 <a name="5.3.5"></a>
 ## [5.3.5] - 2025-02-05
 ### Bug Fixes
@@ -1332,7 +1346,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/5.3.5...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/5.3.6...HEAD
+[5.3.6]: https://github.com/guanguans/music-dl/compare/5.3.5...5.3.6
 [5.3.5]: https://github.com/guanguans/music-dl/compare/5.3.4...5.3.5
 [5.3.4]: https://github.com/guanguans/music-dl/compare/5.3.3...5.3.4
 [5.3.3]: https://github.com/guanguans/music-dl/compare/5.3.2...5.3.3
