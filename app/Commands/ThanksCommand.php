@@ -52,6 +52,6 @@ final class ThanksCommand extends Command
     #[\Override]
     public function schedule(Schedule $schedule): void
     {
-        // $schedule->command(static::class)->everyMinute();
+        // $schedule->command(self::class)->everyMinute();
     }
 }

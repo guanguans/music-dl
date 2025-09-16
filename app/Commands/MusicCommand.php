@@ -138,7 +138,7 @@ final class MusicCommand extends Command implements Isolatable
     #[\Override]
     public function schedule(Schedule $schedule): void
     {
-        // $schedule->command(static::class)->everyMinute();
+        // $schedule->command(self::class)->everyMinute();
     }
 
     /**
@@ -148,10 +148,12 @@ final class MusicCommand extends Command implements Isolatable
     protected function initialize(InputInterface $input, OutputInterface $output): void
     {
         $this->option('driver') and config()->set('concurrency.default', $this->option('driver'));
-        $this->music = Music::getFacadeRoot();
-        $this->input->setOption('directory', $this->option('directory') ?: Utils::defaultSavedDirectory());
         $this->option('locale') and config()->set('app.locale', $this->option('locale'));
-        File::ensureDirectoryExists($this->option('directory'));
+
         $this->input->setOption('sources', array_filter((array) $this->option('sources')) ?: config('app.sources'));
+        $this->input->setOption('directory', $this->option('directory') ?: Utils::defaultSavedDirectory());
+        File::ensureDirectoryExists($this->option('directory'));
+
+        $this->music = Music::getFacadeRoot();
     }
 }
