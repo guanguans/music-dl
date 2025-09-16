@@ -69,8 +69,8 @@ final class MusicCommand extends Command implements Isolatable
             ->tap(static function () use (&$stdinKeyword): void {
                 /** @noinspection OffsetOperationsInspection */
                 if (($fstat = fstat(\STDIN)) && 0 < $fstat['size']) {
-                    $stdinKeyword = trim(stream_get_contents(\STDIN));
-                    fclose(\STDIN);
+                    $stdinKeyword = trim(stream_get_contents(\STDIN)); // @codeCoverageIgnore
+                    fclose(\STDIN); // @codeCoverageIgnore
                 }
             })
             ->tap(function () use (&$keyword, $stdinKeyword): void {
@@ -96,8 +96,8 @@ final class MusicCommand extends Command implements Isolatable
                 );
             })
             ->whenEmpty(function (): void {
-                warning(__('empty_hint'));
-                $this->handle();
+                warning(__('empty_hint')); // @codeCoverageIgnore
+                $this->handle(); // @codeCoverageIgnore
             })
             ->tap(function (Collection $songs) use ($keyword, $duration): void {
                 table(__('table_header'), $this->sanitizes($songs, $keyword));

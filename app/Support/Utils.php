@@ -27,7 +27,7 @@ final class Utils
     public static function defaultSavedDirectory(): string
     {
         return windows_os()
-            ? \sprintf('%s\\Downloads\\MusicDL\\', exec('echo %USERPROFILE%') ?: \sprintf('C:\\Users\\%s', get_current_user()))
+            ? \sprintf('%s\\Downloads\\MusicDL\\', exec('echo %USERPROFILE%') ?: \sprintf('C:\\Users\\%s', get_current_user())) // @codeCoverageIgnore
             : \sprintf('%s/Downloads/MusicDL/', exec('echo $HOME') ?: exec('cd ~; pwd'));
     }
 
@@ -54,9 +54,9 @@ final class Utils
                 $song['name']
             ))
                 ->remove(match (\PHP_OS_FAMILY) {
-                    'Windows' => ['<', '>', '/', '\\', '|', ':', '"', '?', '*'],
+                    'Windows' => ['<', '>', '/', '\\', '|', ':', '"', '?', '*'], // @codeCoverageIgnore
                     'Darwin' => [':'],
-                    'Linux' => ['/'],
+                    'Linux' => ['/'], // @codeCoverageIgnore
                     default => [\DIRECTORY_SEPARATOR],
                 })
                 ->ltrim('.')

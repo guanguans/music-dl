@@ -64,7 +64,7 @@ if (!\function_exists('App\Support\classes')) {
                 try {
                     // return [$class => (new ErrorHandler)->with(static fn () => new ReflectionClass($class))];
                     return [$class => new \ReflectionClass($class)];
-                } catch (\Throwable $throwable) {
+                } catch (\Throwable $throwable) { // @codeCoverageIgnore
                     return [$class => $throwable]; // @codeCoverageIgnore
                 }
             });

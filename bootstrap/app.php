@@ -36,7 +36,7 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\OutputInterface;
 
 return Application::configure(basePath: \dirname(__DIR__))
-    ->registered(static function (Application $app): void {
+    ->booting(static function (Application $app): void {
         if (class_exists(TinkerZeroServiceProvider::class) && !$app->isProduction()) {
             $app->register(TinkerZeroServiceProvider::class);
         }
@@ -56,7 +56,7 @@ return Application::configure(basePath: \dirname(__DIR__))
                 /** @noinspection GlobalVariableUsageInspection */
                 if (!isset($_SERVER['argv'])) {
                     /** @noinspection GlobalVariableUsageInspection */
-                    $_SERVER['argv'] = [];
+                    $_SERVER['argv'] = []; // @codeCoverageIgnore
                 }
 
                 $argvInput = new ArgvInput;
@@ -67,12 +67,12 @@ return Application::configure(basePath: \dirname(__DIR__))
 
                 // --debug is called
                 if ($argvInput->hasParameterOption(['--debug', '--xdebug'])) {
-                    $consoleOutput->setVerbosity(OutputInterface::VERBOSITY_DEBUG);
+                    $consoleOutput->setVerbosity(OutputInterface::VERBOSITY_DEBUG); // @codeCoverageIgnore
                 }
 
                 // disable output for tests
                 if (app()->runningUnitTests()) {
-                    $consoleOutput->setVerbosity(OutputInterface::VERBOSITY_QUIET);
+                    $consoleOutput->setVerbosity(OutputInterface::VERBOSITY_QUIET); // @codeCoverageIgnore
                 }
 
                 return new OutputStyle($argvInput, $consoleOutput);

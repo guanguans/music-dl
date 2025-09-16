@@ -94,6 +94,7 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
                         return;
                     }
 
+                    // @codeCoverageIgnoreStart
                     if (!$progress instanceof Progress) {
                         /** @noinspection PhpVoidFunctionResultUsedInspection */
                         $progress = tap(progress($savedPath, $totalDownload))->start();
@@ -105,6 +106,7 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
 
                     $progress->progress = $downloaded;
                     $progress->render();
+                    // @codeCoverageIgnoreEnd
                 },
             ]),
             $this->minCallMicroseconds
