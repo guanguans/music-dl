@@ -24,7 +24,7 @@ final class InspireCommand extends Command
 
     public function handle(): void
     {
-        $this->components->info(config('app.logo'));
+        $this->info(config('app.logo'));
         $this->components->info(Inspiring::quote());
     }
 
@@ -34,6 +34,6 @@ final class InspireCommand extends Command
     #[\Override]
     public function schedule(Schedule $schedule): void
     {
-        // $schedule->command(static::class)->everyMinute();
+        // $schedule->command(self::class)->everyMinute();
     }
 }

@@ -26,16 +26,19 @@ return [
     'name' => 'Music DL',
 
     // The logo of the application.
-    'logo' => \sprintf(<<<'logo'
-        <fg=green;options=bold>
-             __  __           _        _____  _
-            |  \/  |         (_)      |  __ \| |
-            | \  / |_   _ ___ _  ___  | |  | | |
-            | |\/| | | | / __| |/ __| | |  | | |
-            | |  | | |_| \__ \ | (__  | |__| | |____
-            |_|  |_|\__,_|___/_|\___| |_____/|______| %s
-        </>
-        logo, config('app.version')),
+    'logo' => \sprintf(
+        <<<'logo'
+            <fg=green;options=bold>
+                 __  __           _        _____  _
+                |  \/  |         (_)      |  __ \| |
+                | \  / |_   _ ___ _  ___  | |  | | |
+                | |\/| | | | / __| |/ __| | |  | | |
+                | |  | | |_| \__ \ | (__  | |__| | |____
+                |_|  |_|\__,_|___/_|\___| |_____/|______| %s
+            </>
+            logo,
+        app('git.version')
+    ),
 
     // The search sources.
     'sources' => [
