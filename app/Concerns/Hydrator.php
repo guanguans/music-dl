@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace App\Concerns;
 
-use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 
 trait Hydrator
@@ -23,12 +22,12 @@ trait Hydrator
     public function hydrates(Collection $songs, string $keyword): Collection
     {
         return $this->sanitizes($songs, $keyword)
-            ->transform(fn (array $sanitizedSong): string => $this->hydrate($sanitizedSong))
+            ->map(fn (array $sanitizedSong): string => $this->hydrate($sanitizedSong))
             ->prepend(__('all_songs'));
     }
 
     public function hydrate(array $sanitizedSong): string
     {
-        return implode('  ', Arr::except($sanitizedSong, [0]));
+        return collect($sanitizedSong)->except(0)->implode(' ');
     }
 }

@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace App\Support;
 
-use App\Exceptions\RuntimeException;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
@@ -27,35 +26,23 @@ final class Utils
      */
     public static function defaultSavedDirectory(): string
     {
-        $savedDir = windows_os()
+        return windows_os()
             ? \sprintf('%s\\Downloads\\MusicDL\\', exec('echo %USERPROFILE%') ?: \sprintf('C:\\Users\\%s', get_current_user()))
             : \sprintf('%s/Downloads/MusicDL/', exec('echo $HOME') ?: exec('cd ~; pwd'));
-
-        if (!is_dir($savedDir) && !mkdir($savedDir, 0o755, true) && !is_dir($savedDir)) {
-            throw new RuntimeException(\sprintf('The directory "%s" was not created.', $savedDir));
-        }
-
-        return $savedDir;
     }
 
     /**
      * @throws \App\Exceptions\RuntimeException
      */
-    public static function savedPathFor(array $song, ?string $savedDir = null, string $defaultExt = 'mp3'): string
+    public static function savedPathFor(array $song, ?string $savedDirectory = null, string $defaultExt = 'mp3'): string
     {
-        $savedDir = Str::finish($savedDir ?? self::defaultSavedDirectory(), \DIRECTORY_SEPARATOR);
-
-        if (!is_dir($savedDir) && !mkdir($savedDir, 0o755, true) && !is_dir($savedDir)) {
-            throw new RuntimeException(\sprintf('The directory "%s" was not created.', $savedDir));
-        }
-
         // $resource = fopen($song['url'], 'rb');
         // fstat($resource);
         // stat($song['url']);
 
         return \sprintf(
             '%s%s.%s',
-            $savedDir,
+            Str::finish($savedDirectory ?? self::defaultSavedDirectory(), \DIRECTORY_SEPARATOR),
             str(\sprintf(
                 '%s - %s',
                 collect($song['artist'])

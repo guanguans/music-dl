@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Concurrency;
 use Illuminate\Support\Timebox;
 use Illuminate\Support\Traits\Conditionable;
 use Illuminate\Support\Traits\Dumpable;
+use Illuminate\Support\Traits\ForwardsCalls;
 use Illuminate\Support\Traits\Localizable;
 use Illuminate\Support\Traits\Macroable;
 use Illuminate\Support\Traits\Tappable;
@@ -33,6 +34,7 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
 {
     use Conditionable;
     use Dumpable;
+    use ForwardsCalls;
     use HttpClientFactory;
     use Localizable;
     use Macroable;
@@ -64,6 +66,7 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
                 ->pipe(fn (Collection $songs): Collection => $this->ensureWithUrls($songs))
                 // ->sortBy([
                 //     // ['name', \SORT_ASC],
+                //     // ['name', \SORT_FLAG_CASE],
                 //     ['name', 'asc'],
                 //     ['artist', 'asc'],
                 //     ['size', 'desc'],
