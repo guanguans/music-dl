@@ -47,6 +47,7 @@
 *.tape                              export-ignore
 *.zip                               export-ignore
 /.*                                 export-ignore
+/_config.yml                        export-ignore
 /_ide_helper.php                    export-ignore
 /CHANGELOG-*.md                     export-ignore
 /CHANGELOG.md                       export-ignore
@@ -59,5 +60,6 @@
 /readme-lint                        export-ignore
 /rector-*.php                       export-ignore
 /rector.php                         export-ignore
+/resources/images/music-dl-*.gif    export-ignore
 /testbench.yaml                     export-ignore
 /tests.*                            export-ignore
