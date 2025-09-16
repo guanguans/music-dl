@@ -46,7 +46,7 @@ final class MusicCommand extends Command implements Isolatable
         {keyword? : Search keyword for music}
         {--break : Specify whether to break after download}
         {--driver=sync : Specify the search driver(sync、fork、process)}
-        {--d|dir= : Specify the download directory}
+        {--d|directory= : Specify the download directory}
         {--l|locale= : Specify the locale language}
         {--sources=* : Specify the music sources(tencent、netease、kugou)}
         SIGNATURE;
@@ -121,11 +121,11 @@ final class MusicCommand extends Command implements Isolatable
             )
             ->each(fn (array $song): mixed => $this->rescue(fn () => $this->music->download(
                 $song['url'],
-                Utils::savedPathFor($song, $this->option('dir'))
+                Utils::savedPathFor($song, $this->option('directory'))
             )))
             ->tap(fn (): mixed => $this->rescue(fn () => $this->notify(
                 config('app.name'),
-                $this->option('dir'),
+                $this->option('directory'),
                 resource_path('images/notify-icon.png')
             )))
             ->unless($this->option('break'), fn (): null => $this->handle());
@@ -148,9 +148,9 @@ final class MusicCommand extends Command implements Isolatable
     {
         $this->option('driver') and config()->set('concurrency.default', $this->option('driver'));
         $this->music = Music::getFacadeRoot();
-        $this->input->setOption('dir', $this->option('dir') ?: Utils::defaultSavedDir());
+        $this->input->setOption('directory', $this->option('directory') ?: Utils::defaultSavedDirectory());
         $this->option('locale') and config()->set('app.locale', $this->option('locale'));
-        File::ensureDirectoryExists($this->option('dir'));
+        File::ensureDirectoryExists($this->option('directory'));
         $this->input->setOption('sources', array_filter((array) $this->option('sources')) ?: config('app.sources'));
     }
 }

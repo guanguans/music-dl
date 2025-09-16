@@ -21,7 +21,7 @@ declare(strict_types=1);
 use App\Support\Utils;
 
 it('can get default saved dir', function (): void {
-    expect(Utils::defaultSavedDir())->toBeDirectory();
+    expect(Utils::defaultSavedDirectory())->toBeDirectory();
 })->group(__DIR__, __FILE__);
 
 it('can get saved path', function (array $song): void {

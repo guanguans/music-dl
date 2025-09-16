@@ -25,7 +25,7 @@ final class Utils
     /**
      * @throws \App\Exceptions\RuntimeException
      */
-    public static function defaultSavedDir(): string
+    public static function defaultSavedDirectory(): string
     {
         $savedDir = windows_os()
             ? \sprintf('%s\\Downloads\\MusicDL\\', exec('echo %USERPROFILE%') ?: \sprintf('C:\\Users\\%s', get_current_user()))
@@ -43,7 +43,7 @@ final class Utils
      */
     public static function savedPathFor(array $song, ?string $savedDir = null, string $defaultExt = 'mp3'): string
     {
-        $savedDir = Str::finish($savedDir ?? self::defaultSavedDir(), \DIRECTORY_SEPARATOR);
+        $savedDir = Str::finish($savedDir ?? self::defaultSavedDirectory(), \DIRECTORY_SEPARATOR);
 
         if (!is_dir($savedDir) && !mkdir($savedDir, 0o755, true) && !is_dir($savedDir)) {
             throw new RuntimeException(\sprintf('The directory "%s" was not created.', $savedDir));
