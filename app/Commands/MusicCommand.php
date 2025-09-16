@@ -47,7 +47,7 @@ final class MusicCommand extends Command implements Isolatable
         {--driver=sync : Specify the search driver(sync、fork、process)}
         {--d|dir= : Specify the download directory}
         {--l|lang= : Specify the language}
-        {--no-continue : Specify whether to recall the command after the download is complete}
+        {--break : Specify whether to break after download}
         {--sources=* : Specify the music sources(tencent、netease、kugou)}
         SIGNATURE;
     protected $description = 'Search and download music';
@@ -128,7 +128,7 @@ final class MusicCommand extends Command implements Isolatable
                 $this->option('dir'),
                 resource_path('images/notify-icon.png')
             )))
-            ->unless($this->option('no-continue'), fn (): null => $this->handle());
+            ->unless($this->option('break'), fn (): null => $this->handle());
     }
 
     /**

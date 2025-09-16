@@ -66,7 +66,7 @@ Arguments:
 Options:
       --driver[=DRIVER]    Specify the search driver(sync、fork、process) [default: "sync"]
   -d, --dir[=DIR]          Specify the download directory
-      --no-continue        Specify whether to recall the command after the download is complete
+      --break              Specify whether to break after download
       --sources[=SOURCES]  Specify the music sources(tencent、netease、kugou) (multiple values allowed)
   -h, --help               Display help for the given command. When no command is given display help for the music command
   -q, --quiet              Do not output any message

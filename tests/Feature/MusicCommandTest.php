@@ -42,7 +42,7 @@ it('can search and download music', function (Collection $songs): void {
             'keyword' => $keyword = '不只是南方',
             '--dir' => downloads_path(),
             '--driver' => 'sync',
-            '--no-continue' => true,
+            '--break' => true,
             '--sources' => config('app.sources'),
         ])
         ->expectsConfirmation(__('confirm_label'), 'yes')
