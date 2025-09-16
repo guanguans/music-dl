@@ -119,7 +119,7 @@ return RectorConfig::configure()
     ->withSets([
         PHPUnitSetList::PHPUNIT_120,
         LaravelSetList::LARAVEL_120,
-        ...collect((new ReflectionClass(LaravelSetList::class))->getConstants(ReflectionClassConstant::IS_PUBLIC))
+        ...collect(new ReflectionClass(LaravelSetList::class)->getConstants(ReflectionClassConstant::IS_PUBLIC))
             ->reject(
                 static fn (string $constant, string $name): bool => \in_array(
                     $name,

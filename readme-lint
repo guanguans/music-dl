@@ -24,7 +24,7 @@ require __DIR__.'/vendor/autoload.php';
 
 app()->singleton(OutputStyle::class, static fn (): OutputStyle => new OutputStyle(new ArgvInput, new ConsoleOutput));
 
-(new Pipeline(app()))
+new Pipeline(app())
     ->send(glob('README-*.md'))
     ->through([
         pipeFor(static function (string $translatedReadme, string $readme): Result {

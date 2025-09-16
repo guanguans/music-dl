@@ -108,7 +108,7 @@ function class_namespace(object|string $class): string
 {
     $class = \is_object($class) ? $class::class : $class;
 
-    return (new ReflectionClass($class))->getNamespaceName();
+    return new ReflectionClass($class)->getNamespaceName();
 }
 
 function fixtures_path(string $path = ''): string
