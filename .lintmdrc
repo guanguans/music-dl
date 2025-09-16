@@ -31,7 +31,7 @@
         "no-long-code": [
             1,
             {
-                "length": 200,
+                "length": 120,
                 "exclude": [
                     "dot"
                 ]

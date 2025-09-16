@@ -53,7 +53,7 @@ composer require guanguans/music-dl:dev-master --dev -v --ignore-platform-req=ex
 ```
 
 ```shell
-╰─ ./music-dl music --help                                                                                                      ─╯
+╰─ ./music-dl --help                                                                                                                                                         ─╯
 Description:
   Search and download music
 
@@ -61,20 +61,25 @@ Usage:
   music [options] [--] [<keyword>]
 
 Arguments:
-  keyword                  Search keyword for music
+  keyword                              Search keyword for music
 
 Options:
-      --driver[=DRIVER]    Specify the search driver(sync、fork、process) [default: "sync"]
-  -d, --directory[=DIR]    Specify the download directory
-      --break              Specify whether to break after download
-      --sources[=SOURCES]  Specify the music sources(tencent、netease、kugou) (multiple values allowed)
-  -h, --help               Display help for the given command. When no command is given display help for the music command
-  -q, --quiet              Do not output any message
-  -V, --version            Display this application version
-      --ansi|--no-ansi     Force (or disable --no-ansi) ANSI output
-  -n, --no-interaction     Do not ask any interactive question
-      --env[=ENV]          The environment the command should run under
-  -v|vv|vvv, --verbose     Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+  -b, --break                          Specify whether to break after download
+  -d, --directory[=DIRECTORY]          Specify the download directory
+  -D, --driver[=DRIVER]                Specify the search driver(sync、fork、process) [default: "sync"]
+  -l, --locale[=LOCALE]                Specify the locale language [default: "zh_CN"]
+  -s, --sources[=SOURCES]              Specify the music sources(tencent、netease、kugou) (multiple values allowed)
+      --isolated[=ISOLATED]            Do not run the command if another instance of the command is already running [default: false]
+      --xdebug                         Display xdebug output
+      --configuration[=CONFIGURATION]  Used to dynamically pass one or more configuration key-value pairs(e.g. `--configuration=app.name=guanguans` or `--configuration app.name=guanguans`). (multiple values allowed)
+  -h, --help                           Display help for the given command. When no command is given display help for the music command
+      --silent                         Do not output any message
+  -q, --quiet                          Only errors are displayed. All other output is suppressed
+  -V, --version                        Display this application version
+      --ansi|--no-ansi                 Force (or disable --no-ansi) ANSI output
+  -n, --no-interaction                 Do not ask any interactive question
+      --env[=ENV]                      The environment the command should run under
+  -v|vv|vvv, --verbose                 Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
 ```
 
 ![usage](resources/images/music-dl.gif)

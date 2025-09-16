@@ -19,10 +19,10 @@ use LaravelZero\Framework\Commands\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-final class TestCommand extends Command
+final class TestingCommand extends Command
 {
     protected $signature = <<<'SIGNATURE'
-        test
+        testing
         {--|name= : Specify the name}
         {--|age= : Specify the age}
         SIGNATURE;

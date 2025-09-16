@@ -18,7 +18,7 @@ declare(strict_types=1);
  * @see https://github.com/guanguans/music-dl
  */
 
-use App\Commands\TestCommand;
+use App\Commands\TestingCommand;
 use Illuminate\Console\OutputStyle;
 use Illuminate\Log\LogManager;
 use Illuminate\Support\Facades\Artisan;
@@ -35,7 +35,7 @@ it('can get LogManager instance', function (): void {
 
 it('can run test command', function (): void {
     $this
-        ->artisan(TestCommand::class, [
+        ->artisan(TestingCommand::class, [
             '--name' => fake()->name(),
             '--age' => 18,
         ])
@@ -47,6 +47,6 @@ it('can run test command', function (): void {
         '--configuration' => 'app.name=guanguans',
     ];
 
-    // $this->artisan(TestCommand::class, $parameters);
-    Artisan::call(TestCommand::class, $parameters);
+    // $this->artisan(TestingCommand::class, $parameters);
+    Artisan::call(TestingCommand::class, $parameters);
 })->group(__DIR__, __FILE__)->throws(ValidationException::class, '名称 不能为空。 (还有 1 个错误)');

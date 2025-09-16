@@ -6,13 +6,14 @@
 node_modules/
 vendor/
 
+*.tinker.php
 .DS_Store
 .php-cs-fixer.cache
 .phpunit.result.cache
+cghooks.lock
 clover.xml
 phpunit.xml
 psalm.xml
-cghooks.lock
 
 /*.zip
 /.ai-commit.json
