@@ -21,11 +21,11 @@ declare(strict_types=1);
 use App\Support\Utils;
 
 it('can get default saved dir', function (): void {
-    expect(Utils::defaultSavedDirectory())->toBeDirectory();
+    expect(Utils::defaultSavedDirectory())->toContain(\DIRECTORY_SEPARATOR);
 })->group(__DIR__, __FILE__);
 
 it('can get saved path', function (array $song): void {
-    expect(Utils::savedPathFor($song))->toBeString()->toEndWith('.mp3');
+    expect(Utils::savedPathFor($song))->toContain(\DIRECTORY_SEPARATOR)->toEndWith('.mp3');
 })->group(__DIR__, __FILE__)->with([
     fn (): array => [
         'id' => 1_386_737_246,

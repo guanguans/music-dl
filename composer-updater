@@ -240,6 +240,7 @@ $status = (new SingleCommandApplication)
 
             /**
              * @noinspection PhpSameParameterValueInspection
+             * @noinspection ParameterDefaultValueIsNotNullInspection
              *
              * @param mixed $input The input as stream resource, scalar or \Traversable, or null for no input
              */

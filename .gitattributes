@@ -34,10 +34,15 @@
 # Remove files for archives generated using `git archive --format=zip --output=music-dl.zip master -v`
 # Ignore all test and documentation with "export-ignore".
 /.*/           export-ignore
+/app/          export-ignore
 /baselines/    export-ignore
 /benchmarks/   export-ignore
-#/docs/         export-ignore
-#/examples/     export-ignore
+/bootstrap/    export-ignore
+#/builds/       export-ignore
+/config/       export-ignore
+/docs/         export-ignore
+/examples/     export-ignore
+/resources/    export-ignore
 /tests/        export-ignore
 /vendor-bin/   export-ignore
 /vendor/       export-ignore
@@ -54,6 +59,7 @@
 /composer-dependency-analyser.php   export-ignore
 /composer-updater                   export-ignore
 /monorepo-builder.php               export-ignore
+/music-dl                           export-ignore
 /phpbench.json                      export-ignore
 /phpstan.neon                       export-ignore
 /phpunit.xml.dist                   export-ignore

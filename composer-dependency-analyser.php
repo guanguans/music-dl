@@ -51,6 +51,7 @@ return (new Configuration)
     )
     ->ignoreErrorsOnPackages(
         [
+            'composer/xdebug-handler',
             'laravel-lang/config',
             'laravel-lang/locale-list',
             'laravel-lang/routes',

@@ -29,6 +29,8 @@ use Symplify\MonorepoBuilder\Release\ReleaseWorker\UpdateBranchAliasReleaseWorke
 use Symplify\MonorepoBuilder\Release\ReleaseWorker\UpdateReplaceReleaseWorker;
 
 return static function (MBConfig $mbConfig): void {
+    // error_reporting(\E_ALL & ~\E_DEPRECATED & ~\E_USER_DEPRECATED);
+
     require __DIR__.'/vendor/autoload.php';
     $mbConfig->defaultBranch('master');
     MBConfig::disableDefaultWorkers();

@@ -1,5 +1,7 @@
 <?php
 
+/** @noinspection PhpVoidFunctionResultUsedInspection */
+
 declare(strict_types=1);
 
 /**
@@ -13,14 +15,22 @@ declare(strict_types=1);
 
 use App\Contracts\Music as MusicContract;
 use App\Music;
+use Composer\XdebugHandler\XdebugHandler;
+use Illuminate\Console\Events\CommandStarting;
 use Illuminate\Console\OutputStyle;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Log\LogManager;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Event;
+use Illuminate\Validation\ValidationException;
 use Intonate\TinkerZero\TinkerZeroServiceProvider;
 use LaravelZero\Framework\Application;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Application as ConsoleApplication;
+use Symfony\Component\Console\Command\Command as SymfonyCommand;
 use Symfony\Component\Console\Input\ArgvInput;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Logger\ConsoleLogger;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -56,8 +66,13 @@ return Application::configure(basePath: \dirname(__DIR__))
                 (fn () => $this->configureIO($argvInput, $consoleOutput))->call(new ConsoleApplication);
 
                 // --debug is called
-                if ($argvInput->hasParameterOption('--debug')) {
+                if ($argvInput->hasParameterOption(['--debug', '--xdebug'])) {
                     $consoleOutput->setVerbosity(OutputInterface::VERBOSITY_DEBUG);
+                }
+
+                // disable output for tests
+                if (app()->runningUnitTests()) {
+                    $consoleOutput->setVerbosity(OutputInterface::VERBOSITY_QUIET);
                 }
 
                 return new OutputStyle($argvInput, $consoleOutput);
@@ -80,8 +95,54 @@ return Application::configure(basePath: \dirname(__DIR__))
             return tap($logger)->setDefaultDriver('null');
         });
     })
+    ->booted(static function (): void {
+        collect(Artisan::all())
+            ->each(
+                static fn (SymfonyCommand $command): SymfonyCommand => $command
+                    ->addOption('xdebug', null, InputOption::VALUE_NONE, 'Display xdebug output')
+                    ->addOption(
+                        'configuration',
+                        null,
+                        InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY,
+                        'Used to dynamically pass one or more configuration key-value pairs(e.g. `--configuration=app.name=guanguans` or `--configuration app.name=guanguans`).',
+                    )
+            )
+            ->tap(
+                /**
+                 * @see \Illuminate\Foundation\Console\Kernel::rerouteSymfonyCommandEvents()
+                 * @see \Rector\Console\ConsoleApplication::doRun()
+                 */
+                static fn (): null => Event::listen(CommandStarting::class, static function (CommandStarting $commandStarting): void {
+                    if (!$commandStarting->input->hasParameterOption('--xdebug') && !app()->runningUnitTests()) {
+                        $xdebugHandler = new XdebugHandler(config('app.name'));
+                        $xdebugHandler->setPersistent();
+                        $xdebugHandler->check();
+                        unset($xdebugHandler);
+                    }
+
+                    collect($commandStarting->input->getOption('configuration'))
+                        // ->dump()
+                        ->mapWithKeys(static function (string $configuration): array {
+                            \assert(str_contains($configuration, '='), "The configureable option [$configuration] must be formatted as key=value.");
+
+                            [$key, $value] = str($configuration)->explode('=', 2)->all();
+
+                            return [$key => $value];
+                        })
+                        ->tap(static fn (Collection $configuration): mixed => config($configuration->all()));
+                })
+            );
+    })
     ->withExceptions(static function (Exceptions $exceptions): void {
         $exceptions
+            ->map(
+                ValidationException::class,
+                fn (ValidationException $validationException) => (function (): ValidationException {
+                    $this->message = \PHP_EOL.($prefix = '- ').implode(\PHP_EOL.$prefix, $this->validator->errors()->all());
+
+                    return $this;
+                })->call($validationException)
+            )
             ->dontReport(Throwable::class)
             ->reportable(static fn (Throwable $throwable): false => false)
             ->stop();
