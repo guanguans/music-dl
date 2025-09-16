@@ -19,11 +19,11 @@ use Illuminate\Log\LogManager;
 use Intonate\TinkerZero\TinkerZeroServiceProvider;
 use LaravelZero\Framework\Application;
 use Psr\Log\LoggerInterface;
-use RectorPrefix202509\Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Application as ConsoleApplication;
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Logger\ConsoleLogger;
 use Symfony\Component\Console\Output\ConsoleOutput;
+use Symfony\Component\Console\Output\OutputInterface;
 
 return Application::configure(basePath: \dirname(__DIR__))
     ->registered(static function (Application $app): void {

@@ -11,6 +11,8 @@ declare(strict_types=1);
  * @see https://github.com/guanguans/music-dl
  */
 
+use LaravelZero\Framework\Components\Updater\Strategy\GithubStrategy;
+
 return [
     /*
     |--------------------------------------------------------------------------
@@ -23,5 +25,5 @@ return [
     |
     */
 
-    'strategy' => LaravelZero\Framework\Components\Updater\Strategy\GithubStrategy::class,
+    'strategy' => GithubStrategy::class,
 ];
