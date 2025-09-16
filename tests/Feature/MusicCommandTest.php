@@ -40,7 +40,7 @@ it('can search and download music', function (Collection $songs): void {
     $this
         ->artisan(MusicCommand::class, [
             'keyword' => $keyword = '不只是南方',
-            '--dir' => downloads_path(),
+            '--directory' => downloads_path(),
             '--driver' => 'sync',
             '--break' => true,
             '--sources' => config('app.sources'),
