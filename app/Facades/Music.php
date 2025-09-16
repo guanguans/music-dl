@@ -18,7 +18,7 @@ namespace App\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static \Illuminate\Support\Collection search(string $keyword, array $sources = [])
+ * @method static \Illuminate\Support\Collection search(string $keyword, array $sources)
  * @method static void download(string $url, string $savedPath)
  * @method static \App\Music setMeting(\App\Support\Meting $meting)
  * @method static \App\Music setDriver(\Illuminate\Contracts\Concurrency\Driver $driver)

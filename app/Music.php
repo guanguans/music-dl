@@ -52,7 +52,7 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
     /**
      * @throws \Throwable
      */
-    public function search(string $keyword, array $sources = []): Collection
+    public function search(string $keyword, array $sources): Collection
     {
         return $this->timebox->call(
             fn (): Collection => collect($sources)
