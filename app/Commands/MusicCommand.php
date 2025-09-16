@@ -44,11 +44,11 @@ final class MusicCommand extends Command implements Isolatable
     protected $signature = <<<'SIGNATURE'
         music
         {keyword? : Search keyword for music}
-        {--break : Specify whether to break after download}
-        {--driver=sync : Specify the search driver(sync、fork、process)}
+        {--b|break : Specify whether to break after download}
         {--d|directory= : Specify the download directory}
-        {--l|locale= : Specify the locale language}
-        {--sources=* : Specify the music sources(tencent、netease、kugou)}
+        {--D|driver=sync : Specify the search driver(sync、fork、process)}
+        {--l|locale=zh_CN : Specify the locale language}
+        {--s|sources=* : Specify the music sources(tencent、netease、kugou)}
         SIGNATURE;
     protected $description = 'Search and download music';
     private MusicContract $music;
