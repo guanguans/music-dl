@@ -44,10 +44,10 @@ final class MusicCommand extends Command implements Isolatable
     protected $signature = <<<'SIGNATURE'
         music
         {keyword? : Search keyword for music}
+        {--break : Specify whether to break after download}
         {--driver=sync : Specify the search driver(sync、fork、process)}
         {--d|dir= : Specify the download directory}
-        {--l|lang= : Specify the language}
-        {--break : Specify whether to break after download}
+        {--l|locale= : Specify the locale language}
         {--sources=* : Specify the music sources(tencent、netease、kugou)}
         SIGNATURE;
     protected $description = 'Search and download music';
@@ -149,7 +149,7 @@ final class MusicCommand extends Command implements Isolatable
         $this->option('driver') and config()->set('concurrency.default', $this->option('driver'));
         $this->music = Music::getFacadeRoot();
         $this->input->setOption('dir', $this->option('dir') ?: Utils::defaultSavedDir());
-        $this->option('lang') and config()->set('app.locale', $this->option('lang'));
+        $this->option('locale') and config()->set('app.locale', $this->option('locale'));
         File::ensureDirectoryExists($this->option('dir'));
         $this->input->setOption('sources', array_filter((array) $this->option('sources')) ?: config('app.sources'));
     }
