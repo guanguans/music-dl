@@ -1,6 +1,8 @@
 #!/usr/bin/env php
 <?php
 
+/** @noinspection D */
+
 declare(strict_types=1);
 
 /**
@@ -43,7 +45,7 @@ $status = (new SingleCommandApplication)
         \assert($this instanceof SingleCommandApplication);
         \assert((bool) $input->getOption('highest-php-binary'));
 
-        (new readonly class(
+        new readonly class(
             $input->getOption('composer-json-path') ?: __DIR__.'/composer.json',
             $input->getOption('highest-php-binary'),
             $input->getOption('composer-binary'),
@@ -154,6 +156,7 @@ $status = (new SingleCommandApplication)
 
             /**
              * @noinspection JsonEncodingApiUsageInspection
+             * @noinspection D
              */
             private function getOutdatedDecodedComposerJson(): array
             {
@@ -302,7 +305,7 @@ $status = (new SingleCommandApplication)
                     $formatted,
                 );
             }
-        })();
+        }();
     })
     ->run();
 

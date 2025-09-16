@@ -26,9 +26,11 @@ declare(strict_types=1);
 |
 */
 
+/** @noinspection UsingInclusionReturnValueInspection */
 $autoloader = require file_exists(__DIR__.'/vendor/autoload.php') ? __DIR__.'/vendor/autoload.php' : __DIR__.'/../../autoload.php';
 
 /** @noinspection UsingInclusionOnceReturnValueInspection */
+/** @noinspection UsingInclusionReturnValueInspection */
 $app = require_once __DIR__.'/bootstrap/app.php';
 
 /*

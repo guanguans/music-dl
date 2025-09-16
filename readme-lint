@@ -39,6 +39,7 @@ new Pipeline(app())
 
             foreach (file($readme) as $lineNumber => $line) {
                 /** @noinspection NotOptimalIfConditionsInspection */
+                /** @noinspection OffsetOperationsInspection */
                 if (
                     $line !== $translatedReadmeFile[$lineNumber]
                     && str($line)->trim()->isNotEmpty()
@@ -91,6 +92,7 @@ new Pipeline(app())
                     ])
                     && !str($translatedReadmeFile[$lineNumber])->startsWith(str($line)->before(' ')->append(' '))
                 ) {
+                    /** @noinspection OffsetOperationsInspection */
                     app(OutputStyle::class)->listing([
                         $line,
                         $translatedReadmeFile[$lineNumber],

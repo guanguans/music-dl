@@ -21,9 +21,10 @@ use Illuminate\Contracts\Debug\ExceptionHandler;
 trait Rescuer
 {
     /**
-     * @template TValue
-     *
      * @noinspection RedundantDocCommentTagInspection
+     * @noinspection PhpMixedReturnTypeCanBeReducedInspection
+     *
+     * @template TValue
      *
      * @param callable(): TValue $callback
      * @param bool|callable(\Throwable): bool $report

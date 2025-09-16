@@ -18,6 +18,9 @@ final class Meting extends \Metowolf\Meting
     /** @noinspection ClassOverridesFieldOfSuperClassInspection */
     protected array $temp = [];
 
+    /**
+     * @noinspection OverrideMissingInspection
+     */
     public function __construct(string $value = 'netease')
     {
         parent::__construct($value);

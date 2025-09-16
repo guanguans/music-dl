@@ -118,7 +118,7 @@ function fixtures_path(string $path = ''): string
 
 function running_in_github_action(): bool
 {
-    return getenv('GITHUB_ACTIONS') === 'true';
+    return 'true' === getenv('GITHUB_ACTIONS');
 }
 
 function reset_http_fake(?Factory $factory = null): void

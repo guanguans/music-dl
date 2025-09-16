@@ -250,6 +250,7 @@ return Factory::fromRuleSet(Php84::create()
                 'phpstan-ignore',
                 'psalm-suppress',
 
+                'template',
                 'deprecated',
                 'internal',
                 'covers',

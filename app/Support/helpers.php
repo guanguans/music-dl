@@ -34,6 +34,7 @@ if (!\function_exists('App\Support\classes')) {
      * @see \Phrity\Util\ErrorHandler
      *
      * @noinspection RedundantDocCommentTagInspection
+     * @noinspection PhpUndefinedNamespaceInspection
      *
      * @param null|(callable(class-string, string): bool) $filter
      *

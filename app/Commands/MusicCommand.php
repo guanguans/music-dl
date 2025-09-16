@@ -67,6 +67,7 @@ final class MusicCommand extends Command implements Isolatable
             })
             ->when(windows_os(), static fn () => warning(__('windows_hint')))
             ->tap(static function () use (&$stdinKeyword): void {
+                /** @noinspection OffsetOperationsInspection */
                 if (($fstat = fstat(\STDIN)) && 0 < $fstat['size']) {
                     $stdinKeyword = trim(stream_get_contents(\STDIN));
                     fclose(\STDIN);
