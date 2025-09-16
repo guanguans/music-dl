@@ -57,6 +57,7 @@ use RectorLaravel\Rector\FuncCall\TypeHintTappableCallRector;
 use RectorLaravel\Rector\If_\ThrowIfRector;
 use RectorLaravel\Rector\MethodCall\ContainerBindConcreteWithClosureOnlyRector;
 use RectorLaravel\Rector\MethodCall\UseComponentPropertyWithinCommandsRector;
+use RectorLaravel\Rector\MethodCall\ValidationRuleArrayStringValueToArrayRector;
 use RectorLaravel\Rector\StaticCall\DispatchToHelperFunctionsRector;
 use RectorLaravel\Set\LaravelSetList;
 use function App\Support\classes;
@@ -239,6 +240,7 @@ return RectorConfig::configure()
     ])
     ->withSkip([
         ContainerBindConcreteWithClosureOnlyRector::class,
+        ValidationRuleArrayStringValueToArrayRector::class,
 
         DispatchToHelperFunctionsRector::class,
         EmptyToBlankAndFilledFuncRector::class,

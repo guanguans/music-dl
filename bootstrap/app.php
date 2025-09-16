@@ -113,6 +113,7 @@ return Application::configure(basePath: \dirname(__DIR__))
                  * @see \Rector\Console\ConsoleApplication::doRun()
                  */
                 static fn (): null => Event::listen(CommandStarting::class, static function (CommandStarting $commandStarting): void {
+                    // @codeCoverageIgnoreStart
                     if (!$commandStarting->input->hasParameterOption('--xdebug') && !app()->runningUnitTests()) {
                         $xdebugHandler = new XdebugHandler(config('app.name'));
                         $xdebugHandler->setPersistent();
@@ -130,6 +131,7 @@ return Application::configure(basePath: \dirname(__DIR__))
                             return [$key => $value];
                         })
                         ->tap(static fn (Collection $configuration): mixed => config($configuration->all()));
+                    // @codeCoverageIgnoreEnd
                 })
             );
     })
@@ -138,9 +140,9 @@ return Application::configure(basePath: \dirname(__DIR__))
             ->map(
                 ValidationException::class,
                 fn (ValidationException $validationException) => (function (): ValidationException {
-                    $this->message = \PHP_EOL.($prefix = '- ').implode(\PHP_EOL.$prefix, $this->validator->errors()->all());
+                    $this->message = \PHP_EOL.($prefix = '- ').implode(\PHP_EOL.$prefix, $this->validator->errors()->all()); // @codeCoverageIgnore
 
-                    return $this;
+                    return $this; // @codeCoverageIgnore
                 })->call($validationException)
             )
             ->dontReport(Throwable::class)

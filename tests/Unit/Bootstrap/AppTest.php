@@ -18,11 +18,35 @@ declare(strict_types=1);
  * @see https://github.com/guanguans/music-dl
  */
 
-use App\Music;
+use App\Commands\TestCommand;
 use Illuminate\Console\OutputStyle;
+use Illuminate\Log\LogManager;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\ValidationException;
 
-it('can get OutputStyle', function (): void {
-    expect(
-        app(OutputStyle::class)
-    )->toBeInstanceOf(OutputStyle::class);
+it('can get OutputStyle instance', function (): void {
+    expect(app(OutputStyle::class))->toBeInstanceOf(OutputStyle::class);
 })->group(__DIR__, __FILE__);
+
+it('can get LogManager instance', function (): void {
+    expect(Log::getFacadeRoot())->toBeInstanceOf(LogManager::class);
+})->group(__DIR__, __FILE__);
+
+it('can run test command', function (): void {
+    $this
+        ->artisan(TestCommand::class, [
+            '--name' => fake()->name(),
+            '--age' => 18,
+        ])
+        ->assertOk();
+
+    $parameters = [
+        // '--xdebug' => false,
+        '--xdebug' => true,
+        '--configuration' => 'app.name=guanguans',
+    ];
+
+    // $this->artisan(TestCommand::class, $parameters);
+    Artisan::call(TestCommand::class, $parameters);
+})->group(__DIR__, __FILE__)->throws(ValidationException::class, '名称 不能为空。 (还有 1 个错误)');
