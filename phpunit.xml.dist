@@ -27,7 +27,7 @@
     </include>
     <exclude>
       <!--<directory>app/Contracts/</directory>-->
-      <file>app/Support/helpers.php</file>
+      <!--<file>app/Support/helpers.php</file>-->
     </exclude>
   </source>
   <extensions>

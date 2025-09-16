@@ -20,7 +20,7 @@ declare(strict_types=1);
 
 use App\Support\Utils;
 
-it('can get default saved dir', function (): void {
+it('can get default saved directory', function (): void {
     expect(Utils::defaultSavedDirectory())->toContain(\DIRECTORY_SEPARATOR);
 })->group(__DIR__, __FILE__);
 
