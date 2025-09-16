@@ -23,6 +23,8 @@ use App\Concerns\Hydrator;
 use App\Exceptions\RuntimeException;
 use App\Music;
 use Illuminate\Support\Collection;
+use Symfony\Component\Process\Process;
+use function Illuminate\Support\php_binary;
 
 uses(Hydrator::class)->beforeEach(function (): void {
     // Prompt::fallbackWhen(true);
@@ -40,9 +42,9 @@ it('can search and download music', function (Collection $songs): void {
     $this
         ->artisan(MusicCommand::class, [
             'keyword' => $keyword = '不只是南方',
+            '--break' => true,
             '--directory' => downloads_path(),
             '--driver' => 'sync',
-            '--break' => true,
             '--sources' => config('app.sources'),
         ])
         ->expectsConfirmation(__('confirm_label'), 'yes')
@@ -54,3 +56,25 @@ it('can search and download music', function (Collection $songs): void {
         )
         ->assertSuccessful();
 })->group(__DIR__, __FILE__)->with('songs');
+
+it('can get keyword of the given stdin', function (): void {
+    expect(
+        new Process(
+            command: [
+                php_binary(),
+                __DIR__.'/../../music-dl',
+                '--break',
+                '--directory',
+                downloads_path(),
+                '--driver',
+                'sync',
+                '--sources',
+                'tencent',
+            ],
+            input: $keyword = '不只是南方',
+        )
+    )
+        ->mustRun()
+        ->getOutput()
+        ->toContain($keyword);
+})->group(__DIR__, __FILE__)->skip();

@@ -41,7 +41,7 @@ uses(TestCase::class)
         BypassFinals::denyPaths([
             '*/vendor/*',
         ]);
-        BypassFinals::setCacheDirectory(__DIR__.'/../build/bypass-finals');
+        BypassFinals::setCacheDirectory(__DIR__.'/../.build/bypass-finals/');
 
         clear_same_namespace();
     })

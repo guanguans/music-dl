@@ -4,29 +4,29 @@
   bootstrap="vendor/autoload.php"
   cacheDirectory=".build/phpunit/"
   colors="true"
-  xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
+  xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
 >
   <testsuites>
     <testsuite name="Arch">
-      <directory>./tests/Arch</directory>
+      <directory>tests/Arch/</directory>
       <exclude>vendor/</exclude>
     </testsuite>
     <testsuite name="Feature">
-      <directory>./tests/Feature</directory>
+      <directory>tests/Feature/</directory>
       <exclude>vendor/</exclude>
     </testsuite>
     <testsuite name="Unit">
-      <directory>./tests/Unit</directory>
+      <directory>tests/Unit/</directory>
       <exclude>vendor/</exclude>
     </testsuite>
   </testsuites>
   <source>
     <include>
-      <directory>./app</directory>
-      <directory>./bootstrap</directory>
+      <directory>app/</directory>
+      <directory>bootstrap/</directory>
     </include>
     <exclude>
-      <!--<directory>app/Contracts</directory>-->
+      <!--<directory>app/Contracts/</directory>-->
       <file>app/Support/helpers.php</file>
     </exclude>
   </source>
@@ -35,7 +35,7 @@
     <bootstrap class="DG\BypassFinals\PHPUnitExtension">
       <parameter name="bypassReadOnly" value="false"/>
       <parameter name="bypassFinal" value="true"/>
-      <parameter name="cacheDirectory" value="./build/bypass-finals"/>
+      <parameter name="cacheDirectory" value=".build/bypass-finals/"/>
     </bootstrap>
   </extensions>
   <php>
