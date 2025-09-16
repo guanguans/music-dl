@@ -37,7 +37,7 @@ body:
     attributes:
       label: PHP Version
       description: What version of PHP are you running? Please be as specific as possible
-      placeholder: 8.3.0
+      placeholder: 8.4.0
     validations:
       required: true
   # - type: input

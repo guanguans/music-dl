@@ -100,9 +100,9 @@ return RectorConfig::configure()
     ->withFluentCallNewLine()
     ->withAttributesSets(phpunit: true, all: true)
     ->withComposerBased(phpunit: true)
-    ->withPhpVersion(PhpVersion::PHP_83)
-    ->withDowngradeSets(php83: true)
-    ->withPhpSets(php83: true)
+    ->withPhpVersion(PhpVersion::PHP_84)
+    ->withDowngradeSets(php84: true)
+    ->withPhpSets(php84: true)
     ->withPreparedSets(
         deadCode: true,
         codeQuality: true,

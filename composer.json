@@ -30,7 +30,7 @@
         }
     ],
     "require": {
-        "php": ">=8.3",
+        "php": ">=8.4",
         "guzzlehttp/guzzle": "^7.10",
         "laravel-lang/common": "^6.7",
         "laravel-zero/framework": "^12.0",
@@ -265,7 +265,8 @@
             "@putenv PHP81=/opt/homebrew/opt/php@8.1/bin/php",
             "@putenv PHP82=/opt/homebrew/opt/php@8.2/bin/php",
             "@putenv PHP83=/opt/homebrew/opt/php@8.3/bin/php",
-            "@putenv PHP84=/opt/homebrew/opt/php@8.4/bin/php"
+            "@putenv PHP84=/opt/homebrew/opt/php@8.4/bin/php",
+            "@putenv PHP85=/opt/homebrew/opt/php@8.5/bin/php"
         ],
         "env-put-xdebug-off": "@putenv XDEBUG_MODE=off",
         "env-put-xdebug-on": [
@@ -275,7 +276,7 @@
         "facade-lint": "@facade-update --lint",
         "facade-update": [
             "@env-put-php",
-            "$PHP83 -f vendor/bin/facade.php -- App\\\\Facades\\\\Music"
+            "@php -f vendor/bin/facade.php -- App\\\\Facades\\\\Music"
         ],
         "haulable": "haulable --ansi -v",
         "haulable-package": "@haulable package builds/music-dl",
@@ -303,7 +304,7 @@
         "neon-lint": "@php vendor/bin/neon-lint *.neon",
         "normalized": "@composer-normalize",
         "normalized-dry-run": "@composer-normalize-dry-run",
-        "peck": "/opt/homebrew/opt/php@8.3/bin/php vendor/bin/peck check --path=app/ --config=peck.json --ansi -v",
+        "peck": "@php vendor/bin/peck check --path=app/ --config=peck.json --ansi -v",
         "peck-init": "@peck --init",
         "pest": "@php vendor/bin/pest --colors=always --min=80 --coverage",
         "pest-bail": "@pest --bail",
@@ -311,7 +312,7 @@
         "pest-disable-coverage-ignore": "@pest --disable-coverage-ignore",
         "pest-highest": [
             "@env-put-php",
-            "$PHP84 vendor/bin/pest --coverage"
+            "$PHP85 vendor/bin/pest --coverage"
         ],
         "pest-migrate-configuration": "@pest --migrate-configuration",
         "pest-parallel": "@pest --parallel",
@@ -320,7 +321,7 @@
         "pest-update-snapshots": "@pest -d --update-snapshots",
         "phparkitect": "@php vendor/bin/phparkitect check --ansi -v",
         "phpcs": "@php vendor/bin/phpcs app/ bootstrap/ config/ resources/ tests/ --extensions=php --ignore=*/vendor/* --parallel=8 --cache --colors -n -p -s -v",
-        "phpcs:compatibility": "@phpcs --standard=PHPCompatibility --exclude=PHPCompatibility.FunctionDeclarations.NewClosure --runtime-set testVersion 8.3-",
+        "phpcs:compatibility": "@phpcs --standard=PHPCompatibility --exclude=PHPCompatibility.FunctionDeclarations.NewClosure --runtime-set testVersion 8.4-",
         "phpcs:help": "@phpcs --help",
         "phpcs:i": "@phpcs -i",
         "phploc": "@php vendor/bin/phploc --suffix=php app/",
