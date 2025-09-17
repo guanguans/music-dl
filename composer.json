@@ -86,6 +86,7 @@
         "shipmonk/memory-scanner": "^1.0",
         "shipmonk/name-collision-detector": "^2.1",
         "shipmonk/phpstan-baseline-per-identifier": "^2.2",
+        "soloterm/dumps": "^1.0",
         "spatie/pest-plugin-snapshots": "^2.2",
         "spaze/phpstan-disallowed-calls": "^4.6",
         "staabm/phpstan-todo-by": "^0.2",
@@ -196,6 +197,8 @@
             "ls -lh builds/music-dl.phar",
             "ls -lr builds/music-dl.phar"
         ],
+        "artisan-solo": "@artisan solo",
+        "artisan-solo-dumps": "@artisan solo:dumps",
         "artisan-xdebug": [
             "@env-put-xdebug-on",
             "@php music-dl --ansi"

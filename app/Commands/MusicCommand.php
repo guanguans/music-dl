@@ -29,6 +29,7 @@ use Illuminate\Validation\Rule;
 use LaravelZero\Framework\Commands\Command;
 use SebastianBergmann\Timer\ResourceUsageFormatter;
 use SebastianBergmann\Timer\Timer;
+use Symfony\Component\Console\Command\LockableTrait;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use function Laravel\Prompts\confirm;
@@ -42,6 +43,7 @@ use function Laravel\Prompts\warning;
 final class MusicCommand extends Command implements Isolatable
 {
     use Hydrator;
+    use LockableTrait;
     use Rescuer;
     use ValidatesInput;
     protected $signature = <<<'SIGNATURE'
