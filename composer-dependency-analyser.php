@@ -26,8 +26,7 @@ return (new Configuration)
         false
     )
     ->addPathsToExclude([
-        __DIR__.'/tests',
-        // __DIR__.'/src/Support/Rectors',
+        __DIR__.'/tests/',
     ])
     ->ignoreUnknownClasses([
     ])
@@ -41,7 +40,6 @@ return (new Configuration)
     )
     ->ignoreErrorsOnPackages(
         [
-            'laravel-lang/common',
             'laravel-zero/phar-updater',
             'spatie/fork',
             'symfony/polyfill-php84',

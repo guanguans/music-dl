@@ -32,7 +32,6 @@
     "require": {
         "php": ">=8.4",
         "guzzlehttp/guzzle": "^7.10",
-        "laravel-lang/common": "^6.7",
         "laravel-zero/framework": "^12.0",
         "laravel-zero/phar-updater": "^1.4",
         "laravel/framework": "^12.28",
@@ -62,6 +61,7 @@
         "intonate/tinker-zero": "^1.2",
         "ion-bazan/composer-diff": "^1.13",
         "larastan/larastan": "^3.7",
+        "laravel-lang/common": "^6.7",
         "laravel/facade-documenter": "dev-main",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.8",
