@@ -52,12 +52,13 @@ return [
             'Carbon\\Laravel\\',
             'Illuminate\\',
             'Laravel\\Tinker\\',
+            'LaravelLang\\Models\\',
+            'LaravelLang\\Routes\\',
             'LaravelZero\\Framework\Providers\\',
             'NunoMaduro\\',
             'Pest\\Laravel\\',
+            'Phiki\\Adapters\\Laravel\\',
             'Termwind\\Laravel\\',
-            LaravelLang\Models\ServiceProvider::class,
-            LaravelLang\Routes\ServiceProvider::class,
         ]) && str($class)->endsWith([
             'ServiceProvider',
         ])) || str($class)->is([

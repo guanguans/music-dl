@@ -134,7 +134,9 @@ return Application::configure(basePath: \dirname(__DIR__))
             );
     })
     ->booted(static function (Application $app): void {
-        // collect((fn (): array => array_keys($this->serviceProviders))->call($app))->dump();
+        // collect((fn (): array => array_keys($this->serviceProviders))->call($app))
+        //     ->sort()
+        //     ->dump();
     })
     ->withExceptions(static function (Exceptions $exceptions): void {
         $exceptions

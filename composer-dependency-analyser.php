@@ -51,8 +51,6 @@ return (new Configuration)
     ->ignoreErrorsOnPackages(
         [
             'composer/xdebug-handler',
-            'laravel-lang/models',
-            'laravel-lang/routes',
             'laravel-zero/foundation',
             'nunomaduro/laravel-console-summary',
             'psr/http-message',

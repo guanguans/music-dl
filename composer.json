@@ -34,7 +34,7 @@
         "guzzlehttp/guzzle": "^7.10",
         "laravel-zero/framework": "^12.0",
         "laravel-zero/phar-updater": "^1.4",
-        "laravel/framework": "^12.28",
+        "laravel/framework": "^12.29",
         "laravel/prompts": "^0.3",
         "metowolf/meting": "^1.5",
         "phpunit/php-timer": "^8.0",
