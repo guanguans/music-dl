@@ -60,6 +60,7 @@ return (new Configuration)
     )
     ->ignoreErrorsOnPackages(
         [
+            'laravel/framework',
         ],
         [ErrorType::DEV_DEPENDENCY_IN_PROD]
     );
