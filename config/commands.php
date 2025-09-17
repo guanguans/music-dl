@@ -11,6 +11,8 @@ declare(strict_types=1);
  * @see https://github.com/guanguans/music-dl
  */
 
+use function App\Support\classes;
+
 return [
     /*
     |--------------------------------------------------------------------------
@@ -54,6 +56,17 @@ return [
 
     'add' => [
         // ...
+        ...classes(
+            static fn (string $class, string $file): bool => str($class)->is('App\\Commands\\*Command')
+                // D:\a\music-dl\music-dl\vendor\composer/../guanguans/ai-commit/app/Commands/ConfigCommand.php"
+                // D:\a\music-dl\music-dl\vendor\composer/../../app/Commands/InspireCommand.php"
+                // /home/runner/work/music-dl/music-dl/vendor/composer/../guanguans/ai-commit/app/Commands/ConfigCommand.php"
+                // /home/runner/work/music-dl/music-dl/vendor/composer/../../app/Commands/InspireCommand.php"
+                && str($file)->contains('composer/../../app/Commands/')
+        )
+            ->keys()
+            // ->dump()
+            ->all(),
     ],
 
     /*
