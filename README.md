@@ -53,7 +53,7 @@ composer require guanguans/music-dl:dev-master --dev -v --ignore-platform-req=ex
 ```
 
 ```shell
-╰─ ./music-dl --help                                                                                                                                                         ─╯
+╰─ ./music-dl music --help                                                                                                                                                   ─╯
 Description:
   Search and download music
 

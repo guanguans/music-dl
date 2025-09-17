@@ -55,6 +55,7 @@ final class MusicCommand extends Command implements Isolatable
 
     /**
      * @noinspection PhpVoidFunctionResultUsedInspection
+     * @noinspection PhpUndefinedMethodInspection
      *
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */

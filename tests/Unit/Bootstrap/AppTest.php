@@ -8,6 +8,7 @@
 /** @noinspection PhpVoidFunctionResultUsedInspection */
 /** @noinspection StaticClosureCanBeUsedInspection */
 /** @noinspection PhpInternalEntityUsedInspection */
+/** @noinspection PhpUnusedAliasInspection */
 declare(strict_types=1);
 
 /**
