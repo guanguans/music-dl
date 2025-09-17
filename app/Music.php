@@ -50,6 +50,8 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
     }
 
     /**
+     * @see Meting::search()
+     *
      * @throws \Throwable
      */
     public function search(string $keyword, array $sources): Collection
@@ -63,6 +65,7 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
                     \JSON_THROW_ON_ERROR
                 ))
                 ->collapse()
+                // ->dd()
                 ->pipe(fn (Collection $songs): Collection => $this->ensureWithUrls($songs))
                 // ->sortBy([
                 //     // ['name', \SORT_ASC],

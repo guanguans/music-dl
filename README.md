@@ -41,14 +41,14 @@ composer require guanguans/music-dl:dev-master --dev -v --ignore-platform-req=ex
 ```shell
 ╰─ ./music-dl list                                                                                                        ─╯
 
-  Music DL  refs/tags/4.1.6
+  Music DL  refs/tags/6.2.5
 
   USAGE:  <command> [options] [arguments]
 
   completion  Dump the shell completion script
   inspire     Display an inspiring quote
   music       Search and download music
-  self-update Allows to self-update a build application
+  self-update Self-update the installed application
   thanks      Thanks for using this tool.
 ```
 
