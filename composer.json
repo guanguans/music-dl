@@ -31,10 +31,9 @@
     ],
     "require": {
         "php": ">=8.4",
-        "guzzlehttp/guzzle": "^7.10",
         "laravel-zero/framework": "^12.0",
         "laravel-zero/phar-updater": "^1.4",
-        "laravel/prompts": "^0.3",
+        "laravel/framework": "^12.29",
         "metowolf/meting": "^1.5",
         "phpunit/php-timer": "^8.0",
         "spatie/fork": "^1.2"
@@ -60,7 +59,6 @@
         "larastan/larastan": "^3.7",
         "laravel-lang/common": "^6.7",
         "laravel/facade-documenter": "dev-main",
-        "laravel/framework": "^12.29",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.8",
         "pb30/phpstan-composer-analysis": "^1.0",

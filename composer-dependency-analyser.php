@@ -51,7 +51,9 @@ return (new Configuration)
     ->ignoreErrorsOnPackages(
         [
             'composer/xdebug-handler',
+            'guzzlehttp/guzzle',
             'laravel-zero/foundation',
+            'laravel/prompts',
             'nunomaduro/laravel-console-summary',
             'psr/http-message',
             'symfony/console',
@@ -60,7 +62,7 @@ return (new Configuration)
     )
     ->ignoreErrorsOnPackages(
         [
-            'laravel/framework',
+            'guanguans/ai-commit',
         ],
         [ErrorType::DEV_DEPENDENCY_IN_PROD]
     );
