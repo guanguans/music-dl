@@ -180,6 +180,7 @@
     "Select All": "Select All",
     "select_hint": "Space keyboard selected/cancel option",
     "select_label": "Please select songs",
+    "select_source_label": "Please select music source",
     "Send": "Send",
     "Server Error": "Server Error",
     "Service Unavailable": "Service Unavailable",

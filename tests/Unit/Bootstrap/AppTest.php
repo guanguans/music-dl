@@ -61,6 +61,11 @@ it('can run test command', function (): void {
         $this->artisan(TestingCommand::class, $parameters)->assertOk();
         Artisan::call(TestingCommand::class, $parameters);
 
+        TestingCommand::prohibit();
+
+        $this->artisan(TestingCommand::class, $parameters)->assertFailed();
+        Artisan::call(TestingCommand::class, $parameters);
+
         // Event::assertDispatched(CommandStarting::class);
         // Event::assertDispatched(CommandFinished::class);
     });

@@ -180,6 +180,7 @@
     "Select All": "全选",
     "select_hint": "空格键选中/取消选项",
     "select_label": "请选择歌曲",
+    "select_source_label": "请选择音乐源",
     "Send": "发送",
     "Server Error": "服务器错误",
     "Service Unavailable": "服务不可用",

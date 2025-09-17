@@ -45,8 +45,14 @@ it('can search and download music', function (Collection $songs): void {
             '--break' => true,
             '--directory' => downloads_path(),
             '--driver' => 'sync',
-            '--sources' => config('app.sources'),
+            // '--sources' => $sources = config('app.sources'),
         ])
+        // ->expectsQuestion(__('select_source_label'), collect(config('app.sources'))->first())
+        ->expectsChoice(
+            __('select_source_label'),
+            collect($sources = config('app.sources'))->first(),
+            array_combine($sources, array_map(ucfirst(...), $sources))
+        )
         ->expectsConfirmation(__('confirm_label'), 'yes')
         // ->expectsQuestion(__('select_label'), [__('all_songs')])
         ->expectsChoice(

@@ -23,6 +23,7 @@ use App\Support\Utils;
 use Cerbero\CommandValidator\ValidatesInput;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Console\Isolatable;
+use Illuminate\Contracts\Console\PromptsForMissingInput;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
 use Illuminate\Validation\Rule;
@@ -35,12 +36,13 @@ use Symfony\Component\Console\Output\OutputInterface;
 use function Laravel\Prompts\confirm;
 use function Laravel\Prompts\info;
 use function Laravel\Prompts\multiselect;
+use function Laravel\Prompts\select;
 use function Laravel\Prompts\spin;
 use function Laravel\Prompts\table;
 use function Laravel\Prompts\text;
 use function Laravel\Prompts\warning;
 
-final class MusicCommand extends Command implements Isolatable
+final class MusicCommand extends Command implements Isolatable, PromptsForMissingInput
 {
     use Hydrator;
     use LockableTrait;
@@ -67,10 +69,6 @@ final class MusicCommand extends Command implements Isolatable
     public function handle(): void
     {
         collect()
-            ->unless($this->laravel->has('logo'), function (): void {
-                info(config('app.logo'));
-                $this->laravel->instance('logo', config('app.logo'));
-            })
             ->when(windows_os(), static fn () => warning(__('windows_hint')))
             ->tap(static function () use (&$stdinKeyword): void {
                 /** @noinspection OffsetOperationsInspection */
@@ -153,10 +151,12 @@ final class MusicCommand extends Command implements Isolatable
     #[\Override]
     protected function initialize(InputInterface $input, OutputInterface $output): void
     {
+        info(config('app.logo'));
+
         $this->option('driver') and config()->set('concurrency.default', $this->option('driver'));
         $this->option('locale') and config()->set('app.locale', $this->option('locale'));
 
-        $this->input->setOption('sources', array_filter((array) $this->option('sources')) ?: config('app.sources'));
+        // $this->input->setOption('sources', array_filter($this->option('sources')) ?: config('app.sources'));
         $this->input->setOption('directory', $this->option('directory') ?: Utils::defaultSavedDirectory());
         File::ensureDirectoryExists($this->option('directory'));
 
@@ -184,5 +184,23 @@ final class MusicCommand extends Command implements Isolatable
                 'distinct',
             ],
         ];
+    }
+
+    #[\Override]
+    protected function interact(InputInterface $input, OutputInterface $output): void
+    {
+        parent::interact($input, $output);
+        $this->afterPromptingForMissingArguments($input, $output);
+    }
+
+    #[\Override]
+    protected function afterPromptingForMissingArguments(InputInterface $input, OutputInterface $output): void
+    {
+        if (empty($this->option('sources'))) {
+            $input->setOption('sources', (array) select(
+                __('select_source_label'),
+                array_combine($sources = config('app.sources'), array_map(ucfirst(...), $sources))
+            ));
+        }
     }
 }

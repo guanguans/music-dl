@@ -79,6 +79,7 @@ parameters:
             function: 'env_explode()'
             message: 'use config() instead'
     ignoreErrors:
+#        - identifier: arrayFilter.strict
 #        - identifier: binaryOp.invalid
 #        - identifier: encapsedStringPart.nonString
 #        - identifier: foreach.valueOverwrite
@@ -91,7 +92,6 @@ parameters:
 #        - identifier: typePerfect.noMixedMethodCaller
         - identifier: argument.templateType
         - identifier: argument.type
-        - identifier: arrayFilter.strict
         - identifier: assign.propertyType
         - identifier: cast.double
         - identifier: cast.int
