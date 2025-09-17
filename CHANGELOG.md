@@ -8,6 +8,72 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="6.2.3"></a>
+## [6.2.3] - 2025-09-17
+### 💅 Code Refactorings
+- **bootstrap:** improve app.php with inspection annotations and boot enhancements ([d887bd7](https://github.com/guanguans/music-dl/commit/d887bd7))
+
+
+<a name="6.2.2"></a>
+## [6.2.2] - 2025-09-17
+### 💅 Code Refactorings
+- **Music:** remove default value for sources in search method ([024101d](https://github.com/guanguans/music-dl/commit/024101d))
+- **logging:** replace custom logger extension with official log service providers ([2dc20d0](https://github.com/guanguans/music-dl/commit/2dc20d0))
+
+
+<a name="6.2.1"></a>
+## [6.2.1] - 2025-09-16
+### 📖 Documents
+- **readme:** update music-dl help usage and options for clarity ([aca85d8](https://github.com/guanguans/music-dl/commit/aca85d8))
+
+### ✅ Tests
+- **app:** add code coverage ignore annotations to improve test coverage reports ([31870d5](https://github.com/guanguans/music-dl/commit/31870d5))
+- **commands:** add TestCommand with validation and related unit tests ([80f6bac](https://github.com/guanguans/music-dl/commit/80f6bac))
+- **phpunit:** Standardize path notations ([5dba658](https://github.com/guanguans/music-dl/commit/5dba658))
+- **support:** add unit tests for `classes` and `make` helpers ([c96d2c9](https://github.com/guanguans/music-dl/commit/c96d2c9))
+
+
+<a name="6.2.0"></a>
+## [6.2.0] - 2025-09-16
+### ✨ Features
+- **command:** Add xdebug and dynamic configuration options ([e78d589](https://github.com/guanguans/music-dl/commit/e78d589))
+- **config:** Add laravel-console-summary configuration file ([b815f25](https://github.com/guanguans/music-dl/commit/b815f25))
+
+### 🐞 Bug Fixes
+- **command:** Simplify logo output and update version retrieval ([2266f5b](https://github.com/guanguans/music-dl/commit/2266f5b))
+
+### 💅 Code Refactorings
+- apply inspection ([5a9484a](https://github.com/guanguans/music-dl/commit/5a9484a))
+- **application:** Enhance OutputStyle and ConsoleLogger initialization ([bf471d5](https://github.com/guanguans/music-dl/commit/bf471d5))
+- **command:** Reorder initialization in MusicCommand and ThanksCommand ([0ab7cb9](https://github.com/guanguans/music-dl/commit/0ab7cb9))
+- **gitattributes:** Update export-ignore rules ([01f5e58](https://github.com/guanguans/music-dl/commit/01f5e58))
+- **hydrator:** Replace Arr::except with Collection methods ([5329c5e](https://github.com/guanguans/music-dl/commit/5329c5e))
+
+
+<a name="6.1.0"></a>
+## [6.1.0] - 2025-09-16
+### 🐞 Bug Fixes
+- **command:** Rename option --dir to --directory ([1f5938b](https://github.com/guanguans/music-dl/commit/1f5938b))
+
+### 🎨 Styles
+- apply php-cs-fixer ([e3fc836](https://github.com/guanguans/music-dl/commit/e3fc836))
+
+### 💅 Code Refactorings
+- **command:** Rename option --no-continue to --break ([fa4da98](https://github.com/guanguans/music-dl/commit/fa4da98))
+- **config:** Upgrade PHP requirement to 8.4 ([382d140](https://github.com/guanguans/music-dl/commit/382d140))
+- **music:** Rename lang option to locale and move break ([7a0a4a8](https://github.com/guanguans/music-dl/commit/7a0a4a8))
+- **music-command:** Add short option aliases and set default locale ([02d749b](https://github.com/guanguans/music-dl/commit/02d749b))
+
+### ✅ Tests
+- **tests:** Update test helpers and Arch tests ([6543564](https://github.com/guanguans/music-dl/commit/6543564))
+
+
+<a name="6.0.4"></a>
+## [6.0.4] - 2025-09-15
+
+<a name="6.0.3"></a>
+## [6.0.3] - 2025-09-15
+
 <a name="6.0.2"></a>
 ## [6.0.2] - 2025-09-15
 
@@ -1379,7 +1445,14 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/6.0.2...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/6.2.3...HEAD
+[6.2.3]: https://github.com/guanguans/music-dl/compare/6.2.2...6.2.3
+[6.2.2]: https://github.com/guanguans/music-dl/compare/6.2.1...6.2.2
+[6.2.1]: https://github.com/guanguans/music-dl/compare/6.2.0...6.2.1
+[6.2.0]: https://github.com/guanguans/music-dl/compare/6.1.0...6.2.0
+[6.1.0]: https://github.com/guanguans/music-dl/compare/6.0.4...6.1.0
+[6.0.4]: https://github.com/guanguans/music-dl/compare/6.0.3...6.0.4
+[6.0.3]: https://github.com/guanguans/music-dl/compare/6.0.2...6.0.3
 [6.0.2]: https://github.com/guanguans/music-dl/compare/6.0.1...6.0.2
 [6.0.1]: https://github.com/guanguans/music-dl/compare/6.0.0...6.0.1
 [6.0.0]: https://github.com/guanguans/music-dl/compare/5.3.6...6.0.0
