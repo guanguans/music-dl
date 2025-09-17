@@ -1,5 +1,9 @@
 <?php
 
+/** @noinspection GlobalVariableUsageInspection */
+/** @noinspection PhpInternalEntityUsedInspection */
+/** @noinspection PhpPossiblePolymorphicInvocationInspection */
+/** @noinspection PhpUnusedAliasInspection */
 /** @noinspection PhpVoidFunctionResultUsedInspection */
 
 declare(strict_types=1);
@@ -47,11 +51,9 @@ return Application::configure(basePath: \dirname(__DIR__))
          */
         $app->singletonIf(
             OutputStyle::class,
-            static function (): OutputStyle {
+            static function (Application $app): OutputStyle {
                 // to prevent missing argv indexes
-                /** @noinspection GlobalVariableUsageInspection */
                 if (!isset($_SERVER['argv'])) {
-                    /** @noinspection GlobalVariableUsageInspection */
                     $_SERVER['argv'] = []; // @codeCoverageIgnore
                 }
 
@@ -67,7 +69,7 @@ return Application::configure(basePath: \dirname(__DIR__))
                 }
 
                 // disable output for tests
-                if (app()->runningUnitTests()) {
+                if ($app->runningUnitTests()) {
                     $consoleOutput->setVerbosity(OutputInterface::VERBOSITY_QUIET); // @codeCoverageIgnore
                 }
 
@@ -88,10 +90,12 @@ return Application::configure(basePath: \dirname(__DIR__))
         //         $logger = new LogManager($app);
         //     }
         //
-        //     /** @noinspection PhpVoidFunctionResultUsedInspection */
-        //     /** @noinspection PhpPossiblePolymorphicInvocationInspection */
         //     return tap($logger)->setDefaultDriver('null');
         // });
+    })
+    ->booted(static function (Application $app): void {
+        /** @see \Illuminate\Foundation\Console\Kernel::__construct() */
+        $app->runningUnitTests() or Artisan::rerouteSymfonyCommandEvents();
     })
     ->booted(static function (): void {
         collect(Artisan::all())
@@ -112,6 +116,7 @@ return Application::configure(basePath: \dirname(__DIR__))
                  */
                 static fn (): null => Event::listen(CommandStarting::class, static function (CommandStarting $commandStarting): void {
                     // @codeCoverageIgnoreStart
+                    // @codeCoverageIgnoreEnd
                     if (!$commandStarting->input->hasParameterOption('--xdebug') && !app()->runningUnitTests()) {
                         $xdebugHandler = new XdebugHandler(config('app.name'));
                         $xdebugHandler->setPersistent();
@@ -129,7 +134,6 @@ return Application::configure(basePath: \dirname(__DIR__))
                             return [$key => $value];
                         })
                         ->tap(static fn (Collection $configuration): mixed => config($configuration->all()));
-                    // @codeCoverageIgnoreEnd
                 })
             );
     })
@@ -143,9 +147,9 @@ return Application::configure(basePath: \dirname(__DIR__))
             ->map(
                 ValidationException::class,
                 fn (ValidationException $validationException) => (function (): ValidationException {
-                    $this->message = \PHP_EOL.($prefix = '- ').implode(\PHP_EOL.$prefix, $this->validator->errors()->all()); // @codeCoverageIgnore
+                    $this->message = \PHP_EOL.($prefix = '- ').implode(\PHP_EOL.$prefix, $this->validator->errors()->all());
 
-                    return $this; // @codeCoverageIgnore
+                    return $this;
                 })->call($validationException)
             )
             ->dontReport(Throwable::class)
