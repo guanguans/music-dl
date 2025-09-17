@@ -24,7 +24,6 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Validation\ValidationException;
-use Intonate\TinkerZero\TinkerZeroServiceProvider;
 use LaravelZero\Framework\Application;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Application as ConsoleApplication;
@@ -36,11 +35,6 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\OutputInterface;
 
 return Application::configure(basePath: \dirname(__DIR__))
-    ->booting(static function (Application $app): void {
-        if (class_exists(TinkerZeroServiceProvider::class) && !$app->isProduction()) {
-            $app->register(TinkerZeroServiceProvider::class);
-        }
-    })
     ->booting(static function (Application $app): void {
         $app->singleton(Music::class);
         $app->bind(MusicContract::class, Music::class);
@@ -134,6 +128,9 @@ return Application::configure(basePath: \dirname(__DIR__))
                     // @codeCoverageIgnoreEnd
                 })
             );
+    })
+    ->booted(static function (Application $app): void {
+        // collect((fn (): array => array_keys($this->serviceProviders))->call($app))->dump();
     })
     ->withExceptions(static function (Exceptions $exceptions): void {
         $exceptions

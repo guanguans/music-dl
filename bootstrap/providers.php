@@ -46,14 +46,25 @@ return [
     App\Providers\AppServiceProvider::class,
 
     ...classes(
-        static fn (string $class): bool => str($class)->startsWith('LaravelLang')
-            && str($class)->endsWith('ServiceProvider')
-            && !str($class)->is([
-                LaravelLang\Routes\ServiceProvider::class,
-            ])
+        static fn (string $class): bool => (!str($class)->startsWith([
+            'App\\Providers\\',
+            'Carbon\\Laravel\\',
+            'Illuminate\\',
+            'Laravel\\Tinker\\',
+            'LaravelZero\\Framework\Providers\\',
+            'NunoMaduro\\',
+            'Pest\\Laravel\\',
+            'Termwind\\Laravel\\',
+            LaravelLang\Models\ServiceProvider::class,
+            LaravelLang\Routes\ServiceProvider::class,
+        ]) && str($class)->endsWith([
+            'ServiceProvider',
+        ])) || str($class)->is([
+            // 'LaravelZero\\Framework\\Components\\*\\Provider',
+        ])
     )
         ->keys()
-        ->when(Phar::running(), static fn (): Collection => Collection::empty())
+        ->when(app()->isProduction(), static fn (): Collection => Collection::empty())
         // ->dd()
         ->all(),
 ];

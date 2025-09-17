@@ -42,16 +42,13 @@ return (new Configuration)
         [
             'laravel-zero/phar-updater',
             'spatie/fork',
-            'symfony/polyfill-php84',
-            'symfony/polyfill-php85',
         ],
         [ErrorType::UNUSED_DEPENDENCY]
     )
     ->ignoreErrorsOnPackages(
         [
             'composer/xdebug-handler',
-            'laravel-lang/config',
-            'laravel-lang/locale-list',
+            'laravel-lang/models',
             'laravel-lang/routes',
             'laravel-zero/foundation',
             'nunomaduro/laravel-console-summary',
@@ -63,7 +60,6 @@ return (new Configuration)
     )
     ->ignoreErrorsOnPackages(
         [
-            'intonate/tinker-zero',
         ],
         [ErrorType::DEV_DEPENDENCY_IN_PROD]
     );
