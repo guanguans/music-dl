@@ -31,6 +31,7 @@
     ],
     "require": {
         "php": ">=8.4",
+        "composer/xdebug-handler": "^3.0",
         "laravel-zero/framework": "^12.0",
         "laravel-zero/phar-updater": "^1.4",
         "laravel/framework": "^12.29",
@@ -187,6 +188,13 @@
         "ai-commit-github-models-no-verify": "@ai-commit-github-models --no-verify",
         "ai-commit-no-verify": "@ai-commit --no-verify",
         "artisan": "@php music-dl --ansi -v",
+        "artisan-app-build": [
+            "@composer install --no-dev --no-scripts --ansi -v",
+            "@php music-dl app:build music-dl.phar --build-version=master --ansi",
+            "@php builds/music-dl.phar list --ansi -v",
+            "ls -lh builds/music-dl.phar",
+            "ls -lr builds/music-dl.phar"
+        ],
         "artisan-xdebug": [
             "@env-put-xdebug-on",
             "@php music-dl --ansi"
