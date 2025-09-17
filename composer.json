@@ -31,6 +31,7 @@
     ],
     "require": {
         "php": ">=8.4",
+        "cerbero/command-validator": "^3.0",
         "composer/xdebug-handler": "^3.0",
         "laravel-zero/framework": "^12.0",
         "laravel-zero/phar-updater": "^1.4",

@@ -20,10 +20,12 @@ use App\Concerns\Rescuer;
 use App\Contracts\Music as MusicContract;
 use App\Facades\Music;
 use App\Support\Utils;
+use Cerbero\CommandValidator\ValidatesInput;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Console\Isolatable;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
+use Illuminate\Validation\Rule;
 use LaravelZero\Framework\Commands\Command;
 use SebastianBergmann\Timer\ResourceUsageFormatter;
 use SebastianBergmann\Timer\Timer;
@@ -41,6 +43,7 @@ final class MusicCommand extends Command implements Isolatable
 {
     use Hydrator;
     use Rescuer;
+    use ValidatesInput;
     protected $signature = <<<'SIGNATURE'
         music
         {keyword? : Search keyword for music}
@@ -156,5 +159,28 @@ final class MusicCommand extends Command implements Isolatable
         File::ensureDirectoryExists($this->option('directory'));
 
         $this->music = Music::getFacadeRoot();
+    }
+
+    protected function rules(): array
+    {
+        return [
+            'keyword' => 'nullable|string',
+            'directory' => 'nullable|string',
+            'driver' => 'required|string|in:sync,fork,process',
+            'locale' => 'required|string',
+            'sources' => 'list',
+            'sources.*' => [
+                'required',
+                'string',
+                'distinct',
+                Rule::in(config('app.sources')),
+            ],
+            'configuration' => 'list',
+            'configuration.*' => [
+                'required',
+                'string',
+                'distinct',
+            ],
+        ];
     }
 }
