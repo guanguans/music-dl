@@ -19,7 +19,9 @@ use Composer\XdebugHandler\XdebugHandler;
 use Illuminate\Console\Events\CommandStarting;
 use Illuminate\Console\OutputStyle;
 use Illuminate\Foundation\Configuration\Exceptions;
+use Illuminate\Log\Context\ContextServiceProvider;
 use Illuminate\Log\LogManager;
+use Illuminate\Log\LogServiceProvider;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Event;
@@ -79,15 +81,17 @@ return Application::configure(basePath: \dirname(__DIR__))
         );
     })
     ->booting(static function (Application $app): void {
-        $app->extend(LoggerInterface::class, static function (LoggerInterface $logger, Application $app): LogManager {
-            if (!$logger instanceof LogManager) {
-                $logger = new LogManager($app);
-            }
-
-            /** @noinspection PhpVoidFunctionResultUsedInspection */
-            /** @noinspection PhpPossiblePolymorphicInvocationInspection */
-            return tap($logger)->setDefaultDriver('null');
-        });
+        $app->register(ContextServiceProvider::class);
+        $app->register(LogServiceProvider::class);
+        // $app->extend(LoggerInterface::class, static function (LoggerInterface $logger, Application $app): LogManager {
+        //     if (!$logger instanceof LogManager) {
+        //         $logger = new LogManager($app);
+        //     }
+        //
+        //     /** @noinspection PhpVoidFunctionResultUsedInspection */
+        //     /** @noinspection PhpPossiblePolymorphicInvocationInspection */
+        //     return tap($logger)->setDefaultDriver('null');
+        // });
     })
     ->booted(static function (): void {
         collect(Artisan::all())

@@ -15,13 +15,16 @@ use ShipMonk\ComposerDependencyAnalyser\Config\Configuration;
 use ShipMonk\ComposerDependencyAnalyser\Config\ErrorType;
 
 return (new Configuration)
+    /** @see composer.json -> autoload */
+    /** @see composer.json -> autoload-dev */
     ->addPathsToScan(
         [
-            __DIR__.'/app/',
+            // __DIR__.'/app/',
             __DIR__.'/bootstrap/',
             __DIR__.'/config/',
             __DIR__.'/resources/',
-            __DIR__.'/tests/',
+            // __DIR__.'/tests/',
+            __DIR__.'/music-dl',
         ],
         false
     )
@@ -53,7 +56,6 @@ return (new Configuration)
             'laravel-zero/foundation',
             'nunomaduro/laravel-console-summary',
             'psr/http-message',
-            'psr/log',
             'symfony/console',
         ],
         [ErrorType::SHADOW_DEPENDENCY]
