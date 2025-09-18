@@ -215,20 +215,20 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
          * @see \Symfony\Component\Console\Command\Command::run()
          * @see \Symfony\Component\Console\Application::doRun()
          */
-        $arrayInput = tap(
+        $input = tap(
             $this->createInputFromArguments($arguments += [
                 'keyword' => null,
                 // '--sources' => [],
             ]),
-            fn (ArrayInput $arrayInput): null => $arrayInput->bind($this->getDefinition())
+            fn (ArrayInput $input): null => $input->bind($this->getDefinition())
         );
 
-        foreach ($arrayInput->getArguments() as $name => $value) {
+        foreach ($input->getArguments() as $name => $value) {
             \array_key_exists($name, $arguments) and $this->input->setArgument($name, $value);
         }
 
-        foreach ($arrayInput->getOptions() as $name => $value) {
-            \array_key_exists($name, $arguments) and $this->input->setOption($name, $value);
+        foreach ($input->getOptions() as $name => $value) {
+            \array_key_exists("--$name", $arguments) and $this->input->setOption($name, $value);
         }
 
         /** @see ValidatesInput::execute() */
