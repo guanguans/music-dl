@@ -122,7 +122,7 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
                             static fn (Collection $options): Collection => collect(multiselect(
                                 __('select_label'),
                                 $options->all(),
-                                [$options->first()],
+                                [/* $options->first() */],
                                 20,
                                 __('select_label'),
                                 hint: __('select_hint'),
@@ -139,7 +139,7 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
                 $this->option('directory'),
                 resource_path('images/notify-icon.png')
             )))
-            ->unless($this->option('break'), fn (): null => $this->reHandle());
+            ->unless($this->option('break'), fn (): int => $this->reHandle());
     }
 
     /**
@@ -162,8 +162,8 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
         $this->option('driver') and config()->set('concurrency.default', $this->option('driver'));
         $this->option('locale') and config()->set('app.locale', $this->option('locale'));
 
-        $this->input->setOption('directory', $this->option('directory') ?: Utils::defaultSavedDirectory());
-        File::ensureDirectoryExists($this->option('directory'));
+        $this->input->setOption('directory', $this->option('directory') ?: $defaultDirectory = Utils::defaultSavedDirectory());
+        isset($defaultDirectory) and File::ensureDirectoryExists($defaultDirectory);
 
         $this->music = Music::setDriver(Concurrency::driver($this->option('driver')));
     }
@@ -172,7 +172,15 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
     {
         return [
             'keyword' => 'nullable|string',
-            'directory' => 'nullable|string',
+            'directory' => [
+                'nullable',
+                'string',
+                static function (string $attribute, mixed $value, \Closure $fail): void {
+                    if (!File::isDirectory($value) || !File::isWritable($value)) {
+                        $fail('validation.directory')->translate();
+                    }
+                },
+            ],
             'driver' => 'required|string|in:sync,fork,process',
             'locale' => 'required|string',
             'page' => 'required|integer|between:1,100',
@@ -198,10 +206,28 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
      *
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
-    private function reHandle(): void
+    private function reHandle(array $arguments = [], array $options = []): int
     {
-        $this->input->setArgument('keyword', null);
-        // $this->input->setOption('sources', []);
+        $arguments += ['keyword' => null];
+        // $options += ['sources' => []];
+
+        foreach ($arguments as $name => $value) {
+            $this->input->setArgument($name, $value);
+        }
+
+        foreach ($options as $name => $value) {
+            $this->input->setOption($name, $value);
+        }
+
+        /** @see ValidatesInput::execute() */
+        if ($this->validator()->fails()) {
+            $this->printErrors($this->formatErrors());
+
+            return self::FAILURE;
+        }
+
         $this->handle();
+
+        return self::SUCCESS;
     }
 }

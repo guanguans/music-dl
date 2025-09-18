@@ -23,12 +23,29 @@ use App\Concerns\Hydrator;
 use App\Exceptions\RuntimeException;
 use App\Music;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\File;
 use Symfony\Component\Process\Process;
 use function Illuminate\Support\php_binary;
 
 uses(Hydrator::class)->beforeEach(function (): void {
     // Prompt::fallbackWhen(true);
 });
+
+it('can validate arguments and options', function (): void {
+    $this
+        ->artisan(MusicCommand::class, [
+            'keyword' => '不只是南方',
+            '--break' => true,
+            '--directory' => 'invalid-directory',
+            '--driver' => 'sync',
+            '--locale' => 'en',
+            '--page' => 0,
+            '--per-page' => 101,
+            '--sources' => ['invalid-source'],
+            '--configuration' => ['invalid-configuration'],
+        ])
+        ->assertFailed();
+})->group(__DIR__, __FILE__);
 
 it('can search and download music', function (Collection $songs): void {
     $this->app->singleton(Music::class, static function () use ($songs) {
