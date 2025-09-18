@@ -53,6 +53,7 @@ composer require guanguans/music-dl:dev-master --dev -v --ignore-platform-req=ex
 ```
 
 ```shell
+╰─ ./music-dl music --help                                                                                                                                                   ─╯
 Description:
   Search and download music
 
@@ -65,7 +66,7 @@ Arguments:
 Options:
   -b, --break                          Specify whether to break after download
   -d, --directory[=DIRECTORY]          Specify the download directory
-  -D, --driver[=DRIVER]                Specify the search driver(sync、fork、process) [default: "sync"]
+  -D, --driver[=DRIVER]                Specify the search driver(sync、fork、process)
   -l, --locale[=LOCALE]                Specify the locale language [default: "zh_CN"]
   -p, --page[=PAGE]                    Specify the page number [default: "1"]
   -P, --per-page[=PER-PAGE]            Specify the per page number [default: "30"]

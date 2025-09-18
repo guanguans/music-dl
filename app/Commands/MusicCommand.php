@@ -57,7 +57,7 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
         {keyword? : Search keyword for music}
         {--b|break : Specify whether to break after download}
         {--d|directory= : Specify the download directory}
-        {--D|driver=sync : Specify the search driver(sync、fork、process)}
+        {--D|driver= : Specify the search driver(sync、fork、process)}
         {--l|locale=zh_CN : Specify the locale language}
         {--p|page=1 : Specify the page number}
         {--P|per-page=30 : Specify the per page number}
@@ -154,19 +154,20 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
 
     /**
      * @noinspection PhpMissingParentCallCommonInspection
+     * @noinspection NestedTernaryOperatorInspection
      */
     #[\Override]
     protected function initialize(InputInterface $input, OutputInterface $output): void
     {
         info(config('app.logo'));
 
-        $this->option('driver') and config()->set('concurrency.default', $this->option('driver'));
         $this->option('locale') and config()->set('app.locale', $this->option('locale'));
+
+        $this->input->setOption('driver', $driver = $this->option('driver') ?: (\extension_loaded('pcntl') ? 'fork' : 'sync'));
+        $this->music = Music::setDriver(Concurrency::driver($driver));
 
         $this->input->setOption('directory', $this->option('directory') ?: $defaultDirectory = Utils::defaultSavedDirectory());
         isset($defaultDirectory) and File::ensureDirectoryExists($defaultDirectory);
-
-        $this->music = Music::setDriver(Concurrency::driver($this->option('driver')));
     }
 
     protected function rules(): array
@@ -182,7 +183,7 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
                     }
                 },
             ],
-            'driver' => 'required|string|in:sync,fork,process',
+            'driver' => 'nullable|string|in:sync,fork,process',
             'locale' => 'required|string',
             'page' => 'required|integer|between:1,100',
             'per-page' => 'required|integer|between:1,100',
