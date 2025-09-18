@@ -76,40 +76,43 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
                 array_combine($sources = config('app.sources'), array_map(ucfirst(...), $sources))
             )))
             ->when(windows_os(), static fn () => warning(__('windows_hint')))
-            ->tap(function () use (&$keyword): void {
-                $keyword = str($this->argument('keyword') ?? text(
-                    __('keyword_label'),
-                    __('keyword_placeholder'),
-                    $this->laravel->has('keyword') ? '' : __('keyword_default'),
-                    __('keyword_label')
-                ))->trim()->toString();
+            ->when(blank($this->argument('keyword')), function (): void {
+                $this->input->setArgument(
+                    'keyword',
+                    $keyword = str(text(
+                        __('keyword_label'),
+                        __('keyword_placeholder'),
+                        $this->laravel->has('keyword') ? '' : __('keyword_default'),
+                        __('keyword_label')
+                    ))->trim()->toString()
+                );
                 $this->laravel->instance('keyword', $keyword);
             })
-            ->pipe(function () use ($keyword, &$duration): Collection {
+            ->pipe(function () use (&$duration): Collection {
                 return spin(
-                    function () use ($keyword, &$duration): Collection {
+                    function () use (&$duration): Collection {
                         /** @noinspection PhpVoidFunctionResultUsedInspection */
                         $timer = tap(new Timer)->start();
-                        $songs = $this->music->search($keyword, ['sources' => $this->option('sources')]);
+                        $songs = $this->music->search($this->argument('keyword'), ['sources' => $this->option('sources')]);
                         $duration = $timer->stop();
 
                         return $songs;
                     },
-                    __('searching_hint', ['keyword' => $keyword]),
+                    __('searching_hint', ['keyword' => $this->argument('keyword')]),
                 );
             })
             ->whenEmpty(function (): void {
                 warning(__('empty_hint')); // @codeCoverageIgnore
                 $this->reHandle(); // @codeCoverageIgnore
             })
-            ->tap(function (Collection $songs) use ($keyword, $duration): void {
-                table(__('table_header'), $this->sanitizes($songs, $keyword));
+            ->tap(function (Collection $songs) use ($duration): void {
+                table(__('table_header'), $this->sanitizes($songs, $this->argument('keyword')));
                 info((new ResourceUsageFormatter)->resourceUsage($duration));
             })
             ->tap(fn (): bool => confirm(__('confirm_label')) or $this->reHandle())
-            ->tap(function (Collection $songs) use (&$selectedKeys, $keyword): void {
+            ->tap(function (Collection $songs) use (&$selectedKeys): void {
                 $selectedKeys = $this
-                    ->hydrates($songs, $keyword)
+                    ->hydrates($songs, $this->argument('keyword'))
                     ->pipe(static fn (Collection $options): Collection => collect(multiselect(
                         __('select_label'),
                         $options->all(),
@@ -193,6 +196,7 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
     private function reHandle(): void
     {
         $this->input->setArgument('keyword', null);
+        $this->input->setOption('sources', []);
         $this->handle();
     }
 }
