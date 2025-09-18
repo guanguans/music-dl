@@ -54,12 +54,19 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
      *
      * @throws \Throwable
      */
-    public function search(string $keyword, array $sources): Collection
+    public function search(string $keyword, array $options): Collection
     {
+        $options += [
+            'sources' => config('music.sources'),
+            'type' => 1,
+            'page' => 1,
+            'limit' => 30,
+        ];
+
         return $this->timebox->call(
-            fn (): Collection => collect($sources)
+            fn (): Collection => collect($options['sources'])
                 ->map(fn (string $source): array => json_decode(
-                    (string) $this->meting->site($source)->search($keyword),
+                    (string) $this->meting->site($source)->search($keyword, $options),
                     true,
                     512,
                     \JSON_THROW_ON_ERROR
@@ -67,16 +74,6 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
                 ->collapse()
                 // ->dd()
                 ->pipe(fn (Collection $songs): Collection => $this->ensureWithUrls($songs))
-                // ->sortBy([
-                //     // ['name', \SORT_ASC],
-                //     // ['name', \SORT_FLAG_CASE],
-                //     ['name', 'asc'],
-                //     ['artist', 'asc'],
-                //     ['size', 'desc'],
-                //     ['br', 'desc'],
-                //     ['album', 'asc'],
-                //     ['source', 'asc'],
-                // ])
                 ->values()
                 ->mapWithKeys(static fn (array $song, int $index): array => [$index + 1 => $song]),
             $this->minCallMicroseconds

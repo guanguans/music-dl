@@ -18,9 +18,9 @@ use Illuminate\Support\Collection;
 interface Music
 {
     /**
-     * @param non-empty-list<string> $sources
+     * @param array<string, mixed> $options
      */
-    public function search(string $keyword, array $sources): Collection;
+    public function search(string $keyword, array $options): Collection;
 
     public function download(string $url, string $savedPath): void;
 }

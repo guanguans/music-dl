@@ -62,7 +62,7 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
 
     /**
      * @noinspection PhpVoidFunctionResultUsedInspection
-     * @noinspection PhpUndefinedMethodInspection
+     * @noinspection PhpStaticAsDynamicMethodCallInspection
      *
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
