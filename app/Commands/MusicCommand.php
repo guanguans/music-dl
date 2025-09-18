@@ -71,16 +71,13 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
     public function handle(): void
     {
         collect()
+            ->unless($this->option('sources'), fn () => $this->input->setOption('sources', (array) select(
+                __('select_source_label'),
+                array_combine($sources = config('app.sources'), array_map(ucfirst(...), $sources))
+            )))
             ->when(windows_os(), static fn () => warning(__('windows_hint')))
-            ->tap(static function () use (&$stdinKeyword): void {
-                /** @noinspection OffsetOperationsInspection */
-                if (($fstat = fstat(\STDIN)) && 0 < $fstat['size']) {
-                    $stdinKeyword = trim(stream_get_contents(\STDIN)); // @codeCoverageIgnore
-                    fclose(\STDIN); // @codeCoverageIgnore
-                }
-            })
-            ->tap(function () use (&$keyword, $stdinKeyword): void {
-                $keyword = str($stdinKeyword ?: $this->argument('keyword') ?? text(
+            ->tap(function () use (&$keyword): void {
+                $keyword = str($this->argument('keyword') ?? text(
                     __('keyword_label'),
                     __('keyword_placeholder'),
                     $this->laravel->has('keyword') ? '' : __('keyword_default'),
@@ -93,7 +90,7 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
                     function () use ($keyword, &$duration): Collection {
                         /** @noinspection PhpVoidFunctionResultUsedInspection */
                         $timer = tap(new Timer)->start();
-                        $songs = $this->music->search($keyword, $this->option('sources'));
+                        $songs = $this->music->search($keyword, ['sources' => $this->option('sources')]);
                         $duration = $timer->stop();
 
                         return $songs;
@@ -103,13 +100,13 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
             })
             ->whenEmpty(function (): void {
                 warning(__('empty_hint')); // @codeCoverageIgnore
-                $this->handle(); // @codeCoverageIgnore
+                $this->reHandle(); // @codeCoverageIgnore
             })
             ->tap(function (Collection $songs) use ($keyword, $duration): void {
                 table(__('table_header'), $this->sanitizes($songs, $keyword));
                 info((new ResourceUsageFormatter)->resourceUsage($duration));
             })
-            ->tap(fn (): bool => confirm(__('confirm_label')) or $this->handle())
+            ->tap(fn (): bool => confirm(__('confirm_label')) or $this->reHandle())
             ->tap(function (Collection $songs) use (&$selectedKeys, $keyword): void {
                 $selectedKeys = $this
                     ->hydrates($songs, $keyword)
@@ -135,7 +132,7 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
                 $this->option('directory'),
                 resource_path('images/notify-icon.png')
             )))
-            ->unless($this->option('break'), fn (): null => $this->handle());
+            ->unless($this->option('break'), fn (): null => $this->reHandle());
     }
 
     /**
@@ -190,21 +187,12 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
         ];
     }
 
-    #[\Override]
-    protected function interact(InputInterface $input, OutputInterface $output): void
+    /**
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     */
+    private function reHandle(): void
     {
-        parent::interact($input, $output);
-        $this->afterPromptingForMissingArguments($input, $output);
-    }
-
-    #[\Override]
-    protected function afterPromptingForMissingArguments(InputInterface $input, OutputInterface $output): void
-    {
-        if (empty($this->option('sources'))) {
-            $input->setOption('sources', (array) select(
-                __('select_source_label'),
-                array_combine($sources = config('app.sources'), array_map(ucfirst(...), $sources))
-            ));
-        }
+        $this->input->setArgument('keyword', null);
+        $this->handle();
     }
 }
