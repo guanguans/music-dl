@@ -55,6 +55,8 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
         {--d|directory= : Specify the download directory}
         {--D|driver=sync : Specify the search driver(sync、fork、process)}
         {--l|locale=zh_CN : Specify the locale language}
+        {--p|page=1 : Specify the page number}
+        {--P|per-page=30 : Specify the per page number}
         {--s|sources=* : Specify the music sources(tencent、netease、kugou)}
         SIGNATURE;
     protected $description = 'Search and download music';
@@ -170,6 +172,8 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
             'directory' => 'nullable|string',
             'driver' => 'required|string|in:sync,fork,process',
             'locale' => 'required|string',
+            'page' => 'required|integer|between:1,50',
+            'per-page' => 'required|integer|between:1,50',
             'sources' => 'list',
             'sources.*' => [
                 'required',
