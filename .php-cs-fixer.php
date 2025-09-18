@@ -244,6 +244,7 @@ return Factory::fromRuleSet(Php84::create()
         ],
         'phpdoc_order' => [
             'order' => [
+                'codeCoverageIgnore',
                 'noinspection',
                 'phan-suppress',
                 'phpcsSuppress',

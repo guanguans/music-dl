@@ -24,7 +24,10 @@ use Cerbero\CommandValidator\ValidatesInput;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Console\Isolatable;
 use Illuminate\Contracts\Console\PromptsForMissingInput;
+use Illuminate\Log\Context\Repository;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Concurrency;
+use Illuminate\Support\Facades\Context;
 use Illuminate\Support\Facades\File;
 use Illuminate\Validation\Rule;
 use LaravelZero\Framework\Commands\Command;
@@ -71,66 +74,67 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
     public function handle(): void
     {
         collect()
-            ->unless($this->option('sources'), fn () => $this->input->setOption('sources', (array) select(
+            ->unless($this->option('sources'), fn (): null => $this->input->setOption('sources', (array) select(
                 __('select_source_label'),
                 array_combine($sources = config('app.sources'), array_map(ucfirst(...), $sources))
             )))
-            ->when(windows_os(), static fn () => warning(__('windows_hint')))
-            ->when(blank($this->argument('keyword')), function (): void {
-                $this->input->setArgument(
-                    'keyword',
-                    $keyword = str(text(
-                        __('keyword_label'),
-                        __('keyword_placeholder'),
-                        $this->laravel->has('keyword') ? '' : __('keyword_default'),
-                        __('keyword_label')
-                    ))->trim()->toString()
-                );
-                $this->laravel->instance('keyword', $keyword);
-            })
-            ->pipe(function () use (&$duration): Collection {
-                return spin(
-                    function () use (&$duration): Collection {
-                        /** @noinspection PhpVoidFunctionResultUsedInspection */
-                        $timer = tap(new Timer)->start();
-                        $songs = $this->music->search($this->argument('keyword'), ['sources' => $this->option('sources')]);
-                        $duration = $timer->stop();
+            ->when(windows_os(), static fn (): null => warning(__('windows_hint')))
+            ->when(blank($this->argument('keyword')), fn (): null => $this->input->setArgument(
+                'keyword',
+                str(text(
+                    __('keyword_label'),
+                    __('keyword_placeholder'),
+                    Context::missing('keyword') ? __('keyword_default') : '',
+                    __('keyword_label')
+                ))->trim()->toString()
+            ))
+            ->tap(fn (): Repository => Context::add('keyword', $this->argument('keyword')))
+            ->pipe(fn (): Collection => spin(
+                function (): Collection {
+                    /** @noinspection PhpVoidFunctionResultUsedInspection */
+                    $timer = tap(new Timer)->start();
+                    $songs = $this->music->search($this->argument('keyword'), [
+                        'sources' => $this->option('sources'),
+                        // 'type' => $this->option('type'),
+                        'page' => $this->option('page'),
+                        'limit' => $this->option('per-page'),
+                    ]);
+                    Context::add('duration', $timer->stop());
 
-                        return $songs;
-                    },
-                    __('searching_hint', ['keyword' => $this->argument('keyword')]),
-                );
-            })
+                    return $songs;
+                },
+                __('searching_hint', ['keyword' => $this->argument('keyword')]),
+            ))
             ->whenEmpty(function (): void {
                 warning(__('empty_hint')); // @codeCoverageIgnore
                 $this->reHandle(); // @codeCoverageIgnore
             })
-            ->tap(function (Collection $songs) use ($duration): void {
+            ->tap(function (Collection $songs): void {
                 table(__('table_header'), $this->sanitizes($songs, $this->argument('keyword')));
-                info((new ResourceUsageFormatter)->resourceUsage($duration));
+                info((new ResourceUsageFormatter)->resourceUsage(Context::get('duration')));
             })
             ->tap(fn (): bool => confirm(__('confirm_label')) or $this->reHandle())
-            ->tap(function (Collection $songs) use (&$selectedKeys): void {
-                $selectedKeys = $this
-                    ->hydrates($songs, $this->argument('keyword'))
-                    ->pipe(static fn (Collection $options): Collection => collect(multiselect(
-                        __('select_label'),
-                        $options->all(),
-                        [$options->first()],
-                        20,
-                        __('select_label'),
-                        hint: __('select_hint'),
-                    ))->map(static fn (string $selectedValue) => $options->search($selectedValue)));
-            })
             ->pipe(
-                static fn (Collection $songs): Collection => \in_array(0, $selectedKeys->all(), true)
-                    ? $songs : $songs->only($selectedKeys->all())
+                fn (Collection $songs): Collection => (
+                    $selectedKeys = $this
+                        ->hydrates($songs, $this->argument('keyword'))
+                        ->pipe(
+                            static fn (Collection $options): Collection => collect(multiselect(
+                                __('select_label'),
+                                $options->all(),
+                                [$options->first()],
+                                20,
+                                __('select_label'),
+                                hint: __('select_hint'),
+                            ))->map(static fn (string $selectedValue): false|int => $options->search($selectedValue, true))
+                        )
+                )->containsStrict(0) ? $songs : $songs->only($selectedKeys->all())
             )
-            ->each(fn (array $song): mixed => $this->rescue(fn () => $this->music->download(
+            ->each(fn (array $song): ?\Throwable => $this->rescue(fn (): null => $this->music->download(
                 $song['url'],
                 Utils::savedPathFor($song, $this->option('directory'))
             )))
-            ->tap(fn (): mixed => $this->rescue(fn () => $this->notify(
+            ->tap(fn (): ?\Throwable => $this->rescue(fn (): null => $this->notify(
                 config('app.name'),
                 $this->option('directory'),
                 resource_path('images/notify-icon.png')
@@ -158,11 +162,10 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
         $this->option('driver') and config()->set('concurrency.default', $this->option('driver'));
         $this->option('locale') and config()->set('app.locale', $this->option('locale'));
 
-        // $this->input->setOption('sources', array_filter($this->option('sources')) ?: config('app.sources'));
         $this->input->setOption('directory', $this->option('directory') ?: Utils::defaultSavedDirectory());
         File::ensureDirectoryExists($this->option('directory'));
 
-        $this->music = Music::getFacadeRoot();
+        $this->music = Music::setDriver(Concurrency::driver($this->option('driver')));
     }
 
     protected function rules(): array
@@ -172,8 +175,8 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
             'directory' => 'nullable|string',
             'driver' => 'required|string|in:sync,fork,process',
             'locale' => 'required|string',
-            'page' => 'required|integer|between:1,50',
-            'per-page' => 'required|integer|between:1,50',
+            'page' => 'required|integer|between:1,100',
+            'per-page' => 'required|integer|between:1,100',
             'sources' => 'list',
             'sources.*' => [
                 'required',
@@ -191,12 +194,14 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
     }
 
     /**
+     * @codeCoverageIgnore
+     *
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     private function reHandle(): void
     {
         $this->input->setArgument('keyword', null);
-        $this->input->setOption('sources', []);
+        // $this->input->setOption('sources', []);
         $this->handle();
     }
 }

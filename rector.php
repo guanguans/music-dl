@@ -165,7 +165,7 @@ return RectorConfig::configure()
         'Tests',
     ])
     ->withConfiguredRule(RemoveAnnotationRector::class, [
-        'codeCoverageIgnore',
+        // 'codeCoverageIgnore',
         'inheritDoc',
         'phpstan-ignore',
         'phpstan-ignore-next-line',
