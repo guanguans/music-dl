@@ -34,6 +34,7 @@ use LaravelZero\Framework\Commands\Command;
 use SebastianBergmann\Timer\ResourceUsageFormatter;
 use SebastianBergmann\Timer\Timer;
 use Symfony\Component\Console\Command\LockableTrait;
+use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use function Laravel\Prompts\confirm;
@@ -206,17 +207,28 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
      *
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
-    private function reHandle(array $arguments = [], array $options = []): int
+    private function reHandle(array $arguments = []): int
     {
-        $arguments += ['keyword' => null];
-        // $options += ['sources' => []];
+        /**
+         * @see \Illuminate\Console\Concerns\CallsCommands::runCommand()
+         * @see \Illuminate\Console\Application::call()
+         * @see \Symfony\Component\Console\Command\Command::run()
+         * @see \Symfony\Component\Console\Application::doRun()
+         */
+        $arrayInput = tap(
+            $this->createInputFromArguments($arguments += [
+                'keyword' => null,
+                // '--sources' => [],
+            ]),
+            fn (ArrayInput $arrayInput): null => $arrayInput->bind($this->getDefinition())
+        );
 
-        foreach ($arguments as $name => $value) {
-            $this->input->setArgument($name, $value);
+        foreach ($arrayInput->getArguments() as $name => $value) {
+            \array_key_exists($name, $arguments) and $this->input->setArgument($name, $value);
         }
 
-        foreach ($options as $name => $value) {
-            $this->input->setOption($name, $value);
+        foreach ($arrayInput->getOptions() as $name => $value) {
+            \array_key_exists($name, $arguments) and $this->input->setOption($name, $value);
         }
 
         /** @see ValidatesInput::execute() */
