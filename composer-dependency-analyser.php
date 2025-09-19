@@ -19,11 +19,11 @@ return (new Configuration)
     /** @see composer.json -> autoload-dev */
     ->addPathsToScan(
         [
-            // __DIR__.'/app/',
+            __DIR__.'/app/',
             __DIR__.'/bootstrap/',
             __DIR__.'/config/',
-            __DIR__.'/resources/',
-            // __DIR__.'/tests/',
+            // __DIR__.'/resources/',
+            __DIR__.'/tests/',
             __DIR__.'/music-dl',
         ],
         false

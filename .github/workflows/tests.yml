@@ -40,6 +40,9 @@ jobs:
         env:
           COMPOSER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Remove dependencies
+        run: cd resources/require/ && composer remove spatie/fork --no-interaction --ansi -v --ignore-platform-req=ext-pcntl
+
       - name: Install dependencies
         run: composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --ansi -v --ignore-platform-req=ext-pcntl
 

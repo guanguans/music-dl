@@ -18,7 +18,9 @@ psalm.xml
 /*.zip
 /.ai-commit.json
 /.env
+/composer.local.json
 /laravel
+/resources/require/composer.lock
 /storage/logs/*.log
 /tests.*
 /vendor-bin/*/composer-updater

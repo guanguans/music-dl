@@ -10,7 +10,7 @@
     ],
     "files": [
         "composer.json",
-        "composer.local.json",
+        "resources/require/composer.json",
         "composer.lock",
         "resources/images/notify-icon.png"
     ],

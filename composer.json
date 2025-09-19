@@ -162,7 +162,7 @@
         },
         "merge-plugin": {
             "include": [
-                "composer.local.json"
+                "resources/require/composer.json"
             ]
         },
         "phpstan/extension-installer": {
@@ -245,7 +245,10 @@
         "composer-audit": "@composer audit --ansi -v",
         "composer-bin-all-update": "@composer bin all update --ansi -v",
         "composer-check-platform-reqs": "@composer check-platform-reqs --lock --ansi -v",
-        "composer-dependency-analyser": "@php vendor/bin/composer-dependency-analyser --composer-json=composer.local.json --verbose",
+        "composer-dependency-analyser": [
+            "[ -f composer.local.json ] || ln -s resources/require/composer.json composer.local.json",
+            "@php vendor/bin/composer-dependency-analyser --composer-json=composer.local.json --verbose"
+        ],
         "composer-diff": "@composer diff --with-platform --ansi -v",
         "composer-disable-process-timeout": "Composer\\Config::disableProcessTimeout",
         "composer-normalize": "@composer normalize --diff --ansi -vv",
@@ -256,6 +259,11 @@
         "composer-require-checker-json": "@php vendor/bin/composer-require-checker check --config-file=composer-require-checker.json composer.json --ansi -v --output=json | jq",
         "composer-unused": "@php vendor/bin/composer-unused --ansi -v",
         "composer-updater": "@php composer-updater --highest-php-binary=/opt/homebrew/opt/php@8.4/bin/php --except-packages=pestphp/pest-plugin-laravel --ansi",
+        "composer-updater-all": [
+            "Composer\\Config::disableProcessTimeout",
+            "@composer-updater --composer-json-path=resources/require/composer.json",
+            "@composer-updater"
+        ],
         "composer-updater-bin": [
             "ln -f composer-updater vendor-bin/tools/composer-updater",
             "@php vendor-bin/tools/composer-updater --highest-php-binary=/opt/homebrew/opt/php@8.4/bin/php --composer-json-path=vendor-bin/tools/composer.json --ansi -v"
