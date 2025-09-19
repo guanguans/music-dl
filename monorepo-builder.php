@@ -61,18 +61,20 @@ return static function (MBConfig $mbConfig): void {
         // PushNextDevReleaseWorker::class,
     ]);
 
-    new Process([
-        (new PhpExecutableFinder)->find(),
-        (new ExecutableFinder)->find($composer = 'composer', $composer),
-        'run',
-        'checks',
-    ])
-        ->setEnv(['COMPOSER_MEMORY_LIMIT' => -1])
-        ->setTimeout(600)
-        ->mustRun(static function (string $type, string $buffer): void {
-            $symfonyStyle ??= new SymfonyStyle(new ArgvInput, new ConsoleOutput);
-            $symfonyStyle->write($buffer);
-        });
+    if (!(new ArgvInput)->hasParameterOption('--dry-run')) {
+        new Process([
+            (new PhpExecutableFinder)->find(),
+            (new ExecutableFinder)->find($composer = 'composer', $composer),
+            'run',
+            'checks',
+        ])
+            ->setEnv(['COMPOSER_MEMORY_LIMIT' => -1])
+            ->setTimeout(600)
+            ->mustRun(static function (string $type, string $buffer): void {
+                $symfonyStyle ??= new SymfonyStyle(new ArgvInput, new ConsoleOutput);
+                $symfonyStyle->write($buffer);
+            });
+    }
 
     EnvironmentChecker::checks($workers);
 };
