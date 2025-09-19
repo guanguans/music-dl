@@ -8,6 +8,65 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="6.4.2"></a>
+## [6.4.2] - 2025-09-20
+### ✨ Features
+- **var-dumper:** integrate Symfony VarDumper for enhanced debugging ([016aae4](https://github.com/guanguans/music-dl/commit/016aae4))
+
+### 💅 Code Refactorings
+- **composer:** move dependencies to resources/require/composer.json ([a12916e](https://github.com/guanguans/music-dl/commit/a12916e))
+- **music-command:** Make driver option optional with smart default ([5bcf502](https://github.com/guanguans/music-dl/commit/5bcf502))
+
+
+<a name="6.4.1"></a>
+## [6.4.1] - 2025-09-18
+### 🐞 Bug Fixes
+- **commands:** correct option key check in MusicCommand.php ([183ac4f](https://github.com/guanguans/music-dl/commit/183ac4f))
+
+### 🤖 Continuous Integrations
+- **monorepo-builder:** add pre-release checks with Composer script ([daa796a](https://github.com/guanguans/music-dl/commit/daa796a))
+
+
+<a name="6.4.0"></a>
+## [6.4.0] - 2025-09-18
+### ✨ Features
+- **music:** add pagination options to MusicCommand ([abf7f0e](https://github.com/guanguans/music-dl/commit/abf7f0e))
+
+### 📖 Documents
+- **readme:** update help documentation with pagination options ([4188fd3](https://github.com/guanguans/music-dl/commit/4188fd3))
+
+### 💅 Code Refactorings
+- **app:** improve reHandle method argument and option handling ([d4f88fc](https://github.com/guanguans/music-dl/commit/d4f88fc))
+- **commands:** simplify source option selection in MusicCommand handle method ([6f08361](https://github.com/guanguans/music-dl/commit/6f08361))
+- **music:** enhance directory validation in MusicCommand ([615021f](https://github.com/guanguans/music-dl/commit/615021f))
+- **music:** improve duration tracking in MusicCommand ([ef45162](https://github.com/guanguans/music-dl/commit/ef45162))
+- **music:** streamline keyword handling in MusicCommand ([9a6885c](https://github.com/guanguans/music-dl/commit/9a6885c))
+- **music:** update search method to accept options array and add default parameters ([5ed57f6](https://github.com/guanguans/music-dl/commit/5ed57f6))
+
+
+<a name="6.3.0"></a>
+## [6.3.0] - 2025-09-18
+### ✨ Features
+- **commands:** add interactive prompt for missing music sources option ([62935e4](https://github.com/guanguans/music-dl/commit/62935e4))
+- **music:** add input validation to MusicCommand using command-validator ([bcf88b4](https://github.com/guanguans/music-dl/commit/bcf88b4))
+
+### 🐞 Bug Fixes
+- **app:** add annotation and improve search method comments ([6a4412f](https://github.com/guanguans/music-dl/commit/6a4412f))
+
+
+<a name="6.2.5"></a>
+## [6.2.5] - 2025-09-17
+### 💅 Code Refactorings
+- apply inspection ([4c9e97d](https://github.com/guanguans/music-dl/commit/4c9e97d))
+- **commands:** enhance command filtering with dynamic class loading ([268ad0a](https://github.com/guanguans/music-dl/commit/268ad0a))
+
+
+<a name="6.2.4"></a>
+## [6.2.4] - 2025-09-17
+### 🐞 Bug Fixes
+- **dependencies:** add composer/xdebug-handler and update ignored packages ([c199b03](https://github.com/guanguans/music-dl/commit/c199b03))
+
+
 <a name="6.2.3"></a>
 ## [6.2.3] - 2025-09-17
 ### 💅 Code Refactorings
@@ -1445,7 +1504,13 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/6.2.3...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/6.4.2...HEAD
+[6.4.2]: https://github.com/guanguans/music-dl/compare/6.4.1...6.4.2
+[6.4.1]: https://github.com/guanguans/music-dl/compare/6.4.0...6.4.1
+[6.4.0]: https://github.com/guanguans/music-dl/compare/6.3.0...6.4.0
+[6.3.0]: https://github.com/guanguans/music-dl/compare/6.2.5...6.3.0
+[6.2.5]: https://github.com/guanguans/music-dl/compare/6.2.4...6.2.5
+[6.2.4]: https://github.com/guanguans/music-dl/compare/6.2.3...6.2.4
 [6.2.3]: https://github.com/guanguans/music-dl/compare/6.2.2...6.2.3
 [6.2.2]: https://github.com/guanguans/music-dl/compare/6.2.1...6.2.2
 [6.2.1]: https://github.com/guanguans/music-dl/compare/6.2.0...6.2.1
