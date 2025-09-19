@@ -79,7 +79,6 @@
         "shipmonk/memory-scanner": "^1.0",
         "shipmonk/name-collision-detector": "^2.1",
         "shipmonk/phpstan-baseline-per-identifier": "^2.2",
-        "soloterm/dumps": "^1.0",
         "spatie/pest-plugin-snapshots": "^2.2",
         "spaze/phpstan-disallowed-calls": "^4.6",
         "staabm/phpstan-todo-by": "^0.2",
@@ -428,6 +427,13 @@
             "@php -d xdebug.mode=off"
         ],
         "var-dump-server": "@php vendor/bin/var-dump-server --ansi -v",
+        "var-dump-server-html": [
+            "Composer\\Config::disableProcessTimeout",
+            "[ -d .build ] || mkdir -p .build/",
+            "[ -f .build/dump.html ] || touch .build/dump.html",
+            "open .build/dump.html",
+            "@php vendor/bin/var-dump-server --ansi -v --format=html > .build/dump.html"
+        ],
         "vhs": [
             "@cghooks-uninstall",
             "vhs < music-dl.tape",

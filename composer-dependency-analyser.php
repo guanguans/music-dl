@@ -58,6 +58,7 @@ return (new Configuration)
             'nunomaduro/laravel-console-summary',
             'psr/http-message',
             'symfony/console',
+            'symfony/var-dumper',
         ],
         [ErrorType::SHADOW_DEPENDENCY]
     )

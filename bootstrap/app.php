@@ -19,6 +19,7 @@ declare(strict_types=1);
 
 use App\Contracts\Music as MusicContract;
 use App\Music;
+use App\Support\ServerDumper;
 use Composer\XdebugHandler\XdebugHandler;
 use Illuminate\Console\Events\CommandStarting;
 use Illuminate\Console\OutputStyle;
@@ -41,6 +42,9 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\OutputInterface;
 
 return Application::configure(basePath: \dirname(__DIR__))
+    ->booting(static function (): void {
+        ServerDumper::register(config('services.var_dump_server.host', 'tcp://127.0.0.1:9912'));
+    })
     ->booting(static function (Application $app): void {
         $app->singleton(Music::class);
         $app->bind(MusicContract::class, Music::class);

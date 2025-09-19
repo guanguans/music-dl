@@ -1,4 +1,4 @@
-# total 2 errors
+# total 3 errors
 
 parameters:
     ignoreErrors:
@@ -11,3 +11,8 @@ parameters:
             message: '#^Dynamic call to static method Illuminate\\Foundation\\Application\:\:isProduction\(\)\.$#'
             count: 1
             path: ../app/Commands/VendorPublishCommand.php
+
+        -
+            message: '#^Dynamic call to static method Symfony\\Component\\VarDumper\\VarDumper\:\:getDefaultContextProviders\(\)\.$#'
+            count: 1
+            path: ../app/Support/ServerDumper.php

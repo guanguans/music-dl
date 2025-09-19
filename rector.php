@@ -53,6 +53,7 @@ use Rector\Visibility\ValueObject\ChangeMethodVisibility;
 use RectorLaravel\Rector\ArrayDimFetch\ServerVariableToRequestFacadeRector;
 use RectorLaravel\Rector\Empty_\EmptyToBlankAndFilledFuncRector;
 use RectorLaravel\Rector\FuncCall\HelperFuncCallToFacadeClassRector;
+use RectorLaravel\Rector\FuncCall\RemoveDumpDataDeadCodeRector;
 use RectorLaravel\Rector\FuncCall\TypeHintTappableCallRector;
 use RectorLaravel\Rector\If_\ThrowIfRector;
 use RectorLaravel\Rector\MethodCall\ContainerBindConcreteWithClosureOnlyRector;
@@ -90,6 +91,7 @@ return RectorConfig::configure()
     // ->withSkipPath(__DIR__.'/tests.php')
     ->withSkip([
         '**.blade.php',
+        '**.tinker.php',
         '**/__snapshots__/*',
         '**/Fixtures/*',
         __DIR__.'/bootstrap/providers.php',
@@ -250,6 +252,9 @@ return RectorConfig::configure()
         TypeHintTappableCallRector::class,
     ])
     ->withSkip([
+        RemoveDumpDataDeadCodeRector::class => [
+            __DIR__.'/tests/Unit/Support/ServerDumperTest.php',
+        ],
         UseComponentPropertyWithinCommandsRector::class => [
             __DIR__.'/app/Commands/InspireCommand.php',
         ],
