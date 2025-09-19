@@ -1,0 +1,26 @@
+{
+    "require": {
+        "php": ">=8.4",
+        "cerbero/command-validator": "^3.0",
+        "composer/xdebug-handler": "^3.0",
+        "laravel-zero/framework": "^12.0",
+        "laravel-zero/phar-updater": "^1.4",
+        "laravel/framework": "^12.30",
+        "metowolf/meting": "^1.5",
+        "phpunit/php-timer": "^8.0",
+        "spatie/fork": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": [
+            "app/Support/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    }
+}

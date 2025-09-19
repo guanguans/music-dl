@@ -253,7 +253,7 @@ $status = (new SingleCommandApplication)
             ): Process {
                 $additionalOptions = [
                     '--no-interaction',
-                    '--no-plugins',
+                    // '--no-plugins',
                     '--no-scripts',
                     '--ansi',
                 ];

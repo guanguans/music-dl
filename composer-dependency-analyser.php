@@ -31,6 +31,7 @@ return (new Configuration)
     ->addPathsToExclude([
         __DIR__.'/tests/',
     ])
+    ->enableAnalysisOfUnusedDevDependencies()
     ->ignoreUnknownClasses([
     ])
     /** @see \ShipMonk\ComposerDependencyAnalyser\Analyser::CORE_EXTENSIONS */
@@ -50,6 +51,7 @@ return (new Configuration)
     )
     ->ignoreErrorsOnPackages(
         [
+            // 'guanguans/ai-commit',
             'guzzlehttp/guzzle',
             'laravel-zero/foundation',
             'laravel/prompts',
