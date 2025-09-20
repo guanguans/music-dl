@@ -20,6 +20,8 @@ use App\Concerns\Rescuer;
 use App\Contracts\Music as MusicContract;
 use App\Facades\Music;
 use App\Support\Utils;
+use Illuminate\Console\ConfirmableTrait;
+use Illuminate\Console\Prohibitable;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Console\Isolatable;
 use Illuminate\Contracts\Console\PromptsForMissingInput;
@@ -47,8 +49,10 @@ use function Laravel\Prompts\warning;
 
 final class MusicCommand extends Command implements Isolatable, PromptsForMissingInput
 {
+    use ConfirmableTrait;
     use Hydrator;
     use LockableTrait;
+    use Prohibitable;
     use Rescuer;
     protected $signature = <<<'SIGNATURE'
         music
