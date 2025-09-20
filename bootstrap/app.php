@@ -159,9 +159,14 @@ return Application::configure(basePath: \dirname(__DIR__))
             ->map(
                 ValidationException::class,
                 fn (ValidationException $validationException) => (function (): ValidationException {
-                    $this->message = \PHP_EOL.($prefix = '- ').implode(\PHP_EOL.$prefix, $this->validator->errors()->all());
+                    // @codeCoverageIgnoreStart
+                    $this->message = collect($this->validator->errors()->all())
+                        ->map(static fn (string $message): string => "- $message")
+                        ->unshift(\PHP_EOL)
+                        ->implode(\PHP_EOL);
 
                     return $this;
+                    // @codeCoverageIgnoreEnd
                 })->call($validationException)
             )
             ->dontReport(Throwable::class)

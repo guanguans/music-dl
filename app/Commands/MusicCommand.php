@@ -20,7 +20,6 @@ use App\Concerns\Rescuer;
 use App\Contracts\Music as MusicContract;
 use App\Facades\Music;
 use App\Support\Utils;
-use Cerbero\CommandValidator\ValidatesInput;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Console\Isolatable;
 use Illuminate\Contracts\Console\PromptsForMissingInput;
@@ -51,7 +50,6 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
     use Hydrator;
     use LockableTrait;
     use Rescuer;
-    use ValidatesInput;
     protected $signature = <<<'SIGNATURE'
         music
         {keyword? : Search keyword for music}
@@ -140,7 +138,7 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
                 $this->option('directory'),
                 resource_path('images/notify-icon.png')
             )))
-            ->unless($this->option('break'), fn (): int => $this->reHandle());
+            ->unless($this->option('break'), fn (): null => $this->reHandle());
     }
 
     /**
@@ -161,7 +159,9 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
     {
         info(config('app.logo'));
 
-        $this->option('locale') and config()->set('app.locale', $this->option('locale'));
+        validator($this->arguments() + $this->options(), $this->rules())->validate();
+
+        config()->set('app.locale', $this->option('locale'));
 
         $this->input->setOption('driver', $driver = $this->option('driver') ?: (\extension_loaded('pcntl') ? 'fork' : 'sync'));
         $this->music = Music::setDriver(Concurrency::driver($driver));
@@ -170,7 +170,7 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
         isset($defaultDirectory) and File::ensureDirectoryExists($defaultDirectory);
     }
 
-    protected function rules(): array
+    private function rules(): array
     {
         return [
             'keyword' => 'nullable|string',
@@ -208,7 +208,7 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
      *
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
-    private function reHandle(array $arguments = []): int
+    private function reHandle(array $arguments = []): void
     {
         /**
          * @see \Illuminate\Console\Concerns\CallsCommands::runCommand()
@@ -232,15 +232,6 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
             \array_key_exists("--$name", $arguments) and $this->input->setOption($name, $value);
         }
 
-        /** @see ValidatesInput::execute() */
-        if ($this->validator()->fails()) {
-            $this->printErrors($this->formatErrors());
-
-            return self::FAILURE;
-        }
-
         $this->handle();
-
-        return self::SUCCESS;
     }
 }

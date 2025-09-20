@@ -24,6 +24,7 @@ use App\Exceptions\RuntimeException;
 use App\Music;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
+use Illuminate\Validation\ValidationException;
 use Symfony\Component\Process\Process;
 use function Illuminate\Support\php_binary;
 
@@ -45,7 +46,7 @@ it('can validate arguments and options', function (): void {
             '--configuration' => ['invalid-configuration'],
         ])
         ->assertFailed();
-})->group(__DIR__, __FILE__);
+})->group(__DIR__, __FILE__)->throws(ValidationException::class);
 
 it('can search and download music', function (Collection $songs): void {
     $this->app->singleton(Music::class, static function () use ($songs) {
