@@ -121,10 +121,18 @@ return Application::configure(basePath: \dirname(__DIR__))
                 static fn (): null => Event::listen(CommandStarting::class, static function (CommandStarting $commandStarting): void {
                     // @codeCoverageIgnoreStart
                     // @codeCoverageIgnoreEnd
-                    if (!$commandStarting->input->hasParameterOption('--xdebug') && !app()->runningUnitTests()) {
-                        $xdebugHandler = new XdebugHandler(config('app.name'));
-                        $xdebugHandler->setPersistent();
-                        $xdebugHandler->check();
+                    if (
+                        class_exists(XdebugHandler::class)
+                         && !$commandStarting->input->hasParameterOption('--xdebug')
+                         && !app()->runningUnitTests()
+                    ) {
+                        $xdebugHandler = tap(
+                            new XdebugHandler(config('app.name')),
+                            static function (XdebugHandler $xdebugHandler): void {
+                                $xdebugHandler->setPersistent();
+                                $xdebugHandler->check();
+                            }
+                        );
                         unset($xdebugHandler);
                     }
 
