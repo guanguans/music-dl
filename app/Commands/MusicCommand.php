@@ -26,6 +26,7 @@ use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Console\Isolatable;
 use Illuminate\Contracts\Console\PromptsForMissingInput;
 use Illuminate\Log\Context\Repository;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Concurrency;
 use Illuminate\Support\Facades\Context;
@@ -38,6 +39,7 @@ use Symfony\Component\Console\Command\LockableTrait;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use function Illuminate\Filesystem\join_paths;
 use function Laravel\Prompts\confirm;
 use function Laravel\Prompts\info;
 use function Laravel\Prompts\multiselect;
@@ -79,7 +81,8 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
         collect()
             ->unless($this->option('sources'), fn (): null => $this->input->setOption('sources', (array) select(
                 __('select_source_label'),
-                array_combine($sources = config('app.sources'), array_map(ucfirst(...), $sources))
+                array_combine($sources = config('app.sources'), array_map(ucfirst(...), $sources)),
+                Arr::first($sources),
             )))
             ->when(windows_os(), static fn (): null => warning(__('windows_hint')))
             ->when(blank($this->argument('keyword')), fn (): null => $this->input->setArgument(
@@ -140,7 +143,7 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
             ->tap(fn (): ?\Throwable => $this->rescue(fn (): null => $this->notify(
                 config('app.name'),
                 $this->option('directory'),
-                resource_path('images/notify-icon.png')
+                windows_os() ? null : resource_path(join_paths('images', 'notify-icon.png'))
             )))
             ->unless($this->option('break'), fn (): null => $this->reHandle());
     }

@@ -14,6 +14,7 @@
         "composer.lock",
         "resources/images/notify-icon.png"
     ],
+    "check-requirements": false,
     "exclude-composer-files": false,
     "exclude-dev-files": false,
     "compression": "GZ",

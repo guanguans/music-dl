@@ -118,6 +118,7 @@
         "builds/music-dl"
     ],
     "config": {
+        "allow-missing-requirements": false,
         "allow-plugins": {
             "bamarni/composer-bin-plugin": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
@@ -129,6 +130,10 @@
             "wikimedia/composer-merge-plugin": true
         },
         "optimize-autoloader": true,
+        "platform": {
+            "php": "8.4.0"
+        },
+        "platform-check": "php-only",
         "preferred-install": "dist",
         "sort-packages": true
     },
