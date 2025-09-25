@@ -142,7 +142,7 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
             )))
             ->tap(fn (): ?\Throwable => $this->rescue(fn (): null => $this->notify(
                 config('app.name'),
-                $this->option('directory'),
+                __('download_completed'),
                 windows_os() ? null : resource_path(join_paths('images', 'notify-icon.png'))
             )))
             ->unless($this->option('break'), fn (): null => $this->reHandle());
