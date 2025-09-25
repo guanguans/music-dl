@@ -1,6 +1,12 @@
 {
     "$schema": "https://raw.githubusercontent.com/box-project/box/refs/heads/main/res/schema.json",
+    "check-requirements": false,
     "chmod": "0755",
+    "compactors": [
+        "KevinGH\\Box\\Compactor\\Php",
+        "KevinGH\\Box\\Compactor\\Json"
+    ],
+    "compression": "GZ",
     "directories": [
         "app",
         "bootstrap",
@@ -8,18 +14,12 @@
         "resources/lang",
         "vendor"
     ],
+    "exclude-composer-files": false,
+    "exclude-dev-files": false,
     "files": [
         "composer.json",
         "resources/require/composer.json",
         "composer.lock",
         "resources/images/notify-icon.png"
-    ],
-    "check-requirements": false,
-    "exclude-composer-files": false,
-    "exclude-dev-files": false,
-    "compression": "GZ",
-    "compactors": [
-        "KevinGH\\Box\\Compactor\\Php",
-        "KevinGH\\Box\\Compactor\\Json"
     ]
 }

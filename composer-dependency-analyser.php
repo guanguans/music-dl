@@ -52,7 +52,7 @@ return (new Configuration)
     ->ignoreErrorsOnPackages(
         [
             'composer/xdebug-handler',
-            // 'guanguans/ai-commit',
+            'guanguans/ai-commit',
             'guzzlehttp/guzzle',
             'laravel-zero/foundation',
             'laravel/prompts',
