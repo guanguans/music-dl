@@ -68,6 +68,7 @@ Options:
   -d, --directory[=DIRECTORY]          Specify the download directory
   -D, --driver[=DRIVER]                Specify the search driver(sync、fork、process)
   -l, --locale[=LOCALE]                Specify the locale language [default: "zh_CN"]
+  -N, --no-notify                      Specify whether to disable desktop notification
   -p, --page[=PAGE]                    Specify the page number [default: "1"]
   -P, --per-page[=PER-PAGE]            Specify the per page number [default: "30"]
   -s, --sources[=SOURCES]              Specify the music sources(tencent、netease、kugou) (multiple values allowed)

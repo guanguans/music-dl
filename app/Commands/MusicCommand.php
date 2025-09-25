@@ -63,6 +63,7 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
         {--d|directory= : Specify the download directory}
         {--D|driver= : Specify the search driver(sync、fork、process)}
         {--l|locale=zh_CN : Specify the locale language}
+        {--N|no-notify : Specify whether to disable desktop notification}
         {--p|page=1 : Specify the page number}
         {--P|per-page=30 : Specify the per page number}
         {--s|sources=* : Specify the music sources(tencent、netease、kugou)}
@@ -140,11 +141,13 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
                 $song['url'],
                 Utils::savedPathFor($song, $this->option('directory'))
             )))
-            ->tap(fn (): ?\Throwable => $this->rescue(fn (): null => $this->notify(
-                config('app.name'),
-                __('download_completed'),
-                windows_os() ? null : resource_path(join_paths('images', 'notify-icon.png'))
-            )))
+            ->unless($this->option('no-notify'), function (): void {
+                $this->rescue(fn (): null => $this->notify(
+                    config('app.name'),
+                    __('download_completed'),
+                    windows_os() ? null : resource_path(join_paths('images', 'notify-icon.png'))
+                ));
+            })
             ->unless($this->option('break'), fn (): null => $this->reHandle());
     }
 
