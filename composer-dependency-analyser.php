@@ -22,15 +22,18 @@ return (new Configuration)
             __DIR__.'/app/',
             __DIR__.'/bootstrap/',
             __DIR__.'/config/',
-            // __DIR__.'/resources/',
+            __DIR__.'/resources/',
             __DIR__.'/tests/',
             __DIR__.'/music-dl',
         ],
         false
     )
     ->addPathsToExclude([
+        __DIR__.'/app/ReleaseWorkers/',
+        __DIR__.'/resources/require/vendor/',
         __DIR__.'/tests/',
     ])
+    ->disableReportingUnmatchedIgnores()
     ->enableAnalysisOfUnusedDevDependencies()
     ->ignoreUnknownClasses([
     ])
@@ -52,7 +55,7 @@ return (new Configuration)
     ->ignoreErrorsOnPackages(
         [
             'composer/xdebug-handler',
-            // 'guanguans/ai-commit',
+            'guanguans/ai-commit',
             'guzzlehttp/guzzle',
             'laravel-zero/foundation',
             'laravel/prompts',

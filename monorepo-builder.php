@@ -13,6 +13,7 @@ declare(strict_types=1);
  * @see https://github.com/guanguans/music-dl
  */
 
+use App\ReleaseWorkers\BuildAppReleaseWorker;
 use Guanguans\MonorepoBuilderWorker\CreateGithubReleaseReleaseWorker;
 use Guanguans\MonorepoBuilderWorker\Support\EnvironmentChecker;
 use Guanguans\MonorepoBuilderWorker\UpdateChangelogViaGoReleaseWorker;
@@ -50,6 +51,7 @@ return static function (MBConfig $mbConfig): void {
         // UpdateReplaceReleaseWorker::class,
         // SetCurrentMutualDependenciesReleaseWorker::class,
         // AddTagToChangelogReleaseWorker::class,
+        BuildAppReleaseWorker::class,
         TagVersionReleaseWorker::class,
         PushTagReleaseWorker::class,
         UpdateChangelogViaGoReleaseWorker::class,

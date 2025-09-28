@@ -65,6 +65,12 @@ use function App\Support\classes;
 use function Illuminate\Filesystem\join_paths;
 
 return RectorConfig::configure()
+    ->withAutoloadPaths([
+        // __DIR__.'/vendor/symplify/monorepo-builder/vendor/autoload.php',
+    ])
+    ->withBootstrapFiles([
+        __DIR__.'/vendor/symplify/monorepo-builder/vendor/autoload.php',
+    ])
     ->withPaths([
         __DIR__.'/app/',
         __DIR__.'/bootstrap/',
