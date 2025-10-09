@@ -3,7 +3,7 @@
         "php": ">=8.4",
         "laravel-zero/framework": "^12.0",
         "laravel-zero/phar-updater": "^1.4",
-        "laravel/framework": "^12.31",
+        "laravel/framework": "^12.33",
         "metowolf/meting": "^1.5",
         "phpunit/php-timer": "^8.0",
         "spatie/fork": "^1.2"
