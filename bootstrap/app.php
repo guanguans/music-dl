@@ -110,7 +110,7 @@ return Application::configure(basePath: \dirname(__DIR__))
                         'configuration',
                         null,
                         InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY,
-                        'Used to dynamically pass one or more configuration key-value pairs(e.g. `--configuration=app.name=guanguans` or `--configuration app.name=guanguans`).',
+                        'Used to dynamically pass one or more configuration key-value pairs(e.g. `--configuration=app.name=guanguans`).',
                     )
             )
             ->tap(
