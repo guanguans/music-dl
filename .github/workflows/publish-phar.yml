@@ -56,7 +56,7 @@ jobs:
         run: cp builds/music-dl.phar builds/music-dl
 
       - name: Commit bump
-        uses: stefanzweifel/git-auto-commit-action@v6
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           branch: master
 #          commit_message: Bump to ${{ github.event.release.name }}
