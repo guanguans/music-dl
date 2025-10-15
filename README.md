@@ -74,7 +74,7 @@ Options:
   -s, --sources[=SOURCES]              Specify the music sources(tencent、netease、kugou) (multiple values allowed)
       --isolated[=ISOLATED]            Do not run the command if another instance of the command is already running [default: false]
       --xdebug                         Display xdebug output
-      --configuration[=CONFIGURATION]  Used to dynamically pass one or more configuration key-value pairs(e.g. `--configuration=app.name=guanguans` or `--configuration app.name=guanguans`). (multiple values allowed)
+      --configuration[=CONFIGURATION]  Used to dynamically pass one or more configuration key-value pairs(e.g. `--configuration=app.name=guanguans`). (multiple values allowed)
   -h, --help                           Display help for the given command. When no command is given display help for the music command
       --silent                         Do not output any message
   -q, --quiet                          Only errors are displayed. All other output is suppressed

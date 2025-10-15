@@ -50,6 +50,7 @@ use Rector\ValueObject\PhpVersion;
 use Rector\ValueObject\Visibility;
 use Rector\Visibility\Rector\ClassMethod\ChangeMethodVisibilityRector;
 use Rector\Visibility\ValueObject\ChangeMethodVisibility;
+use RectorLaravel\Rector\ArrayDimFetch\ArrayToArrGetRector;
 use RectorLaravel\Rector\ArrayDimFetch\ServerVariableToRequestFacadeRector;
 use RectorLaravel\Rector\Empty_\EmptyToBlankAndFilledFuncRector;
 use RectorLaravel\Rector\FuncCall\HelperFuncCallToFacadeClassRector;
@@ -247,15 +248,15 @@ return RectorConfig::configure()
         WrapEncapsedVariableInCurlyBracesRector::class,
     ])
     ->withSkip([
+        ArrayToArrGetRector::class,
         ContainerBindConcreteWithClosureOnlyRector::class,
-        ValidationRuleArrayStringValueToArrayRector::class,
-
         DispatchToHelperFunctionsRector::class,
         EmptyToBlankAndFilledFuncRector::class,
         HelperFuncCallToFacadeClassRector::class,
         ServerVariableToRequestFacadeRector::class,
         ThrowIfRector::class,
         TypeHintTappableCallRector::class,
+        ValidationRuleArrayStringValueToArrayRector::class,
     ])
     ->withSkip([
         RemoveDumpDataDeadCodeRector::class => [
