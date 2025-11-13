@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a00038b1c4ea52e621764564353d93b8",
+    "content-hash": "2e71dfa29de29767707ac517a51fc8c7",
     "packages": [
         {
             "name": "wikimedia/composer-merge-plugin",
@@ -11381,16 +11381,16 @@
         },
         {
             "name": "rector/jack",
-            "version": "0.2.9",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/jack.git",
-                "reference": "6e1d62bdeebf38f44caf03b35058bbc42bd599cb"
+                "reference": "0916162c7bd86d1e4c8f06a98fc73e9dcf799cc4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/jack/zipball/6e1d62bdeebf38f44caf03b35058bbc42bd599cb",
-                "reference": "6e1d62bdeebf38f44caf03b35058bbc42bd599cb",
+                "url": "https://api.github.com/repos/rectorphp/jack/zipball/0916162c7bd86d1e4c8f06a98fc73e9dcf799cc4",
+                "reference": "0916162c7bd86d1e4c8f06a98fc73e9dcf799cc4",
                 "shasum": ""
             },
             "require": {
@@ -11402,7 +11402,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Rector\\SwissKnife\\": "src"
+                    "Rector\\Jack\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -11412,7 +11412,7 @@
             "description": "Swiss knife in pocket of every upgrade architect",
             "support": {
                 "issues": "https://github.com/rectorphp/jack/issues",
-                "source": "https://github.com/rectorphp/jack/tree/0.2.9"
+                "source": "https://github.com/rectorphp/jack/tree/0.4.0"
             },
             "funding": [
                 {
@@ -11424,7 +11424,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-08-19T08:57:35+00:00"
+            "time": "2025-11-08T19:24:35+00:00"
         },
         {
             "name": "rector/rector",
