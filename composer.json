@@ -82,7 +82,7 @@
         "shipmonk/phpstan-baseline-per-identifier": "^2.2",
         "spatie/pest-plugin-snapshots": "^2.2",
         "spaze/phpstan-disallowed-calls": "^4.6",
-        "staabm/phpstan-todo-by": "^0.2",
+        "staabm/phpstan-todo-by": "^0.3",
         "symfony/thanks": "^1.4",
         "symplify/phpstan-extensions": "^12.0",
         "symplify/phpstan-rules": "^14.8",
