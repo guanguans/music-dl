@@ -70,7 +70,7 @@
         "phpstan/phpstan-strict-rules": "^2.0",
         "phpstan/phpstan-webmozart-assert": "^2.0",
         "povils/phpmnd": "^3.6",
-        "rector/jack": "^0.2",
+        "rector/jack": "^0.4",
         "rector/rector": "^2.2",
         "rector/swiss-knife": "^2.3",
         "rector/type-perfect": "^2.1",
