@@ -13150,16 +13150,16 @@
         },
         {
             "name": "staabm/phpstan-todo-by",
-            "version": "0.3.1",
+            "version": "0.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/staabm/phpstan-todo-by.git",
-                "reference": "cdab62d273f86be436c8d2ba9b546f761eab043e"
+                "reference": "90a1da0b88e56b17bbf1fa0d994bffd4b6484022"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/staabm/phpstan-todo-by/zipball/cdab62d273f86be436c8d2ba9b546f761eab043e",
-                "reference": "cdab62d273f86be436c8d2ba9b546f761eab043e",
+                "url": "https://api.github.com/repos/staabm/phpstan-todo-by/zipball/90a1da0b88e56b17bbf1fa0d994bffd4b6484022",
+                "reference": "90a1da0b88e56b17bbf1fa0d994bffd4b6484022",
                 "shasum": ""
             },
             "require": {
@@ -13172,8 +13172,8 @@
                 "phpstan/phpstan": "^2.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.86",
-                "nikic/php-parser": "^5.3",
+                "friendsofphp/php-cs-fixer": "^3.89",
+                "nikic/php-parser": "^5.6",
                 "phpstan/extension-installer": "^1.4",
                 "phpstan/phpstan-deprecation-rules": "^2",
                 "phpunit/phpunit": "^9 || ^10.5",
@@ -13206,7 +13206,7 @@
             ],
             "support": {
                 "issues": "https://github.com/staabm/phpstan-todo-by/issues",
-                "source": "https://github.com/staabm/phpstan-todo-by/tree/0.3.1"
+                "source": "https://github.com/staabm/phpstan-todo-by/tree/0.3.2"
             },
             "funding": [
                 {
@@ -13214,7 +13214,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-08-27T08:56:14+00:00"
+            "time": "2025-11-22T11:13:59+00:00"
         },
         {
             "name": "staabm/side-effects-detector",
