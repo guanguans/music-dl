@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ed0cbad363d9b6ffbec31259c9c87f5f",
+    "content-hash": "2f4da7bd1c9b588ccccd851b7662a4e7",
     "packages": [
         {
             "name": "wikimedia/composer-merge-plugin",
@@ -12612,32 +12612,33 @@
         },
         {
             "name": "shipmonk/dead-code-detector",
-            "version": "0.13.5",
+            "version": "0.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shipmonk-rnd/dead-code-detector.git",
-                "reference": "a12cdd093624362743c8814a96a54fcc0a57d96d"
+                "reference": "56f9f3f1aaa5f6569719a6137be18da16d5e9678"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shipmonk-rnd/dead-code-detector/zipball/a12cdd093624362743c8814a96a54fcc0a57d96d",
-                "reference": "a12cdd093624362743c8814a96a54fcc0a57d96d",
+                "url": "https://api.github.com/repos/shipmonk-rnd/dead-code-detector/zipball/56f9f3f1aaa5f6569719a6137be18da16d5e9678",
+                "reference": "56f9f3f1aaa5f6569719a6137be18da16d5e9678",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4 || ^8.0",
-                "phpstan/phpstan": "^2.1.12"
+                "phpstan/phpstan": "^2.1.23"
             },
             "require-dev": {
                 "composer-runtime-api": "^2.0",
                 "composer/semver": "^3.4",
                 "doctrine/orm": "^2.19 || ^3.0",
                 "editorconfig-checker/editorconfig-checker": "^10.6.0",
-                "ergebnis/composer-normalize": "^2.45.0",
+                "ergebnis/composer-normalize": "^2.48.1",
                 "nette/application": "^3.1",
                 "nette/component-model": "^3.0",
                 "nette/utils": "^3.0 || ^4.0",
                 "nikic/php-parser": "^5.4.0",
+                "phpbench/phpbench": "^1.2",
                 "phpstan/phpstan-phpunit": "^2.0.4",
                 "phpstan/phpstan-strict-rules": "^2.0.3",
                 "phpstan/phpstan-symfony": "^2.0.2",
@@ -12683,9 +12684,9 @@
             ],
             "support": {
                 "issues": "https://github.com/shipmonk-rnd/dead-code-detector/issues",
-                "source": "https://github.com/shipmonk-rnd/dead-code-detector/tree/0.13.5"
+                "source": "https://github.com/shipmonk-rnd/dead-code-detector/tree/0.14.0"
             },
-            "time": "2025-10-13T12:19:42+00:00"
+            "time": "2025-11-25T10:32:54+00:00"
         },
         {
             "name": "shipmonk/memory-scanner",
