@@ -7333,16 +7333,16 @@
         },
         {
             "name": "nette/utils",
-            "version": "v4.0.8",
+            "version": "v4.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/utils.git",
-                "reference": "c930ca4e3cf4f17dcfb03037703679d2396d2ede"
+                "reference": "505a30ad386daa5211f08a318e47015b501cad30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/utils/zipball/c930ca4e3cf4f17dcfb03037703679d2396d2ede",
-                "reference": "c930ca4e3cf4f17dcfb03037703679d2396d2ede",
+                "url": "https://api.github.com/repos/nette/utils/zipball/505a30ad386daa5211f08a318e47015b501cad30",
+                "reference": "505a30ad386daa5211f08a318e47015b501cad30",
                 "shasum": ""
             },
             "require": {
@@ -7416,9 +7416,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/utils/issues",
-                "source": "https://github.com/nette/utils/tree/v4.0.8"
+                "source": "https://github.com/nette/utils/tree/v4.0.9"
             },
-            "time": "2025-08-06T21:43:34+00:00"
+            "time": "2025-10-31T00:45:47+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -16922,16 +16922,16 @@
         },
         {
             "name": "symplify/phpstan-rules",
-            "version": "14.8.5",
+            "version": "14.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/phpstan-rules.git",
-                "reference": "317e296cd0a703814919d0f8d9d4409a8bc554e6"
+                "reference": "6d018ca88ef697f7c1baf7466811be11652c3e91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/phpstan-rules/zipball/317e296cd0a703814919d0f8d9d4409a8bc554e6",
-                "reference": "317e296cd0a703814919d0f8d9d4409a8bc554e6",
+                "url": "https://api.github.com/repos/symplify/phpstan-rules/zipball/6d018ca88ef697f7c1baf7466811be11652c3e91",
+                "reference": "6d018ca88ef697f7c1baf7466811be11652c3e91",
                 "shasum": ""
             },
             "require": {
@@ -16963,7 +16963,7 @@
             "description": "Set of Symplify rules for PHPStan",
             "support": {
                 "issues": "https://github.com/symplify/phpstan-rules/issues",
-                "source": "https://github.com/symplify/phpstan-rules/tree/14.8.5"
+                "source": "https://github.com/symplify/phpstan-rules/tree/14.9.0"
             },
             "funding": [
                 {
@@ -16975,7 +16975,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-11-20T18:46:32+00:00"
+            "time": "2025-11-26T13:04:37+00:00"
         },
         {
             "name": "ta-tikoma/phpunit-architecture-test",
