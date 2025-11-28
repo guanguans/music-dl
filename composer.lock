@@ -7880,22 +7880,22 @@
         },
         {
             "name": "pb30/phpstan-composer-analysis",
-            "version": "v1.0.0",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pb30/phpstan-composer-analysis.git",
-                "reference": "273006ee44f499eab6ccb8fb9b8f2bf8a612585a"
+                "reference": "845c20681e6309db74e9bf29629791510d34221b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pb30/phpstan-composer-analysis/zipball/273006ee44f499eab6ccb8fb9b8f2bf8a612585a",
-                "reference": "273006ee44f499eab6ccb8fb9b8f2bf8a612585a",
+                "url": "https://api.github.com/repos/pb30/phpstan-composer-analysis/zipball/845c20681e6309db74e9bf29629791510d34221b",
+                "reference": "845c20681e6309db74e9bf29629791510d34221b",
                 "shasum": ""
             },
             "require": {
-                "php": "~8.1|~8.2|~8.3|~8.4",
+                "php": "~8.1|~8.2|~8.3|~8.4|~8.5",
                 "phpstan/phpstan": "^2.1.6",
-                "shipmonk/composer-dependency-analyser": "1.8.3"
+                "shipmonk/composer-dependency-analyser": "1.8.4"
             },
             "require-dev": {
                 "laravel/pint": "^1.20"
@@ -7923,9 +7923,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pb30/phpstan-composer-analysis/issues",
-                "source": "https://github.com/pb30/phpstan-composer-analysis/tree/v1.0.0"
+                "source": "https://github.com/pb30/phpstan-composer-analysis/tree/v1.1.0"
             },
-            "time": "2025-06-06T18:43:54+00:00"
+            "time": "2025-11-28T03:38:38+00:00"
         },
         {
             "name": "pestphp/pest",
@@ -12485,16 +12485,16 @@
         },
         {
             "name": "shipmonk/composer-dependency-analyser",
-            "version": "1.8.3",
+            "version": "1.8.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shipmonk-rnd/composer-dependency-analyser.git",
-                "reference": "ca6b2725cd4854d97c1ce08e6954a74fbdd25372"
+                "reference": "975e5873b519d5180b1017a5dfb43d80781abd45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shipmonk-rnd/composer-dependency-analyser/zipball/ca6b2725cd4854d97c1ce08e6954a74fbdd25372",
-                "reference": "ca6b2725cd4854d97c1ce08e6954a74fbdd25372",
+                "url": "https://api.github.com/repos/shipmonk-rnd/composer-dependency-analyser/zipball/975e5873b519d5180b1017a5dfb43d80781abd45",
+                "reference": "975e5873b519d5180b1017a5dfb43d80781abd45",
                 "shasum": ""
             },
             "require": {
@@ -12503,15 +12503,15 @@
                 "php": "^7.2 || ^8.0"
             },
             "require-dev": {
-                "editorconfig-checker/editorconfig-checker": "^10.6.0",
+                "editorconfig-checker/editorconfig-checker": "^10.7.0",
                 "ergebnis/composer-normalize": "^2.19.0",
                 "ext-dom": "*",
                 "ext-libxml": "*",
                 "phpcompatibility/php-compatibility": "^9.3.5",
-                "phpstan/phpstan": "^1.12.3",
-                "phpstan/phpstan-phpunit": "^1.4.0",
-                "phpstan/phpstan-strict-rules": "^1.6.0",
-                "phpunit/phpunit": "^8.5.39 || ^9.6.20",
+                "phpstan/phpstan": "^1.12.26",
+                "phpstan/phpstan-phpunit": "^1.4.2",
+                "phpstan/phpstan-strict-rules": "^1.6.2",
+                "phpunit/phpunit": "^8.5.42 || ^9.6.23",
                 "shipmonk/name-collision-detector": "^2.1.1",
                 "slevomat/coding-standard": "^8.15.0"
             },
@@ -12545,9 +12545,9 @@
             ],
             "support": {
                 "issues": "https://github.com/shipmonk-rnd/composer-dependency-analyser/issues",
-                "source": "https://github.com/shipmonk-rnd/composer-dependency-analyser/tree/1.8.3"
+                "source": "https://github.com/shipmonk-rnd/composer-dependency-analyser/tree/1.8.4"
             },
-            "time": "2025-02-10T13:31:57+00:00"
+            "time": "2025-11-25T14:38:16+00:00"
         },
         {
             "name": "shipmonk/coverage-guard",
