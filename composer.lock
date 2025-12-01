@@ -469,16 +469,16 @@
         },
         {
             "name": "buggregator/trap",
-            "version": "1.14.0",
+            "version": "1.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/buggregator/trap.git",
-                "reference": "f640520f4c1e5a3ad4325e77e15476028d224154"
+                "reference": "a4f46cc638144856901710a6ec7569bf3c929052"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/buggregator/trap/zipball/f640520f4c1e5a3ad4325e77e15476028d224154",
-                "reference": "f640520f4c1e5a3ad4325e77e15476028d224154",
+                "url": "https://api.github.com/repos/buggregator/trap/zipball/a4f46cc638144856901710a6ec7569bf3c929052",
+                "reference": "a4f46cc638144856901710a6ec7569bf3c929052",
                 "shasum": ""
             },
             "require": {
@@ -491,8 +491,8 @@
                 "php-http/message": "^1.15",
                 "psr/container": "^1.1 || ^2.0",
                 "psr/http-message": "^1.1 || ^2",
-                "symfony/console": "^6.4 || ^7",
-                "symfony/var-dumper": "^6.3 || ^7",
+                "symfony/console": "^6.4 || ^7 || ^8",
+                "symfony/var-dumper": "^6.3 || ^7 || ^8",
                 "yiisoft/injector": "^1.2"
             },
             "require-dev": {
@@ -503,7 +503,7 @@
                 "rector/rector": "^1.1",
                 "roxblnfk/unpoly": "^1.8.1",
                 "spiral/code-style": "^2.2.2",
-                "ta-tikoma/phpunit-architecture-test": "^0.8.4",
+                "ta-tikoma/phpunit-architecture-test": "^0.8.5",
                 "vimeo/psalm": "^6.5"
             },
             "suggest": {
@@ -555,19 +555,15 @@
             ],
             "support": {
                 "issues": "https://github.com/buggregator/trap/issues",
-                "source": "https://github.com/buggregator/trap/tree/1.14.0"
+                "source": "https://github.com/buggregator/trap/tree/1.15.0"
             },
             "funding": [
                 {
                     "url": "https://boosty.to/roxblnfk",
                     "type": "boosty"
-                },
-                {
-                    "url": "https://patreon.com/roxblnfk",
-                    "type": "patreon"
                 }
             ],
-            "time": "2025-11-20T15:33:37+00:00"
+            "time": "2025-11-30T13:26:02+00:00"
         },
         {
             "name": "carbonphp/carbon-doctrine-types",
@@ -16541,16 +16537,16 @@
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v7.3.5",
+            "version": "v7.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "476c4ae17f43a9a36650c69879dcf5b1e6ae724d"
+                "reference": "41fd6c4ae28c38b294b42af6db61446594a0dece"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/476c4ae17f43a9a36650c69879dcf5b1e6ae724d",
-                "reference": "476c4ae17f43a9a36650c69879dcf5b1e6ae724d",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/41fd6c4ae28c38b294b42af6db61446594a0dece",
+                "reference": "41fd6c4ae28c38b294b42af6db61446594a0dece",
                 "shasum": ""
             },
             "require": {
@@ -16562,10 +16558,10 @@
                 "symfony/console": "<6.4"
             },
             "require-dev": {
-                "symfony/console": "^6.4|^7.0",
-                "symfony/http-kernel": "^6.4|^7.0",
-                "symfony/process": "^6.4|^7.0",
-                "symfony/uid": "^6.4|^7.0",
+                "symfony/console": "^6.4|^7.0|^8.0",
+                "symfony/http-kernel": "^6.4|^7.0|^8.0",
+                "symfony/process": "^6.4|^7.0|^8.0",
+                "symfony/uid": "^6.4|^7.0|^8.0",
                 "twig/twig": "^3.12"
             },
             "bin": [
@@ -16604,7 +16600,7 @@
                 "dump"
             ],
             "support": {
-                "source": "https://github.com/symfony/var-dumper/tree/v7.3.5"
+                "source": "https://github.com/symfony/var-dumper/tree/v7.4.0"
             },
             "funding": [
                 {
@@ -16624,7 +16620,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-09-27T09:00:46+00:00"
+            "time": "2025-10-27T20:36:44+00:00"
         },
         {
             "name": "symfony/var-exporter",
@@ -17577,36 +17573,42 @@
         },
         {
             "name": "yiisoft/injector",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/injector.git",
-                "reference": "0dc0127a7542341bdaabda7b85204e992938b83e"
+                "reference": "d3f718256b734933670ad11143cca724d340fc90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/injector/zipball/0dc0127a7542341bdaabda7b85204e992938b83e",
-                "reference": "0dc0127a7542341bdaabda7b85204e992938b83e",
+                "url": "https://api.github.com/repos/yiisoft/injector/zipball/d3f718256b734933670ad11143cca724d340fc90",
+                "reference": "d3f718256b734933670ad11143cca724d340fc90",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.4|^8.0"
+                "php": "7.4 - 8.5"
             },
             "require-dev": {
-                "maglnet/composer-require-checker": "^3.8|^4.2",
+                "bamarni/composer-bin-plugin": "^1.8.3",
+                "maglnet/composer-require-checker": "^3.8 || ^4.2",
                 "phpbench/phpbench": "^1.1",
                 "phpunit/phpunit": "^9.5",
-                "psr/container": "^1.0|^2.0",
-                "rector/rector": "^0.18.12",
-                "roave/infection-static-analysis-plugin": "^1.16",
+                "psr/container": "^1.0 || ^2.0",
+                "rector/rector": "^2.0.10",
                 "spatie/phpunit-watcher": "^1.23",
-                "vimeo/psalm": "^4.30|^5.7",
-                "yiisoft/test-support": "^1.2"
+                "yiisoft/test-support": "^1.4 || ^3.1"
             },
             "suggest": {
                 "psr/container": "For automatic resolving of dependencies"
             },
             "type": "library",
+            "extra": {
+                "bamarni-bin": {
+                    "bin-links": true,
+                    "forward-command": true,
+                    "target-directory": "tools"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Yiisoft\\Injector\\": "src"
@@ -17628,22 +17630,22 @@
             "support": {
                 "chat": "https://t.me/yii3en",
                 "forum": "https://www.yiiframework.com/forum/",
-                "irc": "irc://irc.freenode.net/yii",
+                "irc": "ircs://irc.libera.chat:6697/yii",
                 "issues": "https://github.com/yiisoft/injector/issues?state=open",
                 "source": "https://github.com/yiisoft/injector",
                 "wiki": "https://www.yiiframework.com/wiki/"
             },
             "funding": [
                 {
-                    "url": "https://github.com/yiisoft",
+                    "url": "https://github.com/sponsors/yiisoft",
                     "type": "github"
                 },
                 {
                     "url": "https://opencollective.com/yiisoft",
-                    "type": "open_collective"
+                    "type": "opencollective"
                 }
             ],
-            "time": "2023-12-20T09:39:03+00:00"
+            "time": "2025-12-01T11:14:17+00:00"
         }
     ],
     "aliases": [],
