@@ -1907,16 +1907,16 @@
         },
         {
             "name": "driftingly/rector-laravel",
-            "version": "2.1.6",
+            "version": "2.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/driftingly/rector-laravel.git",
-                "reference": "682d1e73ac79aced7e645141fd61a9ac468a0c44"
+                "reference": "2a64c96fa363bc85e4e6d4162c6a6bb7a78fd122"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/driftingly/rector-laravel/zipball/682d1e73ac79aced7e645141fd61a9ac468a0c44",
-                "reference": "682d1e73ac79aced7e645141fd61a9ac468a0c44",
+                "url": "https://api.github.com/repos/driftingly/rector-laravel/zipball/2a64c96fa363bc85e4e6d4162c6a6bb7a78fd122",
+                "reference": "2a64c96fa363bc85e4e6d4162c6a6bb7a78fd122",
                 "shasum": ""
             },
             "require": {
@@ -1937,9 +1937,9 @@
             "description": "Rector upgrades rules for Laravel Framework",
             "support": {
                 "issues": "https://github.com/driftingly/rector-laravel/issues",
-                "source": "https://github.com/driftingly/rector-laravel/tree/2.1.6"
+                "source": "https://github.com/driftingly/rector-laravel/tree/2.1.7"
             },
-            "time": "2025-12-04T13:37:33+00:00"
+            "time": "2025-12-10T11:30:42+00:00"
         },
         {
             "name": "editorconfig-checker/editorconfig-checker",
