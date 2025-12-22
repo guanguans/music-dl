@@ -2670,16 +2670,16 @@
         },
         {
             "name": "ergebnis/rector-rules",
-            "version": "1.8.0",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/rector-rules.git",
-                "reference": "111dc37f1a62480ad6441d88507d1ee7dacf1235"
+                "reference": "92741e2f9c585ed6f8b7d23894ea7a812fc168b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/rector-rules/zipball/111dc37f1a62480ad6441d88507d1ee7dacf1235",
-                "reference": "111dc37f1a62480ad6441d88507d1ee7dacf1235",
+                "url": "https://api.github.com/repos/ergebnis/rector-rules/zipball/92741e2f9c585ed6f8b7d23894ea7a812fc168b2",
+                "reference": "92741e2f9c585ed6f8b7d23894ea7a812fc168b2",
                 "shasum": ""
             },
             "require": {
@@ -2692,11 +2692,11 @@
                 "ergebnis/composer-normalize": "^2.48.2",
                 "ergebnis/data-provider": "^3.6.0",
                 "ergebnis/license": "^2.7.0",
-                "ergebnis/php-cs-fixer-config": "^6.57.0",
+                "ergebnis/php-cs-fixer-config": "^6.58.0",
                 "ergebnis/phpunit-slow-test-detector": "^2.20.0",
                 "phpstan/extension-installer": "^1.4.3",
                 "phpstan/phpstan-deprecation-rules": "^2.0.3",
-                "phpstan/phpstan-phpunit": "^2.0.8",
+                "phpstan/phpstan-phpunit": "^2.0.10",
                 "phpstan/phpstan-strict-rules": "^2.0.7",
                 "phpunit/phpunit": "^9.6.20"
             },
@@ -2730,7 +2730,7 @@
                 "security": "https://github.com/ergebnis/rector-rules/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/rector-rules"
             },
-            "time": "2025-12-08T13:58:51+00:00"
+            "time": "2025-12-21T09:47:28+00:00"
         },
         {
             "name": "erickskrauch/php-cs-fixer-custom-fixers",
