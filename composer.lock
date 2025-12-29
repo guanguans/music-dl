@@ -469,16 +469,16 @@
         },
         {
             "name": "buggregator/trap",
-            "version": "1.15.0",
+            "version": "1.15.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/buggregator/trap.git",
-                "reference": "a4f46cc638144856901710a6ec7569bf3c929052"
+                "reference": "2530255bee5e1c5fa9b251018376f97ea7e54e64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/buggregator/trap/zipball/a4f46cc638144856901710a6ec7569bf3c929052",
-                "reference": "a4f46cc638144856901710a6ec7569bf3c929052",
+                "url": "https://api.github.com/repos/buggregator/trap/zipball/2530255bee5e1c5fa9b251018376f97ea7e54e64",
+                "reference": "2530255bee5e1c5fa9b251018376f97ea7e54e64",
                 "shasum": ""
             },
             "require": {
@@ -488,6 +488,7 @@
                 "internal/destroy": "^1.0",
                 "nyholm/psr7": "^1.8",
                 "php": ">=8.1",
+                "php-64bit": "*",
                 "php-http/message": "^1.15",
                 "psr/container": "^1.1 || ^2.0",
                 "psr/http-message": "^1.1 || ^2",
@@ -555,7 +556,7 @@
             ],
             "support": {
                 "issues": "https://github.com/buggregator/trap/issues",
-                "source": "https://github.com/buggregator/trap/tree/1.15.0"
+                "source": "https://github.com/buggregator/trap/tree/1.15.1"
             },
             "funding": [
                 {
@@ -563,7 +564,7 @@
                     "type": "boosty"
                 }
             ],
-            "time": "2025-11-30T13:26:02+00:00"
+            "time": "2025-12-27T20:39:37+00:00"
         },
         {
             "name": "carbonphp/carbon-doctrine-types",
