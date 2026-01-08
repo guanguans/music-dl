@@ -48,7 +48,7 @@
         "ergebnis/rector-rules": "^1.6",
         "friendsofphp/php-cs-fixer": "^3.88",
         "guanguans/ai-commit": "^1.15",
-        "guanguans/monorepo-builder-worker": "^2.0",
+        "guanguans/monorepo-builder-worker": "^3.0",
         "intonate/tinker-zero": "^1.2",
         "ion-bazan/composer-diff": "^1.13",
         "larastan/larastan": "^3.7",
