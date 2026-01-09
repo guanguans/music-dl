@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "71df6ee0ad5bd796f277fdd688e4855a",
+    "content-hash": "1c2eab32221202a0a5ee680555bcf5b0",
     "packages": [
         {
             "name": "wikimedia/composer-merge-plugin",
@@ -3408,62 +3408,78 @@
         },
         {
             "name": "guanguans/monorepo-builder-worker",
-            "version": "2.2.0",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guanguans/monorepo-builder-worker.git",
-                "reference": "4bd866e3f77a4d37d06e5e452741bdb6054587ce"
+                "reference": "387283f489ebb12156f284dd8a51643b5f875d76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guanguans/monorepo-builder-worker/zipball/4bd866e3f77a4d37d06e5e452741bdb6054587ce",
-                "reference": "4bd866e3f77a4d37d06e5e452741bdb6054587ce",
+                "url": "https://api.github.com/repos/guanguans/monorepo-builder-worker/zipball/387283f489ebb12156f284dd8a51643b5f875d76",
+                "reference": "387283f489ebb12156f284dd8a51643b5f875d76",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0",
-                "symplify/monorepo-builder": "^11.2 || ^12.0"
+                "php": ">=8.2",
+                "symplify/monorepo-builder": "^12.4"
             },
             "require-dev": {
+                "adamwojs/php-cs-fixer-phpdoc-force-fqcn": "^2.0",
                 "bamarni/composer-bin-plugin": "^1.8",
                 "brainmaestro/composer-git-hooks": "^3.0",
                 "composer/composer": "^2.9",
                 "dg/bypass-finals": "^1.9",
                 "ergebnis/composer-normalize": "^2.48",
                 "ergebnis/license": "^2.7",
-                "ergebnis/php-cs-fixer-config": "dev-main",
+                "ergebnis/php-cs-fixer-config": "^6.58",
                 "ergebnis/rector-rules": "^1.9",
-                "illuminate/support": "^9.52 || ^10.0 || ^11.0 || ^12.0",
-                "jawira/case-converter": "^3.6",
+                "fakerphp/faker": "^1.24",
+                "guanguans/php-cs-fixer-custom-fixers": "^1.0",
+                "guanguans/rector-rules": "^1.1",
+                "illuminate/support": "^12.46",
                 "marcocesarato/php-conventional-changelog": "^1.17",
                 "mockery/mockery": "^1.6",
-                "nette/utils": "^4.0",
-                "pestphp/pest": "^1.23 || ^2.0 || ^3.0 || ^4.0",
-                "pestphp/pest-plugin-faker": "^1.0 || ^2.0 || ^3.0 || ^4.0",
+                "mrpunyapal/rector-pest": "^0.1",
+                "nette/utils": "^4.1",
+                "peckphp/peck": "^0.2",
+                "pestphp/pest": "^3.8 || ^4.0",
+                "pestphp/pest-plugin-arch": "^3.1 || ^4.0",
+                "pestphp/pest-plugin-profanity": "^3.23 || ^4.0",
                 "php-mock/php-mock-phpunit": "^2.14",
-                "phpbench/phpbench": "^1.2",
+                "phpbench/phpbench": "^1.4",
                 "phpstan/extension-installer": "^1.4",
                 "phpstan/phpstan": "^2.1",
                 "phpstan/phpstan-deprecation-rules": "^2.0",
+                "phpstan/phpstan-mockery": "^2.0",
+                "phpstan/phpstan-strict-rules": "^2.0",
                 "phpstan/phpstan-webmozart-assert": "^2.0",
+                "phpunit/phpunit": "^11.5 || ^12.0",
                 "povils/phpmnd": "^3.6",
-                "pyrech/composer-changelogs": "^2.1",
+                "rector/argtyper": "^0.6",
+                "rector/jack": "^0.5",
                 "rector/rector": "^2.3",
                 "rector/swiss-knife": "^2.3",
                 "rector/type-perfect": "^2.1",
                 "shipmonk/composer-dependency-analyser": "^1.8",
-                "shipmonk/dead-code-detector": "^0.11",
+                "shipmonk/dead-code-detector": "^0.14",
+                "shipmonk/name-collision-detector": "^2.1",
                 "shipmonk/phpstan-baseline-per-identifier": "^2.3",
-                "spatie/pest-plugin-snapshots": "^1.1 || ^2.0",
+                "spatie/invade": "^2.1",
+                "spatie/pest-plugin-snapshots": "^2.2",
                 "spaze/phpstan-disallowed-calls": "^4.7",
-                "staabm/phpstan-todo-by": "^0.2",
-                "symfony/var-dumper": "^6.0 || ^7.0 || ^8.0",
-                "symplify/phpstan-extensions": "^12.0",
+                "staabm/phpstan-todo-by": "^0.3",
+                "symfony/thanks": "^1.4",
+                "symfony/var-dumper": "^7.4 || ^8.0",
+                "symplify/coding-standard": "^13.0",
+                "symplify/easy-coding-standard": "^13.0",
                 "symplify/phpstan-rules": "^14.9",
                 "tomasvotruba/class-leak": "^2.1",
                 "tomasvotruba/cognitive-complexity": "^1.0",
+                "tomasvotruba/ctor": "^2.2",
                 "tomasvotruba/type-coverage": "^2.1",
-                "yamadashy/phpstan-friendly-formatter": "^1.2"
+                "tomasvotruba/unused-public": "^2.2",
+                "yamadashy/phpstan-friendly-formatter": "^1.3"
             },
             "suggest": {
                 "marcocesarato/php-conventional-changelog": "Required to use the class [UpdateChangelogViaPhpReleaseWorker]."
@@ -3472,10 +3488,11 @@
             "extra": {
                 "hooks": {
                     "post-merge": [
-                        "composer checks"
+                        "composer install --ansi -vv",
+                        "composer checks:required"
                     ],
                     "pre-commit": [
-                        "composer checks"
+                        "composer checks:required"
                     ]
                 },
                 "bamarni-bin": {
@@ -3484,7 +3501,7 @@
                     "target-directory": "vendor-bin"
                 },
                 "branch-alias": {
-                    "dev-main": "2.x-dev"
+                    "dev-main": "3.x-dev"
                 },
                 "composer-normalize": {
                     "indent-size": 4,
@@ -3507,7 +3524,7 @@
                 {
                     "name": "guanguans",
                     "email": "ityaozm@gmail.com",
-                    "homepage": "https://www.guanguans.cn",
+                    "homepage": "https://github.com/guanguans",
                     "role": "developer"
                 }
             ],
@@ -3524,22 +3541,25 @@
                 "history",
                 "monorepo",
                 "release",
+                "static analysis",
                 "symplify",
                 "tag",
+                "testing",
                 "worker",
                 "workflow"
             ],
             "support": {
+                "discussions": "https://github.com/guanguans/monorepo-builder-worker/discussions",
                 "issues": "https://github.com/guanguans/monorepo-builder-worker/issues",
                 "source": "https://github.com/guanguans/monorepo-builder-worker"
             },
             "funding": [
                 {
-                    "url": "https://www.guanguans.cn/images/wechat.jpeg",
-                    "type": "wechat"
+                    "url": "https://guanguans.github.io/sponsors",
+                    "type": "sponsors"
                 }
             ],
-            "time": "2026-01-07T09:11:55+00:00"
+            "time": "2026-01-08T14:37:50+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
