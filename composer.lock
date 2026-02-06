@@ -8831,27 +8831,27 @@
         },
         {
             "name": "php-mock/php-mock",
-            "version": "2.6.2",
+            "version": "2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-mock/php-mock.git",
-                "reference": "e134d210e4707c29724ebc7fe50d220123f0fdd9"
+                "reference": "b59734f19765296bb0311942850d02288a224890"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-mock/php-mock/zipball/e134d210e4707c29724ebc7fe50d220123f0fdd9",
-                "reference": "e134d210e4707c29724ebc7fe50d220123f0fdd9",
+                "url": "https://api.github.com/repos/php-mock/php-mock/zipball/b59734f19765296bb0311942850d02288a224890",
+                "reference": "b59734f19765296bb0311942850d02288a224890",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.6 || ^7.0 || ^8.0",
-                "phpunit/php-text-template": "^1 || ^2 || ^3 || ^4 || ^5"
+                "phpunit/php-text-template": "^1 || ^2 || ^3 || ^4 || ^5 || ^6"
             },
             "replace": {
                 "malkusch/php-mock": "*"
             },
             "require-dev": {
-                "phpunit/phpunit": "^5.7 || ^6.5 || ^7.5 || ^8.0 || ^9.0 || ^10.0 || ^11.0 || ^12.0",
+                "phpunit/phpunit": "^5.7 || ^6.5 || ^7.5 || ^8.0 || ^9.0 || ^10.0 || ^11.0 || ^12.0 || ^13.0",
                 "squizlabs/php_codesniffer": "^3.8"
             },
             "suggest": {
@@ -8895,7 +8895,7 @@
             ],
             "support": {
                 "issues": "https://github.com/php-mock/php-mock/issues",
-                "source": "https://github.com/php-mock/php-mock/tree/2.6.2"
+                "source": "https://github.com/php-mock/php-mock/tree/2.7.0"
             },
             "funding": [
                 {
@@ -8903,29 +8903,29 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-08-18T19:59:14+00:00"
+            "time": "2026-02-06T07:39:37+00:00"
         },
         {
             "name": "php-mock/php-mock-integration",
-            "version": "3.0.0",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-mock/php-mock-integration.git",
-                "reference": "8ceb860f343a143af604efeb66a7a124381cc52e"
+                "reference": "cbbf39705ec13dece5b04133cef4e2fd3137a345"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-mock/php-mock-integration/zipball/8ceb860f343a143af604efeb66a7a124381cc52e",
-                "reference": "8ceb860f343a143af604efeb66a7a124381cc52e",
+                "url": "https://api.github.com/repos/php-mock/php-mock-integration/zipball/cbbf39705ec13dece5b04133cef4e2fd3137a345",
+                "reference": "cbbf39705ec13dece5b04133cef4e2fd3137a345",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6",
                 "php-mock/php-mock": "^2.5",
-                "phpunit/php-text-template": "^1 || ^2 || ^3 || ^4 || ^5"
+                "phpunit/php-text-template": "^1 || ^2 || ^3 || ^4 || ^5 || ^6"
             },
             "require-dev": {
-                "phpunit/phpunit": "^5.7.27 || ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12"
+                "phpunit/phpunit": "^5.7.27 || ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || ^13"
             },
             "type": "library",
             "autoload": {
@@ -8958,7 +8958,7 @@
             ],
             "support": {
                 "issues": "https://github.com/php-mock/php-mock-integration/issues",
-                "source": "https://github.com/php-mock/php-mock-integration/tree/3.0.0"
+                "source": "https://github.com/php-mock/php-mock-integration/tree/3.1.0"
             },
             "funding": [
                 {
@@ -8966,26 +8966,26 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-03-08T19:22:38+00:00"
+            "time": "2026-02-06T07:44:43+00:00"
         },
         {
             "name": "php-mock/php-mock-phpunit",
-            "version": "2.14.0",
+            "version": "2.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-mock/php-mock-phpunit.git",
-                "reference": "c074f7a260cb80bdc7cf0823dc23174bc49064e1"
+                "reference": "701df15b183f25af663af134eb71353cd838b955"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-mock/php-mock-phpunit/zipball/c074f7a260cb80bdc7cf0823dc23174bc49064e1",
-                "reference": "c074f7a260cb80bdc7cf0823dc23174bc49064e1",
+                "url": "https://api.github.com/repos/php-mock/php-mock-phpunit/zipball/701df15b183f25af663af134eb71353cd838b955",
+                "reference": "701df15b183f25af663af134eb71353cd838b955",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7",
                 "php-mock/php-mock-integration": "^3.0",
-                "phpunit/phpunit": "^6 || ^7 || ^8 || ^9 || ^10.0.17 || ^11 || ^12.0.9"
+                "phpunit/phpunit": "^6 || ^7 || ^8 || ^9 || ^10.0.17 || ^11 || ^12.0.9 || ^13"
             },
             "require-dev": {
                 "mockery/mockery": "^1.3.6"
@@ -9026,7 +9026,7 @@
             ],
             "support": {
                 "issues": "https://github.com/php-mock/php-mock-phpunit/issues",
-                "source": "https://github.com/php-mock/php-mock-phpunit/tree/2.14.0"
+                "source": "https://github.com/php-mock/php-mock-phpunit/tree/2.15.0"
             },
             "funding": [
                 {
@@ -9034,7 +9034,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-11-19T21:07:31+00:00"
+            "time": "2026-02-06T09:12:10+00:00"
         },
         {
             "name": "php-parallel-lint/php-console-color",
@@ -9794,16 +9794,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "12.5.2",
+            "version": "12.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "4a9739b51cbcb355f6e95659612f92e282a7077b"
+                "reference": "b015312f28dd75b75d3422ca37dff2cd1a565e8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/4a9739b51cbcb355f6e95659612f92e282a7077b",
-                "reference": "4a9739b51cbcb355f6e95659612f92e282a7077b",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/b015312f28dd75b75d3422ca37dff2cd1a565e8d",
+                "reference": "b015312f28dd75b75d3422ca37dff2cd1a565e8d",
                 "shasum": ""
             },
             "require": {
@@ -9859,7 +9859,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
                 "security": "https://github.com/sebastianbergmann/php-code-coverage/security/policy",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/12.5.2"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/12.5.3"
             },
             "funding": [
                 {
@@ -9879,20 +9879,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-12-24T07:03:04+00:00"
+            "time": "2026-02-06T06:01:44+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
-            "version": "6.0.0",
+            "version": "6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-file-iterator.git",
-                "reference": "961bc913d42fe24a257bfff826a5068079ac7782"
+                "reference": "3d1cd096ef6bea4bf2762ba586e35dbd317cbfd5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/961bc913d42fe24a257bfff826a5068079ac7782",
-                "reference": "961bc913d42fe24a257bfff826a5068079ac7782",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/3d1cd096ef6bea4bf2762ba586e35dbd317cbfd5",
+                "reference": "3d1cd096ef6bea4bf2762ba586e35dbd317cbfd5",
                 "shasum": ""
             },
             "require": {
@@ -9932,15 +9932,27 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-file-iterator/issues",
                 "security": "https://github.com/sebastianbergmann/php-file-iterator/security/policy",
-                "source": "https://github.com/sebastianbergmann/php-file-iterator/tree/6.0.0"
+                "source": "https://github.com/sebastianbergmann/php-file-iterator/tree/6.0.1"
             },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
                     "type": "github"
+                },
+                {
+                    "url": "https://liberapay.com/sebastianbergmann",
+                    "type": "liberapay"
+                },
+                {
+                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
+                    "type": "thanks_dev"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpunit/php-file-iterator",
+                    "type": "tidelift"
                 }
             ],
-            "time": "2025-02-07T04:58:37+00:00"
+            "time": "2026-02-02T14:04:18+00:00"
         },
         {
             "name": "phpunit/php-invoker",
