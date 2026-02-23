@@ -10253,16 +10253,16 @@
         },
         {
             "name": "povils/phpmnd",
-            "version": "v3.6.0",
+            "version": "v3.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/povils/phpmnd.git",
-                "reference": "1c45028bedcc041d2c78151df6f38eddc1ac7420"
+                "reference": "2002af50f627a03d94d01529a3eb02754a23578d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/povils/phpmnd/zipball/1c45028bedcc041d2c78151df6f38eddc1ac7420",
-                "reference": "1c45028bedcc041d2c78151df6f38eddc1ac7420",
+                "url": "https://api.github.com/repos/povils/phpmnd/zipball/2002af50f627a03d94d01529a3eb02754a23578d",
+                "reference": "2002af50f627a03d94d01529a3eb02754a23578d",
                 "shasum": ""
             },
             "require": {
@@ -10270,13 +10270,13 @@
                 "nikic/php-parser": "^4.18 || ^5.0",
                 "php": "^7.4 || ^8.0",
                 "php-parallel-lint/php-console-highlighter": "^1.0",
-                "phpunit/php-timer": "^2.0 || ^3.0 || ^4.0 || ^5.0 || ^6.0 || ^7.0 || ^8.0",
-                "symfony/console": "^4.4 || ^5.0 || ^6.0 || ^7.0",
-                "symfony/finder": "^4.4 || ^5.0 || ^6.0 || ^7.0"
+                "phpunit/php-timer": "^2.0 || ^3.0 || ^4.0 || ^5.0 || ^6.0 || ^7.0 || ^8.0 || ^9.0",
+                "symfony/console": "^4.4 || ^5.0 || ^6.0 || ^7.0 || ^8.0",
+                "symfony/finder": "^4.4 || ^5.0 || ^6.0 || ^7.0 || ^8.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.6",
-                "squizlabs/php_codesniffer": "^2.8.1||^3.5"
+                "squizlabs/php_codesniffer": "^2.8.1 || ^3.5"
             },
             "bin": [
                 "bin/phpmnd"
@@ -10300,9 +10300,9 @@
             "description": "A tool to detect Magic numbers in codebase",
             "support": {
                 "issues": "https://github.com/povils/phpmnd/issues",
-                "source": "https://github.com/povils/phpmnd/tree/v3.6.0"
+                "source": "https://github.com/povils/phpmnd/tree/v3.6.1"
             },
-            "time": "2025-03-15T09:21:53+00:00"
+            "time": "2026-02-21T20:13:10+00:00"
         },
         {
             "name": "psr/clock",
