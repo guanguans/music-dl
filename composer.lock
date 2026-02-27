@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "71df6ee0ad5bd796f277fdd688e4855a",
+    "content-hash": "d67fe99b4a5d6c355c1e7f80c10c19d1",
     "packages": [
         {
             "name": "wikimedia/composer-merge-plugin",
@@ -3408,62 +3408,79 @@
         },
         {
             "name": "guanguans/monorepo-builder-worker",
-            "version": "2.2.0",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guanguans/monorepo-builder-worker.git",
-                "reference": "4bd866e3f77a4d37d06e5e452741bdb6054587ce"
+                "reference": "7485e8971043482c1a73b32decd3efdcb05b4995"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guanguans/monorepo-builder-worker/zipball/4bd866e3f77a4d37d06e5e452741bdb6054587ce",
-                "reference": "4bd866e3f77a4d37d06e5e452741bdb6054587ce",
+                "url": "https://api.github.com/repos/guanguans/monorepo-builder-worker/zipball/7485e8971043482c1a73b32decd3efdcb05b4995",
+                "reference": "7485e8971043482c1a73b32decd3efdcb05b4995",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0",
-                "symplify/monorepo-builder": "^11.2 || ^12.0"
+                "php": ">=8.2",
+                "symplify/monorepo-builder": "^12.4"
             },
             "require-dev": {
-                "bamarni/composer-bin-plugin": "^1.8",
+                "adamwojs/php-cs-fixer-phpdoc-force-fqcn": "^2.0",
+                "bamarni/composer-bin-plugin": "^1.9",
                 "brainmaestro/composer-git-hooks": "^3.0",
                 "composer/composer": "^2.9",
                 "dg/bypass-finals": "^1.9",
-                "ergebnis/composer-normalize": "^2.48",
+                "ergebnis/composer-normalize": "^2.49",
                 "ergebnis/license": "^2.7",
-                "ergebnis/php-cs-fixer-config": "dev-main",
+                "ergebnis/php-cs-fixer-config": "^6.59",
                 "ergebnis/rector-rules": "^1.9",
-                "illuminate/support": "^9.52 || ^10.0 || ^11.0 || ^12.0",
-                "jawira/case-converter": "^3.6",
+                "fakerphp/faker": "^1.24",
+                "guanguans/php-cs-fixer-custom-fixers": "^1.1",
+                "guanguans/phpstan-rules": "^1.0",
+                "guanguans/rector-rules": "^1.6",
+                "illuminate/support": "^12.49",
                 "marcocesarato/php-conventional-changelog": "^1.17",
                 "mockery/mockery": "^1.6",
-                "nette/utils": "^4.0",
-                "pestphp/pest": "^1.23 || ^2.0 || ^3.0 || ^4.0",
-                "pestphp/pest-plugin-faker": "^1.0 || ^2.0 || ^3.0 || ^4.0",
+                "mrpunyapal/rector-pest": "^0.1",
+                "nette/utils": "^4.1",
+                "peckphp/peck": "^0.2",
+                "pestphp/pest": "^3.8 || ^4.0",
+                "pestphp/pest-plugin-arch": "^3.1 || ^4.0",
+                "pestphp/pest-plugin-profanity": "^3.23 || ^4.0",
                 "php-mock/php-mock-phpunit": "^2.14",
-                "phpbench/phpbench": "^1.2",
+                "phpbench/phpbench": "^1.4",
                 "phpstan/extension-installer": "^1.4",
                 "phpstan/phpstan": "^2.1",
                 "phpstan/phpstan-deprecation-rules": "^2.0",
+                "phpstan/phpstan-mockery": "^2.0",
+                "phpstan/phpstan-strict-rules": "^2.0",
                 "phpstan/phpstan-webmozart-assert": "^2.0",
+                "phpunit/phpunit": "^11.5 || ^12.0",
                 "povils/phpmnd": "^3.6",
-                "pyrech/composer-changelogs": "^2.1",
+                "rector/argtyper": "^0.6",
+                "rector/jack": "^0.5",
                 "rector/rector": "^2.3",
                 "rector/swiss-knife": "^2.3",
                 "rector/type-perfect": "^2.1",
                 "shipmonk/composer-dependency-analyser": "^1.8",
-                "shipmonk/dead-code-detector": "^0.11",
+                "shipmonk/dead-code-detector": "^0.14",
+                "shipmonk/name-collision-detector": "^2.1",
                 "shipmonk/phpstan-baseline-per-identifier": "^2.3",
-                "spatie/pest-plugin-snapshots": "^1.1 || ^2.0",
+                "spatie/invade": "^2.1",
+                "spatie/pest-plugin-snapshots": "^2.2",
                 "spaze/phpstan-disallowed-calls": "^4.7",
-                "staabm/phpstan-todo-by": "^0.2",
-                "symfony/var-dumper": "^6.0 || ^7.0 || ^8.0",
-                "symplify/phpstan-extensions": "^12.0",
+                "staabm/phpstan-todo-by": "^0.3",
+                "symfony/thanks": "^1.4",
+                "symfony/var-dumper": "^7.4 || ^8.0",
+                "symplify/coding-standard": "^13.0",
+                "symplify/easy-coding-standard": "^13.0",
                 "symplify/phpstan-rules": "^14.9",
                 "tomasvotruba/class-leak": "^2.1",
                 "tomasvotruba/cognitive-complexity": "^1.0",
+                "tomasvotruba/ctor": "^2.2",
                 "tomasvotruba/type-coverage": "^2.1",
-                "yamadashy/phpstan-friendly-formatter": "^1.2"
+                "tomasvotruba/unused-public": "^2.2",
+                "yamadashy/phpstan-friendly-formatter": "^1.4"
             },
             "suggest": {
                 "marcocesarato/php-conventional-changelog": "Required to use the class [UpdateChangelogViaPhpReleaseWorker]."
@@ -3472,10 +3489,11 @@
             "extra": {
                 "hooks": {
                     "post-merge": [
-                        "composer checks"
+                        "composer install --ansi -vv",
+                        "composer checks:required"
                     ],
                     "pre-commit": [
-                        "composer checks"
+                        "composer checks:required"
                     ]
                 },
                 "bamarni-bin": {
@@ -3484,7 +3502,7 @@
                     "target-directory": "vendor-bin"
                 },
                 "branch-alias": {
-                    "dev-main": "2.x-dev"
+                    "dev-main": "3.x-dev"
                 },
                 "composer-normalize": {
                     "indent-size": 4,
@@ -3507,11 +3525,11 @@
                 {
                     "name": "guanguans",
                     "email": "ityaozm@gmail.com",
-                    "homepage": "https://www.guanguans.cn",
+                    "homepage": "https://github.com/guanguans",
                     "role": "developer"
                 }
             ],
-            "description": "List of release worker collections for symplify/monorepo-builder.",
+            "description": "A set of additional release workers for symplify/monorepo-builder.",
             "homepage": "https://github.com/guanguans/monorepo-builder-worker",
             "keywords": [
                 "changelog",
@@ -3524,22 +3542,25 @@
                 "history",
                 "monorepo",
                 "release",
+                "static analysis",
                 "symplify",
                 "tag",
+                "testing",
                 "worker",
                 "workflow"
             ],
             "support": {
+                "discussions": "https://github.com/guanguans/monorepo-builder-worker/discussions",
                 "issues": "https://github.com/guanguans/monorepo-builder-worker/issues",
                 "source": "https://github.com/guanguans/monorepo-builder-worker"
             },
             "funding": [
                 {
-                    "url": "https://www.guanguans.cn/images/wechat.jpeg",
-                    "type": "wechat"
+                    "url": "https://guanguans.github.io/sponsors",
+                    "type": "sponsors"
                 }
             ],
-            "time": "2026-01-07T09:11:55+00:00"
+            "time": "2026-02-02T16:14:37+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -13489,16 +13510,16 @@
         },
         {
             "name": "symfony/config",
-            "version": "v8.0.3",
+            "version": "v8.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "58063686fd7b8e676f14b5a4808cb85265c5216e"
+                "reference": "94ea198de42f93dffa920a098cac3961a82e63b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/58063686fd7b8e676f14b5a4808cb85265c5216e",
-                "reference": "58063686fd7b8e676f14b5a4808cb85265c5216e",
+                "url": "https://api.github.com/repos/symfony/config/zipball/94ea198de42f93dffa920a098cac3961a82e63b7",
+                "reference": "94ea198de42f93dffa920a098cac3961a82e63b7",
                 "shasum": ""
             },
             "require": {
@@ -13543,7 +13564,7 @@
             "description": "Helps you find, load, combine, autofill and validate configuration values of any kind",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/config/tree/v8.0.3"
+                "source": "https://github.com/symfony/config/tree/v8.0.6"
             },
             "funding": [
                 {
@@ -13563,7 +13584,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-12-23T14:52:06+00:00"
+            "time": "2026-02-25T16:59:43+00:00"
         },
         {
             "name": "symfony/console",
@@ -13734,16 +13755,16 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v8.0.3",
+            "version": "v8.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "8db0d4c1dd4c533a29210c68074999ba45ad6d3e"
+                "reference": "edd98864a7b9eaaa10f389bd414e7d9e816bb59d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/8db0d4c1dd4c533a29210c68074999ba45ad6d3e",
-                "reference": "8db0d4c1dd4c533a29210c68074999ba45ad6d3e",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/edd98864a7b9eaaa10f389bd414e7d9e816bb59d",
+                "reference": "edd98864a7b9eaaa10f389bd414e7d9e816bb59d",
                 "shasum": ""
             },
             "require": {
@@ -13791,7 +13812,7 @@
             "description": "Allows you to standardize and centralize the way objects are constructed in your application",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/dependency-injection/tree/v8.0.3"
+                "source": "https://github.com/symfony/dependency-injection/tree/v8.0.6"
             },
             "funding": [
                 {
@@ -13811,7 +13832,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-12-23T14:52:06+00:00"
+            "time": "2026-02-25T16:59:43+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -14125,16 +14146,16 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v8.0.1",
+            "version": "v8.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "d937d400b980523dc9ee946bb69972b5e619058d"
+                "reference": "7bf9162d7a0dff98d079b72948508fa48018a770"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/d937d400b980523dc9ee946bb69972b5e619058d",
-                "reference": "d937d400b980523dc9ee946bb69972b5e619058d",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/7bf9162d7a0dff98d079b72948508fa48018a770",
+                "reference": "7bf9162d7a0dff98d079b72948508fa48018a770",
                 "shasum": ""
             },
             "require": {
@@ -14171,7 +14192,7 @@
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/filesystem/tree/v8.0.1"
+                "source": "https://github.com/symfony/filesystem/tree/v8.0.6"
             },
             "funding": [
                 {
@@ -14191,7 +14212,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-12-01T09:13:36+00:00"
+            "time": "2026-02-25T16:59:43+00:00"
         },
         {
             "name": "symfony/finder",
@@ -16915,16 +16936,16 @@
         },
         {
             "name": "symplify/monorepo-builder",
-            "version": "12.4.4",
+            "version": "12.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/monorepo-builder.git",
-                "reference": "0a74cec85e88dd19e7a9cfe8d7d36730bad0ceee"
+                "reference": "2aa3a2445b1462da3e9130ab2f1f32054644c508"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/monorepo-builder/zipball/0a74cec85e88dd19e7a9cfe8d7d36730bad0ceee",
-                "reference": "0a74cec85e88dd19e7a9cfe8d7d36730bad0ceee",
+                "url": "https://api.github.com/repos/symplify/monorepo-builder/zipball/2aa3a2445b1462da3e9130ab2f1f32054644c508",
+                "reference": "2aa3a2445b1462da3e9130ab2f1f32054644c508",
                 "shasum": ""
             },
             "require": {
@@ -16939,7 +16960,7 @@
                 "symfony/finder": "^7.0 || ^8.0",
                 "symfony/http-kernel": "^7.0 || ^8.0",
                 "symfony/process": "^7.0 || ^8.0",
-                "webmozart/assert": "^1.11"
+                "webmozart/assert": "^1.11 || ^2.0"
             },
             "require-dev": {
                 "php-parallel-lint/php-parallel-lint": "^1.3",
@@ -16970,8 +16991,7 @@
                         "packages"
                     ],
                     "Symplify\\SmartFileSystem\\": "src-deps/smart-file-system/src",
-                    "Symplify\\AutowireArrayParameter\\": "src-deps/autowire-array-parameter/src",
-                    "Symplify\\ComposerJsonManipulator\\": "src-deps/composer-json-manipulator/src"
+                    "Symplify\\AutowireArrayParameter\\": "src-deps/autowire-array-parameter/src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -16981,7 +17001,7 @@
             "description": "Not only Composer tools to build a Monorepo.",
             "support": {
                 "issues": "https://github.com/symplify/monorepo-builder/issues",
-                "source": "https://github.com/symplify/monorepo-builder/tree/12.4.4"
+                "source": "https://github.com/symplify/monorepo-builder/tree/12.5.1"
             },
             "funding": [
                 {
@@ -16993,7 +17013,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-12-12T01:28:27+00:00"
+            "time": "2026-02-13T08:04:16+00:00"
         },
         {
             "name": "symplify/phpstan-extensions",
