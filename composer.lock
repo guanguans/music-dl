@@ -2671,16 +2671,16 @@
         },
         {
             "name": "ergebnis/rector-rules",
-            "version": "1.12.1",
+            "version": "1.12.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/rector-rules.git",
-                "reference": "f883124af206ce5364173aeda0c67b037d73539a"
+                "reference": "23f512c66dfa7b90746ce8eb48f4ddb1ddd090f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/rector-rules/zipball/f883124af206ce5364173aeda0c67b037d73539a",
-                "reference": "f883124af206ce5364173aeda0c67b037d73539a",
+                "url": "https://api.github.com/repos/ergebnis/rector-rules/zipball/23f512c66dfa7b90746ce8eb48f4ddb1ddd090f8",
+                "reference": "23f512c66dfa7b90746ce8eb48f4ddb1ddd090f8",
                 "shasum": ""
             },
             "require": {
@@ -2731,7 +2731,7 @@
                 "security": "https://github.com/ergebnis/rector-rules/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/rector-rules"
             },
-            "time": "2026-03-12T17:07:05+00:00"
+            "time": "2026-03-13T17:40:18+00:00"
         },
         {
             "name": "erickskrauch/php-cs-fixer-custom-fixers",
