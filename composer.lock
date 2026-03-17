@@ -2671,16 +2671,16 @@
         },
         {
             "name": "ergebnis/rector-rules",
-            "version": "1.12.5",
+            "version": "1.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/rector-rules.git",
-                "reference": "cc66f97a8e92d618d5ac913777f095c4c97ad611"
+                "reference": "d151913187e6fa793ee0dccab188091bcf8b6f4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/rector-rules/zipball/cc66f97a8e92d618d5ac913777f095c4c97ad611",
-                "reference": "cc66f97a8e92d618d5ac913777f095c4c97ad611",
+                "url": "https://api.github.com/repos/ergebnis/rector-rules/zipball/d151913187e6fa793ee0dccab188091bcf8b6f4b",
+                "reference": "d151913187e6fa793ee0dccab188091bcf8b6f4b",
                 "shasum": ""
             },
             "require": {
@@ -2694,7 +2694,7 @@
                 "ergebnis/data-provider": "^3.6.0",
                 "ergebnis/license": "^2.7.0",
                 "ergebnis/php-cs-fixer-config": "^6.60.2",
-                "ergebnis/phpunit-slow-test-detector": "^2.23.0",
+                "ergebnis/phpunit-slow-test-detector": "^2.24.0",
                 "phpstan/extension-installer": "^1.4.3",
                 "phpstan/phpstan-deprecation-rules": "^2.0.4",
                 "phpstan/phpstan-phpunit": "^2.0.16",
@@ -2731,7 +2731,7 @@
                 "security": "https://github.com/ergebnis/rector-rules/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/rector-rules"
             },
-            "time": "2026-03-16T19:02:48+00:00"
+            "time": "2026-03-17T11:47:39+00:00"
         },
         {
             "name": "erickskrauch/php-cs-fixer-custom-fixers",
@@ -9547,11 +9547,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.1.41",
+            "version": "2.1.42",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/a2eae8f20856b3afe74bf1f9726ce8c11438e300",
-                "reference": "a2eae8f20856b3afe74bf1f9726ce8c11438e300",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/1279e1ce86ba768f0780c9d889852b4e02ff40d0",
+                "reference": "1279e1ce86ba768f0780c9d889852b4e02ff40d0",
                 "shasum": ""
             },
             "require": {
@@ -9596,7 +9596,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-03-16T18:24:10+00:00"
+            "time": "2026-03-17T14:58:32+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
