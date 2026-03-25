@@ -3408,16 +3408,16 @@
         },
         {
             "name": "guanguans/monorepo-builder-worker",
-            "version": "3.1.1",
+            "version": "3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guanguans/monorepo-builder-worker.git",
-                "reference": "99a0045a9de25c8ecb7699bb2b0b36d62d60ce9e"
+                "reference": "219142b7ddec45f0ba9cde5983076169c92cb8bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guanguans/monorepo-builder-worker/zipball/99a0045a9de25c8ecb7699bb2b0b36d62d60ce9e",
-                "reference": "99a0045a9de25c8ecb7699bb2b0b36d62d60ce9e",
+                "url": "https://api.github.com/repos/guanguans/monorepo-builder-worker/zipball/219142b7ddec45f0ba9cde5983076169c92cb8bb",
+                "reference": "219142b7ddec45f0ba9cde5983076169c92cb8bb",
                 "shasum": ""
             },
             "require": {
@@ -3428,27 +3428,29 @@
                 "adamwojs/php-cs-fixer-phpdoc-force-fqcn": "^2.0",
                 "bamarni/composer-bin-plugin": "^1.9",
                 "brainmaestro/composer-git-hooks": "^3.0",
-                "composer/composer": "^2.9",
                 "dg/bypass-finals": "^1.9",
                 "ergebnis/composer-normalize": "^2.50",
                 "ergebnis/license": "^2.7",
                 "ergebnis/php-cs-fixer-config": "^6.60",
-                "ergebnis/rector-rules": "^1.14",
+                "ergebnis/phpstan-rules": "^2.13",
+                "ergebnis/rector-rules": "^1.15",
                 "fakerphp/faker": "^1.24",
                 "guanguans/php-cs-fixer-custom-fixers": "^1.2",
                 "guanguans/phpstan-rules": "^1.1",
                 "guanguans/rector-rules": "^1.7",
                 "illuminate/support": "^12.55 || ^13.0",
+                "jbelien/phpstan-sarif-formatter": "^1.2",
                 "marcocesarato/php-conventional-changelog": "^1.17",
                 "mockery/mockery": "^1.6",
+                "mrpunyapal/peststan": "^0.1",
                 "mrpunyapal/rector-pest": "^0.2",
                 "nette/utils": "^4.1",
+                "nicksdot/phpstan-phpstorm-error-identifiers": "^0.3",
                 "peckphp/peck": "^0.2",
                 "pestphp/pest": "^3.8 || ^4.0",
                 "pestphp/pest-plugin-arch": "^3.1 || ^4.0",
                 "pestphp/pest-plugin-profanity": "^3.23 || ^4.0",
                 "php-mock/php-mock-phpunit": "^2.15",
-                "phpbench/phpbench": "^1.5",
                 "phpstan/extension-installer": "^1.4",
                 "phpstan/phpstan": "^2.1",
                 "phpstan/phpstan-deprecation-rules": "^2.0",
@@ -3462,14 +3464,19 @@
                 "rector/rector": "^2.3",
                 "rector/swiss-knife": "^2.3",
                 "rector/type-perfect": "^2.1",
+                "roave/backward-compatibility-check": "^8.14",
+                "roave/no-floaters": "^1.13",
                 "shipmonk/composer-dependency-analyser": "^1.8",
                 "shipmonk/dead-code-detector": "^0.15",
                 "shipmonk/name-collision-detector": "^2.1",
                 "shipmonk/phpstan-baseline-per-identifier": "^2.3",
+                "shipmonk/phpstan-rules": "^4.3",
+                "sidz/phpstan-rules": "^0.5",
                 "spatie/invade": "^2.1",
-                "spatie/pest-plugin-snapshots": "^2.3",
                 "spaze/phpstan-disallowed-calls": "^4.9",
+                "staabm/annotate-pull-request-from-checkstyle": "^1.8",
                 "staabm/phpstan-todo-by": "^0.3",
+                "staabm/side-effects-detector": "^1.0",
                 "symfony/thanks": "^1.4",
                 "symfony/var-dumper": "^7.4 || ^8.0",
                 "symplify/coding-standard": "^13.0",
@@ -3560,7 +3567,7 @@
                     "type": "sponsors"
                 }
             ],
-            "time": "2026-03-19T09:19:23+00:00"
+            "time": "2026-03-25T08:43:09+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
