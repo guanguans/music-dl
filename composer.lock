@@ -13218,16 +13218,16 @@
         },
         {
             "name": "spaze/phpstan-disallowed-calls",
-            "version": "v4.9.0",
+            "version": "v4.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spaze/phpstan-disallowed-calls.git",
-                "reference": "e80372a55bdad13d22a62fdf2116a67a5438c34b"
+                "reference": "382dd9b251b82f8ca81538b89200e69dfce44489"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spaze/phpstan-disallowed-calls/zipball/e80372a55bdad13d22a62fdf2116a67a5438c34b",
-                "reference": "e80372a55bdad13d22a62fdf2116a67a5438c34b",
+                "url": "https://api.github.com/repos/spaze/phpstan-disallowed-calls/zipball/382dd9b251b82f8ca81538b89200e69dfce44489",
+                "reference": "382dd9b251b82f8ca81538b89200e69dfce44489",
                 "shasum": ""
             },
             "require": {
@@ -13267,13 +13267,13 @@
                     "homepage": "https://www.michalspacek.cz"
                 }
             ],
-            "description": "PHPStan rules to detect disallowed method & function calls, constant, namespace, attribute & superglobal usages, with powerful rules to re-allow a call or a usage in places where it should be allowed.",
+            "description": "PHPStan rules to detect disallowed method & function calls, constant, namespace, attribute, property & superglobal usages, with powerful rules to re-allow a call or a usage in places where it should be allowed.",
             "keywords": [
                 "static analysis"
             ],
             "support": {
                 "issues": "https://github.com/spaze/phpstan-disallowed-calls/issues",
-                "source": "https://github.com/spaze/phpstan-disallowed-calls/tree/v4.9.0"
+                "source": "https://github.com/spaze/phpstan-disallowed-calls/tree/v4.9.1"
             },
             "funding": [
                 {
@@ -13281,7 +13281,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-03-13T22:27:50+00:00"
+            "time": "2026-03-26T20:37:24+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
