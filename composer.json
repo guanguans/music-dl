@@ -222,8 +222,6 @@
             "@composer:normalize-dry-run",
             "@detect-collisions",
             "@facade:lint",
-            "@jack:breakpoint",
-            "@jack:open-versions-dry-run",
             "@jack:raise-to-installed-dry-run",
             "@phpmnd",
             "@phpstan:analyse",

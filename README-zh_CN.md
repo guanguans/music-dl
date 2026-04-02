@@ -8,13 +8,13 @@
 
 > :warning: 本工具仅用于学习交流，禁止将本工具用于商业用途，如产生法律纠纷与本人无关。
 
-[![tests](https://github.com/guanguans/music-dl/workflows/tests/badge.svg)](https://github.com/guanguans/music-dl/actions)
-[![codecov](https://codecov.io/gh/guanguans/music-dl/branch/master/graph/badge.svg?token=Ja51ScYtHN)](https://codecov.io/gh/guanguans/music-dl)
-[![check & fix styling](https://github.com/guanguans/music-dl/actions/workflows/php-cs-fixer.yml/badge.svg)](https://github.com/guanguans/music-dl/actions)
-[![Latest Stable Version](https://poser.pugx.org/guanguans/music-dl/v)](//packagist.org/packages/guanguans/music-dl)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/guanguans/music-dl)
-[![Total Downloads](https://poser.pugx.org/guanguans/music-dl/downloads)](//packagist.org/packages/guanguans/music-dl)
-[![License](https://poser.pugx.org/guanguans/music-dl/license)](//packagist.org/packages/guanguans/music-dl)
+[![tests](https://github.com/guanguans/music-dl/actions/workflows/tests.yml/badge.svg)](https://github.com/guanguans/music-dl/actions/workflows/tests.yml)
+[![php-cs-fixer](https://github.com/guanguans/music-dl/actions/workflows/php-cs-fixer.yml/badge.svg)](https://github.com/guanguans/music-dl/actions/workflows/php-cs-fixer.yml)
+[![codecov](https://codecov.io/gh/guanguans/music-dl/graph/badge.svg?token=EWBG8GV4JD)](https://codecov.io/gh/guanguans/music-dl)
+[![Latest Stable Version](https://poser.pugx.org/guanguans/music-dl/v)](https://packagist.org/packages/guanguans/music-dl)
+[![GitHub release (with filter)](https://img.shields.io/github/v/release/guanguans/music-dl)](https://github.com/guanguans/music-dl/releases)
+[![Total Downloads](https://poser.pugx.org/guanguans/music-dl/downloads)](https://packagist.org/packages/guanguans/music-dl)
+[![License](https://poser.pugx.org/guanguans/music-dl/license)](https://packagist.org/packages/guanguans/music-dl)
 
 ## 环境要求
 
@@ -87,9 +87,11 @@ Options:
 
 ![usage](resources/images/music-dl.gif)
 
-## 测试
+## Composer scripts
 
-```bash
+```shell
+composer checks:required
+composer php-cs-fixer:fix
 composer test
 ```
 

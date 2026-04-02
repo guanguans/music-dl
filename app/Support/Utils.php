@@ -31,6 +31,8 @@ final class Utils
     }
 
     /**
+     * @param array<string, mixed> $song
+     *
      * @throws \App\Exceptions\RuntimeException
      */
     public static function savedPathFor(array $song, ?string $savedDirectory = null, string $defaultExt = 'mp3'): string

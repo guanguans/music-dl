@@ -56,6 +56,8 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
     use LockableTrait;
     use Prohibitable;
     use Rescuer;
+
+    #[\Override]
     protected $signature = <<<'SIGNATURE'
         music
         {keyword? : Search keyword for music}
@@ -68,6 +70,8 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
         {--P|per-page=30 : Specify the per page number}
         {--s|sources=* : Specify the music sources(tencent、netease、kugou)}
         SIGNATURE;
+
+    #[\Override]
     protected $description = 'Search and download music';
     private MusicContract $music;
 
@@ -180,6 +184,9 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
         isset($defaultDirectory) and File::ensureDirectoryExists($defaultDirectory);
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     private function rules(): array
     {
         return [
@@ -187,7 +194,7 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
             'directory' => [
                 'nullable',
                 'string',
-                static function (string $attribute, mixed $value, \Closure $fail): void {
+                static function (string $_, mixed $value, \Closure $fail): void {
                     if (!File::isDirectory($value) || !File::isWritable($value)) {
                         $fail('validation.directory')->translate();
                     }
@@ -215,10 +222,8 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
 
     /**
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
-     *
-     * @codeCoverageIgnore
      */
-    private function reHandle(array $arguments = []): void
+    private function reHandle(array $arguments = []): void // codeCoverageIgnoreStart
     {
         /**
          * @see \Illuminate\Console\Concerns\CallsCommands::runCommand()
@@ -243,5 +248,5 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
         }
 
         $this->handle();
-    }
+    } // codeCoverageIgnoreEnd
 }

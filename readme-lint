@@ -27,14 +27,14 @@ app()->singleton(OutputStyle::class, static fn (): OutputStyle => new OutputStyl
 new Pipeline(app())
     ->send(glob('README-*.md'))
     ->through([
-        pipeFor(static function (string $translatedReadme, string $readme): Result {
+        pipe_for(static function (string $translatedReadme, string $readme): Result {
             if (\count(file($translatedReadme)) !== \count(file($readme))) {
                 return Error::create("The file [$translatedReadme] has a different number of lines than [$readme]");
             }
 
             return Success::create('ok');
         }),
-        pipeFor(static function (string $translatedReadme, string $readme): Result {
+        pipe_for(static function (string $translatedReadme, string $readme): Result {
             $translatedReadmeFile = file($translatedReadme);
 
             foreach (file($readme) as $lineNumber => $line) {
@@ -93,7 +93,7 @@ new Pipeline(app())
                     && !str($translatedReadmeFile[$lineNumber])->startsWith(str($line)->before(' ')->append(' '))
                 ) {
                     /** @noinspection OffsetOperationsInspection */
-                    app(OutputStyle::class)->listing([
+                    resolve(OutputStyle::class)->listing([
                         $line,
                         $translatedReadmeFile[$lineNumber],
                     ]);
@@ -111,7 +111,7 @@ new Pipeline(app())
         }),
     ])
     ->then(static function (): void {
-        app(OutputStyle::class)->success('All readme files are ok');
+        resolve(OutputStyle::class)->success('All readme files are ok');
 
         exit(0);
     });
@@ -121,12 +121,12 @@ new Pipeline(app())
  *
  * @return \Closure(array, \Closure): array
  */
-function pipeFor(Closure $checker): Closure
+function pipe_for(Closure $checker): Closure
 {
     return static function (array $translatedReadmes, Closure $next) use ($checker): array {
         foreach ($translatedReadmes as $translatedReadme) {
             if ($value = $checker($translatedReadme, 'README.md')->error()->getOrElse(null)) {
-                app(OutputStyle::class)->error($value);
+                resolve(OutputStyle::class)->error($value);
 
                 exit(1);
             }

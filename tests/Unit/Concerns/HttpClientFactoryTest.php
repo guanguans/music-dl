@@ -20,7 +20,7 @@ declare(strict_types=1);
 
 use App\Concerns\HttpClientFactory;
 
-uses(HttpClientFactory::class);
+pest()->use(HttpClientFactory::class);
 
 it('can create http client', function (): void {
     expect($this->createHttpClient())->toBe($this->createHttpClient());

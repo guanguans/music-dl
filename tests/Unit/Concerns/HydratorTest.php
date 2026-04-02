@@ -21,7 +21,7 @@ declare(strict_types=1);
 use App\Concerns\Hydrator;
 use Illuminate\Support\Collection;
 
-uses(Hydrator::class);
+pest()->use(Hydrator::class);
 
 it('can batch sanitize songs', function (Collection $songs): void {
     expect($this)->hydrates($songs, '腰乐队')->toBeInstanceOf(Collection::class);

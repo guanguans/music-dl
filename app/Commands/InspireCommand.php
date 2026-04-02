@@ -19,7 +19,10 @@ use LaravelZero\Framework\Commands\Command;
 
 final class InspireCommand extends Command
 {
+    #[\Override]
     protected $signature = 'inspire {name=Artisan}';
+
+    #[\Override]
     protected $description = 'Display an inspiring quote';
 
     public function handle(): void

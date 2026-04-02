@@ -15,6 +15,7 @@ namespace App;
 
 use App\Concerns\HttpClientFactory;
 use App\Support\Meting;
+use GuzzleHttp\RequestOptions;
 use Illuminate\Contracts\Concurrency\Driver;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Concurrency;
@@ -87,8 +88,8 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
     {
         $this->timebox->call(
             fn (): ResponseInterface => $this->createHttpClient()->get($url, [
-                'sink' => $savedPath,
-                'progress' => static function (int $totalDownload, int $downloaded) use (&$progress, $savedPath): void {
+                RequestOptions::SINK => $savedPath,
+                RequestOptions::PROGRESS => static function (int $totalDownload, int $downloaded) use (&$progress, $savedPath): void {
                     if (0 === $totalDownload || 0 === $downloaded || 'submit' === $progress?->state) {
                         return;
                     }

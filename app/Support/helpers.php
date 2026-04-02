@@ -57,7 +57,7 @@ if (!\function_exists('App\Support\classes')) {
                     static fn (string $file, string $class) => $filter($class, $file)
                 )
             )
-            ->mapWithKeys(static function (string $file, string $class): array {
+            ->mapWithKeys(static function (string $_, string $class): array {
                 try {
                     // return [$class => (new ErrorHandler)->with(static fn () => new ReflectionClass($class))];
                     return [$class => new \ReflectionClass($class)];

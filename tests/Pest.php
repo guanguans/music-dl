@@ -7,6 +7,8 @@
 /** @noinspection PhpUnhandledExceptionInspection */
 /** @noinspection PhpVoidFunctionResultUsedInspection */
 /** @noinspection StaticClosureCanBeUsedInspection */
+/** @noinspection PhpUndefinedFieldInspection */
+/** @noinspection PhpUnused */
 declare(strict_types=1);
 
 /**
@@ -25,21 +27,29 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Testing\TestResponse;
 use Mockery\MockInterface;
 use Pest\Expectation;
 use Tests\TestCase;
 
-uses(TestCase::class)
+// pest()
+//     ->browser()
+//     // ->headed()
+//     // ->inFirefox()
+//     // ->inSafari()
+//     ->timeout(10000);
+// pest()->only();
+// pest()->printer()->compact();
+pest()->project()->github('guanguans/music-dl');
+pest()
+    ->extend(TestCase::class)
     ->beforeAll(function (): void {
         BypassFinals::enable(bypassReadOnly: false);
-        BypassFinals::allowPaths([
-            \dirname(__DIR__).'/app/*',
-            // '*/app/*',
-        ]);
-        BypassFinals::denyPaths([
-            '*/vendor/*',
-        ]);
+        BypassFinals::allowPaths([\dirname(__DIR__).'/app/*']);
+        BypassFinals::denyPaths(['*/vendor/*']);
         BypassFinals::setCacheDirectory(__DIR__.'/../.build/bypass-finals/');
     })
     ->beforeEach(function (): void {
@@ -58,6 +68,7 @@ uses(TestCase::class)
     })
     ->afterEach(function (): void {})
     ->afterAll(function (): void {})
+    ->group(__DIR__)
     ->in(
         // __DIR__,
         __DIR__.'/Arch',
@@ -76,15 +87,67 @@ uses(TestCase::class)
 |
 */
 
-expect()->extend('toAssert', function (Closure $assertions): Expectation {
-    $assertions($this->value);
+/**
+ * @see Expectation::toBeBetween()
+ */
+expect()->extend(
+    'toAssert',
+    function (Closure $assertions): Expectation {
+        $assertions($this->value);
 
-    return $this;
+        return $this;
+    }
+);
+
+/**
+ * @see Expectation::toBeBetween()
+ */
+expect()->extend(
+    'toBetween',
+    fn (int $min, int $max): Expectation => expect($this->value)
+        ->toBeGreaterThanOrEqual($min)
+        ->toBeLessThanOrEqual($max)
+);
+
+expect()->intercept('toBe', Model::class, function (Model $expected): void {
+    expect($this->value->id)->toBe($expected->id);
 });
 
-expect()->extend('toBetween', fn (int $min, int $max): Expectation => expect($this->value)
-    ->toBeGreaterThanOrEqual($min)
-    ->toBeLessThanOrEqual($max));
+expect()->pipe('toBe', function (Closure $next, mixed $expected): ?Expectation {
+    if ($this->value instanceof Model) {
+        return expect($this->value->id)->toBe($expected->id);
+    }
+
+    return $next();
+});
+
+/**
+ * @see Expectation::toMatchSnapshot()
+ */
+expect()->pipe('toMatchSnapshot', function (Closure $next): void {
+    $flags = \JSON_INVALID_UTF8_IGNORE |
+        \JSON_INVALID_UTF8_SUBSTITUTE |
+        \JSON_PARTIAL_OUTPUT_ON_ERROR |
+        \JSON_PRESERVE_ZERO_FRACTION |
+        \JSON_PRETTY_PRINT |
+        \JSON_THROW_ON_ERROR |
+        \JSON_UNESCAPED_SLASHES |
+        \JSON_UNESCAPED_UNICODE;
+    $basePath = \dirname(__DIR__).\DIRECTORY_SEPARATOR;
+    $this->value = match (true) {
+        $this->value instanceof JsonResponse,
+        $this->value instanceof TestResponse => str($this->value->getContent())->remove($basePath)->toString(),
+        \is_object($this->value) && method_exists($this->value, '__toString'),
+        \is_string($this->value) => str($this->value)->remove($basePath)->toString(),
+        \is_array($this->value) => json_encode($this->value, $flags),
+        $this->value instanceof Traversable => json_encode(iterator_to_array($this->value), $flags),
+        $this->value instanceof JsonSerializable => json_encode($this->value->jsonSerialize(), $flags),
+        \is_object($this->value) && method_exists($this->value, 'toArray') => json_encode($this->value->toArray(), $flags),
+        default => $this->value,
+    };
+
+    $next();
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -98,7 +161,7 @@ expect()->extend('toBetween', fn (int $min, int $max): Expectation => expect($th
 */
 
 /**
- * @throws \ReflectionException
+ * @throws ReflectionException
  */
 function class_namespace(object|string $class): string
 {
@@ -107,21 +170,14 @@ function class_namespace(object|string $class): string
     return new ReflectionClass($class)->getNamespaceName();
 }
 
+function downloads_path(string $path = ''): string
+{
+    return base_path('tests/Fixtures/Downloads/'.$path);
+}
+
 function fixtures_path(string $path = ''): string
 {
-    return __DIR__.'/Fixtures'.($path ? \DIRECTORY_SEPARATOR.$path : $path);
-}
-
-function running_in_github_action(): bool
-{
-    return 'true' === getenv('GITHUB_ACTIONS');
-}
-
-function reset_http_fake(?Factory $factory = null): void
-{
-    (function (): void {
-        $this->stubCallbacks = collect();
-    })->call($factory ?? Http::getFacadeRoot());
+    return __DIR__.\DIRECTORY_SEPARATOR.'Fixtures'.($path ? \DIRECTORY_SEPARATOR.$path : $path);
 }
 
 /**
@@ -136,7 +192,14 @@ function mock_meting(): Meting&MockInterface
     return $mockMeting->makePartial();
 }
 
-function downloads_path(string $path = ''): string
+function reset_http_fake(?Factory $factory = null): void
 {
-    return base_path('tests/Fixtures/Downloads/'.$path);
+    (function (): void {
+        $this->stubCallbacks = collect();
+    })->call($factory ?? Http::getFacadeRoot());
+}
+
+function running_in_github_action(): bool
+{
+    return 'true' === getenv('GITHUB_ACTIONS');
 }

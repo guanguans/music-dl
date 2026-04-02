@@ -31,6 +31,8 @@ trait Sanitizer
     }
 
     /**
+     * @param array<string, mixed> $song
+     *
      * @return array<string, null|scalar>
      */
     public function sanitize(array $song, string $keyword): array

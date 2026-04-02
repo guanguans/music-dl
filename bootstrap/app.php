@@ -170,7 +170,7 @@ return Application::configure(basePath: \dirname(__DIR__))
                 })->call($validationException)
             )
             ->dontReport(Throwable::class)
-            ->reportable(static fn (Throwable $throwable): false => false)
+            ->reportable(static fn (Throwable $_): false => false)
             ->stop();
     })
     ->create();

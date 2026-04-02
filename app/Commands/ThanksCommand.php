@@ -20,12 +20,16 @@ use LaravelZero\Framework\Commands\Command;
 final class ThanksCommand extends Command
 {
     /** The Command messages. */
-    protected const array FUNDING_MESSAGES = [
+    private const array FUNDING_MESSAGES = [
         '',
         '  - Star or contribute to Music DL:',
         '    <options=bold>https://github.com/guanguans/music-dl</>',
     ];
+
+    #[\Override]
     protected $signature = 'thanks';
+
+    #[\Override]
     protected $description = 'Thanks for using this tool.';
 
     public function handle(): void

@@ -28,7 +28,7 @@ use Illuminate\Validation\ValidationException;
 use Symfony\Component\Process\Process;
 use function Illuminate\Support\php_binary;
 
-uses(Hydrator::class)->beforeEach(function (): void {
+pest()->use(Hydrator::class)->beforeEach(function (): void {
     // Prompt::fallbackWhen(true);
 });
 

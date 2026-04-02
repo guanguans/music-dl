@@ -29,8 +29,7 @@ it('can get getContextProviders', function (): void {
         ->toBeInstanceOf(ServerDumper::class);
 
     expect(new ServerDumper(config('services.var_dump_server.host')))
-        ->getContextProviders()->toBeArray()
-        ->each->toBeInstanceOf(ContextProviderInterface::class);
+        ->getContextProviders()->toBeArray()->toContainOnlyInstancesOf(ContextProviderInterface::class);
 
     dump(true);
 })->group(__DIR__, __FILE__);

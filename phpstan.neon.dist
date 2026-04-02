@@ -54,6 +54,8 @@ parameters:
         allRules: true
         booleansInConditions: false
         disallowedShortTernary: false
+#    sidzIgnoreNumericStrings: true
+    sidzIgnoreMagicNumbers: [2, 3, 20, 100, 600, 512, 0o755, 1000, 3820]
     cognitive_complexity:
         class: 42
         function: 8
@@ -113,3 +115,23 @@ parameters:
             paths:
                 - app/Commands/ThanksCommand.php
                 - app/Support/Utils.php
+
+
+
+        - identifier: shipmonk.checkedExceptionInCallable
+        - identifier: ergebnis.noParameterWithNullableTypeDeclaration
+        - identifier: ergebnis.noExtends
+        - identifier: ergebnis.noParameterWithNullDefaultValue
+        - identifier: ergebnis.noConstructorParameterWithDefaultValue
+        - identifier: guanguans.forbiddenSideEffects
+        - identifier: shipmonk.binaryOperationWithNull
+        - identifier: ergebnis.noIsset
+        - identifier: public.method.unused
+        - identifier: shipmonk.forbiddenCast
+        - identifier: ergebnis.noNamedArgument
+        - identifier: shipmonk.unusedParameter
+        - identifier: shipmonk.unusedMatchResult
+        - identifier: shipmonk.nonNormalizedType
+        - identifier: ergebnis.noNullableReturnTypeDeclaration
+        - identifier: callable.nonCallable
+        - identifier: shipmonk.unusedException
