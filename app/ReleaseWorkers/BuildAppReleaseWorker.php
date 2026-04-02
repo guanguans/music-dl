@@ -48,6 +48,12 @@ final class BuildAppReleaseWorker extends AbstractReleaseWorker
     }
 
     #[\Override]
+    public function getDescription(Version $version): string
+    {
+        return \sprintf('Build app "%s"', $version->getOriginalString());
+    }
+
+    #[\Override]
     public function work(Version $version): void
     {
         $this->processRunner->run([
@@ -92,12 +98,6 @@ final class BuildAppReleaseWorker extends AbstractReleaseWorker
             '--ansi',
             '-v',
         ]);
-    }
-
-    #[\Override]
-    public function getDescription(Version $version): string
-    {
-        return \sprintf('Build app "%s"', $version->getOriginalString());
     }
 
     private static function findComposer(?string $default = 'composer', array $extraDirs = []): string

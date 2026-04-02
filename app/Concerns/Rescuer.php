@@ -21,9 +21,6 @@ use Illuminate\Contracts\Debug\ExceptionHandler;
 trait Rescuer
 {
     /**
-     * @noinspection RedundantDocCommentTagInspection
-     * @noinspection PhpMixedReturnTypeCanBeReducedInspection
-     *
      * @template TValue
      *
      * @param callable(): TValue $callback
@@ -32,6 +29,9 @@ trait Rescuer
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      *
      * @return \Throwable|TValue
+     *
+     * @noinspection RedundantDocCommentTagInspection
+     * @noinspection PhpMixedReturnTypeCanBeReducedInspection
      */
     public function rescue(callable $callback, bool|callable $report = false): mixed
     {

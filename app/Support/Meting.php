@@ -16,9 +16,9 @@ namespace App\Support;
 final class Meting extends \Metowolf\Meting
 {
     /**
-     * @noinspection ClassOverridesFieldOfSuperClassInspection
-     *
      * @api
+     *
+     * @noinspection ClassOverridesFieldOfSuperClassInspection
      */
     protected array $temp = [];
 

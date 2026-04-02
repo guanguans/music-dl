@@ -15,7 +15,6 @@ namespace App;
 
 use App\Concerns\HttpClientFactory;
 use App\Support\Meting;
-use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Contracts\Concurrency\Driver;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Concurrency;
@@ -81,8 +80,8 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
     }
 
     /**
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Throwable
-     * @throws GuzzleException
      */
     public function download(string $url, string $savedPath): void
     {

@@ -33,12 +33,12 @@ if (!\function_exists('App\Support\classes')) {
      * @see \PhpCsFixer\ExecutorWithoutErrorHandler
      * @see \Phrity\Util\ErrorHandler
      *
-     * @noinspection RedundantDocCommentTagInspection
-     * @noinspection PhpUndefinedNamespaceInspection
-     *
      * @param null|(callable(class-string, string): bool) $filter
      *
      * @return \Illuminate\Support\Collection<class-string, \ReflectionClass>
+     *
+     * @noinspection RedundantDocCommentTagInspection
+     * @noinspection PhpUndefinedNamespaceInspection
      */
     function classes(?callable $filter = null): Collection
     {
@@ -54,10 +54,7 @@ if (!\function_exists('App\Support\classes')) {
             ->when(
                 \is_callable($filter),
                 static fn (Collection $classes): Collection => $classes->filter(
-                    static function (string $file, string $class) use ($filter) {
-                        /** @var callable(class-string, string): bool $filter */
-                        return $filter($class, $file);
-                    }
+                    static fn (string $file, string $class) => $filter($class, $file)
                 )
             )
             ->mapWithKeys(static function (string $file, string $class): array {

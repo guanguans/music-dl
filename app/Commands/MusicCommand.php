@@ -72,10 +72,10 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
     private MusicContract $music;
 
     /**
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     *
      * @noinspection PhpVoidFunctionResultUsedInspection
      * @noinspection PhpStaticAsDynamicMethodCallInspection
-     *
-     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function handle(): void
     {
@@ -214,9 +214,9 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
     }
 
     /**
-     * @codeCoverageIgnore
-     *
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     *
+     * @codeCoverageIgnore
      */
     private function reHandle(array $arguments = []): void
     {

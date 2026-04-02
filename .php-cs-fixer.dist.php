@@ -3,12 +3,12 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2021-2026 guanguans<ityaozm@gmail.com>
+ * Copyright (c) 2019-2026 guanguans<ityaozm@gmail.com>
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
  *
- * @see https://github.com/guanguans/laravel-exception-notify
+ * @see https://github.com/guanguans/music-dl
  */
 
 use Ergebnis\License\Holder;
@@ -47,7 +47,7 @@ return Factory::fromRuleSet(Php82::create()
     ->withRules(Rules::fromArray(require __DIR__.'/vendor/guanguans/php-cs-fixer-custom-fixers/config/rules.php'))
     ->withRules(Rules::fromArray([
         '@autoPHPUnitMigration:risky' => true,
-        'final_public_method_for_abstract_class' => false,
+        'PhpCsFixerCustomFixers/no_useless_dirname_call' => false,
     ])))
     ->setUsingCache(true)
     ->setCacheFile(\sprintf('%s/.build/php-cs-fixer/%s.cache', __DIR__, pathinfo(__FILE__, \PATHINFO_FILENAME)))

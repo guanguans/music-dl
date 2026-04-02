@@ -18,7 +18,6 @@ use Illuminate\Support\Str;
 
 final class Utils
 {
-    /** @var positive-int */
     public const int ARTIST_TAKE = 3;
 
     /**
