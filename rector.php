@@ -6,7 +6,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2019-2025 guanguans<ityaozm@gmail.com>
+ * Copyright (c) 2019-2026 guanguans<ityaozm@gmail.com>
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -25,7 +25,9 @@ use Illuminate\Support\Carbon as IlluminateCarbon;
 use Illuminate\Support\Str;
 use Rector\CodeQuality\Rector\If_\ExplicitBoolCompareRector;
 use Rector\CodeQuality\Rector\LogicalAnd\LogicalToBooleanRector;
+use Rector\CodingStyle\Rector\ArrowFunction\ArrowFunctionDelegatingCallToFirstClassCallableRector;
 use Rector\CodingStyle\Rector\ArrowFunction\StaticArrowFunctionRector;
+use Rector\CodingStyle\Rector\ClassLike\NewlineBetweenClassLikeStmtsRector;
 use Rector\CodingStyle\Rector\Closure\StaticClosureRector;
 use Rector\CodingStyle\Rector\Encapsed\EncapsedStringsToSprintfRector;
 use Rector\CodingStyle\Rector\Encapsed\WrapEncapsedVariableInCurlyBracesRector;
@@ -37,8 +39,10 @@ use Rector\DowngradePhp81\Rector\Array_\DowngradeArraySpreadStringKeyRector;
 use Rector\EarlyReturn\Rector\Return_\ReturnBinaryOrToEarlyReturnRector;
 use Rector\Php73\Rector\FuncCall\JsonThrowOnErrorRector;
 use Rector\Php83\Rector\ClassMethod\AddOverrideAttributeToOverriddenMethodsRector;
+use Rector\Php85\Rector\Property\AddOverrideAttributeToOverriddenPropertiesRector;
 use Rector\PHPUnit\CodeQuality\Rector\Class_\AddSeeTestAnnotationRector;
 use Rector\PHPUnit\Set\PHPUnitSetList;
+use Rector\Privatization\Rector\ClassConst\PrivatizeFinalClassConstantRector;
 use Rector\Renaming\Rector\FuncCall\RenameFunctionRector;
 use Rector\Renaming\Rector\Name\RenameClassRector;
 use Rector\Strict\Rector\Empty_\DisallowedEmptyRuleFixerRector;
@@ -47,12 +51,10 @@ use Rector\Transform\Rector\StaticCall\StaticCallToFuncCallRector;
 use Rector\Transform\ValueObject\FuncCallToStaticCall;
 use Rector\Transform\ValueObject\StaticCallToFuncCall;
 use Rector\ValueObject\PhpVersion;
-use Rector\ValueObject\Visibility;
-use Rector\Visibility\Rector\ClassMethod\ChangeMethodVisibilityRector;
-use Rector\Visibility\ValueObject\ChangeMethodVisibility;
 use RectorLaravel\Rector\ArrayDimFetch\ArrayToArrGetRector;
 use RectorLaravel\Rector\ArrayDimFetch\ServerVariableToRequestFacadeRector;
 use RectorLaravel\Rector\Empty_\EmptyToBlankAndFilledFuncRector;
+use RectorLaravel\Rector\FuncCall\AppToResolveRector;
 use RectorLaravel\Rector\FuncCall\HelperFuncCallToFacadeClassRector;
 use RectorLaravel\Rector\FuncCall\RemoveDumpDataDeadCodeRector;
 use RectorLaravel\Rector\FuncCall\TypeHintTappableCallRector;
@@ -63,14 +65,13 @@ use RectorLaravel\Rector\MethodCall\ValidationRuleArrayStringValueToArrayRector;
 use RectorLaravel\Rector\StaticCall\DispatchToHelperFunctionsRector;
 use RectorLaravel\Set\LaravelSetList;
 use function App\Support\classes;
-use function Illuminate\Filesystem\join_paths;
 
 return RectorConfig::configure()
     ->withAutoloadPaths([
         // __DIR__.'/vendor/symplify/monorepo-builder/vendor/autoload.php',
     ])
     ->withBootstrapFiles([
-        __DIR__.'/vendor/symplify/monorepo-builder/vendor/autoload.php',
+        // __DIR__.'/vendor/symplify/monorepo-builder/vendor/autoload.php',
     ])
     ->withPaths([
         __DIR__.'/app/',
@@ -112,9 +113,9 @@ return RectorConfig::configure()
     ->withFluentCallNewLine()
     ->withAttributesSets(phpunit: true, all: true)
     ->withComposerBased(phpunit: true)
-    ->withPhpVersion(PhpVersion::PHP_84)
-    ->withDowngradeSets(php84: true)
-    ->withPhpSets(php84: true)
+    ->withPhpVersion(PhpVersion::PHP_85)
+    // ->withDowngradeSets(php85: true)
+    ->withPhpSets(php85: true)
     ->withPreparedSets(
         deadCode: true,
         codeQuality: true,
@@ -148,7 +149,7 @@ return RectorConfig::configure()
         AddSeeTestAnnotationRector::class,
         ArraySpreadInsteadOfArrayMergeRector::class,
         JsonThrowOnErrorRector::class,
-        SimplifyListIndexRector::class,
+        // SimplifyListIndexRector::class,
         SortAssociativeArrayByKeyRector::class,
         StaticArrowFunctionRector::class,
         StaticClosureRector::class,
@@ -158,21 +159,21 @@ return RectorConfig::configure()
             // ->dd()
             ->all(),
     ])
-    ->withConfiguredRule(AddNoinspectionsDocCommentToDeclareRector::class, [
-        'AnonymousFunctionStaticInspection',
-        'NullPointerExceptionInspection',
-        'PhpPossiblePolymorphicInvocationInspection',
-        'PhpUndefinedClassInspection',
-        'PhpUnhandledExceptionInspection',
-        'PhpVoidFunctionResultUsedInspection',
-        'StaticClosureCanBeUsedInspection',
-    ])
-    ->withConfiguredRule(NewExceptionToNewAnonymousExtendsExceptionImplementsRector::class, [
-        Throwable::class,
-    ])
-    ->withConfiguredRule(RemoveNamespaceRector::class, [
-        'Tests',
-    ])
+    // ->withConfiguredRule(AddNoinspectionsDocCommentToDeclareRector::class, [
+    //     'AnonymousFunctionStaticInspection',
+    //     'NullPointerExceptionInspection',
+    //     'PhpPossiblePolymorphicInvocationInspection',
+    //     'PhpUndefinedClassInspection',
+    //     'PhpUnhandledExceptionInspection',
+    //     'PhpVoidFunctionResultUsedInspection',
+    //     'StaticClosureCanBeUsedInspection',
+    // ])
+    // ->withConfiguredRule(NewExceptionToNewAnonymousExtendsExceptionImplementsRector::class, [
+    //     Throwable::class,
+    // ])
+    // ->withConfiguredRule(RemoveNamespaceRector::class, [
+    //     'Tests',
+    // ])
     ->withConfiguredRule(RemoveAnnotationRector::class, [
         // 'codeCoverageIgnore',
         'inheritDoc',
@@ -189,32 +190,6 @@ return RectorConfig::configure()
     ->withConfiguredRule(StaticCallToFuncCallRector::class, [
         new StaticCallToFuncCall(Str::class, 'of', 'str'),
     ])
-    ->withConfiguredRule(
-        ChangeMethodVisibilityRector::class,
-        classes(
-            static fn (string $class, string $file): bool => str_starts_with($class, 'App')
-                && str_starts_with(realpath($file), join_paths(__DIR__, 'app'))
-        )
-            ->filter(static fn (ReflectionClass $reflectionClass): bool => $reflectionClass->isTrait())
-            // ->keys()
-            // ->dd()
-            ->map(
-                static fn (ReflectionClass $reflectionClass): array => collect($reflectionClass->getMethods(ReflectionMethod::IS_PRIVATE))
-                    ->reject(static fn (ReflectionMethod $reflectionMethod): bool => $reflectionMethod->isFinal())
-                    ->map(
-                        static fn (ReflectionMethod $reflectionMethod): ChangeMethodVisibility => new ChangeMethodVisibility(
-                            $reflectionClass->getName(),
-                            $reflectionMethod->getName(),
-                            Visibility::PROTECTED
-                        )
-                    )
-                    ->all()
-            )
-            ->flatten()
-            // ->dd()
-            ->values()
-            ->all(),
-    )
     ->withConfiguredRule(
         RenameFunctionRector::class,
         [
@@ -238,8 +213,14 @@ return RectorConfig::configure()
         )
     )
     ->withSkip([
+        AddOverrideAttributeToOverriddenPropertiesRector::class,
+        AppToResolveRector::class,
+        ArrowFunctionDelegatingCallToFirstClassCallableRector::class,
+        NewlineBetweenClassLikeStmtsRector::class,
+        PrivatizeFinalClassConstantRector::class,
+
         DisallowedEmptyRuleFixerRector::class,
-        DowngradeArraySpreadStringKeyRector::class,
+        // DowngradeArraySpreadStringKeyRector::class,
         EncapsedStringsToSprintfRector::class,
         ExplicitBoolCompareRector::class,
         LogicalToBooleanRector::class,
@@ -275,18 +256,18 @@ return RectorConfig::configure()
             __DIR__.'/bootstrap/',
             __DIR__.'/tests/',
         ],
-        AddNoinspectionsDocCommentToDeclareRector::class => [
-            __DIR__.'/app/',
-            __DIR__.'/bootstrap/',
-            ...glob(__DIR__.'/{*,.*}.php', \GLOB_BRACE),
-            __DIR__.'/composer-updater',
-            __DIR__.'/music-dl',
-            __DIR__.'/readme-lint',
-        ],
-        NewExceptionToNewAnonymousExtendsExceptionImplementsRector::class => [
-            __DIR__.'/composer-updater',
-        ],
-        RemoveNamespaceRector::class => [
-            __DIR__.'/tests/TestCase.php',
-        ],
+        // AddNoinspectionsDocCommentToDeclareRector::class => [
+        //     __DIR__.'/app/',
+        //     __DIR__.'/bootstrap/',
+        //     ...glob(__DIR__.'/{*,.*}.php', \GLOB_BRACE),
+        //     __DIR__.'/composer-updater',
+        //     __DIR__.'/music-dl',
+        //     __DIR__.'/readme-lint',
+        // ],
+        // NewExceptionToNewAnonymousExtendsExceptionImplementsRector::class => [
+        //     __DIR__.'/composer-updater',
+        // ],
+        // RemoveNamespaceRector::class => [
+        //     __DIR__.'/tests/TestCase.php',
+        // ],
     ]);

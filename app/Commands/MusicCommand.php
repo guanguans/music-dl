@@ -5,7 +5,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2019-2025 guanguans<ityaozm@gmail.com>
+ * Copyright (c) 2019-2026 guanguans<ityaozm@gmail.com>
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -235,7 +235,7 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
         );
 
         foreach ($input->getArguments() as $name => $value) {
-            \array_key_exists($name, $arguments) and $this->input->setArgument($name, $value);
+            \array_key_exists((string) $name, $arguments) and $this->input->setArgument($name, $value);
         }
 
         foreach ($input->getOptions() as $name => $value) {

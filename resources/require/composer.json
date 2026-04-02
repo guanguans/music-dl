@@ -1,6 +1,6 @@
 {
     "require": {
-        "php": ">=8.4",
+        "php": ">=8.5",
         "laravel-zero/framework": "^12.0",
         "laravel-zero/phar-updater": "^1.4",
         "laravel/framework": "^12.34",

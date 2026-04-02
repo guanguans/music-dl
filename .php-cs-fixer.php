@@ -19,7 +19,7 @@ use Ergebnis\License\Year;
 use Ergebnis\PhpCsFixer\Config\Factory;
 use Ergebnis\PhpCsFixer\Config\Fixers;
 use Ergebnis\PhpCsFixer\Config\Rules;
-use Ergebnis\PhpCsFixer\Config\RuleSet\Php84;
+use Ergebnis\PhpCsFixer\Config\RuleSet\Php85;
 use PhpCsFixer\Finder;
 use PhpCsFixer\Fixer\DeprecatedFixerInterface;
 use PhpCsFixerCustomFixers\Fixer\AbstractFixer;
@@ -30,7 +30,7 @@ putenv('PHP_CS_FIXER_FUTURE_MODE=1');
 putenv('PHP_CS_FIXER_NON_MONOLITHIC=1');
 putenv('PHP_CS_FIXER_PARALLEL=1');
 
-return Factory::fromRuleSet(Php84::create()
+return Factory::fromRuleSet(Php85::create()
     ->withHeader(
         (static function (): string {
             $mit = MIT::text(
@@ -51,7 +51,7 @@ return Factory::fromRuleSet(Php84::create()
     ->withCustomFixers(Fixers::fromFixers(...$phpCsFixerCustomFixers = array_filter(
         iterator_to_array(new PhpCsFixerCustomFixers\Fixers),
         static fn (AbstractFixer $fixer): bool => !$fixer instanceof DeprecatedFixerInterface
-            && !\array_key_exists($fixer->getName(), Php84::create()->rules()->toArray())
+            && !\array_key_exists($fixer->getName(), Php85::create()->rules()->toArray())
     )))
     // ->withRules(Rules::fromArray(array_reduce(
     //     $phpCsFixerCustomFixers,
@@ -93,8 +93,8 @@ return Factory::fromRuleSet(Php84::create()
         // '@PHP81Migration' => true,
         // '@PHP82Migration' => true,
         // '@PHP83Migration' => true,
-        '@PHP8x4Migration' => true,
-        // '@PHP85Migration' => true,
+        // '@PHP8x4Migration' => true,
+        '@PHP8x5Migration' => true,
         // '@PHPUnit75Migration:risky' => true,
         // '@PHPUnit84Migration:risky' => true,
         '@PHPUnit10x0Migration:risky' => true,

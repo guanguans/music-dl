@@ -12,7 +12,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2019-2025 guanguans<ityaozm@gmail.com>
+ * Copyright (c) 2019-2026 guanguans<ityaozm@gmail.com>
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -43,7 +43,6 @@ abstract class TestCase extends BaseTestCase
     use PHPMock;
     protected bool $seed = false;
 
-    #[\Override]
     protected function setUp(): void
     {
         parent::setUp();
@@ -51,7 +50,6 @@ abstract class TestCase extends BaseTestCase
         $this->startMockery();
     }
 
-    #[\Override]
     protected function tearDown(): void
     {
         $this->finish();

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2019-2025 guanguans<ityaozm@gmail.com>
+ * Copyright (c) 2019-2026 guanguans<ityaozm@gmail.com>
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -14,13 +14,13 @@ declare(strict_types=1);
 namespace App\ReleaseWorkers;
 
 use App\Exceptions\RuntimeException;
-use Guanguans\MonorepoBuilderWorker\ReleaseWorker;
+use Guanguans\MonorepoBuilderWorker\ReleaseWorker\AbstractReleaseWorker;
 use PharIo\Version\Version;
 use Symfony\Component\Process\ExecutableFinder;
 use Symfony\Component\Process\PhpExecutableFinder;
 use Symplify\MonorepoBuilder\Release\Process\ProcessRunner;
 
-final class BuildAppReleaseWorker extends ReleaseWorker
+final class BuildAppReleaseWorker extends AbstractReleaseWorker
 {
     public function __construct(private readonly ProcessRunner $processRunner) {}
 

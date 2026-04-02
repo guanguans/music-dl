@@ -30,7 +30,7 @@
         }
     ],
     "require": {
-        "php": ">=8.4",
+        "php": ">=8.5",
         "wikimedia/composer-merge-plugin": "^2.1"
     },
     "require-dev": {
@@ -132,7 +132,7 @@
         },
         "optimize-autoloader": true,
         "platform": {
-            "php": "8.4.0"
+            "php": "8.5.0"
         },
         "platform-check": "php-only",
         "preferred-install": "dist",
@@ -264,7 +264,7 @@
         "composer-require-checker": "@php vendor/bin/composer-require-checker check --config-file=composer-require-checker.json composer.json --ansi -v",
         "composer-require-checker-json": "@php vendor/bin/composer-require-checker check --config-file=composer-require-checker.json composer.json --ansi -v --output=json | jq",
         "composer-unused": "@php vendor/bin/composer-unused --ansi -v",
-        "composer-updater": "@php composer-updater --highest-php-binary=/opt/homebrew/opt/php@8.4/bin/php --except-packages=pestphp/pest-plugin-laravel --ansi",
+        "composer-updater": "@php composer-updater --highest-php-binary=/opt/homebrew/opt/php@8.5/bin/php --except-packages=pestphp/pest-plugin-laravel --ansi",
         "composer-updater-all": [
             "Composer\\Config::disableProcessTimeout",
             "@composer-updater --composer-json-path=resources/require/composer.json",
@@ -272,7 +272,7 @@
         ],
         "composer-updater-bin": [
             "ln -f composer-updater vendor-bin/tools/composer-updater",
-            "@php vendor-bin/tools/composer-updater --highest-php-binary=/opt/homebrew/opt/php@8.4/bin/php --composer-json-path=vendor-bin/tools/composer.json --ansi -v"
+            "@php vendor-bin/tools/composer-updater --highest-php-binary=/opt/homebrew/opt/php@8.5/bin/php --composer-json-path=vendor-bin/tools/composer.json --ansi -v"
         ],
         "composer-updater-dry-run": "@composer-updater --dry-run",
         "composer-updater-php-cs-fixer-config": "@composer-updater --composer-json-path=vendor-bin/php-cs-fixer-config/composer.json",
@@ -346,7 +346,7 @@
         "pest-update-snapshots": "@pest -d --update-snapshots",
         "phparkitect": "@php vendor/bin/phparkitect check --ansi -v",
         "phpcs": "@php vendor/bin/phpcs app/ bootstrap/ config/ resources/ tests/ --extensions=php --ignore=*/vendor/* --parallel=8 --cache --colors -n -p -s -v",
-        "phpcs:compatibility": "@phpcs --standard=PHPCompatibility --exclude=PHPCompatibility.FunctionDeclarations.NewClosure --runtime-set testVersion 8.4-",
+        "phpcs:compatibility": "@phpcs --standard=PHPCompatibility --exclude=PHPCompatibility.FunctionDeclarations.NewClosure --runtime-set testVersion 8.5-",
         "phpcs:help": "@phpcs --help",
         "phpcs:i": "@phpcs -i",
         "phploc": "@php vendor/bin/phploc --suffix=php app/",
@@ -372,7 +372,7 @@
         "psalm": "@php vendor/bin/psalm",
         "psalm-baseline": "@psalm --update-baseline",
         "readme-lint": "@php readme-lint --ansi -v",
-        "rector": "@php vendor/bin/rector --ansi -v",
+        "rector": "@php vendor/bin/rector",
         "rector-clear-cache": "@rector --clear-cache",
         "rector-clear-cache-dry-run": "@rector-clear-cache --dry-run",
         "rector-custom-rule": "@rector custom-rule",
