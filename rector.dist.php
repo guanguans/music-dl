@@ -36,6 +36,7 @@ use Rector\CodingStyle\Rector\Stmt\NewlineAfterStatementRector;
 use Rector\Config\RectorConfig;
 use Rector\DeadCode\Rector\ClassLike\RemoveAnnotationRector;
 use Rector\DowngradePhp81\Rector\Array_\DowngradeArraySpreadStringKeyRector;
+use Rector\EarlyReturn\Rector\If_\ChangeOrIfContinueToMultiContinueRector;
 use Rector\EarlyReturn\Rector\Return_\ReturnBinaryOrToEarlyReturnRector;
 use Rector\Php73\Rector\FuncCall\JsonThrowOnErrorRector;
 use Rector\Php83\Rector\ClassMethod\AddOverrideAttributeToOverriddenMethodsRector;
@@ -91,7 +92,7 @@ return RectorConfig::configure()
                 __DIR__.'/_ide_helper_models.php',
             ], true)
         ),
-        __DIR__.'/composer-updater',
+        __DIR__.'/composer-bump',
         __DIR__.'/music-dl',
         __DIR__.'/readme-lint',
     ])
@@ -219,6 +220,7 @@ return RectorConfig::configure()
         NewlineBetweenClassLikeStmtsRector::class,
         PrivatizeFinalClassConstantRector::class,
 
+        ChangeOrIfContinueToMultiContinueRector::class,
         DisallowedEmptyRuleFixerRector::class,
         // DowngradeArraySpreadStringKeyRector::class,
         EncapsedStringsToSprintfRector::class,
@@ -260,12 +262,12 @@ return RectorConfig::configure()
         //     __DIR__.'/app/',
         //     __DIR__.'/bootstrap/',
         //     ...glob(__DIR__.'/{*,.*}.php', \GLOB_BRACE),
-        //     __DIR__.'/composer-updater',
+        //     __DIR__.'/composer-bump',
         //     __DIR__.'/music-dl',
         //     __DIR__.'/readme-lint',
         // ],
         // NewExceptionToNewAnonymousExtendsExceptionImplementsRector::class => [
-        //     __DIR__.'/composer-updater',
+        //     __DIR__.'/composer-bump',
         // ],
         // RemoveNamespaceRector::class => [
         //     __DIR__.'/tests/TestCase.php',

@@ -139,7 +139,7 @@ return Application::configure(basePath: \dirname(__DIR__))
                     collect($commandStarting->input->getOption('configuration'))
                         // ->dump()
                         ->mapWithKeys(static function (string $configuration): array {
-                            \assert(str_contains($configuration, '='), "The configureable option [$configuration] must be formatted as key=value.");
+                            \assert(str_contains($configuration, '='), "The configurable option [$configuration] must be formatted as key=value.");
 
                             [$key, $value] = str($configuration)->explode('=', 2)->all();
 

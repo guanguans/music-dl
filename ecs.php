@@ -38,7 +38,7 @@ use Symplify\EasyCodingStandard\Config\ECSConfig;
 
 return ECSConfig::configure()
     ->withPaths([
-        __DIR__.'/src/',
+        __DIR__.'/app/',
         __DIR__.'/tests/',
         __DIR__.'/composer-bump',
     ])

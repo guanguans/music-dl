@@ -20,14 +20,14 @@ max_line_length = 0
 [*.bat]
 end_of_line = crlf
 
-[*.go]
-indent_style = tab
+# [*.go]
+# indent_style = tab
 
 [*.md]
 trim_trailing_whitespace = false
 max_line_length = 80
 
-[*.{yml,yml.dist,yaml,yaml.dist,xml,xml.dist}]
+[*.{yml,yml.dist,yaml,yaml.dist,xml,xml.dist,toml}]
 indent_size = 2
 
 [*.{html,css,scss,js,ts,vue,jsx,tsx}]

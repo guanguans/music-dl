@@ -329,7 +329,7 @@
         "mago:lint-dry-run": "@mago:lint --dry-run",
         "mago:lint-list-rules": "@mago lint --list-rules",
         "mago:lint-semantics-only": "@mago lint --semantics-only",
-        "monorepo-builder": "@php vendor/bin/monorepo-builder --config=vendor/guanguans/monorepo-builder-worker/monorepo-builder.php --ansi -vv",
+        "monorepo-builder": "@php vendor/bin/monorepo-builder --config=monorepo-builder.php --ansi -vv",
         "monorepo-builder:release": [
             "@git-chglog",
             "@monorepo-builder release"

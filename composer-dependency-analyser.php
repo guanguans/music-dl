@@ -31,7 +31,7 @@ return (new Configuration)
         __DIR__.'/resources/require/vendor/',
         __DIR__.'/tests/',
     ])
-    // ->enableAnalysisOfUnusedDevDependencies()
+    ->enableAnalysisOfUnusedDevDependencies()
     /** @see \ShipMonk\ComposerDependencyAnalyser\Analyser::CORE_EXTENSIONS */
     ->ignoreErrorsOnExtensions(
         [
@@ -44,6 +44,7 @@ return (new Configuration)
         [
             'laravel-zero/phar-updater',
             'spatie/fork',
+            'ergebnis/composer-normalize',
         ],
         [ErrorType::UNUSED_DEPENDENCY]
     )
