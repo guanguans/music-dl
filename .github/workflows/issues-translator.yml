@@ -3,9 +3,9 @@ name: issues-translator
 on:
   workflow_dispatch:
   issue_comment:
-    types: [ created ]
+    types: [created]
   issues:
-    types: [ opened ]
+    types: [opened]
 
 jobs:
   build:

@@ -1,7 +1,7 @@
 name: 🚀 New feature proposal
 # https://github.com/antfu/.github/tree/main/.github/ISSUE_TEMPLATE
 description: Propose a new feature
-labels: [ enhancement ]
+labels: [enhancement]
 body:
   - type: markdown
     attributes:

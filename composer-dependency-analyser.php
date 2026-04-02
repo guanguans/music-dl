@@ -15,8 +15,6 @@ use ShipMonk\ComposerDependencyAnalyser\Config\Configuration;
 use ShipMonk\ComposerDependencyAnalyser\Config\ErrorType;
 
 return (new Configuration)
-    /** @see composer.json -> autoload */
-    /** @see composer.json -> autoload-dev */
     ->addPathsToScan(
         [
             __DIR__.'/app/',
@@ -33,10 +31,7 @@ return (new Configuration)
         __DIR__.'/resources/require/vendor/',
         __DIR__.'/tests/',
     ])
-    ->disableReportingUnmatchedIgnores()
-    ->enableAnalysisOfUnusedDevDependencies()
-    ->ignoreUnknownClasses([
-    ])
+    // ->enableAnalysisOfUnusedDevDependencies()
     /** @see \ShipMonk\ComposerDependencyAnalyser\Analyser::CORE_EXTENSIONS */
     ->ignoreErrorsOnExtensions(
         [
@@ -55,7 +50,6 @@ return (new Configuration)
     ->ignoreErrorsOnPackages(
         [
             'composer/xdebug-handler',
-            'guanguans/ai-commit',
             'guzzlehttp/guzzle',
             'laravel-zero/foundation',
             'laravel/prompts',
@@ -65,10 +59,4 @@ return (new Configuration)
             'symfony/var-dumper',
         ],
         [ErrorType::SHADOW_DEPENDENCY]
-    )
-    ->ignoreErrorsOnPackages(
-        [
-            // 'guanguans/ai-commit',
-        ],
-        [ErrorType::DEV_DEPENDENCY_IN_PROD]
     );

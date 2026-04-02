@@ -1,0 +1,33 @@
+# https://github.com/crate-ci/typos/blob/master/docs/reference.md
+# https://github.com/crate-ci/typos/wiki
+# https://github.com/GitoxideLabs/gitoxide/blob/main/_typos.toml
+# https://github.com/letsencrypt/boulder/blob/main/.typos.toml
+# https://github.com/nushell/nushell/blob/main/typos.toml
+[files]
+ignore-hidden = false
+extend-exclude = [
+  ".git/",
+  "CHANGELOG.md",
+]
+
+[default]
+extend-ignore-re = [
+  # https://github.com/sirwart/ripsecrets/blob/main/src/lib.rs
+  '\b[0-9A-Za-z+/_-]{36,}\b',  # Anything base64 or base64url longer than 36 chars is probably encoded.
+  "at_[0-9a-zA-Z-]+",  # 忽略以 at_ 开头的令牌字符串
+]
+extend-ignore-identifiers-re = [
+  "[0-9a-f]{7,}",  # Git commit hash
+]
+extend-ignore-words-re = [
+  # "Symplify",
+]
+
+[default.extend-words]
+"Symplify" = "Symplify"
+"reguard" = "reguard"
+"responsable" = "responsable"
+"configureable" = "configureable"
+
+[default.extend-identifiers]
+# "Symplify" = "Symplify"

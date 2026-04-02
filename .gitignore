@@ -6,6 +6,8 @@ vendor/
 
 /vendor-bin/*/*
 !/vendor-bin/*/composer.json
+/resources/require/*
+!/resources/require/composer.json
 
 *.tinker.php
 .DS_Store

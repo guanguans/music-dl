@@ -112,4 +112,4 @@ composer test
 
 ## 协议
 
-MIT 许可证（MIT）。有关更多信息，请参见[协议文件](LICENSE)。
+MIT 许可证(MIT)。有关更多信息，请参见[协议文件](LICENSE)。

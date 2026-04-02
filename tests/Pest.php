@@ -28,7 +28,6 @@ use GuzzleHttp\Psr7\Response;
 use Illuminate\Support\Facades\Http;
 use Mockery\MockInterface;
 use Pest\Expectation;
-use Symfony\Component\Finder\Finder;
 use Tests\TestCase;
 
 uses(TestCase::class)
@@ -42,11 +41,8 @@ uses(TestCase::class)
             '*/vendor/*',
         ]);
         BypassFinals::setCacheDirectory(__DIR__.'/../.build/bypass-finals/');
-
-        clear_same_namespace();
     })
     ->beforeEach(function (): void {
-        clear_same_namespace();
         app()->extend(Meting::class, static fn (): Meting => mock_meting());
         app()->extend(
             Music::class,
@@ -143,15 +139,4 @@ function mock_meting(): Meting&MockInterface
 function downloads_path(string $path = ''): string
 {
     return base_path('tests/Fixtures/Downloads/'.$path);
-}
-
-function clear_same_namespace(): void
-{
-    foreach (
-        Finder::create()
-            ->in(__DIR__.'/../vendor/guanguans/ai-commit/app')
-            ->name('*.php') as $splFileInfo
-    ) {
-        file_put_contents($splFileInfo->getPathname(), '');
-    }
 }

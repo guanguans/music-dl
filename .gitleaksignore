@@ -1,0 +1,3 @@
+# https://github.com/gitleaks/gitleaks/blob/master/.gitleaksignore
+sonar-project.properties:sonar-api-token:15
+codecov.yml:generic-api-key:2

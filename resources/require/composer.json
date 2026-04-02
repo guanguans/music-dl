@@ -1,11 +1,23 @@
 {
     "require": {
         "php": ">=8.5",
-        "laravel-zero/framework": "^12.0",
+        "laravel-zero/framework": "^12.1",
         "laravel-zero/phar-updater": "^1.4",
-        "laravel/framework": "^12.34",
+        "laravel/framework": "^12.56 || ^13.0",
         "metowolf/meting": "^1.5",
-        "phpunit/php-timer": "^8.0",
+        "phpunit/php-timer": "^8.0 || ^9.0",
         "spatie/fork": "^1.2"
+    },
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.50"
+    },
+    "conflict": {
+        "phpunit/php-timer": ">=9.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true
+        },
+        "sort-packages": true
     }
 }

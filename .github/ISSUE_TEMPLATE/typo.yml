@@ -1,7 +1,7 @@
 name: 👀 Typo / Grammar fix
 # https://github.com/antfu/.github/tree/main/.github/ISSUE_TEMPLATE
 description: You can just go ahead and send a PR! Thank you!
-labels: [ ]
+labels: []
 body:
   - type: markdown
     attributes:

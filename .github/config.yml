@@ -2,8 +2,6 @@
 todo:
   keyword: "@todo"
 
-
-
 # Configuration for new-issue-welcome - https://github.com/behaviorbot/new-issue-welcome
 # Comment to be posted to on first time issues
 newIssueWelcomeComment: >
@@ -20,8 +18,6 @@ firstPRMergeComment: >
   Congrats on merging your first pull request! We here at behaviorbot are proud of you!
 # It is recommend to include as many gifs and emojis as possible
 
-
-
 # Configuration for request-info - https://github.com/behaviorbot/request-info
 # *OPTIONAL* Comment to reply with
 # Can be either a string :
@@ -33,7 +29,6 @@ requestInfoReplyComment: >
 #  - Ah no! young blade! That was a trifle short!
 #  - Tell me more !
 #  - I am sure you can be more effusive
-
 
 # *OPTIONAL* default titles to check against for lack of descriptiveness
 # MUST BE ALL LOWERCASE
@@ -62,7 +57,6 @@ requestInfoOn:
 # keys must be GitHub usernames
 requestInfoUserstoExclude:
   - guannguans
-
 
 # Configuration for update-docs - https://github.com/behaviorbot/update-docs
 # Comment to be posted to on PRs that don't update documentation

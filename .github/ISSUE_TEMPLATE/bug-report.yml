@@ -2,7 +2,7 @@ name: Bug Report
 # https://github.com/spatie/package-skeleton-php/tree/main/.github/ISSUE_TEMPLATE
 description: Report an Issue or Bug with the Package
 title: "[Bug]: "
-labels: [ "bug" ]
+labels: ["bug"]
 body:
   - type: markdown
     attributes:
