@@ -19,6 +19,11 @@ trait Hydrator
 {
     use Sanitizer;
 
+    /**
+     * @param Collection<int, array<string, mixed>> $songs
+     *
+     * @return Collection<int, string>
+     */
     public function hydrates(Collection $songs, string $keyword): Collection
     {
         return $this->sanitizes($songs, $keyword)
@@ -26,6 +31,9 @@ trait Hydrator
             ->prepend(__('all_songs'));
     }
 
+    /**
+     * @param array<int|string, null|scalar> $sanitizedSong
+     */
     public function hydrate(array $sanitizedSong): string
     {
         return collect($sanitizedSong)->except(0)->implode(' ');

@@ -8,24 +8,40 @@ includes:
     - vendor/spaze/phpstan-disallowed-calls/disallowed-loose-calls.neon
 #    - vendor/spaze/phpstan-disallowed-calls/extension.neon
 
-#    - vendor-bin/larastan/vendor/larastan/larastan/extension.neon
 #    - vendor/ekino/phpstan-banned-code/extension.neon
 #    - vendor/ergebnis/phpstan-rules/rules.neon
+    - vendor/canvural/larastan-strict-rules/rules.neon
+#    - vendor/larastan/vendor/larastan/larastan/extension.neon
 #    - vendor/phpstan/phpstan-strict-rules/rules.neon
 #    - vendor/roave/no-floaters/rules.neon
 #    - vendor/shipmonk/dead-code-detector/rules.neon
 #    - vendor/staabm/phpstan-todo-by/extension.neon
 
-    - vendor/symplify/phpstan-rules/config/code-complexity-rules.neon
+#    - vendor/symplify/phpstan-rules/config/code-complexity-rules.neon
 #    - vendor/symplify/phpstan-rules/config/configurable-rules.neon
-    - vendor/symplify/phpstan-rules/config/naming-rules.neon
-    - vendor/symplify/phpstan-rules/config/static-rules.neon
-#    - vendor/symplify/phpstan-rules/config/symplify-rules.neon
+#    - vendor/symplify/phpstan-rules/config/naming-rules.neon
+#    - vendor/symplify/phpstan-rules/config/static-rules.neon
+    - vendor/symplify/phpstan-rules/config/symplify-rules.neon
 
 #    - vendor/symplify/phpstan-rules/config/doctrine-rules.neon
     - vendor/symplify/phpstan-rules/config/phpunit-rules.neon
 #    - vendor/symplify/phpstan-rules/config/rector-rules.neon
 #    - vendor/symplify/phpstan-rules/config/symfony-rules.neon
+#    - vendor/symplify/phpstan-rules/config/symfony-config-rules.neon
+
+services:
+    # https://github.com/guanguans/laravel-exception-notify/security/code-scanning
+    # https://github.com/jbelien/phpstan-sarif-formatter
+    errorFormatter.sarif:
+        class: PHPStanSarifErrorFormatter\SarifErrorFormatter
+        arguments:
+            relativePathHelper: @simpleRelativePathHelper
+            currentWorkingDirectory: %currentWorkingDirectory%
+            pretty: true
+#    errorFormatter.checkstyle:
+#        class: NickSdot\PhpStanPhpStormErrorIdentifiers\CheckstyleErrorFormatterPhpStorm
+    errorFormatter.llm:
+        class: NickSdot\PhpStanPhpStormErrorIdentifiers\LlmErrorFormatter
 
 parameters:
     paths:
@@ -33,16 +49,19 @@ parameters:
         - bootstrap/
         - config/
         - resources/lang/
+    scanDirectories:
+#        - vendor/rector/rector/vendor/symplify/rule-doc-generator-contracts/
     scanFiles:
         - vendor/composer/InstalledVersions.php
     excludePaths:
+#        - src/Support/Rectors/
+#        - src/Support/ComposerScripts.php
         - tests/Fixtures/
         - *.blade.php
-    level: max
-#    level: 10
     tmpDir: .build/phpstan/
+    phpVersion: 80500
+    level: max
     editorUrl: 'phpstorm://open?file=%%file%%&line=%%line%%'
-#    errorFormat: symplify
     errorFormat: friendly
     friendly:
         lineBefore: 3
@@ -54,21 +73,31 @@ parameters:
         allRules: true
         booleansInConditions: false
         disallowedShortTernary: false
+    ergebnis:
+    guanguans:
+        exceptionMustImplementNativeThrowable:
+            nativeThrowable: App\Contracts\Throwable
 #    sidzIgnoreNumericStrings: true
     sidzIgnoreMagicNumbers: [2, 3, 20, 100, 600, 512, 0o755, 1000, 3820]
+    # larastan
+    configDirectories:
+        - config/
+    checkOctaneCompatibility: true
+    listenerPaths:
+        - app/Listeners/
     cognitive_complexity:
         class: 42
         function: 8
         dependency_tree: 150
         dependency_tree_types:
-            # only these explicit types are checked, nothing else
+#            # only these explicit types are checked, nothing else
 #            - Rector\Contract\Rector\RectorInterface
     type_coverage:
         declare: 100
-        param_type: 100
-        return_type: 100
-        constant_type: 100
-        property_type: 100
+        param: 100
+        return: 100
+        constant: 100
+        property: 100
     type_perfect:
         narrow_param: true
         narrow_return: true
@@ -76,62 +105,136 @@ parameters:
         no_mixed: false
         no_mixed_property: true
         no_mixed_caller: false
+    unused_public:
+        constants: true
+        properties: true
+        methods: true
+        local_methods: true
+        template_paths:
+#            - resources/views/
     disallowedFunctionCalls:
         -
             function: 'env_explode()'
             message: 'use config() instead'
     ignoreErrors:
+#        - identifier: argument.templateType
+#        - identifier: argument.type
 #        - identifier: arrayFilter.strict
+#        - identifier: assign.propertyType
 #        - identifier: binaryOp.invalid
+#        - identifier: cast.double
+#        - identifier: cast.int
+#        - identifier: cast.string
+#        - identifier: class.extendsFinalByPhpDoc
+#        - identifier: disallowed.function
+#        - identifier: empty.notAllowed
 #        - identifier: encapsedStringPart.nonString
+#        - identifier: ergebnis.final
+#        - identifier: ergebnis.finalInAbstractClass
+#        - identifier: ergebnis.noAssignByReference
+#        - identifier: ergebnis.noConstructorParameterWithDefaultValue
+#        - identifier: ergebnis.noExtends
+#        - identifier: ergebnis.noIsset
+#        - identifier: ergebnis.noNamedArgument
+#        - identifier: ergebnis.noNullableReturnTypeDeclaration
+#        - identifier: ergebnis.noParameterPassedByReference
+#        - identifier: ergebnis.noParameterWithNullableTypeDeclaration
+#        - identifier: ergebnis.noParameterWithNullDefaultValue
 #        - identifier: foreach.valueOverwrite
+#        - identifier: guanguans.forbiddenSideEffects
 #        - identifier: logicalAnd.resultUnused
+#        - identifier: logicalOr.resultUnused
+#        - identifier: method.childParameterType
 #        - identifier: method.dynamicName
+#        - identifier: missingType.generics
+#        - identifier: missingType.iterableValue
+#        - identifier: new.static
+#        - identifier: offsetAccess.nonOffsetAccessible
+#        - identifier: offsetAccess.notFound
+#        - identifier: paramOut.type
+#        - identifier: phpstanApi.class
+#        - identifier: return.type
 #        - identifier: return.void
+#        - identifier: shipmonk.binaryOperationWithNull
+#        - identifier: shipmonk.checkedExceptionInCallable
+#        - identifier: shipmonk.forbiddenCast
+#        - identifier: shipmonk.iteratorToArrayWithoutPreserveKeys
+#        - identifier: shipmonk.nonNormalizedType
+#        - identifier: shipmonk.variableTypeOverwritten
+#        - identifier: symplify.explicitInterfaceSuffixName
+#        - identifier: symplify.explicitTraitSuffixName
+#        - identifier: symplify.forbiddenArrayMethodCall
 #        - identifier: symplify.forbiddenExtendOfNonAbstractClass
+#        - identifier: symplify.forbiddenFuncCall
+#        - identifier: symplify.forbiddenNode
+#        - identifier: symplify.forbiddenStaticClassConstFetch
+#        - identifier: symplify.noArrayMapWithArrayCallable
 #        - identifier: symplify.noDynamicName
+#        - identifier: symplify.noGlobalConst
 #        - identifier: symplify.noReference
+#        - identifier: symplify.noReturnSetterMethod
+#        - identifier: symplify.requireExceptionNamespace
+#        - identifier: trait.unused
 #        - identifier: typePerfect.noMixedMethodCaller
+#        - message: '#^Unused Guanguans\\Notify\\Rector\\.*\\.*\:\:__construct$#'
+
+        - identifier: ergebnis.noConstructorParameterWithDefaultValue
+        - identifier: ergebnis.noExtends
+        - identifier: ergebnis.noIsset
+        - identifier: ergebnis.noNamedArgument
+        - identifier: ergebnis.noNullableReturnTypeDeclaration
+        - identifier: ergebnis.noParameterWithNullableTypeDeclaration
+        - identifier: ergebnis.noParameterWithNullDefaultValue
+        - identifier: guanguans.forbiddenSideEffects
+        - identifier: larastanStrictRules.noFacadeRule
+        - identifier: larastanStrictRules.noGlobalLaravelFunction
+        - identifier: shipmonk.binaryOperationWithNull
+        - identifier: shipmonk.checkedExceptionInCallable
+        - identifier: shipmonk.forbiddenCast
+        - identifier: shipmonk.nonNormalizedType
+        - identifier: symplify.explicitInterfaceSuffixName
+        - identifier: symplify.explicitTraitSuffixName
+        - identifier: symplify.forbiddenFuncCall
+        - identifier: symplify.forbiddenNode
+        - identifier: symplify.noReturnSetterMethod
+        - identifier: symplify.requireExceptionNamespace
+        - message: '#^Unused App\\.*\:\:__construct$#'
+        - message: '#^Unused App\\Commands\\.*Command\:\:handle$#'
+        - message: '#^Unused App\\Providers\\.*ServiceProvider\:\:boot$#'
+
         - identifier: argument.templateType
         - identifier: argument.type
-        - identifier: assign.propertyType
         - identifier: cast.double
         - identifier: cast.int
         - identifier: cast.string
         - identifier: empty.notAllowed
         - identifier: method.nonObject
-        - identifier: missingType.generics
-        - identifier: missingType.iterableValue
         - identifier: return.type
-        - identifier: shipmonk.deadMethod
-        - identifier: symplify.explicitTraitSuffixName
-        - identifier: symplify.noReturnSetterMethod
-        - identifier: symplify.requireExceptionNamespace
         -
-            identifier: symplify.explicitInterfaceSuffixName
-            path: app/Contracts/
+            identifier: guanguans.exceptionMustImplementNativeThrowable
+            path: app/Support/helpers.php
+        -
+            identifier: shipmonk.unusedException
+            path: bootstrap/app.php
+        -
+            identifier: shipmonk.unusedMatchResult
+            path: app/Commands/ThanksCommand.php
+        -
+            identifier: shipmonk.unusedParameter
+            paths:
+                - app/Support/helpers.php
+                - bootstrap/app.php
+        -
+            identifier: missingType.generics
+            path: app/Facades/
+        -
+            identifier: missingType.iterableValue
+            path: app/Facades/
         -
             message: '#^Calling exec\(\) is forbidden\.$#'
             paths:
                 - app/Commands/ThanksCommand.php
                 - app/Support/Utils.php
-
-
-
-        - identifier: shipmonk.checkedExceptionInCallable
-        - identifier: ergebnis.noParameterWithNullableTypeDeclaration
-        - identifier: ergebnis.noExtends
-        - identifier: ergebnis.noParameterWithNullDefaultValue
-        - identifier: ergebnis.noConstructorParameterWithDefaultValue
-        - identifier: guanguans.forbiddenSideEffects
-        - identifier: shipmonk.binaryOperationWithNull
-        - identifier: ergebnis.noIsset
-        - identifier: public.method.unused
-        - identifier: shipmonk.forbiddenCast
-        - identifier: ergebnis.noNamedArgument
-        - identifier: shipmonk.unusedParameter
-        - identifier: shipmonk.unusedMatchResult
-        - identifier: shipmonk.nonNormalizedType
-        - identifier: ergebnis.noNullableReturnTypeDeclaration
-        - identifier: callable.nonCallable
-        - identifier: shipmonk.unusedException
+        -
+            message: '#^Property App\\Music\:\:\$driver \(Illuminate\\Contracts\\Concurrency\\Driver\|null\) does not accept mixed\.$#'
+            path: app/Music.php

@@ -15,7 +15,13 @@ namespace App\Contracts;
 
 use GuzzleHttp\Client;
 
+/**
+ * @api
+ */
 interface HttpClientFactory
 {
+    /**
+     * @param array<string, mixed> $config
+     */
     public function createHttpClient(array $config = []): Client;
 }

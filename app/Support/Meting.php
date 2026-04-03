@@ -18,6 +18,8 @@ final class Meting extends \Metowolf\Meting
     /**
      * @api
      *
+     * @var array{br?: int}
+     *
      * @noinspection ClassOverridesFieldOfSuperClassInspection
      */
     protected array $temp = [];

@@ -18,6 +18,7 @@ use Illuminate\Support\Str;
 
 final class Utils
 {
+    /** @api */
     public const int ARTIST_TAKE = 3;
 
     /**

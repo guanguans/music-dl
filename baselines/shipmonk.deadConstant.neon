@@ -1,8 +1,0 @@
-# total 1 error
-
-parameters:
-    ignoreErrors:
-        -
-            message: '#^Unused App\\Support\\Utils\:\:ARTIST_TAKE$#'
-            count: 1
-            path: ../app/Support/Utils.php

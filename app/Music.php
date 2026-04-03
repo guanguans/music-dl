@@ -53,6 +53,8 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
      * @see Meting::search()
      *
      * @throws \Throwable
+     *
+     * @return Collection<int, array<string, mixed>>
      */
     public function search(string $keyword, array $options): Collection
     {
@@ -113,6 +115,9 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
         );
     }
 
+    /**
+     * @api
+     */
     public function setMeting(Meting $meting): self
     {
         $this->meting = $meting;
@@ -120,6 +125,9 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
         return $this;
     }
 
+    /**
+     * @api
+     */
     public function setDriver(Driver $driver): self
     {
         $this->driver = $driver;
@@ -127,6 +135,9 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
         return $this;
     }
 
+    /**
+     * @api
+     */
     public function setMinCallMicroseconds(int $minCallMicroseconds): self
     {
         $this->minCallMicroseconds = $minCallMicroseconds;
@@ -134,6 +145,11 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
         return $this;
     }
 
+    /**
+     * @param Collection<int, array<string, mixed>> $songs
+     *
+     * @return Collection<int, array<string, mixed>>
+     */
     private function ensureWithUrls(Collection $songs): Collection
     {
         return collect($this->driver->run(

@@ -20,6 +20,11 @@ use Illuminate\Support\Number;
 
 trait Sanitizer
 {
+    /**
+     * @param Collection<int, array<string, mixed>> $songs
+     *
+     * @return Collection<int, array<int|string, null|scalar>>
+     */
     public function sanitizes(Collection $songs, string $keyword): Collection
     {
         return $songs->map(function (array $song, int $index) use ($keyword): array {

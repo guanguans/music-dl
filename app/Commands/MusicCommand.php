@@ -221,6 +221,8 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
     }
 
     /**
+     * @param array<string, mixed> $arguments
+     *
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     private function reHandle(array $arguments = []): void // codeCoverageIgnoreStart

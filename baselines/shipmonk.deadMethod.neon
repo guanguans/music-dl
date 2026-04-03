@@ -1,0 +1,8 @@
+# total 1 error
+
+parameters:
+    ignoreErrors:
+        -
+            message: '#^Unused App\\Concerns\\HttpClientFactory\:\:setHttpClient$#'
+            count: 1
+            path: ../app/Concerns/HttpClientFactory.php

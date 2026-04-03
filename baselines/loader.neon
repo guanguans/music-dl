@@ -1,6 +1,7 @@
-# total 5 errors
+# total 6 errors
 
 includes:
-    - shipmonk.deadConstant.neon
+    - nullCoalesce.variable.neon
+    - shipmonk.deadMethod.neon
     - staticMethod.dynamicCall.neon
     - typePerfect.narrowPublicClassMethodParamType.neon

@@ -19,6 +19,8 @@ interface Music
 {
     /**
      * @param array<string, mixed> $options
+     *
+     * @return Collection<int, array<string, mixed>>
      */
     public function search(string $keyword, array $options): Collection;
 
