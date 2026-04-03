@@ -108,7 +108,7 @@
             "url": "git@github.com:laravel/facade-documenter.git"
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
@@ -169,7 +169,8 @@
         "merge-plugin": {
             "include": [
                 "resources/require/composer.json"
-            ]
+            ],
+            "merge-dev": false
         }
     },
     "scripts": {
@@ -265,6 +266,7 @@
         "composer-bump:require": [
             "@putenv:php",
             "ln -f composer-bump resources/require/composer-bump",
+            "@composer install --working-dir=resources/require/ --ansi -v",
             "@php resources/require/composer-bump --highest-php-binary=$PHP85 --ansi"
         ],
         "composer-bump:vendor-bin-common": [

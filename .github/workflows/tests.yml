@@ -5,54 +5,61 @@ on:
   push:
   pull_request:
 
-permissions: write-all
+env:
+  COMPOSER_NO_SECURITY_BLOCKING: 1
 
 jobs:
   test:
     runs-on: ${{ matrix.os }}
-
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
-        # php: [ 8.5, 8.5 ]
         php: [8.5]
         dependency-version: [prefer-stable]
 
     name: P${{ matrix.php }} - ${{ matrix.dependency-version }} - ${{ matrix.os }}
 
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v6
-
-      - name: Cache dependencies
-        uses: actions/cache@v5
-        with:
-          path: ~/.composer/cache/files
-          key: dependencies-php-${{ matrix.php }}-composer-${{ hashFiles('composer.json') }}
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          extensions: dom, curl, libxml, mbstring, zip, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, sockets, pcntl, fileinfo
           coverage: xdebug
+          # extensions: amqp,apcu,brotli,igbinary,intl,mbstring,memcached,redis,relay,zstd,:php-psr
+          extensions: fileinfo,intl,sockets
         env:
           COMPOSER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Remove dependencies
-        run: cd resources/require/ && composer remove spatie/fork --no-interaction --ansi -v --ignore-platform-req=ext-pcntl
+      # - name: Get composer cache directory
+      #   id: composer-cache
+      #   run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+      #
+      # - name: Cache composer dependencies
+      #   uses: actions/cache@v4
+      #   with:
+      #     path: ${{ steps.composer-cache.outputs.dir }}
+      #     # Use composer.json for key, if composer.lock is not committed.
+      #     key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
+      #     # key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+      #     restore-keys: ${{ runner.os }}-composer-
 
       - name: Install dependencies
-        run: composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --ansi -v --ignore-platform-req=ext-pcntl
+        run: |
+          composer remove spatie/fork --working-dir=resources/require/ --no-interaction --ansi -v --ignore-platform-req=ext-pcntl
+          composer install --no-interaction --ansi -v --ignore-platform-req=ext-pcntl
+          composer update --${{ matrix.dependency-version }} --no-interaction --ansi -v --ignore-platform-req=ext-pcntl
 
       - name: Execute tests
-        run: composer test-coverage
+        run: composer test:coverage
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v6
         with:
           files: ./.build/phpunit/clover.xml
-          token: ${{ secrets.CODECOV_TOKEN }}
-          fail_ci_if_error: true
-          verbose: true
+          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          fail_ci_if_error: true # optional (default = false)
+          verbose: true # optional (default = false)

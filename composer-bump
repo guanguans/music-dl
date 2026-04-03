@@ -42,7 +42,6 @@ $statusCode = (new SingleCommandApplication)
     ->addOption('except-package', null, InputOption::VALUE_IS_ARRAY | InputOption::VALUE_OPTIONAL)
     ->addOption('except-version', null, InputOption::VALUE_IS_ARRAY | InputOption::VALUE_OPTIONAL)
     ->setCode(static function (InputInterface $input, OutputInterface $output): void {
-        assert_options(\ASSERT_BAIL, 1);
         \assert((bool) $input->getOption('highest-php-binary'));
         (new ComposerBump(
             $input->getOption('composer-json-path') ?: implode(\DIRECTORY_SEPARATOR, [__DIR__, 'composer.json']),

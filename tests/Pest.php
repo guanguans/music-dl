@@ -70,10 +70,11 @@ pest()
     ->afterAll(function (): void {})
     ->group(__DIR__)
     ->in(
-        // __DIR__,
-        __DIR__.'/Arch',
-        __DIR__.'/Feature',
-        __DIR__.'/Unit'
+        __DIR__,
+        // __DIR__.'/Arch/',
+        // __DIR__.'/Feature/',
+        // __DIR__.'/Integration/',
+        // __DIR__.'/Unit/'
     );
 
 /*

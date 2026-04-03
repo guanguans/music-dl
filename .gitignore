@@ -17,7 +17,7 @@ vendor/
 /laravel
 /tests.*
 composer.local.json
-composer.lock
+#composer.lock
 phpbench.json
 phpstan.neon
 phpunit.xml

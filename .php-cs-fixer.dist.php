@@ -48,6 +48,7 @@ return Factory::fromRuleSet(Php82::create()
     ->withRules(Rules::fromArray([
         '@autoPHPUnitMigration:risky' => true,
         'PhpCsFixerCustomFixers/no_useless_dirname_call' => false,
+        'final_public_method_for_abstract_class' => false,
     ])))
     ->setUsingCache(true)
     ->setCacheFile(\sprintf('%s/.build/php-cs-fixer/%s.cache', __DIR__, pathinfo(__FILE__, \PATHINFO_FILENAME)))

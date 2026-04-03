@@ -29,7 +29,7 @@ body:
     attributes:
       label: Package Version
       description: What version of our Package are you running? Please be as specific as possible
-      placeholder: 2.0.0
+      placeholder: 7.0.0
     validations:
       required: true
   - type: input
@@ -45,7 +45,7 @@ body:
   #   attributes:
   #     label: Laravel Version
   #     description: What version of Laravel are you running? Please be as specific as possible
-  #     placeholder: 11.0.0
+  #     placeholder: 13.0.0
   #   validations:
   #     required: true
   - type: dropdown
