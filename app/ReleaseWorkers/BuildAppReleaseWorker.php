@@ -27,24 +27,9 @@ final class BuildAppReleaseWorker extends AbstractReleaseWorker
     #[\Override]
     public static function check(): void
     {
-        self::createProcessRunner()->run([
-            self::findPhp(),
-            '-v',
-        ]);
-
-        self::createProcessRunner()->run([
-            self::findPhp(),
-            'music-dl',
-            '--version',
-            '--ansi',
-            '-v',
-        ]);
-
-        self::createProcessRunner()->run([
-            self::findPhp(),
-            self::findComposer(),
-            '--version',
-        ]);
+        self::createProcessRunner()->run([self::findPhp(), '-v']);
+        self::createProcessRunner()->run([self::findPhp(), 'music-dl', '--version', '--ansi', '-v']);
+        self::createProcessRunner()->run([self::findPhp(), self::findComposer(), '--version']);
     }
 
     #[\Override]
@@ -57,32 +42,16 @@ final class BuildAppReleaseWorker extends AbstractReleaseWorker
     public function work(Version $version): void
     {
         $this->processRunner->run([
-            self::findPhp(),
-            self::findComposer(),
-            'install',
-            '--no-dev',
-            '--no-scripts',
-            '--ansi',
-            '-v',
+            self::findPhp(), self::findComposer(),
+            'install', '--no-dev', '--no-scripts', '--ansi', '-v',
         ]);
 
         $this->processRunner->run([
-            self::findPhp(),
-            'music-dl',
-            'app:build',
-            'music-dl',
-            '--build-version',
-            $version->getOriginalString(),
-            '--ansi',
+            self::findPhp(), 'music-dl',
+            'app:build', 'music-dl', '--build-version', $version->getOriginalString(), '--ansi',
         ]);
 
-        $this->processRunner->run([
-            self::findPhp(),
-            self::findComposer(),
-            'install',
-            '--ansi',
-            '-v',
-        ]);
+        $this->processRunner->run([self::findPhp(), self::findComposer(), 'install', '--ansi', '-v']);
 
         if (
             !str($this->processRunner->run([self::findPhp(), 'builds/music-dl', '--version', '--ansi', '-v']))
@@ -91,13 +60,7 @@ final class BuildAppReleaseWorker extends AbstractReleaseWorker
             throw new RuntimeException('Build app "%s" failed.');
         }
 
-        $this->processRunner->run([
-            self::findPhp(),
-            'music-dl',
-            '--version',
-            '--ansi',
-            '-v',
-        ]);
+        $this->processRunner->run([self::findPhp(), 'music-dl', '--version', '--ansi', '-v']);
     }
 
     private static function findComposer(): string

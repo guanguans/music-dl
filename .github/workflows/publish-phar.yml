@@ -11,7 +11,7 @@ jobs:
     name: Release PHAR
 
     steps:
-      - name: Extract the tag version
+      - name: Extract tag version
         id: tag
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
@@ -29,22 +29,21 @@ jobs:
           ini-values: error_reporting=E_ALL
           coverage: none
 
-      - name: Install the dependencies
-        run: composer install --no-interaction --no-scripts --ansi -v --ignore-platform-req=ext-pcntl --ignore-platform-req=ext-posix --ignore-platform-req=ext-sockets
+      - name: Install dependencies # windows does not support ext-pcntl、ext-posix、ext-sockets
+        run: |
+          composer install --no-interaction --no-scripts --ansi -v --ignore-platform-req=ext-pcntl --ignore-platform-req=ext-posix --ignore-platform-req=ext-sockets
+          composer update --no-interaction --no-scripts --no-dev --ansi -v --ignore-platform-req=ext-pcntl --ignore-platform-req=ext-posix --ignore-platform-req=ext-sockets
 
-      - name: Update the dependencies # windows does not support ext-pcntl、ext-posix、ext-sockets
-        run: composer update --no-interaction --no-scripts --no-dev --ansi -v --ignore-platform-req=ext-pcntl --ignore-platform-req=ext-posix --ignore-platform-req=ext-sockets
-
-      - name: Create the PHAR file.
+      - name: Create PHAR file.
         run: ./music-dl app:build music-dl.phar --build-version=${{ steps.tag.outputs.tag }} -v
 
-      - name: Upload the PHAR artifact
+      - name: Upload PHAR artifact
         uses: actions/upload-artifact@v7
         with:
           name: music-dl.phar
           path: builds/music-dl.phar
 
-      - name: Upload the PHAR to release
+      - name: Upload PHAR to release
         # run: gh release upload ${{ steps.tag.outputs.tag }} builds/music-dl.phar
         run: gh release upload $(git tag --sort=-committerdate | head -n 1) builds/music-dl.phar
         env:

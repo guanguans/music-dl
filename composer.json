@@ -185,6 +185,9 @@
             "@composer:normalize"
         ],
         "actionlint": "actionlint -ignore=SC2035 -ignore=SC2046 -ignore=SC2086 -color -oneline -verbose",
+        "app:fix-neon-files": "Guanguans\\PHPStanRules\\Support\\ComposerScripts::fixNeonFiles",
+        "app:lint-readme": "App\\Support\\ComposerScripts::lintReadme",
+        "app:phpdoc-parse": "Guanguans\\RectorRules\\Support\\ComposerScripts::phpdocParse",
         "argtyper": "@php vendor/bin/argtyper --ansi -vv",
         "argtyper:add-types": "@argtyper add-types .",
         "artisan": "@php music-dl --ansi -v",
@@ -197,8 +200,6 @@
         ],
         "artisan:optimize-image": "@artisan optimize:image",
         "artisan:optimize-image-dry-run": "@artisan:optimize:image --dry-run",
-        "artisan:solo": "@artisan solo",
-        "artisan:solo-dumps": "@artisan solo:dumps",
         "artisan:xdebug": [
             "@env-put-xdebug-on",
             "@php music-dl --ansi"
@@ -217,6 +218,8 @@
         ],
         "checks:optional": [
             "@putenv:xdebug-off",
+            "@app:fix-neon-files",
+            "@app:lint-readme",
             "@composer:unlink",
             "@class-leak:check",
             "@composer-dependency-analyser",
@@ -240,8 +243,6 @@
             "@lint-md",
             "@php-cs-fixer:custom-fix-dry-run",
             "@php-cs-fixer:custom-ln-config",
-            "@music-dl:fix-neon-files",
-            "@music-dl:lint-readme",
             "@typos",
             "@zhlint"
         ],
@@ -343,9 +344,6 @@
         "monorepo-builder:release-minor-dry-run": "@monorepo-builder:release-minor --dry-run",
         "monorepo-builder:release-patch": "@monorepo-builder:release patch",
         "monorepo-builder:release-patch-dry-run": "@monorepo-builder:release-patch --dry-run",
-        "music-dl:fix-neon-files": "Guanguans\\PHPStanRules\\Support\\ComposerScripts::fixNeonFiles",
-        "music-dl:lint-readme": "App\\Support\\ComposerScripts::lintReadme",
-        "music-dl:phpdoc-parse": "Guanguans\\RectorRules\\Support\\ComposerScripts::phpdocParse",
         "neon-lint": "@php vendor/bin/neon-lint *.neon",
         "peck": "@php vendor/bin/peck check --path=app/ --config=peck.json --ansi -vv",
         "peck:ignore-all": "@peck --ignore-all",
