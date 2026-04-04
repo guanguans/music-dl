@@ -198,8 +198,6 @@
             "ls -lh builds/music-dl.phar",
             "ls -lr builds/music-dl.phar"
         ],
-        "artisan:optimize-image": "@artisan optimize:image",
-        "artisan:optimize-image-dry-run": "@artisan:optimize:image --dry-run",
         "artisan:xdebug": [
             "@env-put-xdebug-on",
             "@php music-dl --ansi"

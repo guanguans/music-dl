@@ -20,6 +20,7 @@ declare(strict_types=1);
 
 use App\Commands\InspireCommand;
 use App\Commands\MusicCommand;
+use App\Commands\OptimizeImageCommand;
 use App\Commands\ThanksCommand;
 use App\Commands\VendorPublishCommand;
 use App\Contracts\Throwable;
@@ -37,6 +38,7 @@ arch()
     ->preset()->laravel()->ignoring([
         InspireCommand::class,
         MusicCommand::class,
+        OptimizeImageCommand::class,
         ThanksCommand::class,
         VendorPublishCommand::class,
         ComposerScripts::class,
