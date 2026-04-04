@@ -50,7 +50,10 @@ pest()
         BypassFinals::enable(bypassReadOnly: false);
         BypassFinals::allowPaths([\dirname(__DIR__).'/app/*']);
         BypassFinals::denyPaths(['*/vendor/*']);
-        BypassFinals::setCacheDirectory(__DIR__.'/../.build/bypass-finals/');
+
+        /** @noinspection MkdirRaceConditionInspection */
+        is_dir($cacheDirectory = __DIR__.'/../.build/bypass-finals/') or mkdir($cacheDirectory, recursive: true);
+        running_in_github_action() or BypassFinals::setCacheDirectory($cacheDirectory);
     })
     ->beforeEach(function (): void {
         app()->extend(Meting::class, static fn (): Meting => mock_meting());

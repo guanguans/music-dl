@@ -43,7 +43,7 @@ $statusCode = (new SingleCommandApplication)
     ->addOption('except-version', null, InputOption::VALUE_IS_ARRAY | InputOption::VALUE_OPTIONAL)
     ->setCode(static function (InputInterface $input, OutputInterface $output): void {
         \assert((bool) $input->getOption('highest-php-binary'));
-        (new ComposerBump(
+        new ComposerBump(
             $input->getOption('composer-json-path') ?: implode(\DIRECTORY_SEPARATOR, [__DIR__, 'composer.json']),
             $input->getOption('php-binary'),
             $input->getOption('highest-php-binary'),
@@ -51,7 +51,7 @@ $statusCode = (new SingleCommandApplication)
             $input->getOption('except-package'),
             $input->getOption('except-version'),
             new SymfonyStyle($input, $output),
-        ))();
+        )();
     })
     ->run();
 

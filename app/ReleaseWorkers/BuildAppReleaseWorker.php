@@ -100,16 +100,13 @@ final class BuildAppReleaseWorker extends AbstractReleaseWorker
         ]);
     }
 
-    /**
-     * @param list<string> $extraDirs
-     */
-    private static function findComposer(?string $default = 'composer', array $extraDirs = []): string
+    private static function findComposer(): string
     {
-        return new ExecutableFinder()->find('composer', $default, $extraDirs);
+        return new ExecutableFinder()->find('composer', 'composer');
     }
 
-    private static function findPhp(bool $includeArgs = true): string
+    private static function findPhp(): string
     {
-        return new PhpExecutableFinder()->find($includeArgs);
+        return new PhpExecutableFinder()->find();
     }
 }

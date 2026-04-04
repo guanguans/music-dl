@@ -38,7 +38,7 @@ use Symplify\MonorepoBuilder\Release\ReleaseWorker\UpdateReplaceReleaseWorker;
 
 return static function (MBConfig $mbConfig): void {
     $mbConfig->defaultBranch('master');
-    // MBConfig::disableDefaultWorkers();
+    MBConfig::disableDefaultWorkers();
 
     // $services = $mbConfig->services();
     // $services->set(BranchAwareTagResolver::class);

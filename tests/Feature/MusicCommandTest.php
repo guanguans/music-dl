@@ -7,6 +7,7 @@
 /** @noinspection PhpUnhandledExceptionInspection */
 /** @noinspection PhpVoidFunctionResultUsedInspection */
 /** @noinspection StaticClosureCanBeUsedInspection */
+/** @noinspection PhpUnusedAliasInspection */
 declare(strict_types=1);
 
 /**
@@ -25,8 +26,7 @@ use App\Music;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
 use Illuminate\Validation\ValidationException;
-use Symfony\Component\Process\Process;
-use function Illuminate\Support\php_binary;
+use Symfony\Component\Process\PhpSubprocess;
 
 pest()->use(Hydrator::class)->beforeEach(function (): void {
     // Prompt::fallbackWhen(true);
@@ -43,7 +43,6 @@ it('can validate arguments and options', function (): void {
             '--page' => 0,
             '--per-page' => 101,
             '--sources' => ['invalid-source'],
-            '--configuration' => ['invalid-configuration'],
         ])
         ->assertFailed();
 })->group(__DIR__, __FILE__)->throws(ValidationException::class);
@@ -83,21 +82,18 @@ it('can search and download music', function (Collection $songs): void {
 
 it('can get keyword of the given stdin', function (): void {
     expect(
-        new Process(
-            command: [
-                php_binary(),
-                __DIR__.'/../../music-dl',
-                '--break',
-                '--directory',
-                downloads_path(),
-                '--driver',
-                'sync',
-                '--sources',
-                'tencent',
-            ],
-            input: $keyword = '不只是南方',
-        )
+        new PhpSubprocess([
+            __DIR__.'/../../music-dl',
+            '--break',
+            '--directory',
+            downloads_path(),
+            '--driver',
+            'sync',
+            '--sources',
+            'tencent',
+        ])
     )
+        ->setInput($keyword = '不只是南方')
         ->mustRun()
         ->getOutput()
         ->toContain($keyword);

@@ -332,6 +332,7 @@
         "monorepo-builder": "@php vendor/bin/monorepo-builder --config=monorepo-builder.php --ansi -vv",
         "monorepo-builder:release": [
             "@git-chglog",
+            "@composer:unlink",
             "@monorepo-builder release"
         ],
         "monorepo-builder:release-1.0.0-BETA1": "@monorepo-builder:release 1.0.0-BETA1",

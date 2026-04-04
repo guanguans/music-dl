@@ -19,7 +19,20 @@ declare(strict_types=1);
  */
 
 use App\Commands\InspireCommand;
+use Illuminate\Support\Facades\Artisan;
 
 it('can inspire Artisan', function (): void {
     $this->artisan(InspireCommand::class, ['name' => 'Artisan'])->assertOk();
 })->group(__DIR__, __FILE__);
+
+it('use `--configuration` and `--xdebug` options ', function (): void {
+    Artisan::call(InspireCommand::class, [
+        'name' => 'Artisan',
+        '--configuration' => [
+            'app.name=guanguans',
+            'app.debug=false',
+        ],
+        '--xdebug' => true,
+    ]);
+    // echo Artisan::output();
+})->group(__DIR__, __FILE__)->throwsNoExceptions();

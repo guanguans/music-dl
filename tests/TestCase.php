@@ -48,6 +48,7 @@ abstract class TestCase extends BaseTestCase
     /**
      * This method is called before the first test of this test class is run.
      */
+    #[\Override]
     public static function setUpBeforeClass(): void {}
 
     // /**
@@ -69,6 +70,7 @@ abstract class TestCase extends BaseTestCase
      *
      * This method is called between setUp() and test.
      */
+    #[\Override]
     protected function assertPreConditions(): void {}
 
     // /**

@@ -49,6 +49,9 @@ use function Laravel\Prompts\table;
 use function Laravel\Prompts\text;
 use function Laravel\Prompts\warning;
 
+/**
+ * @method void notify(string $text, string $body, null|string $icon = null)
+ */
 final class MusicCommand extends Command implements Isolatable, PromptsForMissingInput
 {
     use ConfirmableTrait;
@@ -79,7 +82,6 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      *
      * @noinspection PhpVoidFunctionResultUsedInspection
-     * @noinspection PhpStaticAsDynamicMethodCallInspection
      */
     public function handle(): void
     {
@@ -225,7 +227,7 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
      *
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
-    private function reHandle(array $arguments = []): void // codeCoverageIgnoreStart
+    private function reHandle(array $arguments = []): void
     {
         /**
          * @see \Illuminate\Console\Concerns\CallsCommands::runCommand()
@@ -233,7 +235,7 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
          * @see \Symfony\Component\Console\Command\Command::run()
          * @see \Symfony\Component\Console\Application::doRun()
          */
-        $input = tap(
+        $input = tap( // @codeCoverageIgnoreStart
             $this->createInputFromArguments($arguments += [
                 'keyword' => null,
                 // '--sources' => [],
@@ -249,6 +251,6 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
             \array_key_exists("--$name", $arguments) and $this->input->setOption($name, $value);
         }
 
-        $this->handle();
-    } // codeCoverageIgnoreEnd
+        $this->handle(); // @codeCoverageIgnoreEnd
+    }
 }

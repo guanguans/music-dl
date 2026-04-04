@@ -1,6 +1,5 @@
 <?php
 
-/** @noinspection EfferentObjectCouplingInspection */
 /** @noinspection PhpUnused */
 
 declare(strict_types=1);
@@ -93,49 +92,49 @@ final class ComposerScripts
                             $line !== $translatedReadmeFile[$lineNumber]
                             && str($line)->trim()->isNotEmpty()
                             && str($line)->startsWith([
-                                // markdown title
+                                // Markdown title
                                 '#',
                                 '##',
                                 '###',
                                 '####',
                                 '#####',
                                 '######',
-                                // markdown list
+                                // Markdown list
                                 '-',
                                 '*',
-                                // markdown link
+                                // Markdown link
                                 '[',
-                                // markdown image
+                                // Markdown image
                                 '![',
-                                // markdown code
+                                // Markdown code
                                 '```',
-                                // markdown table
+                                // Markdown table
                                 '|-',
                                 '|',
                                 '-',
-                                // markdown blockquote
+                                // Markdown blockquote
                                 '>',
-                                // markdown horizontal rule
+                                // Markdown horizontal rule
                                 '---',
-                                // markdown bold
+                                // Markdown bold
                                 '**',
-                                // markdown italic
+                                // Markdown italic
                                 '*',
-                                // markdown strikethrough
+                                // Markdown strikethrough
                                 '~~',
-                                // markdown inline code
+                                // Markdown inline code
                                 '`',
-                                // markdown footnote
+                                // Markdown footnote
                                 '[^',
-                                // markdown superscript
+                                // Markdown superscript
                                 '^',
-                                // markdown subscript
+                                // Markdown subscript
                                 '_',
-                                // markdown escape
+                                // Markdown escape
                                 '\\',
-                                // markdown html
+                                // Markdown HTML
                                 '<',
-                                // markdown comment
+                                // Markdown comment
                                 '<!--',
                                 '[//]: # (',
                             ])

@@ -19,13 +19,19 @@ declare(strict_types=1);
  */
 
 use App\Music;
+use Illuminate\Support\Collection;
 use function App\Support\classes;
 use function App\Support\make;
 
+it('will throw `ReflectionException` when call classes function', function (): void {
+    classes(/* fn (string $class): bool => str($class)->startsWith('Illuminate\Support') */);
+})
+    ->group(__DIR__, __FILE__)
+    ->throws(ReflectionException::class);
+
 it('can get classes', function (): void {
-    expect(
-        classes(fn (string $class): bool => str($class)->startsWith('Rectors'))
-    )->toBeCollection();
+    expect(classes(fn (string $class): bool => str($class)->startsWith(Illuminate\Support\Str::class)))
+        ->toBeInstanceOf(Collection::class);
 })->group(__DIR__, __FILE__);
 
 it('will throw `InvalidArgumentException` when abstract is empty array', function (): void {

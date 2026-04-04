@@ -2,9 +2,7 @@
 
 /** @noinspection GlobalVariableUsageInspection */
 /** @noinspection PhpInternalEntityUsedInspection */
-/** @noinspection PhpPossiblePolymorphicInvocationInspection */
 /** @noinspection PhpUnusedAliasInspection */
-/** @noinspection PhpVoidFunctionResultUsedInspection */
 
 declare(strict_types=1);
 
@@ -97,9 +95,9 @@ return Application::configure(basePath: \dirname(__DIR__))
         //     return tap($logger)->setDefaultDriver('null');
         // });
     })
-    ->booted(static function (Application $app): void {
+    ->booted(static function (): void {
         /** @see \Illuminate\Foundation\Console\Kernel::__construct() */
-        $app->runningUnitTests() or Artisan::rerouteSymfonyCommandEvents();
+        Artisan::rerouteSymfonyCommandEvents();
     })
     ->booted(static function (): void {
         collect(Artisan::all())
@@ -119,21 +117,19 @@ return Application::configure(basePath: \dirname(__DIR__))
                  * @see \Rector\Console\ConsoleApplication::doRun()
                  */
                 static fn (): null => Event::listen(CommandStarting::class, static function (CommandStarting $commandStarting): void {
-                    // @codeCoverageIgnoreStart
-                    // @codeCoverageIgnoreEnd
                     if (
                         class_exists(XdebugHandler::class)
                          && !$commandStarting->input->hasParameterOption('--xdebug')
                          && !app()->runningUnitTests()
                     ) {
-                        $xdebugHandler = tap(
+                        $xdebugHandler = tap( // @codeCoverageIgnoreStart
                             new XdebugHandler(config('app.name')),
                             static function (XdebugHandler $xdebugHandler): void {
                                 $xdebugHandler->setPersistent();
                                 $xdebugHandler->check();
                             }
                         );
-                        unset($xdebugHandler);
+                        unset($xdebugHandler); // @codeCoverageIgnoreEnd
                     }
 
                     collect($commandStarting->input->getOption('configuration'))

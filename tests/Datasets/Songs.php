@@ -7,6 +7,7 @@
 /** @noinspection PhpUnhandledExceptionInspection */
 /** @noinspection PhpVoidFunctionResultUsedInspection */
 /** @noinspection StaticClosureCanBeUsedInspection */
+/** @noinspection HttpUrlsUsage */
 declare(strict_types=1);
 
 /**

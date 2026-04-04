@@ -38,8 +38,6 @@ if (!\function_exists('App\Support\classes')) {
      *
      * @template TObject of object
      *
-     * @internal
-     *
      * @param null|(callable(class-string<TObject>, string): bool) $filter
      *
      * @throws \ErrorException
@@ -48,6 +46,7 @@ if (!\function_exists('App\Support\classes')) {
      * @return \Illuminate\Support\Collection<class-string<TObject>, \ReflectionClass<TObject>>
      *
      * @noinspection PhpUndefinedNamespaceInspection
+     * @noinspection PhpDocRedundantThrowsInspection
      */
     function classes(?callable $filter = null): Collection
     {
@@ -63,9 +62,8 @@ if (!\function_exists('App\Support\classes')) {
         static $registered = false;
 
         if (!$registered) {
-            register_shutdown_function(
+            register_shutdown_function( // @codeCoverageIgnoreStart
                 static function () use (&$context, $errorMessenger): void {
-                    // @codeCoverageIgnoreStart
                     if (
                         null === $context
                         || null === ($error = error_get_last())
@@ -83,18 +81,17 @@ if (!\function_exists('App\Support\classes')) {
                         $context['line'],
                         new \ErrorException($error['message'], 0, $error['type'], $error['file'], $error['line'])
                     );
-                    // @codeCoverageIgnoreEnd
                 }
             );
-            $registered = true;
+            $registered = true; // @codeCoverageIgnoreEnd
         }
 
         /** @var null|\Illuminate\Support\Collection<string, class-string> $classes */
         static $classes;
         $classes ??= collect(spl_autoload_functions())->flatMap(
             static fn (callable $loader): array => \is_array($loader) && $loader[0] instanceof ClassLoader
-                ? $loader[0]->getClassMap()
-                : []
+                ? $loader[0]->getClassMap() // @codeCoverageIgnore
+                : [] // @codeCoverageIgnore
         );
         $filter ??= static fn (string $_, string $__): bool => true;
 
