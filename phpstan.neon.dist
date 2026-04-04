@@ -55,7 +55,7 @@ parameters:
         - vendor/composer/InstalledVersions.php
     excludePaths:
 #        - src/Support/Rectors/
-#        - src/Support/ComposerScripts.php
+        - app/Support/ComposerScripts.php
         - tests/Fixtures/
         - *.blade.php
     tmpDir: .build/phpstan/

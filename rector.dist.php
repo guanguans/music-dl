@@ -66,7 +66,6 @@ return RectorConfig::configure()
         __DIR__.'/tests/',
         __DIR__.'/composer-bump',
         __DIR__.'/music-dl',
-        __DIR__.'/readme-lint',
     ])
     ->withRootFiles()
     ->withSkip(['*/Fixtures/*', __DIR__.'/tests.php'])

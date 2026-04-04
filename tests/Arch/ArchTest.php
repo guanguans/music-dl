@@ -23,6 +23,7 @@ use App\Commands\MusicCommand;
 use App\Commands\ThanksCommand;
 use App\Commands\VendorPublishCommand;
 use App\Contracts\Throwable;
+use App\Support\ComposerScripts;
 
 arch()
     ->group(__DIR__, __FILE__)
@@ -38,6 +39,7 @@ arch()
         MusicCommand::class,
         ThanksCommand::class,
         VendorPublishCommand::class,
+        ComposerScripts::class,
         Throwable::class,
     ]);
 
@@ -77,4 +79,5 @@ arch('will not use debugging functions')
     // ->each
     ->not->toBeUsed()
     ->ignoring([
+        ComposerScripts::class,
     ]);

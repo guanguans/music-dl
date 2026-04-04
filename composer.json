@@ -226,7 +226,6 @@
             "@jack:raise-to-installed-dry-run",
             "@phpmnd",
             "@phpstan:analyse",
-            "@readme-lint",
             "@rector:process-dry-run",
             "@sk:check-commented-code",
             "@sk:check-conflicts",
@@ -242,6 +241,7 @@
             "@php-cs-fixer:custom-fix-dry-run",
             "@php-cs-fixer:custom-ln-config",
             "@music-dl:fix-neon-files",
+            "@music-dl:lint-readme",
             "@typos",
             "@zhlint"
         ],
@@ -251,7 +251,7 @@
             "@pest"
         ],
         "class-leak": "@php vendor/bin/class-leak --ansi -vv",
-        "class-leak:check": "@class-leak check config/ app/ --skip-suffix=Music --skip-suffix=ReleaseWorker --skip-suffix=ServerDumper",
+        "class-leak:check": "@class-leak check config/ app/ --skip-suffix=Music --skip-suffix=ReleaseWorker --skip-suffix=ComposerScripts --skip-suffix=ServerDumper",
         "composer-bump": [
             "@putenv:php",
             "@composer-config:disable-process-timeout",
@@ -343,6 +343,7 @@
         "monorepo-builder:release-patch": "@monorepo-builder:release patch",
         "monorepo-builder:release-patch-dry-run": "@monorepo-builder:release-patch --dry-run",
         "music-dl:fix-neon-files": "Guanguans\\PHPStanRules\\Support\\ComposerScripts::fixNeonFiles",
+        "music-dl:lint-readme": "App\\Support\\ComposerScripts::lintReadme",
         "music-dl:phpdoc-parse": "Guanguans\\RectorRules\\Support\\ComposerScripts::phpdocParse",
         "neon-lint": "@php vendor/bin/neon-lint *.neon",
         "peck": "@php vendor/bin/peck check --path=app/ --config=peck.json --ansi -vv",
@@ -442,7 +443,6 @@
             "@putenv XDEBUG_MODE=coverage,debug",
             "@putenv XDEBUG_SESSION=1"
         ],
-        "readme-lint": "@php readme-lint --ansi -v",
         "rector": "@php vendor/bin/rector",
         "rector:custom-rule": "@rector custom-rule",
         "rector:list-rules": "@rector list-rules",

@@ -64,7 +64,6 @@
 /phpbench.json.dist                 export-ignore
 /phpstan.neon.dist                  export-ignore
 /phpunit.xml.dist                   export-ignore
-/readme-lint                        export-ignore
 /rector-*.php                       export-ignore
 /rector.dist.php                    export-ignore
 /resources/images/music-dl-*.gif    export-ignore

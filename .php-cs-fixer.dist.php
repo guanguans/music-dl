@@ -74,7 +74,6 @@ return Factory::fromRuleSet(Php82::create()
             ->append([
                 __DIR__.'/composer-bump',
                 __DIR__.'/music-dl',
-                __DIR__.'/readme-lint',
                 __DIR__.'/rule-doc-generator',
             ])
     );

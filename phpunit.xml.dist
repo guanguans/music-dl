@@ -58,7 +58,7 @@
     </include>
     <exclude>
       <directory>app/ReleaseWorkers/</directory>
-      <!--<file>app/Support/helpers.php</file>-->
+      <file>app/Support/ComposerScripts.php</file>
     </exclude>
   </source>
 </phpunit>
