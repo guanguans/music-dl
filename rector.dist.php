@@ -19,6 +19,7 @@ use Guanguans\RectorRules\Rector\File\AddNoinspectionDocblockToFileFirstStmtRect
 use Guanguans\RectorRules\Rector\Name\RenameToConventionalCaseNameRector;
 use Guanguans\RectorRules\Set\SetList;
 use PhpParser\NodeVisitor\ParentConnectingVisitor;
+use Rector\CodeQuality\Rector\ClassMethod\LocallyCalledStaticMethodToNonStaticRector;
 use Rector\CodeQuality\Rector\If_\ExplicitBoolCompareRector;
 use Rector\CodeQuality\Rector\LogicalAnd\LogicalToBooleanRector;
 use Rector\CodingStyle\Rector\ArrowFunction\ArrowFunctionDelegatingCallToFirstClassCallableRector;
@@ -167,6 +168,9 @@ return RectorConfig::configure()
         ],
         JsonThrowOnErrorRector::class => [
             __DIR__.'/tests/Pest.php',
+        ],
+        LocallyCalledStaticMethodToNonStaticRector::class => [
+            __DIR__.'/app/ReleaseWorkers/BuildLaravelZeroAppReleaseWorker.php',
         ],
         RemoveDumpDataDeadCodeRector::class => [
             __DIR__.'/tests/Unit/Support/ServerDumperTest.php',

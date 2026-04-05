@@ -193,7 +193,8 @@
         "artisan": "@php music-dl --ansi -v",
         "artisan:app-build": [
             "@composer install --no-dev --no-scripts --ansi -v",
-            "@php music-dl app:build music-dl.phar --build-version=master --ansi",
+            "@php music-dl app:build music-dl.phar --build-version=master --ansi -v",
+            "@composer install --ansi -v",
             "@php builds/music-dl.phar list --ansi -v",
             "ls -lh builds/music-dl.phar",
             "ls -lr builds/music-dl.phar"

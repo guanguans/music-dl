@@ -14,10 +14,11 @@ vendor/
 .env
 .php-cs-fixer.php
 /*.zip
+/builds/music-dl.phar
 /laravel
 /tests.*
-composer.require.json
 #composer.lock
+composer.require.json
 phpbench.json
 phpstan.neon
 phpunit.xml

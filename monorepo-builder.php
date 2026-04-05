@@ -75,5 +75,6 @@ return static function (MBConfig $mbConfig): void {
             });
     }
 
+    BuildLaravelZeroAppReleaseWorker::setAppName('music-dl');
     EnvironmentChecker::checks($workers);
 };
