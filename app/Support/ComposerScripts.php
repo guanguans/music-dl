@@ -154,12 +154,7 @@ final class ComposerScripts
 
                     return Success::create('ok');
                 }),
-            ])
-            ->then(static function () use ($event): never {
-                $event->getIO()->info('No errors');
-
-                exit(0);
-            });
+            ]);
 
         $event->getIO()->info('No errors');
 

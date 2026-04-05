@@ -216,6 +216,7 @@
         ],
         "checks:optional": [
             "@putenv:xdebug-off",
+            "@app:fix-neon",
             "@app:lint-readme",
             "@composer:unlink",
             "@class-leak:check",

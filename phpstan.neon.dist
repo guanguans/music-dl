@@ -238,3 +238,9 @@ parameters:
         -
             message: '#^Property App\\Music\:\:\$driver \(Illuminate\\Contracts\\Concurrency\\Driver\|null\) does not accept mixed\.$#'
             path: app/Music.php
+        -
+            identifier: shipmonk.arithmeticOnNonNumber
+            path: app/Commands/OptimizeImageCommand.php
+        -
+            message: '#^Offset ''(human_size|size)'' might not exist on array\{size\: \(bool\|int\), human_size\: string, real_path\: \(bool\|string\)\}\|null\.$#'
+            path: app/Commands/OptimizeImageCommand.php

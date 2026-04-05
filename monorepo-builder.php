@@ -13,7 +13,7 @@ declare(strict_types=1);
  * @see https://github.com/guanguans/music-dl
  */
 
-use App\ReleaseWorkers\BuildAppReleaseWorker;
+use App\ReleaseWorkers\BuildLaravelZeroAppReleaseWorker;
 use Guanguans\MonorepoBuilderWorker\ReleaseWorker\CreateGithubReleaseReleaseWorker;
 use Guanguans\MonorepoBuilderWorker\ReleaseWorker\UpdateChangelogViaGoReleaseWorker;
 use Guanguans\MonorepoBuilderWorker\ReleaseWorker\UpdateChangelogViaNodeReleaseWorker;
@@ -53,7 +53,7 @@ return static function (MBConfig $mbConfig): void {
         // UpdateReplaceReleaseWorker::class,
         // SetCurrentMutualDependenciesReleaseWorker::class,
         // AddTagToChangelogReleaseWorker::class,
-        BuildAppReleaseWorker::class,
+        BuildLaravelZeroAppReleaseWorker::class,
         TagVersionReleaseWorker::class,
         PushTagReleaseWorker::class,
         UpdateChangelogViaGoReleaseWorker::class,

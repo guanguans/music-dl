@@ -27,6 +27,7 @@ return (new Configuration)
         false
     )
     ->addPathsToExclude([
+        __DIR__.'/app/Commands/OptimizeImageCommand.php',
         __DIR__.'/app/ReleaseWorkers/',
         __DIR__.'/app/Support/ComposerScripts.php',
         __DIR__.'/resources/require/vendor/',

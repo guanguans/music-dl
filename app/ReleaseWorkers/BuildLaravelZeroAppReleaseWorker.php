@@ -20,7 +20,7 @@ use Symfony\Component\Process\ExecutableFinder;
 use Symfony\Component\Process\PhpExecutableFinder;
 use Symplify\MonorepoBuilder\Release\Process\ProcessRunner;
 
-final class BuildAppReleaseWorker extends AbstractReleaseWorker
+final class BuildLaravelZeroAppReleaseWorker extends AbstractReleaseWorker
 {
     public function __construct(private readonly ProcessRunner $processRunner) {}
 
