@@ -185,9 +185,9 @@
             "@composer:normalize"
         ],
         "actionlint": "actionlint -ignore=SC2035 -ignore=SC2046 -ignore=SC2086 -color -oneline -verbose",
-        "app:fix-neon-files": "Guanguans\\PHPStanRules\\Support\\ComposerScripts::fixNeonFiles",
+        "app:fix-neon": "Guanguans\\PHPStanRules\\Support\\ComposerScripts::fixNeon",
         "app:lint-readme": "App\\Support\\ComposerScripts::lintReadme",
-        "app:phpdoc-parse": "Guanguans\\RectorRules\\Support\\ComposerScripts::phpdocParse",
+        "app:parse-phpdoc": "Guanguans\\RectorRules\\Support\\ComposerScripts::parsePhpdoc",
         "argtyper": "@php vendor/bin/argtyper --ansi -vv",
         "argtyper:add-types": "@argtyper add-types .",
         "artisan": "@php music-dl --ansi -v",
@@ -216,7 +216,6 @@
         ],
         "checks:optional": [
             "@putenv:xdebug-off",
-            "@app:fix-neon-files",
             "@app:lint-readme",
             "@composer:unlink",
             "@class-leak:check",
@@ -280,8 +279,8 @@
         ],
         "composer-config:disable-process-timeout": "Composer\\Config::disableProcessTimeout",
         "composer-dependency-analyser": [
-            "[ -f composer.local.json ] || ln -s resources/require/composer.json composer.local.json",
-            "@php vendor/bin/composer-dependency-analyser --composer-json=composer.local.json --verbose"
+            "[ -f composer.require.json ] || ln -s resources/require/composer.json composer.require.json",
+            "@php vendor/bin/composer-dependency-analyser --composer-json=composer.require.json --verbose"
         ],
         "composer:audit": "@composer audit --ansi -vv",
         "composer:bin-all-update": "@composer bin all update --ansi -vv",

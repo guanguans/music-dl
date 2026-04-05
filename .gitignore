@@ -16,7 +16,7 @@ vendor/
 /*.zip
 /laravel
 /tests.*
-composer.local.json
+composer.require.json
 #composer.lock
 phpbench.json
 phpstan.neon
