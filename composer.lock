@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6beb45921d24660b468e65740155c725",
+    "content-hash": "5ed7e36d3355fa9f73b3055fa758744c",
     "packages": [
         {
             "name": "brick/math",
@@ -9342,16 +9342,16 @@
         },
         {
             "name": "guanguans/monorepo-builder-worker",
-            "version": "3.1.2",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guanguans/monorepo-builder-worker.git",
-                "reference": "219142b7ddec45f0ba9cde5983076169c92cb8bb"
+                "reference": "f9caaa07a6895a304856f4111e229e9761d10cc9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guanguans/monorepo-builder-worker/zipball/219142b7ddec45f0ba9cde5983076169c92cb8bb",
-                "reference": "219142b7ddec45f0ba9cde5983076169c92cb8bb",
+                "url": "https://api.github.com/repos/guanguans/monorepo-builder-worker/zipball/f9caaa07a6895a304856f4111e229e9761d10cc9",
+                "reference": "f9caaa07a6895a304856f4111e229e9761d10cc9",
                 "shasum": ""
             },
             "require": {
@@ -9367,26 +9367,23 @@
                 "ergebnis/license": "^2.7",
                 "ergebnis/php-cs-fixer-config": "^6.60",
                 "ergebnis/phpstan-rules": "^2.13",
-                "ergebnis/rector-rules": "^1.15",
+                "ergebnis/rector-rules": "^1.16",
                 "fakerphp/faker": "^1.24",
                 "guanguans/php-cs-fixer-custom-fixers": "^1.2",
                 "guanguans/phpstan-rules": "^1.1",
                 "guanguans/rector-rules": "^1.7",
-                "illuminate/support": "^12.55 || ^13.0",
+                "illuminate/support": "^12.56 || ^13.0",
                 "jbelien/phpstan-sarif-formatter": "^1.2",
                 "marcocesarato/php-conventional-changelog": "^1.17",
                 "mockery/mockery": "^1.6",
-                "mrpunyapal/peststan": "^0.1",
+                "mrpunyapal/peststan": "^0.2",
                 "mrpunyapal/rector-pest": "^0.2",
                 "nette/utils": "^4.1",
                 "nicksdot/phpstan-phpstorm-error-identifiers": "^0.3",
-                "peckphp/peck": "^0.2",
                 "pestphp/pest": "^3.8 || ^4.0",
                 "pestphp/pest-plugin-arch": "^3.1 || ^4.0",
-                "pestphp/pest-plugin-profanity": "^3.23 || ^4.0",
                 "php-mock/php-mock-phpunit": "^2.15",
                 "phpstan/extension-installer": "^1.4",
-                "phpstan/phpstan": "^2.1",
                 "phpstan/phpstan-deprecation-rules": "^2.0",
                 "phpstan/phpstan-mockery": "^2.0",
                 "phpstan/phpstan-strict-rules": "^2.0",
@@ -9395,7 +9392,6 @@
                 "povils/phpmnd": "^3.6",
                 "rector/argtyper": "^0.6",
                 "rector/jack": "^0.5",
-                "rector/rector": "^2.3",
                 "rector/swiss-knife": "^2.3",
                 "rector/type-perfect": "^2.1",
                 "roave/backward-compatibility-check": "^8.14",
@@ -9417,7 +9413,7 @@
                 "symplify/easy-coding-standard": "^13.0",
                 "symplify/phpstan-rules": "^14.9",
                 "tomasvotruba/class-leak": "^2.1",
-                "tomasvotruba/cognitive-complexity": "^1.0",
+                "tomasvotruba/cognitive-complexity": "^1.1",
                 "tomasvotruba/ctor": "^2.2",
                 "tomasvotruba/type-coverage": "^2.1",
                 "tomasvotruba/unused-public": "^2.2",
@@ -9501,7 +9497,7 @@
                     "type": "sponsors"
                 }
             ],
-            "time": "2026-03-25T08:43:09+00:00"
+            "time": "2026-04-06T12:01:12+00:00"
         },
         {
             "name": "guanguans/php-cs-fixer-custom-fixers",
@@ -10410,16 +10406,16 @@
         },
         {
             "name": "laravel-lang/actions",
-            "version": "1.12.1",
+            "version": "1.12.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Lang/actions.git",
-                "reference": "af2750ace5fd7655b696c39f3f6d0da9ce852d16"
+                "reference": "ef8847493e1c6a15e87667d64430e5312527b5e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Lang/actions/zipball/af2750ace5fd7655b696c39f3f6d0da9ce852d16",
-                "reference": "af2750ace5fd7655b696c39f3f6d0da9ce852d16",
+                "url": "https://api.github.com/repos/Laravel-Lang/actions/zipball/ef8847493e1c6a15e87667d64430e5312527b5e7",
+                "reference": "ef8847493e1c6a15e87667d64430e5312527b5e7",
                 "shasum": ""
             },
             "require": {
@@ -10471,7 +10467,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Lang/actions/issues",
-                "source": "https://github.com/Laravel-Lang/actions/tree/1.12.1"
+                "source": "https://github.com/Laravel-Lang/actions/tree/1.12.2"
             },
             "funding": [
                 {
@@ -10483,7 +10479,7 @@
                     "type": "yoomoney"
                 }
             ],
-            "time": "2026-03-17T21:27:37+00:00"
+            "time": "2026-04-05T13:52:03+00:00"
         },
         {
             "name": "laravel-lang/attributes",
@@ -11695,16 +11691,16 @@
         },
         {
             "name": "laravel-lang/starter-kits",
-            "version": "1.10.3",
+            "version": "1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Lang/starter-kits.git",
-                "reference": "cc460c8295568a73a6525de624e09d5976d24fe8"
+                "reference": "7ac2c62d499ce3ee9593f292aa2c7ec19a6fd974"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Lang/starter-kits/zipball/cc460c8295568a73a6525de624e09d5976d24fe8",
-                "reference": "cc460c8295568a73a6525de624e09d5976d24fe8",
+                "url": "https://api.github.com/repos/Laravel-Lang/starter-kits/zipball/7ac2c62d499ce3ee9593f292aa2c7ec19a6fd974",
+                "reference": "7ac2c62d499ce3ee9593f292aa2c7ec19a6fd974",
                 "shasum": ""
             },
             "require": {
@@ -11756,7 +11752,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Lang/starter-kits/issues",
-                "source": "https://github.com/Laravel-Lang/starter-kits/tree/1.10.3"
+                "source": "https://github.com/Laravel-Lang/starter-kits/tree/1.11.0"
             },
             "funding": [
                 {
@@ -11768,7 +11764,7 @@
                     "type": "yoomoney"
                 }
             ],
-            "time": "2026-03-29T11:52:22+00:00"
+            "time": "2026-04-05T13:56:06+00:00"
         },
         {
             "name": "laravel/facade-documenter",
@@ -18786,16 +18782,16 @@
         },
         {
             "name": "spaze/phpstan-disallowed-calls",
-            "version": "v4.9.2",
+            "version": "v4.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spaze/phpstan-disallowed-calls.git",
-                "reference": "cc78e77f9f8f2bd3d66c7c88cd9c9e07762a0d87"
+                "reference": "501b212b15b8b4c5e2aaf44ee01bb024f85956d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spaze/phpstan-disallowed-calls/zipball/cc78e77f9f8f2bd3d66c7c88cd9c9e07762a0d87",
-                "reference": "cc78e77f9f8f2bd3d66c7c88cd9c9e07762a0d87",
+                "url": "https://api.github.com/repos/spaze/phpstan-disallowed-calls/zipball/501b212b15b8b4c5e2aaf44ee01bb024f85956d3",
+                "reference": "501b212b15b8b4c5e2aaf44ee01bb024f85956d3",
                 "shasum": ""
             },
             "require": {
@@ -18841,7 +18837,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spaze/phpstan-disallowed-calls/issues",
-                "source": "https://github.com/spaze/phpstan-disallowed-calls/tree/v4.9.2"
+                "source": "https://github.com/spaze/phpstan-disallowed-calls/tree/v4.10.0"
             },
             "funding": [
                 {
@@ -18849,7 +18845,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-03-31T22:26:59+00:00"
+            "time": "2026-04-04T01:47:30+00:00"
         },
         {
             "name": "staabm/annotate-pull-request-from-checkstyle",

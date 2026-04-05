@@ -13,19 +13,17 @@ declare(strict_types=1);
 
 namespace App\ReleaseWorkers;
 
-use App\Exceptions\RuntimeException;
 use Guanguans\MonorepoBuilderWorker\ReleaseWorker\AbstractReleaseWorker;
-use Illuminate\Support\Str;
 use PharIo\Version\Version;
+use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Process\ExecutableFinder;
-use Symfony\Component\Process\PhpExecutableFinder;
-use Symplify\MonorepoBuilder\Release\Process\ProcessRunner;
 
 final class BuildLaravelZeroAppReleaseWorker extends AbstractReleaseWorker
 {
+    private static ?PhpSubprocessRunner $staticPhpSubprocessRunner = null;
     private static ?string $appName = null;
 
-    public function __construct(private readonly ProcessRunner $processRunner) {}
+    public function __construct(private readonly PhpSubprocessRunner $phpSubprocessRunner) {}
 
     #[\Override]
     public static function check(): void
@@ -34,9 +32,9 @@ final class BuildLaravelZeroAppReleaseWorker extends AbstractReleaseWorker
             \is_string(self::$appName),
             \sprintf('The property "%s::$appName" must be set by calling the method "setAppName".', self::class)
         );
-        self::createProcessRunner()->run([self::findPhp(), '-v']);
-        self::createProcessRunner()->run([...self::app(), '--version', '--ansi', '-v']);
-        self::createProcessRunner()->run([...self::composer(), '--version', '--ansi', '-v']);
+        self::createPhpSubprocessRunner()->run(['-v']);
+        self::createPhpSubprocessRunner()->run([self::$appName, '--version', '--ansi', '-v']);
+        self::createPhpSubprocessRunner()->run([self::findComposer(), '--version', '--ansi', '-v']);
     }
 
     /**
@@ -58,48 +56,41 @@ final class BuildLaravelZeroAppReleaseWorker extends AbstractReleaseWorker
     #[\Override]
     public function work(Version $version): void
     {
-        $this->processRunner->run([...self::composer(), 'install', '--no-dev', '--no-scripts', '--ansi', '-v']);
-        $this->processRunner->run([...self::app(), 'app:build', self::$appName, '--build-version', $version->getOriginalString(), '--ansi']);
-        $this->processRunner->run([...self::composer(), 'install', '--ansi', '-v']);
-        $this->processRunner->run([...self::app(), '--version', '--ansi', '-v']);
+        register_shutdown_function(function (): void {
+            $this->phpSubprocessRunner->run([self::findComposer(), 'install', '--ansi', '-v']);
+            $this->phpSubprocessRunner->run([self::$appName, '--version', '--ansi', '-v']);
+        });
+        $this->phpSubprocessRunner->run([self::findComposer(), 'install', '--no-dev', '--no-scripts', '--ansi', '-v']);
+        $this->phpSubprocessRunner->run([self::$appName, 'app:build', self::$appName, '--build-version', $version->getOriginalString(), '--ansi']);
+        \assert(
+            str_contains(
+                $this->phpSubprocessRunner->run([\sprintf('builds/%s', self::$appName), '--version', '--no-ansi']),
+                $version->getOriginalString()
+            ),
+            \sprintf('Build app "%s" failed.', self::$appName)
+        );
+    }
 
-        if (!Str::contains($this->processRunner->run([...self::builtApp(), '--version', '--no-ansi']), $version->getOriginalString())) {
-            throw new RuntimeException(\sprintf('Build app "%s" failed.', self::$appName));
+    public static function createPhpSubprocessRunner(?SymfonyStyle $symfonyStyle = null): PhpSubprocessRunner
+    {
+        static $phpSubprocessRunner;
+
+        if (!$phpSubprocessRunner instanceof PhpSubprocessRunner || $symfonyStyle instanceof SymfonyStyle) {
+            $phpSubprocessRunner = new PhpSubprocessRunner($symfonyStyle ?? self::createSymfonyStyle());
         }
-    }
 
-    /**
-     * @return list<string>
-     */
-    private static function app(): array
-    {
-        return [self::findPhp(), self::$appName];
-    }
-
-    /**
-     * @return list<string>
-     */
-    private static function builtApp(): array
-    {
-        return [self::findPhp(), \sprintf('builds/%s', self::$appName)];
-    }
-
-    /**
-     * @see \Illuminate\Console\Application::artisanBinary()
-     *
-     * @return list<string>
-     */
-    private static function composer(): array
-    {
-        return [self::findPhp(), new ExecutableFinder()->find('composer', 'composer')];
+        return $phpSubprocessRunner;
     }
 
     /**
      * @see \Illuminate\Console\Application::artisanBinary()
      * @see \Illuminate\Console\Application::phpBinary()
+     * @see \Illuminate\Support\Composer::findComposer()
      */
-    private static function findPhp(): string
+    private static function findComposer(): string
     {
-        return new PhpExecutableFinder()->find();
+        static $composer;
+
+        return $composer ??= new ExecutableFinder()->find('composer', 'composer');
     }
 }

@@ -14,6 +14,7 @@ declare(strict_types=1);
  */
 
 use App\ReleaseWorkers\BuildLaravelZeroAppReleaseWorker;
+use App\ReleaseWorkers\PhpSubprocessRunner;
 use Guanguans\MonorepoBuilderWorker\ReleaseWorker\CreateGithubReleaseReleaseWorker;
 use Guanguans\MonorepoBuilderWorker\ReleaseWorker\UpdateChangelogViaGoReleaseWorker;
 use Guanguans\MonorepoBuilderWorker\ReleaseWorker\UpdateChangelogViaNodeReleaseWorker;
@@ -35,6 +36,7 @@ use Symplify\MonorepoBuilder\Release\ReleaseWorker\SetNextMutualDependenciesRele
 use Symplify\MonorepoBuilder\Release\ReleaseWorker\TagVersionReleaseWorker;
 use Symplify\MonorepoBuilder\Release\ReleaseWorker\UpdateBranchAliasReleaseWorker;
 use Symplify\MonorepoBuilder\Release\ReleaseWorker\UpdateReplaceReleaseWorker;
+use function Symfony\Component\DependencyInjection\Loader\Configurator\service;
 
 return static function (MBConfig $mbConfig): void {
     $mbConfig->defaultBranch('master');
@@ -43,6 +45,9 @@ return static function (MBConfig $mbConfig): void {
     // $services = $mbConfig->services();
     // $services->set(BranchAwareTagResolver::class);
     // $services->alias(TagResolverInterface::class, BranchAwareTagResolver::class);
+
+    $services = $mbConfig->services();
+    $services->set(PhpSubprocessRunner::class)->arg('$symfonyStyle', service(SymfonyStyle::class));
 
     /**
      * release workers - in order to execute.
@@ -54,15 +59,15 @@ return static function (MBConfig $mbConfig): void {
         // SetCurrentMutualDependenciesReleaseWorker::class,
         // AddTagToChangelogReleaseWorker::class,
         BuildLaravelZeroAppReleaseWorker::class,
-        TagVersionReleaseWorker::class,
-        PushTagReleaseWorker::class,
-        UpdateChangelogViaGoReleaseWorker::class,
-        // UpdateChangelogViaNodeReleaseWorker::class,
-        // UpdateChangelogViaPhpReleaseWorker::class,
-        CreateGithubReleaseReleaseWorker::class,
-        // SetNextMutualDependenciesReleaseWorker::class,
-        // UpdateBranchAliasReleaseWorker::class,
-        // PushNextDevReleaseWorker::class,
+        // TagVersionReleaseWorker::class,
+        // PushTagReleaseWorker::class,
+        // UpdateChangelogViaGoReleaseWorker::class,
+        // // UpdateChangelogViaNodeReleaseWorker::class,
+        // // UpdateChangelogViaPhpReleaseWorker::class,
+        // CreateGithubReleaseReleaseWorker::class,
+        // // SetNextMutualDependenciesReleaseWorker::class,
+        // // UpdateBranchAliasReleaseWorker::class,
+        // // PushNextDevReleaseWorker::class,
     ]);
 
     if (!(new ArgvInput)->hasParameterOption('--dry-run', true)) {
