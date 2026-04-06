@@ -8,6 +8,22 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="7.0.1"></a>
+## [7.0.1] - 2026-04-06
+### ✨ Features
+- **command:** Add OptimizeImageCommand class ([2c21e13](https://github.com/guanguans/music-dl/commit/2c21e13))
+- **release-worker:** Add PhpSubprocessRunner class ([4d821e0](https://github.com/guanguans/music-dl/commit/4d821e0))
+
+### 💅 Code Refactorings
+- **monorepo-builder:** Update namespace imports for release workers ([a959903](https://github.com/guanguans/music-dl/commit/a959903))
+- **release-worker:** Use dynamic app name in BuildLaravelZeroAppReleaseWorker ([d51de27](https://github.com/guanguans/music-dl/commit/d51de27))
+- **release-worker:** Rename BuildAppReleaseWorker to BuildLaravelZeroAppReleaseWorker ([373b0f2](https://github.com/guanguans/music-dl/commit/373b0f2))
+
+### 🤖 Continuous Integrations
+- **config:** Update config files ([59cea48](https://github.com/guanguans/music-dl/commit/59cea48))
+- **config:** Update config files ([ed8a487](https://github.com/guanguans/music-dl/commit/ed8a487))
+
+
 <a name="7.0.0"></a>
 ## [7.0.0] - 2026-04-04
 ### ✨ Features
@@ -1724,7 +1740,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/7.0.0...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/7.0.1...HEAD
+[7.0.1]: https://github.com/guanguans/music-dl/compare/7.0.0...7.0.1
 [7.0.0]: https://github.com/guanguans/music-dl/compare/6.5.2...7.0.0
 [6.5.2]: https://github.com/guanguans/music-dl/compare/6.5.1...6.5.2
 [6.5.1]: https://github.com/guanguans/music-dl/compare/6.5.0...6.5.1
