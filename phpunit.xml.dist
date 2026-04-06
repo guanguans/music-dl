@@ -57,7 +57,7 @@
       <directory>bootstrap/</directory>
     </include>
     <exclude>
-      <directory>app/ReleaseWorkers/</directory>
+      <!--<directory>app/ReleaseWorkers/</directory>-->
       <file>app/Support/ComposerScripts.php</file>
     </exclude>
   </source>

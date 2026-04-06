@@ -13,8 +13,8 @@ declare(strict_types=1);
  * @see https://github.com/guanguans/music-dl
  */
 
-use App\ReleaseWorkers\BuildLaravelZeroAppReleaseWorker;
-use App\ReleaseWorkers\PhpSubprocessRunner;
+use Guanguans\MonorepoBuilderWorker\ProcessRunner\PhpSubprocessRunner;
+use Guanguans\MonorepoBuilderWorker\ReleaseWorker\BuildLaravelZeroAppReleaseWorker;
 use Guanguans\MonorepoBuilderWorker\ReleaseWorker\CreateGithubReleaseReleaseWorker;
 use Guanguans\MonorepoBuilderWorker\ReleaseWorker\UpdateChangelogViaGoReleaseWorker;
 use Guanguans\MonorepoBuilderWorker\ReleaseWorker\UpdateChangelogViaNodeReleaseWorker;
@@ -59,15 +59,15 @@ return static function (MBConfig $mbConfig): void {
         // SetCurrentMutualDependenciesReleaseWorker::class,
         // AddTagToChangelogReleaseWorker::class,
         BuildLaravelZeroAppReleaseWorker::class,
-        // TagVersionReleaseWorker::class,
-        // PushTagReleaseWorker::class,
-        // UpdateChangelogViaGoReleaseWorker::class,
-        // // UpdateChangelogViaNodeReleaseWorker::class,
-        // // UpdateChangelogViaPhpReleaseWorker::class,
-        // CreateGithubReleaseReleaseWorker::class,
-        // // SetNextMutualDependenciesReleaseWorker::class,
-        // // UpdateBranchAliasReleaseWorker::class,
-        // // PushNextDevReleaseWorker::class,
+        TagVersionReleaseWorker::class,
+        PushTagReleaseWorker::class,
+        UpdateChangelogViaGoReleaseWorker::class,
+        // UpdateChangelogViaNodeReleaseWorker::class,
+        // UpdateChangelogViaPhpReleaseWorker::class,
+        CreateGithubReleaseReleaseWorker::class,
+        // SetNextMutualDependenciesReleaseWorker::class,
+        // UpdateBranchAliasReleaseWorker::class,
+        // PushNextDevReleaseWorker::class,
     ]);
 
     if (!(new ArgvInput)->hasParameterOption('--dry-run', true)) {
