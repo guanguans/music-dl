@@ -14,11 +14,11 @@
         {
             "name": "guanguans",
             "email": "ityaozm@gmail.com",
-            "homepage": "https://www.guanguans.cn",
+            "homepage": "https://github.com/guanguans",
             "role": "developer"
         }
     ],
-    "homepage": "https://guanguans.github.io/music-dl",
+    "homepage": "https://github.com/guanguans/music-dl",
     "support": {
         "issues": "https://github.com/guanguans/music-dl/issues",
         "source": "https://github.com/guanguans/music-dl",
