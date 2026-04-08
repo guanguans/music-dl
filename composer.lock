@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5ed7e36d3355fa9f73b3055fa758744c",
+    "content-hash": "71f241fce14630a33ffbbbb7f89a7d98",
     "packages": [
         {
             "name": "wikimedia/composer-merge-plugin",
@@ -14903,46 +14903,47 @@
         },
         {
             "name": "shipmonk/dead-code-detector",
-            "version": "0.15.1",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shipmonk-rnd/dead-code-detector.git",
-                "reference": "e0e8d9ec48a60e4db5d54750e45196683e5f0a3c"
+                "reference": "dd909a6e267ae03837f166bc5e9d2f0851b14ff0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shipmonk-rnd/dead-code-detector/zipball/e0e8d9ec48a60e4db5d54750e45196683e5f0a3c",
-                "reference": "e0e8d9ec48a60e4db5d54750e45196683e5f0a3c",
+                "url": "https://api.github.com/repos/shipmonk-rnd/dead-code-detector/zipball/dd909a6e267ae03837f166bc5e9d2f0851b14ff0",
+                "reference": "dd909a6e267ae03837f166bc5e9d2f0851b14ff0",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.4 || ^8.0",
-                "phpstan/phpstan": "^2.1.23"
+                "php": "^8.1",
+                "phpstan/phpstan": "^2.1.41"
             },
             "require-dev": {
                 "behat/behat": "^3.14",
                 "composer-runtime-api": "^2.0",
                 "composer/semver": "^3.4",
                 "doctrine/orm": "^2.19 || ^3.0",
-                "editorconfig-checker/editorconfig-checker": "^10.6.0",
+                "editorconfig-checker/editorconfig-checker": "^10.7.0",
                 "ergebnis/composer-normalize": "^2.48.1",
+                "laravel/framework": "^10.0 || ^11.0 || ^12.0",
                 "nette/application": "^3.1",
                 "nette/component-model": "^3.0",
                 "nette/tester": "^2.4",
                 "nette/utils": "^3.0 || ^4.0",
                 "nikic/php-parser": "^5.4.0",
                 "phpbench/phpbench": "^1.2",
-                "phpstan/phpstan-phpunit": "^2.0.4",
-                "phpstan/phpstan-strict-rules": "^2.0.3",
-                "phpstan/phpstan-symfony": "^2.0.2",
-                "phpunit/phpcov": "^8.2",
-                "phpunit/phpunit": "^9.6.22",
-                "shipmonk/coding-standard": "^0.2.0",
-                "shipmonk/composer-dependency-analyser": "^1.8.2",
-                "shipmonk/coverage-guard": "^1.0.0",
+                "phpstan/phpstan-phpunit": "^2.0.16",
+                "phpstan/phpstan-strict-rules": "^2.0.10",
+                "phpstan/phpstan-symfony": "^2.0.15",
+                "phpunit/phpcov": "^9.0.2",
+                "phpunit/phpunit": "^10.5.46",
+                "shipmonk/coding-standard": "^0.2.2",
+                "shipmonk/composer-dependency-analyser": "^1.8.4",
+                "shipmonk/coverage-guard": "^1.0.2",
                 "shipmonk/name-collision-detector": "^2.1.1",
                 "shipmonk/phpstan-dev": "^0.1.6",
-                "shipmonk/phpstan-rules": "^4.1.0",
+                "shipmonk/phpstan-rules": "^4.3.6",
                 "symfony/contracts": "^2.5 || ^3.0 || ^4.0",
                 "symfony/dependency-injection": "^5.4 || ^6.0 || ^7.0 || ^8.0",
                 "symfony/doctrine-bridge": "^5.4 || ^6.0 || ^7.0 || ^8.0",
@@ -14950,6 +14951,9 @@
                 "symfony/framework-bundle": "^5.4 || ^6.0 || ^7.0 || ^8.0",
                 "symfony/http-kernel": "^5.4 || ^6.0 || ^7.0 || ^8.0",
                 "symfony/routing": "^5.4 || ^6.0 || ^7.0 || ^8.0",
+                "symfony/scheduler": "^6.3 || ^7.0 || ^8.0",
+                "symfony/ux-live-component": "^2.34",
+                "symfony/ux-twig-component": "^2.34",
                 "symfony/validator": "^5.4 || ^6.0 || ^7.0 || ^8.0",
                 "twig/twig": "^3.0"
             },
@@ -14979,9 +14983,9 @@
             ],
             "support": {
                 "issues": "https://github.com/shipmonk-rnd/dead-code-detector/issues",
-                "source": "https://github.com/shipmonk-rnd/dead-code-detector/tree/0.15.1"
+                "source": "https://github.com/shipmonk-rnd/dead-code-detector/tree/1.0.0"
             },
-            "time": "2026-03-06T08:53:16+00:00"
+            "time": "2026-04-08T10:39:05+00:00"
         },
         {
             "name": "shipmonk/name-collision-detector",
