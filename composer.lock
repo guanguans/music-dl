@@ -7509,16 +7509,16 @@
         },
         {
             "name": "mrpunyapal/rector-pest",
-            "version": "0.2.7",
+            "version": "0.2.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/MrPunyapal/rector-pest.git",
-                "reference": "869ee278263df1ef4fb120cf3e2097ba546d6479"
+                "reference": "0aae59f110c89abdf01a3ba55fe77c42c2cd7cf4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MrPunyapal/rector-pest/zipball/869ee278263df1ef4fb120cf3e2097ba546d6479",
-                "reference": "869ee278263df1ef4fb120cf3e2097ba546d6479",
+                "url": "https://api.github.com/repos/MrPunyapal/rector-pest/zipball/0aae59f110c89abdf01a3ba55fe77c42c2cd7cf4",
+                "reference": "0aae59f110c89abdf01a3ba55fe77c42c2cd7cf4",
                 "shasum": ""
             },
             "require": {
@@ -7529,6 +7529,7 @@
             "require-dev": {
                 "laravel/pint": "^1.18",
                 "mrpunyapal/peststan": "^0.1.5",
+                "nunomaduro/pao": "^0.1.4",
                 "pestphp/pest": "^3.0 || ^4.0",
                 "phpstan/phpstan": "^2.1",
                 "symplify/rule-doc-generator": "^12.2"
@@ -7564,7 +7565,7 @@
             ],
             "support": {
                 "issues": "https://github.com/MrPunyapal/rector-pest/issues",
-                "source": "https://github.com/MrPunyapal/rector-pest/tree/0.2.7"
+                "source": "https://github.com/MrPunyapal/rector-pest/tree/0.2.10"
             },
             "funding": [
                 {
@@ -7572,7 +7573,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-04-08T17:53:37+00:00"
+            "time": "2026-04-10T14:13:20+00:00"
         },
         {
             "name": "myclabs/deep-copy",
