@@ -7447,16 +7447,16 @@
         },
         {
             "name": "mrpunyapal/peststan",
-            "version": "0.2.3",
+            "version": "0.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/MrPunyapal/PestStan.git",
-                "reference": "0498b17c727a34768f71b20df2bb9ab10ede76bd"
+                "reference": "e9a2142e9a289613e333b3764030f40429b75af0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MrPunyapal/PestStan/zipball/0498b17c727a34768f71b20df2bb9ab10ede76bd",
-                "reference": "0498b17c727a34768f71b20df2bb9ab10ede76bd",
+                "url": "https://api.github.com/repos/MrPunyapal/PestStan/zipball/e9a2142e9a289613e333b3764030f40429b75af0",
+                "reference": "e9a2142e9a289613e333b3764030f40429b75af0",
                 "shasum": ""
             },
             "require": {
@@ -7466,6 +7466,7 @@
             "require-dev": {
                 "laravel/pint": "^1.18",
                 "mrpunyapal/rector-pest": "^0.2.0",
+                "nunomaduro/pao": "^0.1.4",
                 "pestphp/pest": "^3.0 || ^4.0 || ^5.0",
                 "phpstan/extension-installer": "^1.4",
                 "phpstan/phpstan-strict-rules": "^2.0",
@@ -7497,7 +7498,7 @@
             ],
             "support": {
                 "issues": "https://github.com/MrPunyapal/PestStan/issues",
-                "source": "https://github.com/MrPunyapal/PestStan/tree/0.2.3"
+                "source": "https://github.com/MrPunyapal/PestStan/tree/0.2.5"
             },
             "funding": [
                 {
@@ -7505,7 +7506,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-04-07T14:05:17+00:00"
+            "time": "2026-04-10T14:30:52+00:00"
         },
         {
             "name": "mrpunyapal/rector-pest",
