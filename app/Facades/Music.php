@@ -18,7 +18,7 @@ namespace App\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static \Illuminate\Support\Collection search(string $keyword, array $options)
+ * @method static \Illuminate\Support\Collection<int, array<string, mixed>> search(string $keyword, array<string, mixed> $options)
  * @method static void download(string $url, string $savedPath)
  * @method static \App\Music setMeting(\App\Support\Meting $meting)
  * @method static \App\Music setDriver(\Illuminate\Contracts\Concurrency\Driver $driver)
@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static never dd(mixed ...$args)
  * @method static \App\Music dump(mixed ...$args)
  * @method static \App\Music setHttpClient(\GuzzleHttp\Client|null $httpClient)
- * @method static \GuzzleHttp\Client createHttpClient(array $config = [])
+ * @method static \GuzzleHttp\Client createHttpClient(array<string, mixed> $config = [])
  * @method static mixed withLocale(string $locale, \Closure $callback)
  * @method static void macro(string $name, object|callable $macro)
  * @method static void mixin(object $mixin, bool $replace = true)

@@ -199,8 +199,6 @@ parameters:
         - identifier: symplify.noReturnSetterMethod
         - identifier: symplify.requireExceptionNamespace
         - message: '#^Unused App\\.*\:\:__construct$#'
-        - message: '#^Unused App\\Commands\\.*Command\:\:handle$#'
-        - message: '#^Unused App\\Providers\\.*ServiceProvider\:\:boot$#'
 
         - identifier: argument.templateType
         - identifier: argument.type
@@ -214,9 +212,6 @@ parameters:
             identifier: guanguans.exceptionMustImplementNativeThrowable
             path: app/Support/helpers.php
         -
-            identifier: shipmonk.unusedException
-            path: bootstrap/app.php
-        -
             identifier: shipmonk.unusedMatchResult
             path: app/Commands/ThanksCommand.php
         -
@@ -226,9 +221,6 @@ parameters:
                 - bootstrap/app.php
         -
             identifier: missingType.generics
-            path: app/Facades/
-        -
-            identifier: missingType.iterableValue
             path: app/Facades/
         -
             message: '#^Calling exec\(\) is forbidden\.$#'
