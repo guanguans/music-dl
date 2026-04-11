@@ -59,7 +59,7 @@
         "mrpunyapal/rector-pest": "^0.2",
         "nicksdot/phpstan-phpstorm-error-identifiers": "^0.3",
         "nunomaduro/collision": "^8.9",
-        "pestphp/pest": "^4.4",
+        "pestphp/pest": "^4.5",
         "pestphp/pest-plugin-arch": "^4.0",
         "pestphp/pest-plugin-laravel": "^4.1",
         "php-mock/php-mock-phpunit": "^2.15",

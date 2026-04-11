@@ -207,18 +207,9 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
             'page' => 'required|integer|between:1,100',
             'per-page' => 'required|integer|between:1,100',
             'sources' => 'list',
-            'sources.*' => [
-                'required',
-                'string',
-                'distinct',
-                Rule::in(config('app.sources')),
-            ],
+            'sources.*' => ['required', 'string', 'distinct', Rule::in(config('app.sources'))],
             'configuration' => 'list',
-            'configuration.*' => [
-                'required',
-                'string',
-                'distinct',
-            ],
+            'configuration.*' => ['required', 'string', 'distinct'],
         ];
     }
 
