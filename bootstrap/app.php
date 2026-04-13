@@ -48,6 +48,21 @@ return Application::configure(basePath: \dirname(__DIR__))
         $app->bind(MusicContract::class, Music::class);
     })
     ->booting(static function (Application $app): void {
+        $app->singleton('logo', static fn (Application $app): string => \sprintf(
+            <<<'logo'
+                <fg=green;options=bold>
+                     __  __           _        _____  _
+                    |  \/  |         (_)      |  __ \| |
+                    | \  / |_   _ ___ _  ___  | |  | | |
+                    | |\/| | | | / __| |/ __| | |  | | |
+                    | |  | | |_| \__ \ | (__  | |__| | |____
+                    |_|  |_|\__,_|___/_|\___| |_____/|______| %s
+                </>
+                logo,
+            $app->version(),
+        ));
+    })
+    ->booting(static function (Application $app): void {
         /**
          * @see \Rector\Console\Style\SymfonyStyleFactory
          */

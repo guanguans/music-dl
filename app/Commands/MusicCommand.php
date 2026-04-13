@@ -173,7 +173,7 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
     #[\Override]
     protected function initialize(InputInterface $input, OutputInterface $output): void
     {
-        info(config('app.logo'));
+        info(resolve('logo'));
 
         validator($this->arguments() + $this->options(), $this->rules())->validate();
 
