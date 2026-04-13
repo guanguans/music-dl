@@ -8,6 +8,26 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="7.0.2"></a>
+## [7.0.2] - 2026-04-13
+### 💅 Code Refactorings
+- **Music:** Improve PHPDoc type hints for search and createHttpClient methods ([85fac3c](https://github.com/guanguans/music-dl/commit/85fac3c))
+- **app:** Move logo binding from config to bootstrap ([da35ea5](https://github.com/guanguans/music-dl/commit/da35ea5))
+
+### Pull Requests
+- Merge pull request [#1041](https://github.com/guanguans/music-dl/issues/1041) from guanguans/dependabot/composer/mrpunyapal/peststan-0.2.5
+- Merge pull request [#1042](https://github.com/guanguans/music-dl/issues/1042) from guanguans/dependabot/composer/pestphp/pest-4.5.0
+- Merge pull request [#1040](https://github.com/guanguans/music-dl/issues/1040) from guanguans/dependabot/composer/mrpunyapal/rector-pest-0.2.10
+- Merge pull request [#1039](https://github.com/guanguans/music-dl/issues/1039) from guanguans/dependabot/composer/pestphp/pest-plugin-arch-4.0.2
+- Merge pull request [#1037](https://github.com/guanguans/music-dl/issues/1037) from guanguans/dependabot/composer/ergebnis/rector-rules-1.17.0
+- Merge pull request [#1036](https://github.com/guanguans/music-dl/issues/1036) from guanguans/dependabot/composer/pestphp/pest-4.4.6
+- Merge pull request [#1035](https://github.com/guanguans/music-dl/issues/1035) from guanguans/dependabot/composer/nunomaduro/collision-8.9.3
+- Merge pull request [#1034](https://github.com/guanguans/music-dl/issues/1034) from guanguans/dependabot/composer/mrpunyapal/rector-pest-0.2.7
+- Merge pull request [#1032](https://github.com/guanguans/music-dl/issues/1032) from guanguans/dependabot/composer/driftingly/rector-laravel-2.3.0
+- Merge pull request [#1031](https://github.com/guanguans/music-dl/issues/1031) from guanguans/dependabot/composer/mrpunyapal/peststan-0.2.3
+- Merge pull request [#1030](https://github.com/guanguans/music-dl/issues/1030) from guanguans/dependabot/composer/shipmonk/phpstan-rules-4.3.7
+
+
 <a name="7.0.1"></a>
 ## [7.0.1] - 2026-04-06
 ### ✨ Features
@@ -1740,7 +1760,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/7.0.1...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/7.0.2...HEAD
+[7.0.2]: https://github.com/guanguans/music-dl/compare/7.0.1...7.0.2
 [7.0.1]: https://github.com/guanguans/music-dl/compare/7.0.0...7.0.1
 [7.0.0]: https://github.com/guanguans/music-dl/compare/6.5.2...7.0.0
 [6.5.2]: https://github.com/guanguans/music-dl/compare/6.5.1...6.5.2
