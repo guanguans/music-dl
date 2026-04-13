@@ -106,8 +106,7 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
                         $progress->finish();
                     }
 
-                    $progress->progress = $downloaded;
-                    $progress->render();
+                    $progress->advance($downloaded - $progress->progress);
                     // @codeCoverageIgnoreEnd
                 },
             ]),
