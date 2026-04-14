@@ -7580,26 +7580,26 @@
         },
         {
             "name": "mrpunyapal/rector-pest",
-            "version": "0.2.10",
+            "version": "0.2.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/MrPunyapal/rector-pest.git",
-                "reference": "0aae59f110c89abdf01a3ba55fe77c42c2cd7cf4"
+                "reference": "6f3e2a736f9e145e2fa8b08cf6645d23bfcee77a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MrPunyapal/rector-pest/zipball/0aae59f110c89abdf01a3ba55fe77c42c2cd7cf4",
-                "reference": "0aae59f110c89abdf01a3ba55fe77c42c2cd7cf4",
+                "url": "https://api.github.com/repos/MrPunyapal/rector-pest/zipball/6f3e2a736f9e145e2fa8b08cf6645d23bfcee77a",
+                "reference": "6f3e2a736f9e145e2fa8b08cf6645d23bfcee77a",
                 "shasum": ""
             },
             "require": {
+                "mrpunyapal/peststan": "^0.2.5",
                 "php": "^8.2",
                 "rector/rector": "^2.0",
                 "symplify/rule-doc-generator-contracts": "^11.2"
             },
             "require-dev": {
                 "laravel/pint": "^1.18",
-                "mrpunyapal/peststan": "^0.1.5",
                 "nunomaduro/pao": "^0.1.4",
                 "pestphp/pest": "^3.0 || ^4.0",
                 "phpstan/phpstan": "^2.1",
@@ -7636,7 +7636,7 @@
             ],
             "support": {
                 "issues": "https://github.com/MrPunyapal/rector-pest/issues",
-                "source": "https://github.com/MrPunyapal/rector-pest/tree/0.2.10"
+                "source": "https://github.com/MrPunyapal/rector-pest/tree/0.2.11"
             },
             "funding": [
                 {
@@ -7644,7 +7644,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-04-10T14:13:20+00:00"
+            "time": "2026-04-13T17:44:38+00:00"
         },
         {
             "name": "myclabs/deep-copy",
