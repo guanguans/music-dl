@@ -1,7 +1,6 @@
 <?php
 
 /** @noinspection PhpUnused */
-
 declare(strict_types=1);
 
 /**
@@ -73,88 +72,85 @@ final class ComposerScripts
 
         new Pipeline(app())
             ->send(glob('README-*.md'))
-            ->through([
-                $pipeWrapper(
-                    static fn (
-                        string $translatedReadme,
-                        string $readme
-                    ): Result => \count(file($translatedReadme)) !== \count(file($readme))
-                        ? Error::create("The file [$translatedReadme] has a different number of lines than [$readme]")
-                        : Success::create('ok')
-                ),
-                $pipeWrapper(static function (string $translatedReadme, string $readme) use ($event): Result {
-                    $translatedReadmeFile = file($translatedReadme);
+            ->pipe($pipeWrapper(
+                static fn (
+                    string $translatedReadme,
+                    string $readme
+                ): Result => \count(file($translatedReadme)) !== \count(file($readme))
+                    ? Error::create("The file [$translatedReadme] has a different number of lines than [$readme]")
+                    : Success::create('ok')
+            ))
+            ->pipe($pipeWrapper(static function (string $translatedReadme, string $readme) use ($event): Result {
+                $translatedReadmeFile = file($translatedReadme);
 
-                    foreach (file($readme) as $lineNumber => $line) {
-                        /** @noinspection NotOptimalIfConditionsInspection */
-                        /** @noinspection OffsetOperationsInspection */
-                        if (
-                            $line !== $translatedReadmeFile[$lineNumber]
-                            && str($line)->trim()->isNotEmpty()
-                            && str($line)->startsWith([
-                                // Markdown title
-                                '#',
-                                '##',
-                                '###',
-                                '####',
-                                '#####',
-                                '######',
-                                // Markdown list
-                                '-',
-                                '*',
-                                // Markdown link
-                                '[',
-                                // Markdown image
-                                '![',
-                                // Markdown code
-                                '```',
-                                // Markdown table
-                                '|-',
-                                '|',
-                                '-',
-                                // Markdown blockquote
-                                '>',
-                                // Markdown horizontal rule
-                                '---',
-                                // Markdown bold
-                                '**',
-                                // Markdown italic
-                                '*',
-                                // Markdown strikethrough
-                                '~~',
-                                // Markdown inline code
-                                '`',
-                                // Markdown footnote
-                                '[^',
-                                // Markdown superscript
-                                '^',
-                                // Markdown subscript
-                                '_',
-                                // Markdown escape
-                                '\\',
-                                // Markdown HTML
-                                '<',
-                                // Markdown comment
-                                '<!--',
-                                '[//]: # (',
-                            ])
-                            && !str($translatedReadmeFile[$lineNumber])->startsWith(str($line)->before(' ')->append(' '))
-                        ) {
-                            /** @noinspection OffsetOperationsInspection */
-                            $event->getIO()->writeErrorRaw([$line, $translatedReadmeFile[$lineNumber]]);
+                foreach (file($readme) as $lineNumber => $line) {
+                    /** @noinspection NotOptimalIfConditionsInspection */
+                    if (
+                        $line !== $translatedReadmeFile[$lineNumber]
+                        && str($line)->trim()->isNotEmpty()
+                        && str($line)->startsWith([
+                            // Markdown title
+                            '#',
+                            '##',
+                            '###',
+                            '####',
+                            '#####',
+                            '######',
+                            // Markdown list
+                            '-',
+                            '*',
+                            // Markdown link
+                            '[',
+                            // Markdown image
+                            '![',
+                            // Markdown code
+                            '```',
+                            // Markdown table
+                            '|-',
+                            '|',
+                            '-',
+                            // Markdown blockquote
+                            '>',
+                            // Markdown horizontal rule
+                            '---',
+                            // Markdown bold
+                            '**',
+                            // Markdown italic
+                            '*',
+                            // Markdown strikethrough
+                            '~~',
+                            // Markdown inline code
+                            '`',
+                            // Markdown footnote
+                            '[^',
+                            // Markdown superscript
+                            '^',
+                            // Markdown subscript
+                            '_',
+                            // Markdown escape
+                            '\\',
+                            // Markdown HTML
+                            '<',
+                            // Markdown comment
+                            '<!--',
+                            '[//]: # (',
+                        ])
+                        && !str($translatedReadmeFile[$lineNumber])->startsWith(str($line)->before(' ')->append(' '))
+                    ) {
+                        $event->getIO()->writeErrorRaw([$line, $translatedReadmeFile[$lineNumber]]);
 
-                            return Error::create(\sprintf(
-                                'The file [%s] has a different markdown line [%s] than [%s]',
-                                $translatedReadme,
-                                $lineNumber + 1,
-                                $readme
-                            ));
-                        }
+                        return Error::create(\sprintf(
+                            'The file [%s] has a different markdown line [%s] than [%s]',
+                            $translatedReadme,
+                            $lineNumber + 1,
+                            $readme
+                        ));
                     }
+                }
 
-                    return Success::create('ok');
-                }),
-            ]);
+                return Success::create('ok');
+            }))
+            ->thenReturn();
 
         $event->getIO()->info('No errors');
 
@@ -165,7 +161,14 @@ final class ComposerScripts
     {
         static $rectorConfig;
 
-        return $rectorConfig ??= (new LazyContainerFactory)->create();
+        if ($rectorConfig instanceof RectorConfig) {
+            return $rectorConfig;
+        }
+
+        $rectorConfig = (new LazyContainerFactory)->create();
+        $rectorConfig->boot();
+
+        return $rectorConfig;
     }
 
     /**

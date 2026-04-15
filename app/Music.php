@@ -67,13 +67,12 @@ final class Music implements Contracts\HttpClientFactory, Contracts\Music
 
         return $this->timebox->call(
             fn (): Collection => collect($options['sources'])
-                ->map(fn (string $source): array => json_decode(
+                ->flatMap(fn (string $source): array => json_decode(
                     (string) $this->meting->site($source)->search($keyword, $options),
                     true,
                     512,
                     \JSON_THROW_ON_ERROR
                 ))
-                ->collapse()
                 // ->dd()
                 ->pipe(fn (Collection $songs): Collection => $this->ensureWithUrls($songs))
                 ->values()

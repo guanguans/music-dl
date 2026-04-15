@@ -228,6 +228,12 @@ parameters:
                 - app/Commands/ThanksCommand.php
                 - app/Support/Utils.php
         -
+            message: '#^Parameter 1 should use "Illuminate\\Support\\Collection\<\(int\|string\), mixed\>" type as the only type passed to this method$#'
+            path: app/Music.php
+        -
+            message: '#^Provide more specific return type "Illuminate\\Support\\Collection" over abstract one$#'
+            path: app/Music.php
+        -
             message: '#^Property App\\Music\:\:\$driver \(Illuminate\\Contracts\\Concurrency\\Driver\|null\) does not accept mixed\.$#'
             path: app/Music.php
         -
