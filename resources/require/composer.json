@@ -9,7 +9,7 @@
         "spatie/fork": "^1.2"
     },
     "require-dev": {
-        "ergebnis/composer-normalize": "^2.50"
+        "ergebnis/composer-normalize": "^2.51"
     },
     "conflict": {
         "phpunit/php-timer": ">=9.0"
