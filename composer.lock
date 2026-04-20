@@ -15487,16 +15487,16 @@
         },
         {
             "name": "spaze/phpstan-disallowed-calls",
-            "version": "v4.10.0",
+            "version": "v4.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spaze/phpstan-disallowed-calls.git",
-                "reference": "501b212b15b8b4c5e2aaf44ee01bb024f85956d3"
+                "reference": "fda0f67cb9ef8df8fd7de3442a793a8755b4aedd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spaze/phpstan-disallowed-calls/zipball/501b212b15b8b4c5e2aaf44ee01bb024f85956d3",
-                "reference": "501b212b15b8b4c5e2aaf44ee01bb024f85956d3",
+                "url": "https://api.github.com/repos/spaze/phpstan-disallowed-calls/zipball/fda0f67cb9ef8df8fd7de3442a793a8755b4aedd",
+                "reference": "fda0f67cb9ef8df8fd7de3442a793a8755b4aedd",
                 "shasum": ""
             },
             "require": {
@@ -15542,7 +15542,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spaze/phpstan-disallowed-calls/issues",
-                "source": "https://github.com/spaze/phpstan-disallowed-calls/tree/v4.10.0"
+                "source": "https://github.com/spaze/phpstan-disallowed-calls/tree/v4.11.0"
             },
             "funding": [
                 {
@@ -15550,7 +15550,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-04-04T01:47:30+00:00"
+            "time": "2026-04-18T17:08:08+00:00"
         },
         {
             "name": "staabm/annotate-pull-request-from-checkstyle",
