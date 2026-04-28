@@ -7518,16 +7518,16 @@
         },
         {
             "name": "mrpunyapal/peststan",
-            "version": "0.2.5",
+            "version": "0.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/MrPunyapal/PestStan.git",
-                "reference": "e9a2142e9a289613e333b3764030f40429b75af0"
+                "reference": "7c232a9740e7770060a3356b884c15206d5c2572"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MrPunyapal/PestStan/zipball/e9a2142e9a289613e333b3764030f40429b75af0",
-                "reference": "e9a2142e9a289613e333b3764030f40429b75af0",
+                "url": "https://api.github.com/repos/MrPunyapal/PestStan/zipball/7c232a9740e7770060a3356b884c15206d5c2572",
+                "reference": "7c232a9740e7770060a3356b884c15206d5c2572",
                 "shasum": ""
             },
             "require": {
@@ -7569,7 +7569,7 @@
             ],
             "support": {
                 "issues": "https://github.com/MrPunyapal/PestStan/issues",
-                "source": "https://github.com/MrPunyapal/PestStan/tree/0.2.5"
+                "source": "https://github.com/MrPunyapal/PestStan/tree/0.2.8"
             },
             "funding": [
                 {
@@ -7577,7 +7577,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-04-10T14:30:52+00:00"
+            "time": "2026-04-27T16:16:28+00:00"
         },
         {
             "name": "mrpunyapal/rector-pest",
@@ -11431,11 +11431,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.1.50",
+            "version": "2.1.51",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/d452086fb4cf648c6b2d8cf3b639351f79e4f3e2",
-                "reference": "d452086fb4cf648c6b2d8cf3b639351f79e4f3e2",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/dc3b523c45e714c70de2ac5113b958223b55dc59",
+                "reference": "dc3b523c45e714c70de2ac5113b958223b55dc59",
                 "shasum": ""
             },
             "require": {
@@ -11480,7 +11480,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-04-17T13:10:32+00:00"
+            "time": "2026-04-21T18:22:01+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
