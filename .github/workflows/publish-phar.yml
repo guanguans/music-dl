@@ -34,6 +34,9 @@ jobs:
           composer install --no-interaction --no-scripts --ansi -v --ignore-platform-req=ext-pcntl --ignore-platform-req=ext-posix --ignore-platform-req=ext-sockets
           composer update --no-interaction --no-scripts --no-dev --ansi -v --ignore-platform-req=ext-pcntl --ignore-platform-req=ext-posix --ignore-platform-req=ext-sockets
 
+        # https://packagist.org/packages/laravel-zero/framework/dependents?order_by=downloads
+        # https://github.com/spatie/scotty/blob/main/.github/workflows/build-phar.yml
+        # https://github.com/laravel/pint/blob/main/.github/workflows/publish-phar.yml
       - name: Create PHAR file.
         run: ./music-dl app:build music-dl.phar --build-version=${{ steps.tag.outputs.tag }} -v
 
