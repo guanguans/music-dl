@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1a8a553dae20760b6f3ba94a344629a5",
+    "content-hash": "1a4c34122f9f737575f420d4a8a50fe1",
     "packages": [
         {
             "name": "wikimedia/composer-merge-plugin",
@@ -13348,16 +13348,16 @@
         },
         {
             "name": "rector/jack",
-            "version": "0.5.1",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/jack.git",
-                "reference": "78b2f2e57de33c857e36d122867642d2b6eb1bfc"
+                "reference": "207473d8c83924c743e9e90495d4d83b3c2b730f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/jack/zipball/78b2f2e57de33c857e36d122867642d2b6eb1bfc",
-                "reference": "78b2f2e57de33c857e36d122867642d2b6eb1bfc",
+                "url": "https://api.github.com/repos/rectorphp/jack/zipball/207473d8c83924c743e9e90495d4d83b3c2b730f",
+                "reference": "207473d8c83924c743e9e90495d4d83b3c2b730f",
                 "shasum": ""
             },
             "require": {
@@ -13379,7 +13379,7 @@
             "description": "Swiss knife in pocket of every upgrade architect",
             "support": {
                 "issues": "https://github.com/rectorphp/jack/issues",
-                "source": "https://github.com/rectorphp/jack/tree/0.5.1"
+                "source": "https://github.com/rectorphp/jack/tree/1.0.0"
             },
             "funding": [
                 {
@@ -13391,7 +13391,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-12-30T14:32:45+00:00"
+            "time": "2026-04-28T22:41:11+00:00"
         },
         {
             "name": "rector/rector",

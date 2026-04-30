@@ -71,7 +71,7 @@
         "phpunit/phpunit": "^12.5 || ^13.0",
         "povils/phpmnd": "^3.6",
         "rector/argtyper": "^0.6",
-        "rector/jack": "^0.5",
+        "rector/jack": "^1.0",
         "rector/swiss-knife": "^2.3",
         "rector/type-perfect": "^2.1",
         "roave/backward-compatibility-check": "^8.20",
