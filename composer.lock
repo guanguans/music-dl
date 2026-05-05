@@ -15555,16 +15555,16 @@
         },
         {
             "name": "staabm/annotate-pull-request-from-checkstyle",
-            "version": "1.8.6",
+            "version": "1.8.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/staabm/annotate-pull-request-from-checkstyle.git",
-                "reference": "5072e6827aab0a287528b971e6b8e986b20be41c"
+                "reference": "9cab4b00e2f2e86dc54fb88e2a1b4bf15443d6dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/staabm/annotate-pull-request-from-checkstyle/zipball/5072e6827aab0a287528b971e6b8e986b20be41c",
-                "reference": "5072e6827aab0a287528b971e6b8e986b20be41c",
+                "url": "https://api.github.com/repos/staabm/annotate-pull-request-from-checkstyle/zipball/9cab4b00e2f2e86dc54fb88e2a1b4bf15443d6dd",
+                "reference": "9cab4b00e2f2e86dc54fb88e2a1b4bf15443d6dd",
                 "shasum": ""
             },
             "require": {
@@ -15595,7 +15595,7 @@
             ],
             "support": {
                 "issues": "https://github.com/staabm/annotate-pull-request-from-checkstyle/issues",
-                "source": "https://github.com/staabm/annotate-pull-request-from-checkstyle/tree/1.8.6"
+                "source": "https://github.com/staabm/annotate-pull-request-from-checkstyle/tree/1.8.7"
             },
             "funding": [
                 {
@@ -15603,7 +15603,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-09-17T05:20:34+00:00"
+            "time": "2026-05-05T12:33:44+00:00"
         },
         {
             "name": "staabm/phpstan-todo-by",
