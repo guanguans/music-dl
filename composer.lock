@@ -13786,33 +13786,33 @@
         },
         {
             "name": "roave/no-floaters",
-            "version": "1.15.0",
+            "version": "1.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/no-floaters.git",
-                "reference": "9e293a95c02036d8f343f764d667dc2cb80f4918"
+                "reference": "65a34f0d601d9b474179a1e25b27924cee394fbd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/no-floaters/zipball/9e293a95c02036d8f343f764d667dc2cb80f4918",
-                "reference": "9e293a95c02036d8f343f764d667dc2cb80f4918",
+                "url": "https://api.github.com/repos/Roave/no-floaters/zipball/65a34f0d601d9b474179a1e25b27924cee394fbd",
+                "reference": "65a34f0d601d9b474179a1e25b27924cee394fbd",
                 "shasum": ""
             },
             "require": {
                 "nikic/php-parser": "^5.7.0",
-                "php": "~8.3.0 || ~8.4.0 || ~8.5.0",
-                "phpstan/phpstan": "^2.1.38"
+                "php": "~8.4.0 || ~8.5.0",
+                "phpstan/phpstan": "^2.1.54"
             },
             "require-dev": {
                 "doctrine/coding-standard": "^14.0.0",
                 "maglnet/composer-require-checker": "^4.20.0",
-                "phpstan/phpstan-phpunit": "^2.0.12",
-                "phpstan/phpstan-strict-rules": "^2.0.8",
-                "phpunit/phpunit": "^12.5.8",
+                "phpstan/phpstan-phpunit": "^2.0.16",
+                "phpstan/phpstan-strict-rules": "^2.0.11",
+                "phpunit/phpunit": "^13.1.10",
                 "psalm/plugin-phpunit": "^0.19.5",
-                "roave/infection-static-analysis-plugin": "^1.43.0",
+                "roave/infection-static-analysis-plugin": "^1.44.0",
                 "squizlabs/php_codesniffer": "^4.0.1",
-                "vimeo/psalm": "^6.15.0"
+                "vimeo/psalm": "^6.16.1"
             },
             "type": "phpstan-extension",
             "autoload": {
@@ -13827,7 +13827,7 @@
             "description": "PHPStan Rules to Disallow Float proliferation in contexts where IEEE-754 rounding errors are not acceptable",
             "support": {
                 "issues": "https://github.com/Roave/no-floaters/issues",
-                "source": "https://github.com/Roave/no-floaters/tree/1.15.0"
+                "source": "https://github.com/Roave/no-floaters/tree/1.16.0"
             },
             "funding": [
                 {
@@ -13835,7 +13835,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-02-02T17:34:20+00:00"
+            "time": "2026-05-15T14:04:43+00:00"
         },
         {
             "name": "sebastian/cli-parser",
