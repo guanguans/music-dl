@@ -7580,27 +7580,27 @@
         },
         {
             "name": "mrpunyapal/rector-pest",
-            "version": "0.2.14",
+            "version": "0.2.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/MrPunyapal/rector-pest.git",
-                "reference": "c1bee23074515afe03457d1d9325c60f2f09b43a"
+                "reference": "624dba596ad1605e34a2ec7ac5eb5fffce960596"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MrPunyapal/rector-pest/zipball/c1bee23074515afe03457d1d9325c60f2f09b43a",
-                "reference": "c1bee23074515afe03457d1d9325c60f2f09b43a",
+                "url": "https://api.github.com/repos/MrPunyapal/rector-pest/zipball/624dba596ad1605e34a2ec7ac5eb5fffce960596",
+                "reference": "624dba596ad1605e34a2ec7ac5eb5fffce960596",
                 "shasum": ""
             },
             "require": {
-                "mrpunyapal/peststan": "^0.2.5",
                 "php": "^8.2",
                 "rector/rector": "^2.0",
                 "symplify/rule-doc-generator-contracts": "^11.2"
             },
             "require-dev": {
+                "laravel/pao": "^1.0",
                 "laravel/pint": "^1.18",
-                "nunomaduro/pao": "^0.1.4",
+                "mrpunyapal/peststan": "^0.2.5",
                 "pestphp/pest": "^3.0 || ^4.0",
                 "phpstan/phpstan": "^2.1",
                 "symplify/rule-doc-generator": "^12.2"
@@ -7636,7 +7636,7 @@
             ],
             "support": {
                 "issues": "https://github.com/MrPunyapal/rector-pest/issues",
-                "source": "https://github.com/MrPunyapal/rector-pest/tree/0.2.14"
+                "source": "https://github.com/MrPunyapal/rector-pest/tree/0.2.15"
             },
             "funding": [
                 {
@@ -7644,7 +7644,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-05-10T18:02:23+00:00"
+            "time": "2026-05-15T18:51:02+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -13397,16 +13397,16 @@
         },
         {
             "name": "rector/rector",
-            "version": "2.4.2",
+            "version": "2.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "e645b6463c6a88ea5b44b17d3387d35a912c7946"
+                "reference": "891824c6c59f02a56a5dd58ea8edc44e6c0ece29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/e645b6463c6a88ea5b44b17d3387d35a912c7946",
-                "reference": "e645b6463c6a88ea5b44b17d3387d35a912c7946",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/891824c6c59f02a56a5dd58ea8edc44e6c0ece29",
+                "reference": "891824c6c59f02a56a5dd58ea8edc44e6c0ece29",
                 "shasum": ""
             },
             "require": {
@@ -13445,7 +13445,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/2.4.2"
+                "source": "https://github.com/rectorphp/rector/tree/2.4.3"
             },
             "funding": [
                 {
@@ -13453,7 +13453,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-04-16T13:07:34+00:00"
+            "time": "2026-05-12T11:17:24+00:00"
         },
         {
             "name": "rector/swiss-knife",
