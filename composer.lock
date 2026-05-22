@@ -2025,16 +2025,16 @@
         },
         {
             "name": "driftingly/rector-laravel",
-            "version": "2.3.0",
+            "version": "2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/driftingly/rector-laravel.git",
-                "reference": "3c1c13f335b3b4d1a1f944a8ea194020044871ed"
+                "reference": "5342df61b0a77e5a408744e5686d80a51a07a48d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/driftingly/rector-laravel/zipball/3c1c13f335b3b4d1a1f944a8ea194020044871ed",
-                "reference": "3c1c13f335b3b4d1a1f944a8ea194020044871ed",
+                "url": "https://api.github.com/repos/driftingly/rector-laravel/zipball/5342df61b0a77e5a408744e5686d80a51a07a48d",
+                "reference": "5342df61b0a77e5a408744e5686d80a51a07a48d",
                 "shasum": ""
             },
             "require": {
@@ -2055,9 +2055,9 @@
             "description": "Rector upgrades rules for Laravel Framework",
             "support": {
                 "issues": "https://github.com/driftingly/rector-laravel/issues",
-                "source": "https://github.com/driftingly/rector-laravel/tree/2.3.0"
+                "source": "https://github.com/driftingly/rector-laravel/tree/2.4.0"
             },
-            "time": "2026-04-08T10:52:44+00:00"
+            "time": "2026-05-22T18:34:15+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -13397,16 +13397,16 @@
         },
         {
             "name": "rector/rector",
-            "version": "2.4.3",
+            "version": "2.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "891824c6c59f02a56a5dd58ea8edc44e6c0ece29"
+                "reference": "4661c582a20f03df585d2e3fdc4af1b83d67a091"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/891824c6c59f02a56a5dd58ea8edc44e6c0ece29",
-                "reference": "891824c6c59f02a56a5dd58ea8edc44e6c0ece29",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/4661c582a20f03df585d2e3fdc4af1b83d67a091",
+                "reference": "4661c582a20f03df585d2e3fdc4af1b83d67a091",
                 "shasum": ""
             },
             "require": {
@@ -13445,7 +13445,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/2.4.3"
+                "source": "https://github.com/rectorphp/rector/tree/2.4.4"
             },
             "funding": [
                 {
@@ -13453,7 +13453,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-05-12T11:17:24+00:00"
+            "time": "2026-05-20T19:30:21+00:00"
         },
         {
             "name": "rector/swiss-knife",
