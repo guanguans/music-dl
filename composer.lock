@@ -19467,16 +19467,16 @@
         },
         {
             "name": "tomasvotruba/ctor",
-            "version": "2.2.1",
+            "version": "2.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TomasVotruba/ctor.git",
-                "reference": "96d222f0330f2c328dbe4f8740df3b0aa6bfdc54"
+                "reference": "96a4d1a1a84eb73759d427071b920d53b0e9aa5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TomasVotruba/ctor/zipball/96d222f0330f2c328dbe4f8740df3b0aa6bfdc54",
-                "reference": "96d222f0330f2c328dbe4f8740df3b0aa6bfdc54",
+                "url": "https://api.github.com/repos/TomasVotruba/ctor/zipball/96a4d1a1a84eb73759d427071b920d53b0e9aa5d",
+                "reference": "96a4d1a1a84eb73759d427071b920d53b0e9aa5d",
                 "shasum": ""
             },
             "require": {
@@ -19504,7 +19504,7 @@
             "description": "Prefer constructor over always called setters",
             "support": {
                 "issues": "https://github.com/TomasVotruba/ctor/issues",
-                "source": "https://github.com/TomasVotruba/ctor/tree/2.2.1"
+                "source": "https://github.com/TomasVotruba/ctor/tree/2.2.2"
             },
             "funding": [
                 {
@@ -19516,7 +19516,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-12-17T13:51:10+00:00"
+            "time": "2026-05-27T20:40:33+00:00"
         },
         {
             "name": "tomasvotruba/type-coverage",
