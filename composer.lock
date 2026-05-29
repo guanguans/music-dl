@@ -19451,22 +19451,22 @@
         },
         {
             "name": "tomasvotruba/ctor",
-            "version": "2.2.2",
+            "version": "2.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TomasVotruba/ctor.git",
-                "reference": "96a4d1a1a84eb73759d427071b920d53b0e9aa5d"
+                "reference": "45cfc88878b3fbf0eb0a6b02ef02ed934db8e8ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TomasVotruba/ctor/zipball/96a4d1a1a84eb73759d427071b920d53b0e9aa5d",
-                "reference": "96a4d1a1a84eb73759d427071b920d53b0e9aa5d",
+                "url": "https://api.github.com/repos/TomasVotruba/ctor/zipball/45cfc88878b3fbf0eb0a6b02ef02ed934db8e8ec",
+                "reference": "45cfc88878b3fbf0eb0a6b02ef02ed934db8e8ec",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4|^8.0",
-                "phpstan/phpstan": "^2.1.14",
-                "webmozart/assert": "^1.11"
+                "phpstan/phpstan": "^2.2",
+                "webmozart/assert": "^1.11|^2.4"
             },
             "type": "phpstan-extension",
             "extra": {
@@ -19488,7 +19488,7 @@
             "description": "Prefer constructor over always called setters",
             "support": {
                 "issues": "https://github.com/TomasVotruba/ctor/issues",
-                "source": "https://github.com/TomasVotruba/ctor/tree/2.2.2"
+                "source": "https://github.com/TomasVotruba/ctor/tree/2.2.5"
             },
             "funding": [
                 {
@@ -19500,7 +19500,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-05-27T20:40:33+00:00"
+            "time": "2026-05-29T16:15:47+00:00"
         },
         {
             "name": "tomasvotruba/type-coverage",
@@ -19776,23 +19776,23 @@
         },
         {
             "name": "webmozart/assert",
-            "version": "1.12.1",
+            "version": "2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozarts/assert.git",
-                "reference": "9be6926d8b485f55b9229203f962b51ed377ba68"
+                "reference": "9007ea6f45ecf352a9422b36644e4bfc039b9155"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozarts/assert/zipball/9be6926d8b485f55b9229203f962b51ed377ba68",
-                "reference": "9be6926d8b485f55b9229203f962b51ed377ba68",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/9007ea6f45ecf352a9422b36644e4bfc039b9155",
+                "reference": "9007ea6f45ecf352a9422b36644e4bfc039b9155",
                 "shasum": ""
             },
             "require": {
                 "ext-ctype": "*",
                 "ext-date": "*",
                 "ext-filter": "*",
-                "php": "^7.2 || ^8.0"
+                "php": "^8.2"
             },
             "suggest": {
                 "ext-intl": "",
@@ -19801,8 +19801,12 @@
             },
             "type": "library",
             "extra": {
+                "psalm": {
+                    "pluginClass": "Webmozart\\Assert\\PsalmPlugin"
+                },
                 "branch-alias": {
-                    "dev-master": "1.10-dev"
+                    "dev-master": "2.0-dev",
+                    "dev-feature/2-0": "2.0-dev"
                 }
             },
             "autoload": {
@@ -19818,6 +19822,10 @@
                 {
                     "name": "Bernhard Schussek",
                     "email": "bschussek@gmail.com"
+                },
+                {
+                    "name": "Woody Gilk",
+                    "email": "woody.gilk@gmail.com"
                 }
             ],
             "description": "Assertions to validate method input/output with nice error messages.",
@@ -19828,9 +19836,9 @@
             ],
             "support": {
                 "issues": "https://github.com/webmozarts/assert/issues",
-                "source": "https://github.com/webmozarts/assert/tree/1.12.1"
+                "source": "https://github.com/webmozarts/assert/tree/2.4.0"
             },
-            "time": "2025-10-29T15:56:20+00:00"
+            "time": "2026-05-20T13:07:01+00:00"
         },
         {
             "name": "yamadashy/phpstan-friendly-formatter",
