@@ -1466,16 +1466,16 @@
         },
         {
             "name": "dg/bypass-finals",
-            "version": "v1.10.0",
+            "version": "v1.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dg/bypass-finals.git",
-                "reference": "03e27acff5aa4e1704db371505e7d3da915b4307"
+                "reference": "62d4ea18f8937af7d794b3358c125ecb52862e98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dg/bypass-finals/zipball/03e27acff5aa4e1704db371505e7d3da915b4307",
-                "reference": "03e27acff5aa4e1704db371505e7d3da915b4307",
+                "url": "https://api.github.com/repos/dg/bypass-finals/zipball/62d4ea18f8937af7d794b3358c125ecb52862e98",
+                "reference": "62d4ea18f8937af7d794b3358c125ecb52862e98",
                 "shasum": ""
             },
             "require": {
@@ -1513,9 +1513,9 @@
             ],
             "support": {
                 "issues": "https://github.com/dg/bypass-finals/issues",
-                "source": "https://github.com/dg/bypass-finals/tree/v1.10.0"
+                "source": "https://github.com/dg/bypass-finals/tree/v1.10.1"
             },
-            "time": "2026-06-01T16:48:55+00:00"
+            "time": "2026-06-04T15:48:46+00:00"
         },
         {
             "name": "doctrine/deprecations",
