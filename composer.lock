@@ -11435,11 +11435,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.2.1",
+            "version": "2.2.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/dea9c8f2d25cc849391042b71e429c1a4bf82660",
-                "reference": "dea9c8f2d25cc849391042b71e429c1a4bf82660",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/e5cc34d491a90e79c216d824f60fe21fd4d93bd6",
+                "reference": "e5cc34d491a90e79c216d824f60fe21fd4d93bd6",
                 "shasum": ""
             },
             "require": {
@@ -11495,7 +11495,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-05-28T14:44:12+00:00"
+            "time": "2026-06-05T09:00:01+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
@@ -19412,21 +19412,33 @@
         },
         {
             "name": "tomasvotruba/cognitive-complexity",
-            "version": "1.1.1",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TomasVotruba/cognitive-complexity.git",
-                "reference": "435763b488beabc11e7d1102f6891ebe255cc3b8"
+                "reference": "b95cac90113161b6063919bcb5aa3a51ce2aedcf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TomasVotruba/cognitive-complexity/zipball/435763b488beabc11e7d1102f6891ebe255cc3b8",
-                "reference": "435763b488beabc11e7d1102f6891ebe255cc3b8",
+                "url": "https://api.github.com/repos/TomasVotruba/cognitive-complexity/zipball/b95cac90113161b6063919bcb5aa3a51ce2aedcf",
+                "reference": "b95cac90113161b6063919bcb5aa3a51ce2aedcf",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.4 || ^8.0",
-                "phpstan/phpstan": "^2"
+                "nikic/php-parser": "^5.3",
+                "php": "^8.3",
+                "phpstan/phpstan": "^2.0"
+            },
+            "require-dev": {
+                "php-parallel-lint/php-parallel-lint": "^1.4",
+                "phpstan/extension-installer": "^1.4",
+                "phpstan/phpstan-deprecation-rules": "^2.0",
+                "phpunit/phpunit": "^11.5",
+                "rector/rector": "^2.0",
+                "symplify/easy-coding-standard": "^12.5",
+                "tomasvotruba/type-coverage": "^2.0",
+                "tomasvotruba/unused-public": "^2.0",
+                "tracy/tracy": "^2.10"
             },
             "type": "phpstan-extension",
             "extra": {
@@ -19448,7 +19460,7 @@
             "description": "PHPStan rules to measure cognitive complexity of your classes and methods",
             "support": {
                 "issues": "https://github.com/TomasVotruba/cognitive-complexity/issues",
-                "source": "https://github.com/TomasVotruba/cognitive-complexity/tree/1.1.1"
+                "source": "https://github.com/TomasVotruba/cognitive-complexity/tree/1.2.0"
             },
             "funding": [
                 {
@@ -19460,7 +19472,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-05-25T12:12:55+00:00"
+            "time": "2026-06-08T08:16:55+00:00"
         },
         {
             "name": "tomasvotruba/ctor",
