@@ -3246,16 +3246,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v3.95.4",
+            "version": "v3.95.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer.git",
-                "reference": "3f8f68856837a77e1f1d870354eca3c8747f2f72"
+                "reference": "7f86d8763063f5d2e2e2d0e1e45bb2f15895361d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/3f8f68856837a77e1f1d870354eca3c8747f2f72",
-                "reference": "3f8f68856837a77e1f1d870354eca3c8747f2f72",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/7f86d8763063f5d2e2e2d0e1e45bb2f15895361d",
+                "reference": "7f86d8763063f5d2e2e2d0e1e45bb2f15895361d",
                 "shasum": ""
             },
             "require": {
@@ -3273,7 +3273,7 @@
                 "react/event-loop": "^1.5",
                 "react/socket": "^1.16",
                 "react/stream": "^1.4",
-                "sebastian/diff": "^4.0.6 || ^5.1.1 || ^6.0.2 || ^7.0 || ^8.0",
+                "sebastian/diff": "^4.0.6 || ^5.1.1 || ^6.0.2 || ^7.0 || ^8.0 || ^9.0",
                 "symfony/console": "^5.4.47 || ^6.4.24 || ^7.0 || ^8.0",
                 "symfony/event-dispatcher": "^5.4.45 || ^6.4.24 || ^7.0 || ^8.0",
                 "symfony/filesystem": "^5.4.45 || ^6.4.24 || ^7.0 || ^8.0",
@@ -3339,7 +3339,7 @@
             ],
             "support": {
                 "issues": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/issues",
-                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.95.4"
+                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.95.5"
             },
             "funding": [
                 {
@@ -3347,7 +3347,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-06-03T18:02:44+00:00"
+            "time": "2026-06-09T14:55:16+00:00"
         },
         {
             "name": "fruitcake/php-cors",
@@ -18696,34 +18696,33 @@
         },
         {
             "name": "symplify/coding-standard",
-            "version": "13.0.1",
+            "version": "13.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/coding-standard.git",
-                "reference": "3de455427f868e66572b8242c067172b773a0342"
+                "reference": "c2fdcdf091c7679c05a7bc3497f680a8c04b5494"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/coding-standard/zipball/3de455427f868e66572b8242c067172b773a0342",
-                "reference": "3de455427f868e66572b8242c067172b773a0342",
+                "url": "https://api.github.com/repos/symplify/coding-standard/zipball/c2fdcdf091c7679c05a7bc3497f680a8c04b5494",
+                "reference": "c2fdcdf091c7679c05a7bc3497f680a8c04b5494",
                 "shasum": ""
             },
             "require": {
-                "friendsofphp/php-cs-fixer": "^3.89",
-                "nette/utils": "^4.0",
-                "php": ">=8.2"
+                "friendsofphp/php-cs-fixer": "^3.95.4",
+                "php": ">=8.4"
             },
             "require-dev": {
                 "phpstan/extension-installer": "^1.4",
-                "phpstan/phpstan": "^2.1",
-                "phpunit/phpunit": "^11.5|^12.0",
-                "rector/jack": "^0.2",
-                "rector/rector": "^2.2",
+                "phpstan/phpstan": "^2.2",
+                "phpunit/phpunit": "^12.5",
+                "rector/jack": "^1.0",
+                "rector/rector": "^2.4",
                 "squizlabs/php_codesniffer": "^4.0",
-                "symplify/easy-coding-standard": "^12.6",
+                "symplify/easy-coding-standard": "^13.1",
                 "symplify/phpstan-extensions": "^12.0",
-                "tomasvotruba/class-leak": "^2.0",
-                "tracy/tracy": "^2.11"
+                "tomasvotruba/class-leak": "^2.1.5",
+                "tracy/tracy": "^2.12"
             },
             "type": "library",
             "autoload": {
@@ -18738,7 +18737,7 @@
             "description": "Set of Symplify rules for PHP_CodeSniffer and PHP CS Fixer.",
             "support": {
                 "issues": "https://github.com/symplify/coding-standard/issues",
-                "source": "https://github.com/symplify/coding-standard/tree/13.0.1"
+                "source": "https://github.com/symplify/coding-standard/tree/13.1.1"
             },
             "funding": [
                 {
@@ -18750,7 +18749,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-06-08T10:48:56+00:00"
+            "time": "2026-06-09T23:10:13+00:00"
         },
         {
             "name": "symplify/easy-coding-standard",
