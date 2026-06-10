@@ -2128,16 +2128,16 @@
         },
         {
             "name": "entropy/entropy",
-            "version": "0.3.0",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TomasVotruba/entropy.git",
-                "reference": "be1cef187e38640806a2e20fb094480dfa31fc39"
+                "reference": "58f4dc8178f0f3d532a81ad147d337bf5594c8a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TomasVotruba/entropy/zipball/be1cef187e38640806a2e20fb094480dfa31fc39",
-                "reference": "be1cef187e38640806a2e20fb094480dfa31fc39",
+                "url": "https://api.github.com/repos/TomasVotruba/entropy/zipball/58f4dc8178f0f3d532a81ad147d337bf5594c8a7",
+                "reference": "58f4dc8178f0f3d532a81ad147d337bf5594c8a7",
                 "shasum": ""
             },
             "require": {
@@ -2174,9 +2174,9 @@
             "description": "Entropy framework",
             "support": {
                 "issues": "https://github.com/TomasVotruba/entropy/issues",
-                "source": "https://github.com/TomasVotruba/entropy/tree/0.3.0"
+                "source": "https://github.com/TomasVotruba/entropy/tree/0.4.0"
             },
-            "time": "2026-06-06T09:32:39+00:00"
+            "time": "2026-06-10T09:59:59+00:00"
         },
         {
             "name": "ergebnis/agent-detector",
@@ -18885,29 +18885,47 @@
         },
         {
             "name": "symplify/phpstan-rules",
-            "version": "14.10.0",
+            "version": "14.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/phpstan-rules.git",
-                "reference": "dc1035ded416b99313d6a14e69923f5e018a6b40"
+                "reference": "ae512cbaf8ea28031c71ffe1c3d782d693931eb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/phpstan-rules/zipball/dc1035ded416b99313d6a14e69923f5e018a6b40",
-                "reference": "dc1035ded416b99313d6a14e69923f5e018a6b40",
+                "url": "https://api.github.com/repos/symplify/phpstan-rules/zipball/ae512cbaf8ea28031c71ffe1c3d782d693931eb3",
+                "reference": "ae512cbaf8ea28031c71ffe1c3d782d693931eb3",
                 "shasum": ""
             },
             "require": {
-                "nette/utils": "^3.2|^4.0",
-                "php": "^7.4|^8.0",
-                "phpstan/phpstan": "^2.1.33",
-                "webmozart/assert": "^1.12 || ^2.0"
+                "nette/utils": "^4.1",
+                "php": "^8.4",
+                "phpstan/phpdoc-parser": "^2.3",
+                "phpstan/phpstan": "^2.2",
+                "webmozart/assert": "^2.0"
+            },
+            "require-dev": {
+                "illuminate/container": "^11.0",
+                "nikic/php-parser": "^5.7",
+                "phpecs/phpecs": "^2.2",
+                "phpstan/extension-installer": "^1.4",
+                "phpunit/phpunit": "^13.0",
+                "rector/jack": "^1.0",
+                "rector/rector": "^2.4",
+                "shipmonk/composer-dependency-analyser": "^1.8",
+                "symfony/framework-bundle": "^6.2",
+                "tomasvotruba/class-leak": "^2.1",
+                "tomasvotruba/type-coverage": "^2.2",
+                "tomasvotruba/unused-public": "^2.2"
             },
             "type": "phpstan-extension",
             "extra": {
                 "phpstan": {
                     "includes": [
-                        "config/services/services.neon"
+                        "config/services/services.neon",
+                        "config/ctor-rules.neon",
+                        "config/mock-rules.neon",
+                        "config/phpstan-extensions.neon"
                     ]
                 }
             },
@@ -18926,7 +18944,7 @@
             "description": "Set of Symplify rules for PHPStan",
             "support": {
                 "issues": "https://github.com/symplify/phpstan-rules/issues",
-                "source": "https://github.com/symplify/phpstan-rules/tree/14.10.0"
+                "source": "https://github.com/symplify/phpstan-rules/tree/14.11.0"
             },
             "funding": [
                 {
@@ -18938,7 +18956,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-05-22T09:35:51+00:00"
+            "time": "2026-06-09T21:54:46+00:00"
         },
         {
             "name": "symplify/rule-doc-generator-contracts",
@@ -19165,20 +19183,20 @@
         },
         {
             "name": "tomasvotruba/class-leak",
-            "version": "2.1.6",
+            "version": "2.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TomasVotruba/class-leak.git",
-                "reference": "df054d42785c47795efc11207fd5c96e3a43c579"
+                "reference": "d8c62dd42e26bc753fcac1f18225daccc5fc5380"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TomasVotruba/class-leak/zipball/df054d42785c47795efc11207fd5c96e3a43c579",
-                "reference": "df054d42785c47795efc11207fd5c96e3a43c579",
+                "url": "https://api.github.com/repos/TomasVotruba/class-leak/zipball/d8c62dd42e26bc753fcac1f18225daccc5fc5380",
+                "reference": "d8c62dd42e26bc753fcac1f18225daccc5fc5380",
                 "shasum": ""
             },
             "require": {
-                "entropy/entropy": "^0.3",
+                "entropy/entropy": "^0.3 || ^0.4",
                 "nette/utils": "^4.1",
                 "nikic/php-parser": "^5.7",
                 "php": ">=8.4",
@@ -19218,7 +19236,7 @@
             "description": "Detect leaking classes",
             "support": {
                 "issues": "https://github.com/TomasVotruba/class-leak/issues",
-                "source": "https://github.com/TomasVotruba/class-leak/tree/2.1.6"
+                "source": "https://github.com/TomasVotruba/class-leak/tree/2.1.7"
             },
             "funding": [
                 {
@@ -19230,7 +19248,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-06-08T11:13:21+00:00"
+            "time": "2026-06-10T12:34:09+00:00"
         },
         {
             "name": "tomasvotruba/cognitive-complexity",
