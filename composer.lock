@@ -2125,25 +2125,24 @@
         },
         {
             "name": "entropy/entropy",
-            "version": "0.4.0",
+            "version": "0.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TomasVotruba/entropy.git",
-                "reference": "58f4dc8178f0f3d532a81ad147d337bf5594c8a7"
+                "reference": "f0d35f20c9b361a63d0804906d36439a103953fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TomasVotruba/entropy/zipball/58f4dc8178f0f3d532a81ad147d337bf5594c8a7",
-                "reference": "58f4dc8178f0f3d532a81ad147d337bf5594c8a7",
+                "url": "https://api.github.com/repos/TomasVotruba/entropy/zipball/f0d35f20c9b361a63d0804906d36439a103953fd",
+                "reference": "f0d35f20c9b361a63d0804906d36439a103953fd",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
-                "php": "^8.3",
+                "php": "^8.4",
                 "webmozart/assert": "^2.4"
             },
             "require-dev": {
-                "phpecs/phpecs": "^2.3",
                 "phpstan/extension-installer": "^1.4",
                 "phpstan/phpstan": "^2.1",
                 "phpunit/phpunit": "^12.5",
@@ -2152,7 +2151,6 @@
                 "rector/swiss-knife": "^2.4",
                 "shipmonk/composer-dependency-analyser": "^1.8",
                 "symplify/easy-coding-standard": "^13.1",
-                "symplify/phpstan-extensions": "^12.0",
                 "symplify/phpstan-rules": "^14.10",
                 "tomasvotruba/type-coverage": "^2.2",
                 "tomasvotruba/unused-public": "^2.2",
@@ -2171,9 +2169,9 @@
             "description": "Entropy framework",
             "support": {
                 "issues": "https://github.com/TomasVotruba/entropy/issues",
-                "source": "https://github.com/TomasVotruba/entropy/tree/0.4.0"
+                "source": "https://github.com/TomasVotruba/entropy/tree/0.4.2"
             },
-            "time": "2026-06-10T09:59:59+00:00"
+            "time": "2026-06-15T13:31:41+00:00"
         },
         {
             "name": "ergebnis/agent-detector",
@@ -13484,20 +13482,37 @@
         },
         {
             "name": "rector/jack",
-            "version": "1.0.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/jack.git",
-                "reference": "207473d8c83924c743e9e90495d4d83b3c2b730f"
+                "reference": "a5cf117405018a571359e9cfc46e5e5108599ec3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/jack/zipball/207473d8c83924c743e9e90495d4d83b3c2b730f",
-                "reference": "207473d8c83924c743e9e90495d4d83b3c2b730f",
+                "url": "https://api.github.com/repos/rectorphp/jack/zipball/a5cf117405018a571359e9cfc46e5e5108599ec3",
+                "reference": "a5cf117405018a571359e9cfc46e5e5108599ec3",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.2"
+                "composer/semver": "^3.4",
+                "entropy/entropy": "^0.4",
+                "nette/utils": "^4.1",
+                "php": ">=8.4",
+                "symfony/process": "^8.1",
+                "webmozart/assert": "^2.4"
+            },
+            "require-dev": {
+                "phpstan/extension-installer": "^1.4",
+                "phpstan/phpstan": "^2.2",
+                "phpunit/phpunit": "^13.2",
+                "rector/rector": "^2.4",
+                "rector/swiss-knife": "^2.4",
+                "shipmonk/composer-dependency-analyser": "^1.8",
+                "symplify/easy-coding-standard": "^13.2",
+                "symplify/phpstan-rules": "^14.11",
+                "tomasvotruba/class-leak": "^2.1",
+                "tracy/tracy": "^2.12"
             },
             "bin": [
                 "bin/jack"
@@ -13512,10 +13527,10 @@
             "license": [
                 "MIT"
             ],
-            "description": "Swiss knife in pocket of every upgrade architect",
+            "description": "Jack helps you incrementally update your `composer.json` dependencies, ensuring your project stays current without the chaos of outdated packages",
             "support": {
                 "issues": "https://github.com/rectorphp/jack/issues",
-                "source": "https://github.com/rectorphp/jack/tree/1.0.0"
+                "source": "https://github.com/rectorphp/jack/tree/1.1.1"
             },
             "funding": [
                 {
@@ -13527,7 +13542,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-04-28T22:41:11+00:00"
+            "time": "2026-06-14T07:29:44+00:00"
         },
         {
             "name": "rector/rector",
@@ -19818,16 +19833,16 @@
         },
         {
             "name": "webmozart/assert",
-            "version": "2.4.0",
+            "version": "2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozarts/assert.git",
-                "reference": "9007ea6f45ecf352a9422b36644e4bfc039b9155"
+                "reference": "2ccb7c2e821038c03a3e6e1700c570c158c55f70"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozarts/assert/zipball/9007ea6f45ecf352a9422b36644e4bfc039b9155",
-                "reference": "9007ea6f45ecf352a9422b36644e4bfc039b9155",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/2ccb7c2e821038c03a3e6e1700c570c158c55f70",
+                "reference": "2ccb7c2e821038c03a3e6e1700c570c158c55f70",
                 "shasum": ""
             },
             "require": {
@@ -19878,9 +19893,9 @@
             ],
             "support": {
                 "issues": "https://github.com/webmozarts/assert/issues",
-                "source": "https://github.com/webmozarts/assert/tree/2.4.0"
+                "source": "https://github.com/webmozarts/assert/tree/2.4.1"
             },
-            "time": "2026-05-20T13:07:01+00:00"
+            "time": "2026-06-15T15:31:57+00:00"
         },
         {
             "name": "yamadashy/phpstan-friendly-formatter",
