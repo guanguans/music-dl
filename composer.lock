@@ -13606,39 +13606,39 @@
         },
         {
             "name": "rector/swiss-knife",
-            "version": "2.4.6",
+            "version": "2.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/swiss-knife.git",
-                "reference": "1f059fee6dea69d2273274c516f325600d639666"
+                "reference": "5f3ae9f4961c80d124dfb8a2f39cc67b8b7b197e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/swiss-knife/zipball/1f059fee6dea69d2273274c516f325600d639666",
-                "reference": "1f059fee6dea69d2273274c516f325600d639666",
+                "url": "https://api.github.com/repos/rectorphp/swiss-knife/zipball/5f3ae9f4961c80d124dfb8a2f39cc67b8b7b197e",
+                "reference": "5f3ae9f4961c80d124dfb8a2f39cc67b8b7b197e",
                 "shasum": ""
             },
             "require": {
-                "entropy/entropy": "^0.4.0",
+                "entropy/entropy": "^0.4.2",
                 "nette/robot-loader": "^4.1",
                 "nette/utils": "^4.1",
                 "nikic/php-parser": "^5.7",
                 "php": ">=8.4",
-                "symfony/finder": "^7.4|^8.0",
-                "symfony/yaml": "^7.4|^8.0",
+                "symfony/finder": "^8.1",
+                "symfony/yaml": "^8.1",
                 "webmozart/assert": "^2.4"
             },
             "require-dev": {
                 "phpstan/extension-installer": "^1.4",
-                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan": "^2.2",
                 "phpunit/phpunit": "^12.5",
-                "rector/jack": "^1.0",
+                "rector/jack": "^1.1",
                 "rector/rector": "^2.4",
                 "shipmonk/composer-dependency-analyser": "^1.8",
                 "symfony/config": "^6.4",
                 "symfony/dependency-injection": "^6.4",
-                "symplify/easy-coding-standard": "^13.1",
-                "symplify/phpstan-rules": "^14.11",
+                "symplify/easy-coding-standard": "^13.2",
+                "symplify/phpstan-rules": "^14.12",
                 "tomasvotruba/class-leak": "^2.1",
                 "tomasvotruba/unused-public": "^2.2",
                 "tracy/tracy": "^2.12"
@@ -13650,10 +13650,7 @@
             "autoload": {
                 "psr-4": {
                     "Rector\\SwissKnife\\": "src"
-                },
-                "classmap": [
-                    "stubs"
-                ]
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -13662,7 +13659,7 @@
             "description": "Swiss knife in pocket of every upgrade architect",
             "support": {
                 "issues": "https://github.com/rectorphp/swiss-knife/issues",
-                "source": "https://github.com/rectorphp/swiss-knife/tree/2.4.6"
+                "source": "https://github.com/rectorphp/swiss-knife/tree/2.4.7"
             },
             "funding": [
                 {
@@ -13674,7 +13671,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-06-12T12:25:11+00:00"
+            "time": "2026-06-16T10:01:19+00:00"
         },
         {
             "name": "rector/type-perfect",
