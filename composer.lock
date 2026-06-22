@@ -2125,16 +2125,16 @@
         },
         {
             "name": "entropy/entropy",
-            "version": "0.4.2",
+            "version": "0.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TomasVotruba/entropy.git",
-                "reference": "f0d35f20c9b361a63d0804906d36439a103953fd"
+                "reference": "415f69258150409db7c36aa747923e28aa53e9f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TomasVotruba/entropy/zipball/f0d35f20c9b361a63d0804906d36439a103953fd",
-                "reference": "f0d35f20c9b361a63d0804906d36439a103953fd",
+                "url": "https://api.github.com/repos/TomasVotruba/entropy/zipball/415f69258150409db7c36aa747923e28aa53e9f6",
+                "reference": "415f69258150409db7c36aa747923e28aa53e9f6",
                 "shasum": ""
             },
             "require": {
@@ -2169,9 +2169,9 @@
             "description": "Entropy framework",
             "support": {
                 "issues": "https://github.com/TomasVotruba/entropy/issues",
-                "source": "https://github.com/TomasVotruba/entropy/tree/0.4.2"
+                "source": "https://github.com/TomasVotruba/entropy/tree/0.4.6"
             },
-            "time": "2026-06-15T13:31:41+00:00"
+            "time": "2026-06-20T10:04:38+00:00"
         },
         {
             "name": "ergebnis/agent-detector",
@@ -19363,20 +19363,20 @@
         },
         {
             "name": "tomasvotruba/class-leak",
-            "version": "2.1.7",
+            "version": "2.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TomasVotruba/class-leak.git",
-                "reference": "d8c62dd42e26bc753fcac1f18225daccc5fc5380"
+                "reference": "3ebe4d7bebfb40ab3a85a36431821367b0ac57ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TomasVotruba/class-leak/zipball/d8c62dd42e26bc753fcac1f18225daccc5fc5380",
-                "reference": "d8c62dd42e26bc753fcac1f18225daccc5fc5380",
+                "url": "https://api.github.com/repos/TomasVotruba/class-leak/zipball/3ebe4d7bebfb40ab3a85a36431821367b0ac57ab",
+                "reference": "3ebe4d7bebfb40ab3a85a36431821367b0ac57ab",
                 "shasum": ""
             },
             "require": {
-                "entropy/entropy": "^0.3 || ^0.4",
+                "entropy/entropy": "^0.4.6",
                 "nette/utils": "^4.1",
                 "nikic/php-parser": "^5.7",
                 "php": ">=8.4",
@@ -19416,7 +19416,7 @@
             "description": "Detect leaking classes",
             "support": {
                 "issues": "https://github.com/TomasVotruba/class-leak/issues",
-                "source": "https://github.com/TomasVotruba/class-leak/tree/2.1.7"
+                "source": "https://github.com/TomasVotruba/class-leak/tree/2.1.8"
             },
             "funding": [
                 {
@@ -19428,7 +19428,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-06-10T12:34:09+00:00"
+            "time": "2026-06-20T16:19:43+00:00"
         },
         {
             "name": "tomasvotruba/cognitive-complexity",
