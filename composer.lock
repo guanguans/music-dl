@@ -7571,16 +7571,16 @@
         },
         {
             "name": "mrpunyapal/peststan",
-            "version": "0.2.10",
+            "version": "0.2.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/MrPunyapal/PestStan.git",
-                "reference": "750859a911050915cb6e3efbfde30e900ad717bf"
+                "reference": "87a4d69e658707f3a81ccd5d6d30cd9cdf216f11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MrPunyapal/PestStan/zipball/750859a911050915cb6e3efbfde30e900ad717bf",
-                "reference": "750859a911050915cb6e3efbfde30e900ad717bf",
+                "url": "https://api.github.com/repos/MrPunyapal/PestStan/zipball/87a4d69e658707f3a81ccd5d6d30cd9cdf216f11",
+                "reference": "87a4d69e658707f3a81ccd5d6d30cd9cdf216f11",
                 "shasum": ""
             },
             "require": {
@@ -7588,9 +7588,9 @@
                 "phpstan/phpstan": "^2.0"
             },
             "require-dev": {
+                "laravel/pao": "^1.0",
                 "laravel/pint": "^1.18",
                 "mrpunyapal/rector-pest": "^0.2.0",
-                "nunomaduro/pao": "^0.1.4",
                 "pestphp/pest": "^3.0 || ^4.0 || ^5.0",
                 "phpstan/extension-installer": "^1.4",
                 "phpstan/phpstan-strict-rules": "^2.0",
@@ -7622,7 +7622,7 @@
             ],
             "support": {
                 "issues": "https://github.com/MrPunyapal/PestStan/issues",
-                "source": "https://github.com/MrPunyapal/PestStan/tree/0.2.10"
+                "source": "https://github.com/MrPunyapal/PestStan/tree/0.2.11"
             },
             "funding": [
                 {
@@ -7630,7 +7630,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-05-10T16:55:11+00:00"
+            "time": "2026-07-03T08:43:35+00:00"
         },
         {
             "name": "mrpunyapal/rector-pest",
@@ -11557,11 +11557,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.2.2",
+            "version": "2.2.4",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/e5cc34d491a90e79c216d824f60fe21fd4d93bd6",
-                "reference": "e5cc34d491a90e79c216d824f60fe21fd4d93bd6",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/f0fe3fb03bb53ce68cc2416785b260e62226ec27",
+                "reference": "f0fe3fb03bb53ce68cc2416785b260e62226ec27",
                 "shasum": ""
             },
             "require": {
@@ -11617,7 +11617,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-06-05T09:00:01+00:00"
+            "time": "2026-07-03T07:00:23+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
