@@ -15679,16 +15679,16 @@
         },
         {
             "name": "spaze/phpstan-disallowed-calls",
-            "version": "v4.12.0",
+            "version": "v4.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spaze/phpstan-disallowed-calls.git",
-                "reference": "5b69dc08f420b39e6c351f1cbd8e02a682c0ebdf"
+                "reference": "94bd44508e64f57f2a21d3d9c9f4b9ccd379ce05"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spaze/phpstan-disallowed-calls/zipball/5b69dc08f420b39e6c351f1cbd8e02a682c0ebdf",
-                "reference": "5b69dc08f420b39e6c351f1cbd8e02a682c0ebdf",
+                "url": "https://api.github.com/repos/spaze/phpstan-disallowed-calls/zipball/94bd44508e64f57f2a21d3d9c9f4b9ccd379ce05",
+                "reference": "94bd44508e64f57f2a21d3d9c9f4b9ccd379ce05",
                 "shasum": ""
             },
             "require": {
@@ -15700,8 +15700,8 @@
                 "php-parallel-lint/php-console-highlighter": "^1.0",
                 "php-parallel-lint/php-parallel-lint": "^1.2",
                 "phpstan/phpstan-deprecation-rules": "^1.2 || ^2.0",
-                "phpunit/phpunit": "^8.5.14 || ^10.1 || ^11.0 || ^12.0 || ^13.0",
-                "shipmonk/dead-code-detector": "^0.15.0",
+                "phpunit/phpunit": "^9.6 || ^10.1 || ^11.0 || ^12.0 || ^13.0",
+                "shipmonk/dead-code-detector": "^1.1",
                 "spaze/coding-standard": "^1.8"
             },
             "type": "phpstan-extension",
@@ -15734,7 +15734,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spaze/phpstan-disallowed-calls/issues",
-                "source": "https://github.com/spaze/phpstan-disallowed-calls/tree/v4.12.0"
+                "source": "https://github.com/spaze/phpstan-disallowed-calls/tree/v4.13.0"
             },
             "funding": [
                 {
@@ -15742,7 +15742,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-04-28T05:25:38+00:00"
+            "time": "2026-07-17T17:23:12+00:00"
         },
         {
             "name": "staabm/annotate-pull-request-from-checkstyle",
