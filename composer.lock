@@ -13680,22 +13680,33 @@
         },
         {
             "name": "rector/type-perfect",
-            "version": "2.1.4",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/type-perfect.git",
-                "reference": "5ba40eca0903de8e33a7beb575b2feaa25948d18"
+                "reference": "33d189f48bbd4c2a0e95bddf78788b417259c364"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/type-perfect/zipball/5ba40eca0903de8e33a7beb575b2feaa25948d18",
-                "reference": "5ba40eca0903de8e33a7beb575b2feaa25948d18",
+                "url": "https://api.github.com/repos/rectorphp/type-perfect/zipball/33d189f48bbd4c2a0e95bddf78788b417259c364",
+                "reference": "33d189f48bbd4c2a0e95bddf78788b417259c364",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.4|^8.0",
-                "phpstan/phpstan": "^2.1.14",
+                "php": "^8.2",
+                "phpstan/phpstan": "^2.1.30",
                 "webmozart/assert": "^1.11 || ^2.1"
+            },
+            "require-dev": {
+                "nikic/php-parser": "^5.6",
+                "phpstan/extension-installer": "^1.4",
+                "phpunit/phpunit": "^11.5|^12.2",
+                "rector/rector": "^2.2",
+                "symfony/dom-crawler": "^7.4",
+                "symplify/easy-coding-standard": "^12.6",
+                "symplify/phpstan-extensions": "^12.0",
+                "tomasvotruba/class-leak": "^2.0",
+                "tracy/tracy": "^2.10"
             },
             "type": "phpstan-extension",
             "extra": {
@@ -13714,10 +13725,10 @@
             "license": [
                 "MIT"
             ],
-            "description": "Next level type declaration checks",
+            "description": "Next level type declaration checks - DEPRECATED, merged into tomasvotruba/type-coverage",
             "support": {
                 "issues": "https://github.com/rectorphp/type-perfect/issues",
-                "source": "https://github.com/rectorphp/type-perfect/tree/2.1.4"
+                "source": "https://github.com/rectorphp/type-perfect/tree/2.2.0"
             },
             "funding": [
                 {
@@ -13729,7 +13740,8 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-04-17T23:36:51+00:00"
+            "abandoned": "tomasvotruba/type-coverage",
+            "time": "2026-07-30T14:54:45+00:00"
         },
         {
             "name": "revolt/event-loop",
