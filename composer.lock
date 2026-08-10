@@ -216,16 +216,16 @@
         },
         {
             "name": "beberlei/assert",
-            "version": "v3.3.3",
+            "version": "v3.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/beberlei/assert.git",
-                "reference": "b5fd8eacd8915a1b627b8bfc027803f1939734dd"
+                "reference": "f193f4613c7d7fbcee2c05e4daff4061d49c040e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/beberlei/assert/zipball/b5fd8eacd8915a1b627b8bfc027803f1939734dd",
-                "reference": "b5fd8eacd8915a1b627b8bfc027803f1939734dd",
+                "url": "https://api.github.com/repos/beberlei/assert/zipball/f193f4613c7d7fbcee2c05e4daff4061d49c040e",
+                "reference": "f193f4613c7d7fbcee2c05e4daff4061d49c040e",
                 "shasum": ""
             },
             "require": {
@@ -277,9 +277,9 @@
             ],
             "support": {
                 "issues": "https://github.com/beberlei/assert/issues",
-                "source": "https://github.com/beberlei/assert/tree/v3.3.3"
+                "source": "https://github.com/beberlei/assert/tree/v3.3.4"
             },
-            "time": "2024-07-15T13:18:35+00:00"
+            "time": "2026-06-10T19:47:05+00:00"
         },
         {
             "name": "brainmaestro/composer-git-hooks",
@@ -15810,16 +15810,16 @@
         },
         {
             "name": "staabm/phpstan-todo-by",
-            "version": "0.3.4",
+            "version": "0.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/staabm/phpstan-todo-by.git",
-                "reference": "4342d9476750ce5c0438fec748df299bd2afdd83"
+                "reference": "53f2b5c2c60a89fb93534052a2e2b62dbcd52175"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/staabm/phpstan-todo-by/zipball/4342d9476750ce5c0438fec748df299bd2afdd83",
-                "reference": "4342d9476750ce5c0438fec748df299bd2afdd83",
+                "url": "https://api.github.com/repos/staabm/phpstan-todo-by/zipball/53f2b5c2c60a89fb93534052a2e2b62dbcd52175",
+                "reference": "53f2b5c2c60a89fb93534052a2e2b62dbcd52175",
                 "shasum": ""
             },
             "require": {
@@ -15866,7 +15866,7 @@
             ],
             "support": {
                 "issues": "https://github.com/staabm/phpstan-todo-by/issues",
-                "source": "https://github.com/staabm/phpstan-todo-by/tree/0.3.4"
+                "source": "https://github.com/staabm/phpstan-todo-by/tree/0.3.5"
             },
             "funding": [
                 {
@@ -15874,7 +15874,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-06-08T15:13:49+00:00"
+            "time": "2026-08-06T08:40:56+00:00"
         },
         {
             "name": "staabm/side-effects-detector",
