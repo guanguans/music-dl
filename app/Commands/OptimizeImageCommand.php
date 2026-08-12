@@ -23,14 +23,10 @@ use Spatie\ImageOptimizer\OptimizerChain;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 
+#[\Illuminate\Console\Attributes\Description('Optimize images')]
+#[\Illuminate\Console\Attributes\Signature('optimize:image {--dry-run : Only list found images}')]
 final class OptimizeImageCommand extends Command
 {
-    #[\Override]
-    protected $signature = 'optimize:image {--dry-run : Only list found images}';
-
-    #[\Override]
-    protected $description = 'Optimize images';
-
     public function handle(): void
     {
         $imagesFinder = static fn (): Collection => collect(

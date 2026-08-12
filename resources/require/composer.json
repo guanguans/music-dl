@@ -1,18 +1,18 @@
 {
     "require": {
         "php": ">=8.5",
-        "laravel-zero/framework": "^12.1",
+        "laravel-zero/framework": "^13.0",
         "laravel-zero/phar-updater": "^1.4",
-        "laravel/framework": "^12.58 || ^13.0",
+        "laravel/framework": "^13.25",
         "metowolf/meting": "^1.5",
-        "phpunit/php-timer": "^8.0 || ^9.0",
+        "phpunit/php-timer": "^9.0",
         "spatie/fork": "^1.2"
     },
     "require-dev": {
-        "ergebnis/composer-normalize": "^2.51"
+        "ergebnis/composer-normalize": "^2.52"
     },
     "conflict": {
-        "phpunit/php-timer": ">=9.0"
+        "phpunit/php-timer": ">=10.0"
     },
     "config": {
         "allow-plugins": {

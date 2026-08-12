@@ -17,6 +17,8 @@ use App\Exceptions\RuntimeException;
 use Illuminate\Console\Scheduling\Schedule;
 use LaravelZero\Framework\Commands\Command;
 
+#[\Illuminate\Console\Attributes\Description('Thanks for using this tool.')]
+#[\Illuminate\Console\Attributes\Signature('thanks')]
 final class ThanksCommand extends Command
 {
     /** The Command messages. */
@@ -25,12 +27,6 @@ final class ThanksCommand extends Command
         '  - Star or contribute to Music DL:',
         '    <options=bold>https://github.com/guanguans/music-dl</>',
     ];
-
-    #[\Override]
-    protected $signature = 'thanks';
-
-    #[\Override]
-    protected $description = 'Thanks for using this tool.';
 
     public function handle(): void
     {

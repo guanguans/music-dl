@@ -19,6 +19,8 @@ includes:
 
 #    - vendor/symplify/phpstan-rules/config/code-complexity-rules.neon
 #    - vendor/symplify/phpstan-rules/config/configurable-rules.neon
+#    - vendor/symplify/phpstan-rules/config/ctor-rules.neon
+#    - vendor/symplify/phpstan-rules/config/mock-rules.neon
 #    - vendor/symplify/phpstan-rules/config/naming-rules.neon
 #    - vendor/symplify/phpstan-rules/config/static-rules.neon
     - vendor/symplify/phpstan-rules/config/symplify-rules.neon
@@ -92,6 +94,11 @@ parameters:
         dependency_tree_types:
 #            # only these explicit types are checked, nothing else
 #            - Rector\Contract\Rector\RectorInterface
+#    ctor: true
+    symplify:
+        symfonyReturnType: true
+        laravelReturnType: true
+        pathStrings: true
     type_coverage:
         declare: 100
         param: 100
@@ -105,6 +112,9 @@ parameters:
         no_mixed: false
         no_mixed_property: true
         no_mixed_caller: false
+        no_param_type_removal: true
+        no_isset_on_object: true
+        no_empty_on_object: true
     unused_public:
         constants: true
         properties: true
@@ -197,6 +207,7 @@ parameters:
         - identifier: symplify.forbiddenFuncCall
         - identifier: symplify.forbiddenNode
         - identifier: symplify.noReturnSetterMethod
+        - identifier: symplify.requireAttributeName
         - identifier: symplify.requireExceptionNamespace
         - message: '#^Unused App\\.*\:\:__construct$#'
 
@@ -239,5 +250,5 @@ parameters:
             identifier: shipmonk.arithmeticOnNonNumber
             path: app/Commands/OptimizeImageCommand.php
         -
-            message: '#^Offset ''(human_size|size)'' might not exist on array\{size\: \(bool\|int\), human_size\: string, real_path\: \(bool\|string\)\}\|null\.$#'
+            message: '#^Offset ''(human_size|size)'' might not exist on array\{size\: \(bool\|int\), human_size\: string, real_path\: string\}\|null\.$#'
             path: app/Commands/OptimizeImageCommand.php

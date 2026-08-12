@@ -52,16 +52,9 @@ use function Laravel\Prompts\warning;
 /**
  * @method void notify(string $text, string $body, null|string $icon = null)
  */
-final class MusicCommand extends Command implements Isolatable, PromptsForMissingInput
-{
-    use ConfirmableTrait;
-    use Hydrator;
-    use LockableTrait;
-    use Prohibitable;
-    use Rescuer;
-
-    #[\Override]
-    protected $signature = <<<'SIGNATURE'
+#[\Illuminate\Console\Attributes\Description('Search and download music')]
+#[\Illuminate\Console\Attributes\Signature(
+    <<<'SIGNATURE'
         music
         {keyword? : Search keyword for music}
         {--b|break : Specify whether to break after download}
@@ -72,10 +65,15 @@ final class MusicCommand extends Command implements Isolatable, PromptsForMissin
         {--p|page=1 : Specify the page number}
         {--P|per-page=30 : Specify the per page number}
         {--s|sources=* : Specify the music sources(tencent、netease、kugou)}
-        SIGNATURE;
-
-    #[\Override]
-    protected $description = 'Search and download music';
+        SIGNATURE
+)]
+final class MusicCommand extends Command implements Isolatable, PromptsForMissingInput
+{
+    use ConfirmableTrait;
+    use Hydrator;
+    use LockableTrait;
+    use Prohibitable;
+    use Rescuer;
     private MusicContract $music;
 
     /**

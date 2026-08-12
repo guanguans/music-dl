@@ -17,14 +17,10 @@ use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Inspiring;
 use LaravelZero\Framework\Commands\Command;
 
+#[\Illuminate\Console\Attributes\Description('Display an inspiring quote')]
+#[\Illuminate\Console\Attributes\Signature('inspire {name=Artisan}')]
 final class InspireCommand extends Command
 {
-    #[\Override]
-    protected $signature = 'inspire {name=Artisan}';
-
-    #[\Override]
-    protected $description = 'Display an inspiring quote';
-
     public function handle(): void
     {
         $this->info(resolve('logo'));

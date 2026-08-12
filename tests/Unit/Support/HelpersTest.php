@@ -41,14 +41,14 @@ it('will throw `InvalidArgumentException` when abstract is empty array', functio
 it('can make music', function (array|string $abstract): void {
     expect(make($abstract))->toBeInstanceOf(Music::class);
 })->group(__DIR__, __FILE__)->with([
-    ['abstract' => Music::class],
-    ['abstract' => ['__abstract' => Music::class, 'driver' => null, 'minCallMicroseconds' => 1000]],
-    ['abstract' => ['__class' => Music::class, 'driver' => null, 'minCallMicroseconds' => 1000]],
-    ['abstract' => ['__name' => Music::class, 'driver' => null, 'minCallMicroseconds' => 1000]],
-    ['abstract' => ['_abstract' => Music::class, 'driver' => null, 'minCallMicroseconds' => 1000]],
-    ['abstract' => ['_class' => Music::class, 'driver' => null, 'minCallMicroseconds' => 1000]],
-    ['abstract' => ['_name' => Music::class, 'driver' => null, 'minCallMicroseconds' => 1000]],
-    ['abstract' => ['abstract' => Music::class, 'driver' => null, 'minCallMicroseconds' => 1000]],
-    ['abstract' => ['class' => Music::class, 'driver' => null, 'minCallMicroseconds' => 1000]],
-    ['abstract' => ['name' => Music::class, 'driver' => null, 'minCallMicroseconds' => 1000]],
+    fn (): array => ['abstract' => Music::class],
+    fn (): array => ['abstract' => ['__abstract' => Music::class, 'driver' => null, 'minCallMicroseconds' => 1000]],
+    fn (): array => ['abstract' => ['__class' => Music::class, 'driver' => null, 'minCallMicroseconds' => 1000]],
+    fn (): array => ['abstract' => ['__name' => Music::class, 'driver' => null, 'minCallMicroseconds' => 1000]],
+    fn (): array => ['abstract' => ['_abstract' => Music::class, 'driver' => null, 'minCallMicroseconds' => 1000]],
+    fn (): array => ['abstract' => ['_class' => Music::class, 'driver' => null, 'minCallMicroseconds' => 1000]],
+    fn (): array => ['abstract' => ['_name' => Music::class, 'driver' => null, 'minCallMicroseconds' => 1000]],
+    fn (): array => ['abstract' => ['abstract' => Music::class, 'driver' => null, 'minCallMicroseconds' => 1000]],
+    fn (): array => ['abstract' => ['class' => Music::class, 'driver' => null, 'minCallMicroseconds' => 1000]],
+    fn (): array => ['abstract' => ['name' => Music::class, 'driver' => null, 'minCallMicroseconds' => 1000]],
 ]);
