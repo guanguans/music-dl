@@ -508,16 +508,16 @@
         },
         {
             "name": "canvural/larastan-strict-rules",
-            "version": "3.0.3",
+            "version": "3.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/canvural/larastan-strict-rules.git",
-                "reference": "53d60b6e4b852d3944361d31c55205b2c4c61b0c"
+                "reference": "c0a0a4cd304ac6189bbce72808533118c1049e99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/canvural/larastan-strict-rules/zipball/53d60b6e4b852d3944361d31c55205b2c4c61b0c",
-                "reference": "53d60b6e4b852d3944361d31c55205b2c4c61b0c",
+                "url": "https://api.github.com/repos/canvural/larastan-strict-rules/zipball/c0a0a4cd304ac6189bbce72808533118c1049e99",
+                "reference": "c0a0a4cd304ac6189bbce72808533118c1049e99",
                 "shasum": ""
             },
             "require": {
@@ -526,18 +526,13 @@
                 "phpstan/phpstan": "^2.0"
             },
             "require-dev": {
-                "doctrine/coding-standard": "^12.0",
-                "orchestra/testbench": "^9.0",
+                "doctrine/coding-standard": "^14.0",
+                "orchestra/testbench": "^10.0|^11.0",
                 "phpstan/phpstan-phpunit": "^2.0",
-                "phpunit/phpunit": "^10.0",
+                "phpunit/phpunit": "^11.5|^12.0|^13.0",
                 "roave/security-advisories": "dev-latest"
             },
             "type": "phpstan-extension",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Vural\\LarastanStrictRules\\": "src/"
@@ -550,7 +545,7 @@
             "description": "Extra strict and opinionated PHPStan rules for Laravel.",
             "support": {
                 "issues": "https://github.com/canvural/larastan-strict-rules/issues",
-                "source": "https://github.com/canvural/larastan-strict-rules/tree/3.0.3"
+                "source": "https://github.com/canvural/larastan-strict-rules/tree/3.0.4"
             },
             "funding": [
                 {
@@ -562,7 +557,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-04-29T07:22:23+00:00"
+            "time": "2026-08-26T22:29:39+00:00"
         },
         {
             "name": "carbonphp/carbon-doctrine-types",
