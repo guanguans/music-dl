@@ -19729,16 +19729,16 @@
         },
         {
             "name": "tomasvotruba/class-leak",
-            "version": "2.2.0",
+            "version": "2.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TomasVotruba/class-leak.git",
-                "reference": "cdc1c116f3deaa68ebd338fa2f791a0b4a52ad87"
+                "reference": "bc56eb6d4940e250f959a5a5ee7dcb2f064c2725"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TomasVotruba/class-leak/zipball/cdc1c116f3deaa68ebd338fa2f791a0b4a52ad87",
-                "reference": "cdc1c116f3deaa68ebd338fa2f791a0b4a52ad87",
+                "url": "https://api.github.com/repos/TomasVotruba/class-leak/zipball/bc56eb6d4940e250f959a5a5ee7dcb2f064c2725",
+                "reference": "bc56eb6d4940e250f959a5a5ee7dcb2f064c2725",
                 "shasum": ""
             },
             "require": {
@@ -19782,7 +19782,7 @@
             "description": "Detect leaking classes",
             "support": {
                 "issues": "https://github.com/TomasVotruba/class-leak/issues",
-                "source": "https://github.com/TomasVotruba/class-leak/tree/2.2.0"
+                "source": "https://github.com/TomasVotruba/class-leak/tree/2.2.4"
             },
             "funding": [
                 {
@@ -19794,7 +19794,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-08-29T20:55:33+00:00"
+            "time": "2026-09-03T08:44:47+00:00"
         },
         {
             "name": "tomasvotruba/cognitive-complexity",
