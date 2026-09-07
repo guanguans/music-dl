@@ -561,16 +561,16 @@
         },
         {
             "name": "carbonphp/carbon-doctrine-types",
-            "version": "3.2.0",
+            "version": "3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CarbonPHP/carbon-doctrine-types.git",
-                "reference": "18ba5ddfec8976260ead6e866180bd5d2f71aa1d"
+                "reference": "5fa5eacafd9ef47c8c6ab9143fc901ba0194d3dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CarbonPHP/carbon-doctrine-types/zipball/18ba5ddfec8976260ead6e866180bd5d2f71aa1d",
-                "reference": "18ba5ddfec8976260ead6e866180bd5d2f71aa1d",
+                "url": "https://api.github.com/repos/CarbonPHP/carbon-doctrine-types/zipball/5fa5eacafd9ef47c8c6ab9143fc901ba0194d3dc",
+                "reference": "5fa5eacafd9ef47c8c6ab9143fc901ba0194d3dc",
                 "shasum": ""
             },
             "require": {
@@ -585,6 +585,11 @@
                 "phpunit/phpunit": "^10.3"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "3.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Carbon\\Doctrine\\": "src/Carbon/Doctrine/"
@@ -610,7 +615,7 @@
             ],
             "support": {
                 "issues": "https://github.com/CarbonPHP/carbon-doctrine-types/issues",
-                "source": "https://github.com/CarbonPHP/carbon-doctrine-types/tree/3.2.0"
+                "source": "https://github.com/CarbonPHP/carbon-doctrine-types/tree/3.2.1"
             },
             "funding": [
                 {
@@ -626,7 +631,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-02-09T16:56:22+00:00"
+            "time": "2026-09-06T14:11:38+00:00"
         },
         {
             "name": "clue/ndjson-react",
@@ -3654,20 +3659,20 @@
         },
         {
             "name": "guanguans/php-cs-fixer-custom-fixers",
-            "version": "1.2.1",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guanguans/php-cs-fixer-custom-fixers.git",
-                "reference": "ff446cb9da4c06448d625ad29cdc648ff74b8207"
+                "reference": "28a1b24f2777fd14f5caea113be47056ddba4ce0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guanguans/php-cs-fixer-custom-fixers/zipball/ff446cb9da4c06448d625ad29cdc648ff74b8207",
-                "reference": "ff446cb9da4c06448d625ad29cdc648ff74b8207",
+                "url": "https://api.github.com/repos/guanguans/php-cs-fixer-custom-fixers/zipball/28a1b24f2777fd14f5caea113be47056ddba4ce0",
+                "reference": "28a1b24f2777fd14f5caea113be47056ddba4ce0",
                 "shasum": ""
             },
             "require": {
-                "friendsofphp/php-cs-fixer": "^3.94",
+                "friendsofphp/php-cs-fixer": "^3.95",
                 "illuminate/support": "^8.83 || ^9.0 || ^10.0 || ^11.0 || ^12.0 || ^13.0",
                 "php": ">=7.4"
             },
@@ -3678,22 +3683,21 @@
                 "adamwojs/php-cs-fixer-phpdoc-force-fqcn": "^2.0",
                 "bamarni/composer-bin-plugin": "^1.9",
                 "brainmaestro/composer-git-hooks": "^2.8 || ^3.0",
-                "composer/composer": "^2.9",
-                "dg/bypass-finals": "^1.9",
+                "composer/composer": "^2.10",
+                "dg/bypass-finals": "^1.10",
                 "doctrine/sql-formatter": "^1.3",
-                "ergebnis/composer-normalize": "^2.50",
+                "ergebnis/composer-normalize": "^2.52",
                 "ergebnis/license": "^2.7",
-                "ergebnis/php-cs-fixer-config": "^6.60",
+                "ergebnis/php-cs-fixer-config": "^6.63",
                 "ergebnis/phpstan-rules": "^2.13",
-                "ergebnis/rector-rules": "^1.15",
+                "ergebnis/rector-rules": "^1.18",
                 "fakerphp/faker": "^1.24",
                 "guanguans/phpstan-rules": "^1.1",
                 "guanguans/rector-rules": "^1.7",
                 "mockery/mockery": "^1.6",
                 "nette/utils": "^3.2 || ^4.0",
-                "pestphp/pest": "^1.23 || ^2.0 || ^3.0 || ^4.0",
+                "pestphp/pest": "^1.23 || ^2.0 || ^3.0 || ^4.0 || ^5.0",
                 "php-cs-fixer/phpunit-constraint-isidenticalstring": "^1.7",
-                "php-mock/php-mock-phpunit": "^2.15",
                 "phpmyadmin/sql-parser": "^5.11 || ^6.0",
                 "phpstan/extension-installer": "^1.4",
                 "phpstan/phpstan-deprecation-rules": "^2.0",
@@ -3702,25 +3706,23 @@
                 "phpstan/phpstan-webmozart-assert": "^2.0",
                 "phpunit/phpunit": "^9.6 || ^10.0 || ^11.0 || ^12.0 || ^13.0",
                 "povils/phpmnd": "^3.6",
-                "rector/argtyper": "^0.6",
                 "rector/jack": "^0.5",
-                "rector/swiss-knife": "^2.3",
-                "rector/type-perfect": "^2.1",
+                "rector/swiss-knife": "^2.4",
                 "shipmonk/composer-dependency-analyser": "^1.8",
-                "shipmonk/dead-code-detector": "^0.15",
+                "shipmonk/dead-code-detector": "^0.15 || ^1.0",
                 "shipmonk/name-collision-detector": "^2.1",
                 "shipmonk/phpstan-baseline-per-identifier": "^2.3",
                 "shipmonk/phpstan-rules": "^4.3",
-                "spaze/phpstan-disallowed-calls": "^4.9",
+                "spaze/phpstan-disallowed-calls": "^4.14",
                 "staabm/annotate-pull-request-from-checkstyle": "^1.8",
                 "staabm/phpstan-todo-by": "^0.3",
                 "symfony/thanks": "^1.3",
                 "symfony/var-dumper": "^5.4 || ^6.0 || ^7.0 || ^8.0",
-                "symplify/phpstan-rules": "^14.9",
+                "symplify/easy-coding-standard": "^13.2",
+                "symplify/phpstan-rules": "^14.10",
                 "tomasvotruba/class-leak": "^2.1",
-                "tomasvotruba/cognitive-complexity": "^1.0",
-                "tomasvotruba/ctor": "^2.2",
-                "tomasvotruba/type-coverage": "^2.1",
+                "tomasvotruba/cognitive-complexity": "^1.1",
+                "tomasvotruba/type-coverage": "^2.2",
                 "tomasvotruba/unused-public": "^2.2",
                 "yamadashy/phpstan-friendly-formatter": "^1.2"
             },
@@ -3747,10 +3749,6 @@
                 },
                 "branch-alias": {
                     "dev-main": "1.x-dev"
-                },
-                "composer-normalize": {
-                    "indent-size": 4,
-                    "indent-style": "space"
                 }
             },
             "autoload": {
@@ -3817,7 +3815,7 @@
                     "type": "sponsors"
                 }
             ],
-            "time": "2026-03-26T10:09:12+00:00"
+            "time": "2026-09-04T07:18:58+00:00"
         },
         {
             "name": "guanguans/phpstan-rules",
@@ -4098,16 +4096,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "8.1.0",
+            "version": "8.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "2cdae51a4a02c3fe2c38d42e25a7bb952e27b768"
+                "reference": "93939470950a9b11e2e84204166ef5e048c55fe4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/2cdae51a4a02c3fe2c38d42e25a7bb952e27b768",
-                "reference": "2cdae51a4a02c3fe2c38d42e25a7bb952e27b768",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/93939470950a9b11e2e84204166ef5e048c55fe4",
+                "reference": "93939470950a9b11e2e84204166ef5e048c55fe4",
                 "shasum": ""
             },
             "require": {
@@ -4127,7 +4125,7 @@
                 "bamarni/composer-bin-plugin": "^1.8.2",
                 "ext-curl": "*",
                 "guzzle/client-integration-tests": "4.0.1",
-                "guzzlehttp/test-server": "^1.0",
+                "guzzlehttp/test-server": "^1.0.1",
                 "php-http/message-factory": "^1.1",
                 "phpunit/phpunit": "^9.6.34",
                 "psr/log": "^1.1 || ^2.0 || ^3.0"
@@ -4204,7 +4202,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/8.1.0"
+                "source": "https://github.com/guzzle/guzzle/tree/8.2.0"
             },
             "funding": [
                 {
@@ -4220,7 +4218,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-08-24T11:07:02+00:00"
+            "time": "2026-09-06T13:55:09+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -6711,16 +6709,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "2.10.0",
+            "version": "2.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "d2d1aa8b35e072966c89bc0c66cf926e56767dc4"
+                "reference": "9d489ab67a02960fd8ffe624d93f751daf95439e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/d2d1aa8b35e072966c89bc0c66cf926e56767dc4",
-                "reference": "d2d1aa8b35e072966c89bc0c66cf926e56767dc4",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/9d489ab67a02960fd8ffe624d93f751daf95439e",
+                "reference": "9d489ab67a02960fd8ffe624d93f751daf95439e",
                 "shasum": ""
             },
             "require": {
@@ -6814,7 +6812,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-08-11T16:06:25+00:00"
+            "time": "2026-09-07T13:44:26+00:00"
         },
         {
             "name": "league/config",
@@ -17443,6 +17441,89 @@
             "time": "2026-05-29T05:06:50+00:00"
         },
         {
+            "name": "symfony/polyfill-ctype",
+            "version": "v1.37.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-ctype.git",
+                "reference": "141046a8f9477948ff284fa65be2095baafb94f2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/141046a8f9477948ff284fa65be2095baafb94f2",
+                "reference": "141046a8f9477948ff284fa65be2095baafb94f2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "provide": {
+                "ext-ctype": "*"
+            },
+            "suggest": {
+                "ext-ctype": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "thanks": {
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Ctype\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Gert de Pagter",
+                    "email": "BackEndTea@gmail.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill for ctype functions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "ctype",
+                "polyfill",
+                "portable"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.37.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/nicolas-grekas",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2026-04-10T16:19:22+00:00"
+        },
+        {
             "name": "symfony/polyfill-deepclone",
             "version": "v1.40.0",
             "source": {
@@ -17697,6 +17778,176 @@
                 }
             ],
             "time": "2026-08-24T10:51:20+00:00"
+        },
+        {
+            "name": "symfony/polyfill-intl-normalizer",
+            "version": "v1.42.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-intl-normalizer.git",
+                "reference": "aa20edea75bd9c48cfecc8360922e5a6e5c44502"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-normalizer/zipball/aa20edea75bd9c48cfecc8360922e5a6e5c44502",
+                "reference": "aa20edea75bd9c48cfecc8360922e5a6e5c44502",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "suggest": {
+                "ext-intl": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "thanks": {
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Intl\\Normalizer\\": ""
+                },
+                "classmap": [
+                    "Resources/stubs"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill for intl's Normalizer class and related functions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "intl",
+                "normalizer",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.42.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/nicolas-grekas",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2026-08-07T06:33:24+00:00"
+        },
+        {
+            "name": "symfony/polyfill-mbstring",
+            "version": "v1.38.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-mbstring.git",
+                "reference": "d3d318bad5e7a1bfbd026009c8bfb8d8f99ae6b6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/d3d318bad5e7a1bfbd026009c8bfb8d8f99ae6b6",
+                "reference": "d3d318bad5e7a1bfbd026009c8bfb8d8f99ae6b6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-iconv": "*",
+                "php": ">=7.2"
+            },
+            "provide": {
+                "ext-mbstring": "*"
+            },
+            "suggest": {
+                "ext-mbstring": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "thanks": {
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill for the Mbstring extension",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "mbstring",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.38.2"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/nicolas-grekas",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2026-05-27T06:59:30+00:00"
         },
         {
             "name": "symfony/polyfill-php73",
@@ -19726,40 +19977,20 @@
         },
         {
             "name": "tomasvotruba/class-leak",
-            "version": "2.2.4",
+            "version": "2.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TomasVotruba/class-leak.git",
-                "reference": "bc56eb6d4940e250f959a5a5ee7dcb2f064c2725"
+                "reference": "c13a50f0d4593d17fb19a2278a59556662e663af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TomasVotruba/class-leak/zipball/bc56eb6d4940e250f959a5a5ee7dcb2f064c2725",
-                "reference": "bc56eb6d4940e250f959a5a5ee7dcb2f064c2725",
+                "url": "https://api.github.com/repos/TomasVotruba/class-leak/zipball/c13a50f0d4593d17fb19a2278a59556662e663af",
+                "reference": "c13a50f0d4593d17fb19a2278a59556662e663af",
                 "shasum": ""
             },
             "require": {
-                "entropy/entropy": "^0.4.6",
-                "nette/utils": "^4.1",
-                "nikic/php-parser": "^5.7",
-                "php": ">=8.4",
-                "symfony/finder": "^7.4|^8.0",
-                "webmozart/assert": "^2.0"
-            },
-            "replace": {
-                "symfony/polyfill-ctype": "*",
-                "symfony/polyfill-intl-normalizer": "*",
-                "symfony/polyfill-mbstring": "*"
-            },
-            "require-dev": {
-                "phpstan/extension-installer": "^1.4",
-                "phpstan/phpstan": "^2.2",
-                "phpunit/phpunit": "^13.0",
-                "rector/jack": "^1.0",
-                "rector/rector": "^2.4",
-                "symplify/easy-coding-standard": "^13.0",
-                "symplify/phpstan-extensions": "^12",
-                "tracy/tracy": "^2.12"
+                "php": ">=7.2"
             },
             "bin": [
                 "bin/class-leak",
@@ -19768,8 +19999,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "TomasVotruba\\ClassLeak\\": "src",
-                    "TomasVotruba\\UnusedPublic\\": "packages/unused-public/src"
+                    "TomasVotruba\\ClassLeak\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -19779,7 +20009,7 @@
             "description": "Detect leaking classes",
             "support": {
                 "issues": "https://github.com/TomasVotruba/class-leak/issues",
-                "source": "https://github.com/TomasVotruba/class-leak/tree/2.2.4"
+                "source": "https://github.com/TomasVotruba/class-leak/tree/2.1.4"
             },
             "funding": [
                 {
@@ -19791,7 +20021,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-09-03T08:44:47+00:00"
+            "time": "2026-05-27T08:33:55+00:00"
         },
         {
             "name": "tomasvotruba/cognitive-complexity",
