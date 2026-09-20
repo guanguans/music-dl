@@ -8,6 +8,55 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="7.1.1"></a>
+## [7.1.1] - 2026-09-20
+### 📦 Builds
+- **deps:** Bump Laravel framework and related dependencies ([a042ff9](https://github.com/guanguans/music-dl/commit/a042ff9))
+
+### Pull Requests
+- Merge pull request [#1213](https://github.com/guanguans/music-dl/issues/1213) from guanguans/dependabot/composer/ergebnis/php-cs-fixer-config-6.63.3
+- Merge pull request [#1211](https://github.com/guanguans/music-dl/issues/1211) from guanguans/dependabot/composer/pestphp/pest-5.2.0
+- Merge pull request [#1210](https://github.com/guanguans/music-dl/issues/1210) from guanguans/dependabot/composer/tomasvotruba/class-leak-2.2.4
+- Merge pull request [#1209](https://github.com/guanguans/music-dl/issues/1209) from guanguans/dependabot/composer/larastan/larastan-3.12.1
+- Merge pull request [#1208](https://github.com/guanguans/music-dl/issues/1208) from guanguans/dependabot/composer/tomasvotruba/class-leak-2.2.4
+- Merge pull request [#1203](https://github.com/guanguans/music-dl/issues/1203) from guanguans/dependabot/composer/guanguans/rector-rules-1.8.0
+- Merge pull request [#1206](https://github.com/guanguans/music-dl/issues/1206) from guanguans/dependabot/composer/larastan/larastan-3.12.0
+- Merge pull request [#1205](https://github.com/guanguans/music-dl/issues/1205) from guanguans/dependabot/composer/ergebnis/composer-normalize-2.53.0
+- Merge pull request [#1204](https://github.com/guanguans/music-dl/issues/1204) from guanguans/dependabot/composer/guanguans/monorepo-builder-worker-3.2.1
+- Merge pull request [#1202](https://github.com/guanguans/music-dl/issues/1202) from guanguans/dependabot/composer/symplify/easy-coding-standard-13.3.2
+- Merge pull request [#1201](https://github.com/guanguans/music-dl/issues/1201) from guanguans/dependabot/composer/shipmonk/dead-code-detector-1.4.1
+- Merge pull request [#1200](https://github.com/guanguans/music-dl/issues/1200) from guanguans/dependabot/composer/pestphp/pest-plugin-phpstan-5.2.1
+- Merge pull request [#1199](https://github.com/guanguans/music-dl/issues/1199) from guanguans/dependabot/composer/composer/composer-2.10.3
+- Merge pull request [#1198](https://github.com/guanguans/music-dl/issues/1198) from guanguans/dependabot/composer/tomasvotruba/class-leak-2.2.4
+- Merge pull request [#1197](https://github.com/guanguans/music-dl/issues/1197) from guanguans/dependabot/composer/guanguans/php-cs-fixer-custom-fixers-1.2.2
+- Merge pull request [#1196](https://github.com/guanguans/music-dl/issues/1196) from guanguans/dependabot/composer/tomasvotruba/class-leak-2.2.4
+- Merge pull request [#1195](https://github.com/guanguans/music-dl/issues/1195) from guanguans/dependabot/composer/symplify/easy-coding-standard-13.3.0
+- Merge pull request [#1190](https://github.com/guanguans/music-dl/issues/1190) from guanguans/dependabot/composer/tomasvotruba/class-leak-2.2.0
+- Merge pull request [#1189](https://github.com/guanguans/music-dl/issues/1189) from guanguans/dependabot/composer/tomasvotruba/type-coverage-2.3.6
+- Merge pull request [#1184](https://github.com/guanguans/music-dl/issues/1184) from guanguans/dependabot/composer/canvural/larastan-strict-rules-3.0.4
+- Merge pull request [#1194](https://github.com/guanguans/music-dl/issues/1194) from guanguans/dependabot/composer/larastan/larastan-3.11.0
+- Merge pull request [#1193](https://github.com/guanguans/music-dl/issues/1193) from guanguans/dependabot/composer/guanguans/phpstan-rules-1.1.2
+- Merge pull request [#1192](https://github.com/guanguans/music-dl/issues/1192) from guanguans/dependabot/composer/ergebnis/php-cs-fixer-config-6.63.2
+- Merge pull request [#1191](https://github.com/guanguans/music-dl/issues/1191) from guanguans/dependabot/composer/driftingly/rector-laravel-2.6.2
+- Merge pull request [#1188](https://github.com/guanguans/music-dl/issues/1188) from guanguans/dependabot/composer/symplify/phpstan-rules-14.13.1
+- Merge pull request [#1187](https://github.com/guanguans/music-dl/issues/1187) from guanguans/dependabot/github_actions/github/codeql-action-4.37.9
+- Merge pull request [#1186](https://github.com/guanguans/music-dl/issues/1186) from guanguans/dependabot/composer/shipmonk/dead-code-detector-1.4.0
+- Merge pull request [#1185](https://github.com/guanguans/music-dl/issues/1185) from guanguans/dependabot/composer/symplify/phpstan-rules-14.12.4
+- Merge pull request [#1183](https://github.com/guanguans/music-dl/issues/1183) from guanguans/dependabot/composer/driftingly/rector-laravel-2.6.1
+- Merge pull request [#1182](https://github.com/guanguans/music-dl/issues/1182) from guanguans/dependabot/composer/symplify/phpstan-rules-14.12.3
+- Merge pull request [#1181](https://github.com/guanguans/music-dl/issues/1181) from guanguans/dependabot/composer/spatie/invade-2.1.1
+- Merge pull request [#1180](https://github.com/guanguans/music-dl/issues/1180) from guanguans/dependabot/composer/symplify/phpstan-rules-14.12.2
+- Merge pull request [#1179](https://github.com/guanguans/music-dl/issues/1179) from guanguans/dependabot/composer/pestphp/pest-plugin-phpstan-5.2.0
+- Merge pull request [#1178](https://github.com/guanguans/music-dl/issues/1178) from guanguans/dependabot/github_actions/github/codeql-action-4.37.8
+- Merge pull request [#1177](https://github.com/guanguans/music-dl/issues/1177) from guanguans/dependabot/composer/pestphp/pest-plugin-phpstan-5.1.0
+- Merge pull request [#1176](https://github.com/guanguans/music-dl/issues/1176) from guanguans/dependabot/composer/pestphp/pest-plugin-rector-5.0.4
+- Merge pull request [#1175](https://github.com/guanguans/music-dl/issues/1175) from guanguans/dependabot/composer/mockery/mockery-1.6.15
+- Merge pull request [#1174](https://github.com/guanguans/music-dl/issues/1174) from guanguans/dependabot/composer/tomasvotruba/type-coverage-2.3.4
+- Merge pull request [#1173](https://github.com/guanguans/music-dl/issues/1173) from guanguans/dependabot/composer/mockery/mockery-1.6.14
+- Merge pull request [#1172](https://github.com/guanguans/music-dl/issues/1172) from guanguans/dependabot/composer/mockery/mockery-1.6.13
+- Merge pull request [#1171](https://github.com/guanguans/music-dl/issues/1171) from guanguans/dependabot/github_actions/github/codeql-action-4.37.7
+
+
 <a name="7.1.0"></a>
 ## [7.1.0] - 2026-08-13
 ### ✨ Features
@@ -1882,7 +1931,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/7.1.0...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/7.1.1...HEAD
+[7.1.1]: https://github.com/guanguans/music-dl/compare/7.1.0...7.1.1
 [7.1.0]: https://github.com/guanguans/music-dl/compare/7.0.2...7.1.0
 [7.0.2]: https://github.com/guanguans/music-dl/compare/7.0.1...7.0.2
 [7.0.1]: https://github.com/guanguans/music-dl/compare/7.0.0...7.0.1
