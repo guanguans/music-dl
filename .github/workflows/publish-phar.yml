@@ -59,7 +59,7 @@ jobs:
         run: |
           cp builds/music-dl /tmp/music-dl
           git fetch origin master
-          git checkout -f master
+          git checkout -B master origin/master --force
           cp /tmp/music-dl builds/music-dl
 
       - name: Commit bump
