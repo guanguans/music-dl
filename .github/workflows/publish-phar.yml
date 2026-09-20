@@ -55,6 +55,13 @@ jobs:
       - name: Cp music-dl.phar to music-dl
         run: cp builds/music-dl.phar builds/music-dl
 
+      - name: Checkout master for commit
+        run: |
+          cp builds/music-dl /tmp/music-dl
+          git fetch origin master
+          git checkout -f master
+          cp /tmp/music-dl builds/music-dl
+
       - name: Commit bump
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
