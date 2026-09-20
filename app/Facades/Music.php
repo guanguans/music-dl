@@ -1,7 +1,6 @@
 <?php
 
 /** @noinspection MissingParameterTypeDeclarationInspection */
-
 declare(strict_types=1);
 
 /**

@@ -46,3 +46,6 @@ jobs:
 
       - name: Run php-cs-fixer
         run: composer php-cs-fixer:fix-dry-run
+
+      - name: ecs
+        run: composer ecs:check

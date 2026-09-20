@@ -9,7 +9,8 @@
         "tests/",
         "vendor/",
         "vendor-bin/",
-        "CHANGELOG.md"
+        "CHANGELOG.md",
+        "zhlint-*.md"
     ],
     "rules": {
         "space-around-alphabet": 2,

@@ -3,7 +3,6 @@
 /** @noinspection GlobalVariableUsageInspection */
 /** @noinspection PhpInternalEntityUsedInspection */
 /** @noinspection PhpUnusedAliasInspection */
-
 declare(strict_types=1);
 
 /**
@@ -39,7 +38,7 @@ use Symfony\Component\Console\Logger\ConsoleLogger;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\OutputInterface;
 
-return Application::configure(basePath: \dirname(__DIR__))
+return Application::configure(\dirname(__DIR__))
     ->booting(static function (): void {
         ServerDumper::register(config('services.var_dump_server.host', 'tcp://127.0.0.1:9912'));
     })

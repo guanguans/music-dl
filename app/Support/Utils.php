@@ -56,9 +56,9 @@ final class Utils
                 $song['name']
             ))
                 ->remove(match (\PHP_OS_FAMILY) {
-                    'Windows' => ['<', '>', '/', '\\', '|', ':', '"', '?', '*'], // @codeCoverageIgnore
                     'Darwin' => [':'],
                     'Linux' => ['/'], // @codeCoverageIgnore
+                    'Windows' => ['<', '>', '/', '\\', '|', ':', '"', '?', '*'], // @codeCoverageIgnore
                     default => [\DIRECTORY_SEPARATOR],
                 })
                 ->ltrim('.')

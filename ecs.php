@@ -1,7 +1,6 @@
 <?php
 
-/** @noinspection PhpDeprecationInspection */
-/** @noinspection PhpUnhandledExceptionInspection */
+/** @noinspection PhpUnusedAliasInspection */
 declare(strict_types=1);
 
 /**
@@ -13,77 +12,34 @@ declare(strict_types=1);
  * @see https://github.com/guanguans/music-dl
  */
 
-use PhpCsFixer\Fixer\Basic\BracesPositionFixer;
-use PhpCsFixer\Fixer\Basic\SingleLineEmptyBodyFixer;
-use PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer;
-use PhpCsFixer\Fixer\ClassNotation\ClassDefinitionFixer;
-use PhpCsFixer\Fixer\ControlStructure\TrailingCommaInMultilineFixer;
-use PhpCsFixer\Fixer\ControlStructure\YodaStyleFixer;
-use PhpCsFixer\Fixer\FunctionNotation\FunctionDeclarationFixer;
-use PhpCsFixer\Fixer\Import\NoUnusedImportsFixer;
-use PhpCsFixer\Fixer\Operator\ConcatSpaceFixer;
-use PhpCsFixer\Fixer\Operator\NewWithBracesFixer;
-use PhpCsFixer\Fixer\Operator\NewWithParenthesesFixer;
-use PhpCsFixer\Fixer\Operator\NotOperatorWithSuccessorSpaceFixer;
-use PhpCsFixer\Fixer\Operator\OperatorLinebreakFixer;
-use PhpCsFixer\Fixer\Phpdoc\PhpdocLineSpanFixer;
-use PhpCsFixer\Fixer\StringNotation\ExplicitStringVariableFixer;
-use PhpCsFixer\Fixer\StringNotation\SingleQuoteFixer;
-use PhpCsFixer\Fixer\Whitespace\ArrayIndentationFixer;
-use PhpCsFixer\Fixer\Whitespace\BlankLineBetweenImportGroupsFixer;
-use Symplify\CodingStandard\Fixer\ArrayNotation\ArrayListItemNewlineFixer;
-use Symplify\CodingStandard\Fixer\ArrayNotation\ArrayOpenerAndCloserNewlineFixer;
-use Symplify\CodingStandard\Fixer\Spacing\StandaloneLinePromotedPropertyFixer;
+use Guanguans\PhpCsFixerCustomFixers\Set\SetList;
+use Guanguans\PhpCsFixerCustomFixers\Support\Utils;
+use PhpCsFixer\Fixer\ClassNotation\FinalPublicMethodForAbstractClassFixer;
+use PhpCsFixer\Fixer\Comment\HeaderCommentFixer;
+use PhpCsFixer\Fixer\FunctionNotation\StaticLambdaFixer;
+use PhpCsFixerCustomFixers\Fixer\NoUselessDirnameCallFixer;
 use Symplify\EasyCodingStandard\Config\ECSConfig;
 
 return ECSConfig::configure()
-    ->withPaths([
-        __DIR__.'/app/',
-        __DIR__.'/tests/',
-        __DIR__.'/composer-bump',
-    ])
-    ->withRootFiles()
-    ->withSkip([
-        '*/Fixtures/*',
-        __DIR__.'/_ide_helper.php',
-        __DIR__.'/tests.php',
-        BracesPositionFixer::class,
-        SingleLineEmptyBodyFixer::class,
-        ClassAttributesSeparationFixer::class,
-        ClassDefinitionFixer::class,
-        TrailingCommaInMultilineFixer::class,
-        YodaStyleFixer::class,
-        FunctionDeclarationFixer::class,
-        ConcatSpaceFixer::class,
-        NewWithBracesFixer::class,
-        NewWithParenthesesFixer::class,
-        NotOperatorWithSuccessorSpaceFixer::class,
-        OperatorLinebreakFixer::class,
-        PhpdocLineSpanFixer::class,
-        ExplicitStringVariableFixer::class,
-        SingleQuoteFixer::class,
-        ArrayIndentationFixer::class,
-        BlankLineBetweenImportGroupsFixer::class,
-        ArrayListItemNewlineFixer::class,
-        ArrayOpenerAndCloserNewlineFixer::class,
-        StandaloneLinePromotedPropertyFixer::class,
-    ])
-    ->withCache(__DIR__.'/.build/ecs/')
-    ->withEditorConfig()
     // ->withoutParallel()
-    ->withParallel()
-    ->withPhpCsFixerSets(
-        auto: true,
-        autoRisky: true,
-        autoPHPMigration: true,
-        autoPHPMigrationRisky: true,
-        autoPHPUnitMigrationRisky: true,
-    )
-    ->withPreparedSets(
-        psr12: true,
-        common: true,
-    )
-    // ->withConfiguredRule()
-    ->withRules([
-        NoUnusedImportsFixer::class,
-    ]);
+    ->withPaths(Utils::defaultPaths())
+    ->withSkip([
+        __DIR__.'/resources/lang/',
+        // StaticLambdaFixer::class => [
+        //     __DIR__.'/src/ReleaseWorker/RunComposerScriptsReleaseWorker.php',
+        //     __DIR__.'/tests/*Test.php',
+        //     __DIR__.'/tests/Pest.php',
+        // ],
+        FinalPublicMethodForAbstractClassFixer::class => [
+            __DIR__.'/tests/TestCase.php',
+        ],
+        NoUselessDirnameCallFixer::class => [
+            __DIR__.'/tests/Pest.php',
+        ],
+    ])
+    ->withSets([SetList::GUANGUANS])
+    ->withConfiguredRule(HeaderCommentFixer::class, Utils::configurationOfHeaderCommentFixer(
+        'guanguans/music-dl',
+        '2019',
+        __DIR__.'/LICENSE'
+    ));

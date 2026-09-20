@@ -8,6 +8,7 @@ includes:
     - vendor/spaze/phpstan-disallowed-calls/disallowed-loose-calls.neon
 #    - vendor/spaze/phpstan-disallowed-calls/extension.neon
 
+#    - vendor-bin/larastan/vendor/larastan/larastan/extension.neon
 #    - vendor/ekino/phpstan-banned-code/extension.neon
 #    - vendor/ergebnis/phpstan-rules/rules.neon
     - vendor/canvural/larastan-strict-rules/rules.neon
@@ -32,7 +33,7 @@ includes:
 #    - vendor/symplify/phpstan-rules/config/symfony-config-rules.neon
 
 services:
-    # https://github.com/guanguans/laravel-exception-notify/security/code-scanning
+    # https://github.com/guanguans/music-dl/security/code-scanning
     # https://github.com/jbelien/phpstan-sarif-formatter
     errorFormatter.sarif:
         class: PHPStanSarifErrorFormatter\SarifErrorFormatter
@@ -64,6 +65,7 @@ parameters:
     phpVersion: 80500
     level: max
     editorUrl: 'phpstorm://open?file=%%file%%&line=%%line%%'
+#    errorFormat: symplify
     errorFormat: friendly
     friendly:
         lineBefore: 3
@@ -94,11 +96,12 @@ parameters:
         dependency_tree_types:
 #            # only these explicit types are checked, nothing else
 #            - Rector\Contract\Rector\RectorInterface
-#    ctor: true
     symplify:
-        symfonyReturnType: true
-        laravelReturnType: true
         pathStrings: true
+        ctor: true
+        mocks: true
+        laravelReturnType: true
+        symfonyReturnType: true
     type_coverage:
         declare: 100
         param: 100
@@ -240,9 +243,6 @@ parameters:
             paths:
                 - app/Commands/ThanksCommand.php
                 - app/Support/Utils.php
-        -
-            message: '#^Provide more specific return type "Illuminate\\Support\\Collection" over abstract one$#'
-            path: app/Music.php
         -
             message: '#^Property App\\Music\:\:\$driver \(Illuminate\\Contracts\\Concurrency\\Driver\|null\) does not accept mixed\.$#'
             path: app/Music.php

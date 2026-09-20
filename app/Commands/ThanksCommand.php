@@ -32,9 +32,9 @@ final class ThanksCommand extends Command
     {
         if ('yes' === $this->ask('Can you quickly <options=bold>star our GitHub repository</>? 🙏🏻', 'yes')) {
             match (\PHP_OS_FAMILY) {
-                'Windows' => exec('start https://github.com/guanguans/music-dl'), // @codeCoverageIgnore
                 'Darwin' => exec('open https://github.com/guanguans/music-dl'),
                 'Linux' => exec('xdg-open https://github.com/guanguans/music-dl'), // @codeCoverageIgnore
+                'Windows' => exec('start https://github.com/guanguans/music-dl'), // @codeCoverageIgnore
                 default => throw new RuntimeException(\sprintf('Unsupported OS: %s', \PHP_OS_FAMILY)), // @codeCoverageIgnore
             };
         }
