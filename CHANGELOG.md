@@ -8,6 +8,12 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="7.1.3"></a>
+## [7.1.3] - 2026-09-20
+### 🤖 Continuous Integrations
+- **release:** Fix PHAR upload step to GitHub release workflow ([a66bffe](https://github.com/guanguans/music-dl/commit/a66bffe))
+
+
 <a name="7.1.2"></a>
 ## [7.1.2] - 2026-09-20
 
@@ -1934,7 +1940,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/7.1.2...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/7.1.3...HEAD
+[7.1.3]: https://github.com/guanguans/music-dl/compare/7.1.2...7.1.3
 [7.1.2]: https://github.com/guanguans/music-dl/compare/7.1.1...7.1.2
 [7.1.1]: https://github.com/guanguans/music-dl/compare/7.1.0...7.1.1
 [7.1.0]: https://github.com/guanguans/music-dl/compare/7.0.2...7.1.0
