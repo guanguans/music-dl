@@ -21,8 +21,9 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v7
-        # with:
-        #   ref: master
+        with:
+          # ref: master
+          fetch-depth: 0
 
       # - name: Upload PHAR to release
       #   # run: gh release upload ${{ steps.tag.outputs.tag }} builds/music-dl.phar
