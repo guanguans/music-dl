@@ -8,6 +8,12 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="7.1.5"></a>
+## [7.1.5] - 2026-09-21
+### 🤖 Continuous Integrations
+- **release:** Update commit message configuration in PHAR workflow ([65db7e2](https://github.com/guanguans/music-dl/commit/65db7e2))
+
+
 <a name="7.1.4"></a>
 ## [7.1.4] - 2026-09-21
 ### 🤖 Continuous Integrations
@@ -1946,7 +1952,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/7.1.4...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/7.1.5...HEAD
+[7.1.5]: https://github.com/guanguans/music-dl/compare/7.1.4...7.1.5
 [7.1.4]: https://github.com/guanguans/music-dl/compare/7.1.3...7.1.4
 [7.1.3]: https://github.com/guanguans/music-dl/compare/7.1.2...7.1.3
 [7.1.2]: https://github.com/guanguans/music-dl/compare/7.1.1...7.1.2
