@@ -76,6 +76,8 @@ jobs:
         #   push_options: '--force'
         #   skip_dirty_check: true
         run: |-
+          git config --global user.name "guanguans"
+          git config --global user.email "ityaozm@gmail.com"
           git add builds/music-dl
           git commit -m "Bump to ${{ steps.tag.outputs.tag }}" --no-verify --signoff
           git push origin master --force
