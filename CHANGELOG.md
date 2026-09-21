@@ -8,6 +8,12 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="7.1.11"></a>
+## [7.1.11] - 2026-09-21
+### 🤖 Continuous Integrations
+- **publish-phar:** Specify checkout ref for consistency ([2917bc7](https://github.com/guanguans/music-dl/commit/2917bc7))
+
+
 <a name="7.1.10"></a>
 ## [7.1.10] - 2026-09-21
 ### 🤖 Continuous Integrations
@@ -1982,7 +1988,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/7.1.10...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/7.1.11...HEAD
+[7.1.11]: https://github.com/guanguans/music-dl/compare/7.1.10...7.1.11
 [7.1.10]: https://github.com/guanguans/music-dl/compare/7.1.9...7.1.10
 [7.1.9]: https://github.com/guanguans/music-dl/compare/7.1.8...7.1.9
 [7.1.8]: https://github.com/guanguans/music-dl/compare/7.1.7...7.1.8
