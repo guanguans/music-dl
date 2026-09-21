@@ -66,7 +66,7 @@ jobs:
       - name: Commit bump
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
-          branch: master
+          # branch: master
           # commit_message: Bump to ${{ github.event.release.name }}
           commit_message: Bump to ${{ steps.tag.outputs.tag }}
           file_pattern: builds/music-dl CHANGELOG.md

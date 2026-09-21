@@ -243,7 +243,7 @@
             "@ecs:check",
             "@pest"
         ],
-        "class-leak": "@php vendor/bin/class-leak --ansi -vv",
+        "class-leak": "@php vendor/bin/class-leak",
         "class-leak:check": "@class-leak check config/ app/ --skip-suffix=Music --skip-suffix=ReleaseWorker --skip-suffix=ComposerScripts --skip-suffix=ServerDumper",
         "composer-bump": [
             "@putenv:php",
@@ -304,9 +304,9 @@
         "gitleaks": "gitleaks git --report-path=.build/gitleaks-report.json -v",
         "gitleaks:generate-baseline": "gitleaks git --report-path=gitleaks-baseline.json -v",
         "jack": "@php vendor/bin/jack",
-        "jack:breakpoint": "@jack breakpoint --limit=3",
+        "jack:breakpoint": "@jack breakpoint --limit=0",
         "jack:breakpoint-dev": "@jack:breakpoint --dev",
-        "jack:open-versions": "@jack open-versions --limit=99",
+        "jack:open-versions": "@jack open-versions --limit=0",
         "jack:open-versions-dev": "@jack:open-versions --dev",
         "jack:open-versions-dev-dry-run": "@jack:open-versions-dev --dry-run",
         "jack:open-versions-dry-run": "@jack:open-versions --dry-run",
