@@ -8,6 +8,12 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="7.1.13"></a>
+## [7.1.13] - 2026-09-21
+### 🤖 Continuous Integrations
+- **publish-phar:** Refactor PHAR upload workflow ([f2623c3](https://github.com/guanguans/music-dl/commit/f2623c3))
+
+
 <a name="7.1.12"></a>
 ## [7.1.12] - 2026-09-21
 ### 🤖 Continuous Integrations
@@ -1994,7 +2000,8 @@ All notable changes to this project will be documented in this file.
 <a name="v1.0.0"></a>
 ## v1.0.0 - 2019-05-23
 
-[Unreleased]: https://github.com/guanguans/music-dl/compare/7.1.12...HEAD
+[Unreleased]: https://github.com/guanguans/music-dl/compare/7.1.13...HEAD
+[7.1.13]: https://github.com/guanguans/music-dl/compare/7.1.12...7.1.13
 [7.1.12]: https://github.com/guanguans/music-dl/compare/7.1.11...7.1.12
 [7.1.11]: https://github.com/guanguans/music-dl/compare/7.1.10...7.1.11
 [7.1.10]: https://github.com/guanguans/music-dl/compare/7.1.9...7.1.10
