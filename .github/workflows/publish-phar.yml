@@ -21,6 +21,8 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          ref: master
 
       # - name: Upload PHAR to release
       #   # run: gh release upload ${{ steps.tag.outputs.tag }} builds/music-dl.phar
@@ -66,7 +68,7 @@ jobs:
       - name: Commit bump
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
-          # branch: master
+          branch: master
           # commit_message: Bump to ${{ github.event.release.name }}
           commit_message: Bump to ${{ steps.tag.outputs.tag }}
           file_pattern: builds/music-dl CHANGELOG.md
