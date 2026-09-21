@@ -22,7 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
         with:
-          # ref: master
+          ref: master
           fetch-depth: 0
 
       # - name: Upload PHAR to release
