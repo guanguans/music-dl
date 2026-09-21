@@ -9437,16 +9437,16 @@
         },
         {
             "name": "guanguans/monorepo-builder-worker",
-            "version": "3.3.0",
+            "version": "3.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guanguans/monorepo-builder-worker.git",
-                "reference": "3db27bc98c162f15219c555f33b887aea9d51cd2"
+                "reference": "46a0cd9ba6a8b0e594e93c18d89aa0d44f2900a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guanguans/monorepo-builder-worker/zipball/3db27bc98c162f15219c555f33b887aea9d51cd2",
-                "reference": "3db27bc98c162f15219c555f33b887aea9d51cd2",
+                "url": "https://api.github.com/repos/guanguans/monorepo-builder-worker/zipball/46a0cd9ba6a8b0e594e93c18d89aa0d44f2900a3",
+                "reference": "46a0cd9ba6a8b0e594e93c18d89aa0d44f2900a3",
                 "shasum": ""
             },
             "require": {
@@ -9585,7 +9585,7 @@
                     "type": "sponsors"
                 }
             ],
-            "time": "2026-09-17T13:25:20+00:00"
+            "time": "2026-09-21T04:28:48+00:00"
         },
         {
             "name": "guanguans/php-cs-fixer-custom-fixers",

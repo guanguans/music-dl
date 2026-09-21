@@ -61,8 +61,9 @@ return static function (MBConfig $mbConfig): void {
         // PushNextDevReleaseWorker::class,
     ]);
 
-    BuildLaravelZeroAppReleaseWorker::configure($mbConfig, 'music-dl');
     CheckEnvironmentReleaseWorker::configure($mbConfig);
     RunComposerScriptsReleaseWorker::configure($mbConfig, 'checks:required');
+    BuildLaravelZeroAppReleaseWorker::configure($mbConfig, 'music-dl');
     UpdateChangelogViaPhpReleaseWorker::configure($mbConfig);
+    CreateGithubReleaseReleaseWorker::configure($mbConfig, [__DIR__.'/builds/music-dl' => __DIR__.'/builds/music-dl.phar']);
 };
