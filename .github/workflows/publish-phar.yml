@@ -22,53 +22,53 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
 
-      # - name: Setup PHP
-      #   uses: shivammathur/setup-php@v2
-      #   with:
-      #     php-version: 8.5
-      #     ini-values: error_reporting=E_ALL
-      #     coverage: none
-      #
-      # - name: Install dependencies # windows does not support ext-pcntl、ext-posix、ext-sockets
-      #   run: |
-      #     composer install --no-interaction --no-scripts --ansi -v --ignore-platform-req=ext-pcntl --ignore-platform-req=ext-posix --ignore-platform-req=ext-sockets
-      #     composer update --no-interaction --no-scripts --no-dev --ansi -v --ignore-platform-req=ext-pcntl --ignore-platform-req=ext-posix --ignore-platform-req=ext-sockets
-      #
-      #   # https://packagist.org/packages/laravel-zero/framework/dependents?order_by=downloads
-      #   # https://github.com/spatie/scotty/blob/main/.github/workflows/build-phar.yml
-      #   # https://github.com/laravel/pint/blob/main/.github/workflows/publish-phar.yml
-      # - name: Create PHAR file.
-      #   run: ./music-dl app:build music-dl.phar --build-version=${{ steps.tag.outputs.tag }} -v
-      #
-      # - name: Upload PHAR artifact
-      #   uses: actions/upload-artifact@v7
-      #   with:
-      #     name: music-dl.phar
-      #     path: builds/music-dl.phar
-      #
       # - name: Upload PHAR to release
       #   # run: gh release upload ${{ steps.tag.outputs.tag }} builds/music-dl.phar
-      #   run: gh release upload $(git tag --sort=-committerdate | head -n 1) builds/music-dl.phar
+      #   run: |
+      #     cp builds/music-dl builds/music-dl.phar
+      #     gh release upload $(git tag --sort=-committerdate | head -n 1) builds/music-dl.phar
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #
-      # - name: Cp music-dl.phar to music-dl
-      #   run: cp builds/music-dl.phar builds/music-dl
-      #
-      # - name: Commit bump
-      #   uses: stefanzweifel/git-auto-commit-action@v7
-      #   with:
-      #     branch: master
-      #     # commit_message: Bump to ${{ github.event.release.name }}
-      #     commit_message: Bump to ${{ steps.tag.outputs.tag }}
-      #     file_pattern: builds/music-dl CHANGELOG.md
-      #     commit_options: '--no-verify --signoff'
-      #     push_options: '--force'
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.5
+          ini-values: error_reporting=E_ALL
+          coverage: none
+
+      - name: Install dependencies # windows does not support ext-pcntl、ext-posix、ext-sockets
+        run: |
+          composer install --no-interaction --no-scripts --ansi -v --ignore-platform-req=ext-pcntl --ignore-platform-req=ext-posix --ignore-platform-req=ext-sockets
+          composer update --no-interaction --no-scripts --no-dev --ansi -v --ignore-platform-req=ext-pcntl --ignore-platform-req=ext-posix --ignore-platform-req=ext-sockets
+
+        # https://packagist.org/packages/laravel-zero/framework/dependents?order_by=downloads
+        # https://github.com/spatie/scotty/blob/main/.github/workflows/build-phar.yml
+        # https://github.com/laravel/pint/blob/main/.github/workflows/publish-phar.yml
+      - name: Create PHAR file.
+        run: ./music-dl app:build music-dl.phar --build-version=${{ steps.tag.outputs.tag }} -v
+
+      - name: Upload PHAR artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: music-dl.phar
+          path: builds/music-dl.phar
 
       - name: Upload PHAR to release
         # run: gh release upload ${{ steps.tag.outputs.tag }} builds/music-dl.phar
-        run: |
-          cp builds/music-dl builds/music-dl.phar
-          gh release upload $(git tag --sort=-committerdate | head -n 1) builds/music-dl.phar
+        run: gh release upload $(git tag --sort=-committerdate | head -n 1) builds/music-dl.phar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Cp music-dl.phar to music-dl
+        run: cp builds/music-dl.phar builds/music-dl
+
+      - name: Commit bump
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          branch: master
+          # commit_message: Bump to ${{ github.event.release.name }}
+          commit_message: Bump to ${{ steps.tag.outputs.tag }}
+          file_pattern: builds/music-dl CHANGELOG.md
+          commit_options: '--no-verify --signoff'
+          push_options: '--force'
