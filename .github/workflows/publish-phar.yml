@@ -21,8 +21,8 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v7
-        with:
-          ref: master
+        # with:
+        #   ref: master
 
       # - name: Upload PHAR to release
       #   # run: gh release upload ${{ steps.tag.outputs.tag }} builds/music-dl.phar
@@ -74,3 +74,4 @@ jobs:
           file_pattern: builds/music-dl CHANGELOG.md
           commit_options: '--no-verify --signoff'
           push_options: '--force'
+          skip_dirty_check: true
