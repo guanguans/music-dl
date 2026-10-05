@@ -11692,11 +11692,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.2.16",
+            "version": "2.2.17",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/46a6d9060e5a7763adfcc21ebcb8b504ebdbcb92",
-                "reference": "46a6d9060e5a7763adfcc21ebcb8b504ebdbcb92",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/e676a49fa70cee9f5bf6ff4796186b928a08673f",
+                "reference": "e676a49fa70cee9f5bf6ff4796186b928a08673f",
                 "shasum": ""
             },
             "require": {
@@ -11752,7 +11752,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-09-25T09:31:51+00:00"
+            "time": "2026-10-04T19:40:09+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
@@ -15651,16 +15651,16 @@
         },
         {
             "name": "shipmonk/phpstan-rules",
-            "version": "4.4.0",
+            "version": "4.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shipmonk-rnd/phpstan-rules.git",
-                "reference": "5c972b16fa6d202d0d0d2c888e29f7d9fc0a9908"
+                "reference": "67e54e4338910502d56ca079f1037708d34658a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shipmonk-rnd/phpstan-rules/zipball/5c972b16fa6d202d0d0d2c888e29f7d9fc0a9908",
-                "reference": "5c972b16fa6d202d0d0d2c888e29f7d9fc0a9908",
+                "url": "https://api.github.com/repos/shipmonk-rnd/phpstan-rules/zipball/67e54e4338910502d56ca079f1037708d34658a7",
+                "reference": "67e54e4338910502d56ca079f1037708d34658a7",
                 "shasum": ""
             },
             "require": {
@@ -15674,9 +15674,9 @@
                 "phpstan/phpstan-phpunit": "^2.0.4",
                 "phpstan/phpstan-strict-rules": "^2.0.3",
                 "phpunit/phpunit": "^10.5.46",
-                "shipmonk/coding-standard": "^0.2.0",
+                "shipmonk/coding-standard": "^0.3.0",
                 "shipmonk/composer-dependency-analyser": "^1.8.1",
-                "shipmonk/coverage-guard": "^1.0.0",
+                "shipmonk/coverage-guard": "^1.1.0",
                 "shipmonk/dead-code-detector": "^1.0",
                 "shipmonk/name-collision-detector": "^2.1.1",
                 "shipmonk/phpstan-dev": "^0.1.5"
@@ -15705,9 +15705,9 @@
             ],
             "support": {
                 "issues": "https://github.com/shipmonk-rnd/phpstan-rules/issues",
-                "source": "https://github.com/shipmonk-rnd/phpstan-rules/tree/4.4.0"
+                "source": "https://github.com/shipmonk-rnd/phpstan-rules/tree/4.4.1"
             },
-            "time": "2026-05-18T12:07:24+00:00"
+            "time": "2026-10-01T13:39:05+00:00"
         },
         {
             "name": "sidz/phpstan-rules",
