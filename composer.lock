@@ -11698,11 +11698,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.2.17",
+            "version": "2.3.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/e676a49fa70cee9f5bf6ff4796186b928a08673f",
-                "reference": "e676a49fa70cee9f5bf6ff4796186b928a08673f",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/b1f9890d9af53a25c58129e78f0aadd31f90d7f4",
+                "reference": "b1f9890d9af53a25c58129e78f0aadd31f90d7f4",
                 "shasum": ""
             },
             "require": {
@@ -11758,7 +11758,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-10-04T19:40:09+00:00"
+            "time": "2026-10-06T06:15:36+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
@@ -20004,16 +20004,16 @@
         },
         {
             "name": "tomasvotruba/type-coverage",
-            "version": "2.4.0",
+            "version": "2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TomasVotruba/type-coverage.git",
-                "reference": "7980db433ce3e88cb892772cc8765c49d410865e"
+                "reference": "2876326f2d1946df983da6feb2903e3797df5918"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TomasVotruba/type-coverage/zipball/7980db433ce3e88cb892772cc8765c49d410865e",
-                "reference": "7980db433ce3e88cb892772cc8765c49d410865e",
+                "url": "https://api.github.com/repos/TomasVotruba/type-coverage/zipball/2876326f2d1946df983da6feb2903e3797df5918",
+                "reference": "2876326f2d1946df983da6feb2903e3797df5918",
                 "shasum": ""
             },
             "require": {
@@ -20059,7 +20059,7 @@
             ],
             "support": {
                 "issues": "https://github.com/TomasVotruba/type-coverage/issues",
-                "source": "https://github.com/TomasVotruba/type-coverage/tree/2.4.0"
+                "source": "https://github.com/TomasVotruba/type-coverage/tree/2.4.1"
             },
             "funding": [
                 {
@@ -20071,7 +20071,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-09-24T19:57:06+00:00"
+            "time": "2026-10-03T05:13:37+00:00"
         },
         {
             "name": "tomasvotruba/unused-public",
@@ -20305,16 +20305,16 @@
         },
         {
             "name": "webmozart/assert",
-            "version": "2.4.1",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozarts/assert.git",
-                "reference": "2ccb7c2e821038c03a3e6e1700c570c158c55f70"
+                "reference": "8a163706bbcac613733dba03f51e13b5eb1bb819"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozarts/assert/zipball/2ccb7c2e821038c03a3e6e1700c570c158c55f70",
-                "reference": "2ccb7c2e821038c03a3e6e1700c570c158c55f70",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/8a163706bbcac613733dba03f51e13b5eb1bb819",
+                "reference": "8a163706bbcac613733dba03f51e13b5eb1bb819",
                 "shasum": ""
             },
             "require": {
@@ -20365,9 +20365,9 @@
             ],
             "support": {
                 "issues": "https://github.com/webmozarts/assert/issues",
-                "source": "https://github.com/webmozarts/assert/tree/2.4.1"
+                "source": "https://github.com/webmozarts/assert/tree/2.5.0"
             },
-            "time": "2026-06-15T15:31:57+00:00"
+            "time": "2026-10-05T23:14:19+00:00"
         },
         {
             "name": "yamadashy/phpstan-friendly-formatter",
