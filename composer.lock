@@ -9291,16 +9291,16 @@
         },
         {
             "name": "php-mock/php-mock-phpunit",
-            "version": "2.15.0",
+            "version": "2.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-mock/php-mock-phpunit.git",
-                "reference": "701df15b183f25af663af134eb71353cd838b955"
+                "reference": "b10a6eff57cd1636f8f06abe5c8d28a0ec2bf8b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-mock/php-mock-phpunit/zipball/701df15b183f25af663af134eb71353cd838b955",
-                "reference": "701df15b183f25af663af134eb71353cd838b955",
+                "url": "https://api.github.com/repos/php-mock/php-mock-phpunit/zipball/b10a6eff57cd1636f8f06abe5c8d28a0ec2bf8b3",
+                "reference": "b10a6eff57cd1636f8f06abe5c8d28a0ec2bf8b3",
                 "shasum": ""
             },
             "require": {
@@ -9347,7 +9347,7 @@
             ],
             "support": {
                 "issues": "https://github.com/php-mock/php-mock-phpunit/issues",
-                "source": "https://github.com/php-mock/php-mock-phpunit/tree/2.15.0"
+                "source": "https://github.com/php-mock/php-mock-phpunit/tree/2.16.0"
             },
             "funding": [
                 {
@@ -9355,7 +9355,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-02-06T09:12:10+00:00"
+            "time": "2026-10-02T09:10:45+00:00"
         },
         {
             "name": "php-parallel-lint/php-console-color",
