@@ -1166,16 +1166,16 @@
         },
         {
             "name": "composer/semver",
-            "version": "3.5.0",
+            "version": "3.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/semver.git",
-                "reference": "f7a296f4c4cf8cb8bb83e35d6951a406bb11afa5"
+                "reference": "528948210cc46f967a4b98e83b19e76f2b504993"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/semver/zipball/f7a296f4c4cf8cb8bb83e35d6951a406bb11afa5",
-                "reference": "f7a296f4c4cf8cb8bb83e35d6951a406bb11afa5",
+                "url": "https://api.github.com/repos/composer/semver/zipball/528948210cc46f967a4b98e83b19e76f2b504993",
+                "reference": "528948210cc46f967a4b98e83b19e76f2b504993",
                 "shasum": ""
             },
             "require": {
@@ -1227,7 +1227,7 @@
             "support": {
                 "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/semver/issues",
-                "source": "https://github.com/composer/semver/tree/3.5.0"
+                "source": "https://github.com/composer/semver/tree/3.5.1"
             },
             "funding": [
                 {
@@ -1239,7 +1239,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-09-24T14:38:51+00:00"
+            "time": "2026-10-05T13:12:12+00:00"
         },
         {
             "name": "composer/spdx-licenses",
@@ -2144,16 +2144,16 @@
         },
         {
             "name": "entropy/entropy",
-            "version": "0.4.25",
+            "version": "0.4.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TomasVotruba/entropy.git",
-                "reference": "40ad7dcbff5a086723db2b271c1cfb64a13404a1"
+                "reference": "57f762f4dc53b27923967acf77b97afdc34def09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TomasVotruba/entropy/zipball/40ad7dcbff5a086723db2b271c1cfb64a13404a1",
-                "reference": "40ad7dcbff5a086723db2b271c1cfb64a13404a1",
+                "url": "https://api.github.com/repos/TomasVotruba/entropy/zipball/57f762f4dc53b27923967acf77b97afdc34def09",
+                "reference": "57f762f4dc53b27923967acf77b97afdc34def09",
                 "shasum": ""
             },
             "require": {
@@ -2189,9 +2189,9 @@
             "description": "Entropy framework",
             "support": {
                 "issues": "https://github.com/TomasVotruba/entropy/issues",
-                "source": "https://github.com/TomasVotruba/entropy/tree/0.4.25"
+                "source": "https://github.com/TomasVotruba/entropy/tree/0.4.27"
             },
-            "time": "2026-10-05T21:09:46+00:00"
+            "time": "2026-10-05T22:23:15+00:00"
         },
         {
             "name": "ergebnis/agent-detector",
@@ -7811,77 +7811,6 @@
                 "source": "https://github.com/nette/neon/tree/v3.4.8"
             },
             "time": "2026-05-11T21:34:00+00:00"
-        },
-        {
-            "name": "nette/robot-loader",
-            "version": "v4.1.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nette/robot-loader.git",
-                "reference": "44dba0bbb9cb521a3fed15046d3294c85dabe516"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nette/robot-loader/zipball/44dba0bbb9cb521a3fed15046d3294c85dabe516",
-                "reference": "44dba0bbb9cb521a3fed15046d3294c85dabe516",
-                "shasum": ""
-            },
-            "require": {
-                "ext-tokenizer": "*",
-                "nette/utils": "^4.0.6",
-                "php": "8.1 - 8.5"
-            },
-            "require-dev": {
-                "nette/phpstan-rules": "^1.0",
-                "nette/tester": "^2.6",
-                "phpstan/extension-installer": "^1.4@stable",
-                "phpstan/phpstan": "^2.1.39@stable",
-                "tracy/tracy": "^2.9"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Nette\\": "src"
-                },
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause",
-                "GPL-2.0-only",
-                "GPL-3.0-only"
-            ],
-            "authors": [
-                {
-                    "name": "David Grudl",
-                    "homepage": "https://davidgrudl.com"
-                },
-                {
-                    "name": "Nette Community",
-                    "homepage": "https://nette.org/contributors"
-                }
-            ],
-            "description": "🍀 Nette RobotLoader: high performance and comfortable autoloader that will search and autoload classes within your application.",
-            "homepage": "https://nette.org",
-            "keywords": [
-                "autoload",
-                "class",
-                "interface",
-                "nette",
-                "trait"
-            ],
-            "support": {
-                "issues": "https://github.com/nette/robot-loader/issues",
-                "source": "https://github.com/nette/robot-loader/tree/v4.1.3"
-            },
-            "time": "2026-08-18T10:23:46+00:00"
         },
         {
             "name": "nette/schema",
@@ -13750,32 +13679,30 @@
         },
         {
             "name": "rector/swiss-knife",
-            "version": "2.6.0",
+            "version": "2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/swiss-knife.git",
-                "reference": "ba2b1571aa12e3924a81db82a12107a86525d4ee"
+                "reference": "f902fdefd3c1fe56885d2d164a33704e3d86634e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/swiss-knife/zipball/ba2b1571aa12e3924a81db82a12107a86525d4ee",
-                "reference": "ba2b1571aa12e3924a81db82a12107a86525d4ee",
+                "url": "https://api.github.com/repos/rectorphp/swiss-knife/zipball/f902fdefd3c1fe56885d2d164a33704e3d86634e",
+                "reference": "f902fdefd3c1fe56885d2d164a33704e3d86634e",
                 "shasum": ""
             },
             "require": {
-                "entropy/entropy": "^0.4.14",
+                "composer/semver": "^3.5",
+                "entropy/entropy": "^0.4.23",
                 "ext-tokenizer": "*",
-                "nette/robot-loader": "^4.1",
-                "nette/utils": "^4.1",
                 "nikic/php-parser": "^5.9",
-                "php": ">=8.4",
-                "webmozart/assert": "^2.4"
+                "php": ">=7.4",
+                "symfony/process": "^5.4 || ^6.4 || ^7.0 || ^8.1"
             },
             "require-dev": {
                 "phpstan/extension-installer": "^1.4",
                 "phpstan/phpstan": "^2.2",
-                "phpunit/phpunit": "^12.5",
-                "rector/jack": "^1.1",
+                "phpunit/phpunit": "^9.6",
                 "rector/rector": "^2.4",
                 "shipmonk/composer-dependency-analyser": "^1.8",
                 "symfony/config": "^6.4",
@@ -13802,7 +13729,7 @@
             "description": "Swiss knife in pocket of every upgrade architect",
             "support": {
                 "issues": "https://github.com/rectorphp/swiss-knife/issues",
-                "source": "https://github.com/rectorphp/swiss-knife/tree/2.6.0"
+                "source": "https://github.com/rectorphp/swiss-knife/tree/2.7.0"
             },
             "funding": [
                 {
@@ -13814,7 +13741,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-09-17T22:18:45+00:00"
+            "time": "2026-10-02T09:27:57+00:00"
         },
         {
             "name": "revolt/event-loop",
@@ -20305,16 +20232,16 @@
         },
         {
             "name": "webmozart/assert",
-            "version": "2.4.1",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozarts/assert.git",
-                "reference": "2ccb7c2e821038c03a3e6e1700c570c158c55f70"
+                "reference": "8a163706bbcac613733dba03f51e13b5eb1bb819"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozarts/assert/zipball/2ccb7c2e821038c03a3e6e1700c570c158c55f70",
-                "reference": "2ccb7c2e821038c03a3e6e1700c570c158c55f70",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/8a163706bbcac613733dba03f51e13b5eb1bb819",
+                "reference": "8a163706bbcac613733dba03f51e13b5eb1bb819",
                 "shasum": ""
             },
             "require": {
@@ -20365,9 +20292,9 @@
             ],
             "support": {
                 "issues": "https://github.com/webmozarts/assert/issues",
-                "source": "https://github.com/webmozarts/assert/tree/2.4.1"
+                "source": "https://github.com/webmozarts/assert/tree/2.5.0"
             },
-            "time": "2026-06-15T15:31:57+00:00"
+            "time": "2026-10-05T23:14:19+00:00"
         },
         {
             "name": "yamadashy/phpstan-friendly-formatter",
