@@ -8953,19 +8953,20 @@
         },
         {
             "name": "pestphp/pest-plugin-rector",
-            "version": "v5.0.5",
+            "version": "v5.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest-plugin-rector.git",
-                "reference": "59dc6e354573c0622675fa08599ea9274ccf19cd"
+                "reference": "5febaceaa0ba035f0d9476f0e9b700a9f394e611"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest-plugin-rector/zipball/59dc6e354573c0622675fa08599ea9274ccf19cd",
-                "reference": "59dc6e354573c0622675fa08599ea9274ccf19cd",
+                "url": "https://api.github.com/repos/pestphp/pest-plugin-rector/zipball/5febaceaa0ba035f0d9476f0e9b700a9f394e611",
+                "reference": "5febaceaa0ba035f0d9476f0e9b700a9f394e611",
                 "shasum": ""
             },
             "require": {
+                "nikic/php-parser": "^5.9",
                 "php": "^8.4",
                 "rector/rector": "^2.6.1"
             },
@@ -9011,7 +9012,7 @@
                 "unit"
             ],
             "support": {
-                "source": "https://github.com/pestphp/pest-plugin-rector/tree/v5.0.5"
+                "source": "https://github.com/pestphp/pest-plugin-rector/tree/v5.0.6"
             },
             "funding": [
                 {
@@ -9031,7 +9032,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2026-10-06T14:52:38+00:00"
+            "time": "2026-10-09T11:23:21+00:00"
         },
         {
             "name": "phar-io/manifest",
