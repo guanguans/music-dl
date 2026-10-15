@@ -3961,16 +3961,16 @@
         },
         {
             "name": "guanguans/rector-rules",
-            "version": "1.9.0",
+            "version": "1.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guanguans/rector-rules.git",
-                "reference": "7452c4814042275fe906c79e27b910dc0b79d80b"
+                "reference": "24638695ae37820d7b9d70e09d93024d85b76fa4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guanguans/rector-rules/zipball/7452c4814042275fe906c79e27b910dc0b79d80b",
-                "reference": "7452c4814042275fe906c79e27b910dc0b79d80b",
+                "url": "https://api.github.com/repos/guanguans/rector-rules/zipball/24638695ae37820d7b9d70e09d93024d85b76fa4",
+                "reference": "24638695ae37820d7b9d70e09d93024d85b76fa4",
                 "shasum": ""
             },
             "require": {
@@ -4093,7 +4093,7 @@
                     "type": "sponsors"
                 }
             ],
-            "time": "2026-10-11T13:29:00+00:00"
+            "time": "2026-10-12T09:34:30+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
