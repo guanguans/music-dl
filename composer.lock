@@ -3974,22 +3974,22 @@
         },
         {
             "name": "guanguans/rector-rules",
-            "version": "1.9.2",
+            "version": "1.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guanguans/rector-rules.git",
-                "reference": "24638695ae37820d7b9d70e09d93024d85b76fa4"
+                "reference": "333389bba1886030beb2b5969bf10cb31a0be958"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guanguans/rector-rules/zipball/24638695ae37820d7b9d70e09d93024d85b76fa4",
-                "reference": "24638695ae37820d7b9d70e09d93024d85b76fa4",
+                "url": "https://api.github.com/repos/guanguans/rector-rules/zipball/333389bba1886030beb2b5969bf10cb31a0be958",
+                "reference": "333389bba1886030beb2b5969bf10cb31a0be958",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "^8.83 || ^9.0 || ^10.0 || ^11.0 || ^12.0 || ^13.0",
                 "php": ">=7.4",
-                "rector/rector": "^2.7",
+                "rector/rector": "^2.8",
                 "symfony/polyfill-php80": "^1.43",
                 "symfony/polyfill-php81": "^1.38",
                 "webmozart/assert": "^1.12 || ^2.0"
@@ -3999,6 +3999,7 @@
                 "bamarni/composer-bin-plugin": "^1.9",
                 "brainmaestro/composer-git-hooks": "^2.8 || ^3.0",
                 "composer/composer": "^2.10",
+                "cweagans/composer-patches": "^1.7 || ^2.0",
                 "driftingly/rector-laravel": "^2.5",
                 "ergebnis/composer-normalize": "^2.54",
                 "ergebnis/license": "^2.8",
@@ -4008,7 +4009,7 @@
                 "fakerphp/faker": "^1.24",
                 "guanguans/php-cs-fixer-custom-fixers": "dev-main",
                 "guanguans/phpstan-rules": "^1.1",
-                "guzzlehttp/guzzle": "^8.2",
+                "guzzlehttp/guzzle": "^8.3",
                 "mockery/mockery": "^1.6",
                 "nette/utils": "^3.2 || ^4.0",
                 "pestphp/pest": "^1.23 || ^2.0 || ^3.0 || ^4.0 || ^5.0",
@@ -4026,14 +4027,15 @@
                 "shipmonk/name-collision-detector": "^2.1",
                 "shipmonk/phpstan-baseline-per-identifier": "^2.3",
                 "shipmonk/phpstan-rules": "^4.3",
-                "spaze/phpstan-disallowed-calls": "^4.14",
+                "spaze/phpstan-disallowed-calls": "^4.15",
                 "staabm/annotate-pull-request-from-checkstyle": "^1.8",
                 "staabm/phpstan-todo-by": "^0.3",
                 "symfony/http-foundation": "^5.4 || ^6.0 || ^7.0 || ^8.0",
                 "symfony/thanks": "^1.3",
                 "symfony/var-dumper": "^5.4 || ^6.0 || ^7.0 || ^8.0",
                 "symplify/easy-coding-standard": "^13.3",
-                "symplify/phpstan-rules": "^14.18",
+                "symplify/phpstan-rules": "^14.19",
+                "symplify/vendor-patches": "^12.1",
                 "tomasvotruba/class-leak": "^2.3",
                 "tomasvotruba/cognitive-complexity": "^1.3",
                 "tomasvotruba/type-coverage": "^2.5",
@@ -4049,6 +4051,11 @@
                     ],
                     "pre-commit": [
                         "composer checks:required"
+                    ]
+                },
+                "patches": {
+                    "rector/rector": [
+                        "patches/rector-rector-src-ruledoc-ruledefinition-php.patch"
                     ]
                 },
                 "bamarni-bin": {
@@ -4106,7 +4113,7 @@
                     "type": "sponsors"
                 }
             ],
-            "time": "2026-10-12T09:34:30+00:00"
+            "time": "2026-10-27T14:54:48+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -6717,16 +6724,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "2.10.4",
+            "version": "2.10.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "40821b7606d8d946bac57dbd2290076c722e3a65"
+                "reference": "cb3d6a523587751db4b8e1d0c3945d2d68535bd3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/40821b7606d8d946bac57dbd2290076c722e3a65",
-                "reference": "40821b7606d8d946bac57dbd2290076c722e3a65",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/cb3d6a523587751db4b8e1d0c3945d2d68535bd3",
+                "reference": "cb3d6a523587751db4b8e1d0c3945d2d68535bd3",
                 "shasum": ""
             },
             "require": {
@@ -6820,7 +6827,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-10-17T19:59:50+00:00"
+            "time": "2026-10-30T12:21:38+00:00"
         },
         {
             "name": "league/config",
