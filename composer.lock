@@ -3296,16 +3296,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.18.7",
+            "version": "2.19.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "50670ba239926c50f2073e868f6672f775cd57ec"
+                "reference": "84e33631273138ac103d045dc02b0fb7e5485582"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/50670ba239926c50f2073e868f6672f775cd57ec",
-                "reference": "50670ba239926c50f2073e868f6672f775cd57ec",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/84e33631273138ac103d045dc02b0fb7e5485582",
+                "reference": "84e33631273138ac103d045dc02b0fb7e5485582",
                 "shasum": ""
             },
             "require": {
@@ -3355,7 +3355,7 @@
             ],
             "support": {
                 "issues": "https://github.com/filp/whoops/issues",
-                "source": "https://github.com/filp/whoops/tree/2.18.7"
+                "source": "https://github.com/filp/whoops/tree/2.19.2"
             },
             "funding": [
                 {
@@ -3363,7 +3363,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-10-18T13:17:38+00:00"
+            "time": "2026-11-03T23:38:01+00:00"
         },
         {
             "name": "friendsofphp/php-cs-fixer",
@@ -8484,20 +8484,20 @@
         },
         {
             "name": "pestphp/pest",
-            "version": "v5.3.4",
+            "version": "v5.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest.git",
-                "reference": "159514bacefb30fd674aa74c52738f8a535bfaa9"
+                "reference": "e7a1b483f094a5f8e9371bb6be8c70a5d98a9333"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest/zipball/159514bacefb30fd674aa74c52738f8a535bfaa9",
-                "reference": "159514bacefb30fd674aa74c52738f8a535bfaa9",
+                "url": "https://api.github.com/repos/pestphp/pest/zipball/e7a1b483f094a5f8e9371bb6be8c70a5d98a9333",
+                "reference": "e7a1b483f094a5f8e9371bb6be8c70a5d98a9333",
                 "shasum": ""
             },
             "require": {
-                "brianium/paratest": "^7.27.4",
+                "brianium/paratest": "^7.27.5",
                 "nunomaduro/collision": "^8.9.5",
                 "nunomaduro/termwind": "^2.4.0",
                 "pestphp/pest-plugin": "^5.0.0",
@@ -8506,7 +8506,7 @@
                 "pestphp/pest-plugin-profanity": "^5.0.1",
                 "php": "^8.4",
                 "phpunit/phpunit": "^13.4.5",
-                "symfony/process": "^8.1.9"
+                "symfony/process": "^8.1.10"
             },
             "conflict": {
                 "filp/whoops": "<2.18.3",
@@ -8517,10 +8517,10 @@
             },
             "require-dev": {
                 "pestphp/pest-dev-tools": "^5.0.0",
-                "pestphp/pest-plugin-browser": "^5.1.2",
-                "pestphp/pest-plugin-phpstan": "^5.2.2",
+                "pestphp/pest-plugin-browser": "^5.2.0",
+                "pestphp/pest-plugin-phpstan": "^5.3.0",
                 "pestphp/pest-plugin-rector": "^5.0.6",
-                "pestphp/pest-plugin-type-coverage": "^5.0.3",
+                "pestphp/pest-plugin-type-coverage": "^5.1.0",
                 "psy/psysh": "^0.12.24"
             },
             "bin": [
@@ -8588,7 +8588,7 @@
             ],
             "support": {
                 "issues": "https://github.com/pestphp/pest/issues",
-                "source": "https://github.com/pestphp/pest/tree/v5.3.4"
+                "source": "https://github.com/pestphp/pest/tree/v5.3.5"
             },
             "funding": [
                 {
@@ -8600,7 +8600,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-10-27T11:04:36+00:00"
+            "time": "2026-10-31T19:37:56+00:00"
         },
         {
             "name": "pestphp/pest-plugin",
@@ -11996,16 +11996,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "14.5.0",
+            "version": "14.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "1db2f40af7a6538742e4a634b71ee556d6219be7"
+                "reference": "4063552c678ce3beb4b7f131a5b7354a19ff3e2a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/1db2f40af7a6538742e4a634b71ee556d6219be7",
-                "reference": "1db2f40af7a6538742e4a634b71ee556d6219be7",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/4063552c678ce3beb4b7f131a5b7354a19ff3e2a",
+                "reference": "4063552c678ce3beb4b7f131a5b7354a19ff3e2a",
                 "shasum": ""
             },
             "require": {
@@ -12061,7 +12061,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
                 "security": "https://github.com/sebastianbergmann/php-code-coverage/security/policy",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/14.5.0"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/14.5.1"
             },
             "funding": [
                 {
@@ -12081,7 +12081,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-10-30T08:11:15+00:00"
+            "time": "2026-11-02T11:47:37+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -16347,16 +16347,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v7.4.22",
+            "version": "v7.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "8012f842110b414fd1cc641adb0ed8423353b0bb"
+                "reference": "81957c2440c05c962fe8291f318de6e85f8db330"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/8012f842110b414fd1cc641adb0ed8423353b0bb",
-                "reference": "8012f842110b414fd1cc641adb0ed8423353b0bb",
+                "url": "https://api.github.com/repos/symfony/console/zipball/81957c2440c05c962fe8291f318de6e85f8db330",
+                "reference": "81957c2440c05c962fe8291f318de6e85f8db330",
                 "shasum": ""
             },
             "require": {
@@ -16421,7 +16421,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/v7.4.22"
+                "source": "https://github.com/symfony/console/tree/v7.4.23"
             },
             "funding": [
                 {
@@ -16441,7 +16441,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-10-28T11:08:27+00:00"
+            "time": "2026-11-03T21:47:07+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -16595,16 +16595,16 @@
         },
         {
             "name": "symfony/deprecation-contracts",
-            "version": "v3.7.1",
+            "version": "v3.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/deprecation-contracts.git",
-                "reference": "f3202fa1b5097b0af062dc978b32ecf63404e31d"
+                "reference": "feb1edf4e546af3b85c5caebe8359a20db230ca3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/f3202fa1b5097b0af062dc978b32ecf63404e31d",
-                "reference": "f3202fa1b5097b0af062dc978b32ecf63404e31d",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/feb1edf4e546af3b85c5caebe8359a20db230ca3",
+                "reference": "feb1edf4e546af3b85c5caebe8359a20db230ca3",
                 "shasum": ""
             },
             "require": {
@@ -16617,7 +16617,7 @@
                     "name": "symfony/contracts"
                 },
                 "branch-alias": {
-                    "dev-main": "3.7-dev"
+                    "dev-main": "3.8-dev"
                 }
             },
             "autoload": {
@@ -16642,7 +16642,7 @@
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/deprecation-contracts/tree/v3.7.1"
+                "source": "https://github.com/symfony/deprecation-contracts/tree/v3.8.1"
             },
             "funding": [
                 {
@@ -16662,7 +16662,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-06-05T06:23:12+00:00"
+            "time": "2026-09-16T14:15:10+00:00"
         },
         {
             "name": "symfony/error-handler",
@@ -16984,16 +16984,16 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v8.1.10",
+            "version": "v8.1.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "2f4c0f26106520d82e1b71759d2fb8d32d8b7a43"
+                "reference": "a2902e479ba5691d20d51d100a715ea19ad2c837"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/2f4c0f26106520d82e1b71759d2fb8d32d8b7a43",
-                "reference": "2f4c0f26106520d82e1b71759d2fb8d32d8b7a43",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/a2902e479ba5691d20d51d100a715ea19ad2c837",
+                "reference": "a2902e479ba5691d20d51d100a715ea19ad2c837",
                 "shasum": ""
             },
             "require": {
@@ -17028,7 +17028,7 @@
             "description": "Finds files and directories via an intuitive fluent interface",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/finder/tree/v8.1.10"
+                "source": "https://github.com/symfony/finder/tree/v8.1.11"
             },
             "funding": [
                 {
@@ -17048,7 +17048,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-10-19T17:00:07+00:00"
+            "time": "2026-11-02T10:58:30+00:00"
         },
         {
             "name": "symfony/http-foundation",
@@ -18864,16 +18864,16 @@
         },
         {
             "name": "symfony/service-contracts",
-            "version": "v3.7.3",
+            "version": "v3.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/service-contracts.git",
-                "reference": "15e6a07ec2a2c75ceb1b21dd98105ee8456d2257"
+                "reference": "052852a96fd5e5ebdb617dba22031e41a3300fb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/15e6a07ec2a2c75ceb1b21dd98105ee8456d2257",
-                "reference": "15e6a07ec2a2c75ceb1b21dd98105ee8456d2257",
+                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/052852a96fd5e5ebdb617dba22031e41a3300fb5",
+                "reference": "052852a96fd5e5ebdb617dba22031e41a3300fb5",
                 "shasum": ""
             },
             "require": {
@@ -18891,7 +18891,7 @@
                     "name": "symfony/contracts"
                 },
                 "branch-alias": {
-                    "dev-main": "3.7-dev"
+                    "dev-main": "3.8-dev"
                 }
             },
             "autoload": {
@@ -18927,7 +18927,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/service-contracts/tree/v3.7.3"
+                "source": "https://github.com/symfony/service-contracts/tree/v3.8.1"
             },
             "funding": [
                 {
@@ -18947,7 +18947,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-07-27T15:39:01+00:00"
+            "time": "2026-10-20T17:38:25+00:00"
         },
         {
             "name": "symfony/stopwatch",
