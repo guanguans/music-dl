@@ -8904,16 +8904,16 @@
         },
         {
             "name": "pestphp/pest-plugin-phpstan",
-            "version": "v5.3.0",
+            "version": "v5.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest-plugin-phpstan.git",
-                "reference": "18504d7d1b71b9a3d1bcf0224d35044b851ab1d2"
+                "reference": "a56d8e58dc8892ff89e15c4bca38e74f9f97ff99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest-plugin-phpstan/zipball/18504d7d1b71b9a3d1bcf0224d35044b851ab1d2",
-                "reference": "18504d7d1b71b9a3d1bcf0224d35044b851ab1d2",
+                "url": "https://api.github.com/repos/pestphp/pest-plugin-phpstan/zipball/a56d8e58dc8892ff89e15c4bca38e74f9f97ff99",
+                "reference": "a56d8e58dc8892ff89e15c4bca38e74f9f97ff99",
                 "shasum": ""
             },
             "require": {
@@ -8971,7 +8971,7 @@
                 "unit"
             ],
             "support": {
-                "source": "https://github.com/pestphp/pest-plugin-phpstan/tree/v5.3.0"
+                "source": "https://github.com/pestphp/pest-plugin-phpstan/tree/v5.3.1"
             },
             "funding": [
                 {
@@ -8991,7 +8991,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2026-10-28T18:16:00+00:00"
+            "time": "2026-11-02T07:22:57+00:00"
         },
         {
             "name": "pestphp/pest-plugin-profanity",
