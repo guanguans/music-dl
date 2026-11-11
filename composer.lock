@@ -1518,20 +1518,20 @@
         },
         {
             "name": "doctrine/deprecations",
-            "version": "1.1.6",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/deprecations.git",
-                "reference": "d4fe3e6fd9bb9e72557a19674f44d8ac7db4c6ca"
+                "reference": "d2e16653a734c8784c1851ad68b02f997b53ca82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/deprecations/zipball/d4fe3e6fd9bb9e72557a19674f44d8ac7db4c6ca",
-                "reference": "d4fe3e6fd9bb9e72557a19674f44d8ac7db4c6ca",
+                "url": "https://api.github.com/repos/doctrine/deprecations/zipball/d2e16653a734c8784c1851ad68b02f997b53ca82",
+                "reference": "d2e16653a734c8784c1851ad68b02f997b53ca82",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1 || ^8.0"
+                "php": "^7.4 || ^8.0"
             },
             "conflict": {
                 "phpunit/phpunit": "<=7.5 || >=14"
@@ -1560,9 +1560,9 @@
             "homepage": "https://www.doctrine-project.org/",
             "support": {
                 "issues": "https://github.com/doctrine/deprecations/issues",
-                "source": "https://github.com/doctrine/deprecations/tree/1.1.6"
+                "source": "https://github.com/doctrine/deprecations/tree/1.2.0"
             },
-            "time": "2026-02-07T07:09:04+00:00"
+            "time": "2026-11-11T10:04:49+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -3984,16 +3984,16 @@
         },
         {
             "name": "guanguans/rector-rules",
-            "version": "1.10.3",
+            "version": "1.10.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guanguans/rector-rules.git",
-                "reference": "d55e049b0c3982a36b315a18933dd7cfb6904f0c"
+                "reference": "a20c34c5a4dc7fb6ea5a923ab9d1c189fea2b5e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guanguans/rector-rules/zipball/d55e049b0c3982a36b315a18933dd7cfb6904f0c",
-                "reference": "d55e049b0c3982a36b315a18933dd7cfb6904f0c",
+                "url": "https://api.github.com/repos/guanguans/rector-rules/zipball/a20c34c5a4dc7fb6ea5a923ab9d1c189fea2b5e0",
+                "reference": "a20c34c5a4dc7fb6ea5a923ab9d1c189fea2b5e0",
                 "shasum": ""
             },
             "require": {
@@ -4008,13 +4008,13 @@
                 "adamwojs/php-cs-fixer-phpdoc-force-fqcn": "^2.0",
                 "bamarni/composer-bin-plugin": "^1.9",
                 "brainmaestro/composer-git-hooks": "^2.8 || ^3.0",
-                "composer/composer": "^2.10",
+                "composer/composer": "^2.11",
                 "cweagans/composer-patches": "^1.7 || ^2.0",
                 "driftingly/rector-laravel": "^2.5",
-                "ergebnis/composer-normalize": "^2.54",
-                "ergebnis/license": "^2.8",
+                "ergebnis/composer-normalize": "^2.56",
+                "ergebnis/license": "^2.9",
                 "ergebnis/php-cs-fixer-config": "^6.64",
-                "ergebnis/phpstan-rules": "^2.16",
+                "ergebnis/phpstan-rules": "^2.17",
                 "ergebnis/rector-rules": "^1.19",
                 "fakerphp/faker": "^1.24",
                 "guanguans/php-cs-fixer-custom-fixers": "dev-main",
@@ -4123,7 +4123,7 @@
                     "type": "sponsors"
                 }
             ],
-            "time": "2026-10-29T07:38:05+00:00"
+            "time": "2026-11-08T13:58:19+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
