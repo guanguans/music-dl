@@ -3229,16 +3229,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.19.2",
+            "version": "2.19.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "84e33631273138ac103d045dc02b0fb7e5485582"
+                "reference": "d5480d53f10069dc4620a39f87e38e8945d47322"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/84e33631273138ac103d045dc02b0fb7e5485582",
-                "reference": "84e33631273138ac103d045dc02b0fb7e5485582",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/d5480d53f10069dc4620a39f87e38e8945d47322",
+                "reference": "d5480d53f10069dc4620a39f87e38e8945d47322",
                 "shasum": ""
             },
             "require": {
@@ -3288,7 +3288,7 @@
             ],
             "support": {
                 "issues": "https://github.com/filp/whoops/issues",
-                "source": "https://github.com/filp/whoops/tree/2.19.2"
+                "source": "https://github.com/filp/whoops/tree/2.19.3"
             },
             "funding": [
                 {
@@ -3296,7 +3296,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-11-03T23:38:01+00:00"
+            "time": "2026-11-09T23:30:17+00:00"
         },
         {
             "name": "friendsofphp/php-cs-fixer",
@@ -8165,36 +8165,36 @@
         },
         {
             "name": "nunomaduro/collision",
-            "version": "v8.9.5",
+            "version": "v8.9.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/collision.git",
-                "reference": "fb53eacd509a1d303858e2d20cfebf2d630254ec"
+                "reference": "68806f9257968f23775bee62970cb90925b79d51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/collision/zipball/fb53eacd509a1d303858e2d20cfebf2d630254ec",
-                "reference": "fb53eacd509a1d303858e2d20cfebf2d630254ec",
+                "url": "https://api.github.com/repos/nunomaduro/collision/zipball/68806f9257968f23775bee62970cb90925b79d51",
+                "reference": "68806f9257968f23775bee62970cb90925b79d51",
                 "shasum": ""
             },
             "require": {
-                "filp/whoops": "^2.18.4",
-                "nunomaduro/termwind": "^2.4.0",
+                "filp/whoops": "^2.19.3",
+                "nunomaduro/termwind": "^2.4.1",
                 "php": "^8.2.0",
-                "symfony/console": "^7.4.14 || ^8.1.1"
+                "symfony/console": "^7.4.23 || ^8.1.11"
             },
             "conflict": {
                 "laravel/framework": "<11.48.0 || >=14.0.0",
                 "phpunit/phpunit": "<11.5.50 || >=14.0.0"
             },
             "require-dev": {
-                "brianium/paratest": "^7.8.5",
-                "larastan/larastan": "^3.10.0",
-                "laravel/framework": "^11.48.0 || ^12.56.0 || ^13.20.0",
-                "laravel/pint": "^1.29.3",
-                "orchestra/testbench-core": "^9.12.0 || ^10.12.1 || ^11.3.5",
-                "pestphp/pest": "^3.8.5 || ^4.7.5 || ^5.0.0",
-                "sebastian/environment": "^7.2.1 || ^8.1.2 || ^9.3.2"
+                "brianium/paratest": "^7.8.6",
+                "larastan/larastan": "^3.14.0",
+                "laravel/framework": "^11.57.1 || ^12.72.0 || ^13.40.0",
+                "laravel/pint": "^1.30.4",
+                "orchestra/testbench-core": "^9.24.0 || ^10.16.0 || ^11.6.0",
+                "pestphp/pest": "^3.8.7 || ^4.7.8 || ^5.3.5",
+                "sebastian/environment": "^7.2.1 || ^8.1.2 || ^9.3.3"
             },
             "type": "library",
             "extra": {
@@ -8257,7 +8257,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2026-07-15T19:09:14+00:00"
+            "time": "2026-11-10T17:06:52+00:00"
         },
         {
             "name": "nunomaduro/termwind",
