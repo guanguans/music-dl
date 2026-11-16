@@ -2751,23 +2751,23 @@
         },
         {
             "name": "ergebnis/php-cs-fixer-config",
-            "version": "6.64.2",
+            "version": "6.65.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/php-cs-fixer-config.git",
-                "reference": "14e3dfac6d9c473c9d59a68ca234c841dcca64cc"
+                "reference": "ff9e10dbda4515b7f63b85b301cc1b6583d85878"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/14e3dfac6d9c473c9d59a68ca234c841dcca64cc",
-                "reference": "14e3dfac6d9c473c9d59a68ca234c841dcca64cc",
+                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/ff9e10dbda4515b7f63b85b301cc1b6583d85878",
+                "reference": "ff9e10dbda4515b7f63b85b301cc1b6583d85878",
                 "shasum": ""
             },
             "require": {
                 "erickskrauch/php-cs-fixer-custom-fixers": "~1.3.1",
                 "ext-filter": "*",
                 "friendsofphp/php-cs-fixer": "~3.95.29",
-                "kubawerlos/php-cs-fixer-custom-fixers": "~3.37.4",
+                "kubawerlos/php-cs-fixer-custom-fixers": "~3.37.5",
                 "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0"
             },
             "require-dev": {
@@ -2791,7 +2791,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "6.64-dev"
+                    "dev-main": "6.65-dev"
                 },
                 "composer-normalize": {
                     "indent-size": 2,
@@ -2821,7 +2821,7 @@
                 "security": "https://github.com/ergebnis/php-cs-fixer-config/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/php-cs-fixer-config"
             },
-            "time": "2026-11-10T09:46:43+00:00"
+            "time": "2026-11-11T09:08:33+00:00"
         },
         {
             "name": "ergebnis/phpstan-rules",
@@ -18322,16 +18322,16 @@
         },
         {
             "name": "symfony/polyfill-php85",
-            "version": "v1.43.0",
+            "version": "v1.44.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php85.git",
-                "reference": "86a42cbcc07adc331481a5ab310a4024bfc227f6"
+                "reference": "94c794cb5ba51784bc259f11e9f128593297d8dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php85/zipball/86a42cbcc07adc331481a5ab310a4024bfc227f6",
-                "reference": "86a42cbcc07adc331481a5ab310a4024bfc227f6",
+                "url": "https://api.github.com/repos/symfony/polyfill-php85/zipball/94c794cb5ba51784bc259f11e9f128593297d8dc",
+                "reference": "94c794cb5ba51784bc259f11e9f128593297d8dc",
                 "shasum": ""
             },
             "require": {
@@ -18378,7 +18378,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php85/tree/v1.43.0"
+                "source": "https://github.com/symfony/polyfill-php85/tree/v1.44.0"
             },
             "funding": [
                 {
@@ -18398,7 +18398,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-09-25T15:46:47+00:00"
+            "time": "2026-10-30T15:20:09+00:00"
         },
         {
             "name": "symfony/polyfill-php86",
