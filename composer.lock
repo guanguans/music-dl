@@ -12421,16 +12421,16 @@
         },
         {
             "name": "povils/phpmnd",
-            "version": "v3.6.1",
+            "version": "v3.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/povils/phpmnd.git",
-                "reference": "2002af50f627a03d94d01529a3eb02754a23578d"
+                "reference": "e35e5edb22f9bf813a3440c7acd4cb1be0b39dae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/povils/phpmnd/zipball/2002af50f627a03d94d01529a3eb02754a23578d",
-                "reference": "2002af50f627a03d94d01529a3eb02754a23578d",
+                "url": "https://api.github.com/repos/povils/phpmnd/zipball/e35e5edb22f9bf813a3440c7acd4cb1be0b39dae",
+                "reference": "e35e5edb22f9bf813a3440c7acd4cb1be0b39dae",
                 "shasum": ""
             },
             "require": {
@@ -12468,9 +12468,9 @@
             "description": "A tool to detect Magic numbers in codebase",
             "support": {
                 "issues": "https://github.com/povils/phpmnd/issues",
-                "source": "https://github.com/povils/phpmnd/tree/v3.6.1"
+                "source": "https://github.com/povils/phpmnd/tree/v3.6.2"
             },
-            "time": "2026-02-21T20:13:10+00:00"
+            "time": "2026-10-06T08:58:57+00:00"
         },
         {
             "name": "psr/clock",
