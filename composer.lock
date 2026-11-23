@@ -2753,16 +2753,16 @@
         },
         {
             "name": "ergebnis/license",
-            "version": "2.9.0",
+            "version": "2.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/license.git",
-                "reference": "1b5357395278961b34750d912bd3ef89a3f6b75c"
+                "reference": "a2c18f1138e697b28a76da1abf32709e470936c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/license/zipball/1b5357395278961b34750d912bd3ef89a3f6b75c",
-                "reference": "1b5357395278961b34750d912bd3ef89a3f6b75c",
+                "url": "https://api.github.com/repos/ergebnis/license/zipball/a2c18f1138e697b28a76da1abf32709e470936c5",
+                "reference": "a2c18f1138e697b28a76da1abf32709e470936c5",
                 "shasum": ""
             },
             "require": {
@@ -2770,27 +2770,27 @@
                 "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.54.0",
-                "ergebnis/data-provider": "^3.7.0",
-                "ergebnis/php-cs-fixer-config": "^6.64.1",
-                "ergebnis/phpstan-rules": "^2.14.2",
-                "ergebnis/phpunit-slow-test-detector": "^2.26.0",
-                "ergebnis/rector-rules": "^1.18.5",
+                "ergebnis/composer-normalize": "^2.56.1",
+                "ergebnis/data-provider": "^3.7.1",
+                "ergebnis/php-cs-fixer-config": "^6.64.3",
+                "ergebnis/phpstan-rules": "^2.17.1",
+                "ergebnis/phpunit-slow-test-detector": "^2.27.0",
+                "ergebnis/rector-rules": "^1.19.0",
                 "fakerphp/faker": "^1.24.1",
                 "infection/infection": "~0.26.6",
                 "phpstan/extension-installer": "^1.4.3",
                 "phpstan/phpstan": "^2.2.15",
                 "phpstan/phpstan-deprecation-rules": "^2.0.5",
-                "phpstan/phpstan-phpunit": "^2.1.1",
-                "phpstan/phpstan-strict-rules": "^2.1.0",
+                "phpstan/phpstan-phpunit": "^2.1.2",
+                "phpstan/phpstan-strict-rules": "^2.1.1",
                 "phpunit/phpunit": "^9.6.33",
                 "rector/rector": "^2.7.0",
-                "symfony/filesystem": "^5.4.41"
+                "symfony/filesystem": "^5.4.56 || ^6.4.50 || ^7.4.23 || ^8.1.11"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "2.9-dev"
+                    "dev-main": "2.10-dev"
                 },
                 "composer-normalize": {
                     "indent-size": 2,
@@ -2823,7 +2823,7 @@
                 "security": "https://github.com/ergebnis/license/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/license"
             },
-            "time": "2026-10-31T19:24:07+00:00"
+            "time": "2026-11-19T13:17:08+00:00"
         },
         {
             "name": "ergebnis/php-cs-fixer-config",
