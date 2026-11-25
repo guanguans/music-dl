@@ -19545,16 +19545,16 @@
         },
         {
             "name": "symplify/easy-coding-standard",
-            "version": "13.3.23",
+            "version": "13.3.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ecsphp/ecs.git",
-                "reference": "cb9a9bba3d1cbd82338b9a31cdf2bcdf780f02e9"
+                "reference": "e0ffcc609caeff3435ac5cfd14d200be29cb09c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ecsphp/ecs/zipball/cb9a9bba3d1cbd82338b9a31cdf2bcdf780f02e9",
-                "reference": "cb9a9bba3d1cbd82338b9a31cdf2bcdf780f02e9",
+                "url": "https://api.github.com/repos/ecsphp/ecs/zipball/e0ffcc609caeff3435ac5cfd14d200be29cb09c5",
+                "reference": "e0ffcc609caeff3435ac5cfd14d200be29cb09c5",
                 "shasum": ""
             },
             "require": {
@@ -19587,9 +19587,9 @@
             ],
             "support": {
                 "issues": "https://github.com/ecsphp/ecs/issues",
-                "source": "https://github.com/ecsphp/ecs/tree/13.3.23"
+                "source": "https://github.com/ecsphp/ecs/tree/13.3.24"
             },
-            "time": "2026-11-19T10:01:21+00:00"
+            "time": "2026-11-21T22:15:47+00:00"
         },
         {
             "name": "symplify/monorepo-builder",
