@@ -2981,27 +2981,27 @@
         },
         {
             "name": "ergebnis/rector-rules",
-            "version": "1.20.0",
+            "version": "1.22.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/rector-rules.git",
-                "reference": "e792150513727cfc07b2e7e825b547895763eef3"
+                "reference": "9e1be25d5182511d98a4946fd3a7bfcc19c11d43"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/rector-rules/zipball/e792150513727cfc07b2e7e825b547895763eef3",
-                "reference": "e792150513727cfc07b2e7e825b547895763eef3",
+                "url": "https://api.github.com/repos/ergebnis/rector-rules/zipball/9e1be25d5182511d98a4946fd3a7bfcc19c11d43",
+                "reference": "9e1be25d5182511d98a4946fd3a7bfcc19c11d43",
                 "shasum": ""
             },
             "require": {
                 "nikic/php-parser": "^4.17.1 || ^5.0.0",
-                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0",
+                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0 || ~8.7.0",
                 "phpstan/phpstan": "^2.0.0",
                 "rector/rector": "^2.8.4"
             },
             "require-dev": {
                 "ergebnis/classy": "^3.1.0",
-                "ergebnis/composer-normalize": "^2.56.1",
+                "ergebnis/composer-normalize": "^2.57.0",
                 "ergebnis/data-provider": "^3.7.1",
                 "ergebnis/license": "^2.9.0",
                 "ergebnis/php-cs-fixer-config": "^6.65.0",
@@ -3018,7 +3018,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.20-dev"
+                    "dev-main": "1.22-dev"
                 },
                 "composer-normalize": {
                     "indent-size": 2,
@@ -3048,7 +3048,7 @@
                 "security": "https://github.com/ergebnis/rector-rules/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/rector-rules"
             },
-            "time": "2026-11-19T13:21:27+00:00"
+            "time": "2026-11-24T15:50:45+00:00"
         },
         {
             "name": "ergebnis/version",
